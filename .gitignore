@@ -1,0 +1,10 @@
+﻿node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+.DS_Store
+Thumbs.db
+sample1.pdf
+sample2.pdf
