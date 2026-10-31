@@ -23,6 +23,10 @@ import { FlattenPage } from './pages/FlattenPage';
 import { PdfToImagesPage } from './pages/PdfToImagesPage';
 import { ExtractTextPage } from './pages/ExtractTextPage';
 import { OrganizePage } from './pages/OrganizePage';
+import { PrivacyPage } from './pages/PrivacyPage';
+import { TermsPage } from './pages/TermsPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
 export const App: React.FC = () => {
   return (
@@ -52,6 +56,10 @@ export const App: React.FC = () => {
             <Route path="/pdf-to-images" element={<PdfToImagesPage />} />
             <Route path="/extract-text" element={<ExtractTextPage />} />
             <Route path="/organize-pdf" element={<OrganizePage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />
