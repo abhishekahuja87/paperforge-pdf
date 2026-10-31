@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Cpu, Zap, Lock } from 'lucide-react';
+import { Cpu, Zap, Lock } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (

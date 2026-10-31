@@ -22,7 +22,7 @@ export async function mergePdfFiles(files: File[]): Promise<Blob> {
     copiedPages.forEach((page) => mergedPdf.addPage(page));
   }
 
-  // Serialize to Uint8Array and wrap in a downloadable Blob
+  // Serialize to Uint8Array and ensure the underlying buffer matches BlobPart typing
   const mergedPdfBytes = await mergedPdf.save();
-  return new Blob([mergedPdfBytes], { type: 'application/pdf' });
+  return new Blob([new Uint8Array(mergedPdfBytes)], { type: 'application/pdf' });
 }
