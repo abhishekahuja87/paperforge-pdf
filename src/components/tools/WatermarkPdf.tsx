@@ -27,7 +27,7 @@ export const WatermarkPdf: React.FC = () => {
   const [rotationAngle, setRotationAngle] = useState<number>(45);
   const [opacity, setOpacity] = useState<number>(0.25);
   const [colorHex, setColorHex] = useState<string>('#ef4444');
-  const [layer, setLayer] = useState<WatermarkLayer>('over');
+  const [layer] = useState<WatermarkLayer>('over');
   const [fontChoice, setFontChoice] = useState<WatermarkFont>('helvetica-bold');
   const [scope, setScope] = useState<'all' | 'odd' | 'even' | 'custom'>('all');
   const [rangeString, setRangeString] = useState<string>('');

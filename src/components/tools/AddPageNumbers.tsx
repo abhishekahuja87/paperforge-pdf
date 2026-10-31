@@ -30,7 +30,7 @@ export const AddPageNumbers: React.FC = () => {
   const [margin, setMargin] = useState<number>(30);
   const [startNumber, setStartNumber] = useState<number>(1);
   const [skipFirstPage, setSkipFirstPage] = useState<boolean>(false);
-  const [scope, setScope] = useState<'all' | 'custom'>('all');
+  const [scope] = useState<'all' | 'custom'>('all');
   const [rangeString, setRangeString] = useState<string>('');
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');

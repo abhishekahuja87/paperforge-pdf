@@ -14,6 +14,7 @@ import { AddPageNumbersPage } from './pages/AddPageNumbersPage';
 import { WatermarkPage } from './pages/WatermarkPage';
 import { CropPage } from './pages/CropPage';
 import { SanitizePage } from './pages/SanitizePage';
+import { NUpPage } from './pages/NUpPage';
 
 export const App: React.FC = () => {
   return (
@@ -34,6 +35,7 @@ export const App: React.FC = () => {
             <Route path="/watermark-pdf" element={<WatermarkPage />} />
             <Route path="/crop-pdf" element={<CropPage />} />
             <Route path="/sanitize-pdf" element={<SanitizePage />} />
+            <Route path="/n-up-pdf" element={<NUpPage />} />
           </Routes>
         </main>
         <Footer />
