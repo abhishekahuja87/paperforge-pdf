@@ -9,6 +9,7 @@ import { GenerateSamplePage } from './pages/GenerateSamplePage';
 import { RotatePage } from './pages/RotatePage';
 import { DeletePagesPage } from './pages/DeletePagesPage';
 import { CompressPage } from './pages/CompressPage';
+import { ImagesToPdfPage } from './pages/ImagesToPdfPage';
 
 export const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
             <Route path="/rotate-pdf" element={<RotatePage />} />
             <Route path="/compress-pdf" element={<CompressPage />} />
             <Route path="/delete-pdf-pages" element={<DeletePagesPage />} />
+            <Route path="/image-to-pdf" element={<ImagesToPdfPage />} />
           </Routes>
         </main>
         <Footer />
