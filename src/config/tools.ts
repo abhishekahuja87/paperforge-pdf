@@ -250,6 +250,17 @@ export const TOOLS: ToolItem[] = [
     isAvailable: true,
     keywords: ['text', 'extract', 'read', 'txt', 'copy', 'content', 'pdf'],
   },
+  {
+    id: 'organize-pdf',
+    title: 'Organize PDF',
+    description: 'Reorder, rotate, or delete individual pages visually.',
+    category: 'pdf',
+    path: '/organize-pdf',
+    icon: 'layers',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['organize', 'reorder', 'sort', 'arrange', 'delete', 'rotate', 'thumbnails', 'pdf'],
+  },
 
   // Media
   {

@@ -21,6 +21,7 @@ import { UnlockPage } from './pages/UnlockPage';
 import { FlattenPage } from './pages/FlattenPage';
 import { PdfToImagesPage } from './pages/PdfToImagesPage';
 import { ExtractTextPage } from './pages/ExtractTextPage';
+import { OrganizePage } from './pages/OrganizePage';
 
 export const App: React.FC = () => {
   return (
@@ -48,6 +49,7 @@ export const App: React.FC = () => {
             <Route path="/flatten-pdf" element={<FlattenPage />} />
             <Route path="/pdf-to-images" element={<PdfToImagesPage />} />
             <Route path="/extract-text" element={<ExtractTextPage />} />
+            <Route path="/organize-pdf" element={<OrganizePage />} />
           </Routes>
         </main>
         <Footer />
