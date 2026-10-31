@@ -10,6 +10,10 @@ import { RotatePage } from './pages/RotatePage';
 import { DeletePagesPage } from './pages/DeletePagesPage';
 import { CompressPage } from './pages/CompressPage';
 import { ImagesToPdfPage } from './pages/ImagesToPdfPage';
+import { AddPageNumbersPage } from './pages/AddPageNumbersPage';
+import { WatermarkPage } from './pages/WatermarkPage';
+import { CropPage } from './pages/CropPage';
+import { SanitizePage } from './pages/SanitizePage';
 
 export const App: React.FC = () => {
   return (
@@ -26,6 +30,10 @@ export const App: React.FC = () => {
             <Route path="/compress-pdf" element={<CompressPage />} />
             <Route path="/delete-pdf-pages" element={<DeletePagesPage />} />
             <Route path="/image-to-pdf" element={<ImagesToPdfPage />} />
+            <Route path="/add-page-numbers" element={<AddPageNumbersPage />} />
+            <Route path="/watermark-pdf" element={<WatermarkPage />} />
+            <Route path="/crop-pdf" element={<CropPage />} />
+            <Route path="/sanitize-pdf" element={<SanitizePage />} />
           </Routes>
         </main>
         <Footer />

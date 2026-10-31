@@ -137,6 +137,34 @@ Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
    - Page: `src/pages/AddPageNumbersPage.tsx`
    - Features: 6 placement positions (Top/Bottom Left, Center, Right), formats (Page X of Y, Slash, Number only, Hyphenated), typography selection, font size, page margins, cover page skip, start count offset.
 
+9. Watermark PDF:
+   - Route: `/watermark-pdf`
+   - Engine: `src/lib/pdf/watermark.ts`
+   - Component: `src/components/tools/WatermarkPdf.tsx`
+   - Page: `src/pages/WatermarkPage.tsx`
+   - Features: Custom text watermark, quick presets (CONFIDENTIAL, DRAFT, SAMPLE, DO NOT COPY), custom hex colors, font size (18-96pt), rotation (-90° to 90°), opacity (5%-100%), font selection, page scope (All, Odd, Even, Custom range).
+
+10. Crop PDF:
+    - Route: `/crop-pdf`
+    - Engine: `src/lib/pdf/crop.ts`
+    - Component: `src/components/tools/CropPdf.tsx`
+    - Page: `src/pages/CropPage.tsx`
+    - Features: Trim margins uniformly or individually (Top, Bottom, Left, Right), multi-unit input (pt, mm, in), quick trim presets (Bleed Clean, Header & Footer, Side Margins), page scope (All, Odd, Even, Custom range), live dimension calculations.
+
+11. Sanitize PDF:
+    - Route: `/sanitize-pdf`
+    - Engine: `src/lib/pdf/sanitize.ts`
+    - Component: `src/components/tools/SanitizePdf.tsx`
+    - Page: `src/pages/SanitizePage.tsx`
+    - Features: Strips standard Document Info (Author, Title, Creator, Producer), XMP metadata & revision history, PieceInfo application workspaces (Illustrator, InDesign, Word), embedded page thumbnails, JavaScript/OpenAction execution hooks, and embedded file attachments.
+
+12. N-Up PDF (Pages Per Sheet):
+    - Route: `/n-up-pdf`
+    - Engine: `src/lib/pdf/nUp.ts`
+    - Component: `src/components/tools/NUpPdf.tsx`
+    - Page: `src/pages/NUpPage.tsx`
+    - Features: 2-Up (side-by-side) and 4-Up (2x2 grid) page consolidation, A4/US Letter (Portrait/Landscape), custom gutter spacing, optional border outlines, automatic sheet count reduction calculation.
+
 5. PENDING / ROADMAP ITEMS
 --------------------------
 - Google AdSense & Google Analytics 4 integration (`src/config/adsAndAnalytics.ts`

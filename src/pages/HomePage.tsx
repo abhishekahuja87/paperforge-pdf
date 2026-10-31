@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Layers, Scissors, Minimize2, RotateCw, 
-  Image as ImageIcon, FileCode, Binary, Type, FilePlus, Trash2, FileText 
+  Image as ImageIcon, FileCode, Binary, Type, FilePlus, Trash2, Hash, Stamp, 
+  FileText, Crop, ShieldCheck, Grid 
 } from 'lucide-react';
 import { TOOLS, CATEGORIES, type ToolCategory, type ToolIconName } from '../config/tools';
 import { adsAndAnalyticsConfig } from '../config/adsAndAnalytics';
 import { AdSlot } from '../components/common/AdSlot';
 import { UnifiedHero } from '../components/common/UnifiedHero';
 import { getBadgeForTool, recordToolClick, type DynamicBadge } from '../lib/storage';
+
 
 const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>> = {
   layers: Layers,
@@ -21,6 +23,11 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   type: Type,
   'file-plus': FilePlus,
   'trash-2': Trash2,
+  hash: Hash,
+  stamp: Stamp,
+  crop: Crop,
+  'shield-check': ShieldCheck,
+  grid: Grid,
 };
 
 const CATEGORY_ICONS: Record<ToolCategory, React.ComponentType<{ className?: string }>> = {

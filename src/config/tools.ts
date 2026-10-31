@@ -10,7 +10,12 @@ export type ToolIconName =
   | 'binary' 
   | 'type'
   | 'file-plus'
-  | 'trash-2';
+  | 'trash-2'
+  | 'hash'
+  | 'stamp'
+  | 'crop'
+  | 'shield-check'
+  | 'grid';
 
 export interface ToolItem {
   id: string;
@@ -120,6 +125,61 @@ export const TOOLS: ToolItem[] = [
     isPopularInternet: true,
     isAvailable: true,
     keywords: ['image', 'jpg', 'jpeg', 'png', 'webp', 'convert', 'pdf'],
+  },
+  {
+    id: 'add-page-numbers',
+    title: 'Page Numbers',
+    description: 'Stamp page numbers, headers, and footers.',
+    category: 'pdf',
+    path: '/add-page-numbers',
+    icon: 'hash',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['page', 'number', 'numbers', 'header', 'footer', 'pdf', 'pagination'],
+  },
+  {
+    id: 'watermark-pdf',
+    title: 'Watermark PDF',
+    description: 'Stamp custom text or confidential marks.',
+    category: 'pdf',
+    path: '/watermark-pdf',
+    icon: 'stamp',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['watermark', 'stamp', 'confidential', 'draft', 'overlay', 'pdf'],
+  },
+  {
+    id: 'crop-pdf',
+    title: 'Crop PDF',
+    description: 'Trim page margins and adjust visible borders.',
+    category: 'pdf',
+    path: '/crop-pdf',
+    icon: 'crop',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['crop', 'trim', 'margins', 'cut', 'borders', 'pdf'],
+  },
+  {
+    id: 'sanitize-pdf',
+    title: 'Sanitize PDF',
+    description: 'Purge hidden author info, revision history, and metadata.',
+    category: 'pdf',
+    path: '/sanitize-pdf',
+    icon: 'shield-check',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['sanitize', 'metadata', 'privacy', 'strip', 'clean', 'author', 'history', 'pdf'],
+  },
+  {
+    id: 'n-up-pdf',
+    title: 'N-Up (Pages Per Sheet)',
+    description: 'Combine 2 or 4 pages per sheet for handouts and print savings.',
+    category: 'pdf',
+    path: '/n-up-pdf',
+    icon: 'grid',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['nup', 'handout', 'slides', 'print', 'sheets', 'pages', 'grid', 'pdf'],
   },
 
   // Media
