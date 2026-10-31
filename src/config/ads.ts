@@ -4,8 +4,8 @@ export const ADS_CONFIG = {
   
   // Replace with your created ad unit slot IDs
   slots: {
-    toolTopBanner: '1234567890',
-    toolBottomBanner: '0987654321',
+    toolTopBanner: '8459726244',
+    toolBottomBanner: '9487856553',
   },
 
   // Toggle this to true during development to show placeholder boxes instead of blank spaces
