@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Layers, Scissors, Minimize2, RotateCw, 
-  Image as ImageIcon, FileCode, Binary, Type, FileText
+  ShieldCheck, Layers, Scissors, Minimize2, RotateCw, 
+  Image as ImageIcon, FileCode, Binary, Type, FileText, FilePlus
 } from 'lucide-react';
 import { TOOLS, CATEGORIES, type ToolCategory, type ToolIconName } from '../config/tools';
 import { adsAndAnalyticsConfig } from '../config/adsAndAnalytics';
@@ -19,6 +19,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   'file-code': FileCode,
   binary: Binary,
   type: Type,
+  'file-plus': FilePlus,
 };
 
 const CATEGORY_ICONS: Record<ToolCategory, React.ComponentType<{ className?: string }>> = {

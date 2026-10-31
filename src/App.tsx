@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
 import { MergePage } from './pages/MergePage';
 import { SplitPage } from './pages/SplitPage';
+import { GenerateSamplePage } from './pages/GenerateSamplePage';
 
 export const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/merge-pdf" element={<MergePage />} />
             <Route path="/split-pdf" element={<SplitPage />} />
+            <Route path="/generate-sample-pdf" element={<GenerateSamplePage />} />
           </Routes>
         </main>
         <Footer />

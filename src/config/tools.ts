@@ -8,7 +8,8 @@ export type ToolIconName =
   | 'image' 
   | 'file-code' 
   | 'binary' 
-  | 'type';
+  | 'type'
+  | 'file-plus';
 
 export interface ToolItem {
   id: string;
@@ -62,8 +63,29 @@ export const TOOLS: ToolItem[] = [
     path: '/split-pdf',
     icon: 'scissors',
     isPopularInternet: true,
-    isAvailable: true, // Activated
+    isAvailable: true,
     keywords: ['split', 'extract', 'pages', 'pdf'],
+  },
+  {
+    id: 'generate-sample-pdf',
+    title: 'Sample PDF Generator',
+    description: 'Generate test PDFs with custom pages, sizes, and templates.',
+    category: 'pdf',
+    path: '/generate-sample-pdf',
+    icon: 'file-plus',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['sample', 'dummy', 'test', 'generate', 'pdf'],
+  },
+  {
+    id: 'rotate-pdf',
+    title: 'Rotate PDF',
+    description: 'Fix portrait or landscape orientation per page.',
+    category: 'pdf',
+    path: '/rotate-pdf',
+    icon: 'rotate',
+    isAvailable: false,
+    keywords: ['rotate', 'turn', 'orientation', 'pdf'],
   },
   {
     id: 'compress-pdf',
@@ -75,16 +97,6 @@ export const TOOLS: ToolItem[] = [
     isPopularInternet: true,
     isAvailable: false,
     keywords: ['compress', 'reduce size', 'optimize', 'pdf'],
-  },
-  {
-    id: 'rotate-pdf',
-    title: 'Rotate PDF',
-    description: 'Fix portrait or landscape orientation per page.',
-    category: 'pdf',
-    path: '/rotate-pdf',
-    icon: 'rotate',
-    isAvailable: false,
-    keywords: ['rotate', 'turn', 'orientation', 'pdf'],
   },
 
   // Media
