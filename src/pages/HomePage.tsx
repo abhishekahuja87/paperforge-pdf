@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   Layers, Scissors, Minimize2, RotateCw, 
   Image as ImageIcon, FileCode, Binary, Type, FilePlus, Trash2, Hash, Stamp, 
-  FileText, Crop, ShieldCheck, Grid 
+  FileText, Crop, ShieldCheck, Grid, Lock 
 } from 'lucide-react';
 import { TOOLS, CATEGORIES, type ToolCategory, type ToolIconName } from '../config/tools';
 import { adsAndAnalyticsConfig } from '../config/adsAndAnalytics';
@@ -28,6 +28,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   crop: Crop,
   'shield-check': ShieldCheck,
   grid: Grid,
+  lock: Lock,
 };
 
 const CATEGORY_ICONS: Record<ToolCategory, React.ComponentType<{ className?: string }>> = {

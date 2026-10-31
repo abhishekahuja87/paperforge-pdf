@@ -15,7 +15,8 @@ export type ToolIconName =
   | 'stamp'
   | 'crop'
   | 'shield-check'
-  | 'grid';
+  | 'grid'
+  | 'lock';
 
 export interface ToolItem {
   id: string;
@@ -180,6 +181,28 @@ export const TOOLS: ToolItem[] = [
     isPopularInternet: true,
     isAvailable: true,
     keywords: ['nup', 'handout', 'slides', 'print', 'sheets', 'pages', 'grid', 'pdf'],
+  },
+  {
+    id: 'inspect-pdf',
+    title: 'Inspect PDF',
+    description: 'Analyze PDF structures, versions, metadata, and security flags.',
+    category: 'pdf',
+    path: '/inspect-pdf',
+    icon: 'binary',
+    isPopularInternet: false,
+    isAvailable: true,
+    keywords: ['inspect', 'developer', 'metadata', 'structure', 'debug', 'qa', 'pdf'],
+  },
+  {
+    id: 'protect-pdf',
+    title: 'Protect PDF',
+    description: 'Encrypt your PDF with passwords and restrict copying.',
+    category: 'pdf',
+    path: '/protect-pdf',
+    icon: 'lock',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['protect', 'encrypt', 'password', 'security', 'lock', 'pdf'],
   },
 
   // Media

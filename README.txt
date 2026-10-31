@@ -165,6 +165,20 @@ Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
     - Page: `src/pages/NUpPage.tsx`
     - Features: 2-Up (side-by-side) and 4-Up (2x2 grid) page consolidation, A4/US Letter (Portrait/Landscape), custom gutter spacing, optional border outlines, automatic sheet count reduction calculation.
 
+13. Inspect PDF (Developer & QA Forensics):
+    - Route: `/inspect-pdf`
+    - Engine: `src/lib/pdf/inspect.ts`
+    - Component: `src/components/tools/InspectPdf.tsx`
+    - Page: `src/pages/InspectPage.tsx`
+    - Features: Analyzes PDF specification versions, Info dictionaries, XMP streams, encryption status, embedded thumbnail caches, JavaScript execution hooks, and page geometry bounding boxes.
+
+14. Protect PDF:
+    - Route: `/protect-pdf`
+    - Engine: `src/lib/pdf/protect.ts`
+    - Component: `src/components/tools/ProtectPdf.tsx`
+    - Page: `src/pages/ProtectPage.tsx`
+    - Features: In-memory password encryption, separate User and Owner passwords, permissions toggling (printing, text copying), zero-server execution.
+
 5. PENDING / ROADMAP ITEMS
 --------------------------
 - Google AdSense & Google Analytics 4 integration (`src/config/adsAndAnalytics.ts`
@@ -177,55 +191,83 @@ Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
 
 6. VERIFIED SOURCE DIRECTORY TREE
 ---------------------------------
-src/
-|-- assets/
-|   |-- hero.png, react.svg, vite.svg
-|-- components/
-|   |-- common/
-|   |   |-- AdSlot.tsx
-|   |   |-- ToolGuide.tsx
-|   |   |-- UnifiedHero.tsx
-|   |-- layout/
-|   |   |-- Footer.tsx
-|   |   |-- Header.tsx
-|   |   |-- ToolLayout.tsx
-|   |-- tools/
-|       |-- AddPageNumbers.tsx
-|       |-- CompressPdf.tsx
-|       |-- DeletePagesPdf.tsx
-|       |-- GenerateSamplePdf.tsx
-|       |-- ImagesToPdf.tsx
-|       |-- MergePdf.tsx
-|       |-- RotatePdf.tsx
-|       |-- SplitPdf.tsx
-|-- config/
-|   |-- adsAndAnalytics.ts
-|   |-- site.ts
-|   |-- tools.ts
-|-- lib/
-|   |-- storage.ts
-|   |-- pdf/
-|       |-- compress.ts
-|       |-- deletePages.ts
-|       |-- generateSample.ts
-|       |-- imagesToPdf.ts
-|       |-- merge.ts
-|       |-- naming.ts
-|       |-- pageNumbers.ts
-|       |-- rotate.ts
-|       |-- split.ts
-|-- pages/
-|   |-- AddPageNumbersPage.tsx
-|   |-- CompressPage.tsx
-|   |-- DeletePagesPage.tsx
-|   |-- GenerateSamplePage.tsx
-|   |-- HomePage.tsx
-|   |-- ImagesToPdfPage.tsx
-|   |-- MergePage.tsx
-|   |-- RotatePage.tsx
-|   |-- SplitPage.tsx
-|-- App.css
-|-- App.tsx
-|-- index.css
-|-- main.tsx
+|   App.css                                                     
+|   App.tsx                                                                                             
+|   index.css                                                      
+|   main.tsx                                                                                                            
+|   
++---assets                       
+|       hero.png       
+|       react.svg
+|       vite.svg
+|       
++---components
+|   +---common
+|   |       AdSlot.tsx
+|   |       ToolGuide.tsx
+|   |       UnifiedHero.tsx
+|   |       
+|   +---layout
+|   |       Footer.tsx
+|   |       Header.tsx
+|   |       ToolLayout.tsx
+|   |       
+|   \---tools
+|           AddPageNumbers.tsx
+|           CompressPdf.tsx
+|           CropPdf.tsx
+|           DeletePagesPdf.tsx
+|           GenerateSamplePdf.tsx
+|           ImagesToPdf.tsx
+|           InspectPdf.tsx
+|           MergePdf.tsx
+|           NUpPdf.tsx
+|           ProtectPdf.tsx
+|           RotatePdf.tsx
+|           SanitizePdf.tsx
+|           SplitPdf.tsx
+|           WatermarkPdf.tsx
+|           
++---config
+|       adsAndAnalytics.ts
+|       site.ts
+|       tools.ts
+|       
++---lib
+|   |   storage.ts
+|   |   
+|   \---pdf
+|           compress.ts
+|           crop.ts
+|           deletePages.ts
+|           generateSample.ts
+|           imagesToPdf.ts
+|           inspect.ts
+|           merge.ts
+|           naming.ts
+|           nUp.ts
+|           pageNumbers.ts
+|           protect.ts
+|           rotate.ts
+|           sanitize.ts
+|           split.ts
+|           watermark.ts
+|           
+\---pages
+        AddPageNumbersPage.tsx
+        CompressPage.tsx
+        CropPage.tsx
+        DeletePagesPage.tsx
+        GenerateSamplePage.tsx
+        HomePage.tsx
+        ImagesToPdfPage.tsx
+        InspectPage.tsx
+        MergePage.tsx
+        NUpPage.tsx
+        ProtectPage.tsx
+        RotatePage.tsx
+        SanitizePage.tsx
+        SplitPage.tsx
+        WatermarkPage.tsx
+        
 ================================================================================
