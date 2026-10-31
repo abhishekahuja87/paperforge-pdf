@@ -1,4 +1,4 @@
-import { PDFDocument, PDFName, PDFDict, PDFArray } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFDict } from 'pdf-lib';
 
 export interface SanitizeOptions {
   fileBuffer: ArrayBuffer;
