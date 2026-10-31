@@ -16,7 +16,9 @@ export type ToolIconName =
   | 'crop'
   | 'shield-check'
   | 'grid'
-  | 'lock';
+  | 'lock'
+  | 'unlock'
+  | 'file-text';
 
 export interface ToolItem {
   id: string;
@@ -84,14 +86,14 @@ export const TOOLS: ToolItem[] = [
     isAvailable: true,
     keywords: ['sample', 'dummy', 'test', 'generate', 'pdf'],
   },
-{
+  {
     id: 'rotate-pdf',
     title: 'Rotate PDF',
     description: 'Fix portrait or landscape orientation per page.',
     category: 'pdf',
     path: '/rotate-pdf',
     icon: 'rotate',
-    isAvailable: true, // Set to true
+    isAvailable: true,
     keywords: ['rotate', 'turn', 'orientation', 'pdf'],
   },
   {
@@ -102,7 +104,7 @@ export const TOOLS: ToolItem[] = [
     path: '/compress-pdf',
     icon: 'minimize',
     isPopularInternet: true,
-    isAvailable: true, // Set to true
+    isAvailable: true,
     keywords: ['compress', 'shrink', 'reduce', 'size', 'pdf', 'optimize'],
   },
   {
@@ -203,6 +205,50 @@ export const TOOLS: ToolItem[] = [
     isPopularInternet: true,
     isAvailable: true,
     keywords: ['protect', 'encrypt', 'password', 'security', 'lock', 'pdf'],
+  },
+  {
+    id: 'unlock-pdf',
+    title: 'Unlock PDF',
+    description: 'Permanently remove password protection and restrictions.',
+    category: 'pdf',
+    path: '/unlock-pdf',
+    icon: 'unlock',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['unlock', 'decrypt', 'password', 'remove', 'security', 'pdf'],
+  },
+  {
+    id: 'flatten-pdf',
+    title: 'Flatten PDF',
+    description: 'Lock form fields and visual annotations into base page graphics.',
+    category: 'pdf',
+    path: '/flatten-pdf',
+    icon: 'layers',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['flatten', 'forms', 'lock', 'acroform', 'annotations', 'pdf'],
+  },
+  {
+    id: 'pdf-to-images',
+    title: 'PDF to Images',
+    description: 'Extract and render all pages into sharp PNG images.',
+    category: 'pdf',
+    path: '/pdf-to-images',
+    icon: 'image',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['images', 'png', 'jpg', 'render', 'extract', 'pdf to image', 'pdf'],
+  },
+  {
+    id: 'extract-text',
+    title: 'Extract Text',
+    description: 'Extract textual content page-by-page into plain text.',
+    category: 'pdf',
+    path: '/extract-text',
+    icon: 'file-text',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['text', 'extract', 'read', 'txt', 'copy', 'content', 'pdf'],
   },
 
   // Media

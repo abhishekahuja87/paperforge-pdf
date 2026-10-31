@@ -1,145 +1,202 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Layers, Scissors, Minimize2, RotateCw, 
-  Image as ImageIcon, FileCode, Binary, Type, FilePlus, Trash2, Hash, Stamp, 
-  FileText, Crop, ShieldCheck, Grid, Lock 
-} from 'lucide-react';
-import { TOOLS, CATEGORIES, type ToolCategory, type ToolIconName } from '../config/tools';
-import { adsAndAnalyticsConfig } from '../config/adsAndAnalytics';
-import { AdSlot } from '../components/common/AdSlot';
-import { UnifiedHero } from '../components/common/UnifiedHero';
-import { getBadgeForTool, recordToolClick, type DynamicBadge } from '../lib/storage';
-
-
-const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>> = {
-  layers: Layers,
-  scissors: Scissors,
-  minimize: Minimize2,
-  rotate: RotateCw,
-  image: ImageIcon,
-  'file-code': FileCode,
-  binary: Binary,
-  type: Type,
-  'file-plus': FilePlus,
-  'trash-2': Trash2,
-  hash: Hash,
-  stamp: Stamp,
-  crop: Crop,
-  'shield-check': ShieldCheck,
-  grid: Grid,
-  lock: Lock,
-};
-
-const CATEGORY_ICONS: Record<ToolCategory, React.ComponentType<{ className?: string }>> = {
-  pdf: FileText,
-  media: ImageIcon,
-  dev: FileCode,
-  text: Type,
-};
-
-const BADGE_COLOR_MAP: Record<DynamicBadge['variant'], string> = {
-  favorite: 'bg-amber-50 text-amber-700 border-amber-200',
-  frequent: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  popular: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-};
+import { Search, Sparkles, Shield, Cpu, Lock } from 'lucide-react';
+import { TOOLS, CATEGORIES } from '../config/tools';
+import type { ToolCategory } from '../config/tools';
+import { ToolIcon } from '../components/common/ToolIcon';
 
 export const HomePage: React.FC = () => {
-  const categoryKeys = Object.keys(CATEGORIES) as ToolCategory[];
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<ToolCategory | 'all'>('all');
+
+  const filteredTools = useMemo(() => {
+    return TOOLS.filter((tool) => {
+      const query = searchQuery.toLowerCase().trim();
+      const matchesSearch =
+        !query ||
+        tool.title.toLowerCase().includes(query) ||
+        tool.description.toLowerCase().includes(query) ||
+        tool.keywords.some((kw) => kw.toLowerCase().includes(query));
+
+      const matchesCategory =
+        activeCategory === 'all' || tool.category === activeCategory;
+
+      return matchesSearch && matchesCategory;
+    });
+  }, [searchQuery, activeCategory]);
 
   return (
-    <div className="space-y-8 py-6 px-4 max-w-5xl mx-auto">
-      {/* Combined Unified Dark Hero Banner */}
-      <UnifiedHero />
+    <div className="space-y-8 pb-16">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-indigo-50/40 via-white to-slate-50 border-b border-slate-200/70 pt-10 pb-8 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-3">
+          <div className="inline-flex items-center space-x-1.5 px-3 py-0.5 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-700 text-xs font-semibold">
+            <Sparkles className="w-3 h-3" />
+            <span>100% Client-Side In-Browser</span>
+          </div>
 
-      {/* Dynamic Categorized Grid */}
-      <div className="space-y-8">
-        {categoryKeys.map((catKey) => {
-          const catInfo = CATEGORIES[catKey];
-          const categoryTools = TOOLS.filter((t) => t.category === catKey);
-          const CatIcon = CATEGORY_ICONS[catKey];
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Local-First PDF & Media Suite
+          </h1>
 
-          if (categoryTools.length === 0) return null;
+          <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto">
+            Process, convert, secure, and inspect files strictly in your browser memory. Zero cloud latency, zero uploads.
+          </p>
 
-          return (
-            <section key={catKey}>
-              <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
-                <div className="flex items-center space-x-2">
-                  <div className="p-1 bg-indigo-50 text-indigo-600 rounded">
-                    <CatIcon className="w-3.5 h-3.5" />
-                  </div>
-                  <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                    {catInfo.name}
-                  </h2>
-                </div>
-                <span className="text-[11px] text-slate-400 hidden sm:inline">
-                  {catInfo.description}
-                </span>
-              </div>
+          {/* Compact Search Bar */}
+          <div className="pt-2 max-w-md mx-auto">
+            <div className="relative flex items-center">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search tools (merge, unlock, flatten, images)..."
+                className="w-full pl-10 pr-3.5 py-2 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Multi-Row Responsive Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {categoryTools.map((tool) => {
-                  const IconComponent = ICON_MAP[tool.icon] || FileText;
-                  const badge = getBadgeForTool(tool.id, tool.isPopularInternet);
-                  const badgeClass = badge ? BADGE_COLOR_MAP[badge.variant] : BADGE_COLOR_MAP.popular;
+      {/* Main Tools Container */}
+      <div className="max-w-6xl mx-auto px-4 space-y-6">
+        {/* Category Filter Badges */}
+        <div className="flex items-center justify-center gap-1.5 flex-wrap">
+          <button
+            onClick={() => setActiveCategory('all')}
+            className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+              activeCategory === 'all'
+                ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-200'
+                : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+            }`}
+          >
+            All ({TOOLS.length})
+          </button>
+          {(Object.keys(CATEGORIES) as ToolCategory[]).map((catKey) => {
+            const cat = CATEGORIES[catKey];
+            const count = TOOLS.filter((t) => t.category === catKey).length;
+            return (
+              <button
+                key={catKey}
+                onClick={() => setActiveCategory(catKey)}
+                className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                  activeCategory === catKey
+                    ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-200'
+                    : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                }`}
+              >
+                {cat.name} ({count})
+              </button>
+            );
+          })}
+        </div>
 
-                  const CardBody = (
-                    <div>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="w-6 h-6 rounded bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                          <IconComponent className="w-3.5 h-3.5" />
-                        </div>
-                        {badge ? (
-                          <span className={`text-[9px] font-semibold px-1.5 py-0.2 rounded border ${badgeClass}`}>
-                            {badge.text}
-                          </span>
-                        ) : !tool.isAvailable ? (
-                          <span className="text-[9px] font-medium text-slate-400">Soon</span>
-                        ) : null}
-                      </div>
-
-                      <h3 className="font-semibold text-slate-900 text-xs group-hover:text-indigo-600 transition-colors leading-snug">
-                        {tool.title}
-                      </h3>
-                      <p className="text-[11px] text-slate-500 line-clamp-1 leading-normal mt-0.5">
-                        {tool.description}
-                      </p>
-                    </div>
-                  );
-
-                  if (tool.isAvailable) {
-                    return (
-                      <Link
-                        key={tool.id}
-                        to={tool.path}
-                        onClick={() => recordToolClick(tool.id)}
-                        className="group py-2.5 px-3 rounded-lg border border-slate-200 bg-white shadow-2xs hover:border-indigo-400 hover:shadow-xs transition-all cursor-pointer block"
-                      >
-                        {CardBody}
-                      </Link>
-                    );
-                  }
-
-                  return (
+        {/* Compact 4-Column Tools Grid */}
+        {filteredTools.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
+            {filteredTools.map((tool) => {
+              const cardInner = (
+                <div className="flex flex-col h-full justify-between space-y-2">
+                  <div className="flex items-center justify-between">
                     <div
-                      key={tool.id}
-                      className="py-2.5 px-3 rounded-lg border border-slate-200/50 bg-slate-50 opacity-60 cursor-not-allowed select-none block"
+                      className={`p-2 rounded-lg transition-colors ${
+                        tool.isAvailable
+                          ? 'bg-indigo-50 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white'
+                          : 'bg-slate-100 text-slate-400'
+                      }`}
                     >
-                      {CardBody}
+                      <ToolIcon name={tool.icon} className="w-4 h-4" />
                     </div>
-                  );
-                })}
-              </div>
-            </section>
-          );
-        })}
-      </div>
+                    {tool.isPopularInternet && (
+                      <span className="text-[9px] font-bold tracking-wider px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200/60">
+                        Popular
+                      </span>
+                    )}
+                    {!tool.isAvailable && (
+                      <span className="text-[9px] font-medium tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-400">
+                        Soon
+                      </span>
+                    )}
+                  </div>
 
-      {/* Bottom Ad Slot */}
-      <div className="pt-2">
-        <AdSlot slotId={adsAndAnalyticsConfig.ads.homeBottomBannerSlot} format="banner" />
+                  <div>
+                    <h3
+                      className={`font-semibold text-xs sm:text-sm leading-tight transition-colors ${
+                        tool.isAvailable
+                          ? 'text-slate-800 group-hover:text-indigo-600'
+                          : 'text-slate-400'
+                      }`}
+                    >
+                      {tool.title}
+                    </h3>
+                    <p className="text-[11px] text-slate-500 leading-snug mt-1 line-clamp-2">
+                      {tool.description}
+                    </p>
+                  </div>
+                </div>
+              );
+
+              return tool.isAvailable ? (
+                <Link
+                  key={tool.id}
+                  to={tool.path}
+                  className="group p-3.5 bg-white rounded-xl border border-slate-200 hover:border-indigo-400 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-md hover:-translate-y-0.5 transition-all duration-150 flex flex-col justify-between"
+                >
+                  {cardInner}
+                </Link>
+              ) : (
+                <div
+                  key={tool.id}
+                  className="p-3.5 bg-slate-50/60 rounded-xl border border-dashed border-slate-200 opacity-60 cursor-not-allowed flex flex-col justify-between"
+                >
+                  {cardInner}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-white rounded-xl border border-slate-200 space-y-1">
+            <p className="text-xs font-semibold text-slate-700">No tools matched "{searchQuery}"</p>
+            <p className="text-[11px] text-slate-400">Try searching for keywords like merge, unlock, flatten, images.</p>
+          </div>
+        )}
+
+        {/* Local Security Badges */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-6 border-t border-slate-200">
+          <div className="flex items-center space-x-3 p-3 rounded-lg bg-white border border-slate-200/80">
+            <div className="p-2 rounded bg-emerald-50 text-emerald-600 shrink-0">
+              <Shield className="w-4 h-4" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-800">100% Client-Side</h4>
+              <p className="text-[11px] text-slate-500">Processed in RAM. Zero files sent to any server.</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-3 p-3 rounded-lg bg-white border border-slate-200/80">
+            <div className="p-2 rounded bg-indigo-50 text-indigo-600 shrink-0">
+              <Cpu className="w-4 h-4" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-800">Zero Server Latency</h4>
+              <p className="text-[11px] text-slate-500">No queues or caps. Handled directly by local CPU.</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-3 p-3 rounded-lg bg-white border border-slate-200/80">
+            <div className="p-2 rounded bg-amber-50 text-amber-600 shrink-0">
+              <Lock className="w-4 h-4" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-800">Private by Design</h4>
+              <p className="text-[11px] text-slate-500">Safe for private documents and legal agreements.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
+export default HomePage;

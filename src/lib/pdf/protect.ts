@@ -1,8 +1,14 @@
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
 
-// Configure pdf.js worker using Vite asset URL
+if (pdfFonts && (pdfFonts as any).pdfMake?.vfs) {
+  (pdfMake as any).vfs = (pdfFonts as any).pdfMake.vfs;
+} else if ((pdfFonts as any).vfs) {
+  (pdfMake as any).vfs = (pdfFonts as any).vfs;
+}
+
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export interface ProtectPdfOptions {
@@ -15,11 +21,6 @@ export interface ProtectPdfOptions {
   };
 }
 
-/**
- * Renders pages into high-resolution canvas frames in client RAM,
- * then packages them into an encrypted PDF using pdfmake's native Standard Encryption Handler.
- * 100% in-browser, zero WASM, zero server calls.
- */
 export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array> {
   const { fileBuffer, userPassword = '', ownerPassword = '', permissions } = options;
 
@@ -27,23 +28,32 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
     throw new Error('Please set at least a user password (to open) or an owner password.');
   }
 
-  // 1. Load document via PDF.js in memory
+  const pdfData = new Uint8Array(fileBuffer.slice(0));
   const loadingTask = pdfjsLib.getDocument({
-    data: new Uint8Array(fileBuffer),
+    data: pdfData,
     cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
     cMapPacked: true,
   });
 
-  const pdfDoc = await loadingTask.promise;
-  const numPages = pdfDoc.numPages;
+  let pdfDoc: pdfjsLib.PDFDocumentProxy;
+  try {
+    pdfDoc = await loadingTask.promise;
+  } catch (err: any) {
+    if (err?.name === 'PasswordException') {
+      throw new Error('This PDF is already password-protected. Please unlock or decrypt it first.');
+    }
+    throw err;
+  }
 
+  const numPages = pdfDoc.numPages;
   if (numPages === 0) {
+    pdfDoc.cleanup();
+    loadingTask.destroy();
     throw new Error('The uploaded PDF contains no pages.');
   }
 
-  // 2. Render each page to high-DPI canvas
   const pageImages: { dataUrl: string; width: number; height: number }[] = [];
-  const scale = 2.0; // 2x resolution for sharp text and graphics
+  const scale = 2.0;
 
   for (let pageNum = 1; pageNum <= numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
@@ -54,7 +64,11 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
     canvas.height = Math.floor(viewport.height);
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) throw new Error('Canvas context could not be initialized.');
+    if (!ctx) {
+      pdfDoc.cleanup();
+      loadingTask.destroy();
+      throw new Error('Canvas context could not be initialized.');
+    }
 
     await page.render({
       canvasContext: ctx,
@@ -64,22 +78,23 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
     }).promise;
 
     const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
-
     const unscaledViewport = page.getViewport({ scale: 1.0 });
+
     pageImages.push({
       dataUrl,
       width: unscaledViewport.width,
       height: unscaledViewport.height,
     });
 
-    // Release canvas allocations
     canvas.width = 0;
     canvas.height = 0;
+    page.cleanup();
   }
 
-  // 3. Build document definition with native standard encryption
-  const content: any[] = [];
+  pdfDoc.cleanup();
+  loadingTask.destroy();
 
+  const content: any[] = [];
   pageImages.forEach((img, idx) => {
     content.push({
       image: img.dataUrl,
@@ -90,12 +105,15 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
   });
 
   const firstPage = pageImages[0];
+  const effectiveUserPassword = userPassword.trim() || undefined;
+  const effectiveOwnerPassword = ownerPassword.trim() || effectiveUserPassword;
+
   const docDefinition: any = {
     pageSize: { width: firstPage.width, height: firstPage.height },
     pageMargins: [0, 0, 0, 0],
     content,
-    userPassword: userPassword.trim() || undefined,
-    ownerPassword: (ownerPassword.trim() || userPassword.trim()) || undefined,
+    userPassword: effectiveUserPassword,
+    ownerPassword: effectiveOwnerPassword,
     permissions: {
       printing: permissions?.printing !== false ? 'highResolution' : false,
       modifying: false,
@@ -107,26 +125,22 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
     },
   };
 
-  // 4. Generate the encrypted buffer
-  try {
-    const pdfGenerator = pdfMake.createPdf(docDefinition);
-    const result = pdfGenerator.getBuffer();
+  return new Promise<Uint8Array>((resolve, reject) => {
+    try {
+      const pdfGenerator = pdfMake.createPdf(docDefinition);
+      const res = pdfGenerator.getBuffer();
 
-    if (result && typeof (result as any).then === 'function') {
-      const buffer = await result;
-      return new Uint8Array(buffer);
-    }
-
-    return await new Promise<Uint8Array>((resolve, reject) => {
-      try {
-        (pdfGenerator as any).getBuffer((buffer: Uint8Array) => {
-          resolve(new Uint8Array(buffer));
+      if (res && typeof (res as any).then === 'function') {
+        (res as Promise<Uint8Array>)
+          .then((buf) => resolve(new Uint8Array(buf)))
+          .catch(reject);
+      } else {
+        (pdfGenerator as any).getBuffer((buf: Uint8Array) => {
+          resolve(new Uint8Array(buf));
         });
-      } catch (cbErr) {
-        reject(cbErr);
       }
-    });
-  } catch (err: any) {
-    throw new Error('Failed to generate encrypted PDF: ' + (err?.message || err));
-  }
+    } catch (err: any) {
+      reject(new Error('Failed to generate encrypted PDF: ' + (err?.message || err)));
+    }
+  });
 }

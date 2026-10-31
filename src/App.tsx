@@ -17,6 +17,10 @@ import { SanitizePage } from './pages/SanitizePage';
 import { NUpPage } from './pages/NUpPage';
 import { InspectPage } from './pages/InspectPage';
 import { ProtectPage } from './pages/ProtectPage';
+import { UnlockPage } from './pages/UnlockPage';
+import { FlattenPage } from './pages/FlattenPage';
+import { PdfToImagesPage } from './pages/PdfToImagesPage';
+import { ExtractTextPage } from './pages/ExtractTextPage';
 
 export const App: React.FC = () => {
   return (
@@ -40,6 +44,10 @@ export const App: React.FC = () => {
             <Route path="/n-up-pdf" element={<NUpPage />} />
             <Route path="/inspect-pdf" element={<InspectPage />} />
             <Route path="/protect-pdf" element={<ProtectPage />} />
+            <Route path="/unlock-pdf" element={<UnlockPage />} />
+            <Route path="/flatten-pdf" element={<FlattenPage />} />
+            <Route path="/pdf-to-images" element={<PdfToImagesPage />} />
+            <Route path="/extract-text" element={<ExtractTextPage />} />
           </Routes>
         </main>
         <Footer />
