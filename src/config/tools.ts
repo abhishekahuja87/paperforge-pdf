@@ -77,14 +77,14 @@ export const TOOLS: ToolItem[] = [
     isAvailable: true,
     keywords: ['sample', 'dummy', 'test', 'generate', 'pdf'],
   },
-  {
+{
     id: 'rotate-pdf',
     title: 'Rotate PDF',
     description: 'Fix portrait or landscape orientation per page.',
     category: 'pdf',
     path: '/rotate-pdf',
     icon: 'rotate',
-    isAvailable: false,
+    isAvailable: true, // Set to true
     keywords: ['rotate', 'turn', 'orientation', 'pdf'],
   },
   {
