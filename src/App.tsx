@@ -1,22 +1,27 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
 import { MergePage } from './pages/MergePage';
+import { SplitPage } from './pages/SplitPage';
 
-export default function App() {
+export const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-slate-50 flex flex-col justify-between font-sans">
+    <Router>
+      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800">
         <Header />
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/merge-pdf" element={<MergePage />} />
+            <Route path="/split-pdf" element={<SplitPage />} />
           </Routes>
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </Router>
   );
-}
+};
+
+export default App;

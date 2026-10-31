@@ -17,7 +17,7 @@ export interface ToolItem {
   category: ToolCategory;
   path: string;
   icon: ToolIconName;
-  isPopularInternet?: boolean; // Decided by web demand
+  isPopularInternet?: boolean;
   isAvailable: boolean;
   keywords: string[];
 }
@@ -62,7 +62,7 @@ export const TOOLS: ToolItem[] = [
     path: '/split-pdf',
     icon: 'scissors',
     isPopularInternet: true,
-    isAvailable: false,
+    isAvailable: true, // Activated
     keywords: ['split', 'extract', 'pages', 'pdf'],
   },
   {
