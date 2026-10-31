@@ -2,23 +2,18 @@ import React, { useState, useRef } from 'react';
 import { 
   Upload, 
   FileText, 
-  Binary, 
   X, 
   AlertCircle, 
-  Layers, 
   ShieldCheck, 
-  Code, 
-  Paperclip, 
   Terminal,
-  FileCode2,
-  CheckCircle2
+  FileCode2
 } from 'lucide-react';
 import { inspectPdf, type PdfInspectionReport } from '../../lib/pdf/inspect';
 
 export const InspectPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [report, setReport] = useState<PdfInspectionReport | null>(null);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
+  const [, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 

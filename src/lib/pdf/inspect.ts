@@ -1,4 +1,4 @@
-import { PDFDocument, PDFName, PDFDict, PDFStream } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFDict } from 'pdf-lib';
 
 export interface PageGeometryInfo {
   pageNumber: number;

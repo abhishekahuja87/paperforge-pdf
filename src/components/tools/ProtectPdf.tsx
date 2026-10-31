@@ -163,7 +163,10 @@ export const ProtectPdf: React.FC = () => {
               <div className="truncate">
                 <p className="text-xs font-semibold text-slate-800 truncate">{file.name}</p>
                 <p className="text-[11px] text-slate-500">
-                  Total pages: <strong className="text-slate-700">{pageCount}</strong> &bull; {(file.size / 1024 / 1024).toFixed(2)} MB
+                  Total pages: <strong className="text-slate-700">{pageCount}</strong> &bull;{' '}
+                    {file.size < 1024 * 1024
+                    ? `${(file.size / 1024).toFixed(1)} KB`
+                    : `${(file.size / (1024 * 1024)).toFixed(2)} MB`}
                 </p>
               </div>
             </div>
