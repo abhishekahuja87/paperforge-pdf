@@ -102,6 +102,13 @@ in browser memory via WebAssembly/pure client execution.
    - Page: `src/pages/CompressPage.tsx`
    - Features: Basic Lossless vs. Strong optimization (metadata/XMP/thumbnail stripping, cross-reference object stream consolidation), before/after size metrics and percentage savings calculation.
 
+7. Image to PDF:
+   - Route: `/image-to-pdf`
+   - Engine: `src/lib/pdf/imagesToPdf.ts`
+   - Component: `src/components/tools/ImagesToPdf.tsx`
+   - Page: `src/pages/ImagesToPdfPage.tsx`
+   - Features: Multi-image upload (JPG, PNG, WebP via Canvas), drag-and-drop, Move Up/Down reordering, page sizing presets (A4 Portrait/Landscape, US Letter, Fit to Image), margin control, collision-free timestamped exports.
+
 6. VERIFIED SOURCE DIRECTORY TREE
 ---------------------------------
 src/

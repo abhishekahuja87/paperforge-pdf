@@ -110,6 +110,17 @@ export const TOOLS: ToolItem[] = [
     isAvailable: true,
     keywords: ['delete', 'remove', 'pages', 'prune', 'pdf'],
   },
+    {
+    id: 'image-to-pdf',
+    title: 'Image to PDF',
+    description: 'Convert JPG, PNG, and WebP images into a PDF.',
+    category: 'convert-to-pdf',
+    path: '/image-to-pdf',
+    icon: 'image',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['image', 'jpg', 'jpeg', 'png', 'webp', 'convert', 'pdf'],
+  },
 
   // Media
   {
