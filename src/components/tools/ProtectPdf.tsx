@@ -9,8 +9,7 @@ import {
   Sparkles, 
   RefreshCw,
   Eye,
-  EyeOff,
-  ShieldAlert
+  EyeOff
 } from 'lucide-react';
 import { getPdfPageCount } from '../../lib/pdf/split';
 import { protectPdf } from '../../lib/pdf/protect';
@@ -94,12 +93,8 @@ export const ProtectPdf: React.FC = () => {
         userPassword: userPassword.trim(),
         ownerPassword: ownerPassword.trim(),
         permissions: {
-          printing: allowPrinting ? 'highResolution' : undefined,
-          copying: allowCopying,
-          modifying: false,
-          annotating: false,
-          fillingForms: true,
-          contentAccessibility: true,
+        printing: allowPrinting,
+        copying: allowCopying,
         },
       });
 
