@@ -10,6 +10,31 @@ Objective: Secure, high-performance, 100% client-side PDF utility suite.
 Core Principle: Zero server upload/storage. All PDF operations execute strictly
 in browser memory via WebAssembly/pure client execution.
 
+================================================================================
+CRITICAL ARCHITECTURAL LAW: 100% AIR-GAPPED CLIENT-SIDE INTEGRITY
+================================================================================
+All current and future tools across EVERY category (PDF, Images, Security, 
+Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
+
+1. Zero Network Packets on User Data:
+   Once the static application assets (JS, CSS, fonts, wasm) finish loading,
+   the app MUST function 100% offline with Wi-Fi / Ethernet disconnected.
+   No tool is ever permitted to send user files, byte buffers, file names,
+   or previews across the wire.
+
+2. Pure In-Browser Execution Engines Only:
+   - PDFs: pdf-lib / WebAssembly
+   - Images: OffscreenCanvas / HTML5 Canvas / Web Workers
+   - Encoders/Decoders: Native Web APIs (SubtleCrypto, TextEncoder, Blob)
+   - Zero third-party telemetry, tracking pixels on documents, or external API relays.
+
+3. Failure Safeguard:
+   If a proposed feature technically demands a remote server or cloud pipeline
+   (e.g., heavy server-side OCR or AI transcription that cannot run locally in WASM),
+   it CANNOT be implemented unless an in-browser WASM engine (e.g., Tesseract.js)
+   can execute it completely offline on the user's hardware.
+================================================================================
+
 2. CORE TECH STACK
 ------------------
 - Framework: React 19 + TypeScript
@@ -44,30 +69,34 @@ in browser memory via WebAssembly/pure client execution.
     modifies parameters post-generation, UI flags unsaved changes and updates
     the download action to prevent downloading outdated files.
 
-4. CURRENTLY IMPLEMENTED TOOLS & ROUTES
----------------------------------------
+4. CURRENTLY IMPLEMENTED TOOLS & ROUTES (8 TOTAL)
+-------------------------------------------------
 1. Merge PDF:
    - Route: `/merge-pdf`
    - Engine: `src/lib/pdf/merge.ts`
    - Component: `src/components/tools/MergePdf.tsx`
+   - Page: `src/pages/MergePage.tsx`
    - Features: Reorder files (Up/Down), remove file, local multi-file merge.
 
 2. Split PDF:
    - Route: `/split-pdf`
    - Engine: `src/lib/pdf/split.ts`
    - Component: `src/components/tools/SplitPdf.tsx`
+   - Page: `src/pages/SplitPage.tsx`
    - Features: Extract specific pages/ranges (e.g., 1-3, 5, 8-10), validation.
 
 3. Rotate PDF:
    - Route: `/rotate-pdf`
    - Engine: `src/lib/pdf/rotate.ts`
    - Component: `src/components/tools/RotatePdf.tsx`
+   - Page: `src/pages/RotatePage.tsx`
    - Features: 90 CW, 180 flip, 270 CCW; apply to all, odd, even, or custom ranges.
 
 4. Sample PDF Generator & QA Sandbox:
    - Route: `/generate-sample-pdf`
    - Engine: `src/lib/pdf/generateSample.ts`
    - Component: `src/components/tools/GenerateSamplePdf.tsx`
+   - Page: `src/pages/GenerateSamplePage.tsx`
    - Features:
      * Templates: Invoice, Multipage Article, Contract/NDA, Spec Sheet, Minimal.
      * Synthetic PII / DLP: Mock credit cards (Luhn compliant), fake tax IDs,
@@ -83,17 +112,9 @@ in browser memory via WebAssembly/pure client execution.
    - Route: `/delete-pdf-pages`
    - Engine: `src/lib/pdf/deletePages.ts`
    - Component: `src/components/tools/DeletePagesPdf.tsx`
+   - Page: `src/pages/DeletePagesPage.tsx`
    - Features: Remove specific pages/ranges, quick first/last page stripping,
      enforces at least 1 page retention.
-
-5. PENDING / ROADMAP ITEMS
---------------------------
-- Google AdSense & Google Analytics 4 integration (`src/config/adsAndAnalytics.ts`
-  and `src/components/common/AdSlot.tsx` are scaffolded, awaiting production IDs).
-- Next candidate tools:
-  * Compress / Optimize PDF (downsampling, metadata cleanup)
-  * Image to PDF / PDF to Image converter
-  * Protect / Unlock PDF (Password encryption/decryption)
 
 6. Compress PDF:
    - Route: `/compress-pdf`
@@ -108,6 +129,23 @@ in browser memory via WebAssembly/pure client execution.
    - Component: `src/components/tools/ImagesToPdf.tsx`
    - Page: `src/pages/ImagesToPdfPage.tsx`
    - Features: Multi-image upload (JPG, PNG, WebP via Canvas), drag-and-drop, Move Up/Down reordering, page sizing presets (A4 Portrait/Landscape, US Letter, Fit to Image), margin control, collision-free timestamped exports.
+
+8. Add Page Numbers:
+   - Route: `/add-page-numbers`
+   - Engine: `src/lib/pdf/pageNumbers.ts`
+   - Component: `src/components/tools/AddPageNumbers.tsx`
+   - Page: `src/pages/AddPageNumbersPage.tsx`
+   - Features: 6 placement positions (Top/Bottom Left, Center, Right), formats (Page X of Y, Slash, Number only, Hyphenated), typography selection, font size, page margins, cover page skip, start count offset.
+
+5. PENDING / ROADMAP ITEMS
+--------------------------
+- Google AdSense & Google Analytics 4 integration (`src/config/adsAndAnalytics.ts`
+  and `src/components/common/AdSlot.tsx` are scaffolded, awaiting production IDs).
+- Next candidate tools (100% In-Browser & Offline-Verified):
+  * Protect / Unlock PDF (Password encryption/decryption)
+  * PDF to Image / PDF to JPG (Render pages via Canvas to individual image downloads/ZIP)
+  * Watermark PDF (Stamp custom diagonal text or logo overlay)
+  * Crop / Trim PDF (Adjust crop boxes and media boxes)
 
 6. VERIFIED SOURCE DIRECTORY TREE
 ---------------------------------
@@ -124,8 +162,11 @@ src/
 |   |   |-- Header.tsx
 |   |   |-- ToolLayout.tsx
 |   |-- tools/
+|       |-- AddPageNumbers.tsx
+|       |-- CompressPdf.tsx
 |       |-- DeletePagesPdf.tsx
 |       |-- GenerateSamplePdf.tsx
+|       |-- ImagesToPdf.tsx
 |       |-- MergePdf.tsx
 |       |-- RotatePdf.tsx
 |       |-- SplitPdf.tsx
@@ -136,16 +177,22 @@ src/
 |-- lib/
 |   |-- storage.ts
 |   |-- pdf/
+|       |-- compress.ts
 |       |-- deletePages.ts
 |       |-- generateSample.ts
+|       |-- imagesToPdf.ts
 |       |-- merge.ts
 |       |-- naming.ts
+|       |-- pageNumbers.ts
 |       |-- rotate.ts
 |       |-- split.ts
 |-- pages/
+|   |-- AddPageNumbersPage.tsx
+|   |-- CompressPage.tsx
 |   |-- DeletePagesPage.tsx
 |   |-- GenerateSamplePage.tsx
 |   |-- HomePage.tsx
+|   |-- ImagesToPdfPage.tsx
 |   |-- MergePage.tsx
 |   |-- RotatePage.tsx
 |   |-- SplitPage.tsx
