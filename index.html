@@ -7,13 +7,21 @@
     <title>MyDailyUtils - 100% In-Browser Daily Utilities & PDF Tools</title>
     <meta name="description" content="Merge PDFs, convert images, and format data directly in your browser. Fast, free, and zero files sent to any remote server." />
 
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5229473053528385"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-MEASUREMENT_ID', { send_page_view: true });
+      // send_page_view: false prevents duplicate initial hits in SPA route tracking
+      gtag('config', 'G-MEASUREMENT_ID', { send_page_view: false });
     </script>
   </head>
   <body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigo-500 selection:text-white">
