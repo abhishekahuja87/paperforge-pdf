@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { 
   Upload, 
-  Image as ImageIcon, 
   ArrowUp, 
   ArrowDown, 
   Trash2, 
@@ -9,8 +8,7 @@ import {
   Sparkles, 
   RefreshCw, 
   AlertCircle,
-  Layers,
-  Maximize2
+  Layers
 } from 'lucide-react';
 import { 
   convertImagesToPdf, 

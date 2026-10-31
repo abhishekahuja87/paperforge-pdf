@@ -1,4 +1,4 @@
-import { PDFDocument, PDFName, PDFRawStream } from 'pdf-lib';
+import { PDFDocument, PDFName } from 'pdf-lib';
 
 export type CompressionLevel = 'basic' | 'strong';
 
