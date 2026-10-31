@@ -91,13 +91,13 @@ export const TOOLS: ToolItem[] = [
   {
     id: 'compress-pdf',
     title: 'Compress PDF',
-    description: 'Shrink file size while preserving legibility.',
+    description: 'Reduce file size while preserving quality.',
     category: 'pdf',
     path: '/compress-pdf',
     icon: 'minimize',
     isPopularInternet: true,
-    isAvailable: false,
-    keywords: ['compress', 'reduce size', 'optimize', 'pdf'],
+    isAvailable: true, // Set to true
+    keywords: ['compress', 'shrink', 'reduce', 'size', 'pdf', 'optimize'],
   },
   {
     id: 'delete-pdf-pages',
