@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { getPdfPageCount } from '../../lib/pdf/split';
 import { rotatePdf, type RotationAngle, type RotationScope } from '../../lib/pdf/rotate';
+import { generatePdfFilename } from '../../lib/pdf/naming';
 
 export const RotatePdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -22,6 +23,7 @@ export const RotatePdf: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [downloadName, setDownloadName] = useState<string>('');
 
   const [lastGeneratedKey, setLastGeneratedKey] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -30,7 +32,7 @@ export const RotatePdf: React.FC = () => {
     fileName: file?.name,
     angle,
     scope,
-    rangeInput,
+    rangeInput: rangeInput.trim(),
   });
 
   const isOutOfSync = downloadUrl !== null && currentSettingsKey !== lastGeneratedKey;
@@ -83,7 +85,13 @@ export const RotatePdf: React.FC = () => {
       const blob = new Blob([rotatedBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
 
+      const scopeDetail = scope === 'custom' 
+        ? `pages-${rangeInput.replace(/\s+/g, '').replace(/,/g, '_')}` 
+        : scope;
+      const finalName = generatePdfFilename(file.name, 'rotated', `${angle}deg_${scopeDetail}`);
+
       setDownloadUrl(url);
+      setDownloadName(finalName);
       setLastGeneratedKey(currentSettingsKey);
       setStatus('done');
     } catch {
@@ -97,6 +105,7 @@ export const RotatePdf: React.FC = () => {
     setFile(null);
     setPageCount(0);
     setDownloadUrl(null);
+    setDownloadName('');
     setStatus('idle');
     setErrorMessage('');
     setLastGeneratedKey('');
@@ -274,7 +283,7 @@ export const RotatePdf: React.FC = () => {
             {downloadUrl && (
               <a
                 href={downloadUrl}
-                download={`rotated_${file.name}`}
+                download={downloadName || 'rotated_document.pdf'}
                 className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition ${
                   isOutOfSync
                     ? 'bg-slate-200 text-slate-500 cursor-not-allowed opacity-75'

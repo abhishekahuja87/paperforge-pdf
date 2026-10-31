@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Upload, FileText, Trash2, ArrowUp, ArrowDown, Download, Loader2 } from 'lucide-react';
 import { mergePdfFiles } from '../../lib/pdf/merge';
+import { generatePdfFilename } from '../../lib/pdf/naming';
 
 export const MergePdf: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [downloadName, setDownloadName] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,6 +17,7 @@ export const MergePdf: React.FC = () => {
       );
       setFiles((prev) => [...prev, ...selected]);
       setDownloadUrl(null);
+      setDownloadName('');
       setError(null);
     }
   };
@@ -22,6 +25,7 @@ export const MergePdf: React.FC = () => {
   const removeFile = (index: number) => {
     setFiles((prev) => prev.filter((_, i) => i !== index));
     setDownloadUrl(null);
+    setDownloadName('');
   };
 
   const moveFile = (index: number, direction: 'up' | 'down') => {
@@ -33,22 +37,24 @@ export const MergePdf: React.FC = () => {
     updated.splice(targetIndex, 0, movedFile);
     setFiles(updated);
     setDownloadUrl(null);
+    setDownloadName('');
   };
 
   const handleMerge = async () => {
-    if (files.length < 2) {
-      setError('Select at least 2 PDF files to merge.');
-      return;
-    }
+    if (files.length < 2) return;
 
     try {
       setIsProcessing(true);
       setError(null);
+
       const mergedBlob = await mergePdfFiles(files);
       const url = URL.createObjectURL(mergedBlob);
+      const finalName = generatePdfFilename('documents', 'merged', `${files.length}files`);
+
       setDownloadUrl(url);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'An unexpected error occurred while merging.');
+      setDownloadName(finalName);
+    } catch {
+      setError('Failed to merge PDF files. Please ensure none are password-protected or corrupted.');
     } finally {
       setIsProcessing(false);
     }
@@ -108,7 +114,7 @@ export const MergePdf: React.FC = () => {
                   type="button"
                   onClick={() => moveFile(idx, 'up')}
                   disabled={idx === 0}
-                  className="p-1 hover:bg-slate-200 rounded disabled:opacity-30"
+                  className="p-1 hover:bg-slate-200 rounded disabled:opacity-30 cursor-pointer"
                   title="Move up"
                 >
                   <ArrowUp className="w-4 h-4 text-slate-600" />
@@ -117,7 +123,7 @@ export const MergePdf: React.FC = () => {
                   type="button"
                   onClick={() => moveFile(idx, 'down')}
                   disabled={idx === files.length - 1}
-                  className="p-1 hover:bg-slate-200 rounded disabled:opacity-30"
+                  className="p-1 hover:bg-slate-200 rounded disabled:opacity-30 cursor-pointer"
                   title="Move down"
                 >
                   <ArrowDown className="w-4 h-4 text-slate-600" />
@@ -125,7 +131,7 @@ export const MergePdf: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => removeFile(idx)}
-                  className="p-1 hover:bg-red-50 rounded text-red-500"
+                  className="p-1 hover:bg-red-50 rounded text-red-500 cursor-pointer"
                   title="Remove"
                 >
                   <Trash2 className="w-4 h-4" />
@@ -142,7 +148,7 @@ export const MergePdf: React.FC = () => {
           type="button"
           onClick={handleMerge}
           disabled={files.length < 2 || isProcessing}
-          className="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-sm transition disabled:opacity-50 flex items-center justify-center space-x-2"
+          className="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-sm transition disabled:opacity-50 flex items-center justify-center space-x-2 cursor-pointer"
         >
           {isProcessing ? (
             <>
@@ -157,8 +163,8 @@ export const MergePdf: React.FC = () => {
         {downloadUrl && (
           <a
             href={downloadUrl}
-            download="merged-document.pdf"
-            className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2"
+            download={downloadName || 'merged_documents.pdf'}
+            className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
           >
             <Download className="w-5 h-5" />
             <span>Download Merged PDF</span>

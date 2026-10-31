@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { Upload, FileText, AlertCircle, Scissors, Download, X } from 'lucide-react';
+import { Upload, FileText, AlertCircle, Scissors, Download, X, RefreshCw, Sparkles } from 'lucide-react';
 import { getPdfPageCount, parsePageRanges, extractPages } from '../../lib/pdf/split';
+import { generatePdfFilename } from '../../lib/pdf/naming';
 
 export const SplitPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -9,8 +10,18 @@ export const SplitPdf: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [downloadName, setDownloadName] = useState<string>('');
 
+  // Dirty state tracking
+  const [lastGeneratedKey, setLastGeneratedKey] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const currentSettingsKey = JSON.stringify({
+    fileName: file?.name,
+    rangeInput: rangeInput.trim(),
+  });
+
+  const isOutOfSync = downloadUrl !== null && currentSettingsKey !== lastGeneratedKey;
 
   const handleFile = async (selectedFile: File) => {
     if (selectedFile.type !== 'application/pdf' && !selectedFile.name.endsWith('.pdf')) {
@@ -61,7 +72,12 @@ export const SplitPdf: React.FC = () => {
       const blob = new Blob([outputBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
 
+      const cleanRange = rangeInput.replace(/\s+/g, '').replace(/,/g, '_');
+      const finalName = generatePdfFilename(file.name, 'split', `pages-${cleanRange}`);
+
       setDownloadUrl(url);
+      setDownloadName(finalName);
+      setLastGeneratedKey(currentSettingsKey);
       setStatus('done');
     } catch {
       setErrorMessage('An error occurred during extraction. Check if pages are within range.');
@@ -75,12 +91,14 @@ export const SplitPdf: React.FC = () => {
     setPageCount(0);
     setRangeInput('');
     setDownloadUrl(null);
+    setDownloadName('');
     setStatus('idle');
     setErrorMessage('');
+    setLastGeneratedKey('');
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-6 space-y-6">
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 sm:p-6 space-y-6">
       {!file && (
         <div
           onDragOver={(e) => e.preventDefault()}
@@ -121,7 +139,7 @@ export const SplitPdf: React.FC = () => {
             </div>
             <button
               onClick={handleReset}
-              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md transition"
+              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md transition cursor-pointer"
               title="Remove file"
             >
               <X className="w-4 h-4" />
@@ -138,12 +156,12 @@ export const SplitPdf: React.FC = () => {
                 value={rangeInput}
                 onChange={(e) => setRangeInput(e.target.value)}
                 placeholder={`e.g. 1-3, 5, 8-${pageCount}`}
-                className="flex-1 px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                className="flex-1 px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 bg-white"
               />
               <button
                 type="button"
                 onClick={() => setRangeInput(`1-${pageCount}`)}
-                className="px-3 py-2 text-xs font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition"
+                className="px-3 py-2 text-xs font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition cursor-pointer"
               >
                 All Pages
               </button>
@@ -160,33 +178,54 @@ export const SplitPdf: React.FC = () => {
             </div>
           )}
 
+          {isOutOfSync && (
+            <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200/80 text-amber-800 text-xs flex items-center justify-between">
+              <span>Page range changed since last split. Click below to refresh your file.</span>
+              <span className="font-semibold text-amber-900 flex items-center gap-1">
+                <RefreshCw className="w-3 h-3 animate-spin" /> Unsaved
+              </span>
+            </div>
+          )}
+
           <div className="pt-2 flex flex-col sm:flex-row gap-3">
-            {status !== 'done' ? (
-              <button
-                onClick={handleSplit}
-                disabled={status === 'processing'}
-                className="flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold shadow-xs disabled:opacity-50 transition cursor-pointer"
-              >
+            <button
+              onClick={handleSplit}
+              disabled={status === 'processing'}
+              className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition cursor-pointer ${
+                isOutOfSync
+                  ? 'bg-amber-600 hover:bg-amber-700 text-white'
+                  : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+              }`}
+            >
+              {status === 'processing' ? (
+                <Sparkles className="w-4 h-4 animate-spin" />
+              ) : isOutOfSync ? (
+                <RefreshCw className="w-4 h-4" />
+              ) : (
                 <Scissors className="w-4 h-4" />
-                <span>{status === 'processing' ? 'Extracting Pages...' : 'Extract & Download PDF'}</span>
-              </button>
-            ) : (
-              <div className="w-full space-y-3">
-                <a
-                  href={downloadUrl!}
-                  download={`split_${file.name}`}
-                  className="w-full inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-xs transition"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Download Extracted PDF</span>
-                </a>
-                <button
-                  onClick={handleReset}
-                  className="w-full text-center text-xs text-slate-500 hover:text-slate-700 underline cursor-pointer"
-                >
-                  Split another range or document
-                </button>
-              </div>
+              )}
+              <span>
+                {status === 'processing'
+                  ? 'Extracting Pages...'
+                  : isOutOfSync
+                  ? 'Re-Extract with New Range'
+                  : 'Extract & Download PDF'}
+              </span>
+            </button>
+
+            {downloadUrl && (
+              <a
+                href={downloadUrl}
+                download={downloadName || 'split_document.pdf'}
+                className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition ${
+                  isOutOfSync
+                    ? 'bg-slate-200 text-slate-500 cursor-not-allowed opacity-75'
+                    : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                }`}
+              >
+                <Download className="w-4 h-4" />
+                <span>{isOutOfSync ? 'Download Outdated File' : 'Download Extracted PDF'}</span>
+              </a>
             )}
           </div>
         </div>

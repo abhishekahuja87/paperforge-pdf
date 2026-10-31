@@ -9,7 +9,8 @@ export type ToolIconName =
   | 'file-code' 
   | 'binary' 
   | 'type'
-  | 'file-plus';
+  | 'file-plus'
+  | 'trash-2';
 
 export interface ToolItem {
   id: string;
@@ -97,6 +98,17 @@ export const TOOLS: ToolItem[] = [
     isPopularInternet: true,
     isAvailable: false,
     keywords: ['compress', 'reduce size', 'optimize', 'pdf'],
+  },
+  {
+    id: 'delete-pdf-pages',
+    title: 'Delete PDF Pages',
+    description: 'Remove unwanted, blank, or sensitive pages.',
+    category: 'pdf',
+    path: '/delete-pdf-pages',
+    icon: 'trash-2',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['delete', 'remove', 'pages', 'prune', 'pdf'],
   },
 
   // Media

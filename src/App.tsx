@@ -7,6 +7,7 @@ import { MergePage } from './pages/MergePage';
 import { SplitPage } from './pages/SplitPage';
 import { GenerateSamplePage } from './pages/GenerateSamplePage';
 import { RotatePage } from './pages/RotatePage';
+import { DeletePagesPage } from './pages/DeletePagesPage';
 
 export const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ export const App: React.FC = () => {
             <Route path="/split-pdf" element={<SplitPage />} />
             <Route path="/generate-sample-pdf" element={<GenerateSamplePage />} />
             <Route path="/rotate-pdf" element={<RotatePage />} />
+            <Route path="/delete-pdf-pages" element={<DeletePagesPage />} />
           </Routes>
         </main>
         <Footer />

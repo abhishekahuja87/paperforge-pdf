@@ -3,21 +3,17 @@ import {
   FilePlus, 
   Download, 
   Sparkles, 
-  Image as ImageIcon, 
-  Bookmark, 
-  CheckSquare, 
   AlertTriangle, 
-  Link2,
-  ChevronDown,
-  ChevronUp,
-  RefreshCw,
-  FileCheck2
+  ChevronDown, 
+  ChevronUp, 
+  RefreshCw 
 } from 'lucide-react';
 import { 
   generateSamplePdf, 
   type SampleTemplate, 
   type CorruptionMode 
 } from '../../lib/pdf/generateSample';
+import { generatePdfFilename } from '../../lib/pdf/naming';
 
 export const GenerateSamplePdf: React.FC = () => {
   const [pageCount, setPageCount] = useState<number>(3);
@@ -25,7 +21,7 @@ export const GenerateSamplePdf: React.FC = () => {
   const [customTitle, setCustomTitle] = useState<string>('Sample Invoice');
   const [targetSizeMb, setTargetSizeMb] = useState<number>(0);
 
-  // Advanced PDF Structure Toggles (Defaulted to false for realistic output)
+  // Advanced PDF Structure Toggles
   const [includeImages, setIncludeImages] = useState<boolean>(false);
   const [includeBookmarks, setIncludeBookmarks] = useState<boolean>(false);
   const [includeFormFields, setIncludeFormFields] = useState<boolean>(false);
@@ -36,6 +32,7 @@ export const GenerateSamplePdf: React.FC = () => {
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [downloadName, setDownloadName] = useState<string>('');
   
   // Track generated state to give clear feedback when settings change
   const [lastGeneratedKey, setLastGeneratedKey] = useState<string>('');
@@ -56,7 +53,6 @@ export const GenerateSamplePdf: React.FC = () => {
 
   const handleTemplateChange = (newTemplate: SampleTemplate) => {
     setTemplate(newTemplate);
-    // Auto-update title and smart defaults based on selected template
     if (newTemplate === 'invoice') {
       setCustomTitle('Sample Invoice');
       setIncludeImages(false);
@@ -84,10 +80,11 @@ export const GenerateSamplePdf: React.FC = () => {
       setIsGenerating(true);
       if (downloadUrl) URL.revokeObjectURL(downloadUrl);
 
+      const titleToUse = customTitle.trim() || 'Sample PDF';
       const pdfBytes = await generateSamplePdf({
         pageCount,
         template,
-        title: customTitle.trim() || 'Sample PDF',
+        title: titleToUse,
         targetSizeMb,
         includeImages,
         includeBookmarks,
@@ -98,7 +95,12 @@ export const GenerateSamplePdf: React.FC = () => {
 
       const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
+
+      const details = `${template}_${pageCount}p${corruptionMode !== 'none' ? `_${corruptionMode}` : ''}`;
+      const finalName = generatePdfFilename(titleToUse, 'sample', details);
+
       setDownloadUrl(url);
+      setDownloadName(finalName);
       setLastGeneratedKey(currentSettingsKey);
     } catch (err) {
       console.error('Failed to generate sample PDF:', err);
@@ -196,7 +198,7 @@ export const GenerateSamplePdf: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Advanced Toggle (Keeps UI clean by default) */}
+      {/* 3. Advanced Toggle */}
       <div className="pt-1 border-t border-slate-100">
         <button
           type="button"
@@ -325,7 +327,7 @@ export const GenerateSamplePdf: React.FC = () => {
         </div>
       )}
 
-      {/* 4. Action Buttons & Clear Status */}
+      {/* 4. Action Buttons */}
       <div className="pt-2 flex flex-col sm:flex-row gap-3">
         <button
           onClick={handleGenerate}
@@ -349,7 +351,7 @@ export const GenerateSamplePdf: React.FC = () => {
         {downloadUrl && (
           <a
             href={downloadUrl}
-            download={`${customTitle.toLowerCase().replace(/[^a-z0-9]/g, '_')}_${corruptionMode !== 'none' ? 'corrupt_' : ''}${pageCount}p.pdf`}
+            download={downloadName || 'sample_document.pdf'}
             className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition ${
               isOutOfSync
                 ? 'bg-slate-200 text-slate-500 cursor-not-allowed opacity-75'
