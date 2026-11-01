@@ -277,12 +277,12 @@ export const TOOLS: ToolItem[] = [
   {
     id: 'image-converter',
     title: 'Image Converter',
-    description: 'Convert between PNG, JPG, WebP, and SVG formats.',
+    description: 'Convert PNG, JPG, and WebP images between common formats.',
     category: 'media',
     path: '/image-converter',
     icon: 'image',
     isPopularInternet: true,
-    isAvailable: false,
+    isAvailable: true,
     keywords: ['image', 'convert', 'webp', 'png', 'jpg'],
   },
   {
@@ -292,7 +292,7 @@ export const TOOLS: ToolItem[] = [
     category: 'media',
     path: '/image-compressor',
     icon: 'minimize',
-    isAvailable: false,
+    isAvailable: true,
     keywords: ['compress', 'resize', 'image'],
   },
 
@@ -305,7 +305,7 @@ export const TOOLS: ToolItem[] = [
     path: '/json-formatter',
     icon: 'file-code',
     isPopularInternet: true,
-    isAvailable: false,
+    isAvailable: true,
     keywords: ['json', 'format', 'prettify'],
   },
   {
@@ -315,7 +315,7 @@ export const TOOLS: ToolItem[] = [
     category: 'dev',
     path: '/base64-tool',
     icon: 'binary',
-    isAvailable: false,
+    isAvailable: true,
     keywords: ['base64', 'sha256', 'hash'],
   },
 ];

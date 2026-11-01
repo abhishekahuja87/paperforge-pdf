@@ -27,6 +27,10 @@ const PdfToImagesPage = lazy(() => import('./pages/PdfToImagesPage').then((m) =>
 const ExtractTextPage = lazy(() => import('./pages/ExtractTextPage').then((m) => ({ default: m.ExtractTextPage })));
 const OrganizePage = lazy(() => import('./pages/OrganizePage').then((m) => ({ default: m.OrganizePage })));
 const MasterDocumentStudioPage = lazy(() => import('./pages/MasterDocumentStudioPage').then((m) => ({ default: m.MasterDocumentStudioPage })));
+const ImageConverterPage = lazy(() => import('./pages/ImageConverterPage').then((m) => ({ default: m.ImageConverterPage })));
+const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').then((m) => ({ default: m.ImageCompressorPage })));
+const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
+const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => ({ default: m.Base64ToolPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
@@ -62,6 +66,10 @@ export const App: React.FC = () => {
               <Route path="/extract-text" element={<ExtractTextPage />} />
               <Route path="/organize-pdf" element={<OrganizePage />} />
               <Route path="/master-document-studio" element={<MasterDocumentStudioPage />} />
+              <Route path="/image-converter" element={<ImageConverterPage />} />
+              <Route path="/image-compressor" element={<ImageCompressorPage />} />
+              <Route path="/json-formatter" element={<JsonFormatterPage />} />
+              <Route path="/base64-tool" element={<Base64ToolPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/about" element={<AboutPage />} />
