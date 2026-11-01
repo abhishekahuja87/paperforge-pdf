@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Layers, Image as ImageIcon, Code2, Type, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Search, Layers, Image as ImageIcon, Code2, Type, ArrowRight, ShieldCheck, Presentation } from 'lucide-react';
 import { TOOLS, CATEGORIES } from '../config/tools';
 import type { ToolCategory } from '../config/tools';
 import { ToolIcon } from '../components/common/ToolIcon';
@@ -30,6 +30,7 @@ export const HomePage: React.FC = () => {
     media: <ImageIcon className="w-3.5 h-3.5 text-emerald-600" />,
     dev: <Code2 className="w-3.5 h-3.5 text-amber-600" />,
     text: <Type className="w-3.5 h-3.5 text-sky-600" />,
+    display: <Presentation className="w-3.5 h-3.5 text-violet-600" />,
   };
 
   return (

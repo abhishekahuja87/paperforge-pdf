@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@keyframes display-slide-fade {
+  from { opacity: 0.25; }
+  to { opacity: 1; }
+}
+
+@keyframes display-slide-zoom {
+  from { transform: scale(1.025); }
+  to { transform: scale(1); }
+}
+
+.display-slide-fade {
+  animation: display-slide-fade 420ms ease-out both;
+}
+
+.display-slide-zoom {
+  animation: display-slide-zoom 4s ease-out both;
+}

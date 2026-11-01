@@ -1,4 +1,4 @@
-export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text';
+export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text' | 'display';
 
 export type ToolIconName = 
   | 'layers' 
@@ -18,7 +18,8 @@ export type ToolIconName =
   | 'grid'
   | 'lock'
   | 'unlock'
-  | 'file-text';
+  | 'file-text'
+  | 'presentation';
 
 export interface ToolItem {
   id: string;
@@ -48,6 +49,10 @@ export const CATEGORIES: Record<ToolCategory, { name: string; description: strin
   text: {
     name: 'Text & Writing',
     description: 'Character counts, casing transformations, and text utilities.',
+  },
+  display: {
+    name: 'Display & Presentation',
+    description: 'Create local browser-based slideshows for classrooms, events, and screens.',
   },
 };
 
@@ -317,5 +322,16 @@ export const TOOLS: ToolItem[] = [
     icon: 'binary',
     isAvailable: true,
     keywords: ['base64', 'sha256', 'hash'],
+  },
+  {
+    id: 'display-studio',
+    title: 'Display & Presentation',
+    description: 'Present PDF pages, Word documents, and images as a timed fullscreen show.',
+    category: 'display',
+    path: '/display-studio',
+    icon: 'presentation',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['display', 'presentation', 'slideshow', 'classroom', 'tv', 'signage', 'advertising', 'clock', 'fullscreen', 'pdf', 'docx', 'image'],
   },
 ];

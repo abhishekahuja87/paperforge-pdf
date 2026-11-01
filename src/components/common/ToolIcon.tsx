@@ -18,6 +18,7 @@ import {
   Lock,
   Unlock,
   FileText,
+  Presentation,
 } from 'lucide-react';
 import type { ToolIconName } from '../../config/tools';
 
@@ -40,6 +41,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   lock: Lock,
   unlock: Unlock,
   'file-text': FileText,
+  presentation: Presentation,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {
