@@ -26,6 +26,7 @@ const FlattenPage = lazy(() => import('./pages/FlattenPage').then((m) => ({ defa
 const PdfToImagesPage = lazy(() => import('./pages/PdfToImagesPage').then((m) => ({ default: m.PdfToImagesPage })));
 const ExtractTextPage = lazy(() => import('./pages/ExtractTextPage').then((m) => ({ default: m.ExtractTextPage })));
 const OrganizePage = lazy(() => import('./pages/OrganizePage').then((m) => ({ default: m.OrganizePage })));
+const MasterDocumentStudioPage = lazy(() => import('./pages/MasterDocumentStudioPage').then((m) => ({ default: m.MasterDocumentStudioPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
@@ -60,6 +61,7 @@ export const App: React.FC = () => {
               <Route path="/pdf-to-images" element={<PdfToImagesPage />} />
               <Route path="/extract-text" element={<ExtractTextPage />} />
               <Route path="/organize-pdf" element={<OrganizePage />} />
+              <Route path="/master-document-studio" element={<MasterDocumentStudioPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/about" element={<AboutPage />} />

@@ -15,6 +15,12 @@ export interface ProtectPdfOptions {
   fileBuffer: ArrayBuffer;
   userPassword?: string;
   ownerPassword?: string;
+  metadata?: {
+    title?: string;
+    author?: string;
+    subject?: string;
+    keywords?: string;
+  };
   permissions?: {
     printing?: boolean;
     copying?: boolean;
@@ -22,7 +28,7 @@ export interface ProtectPdfOptions {
 }
 
 export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array> {
-  const { fileBuffer, userPassword = '', ownerPassword = '', permissions } = options;
+  const { fileBuffer, userPassword = '', ownerPassword = '', metadata, permissions } = options;
 
   if (!userPassword && !ownerPassword) {
     throw new Error('Please set at least a user password (to open) or an owner password.');
@@ -122,6 +128,12 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
       fillingForms: false,
       contentAccessibility: true,
       documentAssembly: false,
+    },
+    info: {
+      title: metadata?.title,
+      author: metadata?.author,
+      subject: metadata?.subject,
+      keywords: metadata?.keywords,
     },
   };
 

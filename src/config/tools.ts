@@ -261,6 +261,17 @@ export const TOOLS: ToolItem[] = [
     isAvailable: true,
     keywords: ['organize', 'reorder', 'sort', 'arrange', 'delete', 'rotate', 'thumbnails', 'pdf'],
   },
+  {
+    id: 'master-document-studio',
+    title: 'Master Document Studio',
+    description: 'Assemble PDF, Word, image, and custom pages into a polished master PDF.',
+    category: 'pdf',
+    path: '/master-document-studio',
+    icon: 'layers',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['document', 'studio', 'assembler', 'combine', 'docx', 'image', 'custom', 'pdf'],
+  },
 
   // Media
   {
