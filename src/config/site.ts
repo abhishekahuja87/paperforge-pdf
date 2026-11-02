@@ -3,8 +3,8 @@ export const siteConfig = {
   shortName: 'MyDailyUtils',
   tagline: 'Simple Everyday Utilities. Processed Securely on Your Device.',
   description:
-    'Free, lightweight tools for your everyday digital workflow. Every file conversion, PDF merge, and data calculation runs securely in your web browser—zero files sent to any remote server.',
-  privacyHook: '100% In-Browser Privacy — Zero Files Uploaded',
+    'Free, lightweight tools for your everyday digital workflow. Files are processed entirely in your web browser and are never uploaded to our servers for processing.',
+  privacyHook: '100% In-Browser File Processing — Zero File Uploads',
   links: {
     github: 'https://github.com',
   },

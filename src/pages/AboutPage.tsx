@@ -17,7 +17,7 @@ export const AboutPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">Our Mission</h2>
         <p>
-          Most online PDF tools force you to upload sensitive documents to remote servers in order to merge pages or remove fillable fields. <strong>MyDailyUtils</strong> was engineered to solve this vulnerability by moving all computational workloads directly into the client browser.
+          <strong>MyDailyUtils</strong> keeps file processing on your device. Our utilities perform their work directly in your browser, so your documents are not uploaded to a remote server for processing.
         </p>
       </section>
 
@@ -26,7 +26,7 @@ export const AboutPage: React.FC = () => {
           <Lock className="w-6 h-6 text-indigo-600" />
           <h3 className="font-bold text-slate-900 text-sm">Zero Server Uploads</h3>
           <p className="text-xs text-slate-500">
-            Files remain inside your device memory. No data is stored or logged.
+            Utility files are processed in your browser and are not uploaded to MyDailyUtils for processing.
           </p>
         </div>
         <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2">

@@ -71,9 +71,9 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
       <section className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200/80 flex items-start space-x-2.5">
         <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
         <div className="text-[11px] text-emerald-900 leading-relaxed">
-          <strong className="font-semibold text-emerald-950">100% Client-Side Privacy: </strong>
+          <strong className="font-semibold text-emerald-950">Local File Processing: </strong>
           {privacyNote ||
-            `All document processing runs inside your browser memory using WebAssembly. Files never touch the ${siteConfig.name} servers or third-party networks.`}
+            `This tool processes your files in your browser; they are never uploaded to ${siteConfig.name} servers for processing.`}
         </div>
       </section>
     </div>

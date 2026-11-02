@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, WifiOff } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 
 export type UnifiedHeroVariant = 'centered' | 'split' | 'compact';
@@ -26,17 +26,17 @@ export const UnifiedHero: React.FC<UnifiedHeroProps> = ({ variant = 'centered' }
 
       <div className={`relative z-10 ${isSplit ? 'grid gap-4 text-left md:grid-cols-[1.2fr_0.8fr] md:items-center' : isCompact ? 'flex flex-col gap-3 text-left sm:flex-row sm:items-center sm:justify-between' : 'mx-auto max-w-3xl space-y-4 text-center'}`}>
         <div className={isSplit ? 'space-y-3' : isCompact ? 'space-y-2' : 'space-y-4'}>
-        {/* Live In-Browser Privacy Badge */}
+        {/* Client-side file processing badge */}
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-[11px] font-bold bg-white/10 text-emerald-300 border border-emerald-500/25 backdrop-blur-md shadow-sm">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
           </span>
-          <span>100% In-Browser Engine</span>
+          <span>100% In-Browser File Processing</span>
           <span className="text-slate-500">•</span>
           <span className="flex items-center gap-1 text-white">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 inline" />
-            Zero Server Uploads
+            Zero File Uploads
           </span>
         </div>
 
@@ -50,19 +50,17 @@ export const UnifiedHero: React.FC<UnifiedHeroProps> = ({ variant = 'centered' }
 
         {/* Clear Explanation */}
         <p className={`text-xs sm:text-sm text-slate-300 leading-relaxed ${variant === 'centered' ? 'mx-auto max-w-xl' : 'max-w-xl'}`}>
-          Unlike online tools that upload your sensitive documents to cloud servers, <span className="text-white font-semibold">{siteConfig.name}</span> processes all raw file bytes locally inside your browser RAM.
+          <span className="text-white font-semibold">{siteConfig.name}</span> processes your files locally inside your browser. Your files are never uploaded to our servers for processing.
         </p>
         </div>
 
-        {/* Verifiable Air-Gapped Banner */}
         <div className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-xs text-left ${variant === 'centered' ? 'mx-auto' : ''}`}>
-          <WifiOff className="w-4 h-4 text-emerald-400 shrink-0" />
+          <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>
-            <strong className="text-white">Air-Gapped Privacy:</strong> Once loaded, disconnect your internet—all operations run locally in your browser memory without network requests.
+            <strong className="text-white">Private by design:</strong> file processing happens on your device, with no file uploads to our servers.
           </span>
         </div>
       </div>
     </section>
   );
 };
-

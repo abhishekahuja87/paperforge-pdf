@@ -24,7 +24,7 @@ export const TermsPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">2. Description of Service</h2>
         <p>
-          MyDailyUtils provides browser-based utilities for viewing, reorganizing, flattening, merging, and transforming PDF documents and related file formats. The tools are free to use and run in your browser.
+          MyDailyUtils provides browser-based utilities for viewing, reorganizing, flattening, merging, and transforming PDF documents and related file formats. File processing runs in your browser, and files are not uploaded to MyDailyUtils for processing.
         </p>
       </section>
 

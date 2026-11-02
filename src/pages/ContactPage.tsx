@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const ContactPage: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -12,7 +13,7 @@ export const ContactPage: React.FC = () => {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    formData.append('access_key', 'e22e5114-1e05-4c07-b371-331046757b32'); // standard relay token
+    formData.append('access_key', 'e220cf89-97f3-4f17-9067-c171d9a92c22');
     formData.append('subject', 'New Contact Message - MyDailyUtils');
 
     try {
@@ -48,6 +49,10 @@ export const ContactPage: React.FC = () => {
             </p>
           </div>
         </div>
+        <p className="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-xs leading-relaxed text-slate-600">
+          This form is handled by Web3Forms, a third-party service. When you submit it, your name, email address, and message are sent to Web3Forms to deliver your message. This is separate from our utility tools, which process your files in your browser. See our{' '}
+          <Link to="/privacy" className="font-semibold text-indigo-700 underline">Privacy Policy</Link>.
+        </p>
 
         {status === 'success' ? (
           <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
