@@ -2,10 +2,10 @@ export const siteConfig = {
   name: 'MyDailyUtils',
   shortName: 'MyDailyUtils',
   url: 'https://www.mydailyutils.in',
-  tagline: 'Simple Everyday Utilities. Processed Securely on Your Device.',
+  tagline: 'Online tools and utilities for files, data, and everyday tasks.',
   description:
-    'Free, lightweight tools for your everyday digital workflow. Files are processed entirely in your web browser and are never uploaded to our servers for processing.',
-  privacyHook: '100% In-Browser File Processing — Zero File Uploads',
+    'Browser-based tools and utilities for files, data, and everyday tasks, including PDF, image, and more. Supported file processing happens locally in your browser.',
+  privacyHook: 'Local file processing in your browser',
   links: {
     github: 'https://github.com',
   },

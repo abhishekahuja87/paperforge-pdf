@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Wrench, ShieldCheck, ChevronDown } from 'lucide-react';
+import { ShieldCheck, ChevronDown } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { TOOLS, CATEGORIES, type ToolCategory } from '../../config/tools';
 import { recordToolClick } from '../../lib/storage';
@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2 group">
           <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shadow-sm group-hover:bg-indigo-700 transition">
-            <Wrench className="w-4 h-4" />
+            <img src="/favicon.svg" alt="" className="h-8 w-8 rounded-lg" />
           </div>
           <span className="font-bold text-lg tracking-tight text-slate-900">
             {siteConfig.shortName}

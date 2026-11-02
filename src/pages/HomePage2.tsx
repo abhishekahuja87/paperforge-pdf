@@ -9,8 +9,8 @@ export const HomePage2: React.FC = () => {
   return (
     <div className="space-y-4 pb-12">
       <PageMetadata
-        title="Free Browser-Based PDF, Image & Data Tools"
-        description="Use free PDF, image, data, display, and business tools in your browser. Selected files are processed on your device and are not uploaded to MyDailyUtils for processing."
+        title="Online Tools & Utilities | PDF, Images & More"
+        description="Explore browser-based tools and utilities for files, data, and everyday tasks. PDF, images, and more, with supported file processing done locally in your browser."
       />
       <HomeTopBanner query={query} onQueryChange={setQuery} />
       <HomeToolsGrid query={query} />

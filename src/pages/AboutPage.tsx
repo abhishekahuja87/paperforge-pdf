@@ -8,7 +8,7 @@ export const AboutPage: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 py-12 space-y-10 text-slate-700 leading-relaxed">
       <PageMetadata
         title="About"
-        description="Learn how MyDailyUtils browser-based PDF, image, data, display, and business tools work, what stays on your device, and how to get support."
+        description="Learn about MyDailyUtils online tools and utilities for files, data, and everyday tasks, how local file processing works, and how to get support."
       />
       <div className="flex items-center space-x-3 pb-6 border-b border-slate-200">
         <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">

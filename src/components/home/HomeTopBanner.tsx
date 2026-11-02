@@ -45,7 +45,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
             </span>
           </h1>
           <p className="mt-1.5 max-w-md text-xs leading-relaxed text-slate-300">
-            Free PDF, image, data, and display tools—with file processing done right in your browser.
+            Browser-based tools and utilities for files, data, and everyday tasks—with supported file processing done on your device.
           </p>
           <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1.5 text-[10px] font-medium text-slate-300">
             <span className="inline-flex items-center gap-1"><FileText className="h-3 w-3 text-indigo-300" aria-hidden="true" /> PDF</span>

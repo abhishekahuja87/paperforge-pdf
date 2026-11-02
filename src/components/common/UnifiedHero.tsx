@@ -36,15 +36,15 @@ export const UnifiedHero: React.FC<UnifiedHeroProps> = ({ variant = 'centered' }
           <span className="text-slate-500">•</span>
           <span className="flex items-center gap-1 text-white">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 inline" />
-            Zero File Uploads
+            Files stay on your device
           </span>
         </div>
 
         {/* Headline */}
         <h1 className={`${isCompact ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'} font-extrabold tracking-tight text-white leading-tight`}>
-          Professional Utilities.{' '}
+          Online tools for everyday work.{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-200 to-emerald-300">
-            Executed Entirely in Your Browser.
+            File processing stays local.
           </span>
         </h1>
 
@@ -57,7 +57,7 @@ export const UnifiedHero: React.FC<UnifiedHeroProps> = ({ variant = 'centered' }
         <div className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-xs text-left ${variant === 'centered' ? 'mx-auto' : ''}`}>
           <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>
-            <strong className="text-white">Private by design:</strong> file processing happens on your device, with no file uploads to our servers.
+            <strong className="text-white">Private by design:</strong> selected files are processed on your device, not uploaded to MyDailyUtils for processing.
           </span>
         </div>
       </div>
