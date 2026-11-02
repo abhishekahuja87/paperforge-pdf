@@ -8,15 +8,15 @@ export const SanitizePage: React.FC = () => {
   const steps = [
     {
       title: 'Select PDF to Sanitize',
-      description: 'Upload legal briefs, client contracts, RFP bids, or research documents containing sensitive hidden metadata.',
+      description: 'Select a PDF whose metadata you want to inspect and remove. Keep an original copy before sanitizing.',
     },
     {
       title: 'Choose What to Strip',
-      description: 'Select whether to purge author info, XMP revision histories, pieceInfo workspace data, page thumbnails, or embedded scripts.',
+      description: 'Choose supported items such as document information, XMP metadata, PieceInfo data, thumbnails, and JavaScript actions.',
     },
     {
       title: 'Purge & Download',
-      description: 'The PDF object tree is stripped clean in local browser RAM. No metadata or file bytes ever leave your device.',
+      description: 'The selected metadata is removed in your browser. Review the output and do not assume every possible hidden-data type was removed.',
     },
   ];
 
@@ -24,24 +24,24 @@ export const SanitizePage: React.FC = () => {
     {
       question: `What makes ${siteConfig.name} sanitization different from standard PDF editors?`,
       answer:
-        'Standard PDF readers merely hide metadata from visual view. Our engine physically deletes the underlying Info dictionaries, XMP metadata XML streams, PieceInfo workspace blocks, and cached thumbnail streams from the binary file.',
+        'The tool removes the selected document information, XMP metadata, PieceInfo data, page thumbnails, and supported JavaScript actions. It cannot guarantee removal of every kind of hidden information or content embedded in page artwork.',
     },
     {
       question: 'Will sanitizing a PDF alter my visible text, images, or layout?',
       answer:
-        'No. Visual page contents, fonts, vector drawings, and images remain completely unchanged. Only invisible background data streams, author footprints, and script hooks are purged.',
+        'The tool targets metadata and selected PDF structures, not visible page content. Check the sanitized file and do not rely on it as the sole method for concealing sensitive information.',
     },
     {
       question: 'Are my confidential files uploaded to any server?',
       answer:
-        'Never. Sanitization is executed 100% locally in your browser memory via client-side WebAssembly. You can disconnect your internet completely before sanitizing.',
+        'The selected PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. The tool removes the metadata types described on this page; it cannot guarantee removal of every kind of hidden information.',
     },
   ];
 
   return (
     <ToolLayout
       title="Sanitize PDF (Metadata & Privacy Stripper)"
-      subtitle="Remove author information, edit history, computer usernames, and hidden embedded artifacts before sharing. 100% private in-browser execution."
+      subtitle="Remove selected PDF metadata and document structures in your browser. Review the output before sharing."
       seoContent={<ToolGuide toolName="Sanitize PDF" steps={steps} faqs={faqs} />}
     >
       <SanitizePdf />

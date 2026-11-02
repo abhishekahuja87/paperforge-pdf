@@ -7,7 +7,7 @@ import { siteConfig } from '../config/site';
 export const ProtectPage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload Document',
+      title: 'Select a PDF',
       description: 'Select the PDF file you wish to secure with password encryption.',
     },
     {
@@ -16,27 +16,32 @@ export const ProtectPage: React.FC = () => {
     },
     {
       title: 'Encrypt & Save',
-      description: 'The document is encrypted directly in client RAM using AES encryption standards.',
+      description: 'Create a password-protected copy in your browser, then test it with a PDF reader before sharing.',
     },
   ];
 
   const faqs = [
     {
-      question: `Does ${siteConfig.name} see or store my password?`,
+      question: `Does ${siteConfig.name} receive my password or PDF?`,
       answer:
-        'Never. The encryption process occurs entirely within your browser memory. Your password and document data never touch an external server.',
+        'The password and selected PDF are processed in your browser and are not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
     },
     {
-      question: 'Can anyone open the file without the password?',
+      question: 'Will the protected PDF retain selectable text and links?',
       answer:
-        'No. The document object streams are fully encrypted using standard PDF encryption handlers and require the password to read.',
+        'This tool renders each page to an image before rebuilding the PDF. Text may no longer be selectable or searchable, and links, forms, and other interactive features may not be retained. Review the result before replacing your original.',
+    },
+    {
+      question: 'Do the printing and copying permissions prevent every kind of copying?',
+      answer:
+        'No. PDF permissions are honored differently by different readers and cannot prevent screenshots or other ways of capturing content. Use a strong password to control opening, and do not treat permission flags as copy-proof security.',
     },
   ];
 
   return (
     <ToolLayout
       title="Protect PDF (Password Encryption)"
-      subtitle="Encrypt your PDF documents with custom passwords and restrict printing or copying. 100% private in-browser execution."
+      subtitle="Set password protection for a PDF and choose document permissions in your browser."
       seoContent={<ToolGuide toolName="Protect PDF" steps={steps} faqs={faqs} />}
     >
       <ProtectPdf />

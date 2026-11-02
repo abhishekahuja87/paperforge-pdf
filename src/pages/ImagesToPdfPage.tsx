@@ -7,7 +7,7 @@ import { siteConfig } from '../config/site';
 export const ImagesToPdfPage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload Images',
+      title: 'Select Images',
       description: 'Select or drag multiple JPG, PNG, or WebP pictures into the converter.',
     },
     {
@@ -24,7 +24,7 @@ export const ImagesToPdfPage: React.FC = () => {
     {
       question: `Are my photos uploaded to an external server on ${siteConfig.name}?`,
       answer:
-        'Never. The image-to-PDF conversion takes place entirely within your browser memory using HTML5 Canvas and WebAssembly. Your photos never leave your device.',
+        'Selected images are converted in your browser and are not uploaded to MyDailyUtils for processing. The site makes separate requests for resources and advertising.',
     },
     {
       question: 'Which image formats are supported?',
@@ -41,7 +41,7 @@ export const ImagesToPdfPage: React.FC = () => {
   return (
     <ToolLayout
       title="Convert Images to PDF"
-      subtitle="Assemble JPG, PNG, and WebP images into a single professional PDF document. 100% private, executed in browser memory."
+      subtitle="Assemble JPG, PNG, and WebP images into a PDF using your browser."
       seoContent={<ToolGuide toolName="Images to PDF" steps={steps} faqs={faqs} />}
     >
       <ImagesToPdf />

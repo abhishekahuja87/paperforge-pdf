@@ -8,7 +8,7 @@ export const CompressPage: React.FC = () => {
   const steps = [
     {
       title: 'Select PDF',
-      description: 'Upload any large PDF document you need to optimize for sharing or email.',
+      description: 'Select a PDF from your device. Very large documents may require more browser memory and take longer to process.',
     },
     {
       title: 'Choose Level',
@@ -16,7 +16,7 @@ export const CompressPage: React.FC = () => {
     },
     {
       title: 'Compress & Save',
-      description: 'The document is restructured and compressed directly in local memory for instant download.',
+      description: 'The tool rewrites the PDF in your browser. Review the resulting file size before keeping the download.',
     },
   ];
 
@@ -24,24 +24,24 @@ export const CompressPage: React.FC = () => {
     {
       question: `How does PDF compression work on ${siteConfig.name}?`,
       answer:
-        'It strips duplicate object dictionaries, redundant application metadata, unused font glyph definitions, and consolidates fragmented byte streams into compressed cross-reference object streams.',
+        'The tool rewrites the PDF using object streams and removes standard document metadata. The Strong option also removes selected XMP metadata, editing information, and embedded page thumbnails. It does not downsample images.',
     },
     {
       question: 'Will text or vector drawings lose clarity?',
       answer:
-        'No. Unlike destructive lossy compression tools that downscale text into blurry pixels, this optimizer retains full vector typography, hyperlinks, and document integrity.',
+        'The tool does not rasterize pages or downsample embedded images. It rewrites PDF objects and metadata, so the resulting size may be similar to or larger than the original.',
     },
     {
       question: 'Are my confidential documents uploaded anywhere?',
       answer:
-        'Never. All processing runs directly in your browser using client-side WebAssembly. No files or byte fragments ever leave your device.',
+        'The PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. The website still makes separate network requests for resources and advertising.',
     },
   ];
 
   return (
     <ToolLayout
       title="Compress & Optimize PDF"
-      subtitle="Reduce PDF file size by restructuring internal object streams and stripping dead metadata. 100% private, executed in browser RAM."
+      subtitle="Rewrite PDF structure and remove selected metadata in your browser. Size savings depend on the document; image data is not downsampled."
       seoContent={<ToolGuide toolName="Compress PDF" steps={steps} faqs={faqs} />}
     >
       <CompressPdf />

@@ -79,7 +79,7 @@ export const ExtractText: React.FC = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-800">Extract Text</h2>
         <p className="text-slate-500 text-sm mt-1">
-          Read and export all textual content from your PDF documents. 100% processed directly in your browser.
+          Read and export embedded PDF text in your browser. Scanned pages require OCR, which is not included.
         </p>
       </div>
 

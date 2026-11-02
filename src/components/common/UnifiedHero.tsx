@@ -32,7 +32,7 @@ export const UnifiedHero: React.FC<UnifiedHeroProps> = ({ variant = 'centered' }
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
           </span>
-          <span>100% In-Browser File Processing</span>
+          <span>Local file processing</span>
           <span className="text-slate-500">•</span>
           <span className="flex items-center gap-1 text-white">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 inline" />
@@ -50,7 +50,7 @@ export const UnifiedHero: React.FC<UnifiedHeroProps> = ({ variant = 'centered' }
 
         {/* Clear Explanation */}
         <p className={`text-xs sm:text-sm text-slate-300 leading-relaxed ${variant === 'centered' ? 'mx-auto max-w-xl' : 'max-w-xl'}`}>
-          <span className="text-white font-semibold">{siteConfig.name}</span> processes your files locally inside your browser. Your files are never uploaded to our servers for processing.
+          <span className="text-white font-semibold">{siteConfig.name}</span> processes selected files in your browser; they are not uploaded to our servers for processing. The website may still make separate network requests.
         </p>
         </div>
 

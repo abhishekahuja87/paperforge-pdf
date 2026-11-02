@@ -63,7 +63,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
           <div className="mt-2.5 flex items-start gap-2 rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-3 py-2">
             <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-300" aria-hidden="true" />
             <p className="text-[10px] leading-relaxed text-emerald-100">
-              <strong className="font-bold text-white">100% in-browser file processing.</strong> Your files aren’t uploaded to our servers for processing.
+              <strong className="font-bold text-white">File processing in your browser.</strong> Selected files aren’t uploaded to MyDailyUtils for processing.
             </p>
           </div>
         </div>

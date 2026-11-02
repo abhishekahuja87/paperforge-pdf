@@ -186,7 +186,7 @@ export const SanitizePdf: React.FC = () => {
           <h3 className="text-sm font-semibold text-slate-800">
             Click to upload or drag & drop a PDF to sanitize
           </h3>
-          <p className="text-xs text-slate-500 mt-1">100% in-browser execution — your confidential documents never leave local RAM</p>
+          <p className="text-xs text-slate-500 mt-1">Processed in your browser; the selected PDF is not uploaded to MyDailyUtils for processing.</p>
         </div>
       )}
 

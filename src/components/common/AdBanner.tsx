@@ -50,7 +50,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({
   }
 
   return (
-    <div className={`w-full min-h-[90px] overflow-hidden flex justify-center items-center ${className}`}>
+    <div className={`w-full min-w-0 min-h-[90px] flex justify-center items-center ${className}`}>
       <ins
         ref={adRef}
         className="adsbygoogle block w-full"

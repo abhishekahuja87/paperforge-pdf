@@ -7,16 +7,16 @@ import { siteConfig } from '../config/site';
 export const UnlockPage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload Protected PDF',
+      title: 'Select a Protected PDF',
       description: 'Select or drag your password-protected PDF document into the tool.',
     },
     {
-      title: 'Enter Password',
-      description: 'Type the valid open/user password to authenticate and decrypt the document stream.',
+      title: 'Enter the Password',
+      description: 'Enter a password you are authorized to use to open the document.',
     },
     {
       title: 'Unlock & Save',
-      description: 'Click Unlock PDF to remove encryption in browser memory and download a restriction-free PDF.',
+      description: 'The tool renders pages to images, rebuilds the PDF without encryption, and lets you download the result.',
     },
   ];
 
@@ -24,17 +24,17 @@ export const UnlockPage: React.FC = () => {
     {
       question: `Is unlocking PDFs safe on ${siteConfig.name}?`,
       answer:
-        'Yes. All decryption and rendering operations occur locally inside your browser memory via Web Workers. Your password and PDF contents are never sent to any server.',
+        'The password and selected PDF are processed in your browser and are not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
     },
     {
       question: 'Do I need to know the document password?',
       answer:
-        'Yes. To remove protection from an encrypted PDF, you must supply the original open or owner password so your browser can decrypt the file streams.',
+        'Yes. Enter a password you are authorized to use to open the PDF. This tool cannot recover a forgotten password.',
     },
     {
       question: 'Will unlocking alter the formatting or contents of my PDF?',
       answer:
-        'No. The document structure, text, layout, and visual fidelity remain preserved while the encryption wrapper is completely stripped away.',
+      'This tool rebuilds each page as an image. Text may no longer be selectable or searchable, and links, forms, and other interactive features may not be retained. Check the output before replacing your original.',
     },
     {
       question: 'Can I re-encrypt the file later?',
@@ -46,7 +46,7 @@ export const UnlockPage: React.FC = () => {
   return (
     <ToolLayout
       title="Unlock PDF Documents"
-      subtitle="Remove password protection and encryption restrictions permanently without uploading to any server."
+      subtitle="Use the document password to save a decrypted copy of a PDF in your browser."
       seoContent={<ToolGuide toolName="Unlock PDF" steps={steps} faqs={faqs} />}
     >
       <UnlockPdf />

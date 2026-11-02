@@ -4,7 +4,6 @@ export const ADS_CONFIG = {
   
   // Ad unit IDs created in AdSense.
   slots: {
-    toolTopBanner: '8459726244',
     toolBottomBanner: '9487856553',
   },
 

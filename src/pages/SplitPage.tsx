@@ -46,7 +46,7 @@ export const SplitPage: React.FC = () => {
   return (
     <ToolLayout
       title="Split PDF Document"
-      subtitle="Extract custom page ranges into a separate document with zero server uploads."
+      subtitle="Extract selected page ranges into a separate PDF in your browser."
       seoContent={<ToolGuide toolName="Split PDF" steps={steps} faqs={faqs} />}
     >
       <SplitPdf />

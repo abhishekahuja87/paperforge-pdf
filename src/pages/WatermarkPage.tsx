@@ -7,8 +7,8 @@ import { siteConfig } from '../config/site';
 export const WatermarkPage: React.FC = () => {
   const steps = [
     {
-      title: 'Select PDF',
-      description: 'Upload the document you want to stamp with a security or status watermark.',
+      title: 'Choose a PDF',
+      description: 'Choose the PDF you want to mark with a status or text watermark.',
     },
     {
       title: 'Customize Watermark',
@@ -16,7 +16,7 @@ export const WatermarkPage: React.FC = () => {
     },
     {
       title: 'Stamp & Download',
-      description: 'The watermark is rendered directly into the PDF coordinate stream in your local browser RAM.',
+      description: 'Preview the settings, apply the watermark in your browser, and download the revised PDF.',
     },
   ];
 
@@ -24,7 +24,7 @@ export const WatermarkPage: React.FC = () => {
     {
       question: `Are my watermarked documents uploaded to a remote server on ${siteConfig.name}?`,
       answer:
-        'Never. All PDF parsing, font embedding, and vector transformations take place directly in your browser memory via WebAssembly. Zero bytes leave your computer.',
+        'The selected PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
     },
     {
       question: 'Will the watermark obscure my existing text?',
@@ -41,7 +41,7 @@ export const WatermarkPage: React.FC = () => {
   return (
     <ToolLayout
       title="Watermark PDF"
-      subtitle="Stamp custom text watermarks, draft stamps, and confidential markers onto PDF pages. 100% private in-browser execution."
+      subtitle="Add a configurable text watermark to selected PDF pages in your browser."
       seoContent={<ToolGuide toolName="Watermark PDF" steps={steps} faqs={faqs} />}
     >
       <WatermarkPdf />

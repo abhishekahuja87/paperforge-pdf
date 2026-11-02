@@ -24,7 +24,7 @@ export const FlattenPage: React.FC = () => {
     {
       question: `Is flattening PDFs secure on ${siteConfig.name}?`,
       answer:
-        'Yes. All flattening operations execute purely in browser memory via client-side WebAssembly. Your files are never transmitted across the network.',
+        'The selected PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. The website may make separate requests for advertising and supporting resources.',
     },
     {
       question: 'What does flattening a PDF actually do?',

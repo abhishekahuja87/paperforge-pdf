@@ -26,7 +26,7 @@ export const PrivacyPage: React.FC = () => {
           At <strong>MyDailyUtils</strong> (https://www.mydailyutils.in), supported file operations are performed in your web browser. Files selected for these tools are not uploaded to MyDailyUtils for processing. Work is temporary unless you download the result; the site does not provide cloud storage for your files.
         </p>
         <p>
-          The website must load its pages and may request third-party libraries or other supporting resources. Local file processing does not mean the website is offline or makes no network requests.
+          The website loads pages and third-party resources. Some PDF tools request character-map files from jsDelivr when needed to render or read certain PDFs. These are supporting resources; the selected PDF is not sent to jsDelivr for processing. Local file processing does not mean the website is offline or makes no network requests.
         </p>
       </section>
 
@@ -47,10 +47,13 @@ export const PrivacyPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">4. Advertising and third-party resources</h2>
         <p>
-          The site displays Google AdSense advertisements and loads third-party resources. When your browser requests those services, the providers may receive technical information such as your IP address, browser, and device details. Google and its advertising partners may use cookies or similar technologies for ad delivery, measurement, fraud prevention, or personalization, subject to your settings, applicable consent choices, and their own policies.
+          The site displays Google AdSense advertisements. Google and other advertising technology providers enabled for the site may use cookies or similar technologies to serve and measure ads, including ads based on your prior visits to this site or other websites. Requests to these providers can include technical information such as your IP address, browser, and device details. Depending on your settings and applicable consent choices, information may also be used for ad personalization and fraud prevention.
         </p>
         <p>
-          You can manage personalized advertising through <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google Ads Settings</a>. See <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google’s advertising information</a> for details about its use of data and cookies.
+          You can manage Google personalized advertising through <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google Ads Settings</a>. You can also use the <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Digital Advertising Alliance opt-out page</a> for participating companies. Read <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google’s advertising information</a> and its <a href="https://support.google.com/adsense/answer/9012903?hl=en" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Ad technology partner information</a> for more detail. The providers available can depend on the publisher’s AdSense settings.
+        </p>
+        <p>
+          For visitors in the European Economic Area, the United Kingdom, and Switzerland, Google requires publishers to use a Google-certified consent management platform for applicable consent and disclosure requirements. The publisher must configure its consent message and advertising partners in AdSense; those account settings are not managed by this website’s source code.
         </p>
       </section>
 

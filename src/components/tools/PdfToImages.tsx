@@ -56,7 +56,7 @@ export const PdfToImages: React.FC = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-800">PDF to Images</h2>
         <p className="text-slate-500 text-sm mt-1">
-          Extract every page of your PDF as high-resolution PNG images. 100% processed directly in your browser.
+          Render PDF pages to PNG images in your browser. The selected file is not uploaded to MyDailyUtils for processing.
         </p>
       </div>
 

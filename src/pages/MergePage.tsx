@@ -7,16 +7,16 @@ import { siteConfig } from '../config/site';
 export const MergePage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload PDFs',
+      title: 'Select PDFs',
       description: 'Select or drag multiple PDF files into the upload box above.',
     },
     {
-      title: 'Organize Order',
+      title: 'Set File Order',
       description: 'Drag and reorder files to define how pages appear in the final document.',
     },
     {
       title: 'Merge & Save',
-      description: 'Click Merge to assemble them in browser RAM and instantly download.',
+      description: 'Combine the selected files in your browser, then download and review the merged PDF.',
     },
   ];
 
@@ -24,12 +24,12 @@ export const MergePage: React.FC = () => {
     {
       question: `Is merging PDFs safe on ${siteConfig.name}?`,
       answer:
-        'Yes. All file merging takes place on your device CPU via WebAssembly. Your files are never uploaded across the internet.',
+        'Selected PDFs are processed in your browser and are not uploaded to MyDailyUtils for processing. The site makes separate requests for resources and advertising.',
     },
     {
       question: 'Is there a limit on file size or quantity?',
       answer:
-        'No artificial server limits exist. Processing capacity depends solely on your device memory.',
+        'The tool does not set a fixed file-size limit, but browser memory and device performance limit what can be processed. Very large files may fail or take longer.',
     },
     {
       question: 'Can I reorder individual pages?',
@@ -46,7 +46,7 @@ export const MergePage: React.FC = () => {
   return (
     <ToolLayout
       title="Merge PDF Documents"
-      subtitle="Combine multiple PDFs into a single unified file in seconds without uploading to any server."
+      subtitle="Combine multiple PDFs into one document in your browser, then download the merged file."
       seoContent={<ToolGuide toolName="Merge PDF" steps={steps} faqs={faqs} />}
     >
       <MergePdf />

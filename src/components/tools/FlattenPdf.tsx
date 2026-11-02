@@ -68,7 +68,7 @@ export const FlattenPdf: React.FC = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-800">Flatten PDF</h2>
         <p className="text-slate-500 text-sm mt-1">
-          Lock form fields and annotations permanently into the document to prevent future editing. 100% processed directly in your browser.
+          Flatten form fields and annotations into page content in your browser. Check the result before replacing the original.
         </p>
       </div>
 

@@ -8,7 +8,7 @@ export const AddPageNumbersPage: React.FC = () => {
   const steps = [
     {
       title: 'Select PDF',
-      description: 'Upload your document to stamp pagination onto.',
+      description: 'Select the PDF that needs page numbers, a header, or a footer.',
     },
     {
       title: 'Customize Format & Position',
@@ -16,7 +16,7 @@ export const AddPageNumbersPage: React.FC = () => {
     },
     {
       title: 'Stamp & Download',
-      description: 'Page numbers are rendered directly into the PDF coordinate system in browser RAM.',
+      description: 'Preview the page-number settings and generate a revised PDF in your browser.',
     },
   ];
 
@@ -34,14 +34,14 @@ export const AddPageNumbersPage: React.FC = () => {
     {
       question: 'Are my confidential documents uploaded to a server?',
       answer:
-        'Never. All processing is executed client-side inside your browser sandbox using WebAssembly.',
+        'The selected PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. The website may make separate requests for advertising and supporting resources.',
     },
   ];
 
   return (
     <ToolLayout
       title="Add Page Numbers to PDF"
-      subtitle="Stamp custom page numbers, headers, and footers onto PDF documents. 100% private in-browser execution."
+      subtitle="Add page numbers, headers, and footers to a PDF using your browser."
       seoContent={<ToolGuide toolName="Add Page Numbers" steps={steps} faqs={faqs} />}
     >
       <AddPageNumbers />

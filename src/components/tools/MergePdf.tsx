@@ -65,7 +65,7 @@ export const MergePdf: React.FC = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-800">Merge PDF Files</h2>
         <p className="text-slate-500 text-sm mt-1">
-          Combine multiple PDFs in your chosen order. 100% processed directly in your browser.
+          Combine multiple PDFs in your chosen order in your browser. The selected files are not uploaded to MyDailyUtils for processing.
         </p>
       </div>
 

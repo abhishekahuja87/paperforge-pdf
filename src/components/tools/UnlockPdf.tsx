@@ -71,7 +71,7 @@ export const UnlockPdf: React.FC = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-800">Unlock PDF</h2>
         <p className="text-slate-500 text-sm mt-1">
-          Permanently remove password protection from an encrypted document. 100% processed directly in your browser.
+          Save a decrypted, image-based copy of the PDF in your browser. Text and interactive features may not be retained.
         </p>
       </div>
 

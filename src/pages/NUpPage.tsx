@@ -8,7 +8,7 @@ export const NUpPage: React.FC = () => {
   const steps = [
     {
       title: 'Select PDF',
-      description: 'Upload any multi-page document, slide presentation, or invoice batch.',
+      description: 'Select a multi-page PDF, such as a presentation or document, to arrange for printing.',
     },
     {
       title: 'Choose Grid Layout',
@@ -29,19 +29,19 @@ export const NUpPage: React.FC = () => {
     {
       question: 'Will text or vector drawings lose clarity when scaled?',
       answer:
-        'No. Pages are embedded as native vector objects rather than rasterized into pixels, preserving crisp typography and diagram lines at any print resolution.',
+        'Pages are embedded as PDF page objects rather than rasterized, so text and vector elements remain scalable. Check the result at your intended print size.',
     },
     {
       question: 'Are my files uploaded anywhere during layout composition?',
       answer:
-        'Never. The entire N-Up arrangement runs directly on your machine in local browser RAM using client-side WebAssembly.',
+        'The selected PDF is arranged in your browser and is not uploaded to MyDailyUtils for processing. The website may make separate requests for resources and advertising.',
     },
   ];
 
   return (
     <ToolLayout
       title="N-Up PDF (Multiple Pages Per Sheet)"
-      subtitle="Arrange 2 or 4 pages per sheet for handouts, presentation notes, and paper saving. 100% private in-browser execution."
+      subtitle="Arrange two or four PDF pages on each sheet for handouts and presentation notes."
       seoContent={<ToolGuide toolName="N-Up PDF" steps={steps} faqs={faqs} />}
     >
       <NUpPdf />

@@ -164,7 +164,7 @@ export const ImagesToPdf: React.FC = () => {
         <h3 className="text-sm font-semibold text-slate-800">
           Click to upload or drag & drop multiple images
         </h3>
-        <p className="text-xs text-slate-500 mt-1">Supports JPG, PNG, and WebP &bull; 100% private in-browser conversion</p>
+        <p className="text-xs text-slate-500 mt-1">Supports JPG, PNG, and WebP &bull; Images are converted in your browser and are not uploaded to MyDailyUtils for processing.</p>
       </div>
 
       {images.length > 0 && (

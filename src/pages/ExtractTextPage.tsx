@@ -7,12 +7,12 @@ import { siteConfig } from '../config/site';
 export const ExtractTextPage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload PDF Document',
-      description: 'Select or drag your PDF document into the upload area above.',
+      title: 'Select a PDF',
+      description: 'Choose or drag a PDF into the file selection area above.',
     },
     {
       title: 'Extract Text Content',
-      description: 'Click Extract Text to read and parse all character and line data directly in browser memory.',
+      description: 'Extract embedded text in your browser. Scanned pages that contain only images need OCR, which this tool does not provide.',
     },
     {
       title: 'Copy or Download',
@@ -24,7 +24,7 @@ export const ExtractTextPage: React.FC = () => {
     {
       question: `Is extracting text safe on ${siteConfig.name}?`,
       answer:
-        'Yes. All text extraction runs locally on your machine via PDF.js in a client-side Web Worker. Your document never leaves your browser.',
+        'Text extraction runs in your browser. The selected PDF is not uploaded to MyDailyUtils for processing; PDF.js may request supporting character-map resources from a content delivery network.',
     },
     {
       question: 'Can this tool read scanned PDFs or photos of text?',
@@ -34,12 +34,12 @@ export const ExtractTextPage: React.FC = () => {
     {
       question: 'Does the extraction preserve layout formatting?',
       answer:
-        'Extracted text retains paragraph structure and page division markers (e.g. --- Page N ---) for clean reading and copy-pasting.',
+        'The tool separates extracted text by page, but it does not preserve the exact visual layout, columns, or typography of the PDF.',
     },
     {
       question: 'Is there a limit on how long the document can be?',
       answer:
-        'No artificial page limits are enforced. The capacity depends solely on your computer’s available browser memory.',
+        'There is no fixed page limit in the interface, but large PDFs may take longer or exceed available browser memory. Scanned pages are not OCR-processed.',
     },
   ];
 

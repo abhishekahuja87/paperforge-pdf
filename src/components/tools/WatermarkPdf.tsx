@@ -169,7 +169,7 @@ export const WatermarkPdf: React.FC = () => {
           <h3 className="text-sm font-semibold text-slate-800">
             Click to upload or drag & drop a PDF
           </h3>
-          <p className="text-xs text-slate-500 mt-1">Processed locally in your browser memory — 100% offline</p>
+          <p className="text-xs text-slate-500 mt-1">Processed in your browser; the selected PDF is not uploaded to MyDailyUtils for processing.</p>
         </div>
       )}
 

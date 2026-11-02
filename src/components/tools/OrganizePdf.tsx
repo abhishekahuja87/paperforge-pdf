@@ -112,7 +112,7 @@ export const OrganizePdf: React.FC = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-800">Organize PDF Pages</h2>
         <p className="text-slate-500 text-sm mt-1">
-          Reorder, rotate, or delete individual pages visually. 100% processed directly in your browser.
+          Reorder, rotate, or delete PDF pages in your browser. The selected file is not uploaded to MyDailyUtils for processing.
         </p>
       </div>
 

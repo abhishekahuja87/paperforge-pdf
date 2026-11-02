@@ -8,7 +8,7 @@ export const InspectPage: React.FC = () => {
   const steps = [
     {
       title: 'Select PDF',
-      description: 'Upload any PDF to examine its internal binary catalogs, dictionary trees, and versions.',
+      description: 'Select a PDF to inspect its version, document information, security flags, and page geometry.',
     },
     {
       title: 'Analyze Tree Structure',
@@ -24,19 +24,19 @@ export const InspectPage: React.FC = () => {
     {
       question: `Why inspect PDFs on ${siteConfig.name}?`,
       answer:
-        'Engineers and QA testers use it to debug broken upload pipelines, verify PDF/A conformance, and inspect unknown files for malicious script triggers without risking running untrusted code.',
+        'Use the report to review basic PDF structure and look for features such as JavaScript actions. It is not a full security audit, malware scanner, or PDF/A conformance validator.',
     },
     {
       question: 'Are my confidential documents uploaded to a remote server?',
       answer:
-        'Never. The inspector operates 100% inside your browser memory using pure client-side binary parsers. Zero data is transmitted.',
+        'The selected PDF is analyzed in your browser and is not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
     },
   ];
 
   return (
     <ToolLayout
       title="PDF Structure & Metadata Inspector"
-      subtitle="Inspect internal PDF object dictionaries, specification versions, metadata, and security flags. 100% private in-browser analysis."
+      subtitle="Review PDF version, metadata, encryption status, page geometry, and selected document features in your browser."
       seoContent={<ToolGuide toolName="PDF Inspector" steps={steps} faqs={faqs} />}
     >
       <InspectPdf />

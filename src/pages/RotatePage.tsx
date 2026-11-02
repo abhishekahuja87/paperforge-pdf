@@ -8,7 +8,7 @@ export const RotatePage: React.FC = () => {
   const steps = [
     {
       title: 'Select PDF',
-      description: 'Upload the PDF document with misaligned or sideways pages.',
+      description: 'Select the PDF that contains pages you want to rotate.',
     },
     {
       title: 'Select Angle & Pages',
@@ -34,7 +34,7 @@ export const RotatePage: React.FC = () => {
     {
       question: 'Is my document uploaded to a server?',
       answer:
-        'No. All operations run directly in your local browser sandbox via WebAssembly. Your documents never leave your device.',
+        'The selected PDF is rotated in your browser and is not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
     },
     {
       question: 'Can I undo a rotation?',
@@ -46,7 +46,7 @@ export const RotatePage: React.FC = () => {
   return (
     <ToolLayout
       title="Rotate PDF Pages"
-      subtitle="Permanently change PDF page orientation to portrait or landscape. 100% private, processed in browser memory."
+      subtitle="Change the rotation of selected PDF pages in your browser."
       seoContent={<ToolGuide toolName="Rotate PDF" steps={steps} faqs={faqs} />}
     >
       <RotatePdf />

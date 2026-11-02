@@ -7,12 +7,12 @@ import { siteConfig } from '../config/site';
 export const PdfToImagesPage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload PDF Document',
-      description: 'Select or drag your PDF file into the upload area above.',
+      title: 'Select a PDF',
+      description: 'Choose or drag a PDF into the file selection area above.',
     },
     {
       title: 'Render Pages',
-      description: 'Click Convert Pages to PNG to render each page into high-resolution images in browser memory.',
+      description: 'Render pages to PNG in your browser. Large PDFs or high-resolution pages may use substantial memory.',
     },
     {
       title: 'Download Images',
@@ -24,12 +24,12 @@ export const PdfToImagesPage: React.FC = () => {
     {
       question: `Is converting PDF to images safe on ${siteConfig.name}?`,
       answer:
-        'Yes. All image rendering is executed locally on your device via HTML5 canvas and Web Workers. Your document is never uploaded or transferred over the network.',
+        'PDF pages are rendered in your browser and are not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
     },
     {
       question: 'What is the quality of the converted images?',
       answer:
-        'Pages are rendered at high resolution (2.0x scale, ~150-300 DPI equivalent) to ensure clear text and sharp illustrations.',
+        'Pages are rendered as PNG images at the tool’s selected scale. Larger scales create larger images and use more memory; check the results at the size you need.',
     },
     {
       question: 'What image format is produced?',
@@ -39,7 +39,7 @@ export const PdfToImagesPage: React.FC = () => {
     {
       question: 'Is there a limit on how many pages I can convert?',
       answer:
-        'No artificial limits are imposed. The conversion capacity depends entirely on your device’s available browser memory.',
+        'There is no fixed page limit in the interface, but large documents and high render scales may take longer or exceed available browser memory.',
     },
   ];
 

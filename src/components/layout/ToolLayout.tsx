@@ -29,19 +29,9 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         </p>
       </div>
 
-      {/* Top Ad Slot (Above Tool) */}
-      <div className="w-full max-w-4xl mx-auto min-h-[90px] flex justify-center items-center">
-        <AdBanner slot={ADS_CONFIG.slots.toolTopBanner} />
-      </div>
-
       {/* Main Tool Functional Area */}
       <div className="w-full">
         {children}
-      </div>
-
-      {/* Bottom Ad Slot (Between Tool & FAQs/Guide) */}
-      <div className="w-full max-w-4xl mx-auto min-h-[90px] flex justify-center items-center">
-        <AdBanner slot={ADS_CONFIG.slots.toolBottomBanner} />
       </div>
 
       {/* SEO / Questionnaire Guide (Steps & FAQs) */}
@@ -50,6 +40,16 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           {seoContent}
         </div>
       )}
+
+      <section
+        aria-label="Advertisements"
+        className="w-full max-w-4xl mx-auto py-4"
+      >
+        <p className="mb-2 text-center text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+          Advertisements
+        </p>
+        <AdBanner slot={ADS_CONFIG.slots.toolBottomBanner} />
+      </section>
     </div>
   );
 };

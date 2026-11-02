@@ -8,7 +8,7 @@ export const DeletePagesPage: React.FC = () => {
   const steps = [
     {
       title: 'Select PDF',
-      description: 'Upload the document containing pages you wish to eliminate.',
+      description: 'Select the PDF that contains pages you want to remove.',
     },
     {
       title: 'Specify Pages',
@@ -16,7 +16,7 @@ export const DeletePagesPage: React.FC = () => {
     },
     {
       title: 'Save Clean File',
-      description: 'Delete target pages directly in client RAM and download immediately.',
+      description: 'Remove the selected pages in your browser, then download and review the revised PDF.',
     },
   ];
 
@@ -24,7 +24,7 @@ export const DeletePagesPage: React.FC = () => {
     {
       question: `Is it safe to delete pages from confidential PDFs on ${siteConfig.name}?`,
       answer:
-        'Yes. All file manipulation takes place locally inside your browser sandbox via WebAssembly. No documents or page contents are ever transmitted to a server.',
+        'The selected PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. Advertising and other site requests are separate from the file operation.',
     },
     {
       question: 'Can I remove the cover page or blank trailing pages?',
@@ -34,14 +34,14 @@ export const DeletePagesPage: React.FC = () => {
     {
       question: 'Will deleting pages affect document links or quality?',
       answer:
-        'Vector shapes, fonts, and remaining pages retain 100% of their original clarity and resolution.',
+        'The tool removes selected pages without rasterizing the remaining page content. Check forms, links, or other document features in the saved copy.',
     },
   ];
 
   return (
     <ToolLayout
       title="Delete PDF Pages"
-      subtitle="Remove unnecessary, blank, or confidential pages from any PDF document. 100% private, executed locally."
+      subtitle="Remove unnecessary, blank, or confidential pages from a PDF using your browser."
       seoContent={<ToolGuide toolName="Delete PDF Pages" steps={steps} faqs={faqs} />}
     >
       <DeletePagesPdf />

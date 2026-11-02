@@ -483,7 +483,7 @@ export const MasterDocumentStudio: React.FC = () => {
           </div>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-emerald-800">
             <ShieldCheck className="h-4 w-4 text-emerald-600" />
-            100% Private &amp; In-Browser — Your documents never leave your device.
+            Files are processed in your browser and are not uploaded to MyDailyUtils for processing.
           </div>
         </div>
       </div>

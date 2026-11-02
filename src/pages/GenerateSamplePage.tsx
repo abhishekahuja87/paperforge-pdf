@@ -33,7 +33,7 @@ export const GenerateSamplePage: React.FC = () => {
     {
       question: 'Is the Synthetic PII dataset real customer data?',
       answer:
-        'No. All identities, credit card strings (which pass Luhn checks), and tax numbers are 100% synthetically generated in your browser RAM for testing regex masks, OCR redactions, and DLP compliance pipelines.',
+        'No. The generator creates synthetic names, payment-like numbers, and tax-like identifiers for software testing. They are not real customer data and should not be used for transactions or identity verification.',
     },
     {
       question: 'How does the file size simulation work?',
@@ -45,7 +45,7 @@ export const GenerateSamplePage: React.FC = () => {
   return (
     <ToolLayout
       title="Sample PDF Generator & QA Sandbox"
-      subtitle="Synthesize custom test PDFs with specific structures, synthetic PII data, mixed orientations, or deliberate corruption modes in browser RAM."
+      subtitle="Generate sample PDFs with configurable layouts, synthetic test data, and optional malformed-file cases in your browser."
       seoContent={<ToolGuide toolName="Sample PDF Generator" steps={steps} faqs={faqs} />}
     >
       <GenerateSamplePdf />

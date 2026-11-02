@@ -7,8 +7,8 @@ import { siteConfig } from '../config/site';
 export const CropPage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload PDF',
-      description: 'Select the document you wish to trim margins or crop borders from.',
+      title: 'Select a PDF',
+      description: 'Select the PDF whose page boundaries you want to adjust.',
     },
     {
       title: 'Specify Margins',
@@ -29,7 +29,7 @@ export const CropPage: React.FC = () => {
     {
       question: 'Are my confidential files uploaded anywhere?',
       answer:
-        'Never. The crop operation runs 100% locally in your browser memory. You can even disconnect your internet before clicking Crop.',
+        'The PDF is cropped in your browser and is not uploaded to MyDailyUtils for processing. The site may still make separate requests for advertising and supporting resources.',
     },
     {
       question: 'Can I crop only odd or even pages?',
@@ -41,7 +41,7 @@ export const CropPage: React.FC = () => {
   return (
     <ToolLayout
       title="Crop & Trim PDF"
-      subtitle="Trim outer margins, remove printer bleed marks, and crop page boundaries. 100% private in-browser execution."
+      subtitle="Trim outer margins, remove printer bleed marks, and adjust PDF page boundaries in your browser."
       seoContent={<ToolGuide toolName="Crop PDF" steps={steps} faqs={faqs} />}
     >
       <CropPdf />

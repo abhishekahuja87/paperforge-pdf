@@ -7,8 +7,8 @@ import { siteConfig } from '../config/site';
 export const OrganizePage: React.FC = () => {
   const steps = [
     {
-      title: 'Upload PDF',
-      description: 'Select or drag your PDF document into the upload box above.',
+      title: 'Select a PDF',
+      description: 'Choose or drag your PDF into the file selection area above.',
     },
     {
       title: 'Organize Pages',
@@ -24,7 +24,7 @@ export const OrganizePage: React.FC = () => {
     {
       question: `Is organizing PDF pages safe on ${siteConfig.name}?`,
       answer:
-        'Yes. All thumbnail rendering, page reordering, rotation, and re-assembly occur locally on your machine via Web Workers and WebAssembly. Your files are never sent to any server.',
+        'The selected PDF is rendered and reorganized in your browser; it is not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
     },
     {
       question: 'Can I remove specific pages from my PDF?',
@@ -39,14 +39,14 @@ export const OrganizePage: React.FC = () => {
     {
       question: 'Is there a limit on how many pages I can organize?',
       answer:
-        'No artificial page limits are enforced. Capacity depends strictly on your device’s available browser memory to render visual thumbnails.',
+        'There is no fixed page limit in the interface, but rendering and reorganizing large PDFs may take longer or exceed available browser memory.',
     },
   ];
 
   return (
     <ToolLayout
       title="Organize PDF Pages"
-      subtitle="Reorder, rotate, or delete individual pages visually in your browser with zero server uploads."
+      subtitle="Reorder, rotate, or delete PDF pages visually in your browser."
       seoContent={<ToolGuide toolName="Organize PDF" steps={steps} faqs={faqs} />}
     >
       <OrganizePdf />

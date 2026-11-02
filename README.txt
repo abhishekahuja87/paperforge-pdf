@@ -23,13 +23,14 @@ email address, and message the user submits to Web3Forms so it can deliver the
 message. These requests are separate from file processing.
 
 1. In-Browser File Processing:
-   - PDFs: pdf-lib / WebAssembly
-   - Images: OffscreenCanvas / HTML5 Canvas / Web Workers
+   - PDFs: pdf-lib and PDF.js run in the browser; PDF.js may load character-map
+     support files from jsDelivr for some documents.
+   - Images: HTML5 Canvas / Web Workers
    - Encoders/Decoders: Native Web APIs (SubtleCrypto, TextEncoder, Blob)
 
 2. Failure Safeguard:
    If a proposed feature technically demands a remote server or cloud pipeline
-   (e.g., heavy server-side OCR or AI transcription that cannot run locally in WASM),
+   (e.g., heavy server-side OCR or AI transcription that cannot run locally),
    do not upload user files to provide it. Prefer an in-browser engine or clearly
    explain that the feature is not available locally.
 ================================================================================
@@ -41,7 +42,7 @@ message. These requests are separate from file processing.
 - Package Manager: pnpm
 - Styling: Tailwind CSS v4
 - Icons: Lucide React
-- PDF Engine: pdf-lib (pure in-browser binary manipulation)
+- PDF Libraries: pdf-lib, PDF.js, and pdfmake; file operations run in the browser
 - Hosting / CI/CD: AWS Amplify (connected to GitHub main branch)
 - OS / Shell: Windows 11 / PowerShell
 
@@ -57,7 +58,8 @@ message. These requests are separate from file processing.
     - Header
     - Tool Container
     - `ToolGuide` (task instructions, FAQs, and a processing note)
-    - `AdBanner` placements managed by `src/config/ads.ts`
+    - One clearly labeled `AdBanner` after the tool and guide, configured in
+      `src/config/ads.ts`
 - Search and Sharing:
     `PageMetadata` updates page titles, descriptions, canonical URLs, and social
     metadata for client-side routes. `public/robots.txt` and `public/sitemap.xml`
@@ -207,5 +209,8 @@ registry and `src/App.tsx` defines the public routes.
   `src/components/common/ToolGuide.tsx`
 - Public crawler files: `public/robots.txt`, `public/sitemap.xml`, `public/ads.txt`
 - Tool implementations and route pages: `src/components/tools/`, `src/pages/`
+- AWS Amplify deployment: configure a `200 (Rewrite)` rule from extensionless
+  app routes to `/index.html` in Hosting > Rewrites and redirects. Without it,
+  direct requests to routes such as `/privacy` return 404 on the live site.
 
 ================================================================================
