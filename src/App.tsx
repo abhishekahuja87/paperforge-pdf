@@ -6,7 +6,7 @@ import { ScrollToTop } from './components/common/ScrollToTop';
 import { PageLoader } from './components/common/PageLoader';
 
 // Lazy-loaded route components for optimal bundle splitting
-const HomePage = lazy(() => import('./pages/HomePage'));
+const HomePage = lazy(() => import('./pages/HomePage2').then((m) => ({ default: m.HomePage2 })));
 const MergePage = lazy(() => import('./pages/MergePage').then((m) => ({ default: m.MergePage })));
 const SplitPage = lazy(() => import('./pages/SplitPage').then((m) => ({ default: m.SplitPage })));
 const GenerateSamplePage = lazy(() => import('./pages/GenerateSamplePage').then((m) => ({ default: m.GenerateSamplePage })));

@@ -42,6 +42,8 @@ export const Header: React.FC = () => {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              aria-expanded={isDropdownOpen}
+              aria-controls="explore-tools-menu"
               className="flex items-center space-x-1 hover:text-indigo-600 transition py-1 text-xs font-semibold"
             >
               <span>Explore Tools</span>
@@ -49,14 +51,14 @@ export const Header: React.FC = () => {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-slate-200 p-2 z-50">
+              <div id="explore-tools-menu" className="absolute right-0 mt-2 max-h-[calc(100vh-5rem)] w-72 overflow-y-auto overscroll-contain rounded-xl border border-slate-200 bg-white p-2 shadow-xl z-50">
                 {categoryKeys.map((catKey) => {
                   const catTools = activeTools.filter((t) => t.category === catKey);
                   if (catTools.length === 0) return null;
 
                   return (
                     <div key={catKey} className="mb-2 last:mb-0">
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
+                      <div className="sticky top-0 z-10 bg-white/95 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 backdrop-blur">
                         {CATEGORIES[catKey].name}
                       </div>
                       <div className="space-y-0.5">

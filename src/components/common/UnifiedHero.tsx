@@ -2,9 +2,18 @@ import React from 'react';
 import { ShieldCheck, WifiOff } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 
-export const UnifiedHero: React.FC = () => {
+export type UnifiedHeroVariant = 'centered' | 'split' | 'compact';
+
+interface UnifiedHeroProps {
+  variant?: UnifiedHeroVariant;
+}
+
+export const UnifiedHero: React.FC<UnifiedHeroProps> = ({ variant = 'centered' }) => {
+  const isSplit = variant === 'split';
+  const isCompact = variant === 'compact';
+
   return (
-    <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 text-white border border-slate-800 shadow-xl px-5 py-6 sm:px-8 sm:py-7">
+    <section className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 text-white border border-slate-800 shadow-xl ${isCompact ? 'px-4 py-4 sm:px-6' : 'px-5 py-6 sm:px-8 sm:py-7'}`}>
       {/* Ambient Glow Effects */}
       <div
         aria-hidden="true"
@@ -15,7 +24,8 @@ export const UnifiedHero: React.FC = () => {
         className="absolute -bottom-20 -left-20 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
+      <div className={`relative z-10 ${isSplit ? 'grid gap-4 text-left md:grid-cols-[1.2fr_0.8fr] md:items-center' : isCompact ? 'flex flex-col gap-3 text-left sm:flex-row sm:items-center sm:justify-between' : 'mx-auto max-w-3xl space-y-4 text-center'}`}>
+        <div className={isSplit ? 'space-y-3' : isCompact ? 'space-y-2' : 'space-y-4'}>
         {/* Live In-Browser Privacy Badge */}
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-[11px] font-bold bg-white/10 text-emerald-300 border border-emerald-500/25 backdrop-blur-md shadow-sm">
           <span className="relative flex h-2 w-2">
@@ -31,7 +41,7 @@ export const UnifiedHero: React.FC = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
+        <h1 className={`${isCompact ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'} font-extrabold tracking-tight text-white leading-tight`}>
           Professional Utilities.{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-200 to-emerald-300">
             Executed Entirely in Your Browser.
@@ -39,12 +49,13 @@ export const UnifiedHero: React.FC = () => {
         </h1>
 
         {/* Clear Explanation */}
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
+        <p className={`text-xs sm:text-sm text-slate-300 leading-relaxed ${variant === 'centered' ? 'mx-auto max-w-xl' : 'max-w-xl'}`}>
           Unlike online tools that upload your sensitive documents to cloud servers, <span className="text-white font-semibold">{siteConfig.name}</span> processes all raw file bytes locally inside your browser RAM.
         </p>
+        </div>
 
         {/* Verifiable Air-Gapped Banner */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-xs text-left">
+        <div className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-xs text-left ${variant === 'centered' ? 'mx-auto' : ''}`}>
           <WifiOff className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>
             <strong className="text-white">Air-Gapped Privacy:</strong> Once loaded, disconnect your internet—all operations run locally in your browser memory without network requests.
@@ -54,5 +65,4 @@ export const UnifiedHero: React.FC = () => {
     </section>
   );
 };
-
 
