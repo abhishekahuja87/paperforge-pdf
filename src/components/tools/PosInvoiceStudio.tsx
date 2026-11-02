@@ -1,0 +1,758 @@
+import React, { useMemo, useRef, useState } from 'react';
+import {
+  Archive,
+  Building2,
+  FileImage,
+  FilePlus2,
+  FileUp,
+  Pencil,
+  Printer,
+  ReceiptText,
+  Save,
+  ShieldCheck,
+  Trash2,
+  X,
+} from 'lucide-react';
+import { downloadBlob, safeFileBaseName } from '../../lib/browserTools';
+import {
+  calculateInvoiceTotals,
+  createId,
+  createInvoiceDraft,
+  createProfileFile,
+  createWorkspaceFile,
+  formatMoney,
+  parsePosJson,
+} from '../../lib/pos/workspace';
+import {
+  DEFAULT_STORE_PROFILE,
+  PRODUCT_UNITS,
+  type InventoryItem,
+  type InvoiceDraft,
+  type PosProfileFile,
+  type PosWorkspace,
+  type ProductUnit,
+  type StoreProfile,
+} from '../../lib/pos/types';
+
+interface ItemForm {
+  name: string;
+  sku: string;
+  unit: ProductUnit;
+  price: string;
+}
+
+const EMPTY_ITEM: ItemForm = { name: '', sku: '', unit: 'pcs', price: '' };
+const fieldClass = 'mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100';
+const labelClass = 'block text-xs font-semibold text-slate-600';
+const secondaryButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50 disabled:cursor-not-allowed disabled:opacity-50';
+const primaryButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50';
+const OKLCH_PATTERN = /oklch\(([^)]+)\)/gi;
+
+function oklchToRgba(value: string): string {
+  const [lightnessValue, chromaValue, hueValue, alphaValue] = value.replace(/\s*\/\s*/, ' ').trim().split(/\s+/);
+  const lightness = Number.parseFloat(lightnessValue) / (lightnessValue.endsWith('%') ? 100 : 1);
+  const chroma = Number.parseFloat(chromaValue) * (chromaValue.endsWith('%') ? 0.004 : 1);
+  const hueNumber = Number.parseFloat(hueValue);
+  const hue = hueNumber * (
+    hueValue.endsWith('turn') ? 360
+      : hueValue.endsWith('rad') ? 180 / Math.PI
+        : hueValue.endsWith('grad') ? 0.9
+          : 1
+  );
+  const alpha = alphaValue
+    ? Number.parseFloat(alphaValue) / (alphaValue.endsWith('%') ? 100 : 1)
+    : 1;
+  if (![lightness, chroma, hue, alpha].every(Number.isFinite)) {
+    throw new Error(`Could not normalize the bill color "${value}".`);
+  }
+  const radians = (hue * Math.PI) / 180;
+  const a = chroma * Math.cos(radians);
+  const b = chroma * Math.sin(radians);
+  const l = (lightness + 0.3963377774 * a + 0.2158037573 * b) ** 3;
+  const m = (lightness - 0.1055613458 * a - 0.0638541728 * b) ** 3;
+  const s = (lightness - 0.0894841775 * a - 1.291485548 * b) ** 3;
+  const channels = [
+    4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+    -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+    -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s,
+  ].map((channel) => {
+    const linear = Math.max(0, Math.min(1, channel));
+    const srgb = linear <= 0.0031308 ? 12.92 * linear : 1.055 * linear ** (1 / 2.4) - 0.055;
+    return Math.round(srgb * 255);
+  });
+  return `rgba(${channels.join(', ')}, ${alpha})`;
+}
+
+function normalizeCanvasColors(document: Document, root: HTMLElement): void {
+  document.documentElement.style.backgroundColor = 'transparent';
+  document.body.style.backgroundColor = 'transparent';
+  const elements = [root, ...root.querySelectorAll<HTMLElement>('*')];
+  for (const element of elements) {
+    const computedStyle = document.defaultView?.getComputedStyle(element);
+    if (!computedStyle) continue;
+    for (let index = 0; index < computedStyle.length; index += 1) {
+      const property = computedStyle.item(index);
+      if (property.startsWith('--')) continue;
+      const value = computedStyle.getPropertyValue(property);
+      if (value.includes('oklch(')) {
+        element.style.setProperty(property, value.replace(OKLCH_PATTERN, (_, color: string) => oklchToRgba(color)));
+      }
+    }
+  }
+}
+
+function newInvoiceForStore(invoicePrefix = 'INV'): InvoiceDraft {
+  return createInvoiceDraft(invoicePrefix);
+}
+
+function validateStore(store: StoreProfile): string {
+  if (!store.name.trim()) return 'Enter your shop name.';
+  if (!/^[A-Za-z0-9]{1,10}$/.test(store.invoicePrefix.trim())) return 'Enter a bill number prefix with 1 to 10 letters or numbers.';
+  if (!/^[A-Za-z]{3}$/.test(store.currency.trim())) return 'Enter a three-letter currency code, such as INR or USD.';
+  if (!Number.isFinite(store.taxRate) || store.taxRate < 0 || store.taxRate > 100) return 'Tax rate must be between 0 and 100%.';
+  if (!Number.isFinite(store.additionalTaxRate) || store.additionalTaxRate < 0 || store.additionalTaxRate > 100) return 'Additional tax rate must be between 0 and 100%.';
+  if (!Number.isFinite(store.chargeAmount) || store.chargeAmount < 0) return 'Additional charge must be zero or a positive amount.';
+  if (store.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(store.email)) return 'Enter a valid contact email address.';
+  return '';
+}
+
+export const PosInvoiceStudio: React.FC = () => {
+  const [step, setStep] = useState<'setup' | 'billing'>('setup');
+  const [hasStartedBilling, setHasStartedBilling] = useState(false);
+  const [store, setStore] = useState<StoreProfile | null>(null);
+  const [storeForm, setStoreForm] = useState<StoreProfile>(DEFAULT_STORE_PROFILE);
+  const [inventory, setInventory] = useState<InventoryItem[]>([]);
+  const [invoice, setInvoice] = useState<InvoiceDraft>(newInvoiceForStore);
+  const [itemForm, setItemForm] = useState<ItemForm>(EMPTY_ITEM);
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
+  const [selectedItemId, setSelectedItemId] = useState('');
+  const [itemSearch, setItemSearch] = useState('');
+  const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
+  const [isExportingImage, setIsExportingImage] = useState(false);
+  const importInputRef = useRef<HTMLInputElement>(null);
+  const invoiceRef = useRef<HTMLDivElement>(null);
+
+  const totals = useMemo(
+    () => calculateInvoiceTotals(store ?? storeForm, invoice.lines),
+    [store, storeForm, invoice.lines],
+  );
+  const filteredInventory = inventory.filter((item) => {
+    const normalized = itemSearch.trim().toLowerCase();
+    return !normalized
+      || item.name.toLowerCase().includes(normalized)
+      || item.sku.toLowerCase().includes(normalized);
+  });
+  const canContinueToBilling = inventory.length > 0 || invoice.lines.length > 0;
+
+  const commitStore = (nextStore: StoreProfile, nextInventory = inventory) => {
+    const validationMessage = validateStore(nextStore);
+    if (validationMessage) {
+      setError(validationMessage);
+      return false;
+    }
+    const normalizedStore = {
+      ...nextStore,
+      currency: nextStore.currency.trim().toUpperCase(),
+      invoicePrefix: nextStore.invoicePrefix.trim().toUpperCase(),
+    };
+    setStore(normalizedStore);
+    setStoreForm(normalizedStore);
+    setInventory(nextInventory);
+    setError('');
+    setNotice('Shop profile is ready. Your information stays in this browser session until you export it.');
+    return true;
+  };
+
+  const updateBillingSetting = <K extends 'taxLabel' | 'taxRate' | 'additionalTaxLabel' | 'additionalTaxRate' | 'chargeLabel' | 'chargeAmount',>(
+    key: K,
+    value: StoreProfile[K],
+  ) => {
+    setStore((current) => current ? { ...current, [key]: value } : current);
+    setStoreForm((current) => ({ ...current, [key]: value }));
+  };
+
+  const downloadProfile = (profile = store, items = inventory) => {
+    if (!profile) {
+      setError('Create a shop profile before exporting it.');
+      return;
+    }
+    const savedProfile = {
+      ...profile,
+      currency: profile.currency.trim().toUpperCase(),
+      invoicePrefix: profile.invoicePrefix.trim().toUpperCase(),
+    };
+    const payload: PosProfileFile = createProfileFile(savedProfile, items);
+    const file = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+    downloadBlob(file, `${safeFileBaseName(savedProfile.name)}-pos-profile.json`);
+    setNotice(`Shop profile downloaded with your details and ${items.length} inventory item${items.length === 1 ? '' : 's'}. Import this profile JSON next time to continue.`);
+    setError('');
+  };
+
+  const downloadWorkspace = (profile = store, items = inventory, draft = invoice) => {
+    if (!profile) {
+      setError('Create a shop profile before exporting a bill.');
+      return;
+    }
+    const payload: PosWorkspace = createWorkspaceFile(profile, items, draft);
+    const file = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+    downloadBlob(file, `${safeFileBaseName(draft.number)}-bill.json`);
+    setNotice('Bill JSON downloaded with the shop profile and inventory. Import it later to restore this bill and its details.');
+    setError('');
+  };
+
+  const handleImport = async (file?: File) => {
+    if (!file) return;
+    setError('');
+    setNotice('');
+    try {
+      const imported = parsePosJson(await file.text());
+      if (store && !window.confirm('Importing will replace the current shop profile, inventory, and bill in memory. Export your current bill JSON first if you need to keep it. Continue?')) return;
+      setStore(imported.store);
+      setStoreForm(imported.store);
+      setInventory(imported.inventory);
+      setInvoice(imported.kind === 'workspace' ? imported.invoice : newInvoiceForStore(imported.store.invoicePrefix));
+      setHasStartedBilling(imported.kind === 'workspace');
+      setItemForm(EMPTY_ITEM);
+      setEditingItemId(null);
+      const opensBill = imported.kind === 'workspace'
+        && (imported.inventory.length > 0 || imported.invoice.lines.length > 0);
+      setStep(opensBill ? 'billing' : 'setup');
+      setNotice(opensBill
+        ? 'Bill JSON imported. Your bill, shop profile, and inventory are ready.'
+        : imported.kind === 'workspace'
+          ? 'Bill JSON imported, but it has no inventory or bill items. Add at least one item to inventory before continuing.'
+          : 'Shop profile and inventory imported. Review them, then continue to your bill.');
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : 'Could not import this JSON file.');
+    } finally {
+      if (importInputRef.current) importInputRef.current.value = '';
+    }
+  };
+
+  const addOrUpdateItem = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const name = itemForm.name.trim();
+    const price = Number(itemForm.price);
+    if (!name) {
+      setError('Enter an item name.');
+      return;
+    }
+    if (!itemForm.price || !Number.isFinite(price) || price < 0) {
+      setError('Enter a valid selling price of zero or more.');
+      return;
+    }
+    const item: InventoryItem = {
+      id: editingItemId ?? createId(),
+      name,
+      sku: itemForm.sku.trim(),
+      unit: itemForm.unit,
+      price: Math.round((price + Number.EPSILON) * 100) / 100,
+    };
+    setInventory((current) => editingItemId
+      ? current.map((existing) => existing.id === editingItemId ? item : existing)
+      : [...current, item]);
+    setItemForm(EMPTY_ITEM);
+    setEditingItemId(null);
+    setError('');
+    setNotice(editingItemId ? 'Inventory item updated.' : `${name} added to shop inventory.`);
+  };
+
+  const editItem = (item: InventoryItem) => {
+    setEditingItemId(item.id);
+    setItemForm({ name: item.name, sku: item.sku, unit: item.unit, price: String(item.price) });
+  };
+
+  const removeItem = (item: InventoryItem) => {
+    setInventory((current) => current.filter((entry) => entry.id !== item.id));
+    if (editingItemId === item.id) {
+      setEditingItemId(null);
+      setItemForm(EMPTY_ITEM);
+    }
+    setNotice(`${item.name} removed from shop inventory. Existing bill items are unchanged.`);
+  };
+
+  const addInvoiceItem = () => {
+    const item = inventory.find((entry) => entry.id === selectedItemId);
+    if (!item) {
+      setError('Choose an item from shop inventory to add.');
+      return;
+    }
+    setInvoice((current) => {
+      const existing = current.lines.find((line) => line.itemId === item.id);
+      if (existing) {
+        return {
+          ...current,
+          lines: current.lines.map((line) => line.id === existing.id
+            ? { ...line, quantity: line.quantity + 1 }
+            : line),
+        };
+      }
+      return {
+        ...current,
+        lines: [...current.lines, {
+          id: createId(),
+          itemId: item.id,
+          name: item.name,
+          sku: item.sku,
+          unit: item.unit,
+          unitPrice: item.price,
+          quantity: 1,
+        }],
+      };
+    });
+    setError('');
+  };
+
+  const updateLine = (lineId: string, quantity: number) => {
+    setInvoice((current) => ({
+      ...current,
+      lines: current.lines.map((line) => line.id === lineId ? { ...line, quantity } : line),
+    }));
+  };
+
+  const removeLine = (lineId: string) => {
+    setInvoice((current) => ({ ...current, lines: current.lines.filter((line) => line.id !== lineId) }));
+  };
+
+  const startNewInvoice = () => {
+    if (!store) return;
+    downloadWorkspace();
+    setInvoice(newInvoiceForStore(store.invoicePrefix));
+    setHasStartedBilling(true);
+    setNotice('Current bill JSON downloaded with the shop profile and inventory. A new blank bill is ready.');
+  };
+
+  const continueToBilling = () => {
+    if (!canContinueToBilling) {
+      setError('Add at least one item to shop inventory before continuing to the bill.');
+      setNotice('');
+      return;
+    }
+    if (!commitStore(storeForm)) return;
+    if (!hasStartedBilling) {
+      setInvoice(newInvoiceForStore(storeForm.invoicePrefix));
+      setHasStartedBilling(true);
+    }
+    setStep('billing');
+    setNotice('Shop profile is ready. Add items from shop inventory to create a bill for your customer.');
+  };
+
+  const downloadSetup = () => {
+    if (!commitStore(storeForm)) return;
+    downloadProfile(storeForm, inventory);
+  };
+
+  const exportImage = async () => {
+    if (!invoiceRef.current) {
+      setError('Bill preview is not ready to download.');
+      return;
+    }
+    setIsExportingImage(true);
+    setError('');
+    try {
+      const { default: html2canvas } = await import('html2canvas');
+      const canvas = await html2canvas(invoiceRef.current, {
+        backgroundColor: '#ffffff',
+        scale: Math.min(2, window.devicePixelRatio || 1),
+        ignoreElements: (element) => element.tagName === 'IFRAME',
+        onclone: (document, clonedInvoice) => normalizeCanvasColors(document, clonedInvoice),
+      });
+      const blob = await new Promise<Blob>((resolve, reject) => {
+        canvas.toBlob((result) => {
+          if (result) resolve(result);
+          else reject(new Error('The browser could not create an image from this bill.'));
+        }, 'image/png');
+      });
+      downloadBlob(blob, `${safeFileBaseName(invoice.number)}.png`);
+      setNotice('Customer bill image downloaded.');
+    } catch (reason) {
+      setError(reason instanceof Error ? `Image export failed: ${reason.message}` : 'Image export failed.');
+    } finally {
+      setIsExportingImage(false);
+    }
+  };
+
+  const updateInvoice = <K extends keyof InvoiceDraft>(key: K, value: InvoiceDraft[K]) => {
+    setInvoice((current) => ({ ...current, [key]: value }));
+  };
+
+  const renderStoreFields = () => (
+    <>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <label className={`${labelClass} sm:col-span-2`}>
+          Shop name *
+          <input className={fieldClass} value={storeForm.name} onChange={(event) => setStoreForm({ ...storeForm, name: event.target.value })} required autoComplete="organization" />
+        </label>
+        <label className={labelClass}>
+          Tagline
+          <input className={fieldClass} value={storeForm.tagline} onChange={(event) => setStoreForm({ ...storeForm, tagline: event.target.value })} placeholder="Optional" />
+        </label>
+        <label className={labelClass}>
+          Tax ID
+          <input className={fieldClass} value={storeForm.taxId} onChange={(event) => setStoreForm({ ...storeForm, taxId: event.target.value })} placeholder="Optional" />
+        </label>
+        <label className={`${labelClass} sm:col-span-2`}>
+          Address
+          <textarea className={fieldClass} rows={2} value={storeForm.address} onChange={(event) => setStoreForm({ ...storeForm, address: event.target.value })} placeholder="Business address" />
+        </label>
+        <label className={labelClass}>
+          Phone
+          <input className={fieldClass} type="tel" value={storeForm.phone} onChange={(event) => setStoreForm({ ...storeForm, phone: event.target.value })} autoComplete="tel" />
+        </label>
+        <label className={labelClass}>
+          Email
+          <input className={fieldClass} type="email" value={storeForm.email} onChange={(event) => setStoreForm({ ...storeForm, email: event.target.value })} autoComplete="email" />
+        </label>
+        <label className={labelClass}>
+          Bill number prefix *
+          <input className={fieldClass} value={storeForm.invoicePrefix} onChange={(event) => setStoreForm({ ...storeForm, invoicePrefix: event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10) })} maxLength={10} placeholder="e.g. SHOP" required />
+          <span className="mt-1 block font-normal text-slate-500">Each new bill starts with this prefix, followed by its date and a unique code. Changing it later applies to future bills.</span>
+        </label>
+        <label className={labelClass}>
+          Currency code *
+          <input className={fieldClass} value={storeForm.currency} onChange={(event) => setStoreForm({ ...storeForm, currency: event.target.value.toUpperCase() })} maxLength={3} placeholder="INR" required />
+        </label>
+        <label className={labelClass}>
+          Primary tax label
+          <input className={fieldClass} value={storeForm.taxLabel} onChange={(event) => setStoreForm({ ...storeForm, taxLabel: event.target.value })} placeholder="GST, VAT, Sales tax..." />
+        </label>
+        <label className={labelClass}>
+          Primary tax rate (%)
+          <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.taxRate} onChange={(event) => setStoreForm({ ...storeForm, taxRate: Number(event.target.value) })} />
+        </label>
+        <label className={labelClass}>
+          Additional tax label
+          <input className={fieldClass} value={storeForm.additionalTaxLabel} onChange={(event) => setStoreForm({ ...storeForm, additionalTaxLabel: event.target.value })} placeholder="e.g. Cess, local tax (optional)" />
+        </label>
+        <label className={labelClass}>
+          Additional tax rate (%)
+          <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.additionalTaxRate} onChange={(event) => setStoreForm({ ...storeForm, additionalTaxRate: Number(event.target.value) })} />
+        </label>
+        <label className={labelClass}>
+          Other charge label
+          <input className={fieldClass} value={storeForm.chargeLabel} onChange={(event) => setStoreForm({ ...storeForm, chargeLabel: event.target.value })} placeholder="e.g. Delivery, packaging (optional)" />
+        </label>
+        <label className={labelClass}>
+          Other charge amount ({storeForm.currency || 'INR'})
+          <input className={fieldClass} type="number" min="0" step="0.01" value={storeForm.chargeAmount} onChange={(event) => setStoreForm({ ...storeForm, chargeAmount: Number(event.target.value) })} />
+        </label>
+        <label className={labelClass}>
+          Tax calculation
+          <select className={fieldClass} value={storeForm.taxMode} onChange={(event) => setStoreForm({ ...storeForm, taxMode: event.target.value as StoreProfile['taxMode'] })}>
+            <option value="exclusive">Add tax to item prices</option>
+            <option value="inclusive">Item prices already include tax</option>
+          </select>
+        </label>
+      </div>
+      <p className="text-[11px] leading-relaxed text-slate-500">
+        The additional percentage tax uses the same inclusive or exclusive setting as the primary tax and is calculated on the taxable subtotal. The flat charge is added once per bill after percentage taxes. This tool does not determine legal tax rates or guarantee tax compliance.
+      </p>
+    </>
+  );
+
+  const renderInventoryPanel = () => (
+    <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+      <div>
+        <h3 className="text-base font-bold text-slate-900">Shop inventory</h3>
+        <p className="mt-1 text-xs text-slate-500">Add items and prices to shop inventory. You can use fractional quantities for weight, volume, length, or count.</p>
+      </div>
+
+      <form onSubmit={addOrUpdateItem} className="space-y-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
+        <div className="flex items-center justify-between">
+          <h4 className="text-xs font-bold text-slate-800">{editingItemId ? 'Edit inventory item' : 'Add an item'}</h4>
+          {editingItemId && <button type="button" aria-label="Cancel item edit" className="text-slate-400 hover:text-slate-700" onClick={() => { setEditingItemId(null); setItemForm(EMPTY_ITEM); }}><X className="h-4 w-4" /></button>}
+        </div>
+        <label className={labelClass}>Item name *
+          <input className={fieldClass} value={itemForm.name} onChange={(event) => setItemForm({ ...itemForm, name: event.target.value })} placeholder="e.g. Loose almonds" required />
+        </label>
+        <div className="grid grid-cols-2 gap-3">
+          <label className={labelClass}>Selling price *
+            <input className={fieldClass} type="number" min="0" step="0.01" value={itemForm.price} onChange={(event) => setItemForm({ ...itemForm, price: event.target.value })} placeholder="0.00" required />
+          </label>
+          <label className={labelClass}>Unit
+            <select className={fieldClass} value={itemForm.unit} onChange={(event) => setItemForm({ ...itemForm, unit: event.target.value as ProductUnit })}>
+              {PRODUCT_UNITS.map((unit) => <option key={unit.value} value={unit.value}>{unit.label}</option>)}
+            </select>
+          </label>
+        </div>
+        <label className={labelClass}>SKU / item code
+          <input className={fieldClass} value={itemForm.sku} onChange={(event) => setItemForm({ ...itemForm, sku: event.target.value })} placeholder="Optional" />
+        </label>
+        <button type="submit" className={primaryButtonClass}><Save className="h-3.5 w-3.5" />{editingItemId ? 'Update item' : 'Add to inventory'}</button>
+      </form>
+
+      <div className="space-y-2">
+        <div className="flex items-center justify-between gap-2">
+          <label className="sr-only" htmlFor="pos-inventory-search">Search inventory</label>
+          <input id="pos-inventory-search" className={fieldClass} value={itemSearch} onChange={(event) => setItemSearch(event.target.value)} placeholder="Search inventory..." />
+          <span className="shrink-0 text-xs text-slate-500">{inventory.length} item{inventory.length === 1 ? '' : 's'}</span>
+        </div>
+        {filteredInventory.length ? filteredInventory.map((item) => (
+          <div key={item.id} className="flex items-center gap-2 rounded-xl border border-slate-100 px-3 py-2.5">
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-xs font-bold text-slate-800">{item.name}</p>
+              <p className="text-[10px] text-slate-500">{item.sku ? `${item.sku} · ` : ''}{formatMoney(item.price, (store ?? storeForm).currency)} / {item.unit}</p>
+            </div>
+            <button type="button" className="rounded-lg p-2 text-slate-400 hover:bg-indigo-50 hover:text-indigo-700" aria-label={`Edit ${item.name}`} onClick={() => editItem(item)}><Pencil className="h-3.5 w-3.5" /></button>
+            <button type="button" className="rounded-lg p-2 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${item.name}`} onClick={() => removeItem(item)}><Trash2 className="h-3.5 w-3.5" /></button>
+          </div>
+        )) : (
+          <p className="rounded-xl border border-dashed border-slate-200 px-3 py-5 text-center text-xs text-slate-500">
+            {inventory.length ? 'No inventory items match your search.' : 'Shop inventory is empty. Add your first item or import a shop profile.'}
+          </p>
+        )}
+      </div>
+    </section>
+  );
+
+  if (!store || step === 'setup') {
+    return (
+      <div className="mx-auto max-w-6xl space-y-5">
+        <input ref={importInputRef} type="file" accept=".json,application/json" className="hidden" onChange={(event) => void handleImport(event.target.files?.[0])} />
+        <section className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-white p-5 shadow-sm sm:p-7">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700"><Building2 className="h-5 w-5" /></span>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-indigo-700">Step 1 of 2 · Shop profile</p>
+                <h2 className="mt-1 text-xl font-extrabold text-slate-900">{store ? 'Review your shop profile' : 'Create your shop profile'}</h2>
+                <p className="mt-1 max-w-2xl text-sm leading-relaxed text-slate-600">Create a shop profile and add items to shop inventory, or import a saved profile to reuse them. Importing a bill JSON opens that bill directly. Your information stays in this browser unless you download a JSON file.</p>
+              </div>
+            </div>
+            <button type="button" className={secondaryButtonClass} onClick={() => importInputRef.current?.click()} title="Import a shop profile JSON or a bill JSON"><FileUp className="h-3.5 w-3.5" />Import profile or bill JSON</button>
+          </div>
+        </section>
+        {(error || notice) && (
+          <div role={error ? 'alert' : 'status'} className={`rounded-lg border px-3 py-2 text-xs ${error ? 'border-rose-200 bg-rose-50 text-rose-700' : 'border-emerald-200 bg-emerald-50 text-emerald-700'}`}>
+            {error || notice}
+          </div>
+        )}
+        <div className="grid items-start gap-5 lg:grid-cols-2">
+          <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+            <div>
+              <h3 className="text-base font-bold text-slate-900">Shop profile</h3>
+              <p className="mt-1 text-xs text-slate-500">These details identify your shop on the bill your customer receives.</p>
+            </div>
+            <div className="space-y-4">{renderStoreFields()}</div>
+          </section>
+          {renderInventoryPanel()}
+        </div>
+        <section className="flex flex-col gap-4 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+          <div className="max-w-2xl">
+            <h3 className="text-sm font-bold text-slate-900">Keep your shop profile and inventory for next time</h3>
+            <p className="mt-1 text-xs leading-relaxed text-slate-600">Download a profile JSON with your shop details, bill prefix, and shop inventory. Keep it on your device and import it whenever you return. JSON is your editable backup; it is not the customer bill.</p>
+            {!canContinueToBilling && <p className="mt-2 text-xs font-semibold text-amber-800">Add at least one item to shop inventory before continuing to the bill.</p>}
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-2">
+            <button type="button" className={secondaryButtonClass} onClick={downloadSetup}><Archive className="h-3.5 w-3.5" />Download profile JSON</button>
+            <button type="button" className={primaryButtonClass} onClick={continueToBilling} disabled={!canContinueToBilling}><FilePlus2 className="h-3.5 w-3.5" />{store ? 'Save profile & return to bill' : 'Continue to bill'}</button>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto max-w-7xl space-y-5">
+      <input ref={importInputRef} type="file" accept=".json,application/json" className="hidden" onChange={(event) => void handleImport(event.target.files?.[0])} />
+      <style>{`
+        @media print {
+          body * { visibility: hidden !important; }
+          #pos-invoice-print-area, #pos-invoice-print-area * { visibility: visible !important; }
+          #pos-invoice-print-area { position: fixed !important; inset: 0 auto auto 0 !important; width: 100% !important; max-width: none !important; margin: 0 !important; padding: 28px !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }
+        }
+      `}</style>
+
+      <header className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex min-w-0 items-center gap-3">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600"><ReceiptText className="h-5 w-5" /></span>
+          <div className="min-w-0">
+            <p className="text-xs font-bold uppercase tracking-wider text-indigo-700">Step 2 of 2 · Prepare the customer bill</p>
+            <h2 className="truncate text-lg font-extrabold text-slate-900">{store.name}</h2>
+            <p className="text-xs text-slate-500">{store.tagline || 'Local POS & Bill Studio'} · Bill prefix: {store.invoicePrefix}</p>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <button type="button" className={secondaryButtonClass} onClick={() => { setStoreForm(store); setStep('setup'); }}><Building2 className="h-3.5 w-3.5" />Edit shop profile & inventory</button>
+          <button type="button" className={secondaryButtonClass} onClick={() => importInputRef.current?.click()} title="Import a shop profile JSON or a bill JSON"><FileUp className="h-3.5 w-3.5" />Import profile or bill JSON</button>
+        </div>
+      </header>
+      <p className="text-xs leading-relaxed text-slate-500">
+        The same importer accepts either JSON type: a profile restores your shop profile and inventory; a bill JSON restores those details and opens the saved bill here.
+      </p>
+
+      {(error || notice) && (
+        <div role={error ? 'alert' : 'status'} className={`rounded-lg border px-3 py-2 text-xs ${error ? 'border-rose-200 bg-rose-50 text-rose-700' : 'border-emerald-200 bg-emerald-50 text-emerald-700'}`}>
+          {error || notice}
+        </div>
+      )}
+
+      <section className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-4 sm:p-5">
+          <div className="mb-3 flex items-start gap-3">
+            <Archive className="mt-0.5 h-4 w-4 shrink-0 text-indigo-700" />
+            <div>
+              <h3 className="text-sm font-bold text-slate-900">For you, the shop owner: keep an editable copy</h3>
+              <p className="mt-1 text-xs leading-relaxed text-slate-600">JSON files are for your own backups and future editing. A profile JSON keeps your shop profile and inventory; a bill JSON also keeps the current bill. Import either JSON later to continue.</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" className={secondaryButtonClass} onClick={() => downloadProfile()} title="Save your shop profile and inventory for a future session"><Archive className="h-3.5 w-3.5" />Save profile & inventory JSON</button>
+            <button type="button" className={secondaryButtonClass} onClick={() => downloadWorkspace()} title="Save this bill with your shop profile and inventory for future editing"><Save className="h-3.5 w-3.5" />Save bill JSON</button>
+            <button type="button" className={primaryButtonClass} onClick={startNewInvoice} title="Save the current bill JSON, then prepare a new bill"><FilePlus2 className="h-3.5 w-3.5" />Save & start next bill</button>
+          </div>
+        </div>
+        <div className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4 sm:p-5">
+          <div className="mb-3 flex items-start gap-3">
+            <ReceiptText className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" />
+            <div>
+              <h3 className="text-sm font-bold text-slate-900">For your customer: share the finished bill</h3>
+              <p className="mt-1 text-xs leading-relaxed text-slate-600">PDF and image exports are readable copies of the bill to print, send, or share with your customer. They are different from your editable JSON backup.</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" className={secondaryButtonClass} onClick={() => window.print()} title="Print this bill or save it as a PDF"><Printer className="h-3.5 w-3.5" />Print / download bill PDF</button>
+            <button type="button" className={secondaryButtonClass} onClick={() => void exportImage()} disabled={isExportingImage} title="Download a shareable image of this customer bill">
+              <FileImage className="h-3.5 w-3.5" />{isExportingImage ? 'Preparing image...' : 'Download customer image'}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <h3 className="text-base font-bold text-slate-900">Prepare the customer bill</h3>
+              <p className="mt-1 text-xs text-slate-500">Bill {invoice.number} · Select items from inventory, enter customer details, and review the total before sharing.</p>
+            </div>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+            <label className={labelClass}>Bill number
+              <input className={fieldClass} value={invoice.number} onChange={(event) => updateInvoice('number', event.target.value)} />
+            </label>
+            <label className={labelClass}>Bill date
+              <input className={fieldClass} type="date" value={invoice.date} onChange={(event) => updateInvoice('date', event.target.value)} />
+            </label>
+            <label className={labelClass}>Customer name
+              <input className={fieldClass} value={invoice.customerName} onChange={(event) => updateInvoice('customerName', event.target.value)} placeholder="Walk-in customer" />
+            </label>
+            <label className={labelClass}>Customer contact
+              <input className={fieldClass} value={invoice.customerContact} onChange={(event) => updateInvoice('customerContact', event.target.value)} placeholder="Phone or email" />
+            </label>
+        </div>
+
+        <section className="space-y-3 rounded-xl border border-amber-200 bg-amber-50/60 p-3 sm:p-4 print:hidden">
+          <div>
+            <h4 className="text-sm font-bold text-slate-900">Review taxes & charges for this bill</h4>
+            <p className="mt-1 text-xs leading-relaxed text-slate-600">Adjust these before printing or downloading. The bill preview and total update immediately, and the settings are included in your JSON files.</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <label className={labelClass}>GST / primary tax (%)
+              <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={store.taxRate} onChange={(event) => updateBillingSetting('taxRate', Math.min(100, Math.max(0, Number(event.target.value))))} />
+            </label>
+            <label className={labelClass}>Other percentage tax (%)
+              <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={store.additionalTaxRate} onChange={(event) => updateBillingSetting('additionalTaxRate', Math.min(100, Math.max(0, Number(event.target.value))))} />
+            </label>
+            <label className={labelClass}>Flat charge ({store.currency})
+              <input className={fieldClass} type="number" min="0" step="0.01" value={store.chargeAmount} onChange={(event) => updateBillingSetting('chargeAmount', Math.max(0, Number(event.target.value)))} />
+            </label>
+            <label className={labelClass}>GST / primary tax name
+              <input className={fieldClass} value={store.taxLabel} onChange={(event) => updateBillingSetting('taxLabel', event.target.value)} />
+            </label>
+            <label className={labelClass}>Other percentage tax name
+              <input className={fieldClass} value={store.additionalTaxLabel} onChange={(event) => updateBillingSetting('additionalTaxLabel', event.target.value)} />
+            </label>
+            <label className={labelClass}>Flat charge name
+              <input className={fieldClass} value={store.chargeLabel} onChange={(event) => updateBillingSetting('chargeLabel', event.target.value)} />
+            </label>
+          </div>
+        </section>
+
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <select className={`${fieldClass} mt-0 min-w-0 flex-1`} value={selectedItemId} onChange={(event) => setSelectedItemId(event.target.value)} aria-label="Select an item from inventory">
+              <option value="">Select an item from inventory...</option>
+              {inventory.map((item) => <option key={item.id} value={item.id}>{item.name} · {formatMoney(item.price, store.currency)} / {item.unit}</option>)}
+            </select>
+            <button type="button" className={primaryButtonClass} onClick={addInvoiceItem} disabled={!inventory.length}><FilePlus2 className="h-3.5 w-3.5" />Add item</button>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-slate-200">
+            <table className="w-full min-w-[560px] text-left text-xs">
+              <thead className="bg-slate-50 text-[10px] uppercase tracking-wide text-slate-500">
+                <tr><th className="px-3 py-2">Item</th><th className="px-3 py-2">Price / unit</th><th className="px-3 py-2">Quantity</th><th className="px-3 py-2 text-right">Amount</th><th className="px-2 py-2"><span className="sr-only">Remove</span></th></tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {invoice.lines.map((line) => (
+                  <tr key={line.id}>
+                    <td className="px-3 py-2.5"><p className="font-semibold text-slate-800">{line.name}</p><p className="text-[10px] text-slate-500">{line.sku ? `${line.sku} · ` : ''}{line.unit}</p></td>
+                    <td className="px-3 py-2.5 text-slate-600">{formatMoney(line.unitPrice, store.currency)}</td>
+                    <td className="px-3 py-2.5"><input className="w-24 rounded-md border border-slate-200 px-2 py-1.5 text-xs" type="number" min="0.001" step="any" value={line.quantity} aria-label={`Quantity of ${line.name}`} onChange={(event) => updateLine(line.id, Math.max(0, Number(event.target.value)))} /></td>
+                    <td className="px-3 py-2.5 text-right font-semibold text-slate-800">{formatMoney(line.quantity * line.unitPrice, store.currency)}</td>
+                    <td className="px-2 py-2.5"><button type="button" className="rounded-md p-1.5 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={`Remove ${line.name} from bill`} onClick={() => removeLine(line.id)}><X className="h-3.5 w-3.5" /></button></td>
+                  </tr>
+                ))}
+                {!invoice.lines.length && <tr><td colSpan={5} className="px-3 py-8 text-center text-slate-500">Add items from inventory to build this bill.</td></tr>}
+              </tbody>
+            </table>
+          </div>
+          <label className={labelClass}>Bill note
+            <textarea className={fieldClass} rows={2} value={invoice.notes} onChange={(event) => updateInvoice('notes', event.target.value)} placeholder="Optional bill note, payment instructions, or thank you..." />
+          </label>
+
+          <div ref={invoiceRef} id="pos-invoice-print-area" className="space-y-5 rounded-xl border border-slate-200 bg-white p-5 text-slate-800 sm:p-7">
+            <div className="flex flex-col justify-between gap-4 border-b border-slate-200 pb-4 sm:flex-row">
+              <div>
+                <h4 className="text-xl font-extrabold">{store.name}</h4>
+                {store.tagline && <p className="mt-1 text-xs text-slate-500">{store.tagline}</p>}
+                {store.address && <p className="mt-2 whitespace-pre-line text-xs text-slate-600">{store.address}</p>}
+                <p className="mt-1 text-xs text-slate-600">{[store.phone, store.email].filter(Boolean).join(' · ')}</p>
+                {store.taxId && <p className="mt-1 text-xs text-slate-600">{store.taxLabel || 'Tax ID'}: {store.taxId}</p>}
+              </div>
+              <div className="sm:text-right">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-indigo-600">Bill</p>
+                <p className="mt-1 text-sm font-bold">{invoice.number}</p>
+                <p className="mt-1 text-xs text-slate-500">{invoice.date}</p>
+              </div>
+            </div>
+            <div className="text-xs">
+              <p className="font-bold text-slate-500">BILL TO</p>
+              <p className="mt-1 font-semibold">{invoice.customerName || 'Walk-in customer'}</p>
+              {invoice.customerContact && <p className="mt-0.5 text-slate-600">{invoice.customerContact}</p>}
+            </div>
+            <div className="overflow-hidden rounded-lg border border-slate-200">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-50 text-[10px] uppercase tracking-wide text-slate-500">
+                  <tr><th className="px-3 py-2">Description</th><th className="px-3 py-2 text-right">Qty</th><th className="px-3 py-2 text-right">Rate</th><th className="px-3 py-2 text-right">Amount</th></tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {totals.lines.map(({ line, gross }) => (
+                    <tr key={line.id}>
+                      <td className="px-3 py-2.5">{line.name}{line.sku && <span className="ml-1 text-[10px] text-slate-500">({line.sku})</span>}</td>
+                      <td className="px-3 py-2.5 text-right">{line.quantity} {line.unit}</td>
+                      <td className="px-3 py-2.5 text-right">{formatMoney(line.unitPrice, store.currency)}</td>
+                      <td className="px-3 py-2.5 text-right font-semibold">{formatMoney(gross, store.currency)}</td>
+                    </tr>
+                  ))}
+                  {!totals.lines.length && <tr><td colSpan={4} className="px-3 py-7 text-center text-slate-400">No items added</td></tr>}
+                </tbody>
+              </table>
+            </div>
+            <div className="ml-auto w-full max-w-xs space-y-2 text-xs">
+              <div className="flex justify-between gap-4"><span className="text-slate-500">Subtotal</span><span>{formatMoney(totals.subtotal, store.currency)}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-slate-500">{store.taxLabel || 'Tax'} ({store.taxRate}%){store.taxMode === 'inclusive' ? ' included' : ''}</span><span>{formatMoney(totals.tax, store.currency)}</span></div>
+              {store.additionalTaxRate > 0 && <div className="flex justify-between gap-4"><span className="text-slate-500">{store.additionalTaxLabel || 'Additional tax'} ({store.additionalTaxRate}%){store.taxMode === 'inclusive' ? ' included' : ''}</span><span>{formatMoney(totals.additionalTax, store.currency)}</span></div>}
+              {totals.charge > 0 && <div className="flex justify-between gap-4"><span className="text-slate-500">{store.chargeLabel || 'Other charge'}</span><span>{formatMoney(totals.charge, store.currency)}</span></div>}
+              <div className="flex justify-between gap-4 border-t border-slate-200 pt-2 text-sm font-extrabold"><span>Total</span><span>{formatMoney(totals.total, store.currency)}</span></div>
+            </div>
+            {invoice.notes && <div className="border-t border-slate-200 pt-3 text-xs"><p className="font-bold">Note</p><p className="mt-1 whitespace-pre-line text-slate-600">{invoice.notes}</p></div>}
+            <p className="border-t border-slate-100 pt-3 text-center text-[10px] text-slate-400">Created locally with MyDailyUtils POS & Bill Studio</p>
+          </div>
+          <p className="flex items-center gap-1.5 text-[10px] text-slate-400"><ShieldCheck className="h-3.5 w-3.5" />Data is not saved automatically. Export a profile or bill JSON before leaving or refreshing.</p>
+      </section>
+    </div>
+  );
+};
+
+export default PosInvoiceStudio;

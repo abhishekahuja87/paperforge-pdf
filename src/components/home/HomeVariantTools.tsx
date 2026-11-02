@@ -59,7 +59,7 @@ export const HomeStudioCard: React.FC<{ horizontal?: boolean }> = ({ horizontal 
 };
 
 export const HomeCategoryHeading: React.FC<{ category: ToolCategory; count: number }> = ({ category, count }) => {
-  const iconName = category === 'media' ? 'image' : category === 'dev' ? 'file-code' : category === 'text' ? 'type' : category === 'display' ? 'presentation' : 'file-text';
+  const iconName = category === 'media' ? 'image' : category === 'dev' ? 'file-code' : category === 'text' ? 'type' : category === 'display' ? 'presentation' : category === 'business' ? 'receipt' : 'file-text';
   return (
     <header className="mb-3 flex items-start gap-2">
       <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${HOME_CATEGORY_STYLES[category].icon}`}>

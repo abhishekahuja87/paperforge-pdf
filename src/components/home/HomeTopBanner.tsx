@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, ShieldCheck, Sparkles, FileImage, FileText, Code2, Presentation } from 'lucide-react';
+import { Search, ShieldCheck, Sparkles, FileImage, FileText, Code2, Presentation, ReceiptText } from 'lucide-react';
 
 interface HomeTopBannerProps {
   query: string;
@@ -52,6 +52,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
             <span className="inline-flex items-center gap-1"><FileImage className="h-3 w-3 text-emerald-300" aria-hidden="true" /> Image</span>
             <span className="inline-flex items-center gap-1"><Code2 className="h-3 w-3 text-amber-300" aria-hidden="true" /> Data</span>
             <span className="inline-flex items-center gap-1"><Presentation className="h-3 w-3 text-violet-300" aria-hidden="true" /> Display</span>
+            <span className="inline-flex items-center gap-1"><ReceiptText className="h-3 w-3 text-rose-300" aria-hidden="true" /> Business</span>
           </div>
         </div>
         <div className="min-w-0">

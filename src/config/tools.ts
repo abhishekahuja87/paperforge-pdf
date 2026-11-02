@@ -1,4 +1,4 @@
-export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text' | 'display';
+export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text' | 'display' | 'business';
 
 export type ToolIconName = 
   | 'layers' 
@@ -20,7 +20,8 @@ export type ToolIconName =
   | 'unlock'
   | 'file-text'
   | 'presentation'
-  | 'git-merge';
+  | 'git-merge'
+  | 'receipt';
 
 export interface ToolItem {
   id: string;
@@ -54,6 +55,10 @@ export const CATEGORIES: Record<ToolCategory, { name: string; description: strin
   display: {
     name: 'Display & Presentation',
     description: 'Create local browser-based slideshows for classrooms, events, and screens.',
+  },
+  business: {
+    name: 'Business & Sales',
+    description: 'Manage shop inventory and create bills locally in your browser.',
   },
 };
 
@@ -334,5 +339,16 @@ export const TOOLS: ToolItem[] = [
     isPopularInternet: true,
     isAvailable: true,
     keywords: ['display', 'presentation', 'slideshow', 'classroom', 'tv', 'signage', 'advertising', 'clock', 'fullscreen', 'pdf', 'docx', 'image'],
+  },
+  {
+    id: 'pos-invoice-studio',
+    title: 'POS & Bill Studio',
+    description: 'Manage shop profiles and inventory, then create printable bills with local-only JSON backups.',
+    category: 'business',
+    path: '/pos-invoice-studio',
+    icon: 'receipt',
+    isPopularInternet: true,
+    isAvailable: true,
+    keywords: ['pos', 'invoice', 'billing', 'bill', 'receipt', 'inventory', 'product', 'sales', 'tax', 'store', 'business'],
   },
 ];

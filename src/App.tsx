@@ -32,6 +32,7 @@ const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').the
 const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
 const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => ({ default: m.Base64ToolPage })));
 const DisplayStudioPage = lazy(() => import('./pages/DisplayStudioPage').then((m) => ({ default: m.DisplayStudioPage })));
+const PosInvoiceStudioPage = lazy(() => import('./pages/PosInvoiceStudioPage').then((m) => ({ default: m.PosInvoiceStudioPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
@@ -72,6 +73,7 @@ export const App: React.FC = () => {
               <Route path="/json-formatter" element={<JsonFormatterPage />} />
               <Route path="/base64-tool" element={<Base64ToolPage />} />
               <Route path="/display-studio" element={<DisplayStudioPage />} />
+              <Route path="/pos-invoice-studio" element={<PosInvoiceStudioPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/about" element={<AboutPage />} />

@@ -20,6 +20,7 @@ import {
   FileText,
   Presentation,
   GitMerge,
+  ReceiptText,
 } from 'lucide-react';
 import type { ToolIconName } from '../../config/tools';
 
@@ -44,6 +45,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   'file-text': FileText,
   presentation: Presentation,
   'git-merge': GitMerge,
+  receipt: ReceiptText,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {
