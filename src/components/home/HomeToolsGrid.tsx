@@ -22,7 +22,7 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
   const hasResults = showStudio || HOME_CATEGORY_ORDER.some((category) => toolsByCategory[category].length > 0);
 
   return (
-    <main className="mx-auto max-w-6xl space-y-4 px-4">
+    <section className="mx-auto max-w-6xl space-y-4 px-4" aria-label="Available tools">
       {!hasResults ? (
         <p className="rounded-xl border border-slate-200 bg-white p-6 text-center text-sm text-slate-500">
           No tools match “{query}”.
@@ -84,6 +84,6 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
       <p className="text-center text-[10px] text-slate-400">
         {CATEGORIES.pdf.description} The highlighted Studio can handle many common page-assembly tasks in one place.
       </p>
-    </main>
+    </section>
   );
 };

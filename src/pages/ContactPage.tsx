@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { PageMetadata } from '../components/common/PageMetadata';
 
 export const ContactPage: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -37,6 +38,10 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
+      <PageMetadata
+        title="Contact MyDailyUtils"
+        description="Send MyDailyUtils a question, support request, or feedback. Contact form submissions are handled by Web3Forms."
+      />
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
         <div className="flex items-center space-x-3 mb-6">
           <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
@@ -55,7 +60,7 @@ export const ContactPage: React.FC = () => {
         </p>
 
         {status === 'success' ? (
-          <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
+          <div role="status" aria-live="polite" className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
             <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
             <h2 className="text-base font-semibold text-emerald-900">Message Sent</h2>
             <p className="text-xs text-emerald-700">
@@ -67,10 +72,11 @@ export const ContactPage: React.FC = () => {
             <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                 Your Name
               </label>
               <input
+                id="contact-name"
                 type="text"
                 name="name"
                 required
@@ -80,10 +86,11 @@ export const ContactPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                 Your Email Address
               </label>
               <input
+                id="contact-email"
                 type="email"
                 name="email"
                 required
@@ -93,10 +100,11 @@ export const ContactPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                 Message
               </label>
               <textarea
+                id="contact-message"
                 name="message"
                 rows={4}
                 required
@@ -106,7 +114,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {status === 'error' && (
-              <div className="flex items-center space-x-2 p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-xs">
+              <div role="alert" className="flex items-center space-x-2 p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-xs">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{errorMessage}</span>
               </div>

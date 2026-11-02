@@ -1,16 +1,22 @@
 import React from 'react';
 import { FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { PageMetadata } from '../components/common/PageMetadata';
 
 export const TermsPage: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 space-y-8 text-slate-700 leading-relaxed">
+      <PageMetadata
+        title="Terms of Service"
+        description="Review the terms for using MyDailyUtils browser-based file utilities, business tools, downloads, and third-party services."
+      />
       <div className="flex items-center space-x-3 pb-6 border-b border-slate-200">
         <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
           <FileText className="w-8 h-8" />
         </div>
         <div>
           <h1 className="text-3xl font-bold text-slate-900">Terms of Service</h1>
-          <p className="text-sm text-slate-500">Effective Date: October 2026</p>
+          <p className="text-sm text-slate-500">Last updated: November 2, 2026</p>
         </div>
       </div>
 
@@ -24,21 +30,38 @@ export const TermsPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">2. Description of Service</h2>
         <p>
-          MyDailyUtils provides browser-based utilities for viewing, reorganizing, flattening, merging, and transforming PDF documents and related file formats. File processing runs in your browser, and files are not uploaded to MyDailyUtils for processing.
+          MyDailyUtils provides browser-based tools for PDF, image, data, display, and business tasks. Supported file processing runs in your browser; selected files are not uploaded to MyDailyUtils for processing. The Contact form and third-party advertising are separate services that make network requests.
         </p>
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-xl font-bold text-slate-900">3. Disclaimer of Warranties</h2>
+        <h2 className="text-xl font-bold text-slate-900">3. Your responsibilities</h2>
         <p>
-          All tools are provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis without warranties of any kind. While all routines are built for reliability, you are solely responsible for keeping backup copies of your source documents before processing.
+          You are responsible for keeping original copies of important files, checking downloaded results, and confirming that you have the right to process or share the content you select. Tool results depend on browser support, file condition, and available device resources.
+        </p>
+        <p>
+          Tax rates and totals in POS &amp; Bill Studio are user-entered estimates, not tax, accounting, or legal advice. Check applicable requirements before issuing a bill.
         </p>
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-xl font-bold text-slate-900">4. Modifications to Service</h2>
+        <h2 className="text-xl font-bold text-slate-900">4. Third-party services</h2>
         <p>
-          We reserve the right to add, modify, or retire any utility tool at any time without notice.
+          The Contact form is provided through Web3Forms, and advertisements are provided by Google AdSense. Those services are subject to their own terms and privacy policies. See our <Link to="/privacy" className="font-semibold text-indigo-700 underline">Privacy Policy</Link> for more information.
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-slate-900">5. Disclaimer of warranties</h2>
+        <p>
+          The site and its tools are provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis, without warranties of any kind. We do not guarantee uninterrupted availability, error-free processing, or that a result will meet a particular requirement.
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-slate-900">6. Changes and contact</h2>
+        <p>
+          We may update the site or these terms as the tools change. Questions about the terms can be sent through the <Link to="/contact" className="font-semibold text-indigo-700 underline">Contact page</Link>.
         </p>
       </section>
     </div>

@@ -41,8 +41,8 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
               <div className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center">
                 {idx + 1}
               </div>
-              <h3 className="text-xs font-semibold text-slate-900 pt-1">{step.title}</h3>
-              <p className="text-[11px] text-slate-500 leading-relaxed">{step.description}</p>
+              <h3 className="text-sm font-semibold text-slate-900 pt-1">{step.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>
             </div>
           ))}
         </div>
@@ -60,8 +60,8 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
               key={idx}
               className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1"
             >
-              <h3 className="text-xs font-semibold text-slate-800">{faq.question}</h3>
-              <p className="text-[11px] text-slate-500 leading-relaxed">{faq.answer}</p>
+              <h3 className="text-sm font-semibold text-slate-800">{faq.question}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{faq.answer}</p>
             </div>
           ))}
         </div>
@@ -70,7 +70,7 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
       {/* Local Processing Guarantee Note */}
       <section className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200/80 flex items-start space-x-2.5">
         <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-        <div className="text-[11px] text-emerald-900 leading-relaxed">
+        <div className="text-xs text-emerald-900 leading-relaxed">
           <strong className="font-semibold text-emerald-950">Local File Processing: </strong>
           {privacyNote ||
             `This tool processes your files in your browser; they are never uploaded to ${siteConfig.name} servers for processing.`}

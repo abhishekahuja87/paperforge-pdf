@@ -6,33 +6,32 @@ Use this file to instantly bootstrap fresh chats with zero context loss.
 1. PROJECT SUMMARY
 ------------------
 Name: PaperForge / MyDailyUtils
-Objective: Secure, high-performance, 100% client-side PDF utility suite.
-Core Principle: Zero server upload/storage. All PDF operations execute strictly
-in browser memory via WebAssembly/pure client execution.
+Objective: Browser-based utilities for PDF, image, data, display, and business tasks.
+Core Principle: Supported file operations run in the user's browser. Selected files
+are not uploaded to MyDailyUtils for processing; the site itself still makes
+network requests for pages, third-party resources, and advertising.
 
 ================================================================================
-CRITICAL ARCHITECTURAL LAW: 100% AIR-GAPPED CLIENT-SIDE INTEGRITY
+CRITICAL ARCHITECTURAL LAW: KEEP USER FILES LOCAL
 ================================================================================
-All current and future tools across EVERY category (PDF, Images, Security, 
-Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
+All file-processing tools across EVERY category MUST keep selected file contents,
+file names, and previews in the browser. Do not send them to a remote service.
 
-1. Zero Network Packets on User Data:
-   Once the static application assets (JS, CSS, fonts, wasm) finish loading,
-   the app MUST function 100% offline with Wi-Fi / Ethernet disconnected.
-   No tool is ever permitted to send user files, byte buffers, file names,
-   or previews across the wire.
+This is a local file-processing design, not an air-gapped website. The website
+loads external resources and Google AdSense ads. The Contact form sends the name,
+email address, and message the user submits to Web3Forms so it can deliver the
+message. These requests are separate from file processing.
 
-2. Pure In-Browser Execution Engines Only:
+1. In-Browser File Processing:
    - PDFs: pdf-lib / WebAssembly
    - Images: OffscreenCanvas / HTML5 Canvas / Web Workers
    - Encoders/Decoders: Native Web APIs (SubtleCrypto, TextEncoder, Blob)
-   - Zero third-party telemetry, tracking pixels on documents, or external API relays.
 
-3. Failure Safeguard:
+2. Failure Safeguard:
    If a proposed feature technically demands a remote server or cloud pipeline
    (e.g., heavy server-side OCR or AI transcription that cannot run locally in WASM),
-   it CANNOT be implemented unless an in-browser WASM engine (e.g., Tesseract.js)
-   can execute it completely offline on the user's hardware.
+   do not upload user files to provide it. Prefer an in-browser engine or clearly
+   explain that the feature is not available locally.
 ================================================================================
 
 2. CORE TECH STACK
@@ -52,13 +51,17 @@ Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
     1. Config: `src/config/tools.ts` (registry, metadata, categories, icons)
     2. Engine: `src/lib/pdf/[tool].ts` (pure binary manipulation functions)
     3. UI Component: `src/components/tools/[ToolName].tsx` (state, drag-and-drop, UI)
-    4. Route Page: `src/pages/[ToolPage].tsx` (SEO metadata, ToolGuide, layout)
+    4. Route Page: `src/pages/[ToolPage].tsx` (page metadata, ToolGuide, layout)
 - Layout Standard:
     Every tool page uses `ToolLayout` containing:
     - Header
     - Tool Container
-    - `ToolGuide` (SEO How-To step workflow + detailed FAQs)
-    - Bottom `AdSlot` (ads restricted strictly to bottom to protect UX)
+    - `ToolGuide` (task instructions, FAQs, and a processing note)
+    - `AdBanner` placements managed by `src/config/ads.ts`
+- Search and Sharing:
+    `PageMetadata` updates page titles, descriptions, canonical URLs, and social
+    metadata for client-side routes. `public/robots.txt` and `public/sitemap.xml`
+    describe the crawlable public routes.
 - Dynamic Branding:
     Global site name is referenced dynamically via `siteConfig.name`.
 - Collision-Free File Naming (`src/lib/pdf/naming.ts`):
@@ -69,8 +72,10 @@ Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
     modifies parameters post-generation, UI flags unsaved changes and updates
     the download action to prevent downloading outdated files.
 
-4. CURRENTLY IMPLEMENTED TOOLS & ROUTES (8 TOTAL)
--------------------------------------------------
+4. SELECTED IMPLEMENTED TOOLS & ROUTES
+--------------------------------------
+The examples below are not exhaustive. `src/config/tools.ts` is the current tool
+registry and `src/App.tsx` defines the public routes.
 1. Merge PDF:
    - Route: `/merge-pdf`
    - Engine: `src/lib/pdf/merge.ts`
@@ -179,95 +184,28 @@ Converters, Formatters, Text Utilities) MUST strictly obey the "Air-Gap Test":
     - Page: `src/pages/ProtectPage.tsx`
     - Features: In-memory password encryption, separate User and Owner passwords, permissions toggling (printing, text copying), zero-server execution.
 
-5. PENDING / ROADMAP ITEMS
---------------------------
-- Google AdSense & Google Analytics 4 integration (`src/config/adsAndAnalytics.ts`
-  and `src/components/common/AdSlot.tsx` are scaffolded, awaiting production IDs).
-- Next candidate tools (100% In-Browser & Offline-Verified):
-  * Protect / Unlock PDF (Password encryption/decryption)
-  * PDF to Image / PDF to JPG (Render pages via Canvas to individual image downloads/ZIP)
-  * Watermark PDF (Stamp custom diagonal text or logo overlay)
-  * Crop / Trim PDF (Adjust crop boxes and media boxes)
+5. ADVERTISING, CONTACT, AND LOCAL PREFERENCES
+-----------------------------------------------
+- Google AdSense is loaded from `index.html`; publisher and ad-unit IDs are
+  configured in `src/config/ads.ts`. `public/ads.txt` identifies the publisher.
+- A Google Analytics script is not currently configured. Do not add a placeholder
+  measurement ID; update the Privacy Policy if analytics is introduced later.
+- Contact form submissions are sent to Web3Forms. The Contact page and Privacy
+  Policy disclose this separate third-party request.
+- Tool visit counts are kept in browser local storage for usage labels. No selected
+  file data is stored there.
+- Review consent and regional advertising requirements in the AdSense account;
+  those settings cannot be verified from this repository alone.
 
-6. VERIFIED SOURCE DIRECTORY TREE
----------------------------------
-|   App.css                                                     
-|   App.tsx                                                                                             
-|   index.css                                                      
-|   main.tsx                                                                                                            
-|   
-+---assets                       
-|       hero.png       
-|       react.svg
-|       vite.svg
-|       
-+---components
-|   +---common
-|   |       AdSlot.tsx
-|   |       ToolGuide.tsx
-|   |       UnifiedHero.tsx
-|   |       
-|   +---layout
-|   |       Footer.tsx
-|   |       Header.tsx
-|   |       ToolLayout.tsx
-|   |       
-|   \---tools
-|           AddPageNumbers.tsx
-|           CompressPdf.tsx
-|           CropPdf.tsx
-|           DeletePagesPdf.tsx
-|           GenerateSamplePdf.tsx
-|           ImagesToPdf.tsx
-|           InspectPdf.tsx
-|           MergePdf.tsx
-|           NUpPdf.tsx
-|           ProtectPdf.tsx
-|           RotatePdf.tsx
-|           SanitizePdf.tsx
-|           SplitPdf.tsx
-|           WatermarkPdf.tsx
-|           
-+---config
-|       adsAndAnalytics.ts
-|       site.ts
-|       tools.ts
-|       
-+---lib
-|   |   storage.ts
-|   |   
-|   \---pdf
-|           compress.ts
-|           crop.ts
-|           deletePages.ts
-|           generateSample.ts
-|           imagesToPdf.ts
-|           inspect.ts
-|           merge.ts
-|           naming.ts
-|           nUp.ts
-|           pageNumbers.ts
-|           protect.ts
-|           rotate.ts
-|           sanitize.ts
-|           split.ts
-|           watermark.ts
-|           
-\---pages
-        AddPageNumbersPage.tsx
-        CompressPage.tsx
-        CropPage.tsx
-        DeletePagesPage.tsx
-        GenerateSamplePage.tsx
-        HomePage.tsx
-        ImagesToPdfPage.tsx
-        InspectPage.tsx
-        MergePage.tsx
-        NUpPage.tsx
-        ProtectPage.tsx
-        RotatePage.tsx
-        SanitizePage.tsx
-        SplitPage.tsx
-        WatermarkPage.tsx
-        
+6. KEY SOURCE LOCATIONS
+-----------------------
+- Routes: `src/App.tsx`
+- Tool registry and descriptions: `src/config/tools.ts`
+- Shared site and advertising settings: `src/config/site.ts`, `src/config/ads.ts`
+- Per-route metadata: `src/components/common/PageMetadata.tsx`
+- Shared tool layout and guides: `src/components/layout/ToolLayout.tsx`,
+  `src/components/common/ToolGuide.tsx`
+- Public crawler files: `public/robots.txt`, `public/sitemap.xml`, `public/ads.txt`
+- Tool implementations and route pages: `src/components/tools/`, `src/pages/`
+
 ================================================================================

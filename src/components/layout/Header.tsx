@@ -85,7 +85,7 @@ export const Header: React.FC = () => {
 
           <div className="hidden sm:inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>100% In-Browser</span>
+            <span>Local file processing</span>
           </div>
         </nav>
       </div>

@@ -1,8 +1,8 @@
 export const ADS_CONFIG = {
-  // Replace with your real client ID
+  // Publisher ID used by the live AdSense units.
   client: 'ca-pub-5229473053528385',
   
-  // Replace with your created ad unit slot IDs
+  // Ad unit IDs created in AdSense.
   slots: {
     toolTopBanner: '8459726244',
     toolBottomBanner: '9487856553',
