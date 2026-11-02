@@ -19,7 +19,8 @@ export type ToolIconName =
   | 'lock'
   | 'unlock'
   | 'file-text'
-  | 'presentation';
+  | 'presentation'
+  | 'git-merge';
 
 export interface ToolItem {
   id: string;
@@ -64,7 +65,7 @@ export const TOOLS: ToolItem[] = [
     description: 'Combine multiple PDFs into one unified file.',
     category: 'pdf',
     path: '/merge-pdf',
-    icon: 'layers',
+    icon: 'git-merge',
     isPopularInternet: true,
     isAvailable: true,
     keywords: ['merge', 'combine', 'join', 'pdf'],

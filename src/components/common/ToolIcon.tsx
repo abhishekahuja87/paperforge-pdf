@@ -19,6 +19,7 @@ import {
   Unlock,
   FileText,
   Presentation,
+  GitMerge,
 } from 'lucide-react';
 import type { ToolIconName } from '../../config/tools';
 
@@ -42,6 +43,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   unlock: Unlock,
   'file-text': FileText,
   presentation: Presentation,
+  'git-merge': GitMerge,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {
