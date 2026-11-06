@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { TOOLS, CATEGORIES, type ToolCategory } from '../../config/tools';
 import { recordToolClick } from '../../lib/storage';
@@ -81,11 +81,6 @@ export const Header: React.FC = () => {
                 })}
               </div>
             )}
-          </div>
-
-          <div className="hidden sm:inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Local file processing</span>
           </div>
         </nav>
       </div>

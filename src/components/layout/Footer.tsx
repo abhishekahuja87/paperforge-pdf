@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Lock } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { TOOLS } from '../../config/tools';
 
@@ -16,14 +15,9 @@ export const Footer: React.FC = () => {
             <span className="font-bold text-white text-sm">{siteConfig.name}</span>
             <span className="hidden sm:inline text-slate-600">&bull;</span>
             <p className="text-slate-400 max-w-sm">
-              Selected files are processed on your device. Ads and contact submissions make separate network requests.
+              Ads and contact submissions make separate network requests.
             </p>
           </div>
-
-          <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-[11px] font-medium">
-            <Lock className="w-3 h-3" />
-            <span>Local file processing</span>
-          </span>
         </div>
 
         {/* Middle Section: Active Tool Links */}
@@ -56,7 +50,7 @@ export const Footer: React.FC = () => {
           </nav>
 
           <p className="text-slate-400 text-center sm:text-right">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. Privacy-first, client-side tools.
+            &copy; {new Date().getFullYear()} {siteConfig.name}.
           </p>
         </div>
       </div>

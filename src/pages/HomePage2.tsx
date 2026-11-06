@@ -7,10 +7,10 @@ export const HomePage2: React.FC = () => {
   const [query, setQuery] = useState('');
 
   return (
-    <div className="space-y-4 pb-12">
+    <div className="min-h-full space-y-3 bg-[#f7f3eb] pb-12">
       <PageMetadata
-        title="Online Tools & Utilities | PDF, Images & More"
-        description="Explore browser-based tools and utilities for files, data, and everyday tasks. PDF, images, and more, with supported file processing done locally in your browser."
+        title="Everyday Tools & Utilities"
+        description="Find useful browser-based tools and utilities for files, data, and everyday tasks. Request a free utility if you cannot find the one you need."
       />
       <HomeTopBanner query={query} onQueryChange={setQuery} />
       <HomeToolsGrid query={query} />

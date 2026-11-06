@@ -12,16 +12,16 @@ export const HomeToolCard: React.FC<{
 }> = ({ tool, compact = false, dark = false }) => (
   <Link
     to={tool.path}
-    className={`group flex min-w-0 items-center gap-2 rounded-xl border transition hover:-translate-y-0.5 hover:shadow-md ${dark ? 'border-white/10 bg-white/[0.06] text-white hover:border-indigo-300/50 hover:bg-white/10' : 'border-slate-200 bg-white hover:border-indigo-300'} ${compact ? 'min-h-11 px-2 py-1.5' : 'min-h-[68px] px-3 py-2.5'}`}
+    className={`group flex min-w-0 items-center gap-2 rounded-xl border transition duration-200 hover:-translate-y-0.5 hover:shadow-md ${dark ? 'border-white/10 bg-white/[0.06] text-white hover:border-orange-300/50 hover:bg-white/10' : 'border-stone-200/80 bg-white/90 hover:border-orange-300'} ${compact ? 'min-h-11 px-2 py-1.5' : 'min-h-[68px] px-3 py-2.5'}`}
   >
-    <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${dark ? 'bg-white/10 text-indigo-200 group-hover:bg-indigo-500 group-hover:text-white' : 'bg-slate-100 text-indigo-700 group-hover:bg-indigo-600 group-hover:text-white'}`}>
+    <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${dark ? 'bg-white/10 text-orange-200 group-hover:bg-orange-500 group-hover:text-white' : 'bg-orange-50 text-orange-800 group-hover:bg-orange-600 group-hover:text-white'}`}>
       <ToolIcon name={tool.icon} className="h-4 w-4" />
     </span>
     <span className="min-w-0 flex-1">
-      <span className={`block truncate text-xs font-bold ${dark ? 'text-white group-hover:text-indigo-200' : 'text-slate-800 group-hover:text-indigo-700'}`}>{tool.title}</span>
-      {!compact && <span className={`mt-0.5 line-clamp-2 block text-[10px] leading-snug ${dark ? 'text-slate-400' : 'text-slate-500'}`}>{tool.description}</span>}
+      <span className={`block truncate text-xs font-bold ${dark ? 'text-white group-hover:text-orange-200' : 'text-stone-800 group-hover:text-orange-800'}`}>{tool.title}</span>
+      {!compact && <span className={`mt-0.5 line-clamp-2 block text-[10px] leading-snug ${dark ? 'text-slate-400' : 'text-stone-500'}`}>{tool.description}</span>}
     </span>
-    <ArrowRight className={`h-3.5 w-3.5 shrink-0 transition group-hover:translate-x-0.5 ${dark ? 'text-slate-500 group-hover:text-indigo-200' : 'text-slate-300 group-hover:text-indigo-600'}`} />
+    <ArrowRight className={`h-3.5 w-3.5 shrink-0 transition group-hover:translate-x-0.5 ${dark ? 'text-slate-500 group-hover:text-orange-200' : 'text-stone-300 group-hover:text-orange-700'}`} />
   </Link>
 );
 
@@ -52,13 +52,13 @@ export const HomeStudioCard: React.FC<{ horizontal?: boolean }> = ({ horizontal 
       </div>
       <div className={`relative mt-3 flex items-center justify-between border-t border-indigo-100 pt-2.5 ${horizontal ? 'w-full shrink-0 sm:mt-0 sm:w-auto sm:min-w-36 sm:flex-col sm:items-end sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0' : ''}`}>
         <span className="inline-flex items-center gap-1 text-[10px] font-bold text-indigo-700">Open Studio <ArrowRight className="h-3 w-3 transition group-hover:translate-x-0.5" /></span>
-        <span className="text-[9px] font-medium text-emerald-700">Runs in your browser</span>
+        <span className="text-[9px] font-medium text-slate-500">Open workspace</span>
       </div>
     </Link>
   );
 };
 
-export const HomeCategoryHeading: React.FC<{ category: ToolCategory; count: number }> = ({ category, count }) => {
+export const HomeCategoryHeading: React.FC<{ category: ToolCategory }> = ({ category }) => {
   const iconName = category === 'media' ? 'image' : category === 'dev' ? 'file-code' : category === 'text' ? 'type' : category === 'display' ? 'presentation' : category === 'business' ? 'receipt' : 'file-text';
   return (
     <header className="mb-3 flex items-start gap-2">
@@ -66,10 +66,9 @@ export const HomeCategoryHeading: React.FC<{ category: ToolCategory; count: numb
         <ToolIcon name={iconName} className="h-4 w-4" />
       </span>
       <span className="min-w-0">
-        <h2 className="text-xs font-extrabold text-slate-900">{CATEGORIES[category].name}</h2>
-        <p className="mt-0.5 text-[10px] leading-snug text-slate-500">{CATEGORIES[category].description}</p>
+        <h2 className="text-sm font-extrabold tracking-tight text-stone-900">{CATEGORIES[category].name}</h2>
+        <p className="mt-0.5 text-[11px] leading-snug text-stone-500">{CATEGORIES[category].description}</p>
       </span>
-      <span className="ml-auto shrink-0 rounded-full bg-white px-2 py-0.5 text-[9px] font-semibold text-slate-500">{count}</span>
     </header>
   );
 };

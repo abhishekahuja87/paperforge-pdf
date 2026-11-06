@@ -2,30 +2,24 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { MergePdf } from '../components/tools/MergePdf';
 import { ToolGuide } from '../components/common/ToolGuide';
-import { siteConfig } from '../config/site';
 
 export const MergePage: React.FC = () => {
   const steps = [
     {
-      title: 'Select PDFs',
-      description: 'Select or drag multiple PDF files into the upload box above.',
+      title: 'Add your PDFs',
+      description: 'Choose two or more files, or drop them into the box.',
     },
     {
-      title: 'Set File Order',
-      description: 'Drag and reorder files to define how pages appear in the final document.',
+      title: 'Set the order',
+      description: 'Move files up or down. The first file becomes page 1.',
     },
     {
-      title: 'Merge & Save',
-      description: 'Combine the selected files in your browser, then download and review the merged PDF.',
+      title: 'Merge and save',
+      description: 'Combine them and download the finished PDF.',
     },
   ];
 
   const faqs = [
-    {
-      question: `Is merging PDFs safe on ${siteConfig.name}?`,
-      answer:
-        'Selected PDFs are processed in your browser and are not uploaded to MyDailyUtils for processing. The site makes separate requests for resources and advertising.',
-    },
     {
       question: 'Is there a limit on file size or quantity?',
       answer:
@@ -45,9 +39,11 @@ export const MergePage: React.FC = () => {
 
   return (
     <ToolLayout
-      title="Merge PDF Documents"
-      subtitle="Combine multiple PDFs into one document in your browser, then download the merged file."
-      seoContent={<ToolGuide toolName="Merge PDF" steps={steps} faqs={faqs} />}
+      title="Merge PDF"
+      subtitle="Combine multiple PDFs into one document, in the order you choose."
+      appearance="workshop"
+      steps={steps}
+      seoContent={<ToolGuide toolName="Merge PDF" faqs={faqs} appearance="workshop" />}
     >
       <MergePdf />
     </ToolLayout>
