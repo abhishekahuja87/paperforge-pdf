@@ -1,32 +1,29 @@
-# React + TypeScript + Vite
+# MyDailyUtils
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Browser-based tools for PDFs, images, text and data, presentations, and billing. The application is built with React, TypeScript, Vite, Tailwind CSS, and pnpm.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- `pnpm install` installs dependencies.
+- `pnpm dev` starts the development server.
+- `pnpm build` type-checks and builds the application.
+- `pnpm lint` runs Oxlint.
+- `pnpm preview` serves the production build locally.
 
-## React Compiler
+## Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/App.tsx` defines the lazy-loaded routes and shared header and footer.
+- `src/pages/` connects route-specific headings and guides to tool components.
+- `src/components/tools/` contains the interactive tools; `src/lib/pdf/`, `src/lib/media/`, `src/lib/documentStudio/`, `src/lib/display/`, and `src/lib/pos/` contain domain-specific processing and helpers.
+- `src/components/layout/ToolLayout.tsx`, `src/components/common/ToolGuide.tsx`, and `src/components/common/FileDropZone.tsx` provide the shared tool-page presentation and file selection patterns. Use the `wide` layout for workspaces that need additional room.
+- `src/config/tools.ts` defines the tool catalog and categories. Homepage featured copy, category ordering, and search are in `src/lib/homePageVariants.ts`; homepage components live in `src/components/home/`.
+- `src/components/layout/InfoPageLayout.tsx` provides the shared informational-page presentation. `PageMetadata` manages route metadata and canonical URLs.
+- `src/i18n.ts` initializes i18next and react-i18next, persists the language choice locally, and loads one JSON file per language from `src/locales/`. Tool "How to use" steps, catalog copy, category copy, featured cards, shared navigation, and selected page headings, guides and controls have translations. Most tool controls, messages, FAQs, informational pages, and metadata still need to be moved into resources and translated. Shared guide steps use `guideSteps` keys matching route paths; Merge, Split, and Master Document Studio use their own existing resource groups. `usePageGuide` and `usePageFaqs` read migrated page copy from `pageGuides`; `usePageHeading` reads independently migrated headings from `pageHeadings`. The shared file drop zone defaults to the localized single-PDF prompt; other file prompts may still need translation. Keep resource keys and arrays consistent across languages and update guidance when its tool changes. The `merge`, `image`, and `categories` objects are also exposed as i18next namespaces. Do not remove the partial-translation notice until all visible and accessible text is covered and translations are reviewed. `src/lib/localizedTool.ts` supplies catalog copy to navigation and search.
+- `src/config/theme.json` contains the shared background, surface, shadow, and workshop overrides, which `src/main.tsx` exposes as CSS variables. Other Tailwind palette colors, static HTML and icon colors, and tool-specific design or export colors are not yet centralized. Preserve user-selected and generated document colors separately from website theme colors.
+- `public/favicon.svg` supplies the browser icon and header mark.
 
-## Expanding the Oxlint configuration
+## Processing and privacy
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Supported file operations run in the browser; this does not mean that the entire site is offline. The site loads third-party advertising and may request PDF character maps from jsDelivr. The contact form separately sends its submitted details to Web3Forms. The privacy and terms pages describe these boundaries and must remain consistent with actual behavior. Language preferences and tool-visit counts use browser local storage.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+When adding or changing a tool, keep routes, catalog entries, search, guide content, metadata, accessibility, translations, and relevant privacy disclosures consistent. Keep UI composition separate from reusable processing logic. Update this document when architecture or processing boundaries change.

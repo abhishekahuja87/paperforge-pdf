@@ -2,23 +2,11 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { ExtractText } from '../components/tools/ExtractText';
 import { ToolGuide } from '../components/common/ToolGuide';
+import { usePageHeading } from '../lib/usePageHeading';
 import { siteConfig } from '../config/site';
 
 export const ExtractTextPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select a PDF',
-      description: 'Choose or drag a PDF into the file selection area above.',
-    },
-    {
-      title: 'Extract Text Content',
-      description: 'Extract embedded text in your browser. Scanned pages that contain only images need OCR, which this tool does not provide.',
-    },
-    {
-      title: 'Copy or Download',
-      description: 'Copy the full extracted text with one click or download it as a structured .txt file.',
-    },
-  ];
+  const heading = usePageHeading('extract');
 
   const faqs = [
     {
@@ -45,9 +33,10 @@ export const ExtractTextPage: React.FC = () => {
 
   return (
     <ToolLayout
-      title="Extract Text from PDF"
-      subtitle="Read, copy, and export all digital text content from your PDF documents into plain text directly in your browser."
-      seoContent={<ToolGuide toolName="Extract Text" steps={steps} faqs={faqs} />}
+      title={heading.title}
+      subtitle={heading.subtitle}
+      contentLanguage={heading.language}
+      seoContent={<ToolGuide toolName="Extract Text" faqs={faqs} />}
     >
       <ExtractText />
     </ToolLayout>

@@ -1,6 +1,9 @@
 import React from 'react';
 import { ShieldCheck, HelpCircle } from 'lucide-react';
 import { siteConfig } from '../../config/site';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import en from '../../locales/en.json';
 
 export interface GuideStep {
   title: string;
@@ -18,6 +21,7 @@ interface ToolGuideProps {
   faqs: GuideFaq[];
   privacyNote?: string;
   appearance?: 'standard' | 'workshop';
+  contentLanguage?: string;
 }
 
 export const ToolGuide: React.FC<ToolGuideProps> = ({
@@ -25,26 +29,64 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
   steps = [],
   faqs,
   privacyNote,
-  appearance = 'standard',
+  appearance = 'workshop',
+  contentLanguage = 'en',
 }) => {
+  const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+  const guideId = pathname.replace(/^\/|\/$/g, '');
+  const hasLocalizedSteps = Object.prototype.hasOwnProperty.call(en.guideSteps, guideId);
+  const displayedSteps = hasLocalizedSteps
+    ? en.guideSteps[guideId as keyof typeof en.guideSteps].map((_, index) => ({
+      title: t(`guideSteps.${guideId}.${index}.0`),
+      description: t(`guideSteps.${guideId}.${index}.1`),
+    }))
+    : steps;
+  const stepsLanguage = hasLocalizedSteps ? i18n.language : contentLanguage;
   const isWorkshop = appearance === 'workshop';
 
   if (isWorkshop) {
     return (
-      <section aria-label="Frequently asked questions" className="mx-auto max-w-3xl space-y-2">
-        <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">Questions</h2>
-        <div className="divide-y divide-stone-200 rounded-xl border border-stone-200 bg-white">
-          {faqs.map((faq) => (
-            <details key={faq.question} className="group px-4 py-3">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-stone-900 [&::-webkit-details-marker]:hidden">
-                {faq.question}
-                <span aria-hidden="true" className="text-lg leading-none text-orange-600 transition group-open:rotate-45">+</span>
-              </summary>
-              <p className="mt-2 text-xs leading-relaxed text-stone-600">{faq.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      <div className="mx-auto max-w-3xl space-y-5">
+        {displayedSteps.length > 0 && (
+          <section aria-label={t('howToUse')} className="space-y-2">
+            <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('howToUse')}</h2>
+            <ol lang={stepsLanguage} className="grid gap-3 sm:grid-cols-3">
+              {displayedSteps.map((step, index) => (
+                <li key={step.title} className="flex items-start gap-3 rounded-lg border-l-4 border-orange-500 bg-white px-3 py-3 shadow-sm">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-800">{index + 1}</span>
+                  <div>
+                    <p className="text-sm font-extrabold text-stone-900">{step.title}</p>
+                    <p className="mt-0.5 text-xs leading-relaxed text-stone-600">{step.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+        {faqs.length > 0 && (
+          <section aria-label={t('questions')} className="space-y-2">
+            <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('questions')}</h2>
+            <div lang={contentLanguage} className="divide-y divide-stone-200 rounded-xl border border-stone-200 bg-white">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="group px-4 py-3">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-stone-900 [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span aria-hidden="true" className="text-lg leading-none text-orange-600 transition group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-2 text-xs leading-relaxed text-stone-600">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+        {privacyNote && (
+          <section aria-label={t('privacy')} className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
+            <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-900">{t('privacy')}</h2>
+            <p lang={contentLanguage} className="mt-1 text-xs leading-relaxed text-emerald-900">{privacyNote}</p>
+          </section>
+        )}
+      </div>
     );
   }
   return (
@@ -52,13 +94,13 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
       {/* 3-Step Instructional Guide */}
       <section className="space-y-3">
         <h2 className={`text-sm font-bold uppercase tracking-wider ${isWorkshop ? 'text-stone-700' : 'text-slate-700'}`}>
-          How to Use {toolName}
+          {t('howToUse')} {toolName}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {steps.map((step, idx) => (
+        <div lang={stepsLanguage} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {displayedSteps.map((step, idx) => (
             <div
               key={idx}
-              className={`space-y-1 rounded-xl border p-3.5 ${isWorkshop ? 'border-stone-200 bg-[#fffdf8]' : 'border-slate-200/80 bg-slate-50'}`}
+              className={`space-y-1 rounded-xl border p-3.5 ${isWorkshop ? 'border-stone-200 bg-[var(--theme-surface)]' : 'border-slate-200/80 bg-slate-50'}`}
             >
               <div className={`flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${isWorkshop ? 'bg-orange-100 text-orange-800' : 'bg-indigo-100 text-indigo-700'}`}>
                 {idx + 1}
@@ -80,7 +122,7 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className={`space-y-1 rounded-xl border p-3.5 shadow-2xs ${isWorkshop ? 'border-stone-200 bg-[#fffdf8]' : 'border-slate-200 bg-white'}`}
+              className={`space-y-1 rounded-xl border p-3.5 shadow-2xs ${isWorkshop ? 'border-stone-200 bg-[var(--theme-surface)]' : 'border-slate-200 bg-white'}`}
             >
               <h3 className={`text-sm font-semibold ${isWorkshop ? 'text-stone-800' : 'text-slate-800'}`}>{faq.question}</h3>
               <p className={`text-xs leading-relaxed ${isWorkshop ? 'text-stone-600' : 'text-slate-600'}`}>{faq.answer}</p>

@@ -2,47 +2,18 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { CropPdf } from '../components/tools/CropPdf';
 import { ToolGuide } from '../components/common/ToolGuide';
-import { siteConfig } from '../config/site';
+import { usePageGuide } from '../lib/usePageGuide';
 
 export const CropPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select a PDF',
-      description: 'Select the PDF whose page boundaries you want to adjust.',
-    },
-    {
-      title: 'Specify Margins',
-      description: 'Choose quick presets or enter exact values for Top, Bottom, Left, and Right in pt, mm, or inches.',
-    },
-    {
-      title: 'Crop & Save',
-      description: 'Page boundary boxes are recalculated instantly in local memory for download.',
-    },
-  ];
 
-  const faqs = [
-    {
-      question: `How does cropping work on ${siteConfig.name}?`,
-      answer:
-        'Cropping adjusts the internal CropBox and MediaBox parameters of the PDF. This trims empty white borders, printer bleed marks, or unwanted headers without degrading typography or vector quality.',
-    },
-    {
-      question: 'Are my confidential files uploaded anywhere?',
-      answer:
-        'The PDF is cropped in your browser and is not uploaded to MyDailyUtils for processing. The site may still make separate requests for advertising and supporting resources.',
-    },
-    {
-      question: 'Can I crop only odd or even pages?',
-      answer:
-        'Yes. You can select All Pages, Odd Pages Only, Even Pages Only, or specify a custom page range.',
-    },
-  ];
+  const guide = usePageGuide('crop');
 
   return (
     <ToolLayout
-      title="Crop & Trim PDF"
-      subtitle="Trim outer margins, remove printer bleed marks, and adjust PDF page boundaries in your browser."
-      seoContent={<ToolGuide toolName="Crop PDF" steps={steps} faqs={faqs} />}
+      title={guide.title}
+      subtitle={guide.subtitle}
+      contentLanguage={guide.language}
+      seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}
     >
       <CropPdf />
     </ToolLayout>

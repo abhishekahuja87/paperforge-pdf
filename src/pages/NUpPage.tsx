@@ -5,20 +5,6 @@ import { ToolGuide } from '../components/common/ToolGuide';
 import { siteConfig } from '../config/site';
 
 export const NUpPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select PDF',
-      description: 'Select a multi-page PDF, such as a presentation or document, to arrange for printing.',
-    },
-    {
-      title: 'Choose Grid Layout',
-      description: 'Select 2-Up side-by-side or 4-Up grid, paper orientation (A4 or US Letter), and gutter spacing.',
-    },
-    {
-      title: 'Compile & Print',
-      description: 'Pages are scaled into vector sub-forms and arranged onto composite sheets in local browser memory.',
-    },
-  ];
 
   const faqs = [
     {
@@ -42,7 +28,7 @@ export const NUpPage: React.FC = () => {
     <ToolLayout
       title="N-Up PDF (Multiple Pages Per Sheet)"
       subtitle="Arrange two or four PDF pages on each sheet for handouts and presentation notes."
-      seoContent={<ToolGuide toolName="N-Up PDF" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="N-Up PDF" faqs={faqs} />}
     >
       <NUpPdf />
     </ToolLayout>

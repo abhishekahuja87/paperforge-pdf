@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { FileDropZone } from '../common/FileDropZone';
 import {
-  Upload,
   FileText,
   Download,
   Copy,
@@ -25,8 +25,7 @@ export const ExtractText: React.FC = () => {
     setCopied(false);
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selected = e.target.files?.[0];
+  const handleFileChange = (selected: File) => {
     if (selected) {
       if (selected.type !== 'application/pdf' && !selected.name.endsWith('.pdf')) {
         setError('Please select a valid PDF file.');
@@ -75,27 +74,14 @@ export const ExtractText: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-slate-800">Extract Text</h2>
-        <p className="text-slate-500 text-sm mt-1">
-          Read and export embedded PDF text in your browser. Scanned pages require OCR, which is not included.
-        </p>
-      </div>
+    <div className="mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
 
       {/* Upload Drop Zone matching MergePdf identically */}
       {!file ? (
-        <label className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-indigo-200 rounded-xl bg-indigo-50/40 hover:bg-indigo-50/70 transition cursor-pointer">
-          <Upload className="w-10 h-10 text-indigo-500 mb-2" />
-          <span className="font-semibold text-slate-700">Click to upload or drag & drop</span>
-          <span className="text-xs text-slate-400 mt-1">Select single PDF file up to 100MB</span>
-          <input
-            type="file"
-            accept=".pdf,application/pdf"
-            onChange={handleFileChange}
-            className="hidden"
-          />
-        </label>
+        <FileDropZone
+          accept=".pdf,application/pdf"
+          onFiles={(files) => { void handleFileChange(files[0]); }}
+        />
       ) : (
         <div className="space-y-5">
           {/* Selected File Card */}
@@ -124,7 +110,7 @@ export const ExtractText: React.FC = () => {
                 type="button"
                 onClick={handleExtract}
                 disabled={isProcessing}
-                className="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-sm transition disabled:opacity-50 flex items-center justify-center space-x-2 cursor-pointer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none"
               >
                 {isProcessing ? (
                   <>

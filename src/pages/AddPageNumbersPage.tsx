@@ -5,20 +5,6 @@ import { ToolGuide } from '../components/common/ToolGuide';
 import { siteConfig } from '../config/site';
 
 export const AddPageNumbersPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select PDF',
-      description: 'Select the PDF that needs page numbers, a header, or a footer.',
-    },
-    {
-      title: 'Customize Format & Position',
-      description: 'Choose header or footer placement, format (Page X of Y or 1/Y), typography, and cover page skips.',
-    },
-    {
-      title: 'Stamp & Download',
-      description: 'Preview the page-number settings and generate a revised PDF in your browser.',
-    },
-  ];
 
   const faqs = [
     {
@@ -42,7 +28,7 @@ export const AddPageNumbersPage: React.FC = () => {
     <ToolLayout
       title="Add Page Numbers to PDF"
       subtitle="Add page numbers, headers, and footers to a PDF using your browser."
-      seoContent={<ToolGuide toolName="Add Page Numbers" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="Add Page Numbers" faqs={faqs} />}
     >
       <AddPageNumbers />
     </ToolLayout>

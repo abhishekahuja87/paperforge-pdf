@@ -5,20 +5,6 @@ import { ToolGuide } from '../components/common/ToolGuide';
 import { siteConfig } from '../config/site';
 
 export const PdfToImagesPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select a PDF',
-      description: 'Choose or drag a PDF into the file selection area above.',
-    },
-    {
-      title: 'Render Pages',
-      description: 'Render pages to PNG in your browser. Large PDFs or high-resolution pages may use substantial memory.',
-    },
-    {
-      title: 'Download Images',
-      description: 'Save individual page images directly to your device with one click.',
-    },
-  ];
 
   const faqs = [
     {
@@ -47,7 +33,7 @@ export const PdfToImagesPage: React.FC = () => {
     <ToolLayout
       title="Convert PDF to Images"
       subtitle="Extract and render every page of your PDF into crisp, high-resolution PNG images directly in your browser."
-      seoContent={<ToolGuide toolName="PDF to Images" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="PDF to Images" faqs={faqs} />}
     >
       <PdfToImages />
     </ToolLayout>

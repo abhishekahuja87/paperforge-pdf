@@ -1,0 +1,299 @@
+{
+  "language": "Idioma",
+  "chooseOneFile": "Elige un archivo a la vez.",
+  "languageNotice": "Traducción en curso; muchas herramientas y páginas siguen en inglés.",
+  "allTools": "Todas las herramientas",
+  "exploreTools": "Explorar herramientas",
+  "featured": "Herramientas destacadas",
+  "pageHeadings": {
+    "extract": ["Extraer texto de PDF", "Lee, copia y exporta texto de un PDF. Las páginas escaneadas requieren OCR, que no está incluido."],
+    "protect": ["Proteger PDF (cifrado con contraseña)", "Establece una contraseña para un PDF y elige los permisos del documento en tu navegador."],
+    "unlock": ["Desbloquear documentos PDF", "Usa la contraseña del documento para guardar una copia basada en imágenes. Es posible que no se conserven el texto ni las funciones interactivas."],
+    "sanitize": ["Sanear PDF (metadatos y privacidad)", "Elimina metadatos y estructuras seleccionados del PDF en tu navegador. Revisa el resultado antes de compartirlo."]
+  },
+  "pageGuides": {
+    "imageConverter": {
+      "faq": [
+        ["¿Se suben mis imágenes a {{siteName}}?", "No. Las imágenes se decodifican y convierten en la memoria del navegador mediante HTML Canvas; los archivos no se envían a nuestros servidores."],
+        ["¿Qué formatos puedo convertir?", "La herramienta acepta PNG, JPG/JPEG y WebP, y produce esos mismos formatos. SVG no es compatible porque Canvas rasteriza los gráficos vectoriales."],
+        ["¿Qué ocurre con la transparencia?", "PNG y WebP pueden conservarla. JPG no admite transparencia, por lo que las áreas transparentes se rellenan de blanco."],
+        ["¿Se conservan los metadatos?", "No. La recodificación con Canvas crea una imagen nueva y no conserva metadatos como la cámara o la ubicación EXIF."]
+      ]
+    },
+    "imageCompressor": {
+      "faq": [
+        ["¿Se suben las imágenes a {{siteName}}?", "No. El procesamiento se realiza en la memoria del navegador con HTML Canvas. Los archivos originales no se modifican ni se suben."],
+        ["¿Todas las imágenes serán más pequeñas?", "No necesariamente. Algunas ya están optimizadas y un PNG sin pérdida puede ser mayor. Los resultados muestran el cambio real; prueba una dimensión menor o un formato con pérdida para reducir el tamaño."],
+        ["¿Cómo funciona el límite de dimensiones?", "El máximo elegido se aplica al lado más largo. Se conserva la proporción original y no se amplían imágenes menores que el límite."],
+        ["¿Qué ocurre al convertir una imagen transparente a JPG?", "JPG no admite transparencia. Las zonas transparentes se rellenan de blanco al generar el JPG."]
+      ]
+    },
+    "compress": {
+      "title": "Comprimir y optimizar PDF",
+      "subtitle": "Reescribe la estructura del PDF y elimina metadatos seleccionados en el navegador. El ahorro depende del documento; no se reduce la resolución de las imágenes.",
+      "faq": [
+        ["¿Cómo funciona la compresión de PDF en {{siteName}}?", "La herramienta reescribe el PDF con flujos de objetos y elimina los metadatos estándar. La opción fuerte también elimina determinados metadatos XMP, información de edición y miniaturas incrustadas. No reduce la resolución de las imágenes."],
+        ["¿Perderán claridad el texto o los dibujos vectoriales?", "La herramienta no rasteriza las páginas ni reduce la resolución de las imágenes incrustadas. Reescribe los objetos y metadatos del PDF, por lo que el resultado puede ser similar o mayor que el original."],
+        ["¿Se suben mis documentos confidenciales?", "El PDF se procesa en tu navegador y no se sube a {{siteName}} para procesarlo. La web realiza solicitudes de red separadas para recursos y publicidad."]
+      ]
+    },
+    "crop": {
+      "title": "Recortar PDF",
+      "subtitle": "Recorta los márgenes exteriores, elimina marcas de sangrado y ajusta los límites de las páginas PDF en tu navegador.",
+      "faq": [
+        ["¿Cómo funciona el recorte en {{siteName}}?", "El recorte ajusta los parámetros internos CropBox y MediaBox del PDF. Esto recorta bordes blancos, marcas de sangrado o encabezados no deseados sin degradar la tipografía ni los vectores."],
+        ["¿Se suben mis archivos confidenciales?", "El PDF se recorta en tu navegador y no se sube a {{siteName}} para procesarlo. La web puede realizar solicitudes separadas para publicidad y recursos."],
+        ["¿Puedo recortar solo páginas pares o impares?", "Sí. Puedes seleccionar todas, las impares, las pares o un intervalo personalizado."]
+      ]
+    },
+    "delete": {
+      "title": "Eliminar páginas PDF",
+      "subtitle": "Elimina páginas innecesarias, vacías o confidenciales de un PDF en tu navegador.",
+      "faq": [
+        ["¿Es seguro eliminar páginas de PDF confidenciales en {{siteName}}?", "El PDF seleccionado se procesa en tu navegador y no se sube a {{siteName}} para procesarlo. La publicidad y otras solicitudes de la web son independientes de la operación."],
+        ["¿Puedo eliminar la portada o las páginas vacías del final?", "Sí. Usa los botones de primera o última página, o escribe números separados por comas como 1, 10."],
+        ["¿Eliminar páginas afecta a los enlaces o la calidad?", "La herramienta elimina las páginas seleccionadas sin rasterizar el contenido restante. Comprueba los formularios, enlaces y otras funciones en la copia guardada."]
+      ]
+    }
+  },
+  "rotateControls": {
+    "invalid": "Selecciona un archivo PDF válido.", "readError": "No se pudo leer el PDF. Puede estar protegido por contraseña o dañado.", "rotateError": "Se produjo un error al girar. Comprueba el intervalo de páginas seleccionado.",
+    "reading": "Leyendo PDF...", "choose": "Elige un PDF o arrástralo aquí", "pdfOnly": "Solo PDF", "pages": "Total de páginas:", "remove": "Eliminar archivo",
+    "angle": "Elige el ángulo de giro", "clockwise": "90° horario", "right": "Girar a la derecha", "flip": "Voltear 180°", "upsideDown": "Invertir", "counterclockwise": "90° antihorario", "left": "Girar a la izquierda",
+    "scope": "Aplicar giro a", "all": "Todas las páginas", "odd": "Páginas impares (1, 3, 5...)", "even": "Páginas pares (2, 4, 6...)", "custom": "Intervalo personalizado",
+    "range": "Indica las páginas o intervalos que girar", "placeholder": "p. ej. 1-2, 4, 6-{{count}}", "rangeHint": "Separa números e intervalos con comas (p. ej. 1, 3-5). Máximo: {{count}}.",
+    "changed": "La configuración cambió desde el último giro. Haz clic abajo para actualizar el archivo.", "unsaved": "Sin guardar", "rotating": "Girando documento...", "rerotate": "Girar de nuevo con la nueva configuración", "rotate": "Girar y guardar PDF", "outdated": "Descargar archivo anterior", "download": "Descargar PDF girado"
+  },
+  "rotateGuide": {
+    "title": "Girar páginas PDF",
+    "subtitle": "Cambia la orientación de las páginas PDF seleccionadas en tu navegador.",
+    "faq": [
+      ["¿Al girar cambia el texto o la resolución?", "No. Se modifica directamente la matriz interna de rotación del PDF. Las capas de texto, fuentes incrustadas y gráficos vectoriales conservan su calidad original."],
+      ["¿Puedo girar solo las páginas horizontales?", "Sí. Usa Intervalo personalizado para indicar las páginas que quieras girar, por ejemplo 2, 5, 8."],
+      ["¿Se sube mi documento a un servidor?", "El PDF seleccionado se gira en tu navegador y no se sube a {{siteName}} para procesarlo. La web realiza solicitudes separadas para recursos y publicidad."],
+      ["¿Puedo deshacer un giro?", "Elige el ángulo inverso, por ejemplo 270° para invertir un giro de 90° en sentido horario, y guarda de nuevo el documento."]
+    ]
+  },
+  "toolCatalog": {
+    "generate-sample-pdf": ["Generador de PDF de ejemplo", "Genera PDF de prueba con páginas, tamaños y plantillas personalizados."],
+    "rotate-pdf": ["Girar PDF", "Corrige la orientación de cada página."],
+    "compress-pdf": ["Comprimir PDF", "Reduce el tamaño conservando la calidad."],
+    "delete-pdf-pages": ["Eliminar páginas PDF", "Elimina páginas no deseadas, vacías o confidenciales."],
+    "image-to-pdf": ["Imagen a PDF", "Convierte imágenes JPG, PNG y WebP en PDF."],
+    "add-page-numbers": ["Números de página", "Añade números, encabezados y pies de página."],
+    "watermark-pdf": ["Marca de agua en PDF", "Añade texto personalizado o marcas confidenciales."],
+    "crop-pdf": ["Recortar PDF", "Ajusta los márgenes y límites visibles de las páginas."],
+    "sanitize-pdf": ["Limpiar PDF", "Elimina metadatos compatibles e información oculta."],
+    "n-up-pdf": ["Varias páginas por hoja", "Combina 2 o 4 páginas por hoja para ahorrar papel."],
+    "inspect-pdf": ["Inspeccionar PDF", "Analiza estructuras, versiones, metadatos y seguridad del PDF."],
+    "protect-pdf": ["Proteger PDF", "Cifra el PDF con contraseña y restringe la copia."],
+    "unlock-pdf": ["Desbloquear PDF", "Elimina la protección de un PDF que puedes abrir."],
+    "flatten-pdf": ["Acoplar PDF", "Integra los campos de formulario en el contenido de las páginas."],
+    "pdf-to-images": ["PDF a imágenes", "Convierte páginas PDF en imágenes PNG."],
+    "extract-text": ["Extraer texto", "Extrae el texto integrado página por página."],
+    "organize-pdf": ["Organizar PDF", "Reordena, gira o elimina páginas visualmente."],
+    "json-formatter": ["Formateador JSON", "Formatea, valida y minifica datos JSON."],
+    "base64-tool": ["Base64 y hash", "Codifica o decodifica Base64 y calcula hashes SHA."]
+  },
+  "guideSteps": {
+    "generate-sample-pdf": [["Elige una plantilla", "Elige texto, datos sintéticos, páginas de distintos tamaños o facturas."], ["Configura opciones", "Define marcadores, formularios, tamaños objetivo o modos de prueba con bytes dañados."], ["Genera y guarda", "Genera el documento en el navegador y descárgalo."]],
+    "add-page-numbers": [["Elige un PDF", "Selecciona el PDF que necesita números de página, encabezado o pie."], ["Configura la numeración", "Define posición, formato, tipografía y omisión de portada."], ["Aplica y descarga", "Revisa los ajustes y genera el PDF modificado."]],
+    "sanitize-pdf": [["Elige un PDF", "Selecciona un PDF y conserva una copia original antes de limpiarlo."], ["Elige qué eliminar", "Selecciona información del documento, XMP, PieceInfo, miniaturas o acciones JavaScript compatibles."], ["Elimina y revisa", "Descarga y revisa el resultado; no necesariamente se eliminan todos los tipos de datos ocultos."]],
+    "inspect-pdf": [["Elige un PDF", "Selecciona un PDF para inspeccionarlo."], ["Inspecciona la estructura", "Revisa la versión, metadatos, cifrado e indicadores de JavaScript."], ["Comprueba la geometría", "Revisa dimensiones, proporciones y cajas delimitadoras de las páginas."]],
+    "n-up-pdf": [["Elige un PDF", "Selecciona un PDF de varias páginas para imprimir."], ["Elige el diseño", "Selecciona dos o cuatro páginas por hoja, tamaño, orientación y separación."], ["Crea las hojas", "Organiza las páginas escaladas en hojas compuestas en el navegador."]],
+    "display-studio": [["Añade archivos", "Carga PDF, DOCX o imágenes y elige las páginas que mostrar."], ["Configura la reproducción", "Elige tiempos, subtítulos, ajuste, transiciones, repetición, orden aleatorio y reloj."], ["Presenta", "Usa pantalla completa o F11. Mueve el puntero para ver controles y pulsa Escape para salir."]],
+    "pos-invoice-studio": [["Configura tu tienda", "Introduce datos y prefijo de factura, añade inventario o importa un perfil JSON."], ["Prepara una factura", "Elige artículos, cantidades y datos del cliente."], ["Exporta", "Comparte un PDF o imagen; exporta el perfil o factura en JSON como copia editable."]],
+    "image-converter": [["Elige imágenes", "Selecciona una o varias imágenes PNG, JPG o WebP."], ["Elige formato", "Selecciona PNG, JPG o WebP y ajusta la calidad de JPG o WebP."], ["Convierte y guarda", "Revisa las dimensiones y tamaños y descarga cada imagen."]],
+    "image-compressor": [["Elige imágenes", "Selecciona una o varias imágenes PNG, JPG o WebP."], ["Ajusta tamaño y calidad", "Elige formato y calidad y, opcionalmente, limita la dimensión máxima."], ["Compara y descarga", "Revisa el tamaño de cada resultado y descarga los archivos que quieras conservar."]],
+    "json-formatter": [["Introduce JSON", "Pega JSON, abre un archivo local o carga el ejemplo."], ["Elige una acción", "Formatea, minifica o valida y, si quieres, ordena las claves."], ["Copia o descarga", "Copia el resultado o descárgalo como formatted.json."]],
+    "base64-tool": [["Elige una operación", "Selecciona codificar, decodificar Base64 o calcular un hash."], ["Introduce texto o elige un archivo", "Base64 procesa texto UTF-8; el hash también admite archivos locales."], ["Ejecuta y copia", "Calcula el resultado localmente y cópialo."]],
+    "image-to-pdf": [["Elige imágenes", "Selecciona imágenes JPG, PNG o WebP."], ["Ordena y elige diseño", "Reordena las imágenes y elige A4, carta estadounidense o ajustar a imagen."], ["Convierte y descarga", "Crea un PDF en el navegador y descárgalo."]],
+    "pdf-to-images": [["Elige un PDF", "Selecciona un PDF de tu dispositivo."], ["Renderiza páginas", "Renderiza las páginas en PNG; los PDF grandes o de alta resolución pueden usar mucha memoria."], ["Descarga las imágenes", "Guarda cada imagen de página en tu dispositivo."]],
+    "extract-text": [["Elige un PDF", "Selecciona un PDF de tu dispositivo."], ["Extrae el texto", "Extrae el texto integrado. Los escaneos de solo imagen necesitan OCR, que esta herramienta no ofrece."], ["Copia o descarga", "Copia el texto extraído o descárgalo como archivo .txt."]],
+    "organize-pdf": [["Elige un PDF", "Selecciona un PDF de tu dispositivo."], ["Organiza las páginas", "Usa los controles para reordenar, girar o eliminar páginas."], ["Guarda y descarga", "Guarda el PDF modificado en el navegador y descárgalo."]],
+    "rotate-pdf": [["Elige un PDF", "Selecciona el PDF con las páginas que quieras girar."], ["Elige ángulo y páginas", "Selecciona 90°, 180° o 270° y aplícalo a todas, pares, impares o páginas elegidas."], ["Gira y descarga", "Gira las páginas en el navegador y descarga el resultado."]],
+    "delete-pdf-pages": [["Elige un PDF", "Selecciona el PDF con las páginas que quieras eliminar."], ["Indica las páginas", "Introduce números o rangos, por ejemplo 1, 3, 5-8."], ["Elimina y guarda", "Elimina las páginas seleccionadas y descarga y revisa el resultado."]],
+    "crop-pdf": [["Elige un PDF", "Selecciona el PDF cuyos límites de página quieras ajustar."], ["Define los márgenes", "Elige un ajuste o introduce los márgenes superior, inferior, izquierdo y derecho en pt, mm o pulgadas."], ["Recorta y guarda", "Ajusta los límites en el navegador y descarga el resultado."]],
+    "watermark-pdf": [["Elige un PDF", "Selecciona el PDF al que añadir la marca de agua."], ["Configura la marca", "Elige texto o un ajuste, color, opacidad, ángulo y páginas."], ["Aplica y descarga", "Revisa los ajustes, aplica la marca y descarga el PDF."]],
+    "compress-pdf": [["Elige un PDF", "Selecciona un PDF. Los documentos grandes pueden necesitar más memoria y tiempo."], ["Elige la compresión", "Selecciona optimización básica sin pérdida o fuerte con eliminación de metadatos y miniaturas."], ["Comprime y guarda", "Descarga el PDF generado y comprueba su tamaño."]],
+    "protect-pdf": [["Elige un PDF", "Selecciona el PDF que quieras proteger."], ["Define contraseña y permisos", "Establece una contraseña de apertura y restricciones de impresión y copia."], ["Protege y guarda", "Crea el PDF protegido y pruébalo en un lector antes de compartirlo."]],
+    "unlock-pdf": [["Elige un PDF protegido", "Selecciona tu PDF protegido con contraseña."], ["Introduce la contraseña", "Introduce una contraseña autorizada para abrir el documento."], ["Desbloquea y guarda", "La herramienta convierte las páginas en imágenes, reconstruye el PDF sin cifrar y permite descargarlo."]],
+    "flatten-pdf": [["Elige un PDF", "Selecciona un PDF con campos de formulario o anotaciones."], ["Acopla los campos", "Integra los campos de formulario en el contenido de la página."], ["Guarda el PDF", "Descarga y revisa el documento acoplado."]]
+  },
+  "splitGuide": {
+    "title": "Dividir documento PDF",
+    "subtitle": "Extrae rangos de páginas a un PDF separado en tu navegador.",
+    "steps": [
+      { "title": "Selecciona un PDF", "description": "Elige o arrastra el PDF del que quieres extraer páginas." },
+      { "title": "Define las páginas", "description": "Introduce páginas o rangos separados por comas (por ejemplo, 1-3, 5, 8)." },
+      { "title": "Extrae y guarda", "description": "Extrae las páginas elegidas a un documento nuevo y descárgalo." }
+    ],
+    "faq": [
+      { "question": "¿Se suben mis páginas a MyDailyUtils?", "answer": "No. El análisis y la extracción se realizan en la memoria local. Los documentos no salen de tu dispositivo." },
+      { "question": "¿Cómo indico varios rangos de páginas?", "answer": "Usa guiones para rangos y comas para separarlos (por ejemplo, 1-4, 7, 9-12). También puedes pulsar All Pages para seleccionar todo." },
+      { "question": "¿Puedo dividir PDF protegidos con contraseña?", "answer": "Los PDF cifrados deben desbloquearse antes de que la extracción pueda acceder a sus páginas." },
+      { "question": "¿Afecta la división a la calidad original?", "answer": "No. Las páginas conservan su contenido vectorial, fuentes e imágenes con plena fidelidad." }
+    ]
+  },
+  "master": {
+    "subtitle": "Crea un PDF organizado con páginas de documentos, imágenes, páginas personalizadas y plantillas; edítalo y añade un índice con enlaces.",
+    "reading": "Leyendo archivos…",
+    "choose": "Elige archivos o arrástralos aquí",
+    "hint": "PDF, DOCX, JPG, PNG o WebP",
+    "custom": "Página personalizada",
+    "sample": "PDF de ejemplo",
+    "choosePages": "Elegir páginas",
+    "choosePagesHint": "Elige las páginas en el orden deseado. Vuelve a pulsar una página para quitarla.",
+    "selected": "Páginas seleccionadas",
+    "queued_one": "{{count}} página en cola",
+    "queued_other": "{{count}} páginas en cola",
+    "empty": "Las páginas seleccionadas aparecerán en este orden.",
+    "continue": "Continuar al editor",
+    "editor": "Editar documento",
+    "step1Title": "Añade y elige páginas",
+    "step1Description": "Combina PDF, DOCX e imágenes con portadas, notas, páginas en blanco o PDF de ejemplo. Selecciona páginas en orden mediante miniaturas, rangos como 1-3, 5 o Seleccionar todo.",
+    "step2Title": "Organiza y edita",
+    "step2Description": "Arrastra páginas para reordenarlas. Usa el editor para girar, recortar, ocultar, duplicar, eliminar o exportar páginas. Fija páginas y añade títulos al índice con enlaces.",
+    "step3Title": "Configura y exporta el PDF",
+    "step3Description": "Ajusta tamaño, numeración, márgenes, marca de agua, metadatos, compresión y contraseña opcional. Nombra el archivo y crea el PDF en tu dispositivo.",
+    "faq": [
+      { "question": "¿Se suben los archivos a MyDailyUtils?", "answer": "No. Los archivos se leen, renderizan y combinan en la memoria del navegador." },
+      { "question": "¿Conserva la exportación la calidad del texto PDF?", "answer": "Las páginas PDF normales conservan vectores cuando es posible. Las imágenes y páginas DOCX renderizadas son ráster. Los PDF cifrados y las páginas con redacciones se convierten en imágenes; proteger el PDF final también rasteriza sus páginas." },
+      { "question": "¿Cómo creo un índice con enlaces?", "answer": "En el espacio de trabajo, pulsa la chincheta de cada página que quieras incluir y escribe un título. Se añadirá un índice al principio del PDF con enlaces a las páginas. Las páginas sin título no aparecen." },
+      { "question": "¿Cómo funcionan la numeración y omitir la primera página?", "answer": "Elige Ninguno para omitir números o una posición de encabezado o pie y un formato como «Page {page} of {total}». Omitir la primera página oculta el número de la primera página del documento (después del índice, si existe); las siguientes conservan sus números reales." },
+      { "question": "¿Puedo añadir un PDF protegido?", "answer": "Sí. Cuando se solicite, introduce la contraseña de apertura/usuario o la de propietario. Las contraseñas permanecen en el navegador. Las páginas cifradas se rasterizan en la salida y su texto deja de ser texto vectorial seleccionable." },
+      { "question": "¿Puedo proteger el PDF final con contraseña?", "answer": "Sí. Define una contraseña de apertura y, opcionalmente, una de propietario con restricciones de impresión y copia. El método actual rasteriza las páginas; no conserva la selección o búsqueda de texto ni los enlaces del índice." },
+      { "question": "¿Qué hacen las opciones de tamaño y compresión?", "answer": "Elige A4 o carta estadounidense para uniformar las páginas, o conservar tamaños mixtos para mantener las dimensiones originales. La compresión afecta solo al contenido ráster; los objetivos de tamaño no son una garantía." },
+      { "question": "¿Puedo guardar una página sin exportar todo el documento?", "answer": "Sí. Abre Zoom & edit en una página para exportarla como PDF o imagen. También puedes girarla, recortarla, añadir redacciones negras y ajustar la imagen." }
+    ]
+  },
+  "featuredTools": {
+    "master-document-studio": {
+      "title": "Estudio de documentos",
+      "useCase": "Para documentos",
+      "description": "Reúne PDF, archivos Word, imágenes y páginas personalizadas, organízalos, añade un índice con enlaces y exporta un PDF.",
+      "highlights": ["Combina PDF, Word e imágenes", "Reordena páginas", "Índice con enlaces"]
+    },
+    "display-studio": {
+      "title": "Pantallas y presentaciones",
+      "useCase": "Para pantallas y comercios",
+      "description": "Convierte un televisor, tableta o teléfono en una pantalla. Muestra menús, ofertas y documentos a pantalla completa con intervalos.",
+      "highlights": ["Presentación a pantalla completa", "Funciona en cualquier dispositivo", "Reproducción programada"]
+    },
+    "pos-invoice-studio": {
+      "title": "Estudio de ventas y facturas",
+      "useCase": "Para negocios",
+      "description": "Gestiona productos y existencias y crea facturas imprimibles. Todo funciona sin conexión y permanece en tu navegador.",
+      "highlights": ["Facturación sin conexión", "Inventario", "Facturas imprimibles", "Copia JSON"]
+    }
+  },
+  "moreTools": "Más herramientas cotidianas",
+  "expandAll": "Expandir todo",
+  "collapseAll": "Contraer todo",
+  "hideTools": "Ocultar herramientas",
+  "showTools_one": "Mostrar {{count}} herramienta",
+  "showTools_other": "Mostrar {{count}} herramientas",
+  "noResults": "No hay herramientas que coincidan con «{{query}}».",
+  "openTool": "Abrir {{tool}}",
+  "howToUse": "Cómo usar",
+  "questions": "Preguntas",
+  "privacy": "Privacidad",
+  "localProcessing": "Procesamiento local de archivos. Tus archivos no salen del navegador.",
+  "advertisements": "Anuncios",
+  "homeHeading": "Herramientas sencillas que funcionan",
+  "homeHeadingAccent": "en tu navegador.",
+  "homeDescription": "Una colección creciente de herramientas cotidianas que procesan archivos localmente en tu dispositivo.",
+  "findTool": "Buscar una herramienta",
+  "searchTools": "Buscar herramientas",
+  "searchPlaceholder": "Busca por nombre o función",
+  "requestPrompt": "¿Necesitas algo más?",
+  "requestLink": "Solicita una herramienta gratuita",
+  "requestShort": "Solicitar una herramienta gratuita",
+  "networkNote": "Los anuncios y el formulario de contacto realizan solicitudes de red por separado.",
+  "tools": "Herramientas",
+  "about": "Acerca de",
+  "contact": "Contacto",
+  "privacyPolicy": "Política de privacidad",
+  "terms": "Condiciones de servicio",
+  "merge": {
+    "title": "Unir PDF",
+    "subtitle": "Combina varios PDF en un documento, en el orden que elijas.",
+    "step1Title": "Añade tus PDF",
+    "step1Description": "Selecciona dos o más archivos o arrástralos al recuadro.",
+    "step2Title": "Elige el orden",
+    "step2Description": "Mueve los archivos arriba o abajo. El primero comienza en la página 1.",
+    "step3Title": "Une y guarda",
+    "step3Description": "Combina los archivos y descarga el PDF terminado.",
+    "faq1Question": "¿Hay un límite de tamaño o cantidad de archivos?",
+    "faq1Answer": "La herramienta no establece un límite fijo de tamaño, pero la memoria del navegador y el rendimiento del dispositivo limitan el procesamiento. Los archivos muy grandes pueden fallar o tardar más.",
+    "faq2Question": "¿Puedo cambiar el orden de páginas individuales?",
+    "faq2Answer": "Puedes ordenar archivos completos. Para extraer o reorganizar páginas individuales, usa la herramienta Dividir PDF.",
+    "faq3Question": "¿Tengo que crear una cuenta o registrarme?",
+    "faq3Answer": "No se requieren registro, suscripción ni datos personales. Todas las herramientas funcionan gratis en tu navegador.",
+    "choose": "Elige PDF o arrástralos aquí",
+    "hint": "Selecciona más de un archivo · Solo PDF",
+    "invalid": "Solo se pueden añadir archivos PDF. Se omitieron los demás tipos.",
+    "failed": "No se pudieron unir los PDF. Comprueba que los archivos sean válidos y no estén protegidos con contraseña.",
+    "order": "Orden de unión de PDF",
+    "orderCount_one": "Orden de unión · {{count}} archivo",
+    "orderCount_other": "Orden de unión · {{count}} archivos",
+    "firstPage": "El primer archivo comienza en la página 1",
+    "moveUp": "Subir",
+    "moveDown": "Bajar",
+    "moveFileUp": "Subir {{file}}",
+    "moveFileDown": "Bajar {{file}}",
+    "remove": "Eliminar archivo",
+    "removeFile": "Eliminar {{file}}",
+    "empty": "Tu lista aparecerá aquí. Puedes ordenar los archivos antes de unirlos.",
+    "ready": "Tu PDF combinado está listo",
+    "save": "Guardar PDF",
+    "merging": "Uniendo tus archivos…",
+    "addMore": "Añade al menos dos PDF para continuar",
+    "action": "Unir PDF"
+  },
+  "image": {
+    "choose": "Elige imágenes o arrástralas aquí",
+    "hint": "JPG, PNG o WebP",
+    "selected_one": "{{count}} imagen seleccionada",
+    "selected_other": "{{count}} imágenes seleccionadas",
+    "startOver": "Empezar de nuevo",
+    "quality": "Calidad · {{quality}} %",
+    "download": "Descargar",
+    "converting": "Convirtiendo imágenes localmente…",
+    "convert_one": "Convertir {{count}} imagen",
+    "convert_other": "Convertir {{count}} imágenes",
+    "compressing": "Comprimiendo localmente…",
+    "compress_one": "Comprimir {{count}} imagen",
+    "compress_other": "Comprimir {{count}} imágenes",
+    "converterTitle": "Convertidor de imágenes",
+    "converterSubtitle": "Convierte imágenes PNG, JPG y WebP al formato que necesitas, directamente en tu navegador.",
+    "compressorTitle": "Compresor de imágenes",
+    "compressorSubtitle": "Reduce el tamaño ajustando la calidad, las dimensiones y el formato; todo se procesa localmente."
+  },
+  "categories": {
+    "pdf": {
+      "name": "Herramientas PDF",
+      "description": "Modifica, combina y organiza documentos en tu dispositivo."
+    },
+    "media": {
+      "name": "Imágenes y multimedia",
+      "description": "Comprime y transforma imágenes sin usar la nube."
+    },
+    "dev": {
+      "name": "Desarrollo y datos",
+      "description": "Formatea, convierte e inspecciona datos sin compartir claves."
+    },
+    "text": {
+      "name": "Texto y escritura",
+      "description": "Recuento de caracteres, cambios de mayúsculas y otras herramientas de texto."
+    },
+    "display": {
+      "name": "Pantallas y presentaciones",
+      "description": "Crea presentaciones locales para aulas, eventos y pantallas."
+    },
+    "business": {
+      "name": "Negocios y ventas",
+      "description": "Gestiona el inventario y crea facturas localmente en tu navegador."
+    }
+  }
+}

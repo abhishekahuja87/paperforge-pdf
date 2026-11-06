@@ -1,24 +1,15 @@
 import React from 'react';
-import { Info, Lock, Zap, Cpu } from 'lucide-react';
+import { Lock, Zap, Cpu } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PageMetadata } from '../components/common/PageMetadata';
+import { InfoPageLayout } from '../components/layout/InfoPageLayout';
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 space-y-10 text-slate-700 leading-relaxed">
-      <PageMetadata
-        title="About"
+    <InfoPageLayout
+        title="About MyDailyUtils"
+        subtitle="Simple browser-based tools for everyday tasks."
         description="Learn about MyDailyUtils online tools and utilities for files, data, and everyday tasks, how local file processing works, and how to get support."
-      />
-      <div className="flex items-center space-x-3 pb-6 border-b border-slate-200">
-        <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
-          <Info className="w-8 h-8" />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900">About MyDailyUtils</h1>
-          <p className="text-sm text-slate-500">Browser-based tools for everyday file tasks</p>
-        </div>
-      </div>
+      >
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">What you can do here</h2>
@@ -70,7 +61,7 @@ export const AboutPage: React.FC = () => {
           If you find a problem or have a suggestion, please use the <Link to="/contact" className="font-semibold text-indigo-700 underline">contact form</Link>. Contact form submissions are handled by Web3Forms, a third-party service; file processing remains separate.
         </p>
       </section>
-    </div>
+    </InfoPageLayout>
   );
 };
 

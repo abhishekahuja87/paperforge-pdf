@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { AlertCircle, Check, Clipboard, FileUp, Fingerprint, RotateCcw, ShieldCheck } from 'lucide-react';
+import React, { useState } from 'react';
+import { AlertCircle, Check, Clipboard, RotateCcw, ShieldCheck } from 'lucide-react';
 import { copyText } from '../../lib/browserTools';
+import { FileDropZone } from '../common/FileDropZone';
 
 type ToolMode = 'encode' | 'decode' | 'hash';
 type HashAlgorithm = 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512';
@@ -61,7 +62,6 @@ export const Base64Hash: React.FC = () => {
   const [status, setStatus] = useState('');
   const [isCopied, setIsCopied] = useState(false);
   const [isWorking, setIsWorking] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const selectMode = (nextMode: ToolMode) => {
     setMode(nextMode);
@@ -136,24 +136,17 @@ export const Base64Hash: React.FC = () => {
     setError('');
     setStatus('');
     setIsCopied(false);
-    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
   return (
-    <section className="mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
-      <header className="mb-6 text-center">
-        <span className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600"><Fingerprint className="h-5 w-5" /></span>
-        <h2 className="text-xl font-bold text-slate-900">Base64 encoder, decoder &amp; hash</h2>
-        <p className="mt-1 text-sm text-slate-500">Encode or decode UTF-8 text, or calculate a cryptographic digest for text or a file.</p>
-      </header>
-
+    <section className="mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
       <div className="mb-5 grid grid-cols-3 gap-2 rounded-xl bg-slate-100 p-1">
         {([
           ['encode', 'Encode Base64'],
           ['decode', 'Decode Base64'],
           ['hash', 'Hash / checksum'],
         ] as const).map(([value, label]) => (
-          <button key={value} type="button" onClick={() => selectMode(value)} aria-pressed={mode === value} className={`rounded-lg px-2 py-2.5 text-xs font-bold transition sm:text-sm ${mode === value ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>{label}</button>
+          <button key={value} type="button" onClick={() => selectMode(value)} disabled={isWorking} aria-pressed={mode === value} className={`rounded-lg px-2 py-2.5 text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm ${mode === value ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>{label}</button>
         ))}
       </div>
 
@@ -161,14 +154,14 @@ export const Base64Hash: React.FC = () => {
         <div className="mb-4 grid gap-3 sm:grid-cols-2">
           <label className="text-xs font-semibold text-slate-700">
             Hash this
-            <select value={hashInput} onChange={(event) => { setHashInput(event.target.value as HashInput); setOutput(''); setError(''); }} className="mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm">
+            <select value={hashInput} disabled={isWorking} onChange={(event) => { setHashInput(event.target.value as HashInput); setOutput(''); setError(''); }} className="mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm">
               <option value="text">Text</option>
               <option value="file">A file</option>
             </select>
           </label>
           <label className="text-xs font-semibold text-slate-700">
             Algorithm
-            <select value={algorithm} onChange={(event) => { setAlgorithm(event.target.value as HashAlgorithm); setOutput(''); }} className="mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm">
+            <select value={algorithm} disabled={isWorking} onChange={(event) => { setAlgorithm(event.target.value as HashAlgorithm); setOutput(''); }} className="mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm">
               <option>SHA-256</option>
               <option>SHA-384</option>
               <option>SHA-512</option>
@@ -177,8 +170,12 @@ export const Base64Hash: React.FC = () => {
           </label>
           {hashInput === 'file' && (
             <div className="sm:col-span-2">
-              <input ref={fileInputRef} type="file" className="hidden" onChange={(event) => { setFile(event.target.files?.[0] ?? null); setOutput(''); setError(''); event.target.value = ''; }} />
-              <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/40 px-4 py-5 text-sm font-semibold text-slate-700 hover:bg-indigo-50"><FileUp className="h-5 w-5 text-indigo-600" />{file ? `${file.name} · ${(file.size / 1024).toFixed(1)} KB` : 'Choose any file to hash'}</button>
+              <FileDropZone
+                disabled={isWorking}
+                label={file ? `Change ${file.name}` : 'Choose a file or drop it here'}
+                hint="Any file · up to 100 MB"
+                onFiles={(files) => { setFile(files[0]); setOutput(''); setError(''); setStatus(''); }}
+              />
             </div>
           )}
           {mode === 'hash' && hashInput === 'file' && <p className="mb-3 text-[10px] text-slate-500">Web Crypto reads the selected file into browser memory; files up to 100 MB are supported.</p>}
@@ -188,7 +185,7 @@ export const Base64Hash: React.FC = () => {
       {(mode !== 'hash' || hashInput === 'text') && (
         <label className="block text-xs font-semibold text-slate-700">
           {mode === 'encode' ? 'Plain text (UTF-8)' : mode === 'decode' ? 'Base64 input' : 'Text to hash (UTF-8)'}
-          <textarea value={input} onChange={(event) => { setInput(event.target.value); setOutput(''); setError(''); setStatus(''); }} spellCheck={false} rows={7} placeholder={mode === 'encode' ? 'Enter text to encode...' : mode === 'decode' ? 'Paste Base64 text to decode...' : 'Enter text to hash...'} className="mt-1.5 w-full resize-y rounded-xl border border-slate-200 bg-slate-950 p-4 font-mono text-xs leading-relaxed text-slate-100 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100" />
+          <textarea value={input} disabled={isWorking} onChange={(event) => { setInput(event.target.value); setOutput(''); setError(''); setStatus(''); }} spellCheck={false} rows={7} placeholder={mode === 'encode' ? 'Enter text to encode...' : mode === 'decode' ? 'Paste Base64 text to decode...' : 'Enter text to hash...'} className="mt-1.5 w-full resize-y rounded-xl border border-stone-200 bg-white p-4 font-mono text-xs leading-relaxed text-stone-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" />
           <span className="mt-1 block text-right font-normal text-slate-400">{input.length.toLocaleString()} characters</span>
         </label>
       )}
@@ -200,11 +197,11 @@ export const Base64Hash: React.FC = () => {
         </label>
       )}
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        <button type="button" onClick={() => void run()} disabled={isWorking} className="rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white hover:bg-indigo-700 disabled:opacity-50">
+      <div className="mt-4 space-y-2">
+        {(mode === 'hash' && hashInput === 'file' ? file !== null : input.length > 0) && <button type="button" onClick={() => void run()} disabled={isWorking} className="w-full rounded-xl bg-orange-700 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:cursor-not-allowed disabled:opacity-50">
           {isWorking ? 'Calculating...' : mode === 'encode' ? 'Encode to Base64' : mode === 'decode' ? 'Decode Base64' : `Calculate ${algorithm}`}
-        </button>
-        <button type="button" onClick={reset} className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50"><RotateCcw className="h-3.5 w-3.5" />Clear</button>
+        </button>}
+        {(input || file || output || error || status) && <button type="button" onClick={reset} disabled={isWorking} className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"><RotateCcw className="h-3.5 w-3.5" />Clear</button>}
       </div>
 
       {output && (

@@ -2,23 +2,11 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { ProtectPdf } from '../components/tools/ProtectPdf';
 import { ToolGuide } from '../components/common/ToolGuide';
+import { usePageHeading } from '../lib/usePageHeading';
 import { siteConfig } from '../config/site';
 
 export const ProtectPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select a PDF',
-      description: 'Select the PDF file you wish to secure with password encryption.',
-    },
-    {
-      title: 'Set Passwords & Permissions',
-      description: 'Define an open password and toggle restrictions for printing and text copying.',
-    },
-    {
-      title: 'Encrypt & Save',
-      description: 'Create a password-protected copy in your browser, then test it with a PDF reader before sharing.',
-    },
-  ];
+  const heading = usePageHeading('protect');
 
   const faqs = [
     {
@@ -40,9 +28,10 @@ export const ProtectPage: React.FC = () => {
 
   return (
     <ToolLayout
-      title="Protect PDF (Password Encryption)"
-      subtitle="Set password protection for a PDF and choose document permissions in your browser."
-      seoContent={<ToolGuide toolName="Protect PDF" steps={steps} faqs={faqs} />}
+      title={heading.title}
+      subtitle={heading.subtitle}
+      contentLanguage={heading.language}
+      seoContent={<ToolGuide toolName="Protect PDF" faqs={faqs} />}
     >
       <ProtectPdf />
     </ToolLayout>

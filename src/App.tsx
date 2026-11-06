@@ -42,7 +42,7 @@ export const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+      <div className="min-h-screen flex flex-col bg-[var(--theme-background)] text-stone-900">
         <Header />
         <main className="flex-1">
           <Suspense fallback={<PageLoader />}>

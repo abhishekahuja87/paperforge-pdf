@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { FileDropZone } from '../common/FileDropZone';
 import { 
-  Upload, 
   FileText, 
   X, 
   AlertCircle, 
@@ -13,9 +13,8 @@ import { inspectPdf, type PdfInspectionReport } from '../../lib/pdf/inspect';
 export const InspectPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [report, setReport] = useState<PdfInspectionReport | null>(null);
-  const [, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = async (selectedFile: File) => {
     if (selectedFile.type !== 'application/pdf' && !selectedFile.name.endsWith('.pdf')) {
@@ -39,13 +38,6 @@ export const InspectPdf: React.FC = () => {
     }
   };
 
-  const onDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    if (e.dataTransfer.files?.[0]) {
-      handleFile(e.dataTransfer.files[0]);
-    }
-  };
-
   const handleReset = () => {
     setFile(null);
     setReport(null);
@@ -62,57 +54,47 @@ export const InspectPdf: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 sm:p-6 space-y-6">
+    <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
       
-      {/* Dev & QA Header Card */}
-      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-          <Terminal className="w-4 h-4 text-indigo-600" />
-          Developer & Pre-Flight Forensics
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-          <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
-            <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-              <FileCode2 className="w-3.5 h-3.5 text-indigo-600" /> Pipeline Debugging
-            </span>
-            <p className="text-[11px] text-slate-500 leading-snug">
-              Audit specs, version markers, and embedded stream structures to fix upload rejections in internal systems.
-            </p>
-          </div>
-          <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
-            <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Security Inspection
-            </span>
-            <p className="text-[11px] text-slate-500 leading-snug">
-              Identify hidden executable JavaScript hooks, automatic OpenAction triggers, and embedded attachments safely.
-            </p>
-          </div>
-        </div>
-      </div>
 
       {!file && (
-        <div
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={onDrop}
-          onClick={() => fileInputRef.current?.click()}
-          className="border-2 border-dashed border-slate-300 hover:border-indigo-500 rounded-xl p-8 sm:p-12 text-center cursor-pointer transition-colors bg-slate-50/50 hover:bg-indigo-50/20"
-        >
-          <input
-            type="file"
-            ref={fileInputRef}
-            className="hidden"
-            accept="application/pdf"
-            onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
-          />
-          <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-            <Upload className="w-6 h-6" />
-          </div>
-          <h3 className="text-sm font-semibold text-slate-800">
-            Click to upload or drag & drop a PDF to inspect
-          </h3>
-          <p className="text-xs text-slate-500 mt-1">Inspected in your browser; the selected PDF is not uploaded to MyDailyUtils for processing.</p>
-        </div>
+        <FileDropZone
+          accept=".pdf,application/pdf"
+          disabled={status === 'loading'}
+          readingPdf={status === 'loading'}
+          onFiles={(files) => { void handleFile(files[0]); }}
+        />
       )}
+
+      <details className="rounded-xl border border-stone-200 bg-white p-3">
+        <summary className="cursor-pointer text-xs font-semibold text-stone-700">More about this tool</summary>
+        <div className="mt-3">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+              <Terminal className="w-4 h-4 text-indigo-600" />
+              Developer & Pre-Flight Forensics
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
+                <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
+                  <FileCode2 className="w-3.5 h-3.5 text-indigo-600" /> Pipeline Debugging
+                </span>
+                <p className="text-[11px] text-slate-500 leading-snug">
+                  Audit specs, version markers, and embedded stream structures to fix upload rejections in internal systems.
+                </p>
+              </div>
+              <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
+                <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Security Inspection
+                </span>
+                <p className="text-[11px] text-slate-500 leading-snug">
+                  Identify hidden executable JavaScript hooks, automatic OpenAction triggers, and embedded attachments safely.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
 
       {file && report && (
         <div className="space-y-5">

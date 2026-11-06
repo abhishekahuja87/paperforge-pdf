@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { FileDropZone } from '../common/FileDropZone';
 import { 
-  Upload, 
   FileText, 
   Hash, 
   Download, 
@@ -39,7 +39,6 @@ export const AddPageNumbers: React.FC = () => {
   const [downloadName, setDownloadName] = useState<string>('');
 
   const [lastGeneratedKey, setLastGeneratedKey] = useState<string>('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const currentSettingsKey = JSON.stringify({
     fileName: file?.name,
@@ -78,13 +77,6 @@ export const AddPageNumbers: React.FC = () => {
     } catch {
       setErrorMessage('Failed to read PDF. The document might be password-protected or corrupted.');
       setStatus('error');
-    }
-  };
-
-  const onDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    if (e.dataTransfer.files?.[0]) {
-      handleFile(e.dataTransfer.files[0]);
     }
   };
 
@@ -152,29 +144,17 @@ export const AddPageNumbers: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 sm:p-6 space-y-6">
+    <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
       {!file && (
-        <div
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={onDrop}
-          onClick={() => fileInputRef.current?.click()}
-          className="border-2 border-dashed border-slate-300 hover:border-indigo-500 rounded-xl p-8 sm:p-12 text-center cursor-pointer transition-colors bg-slate-50/50 hover:bg-indigo-50/20"
-        >
-          <input
-            type="file"
-            ref={fileInputRef}
-            className="hidden"
-            accept="application/pdf"
-            onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
-          />
-          <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-            <Upload className="w-6 h-6" />
-          </div>
-          <h3 className="text-sm font-semibold text-slate-800">
-            Click to upload or drag & drop a PDF
-          </h3>
-          <p className="text-xs text-slate-500 mt-1">Processed locally on your device — never uploaded</p>
-        </div>
+        <FileDropZone
+          accept=".pdf,application/pdf"
+          disabled={status === 'loading'}
+          readingPdf={status === 'loading'}
+          onFiles={(files) => { void handleFile(files[0]); }}
+        />
+      )}
+      {!file && errorMessage && (
+        <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800">{errorMessage}</p>
       )}
 
       {file && (
@@ -337,11 +317,7 @@ export const AddPageNumbers: React.FC = () => {
             <button
               onClick={handleApply}
               disabled={status === 'processing'}
-              className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition cursor-pointer ${
-                isOutOfSync
-                  ? 'bg-amber-600 hover:bg-amber-700 text-white'
-                  : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-              }`}
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-indigo-600 hover:bg-indigo-700 text-white"
             >
               {status === 'processing' ? (
                 <Sparkles className="w-4 h-4 animate-spin" />

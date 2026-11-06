@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ArrowDown,
   ArrowUp,
   Check,
   Download,
-  FilePlus2,
   FileText,
   Files,
   Loader2,
@@ -12,15 +11,16 @@ import {
 } from 'lucide-react';
 import { mergePdfFiles } from '../../lib/pdf/merge';
 import { generatePdfFilename } from '../../lib/pdf/naming';
+import { FileDropZone } from '../common/FileDropZone';
+import { useTranslation } from 'react-i18next';
 
 export const MergePdf: React.FC = () => {
+  const { t } = useTranslation('merge');
   const [files, setFiles] = useState<File[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [downloadName, setDownloadName] = useState('');
-  const [error, setError] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<{ key: 'invalid' | 'failed'; reason?: string } | null>(null);
 
   useEffect(() => {
     if (!downloadUrl) return;
@@ -39,12 +39,7 @@ export const MergePdf: React.FC = () => {
       setDownloadName('');
     }
 
-    setError(rejectedCount > 0 ? 'Only PDF files can be added. Other file types were skipped.' : null);
-  };
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    addFiles(Array.from(event.target.files ?? []));
-    event.target.value = '';
+    setError(rejectedCount > 0 ? { key: 'invalid' } : null);
   };
 
   const removeFile = (index: number) => {
@@ -77,77 +72,39 @@ export const MergePdf: React.FC = () => {
       setDownloadUrl(URL.createObjectURL(mergedBlob));
       setDownloadName(generatePdfFilename('documents', 'merged', `${files.length}files`));
     } catch (mergeError) {
-      const reason = mergeError instanceof Error ? ` ${mergeError.message}` : '';
-      setError(`Could not merge these PDFs.${reason} Check that the files are valid and not password-protected.`);
+      const reason = mergeError instanceof Error ? mergeError.message : undefined;
+      setError({ key: 'failed', reason });
     } finally {
       setIsProcessing(false);
     }
   };
 
-  const handleDrop = (event: React.DragEvent<HTMLLabelElement>) => {
-    event.preventDefault();
-    setIsDragging(false);
-    addFiles(Array.from(event.dataTransfer.files));
-  };
-
   return (
     <>
-      <section className="min-w-0 overflow-hidden rounded-[1.75rem] border border-stone-200 bg-[#fffdf8] shadow-[0_24px_70px_-48px_rgba(74,54,30,0.55)]">
+      <section className="min-w-0 overflow-hidden rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)]">
         <div className="space-y-4 p-4 sm:p-6">
-          <label
-            htmlFor="merge-pdf-input"
-            role="button"
-            tabIndex={0}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                fileInputRef.current?.click();
-              }
-            }}
-            onDragEnter={(event) => {
-              event.preventDefault();
-              setIsDragging(true);
-            }}
-            onDragOver={(event) => event.preventDefault()}
-            onDragLeave={(event) => {
-              if (!(event.relatedTarget instanceof Node) || !event.currentTarget.contains(event.relatedTarget)) {
-                setIsDragging(false);
-              }
-            }}
-            onDrop={handleDrop}
-            className={`group flex min-h-36 cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed px-4 py-5 text-center outline-none transition duration-200 focus-visible:ring-4 focus-visible:ring-orange-100 ${isDragging ? 'border-orange-500 bg-orange-100/70' : 'border-orange-200 bg-orange-50/60 hover:border-orange-400 hover:bg-orange-50'}`}
-          >
-            <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-orange-800 shadow-sm transition group-hover:-translate-y-0.5 group-hover:shadow">
-              <FilePlus2 className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <span className="text-sm font-bold text-stone-900">
-              {isDragging ? 'Drop your PDFs here' : 'Choose PDFs or drop them here'}
-            </span>
-            <span className="mt-1 text-xs text-stone-500">Select more than one file · PDF only</span>
-            <input
-              ref={fileInputRef}
-              id="merge-pdf-input"
-              type="file"
-              multiple
-              accept=".pdf,application/pdf"
-              onChange={handleFileChange}
-              className="sr-only"
-            />
-          </label>
+          <FileDropZone
+            accept=".pdf,application/pdf"
+            multiple
+            disabled={isProcessing}
+            label={t('choose')}
+            hint={t('hint')}
+            onFiles={addFiles}
+          />
 
           {error && (
             <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800">
-              {error}
+              {t(error.key)} {error.reason && <span lang="en">{error.reason}</span>}
             </p>
           )}
 
           {files.length > 0 ? (
-            <div className="space-y-2" aria-label="PDF merge order">
+            <div className="space-y-2" aria-label={t('order')}>
               <div className="flex items-center justify-between px-1">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-stone-600" aria-live="polite">
-                  Merge order · {files.length} {files.length === 1 ? 'file' : 'files'}
+                  {t('orderCount', { count: files.length })}
                 </h3>
-                <span className="text-[10px] text-stone-400">First file becomes page 1</span>
+                <span className="text-[10px] text-stone-400">{t('firstPage')}</span>
               </div>
               <ol className="space-y-2">
                 {files.map((file, index) => (
@@ -170,8 +127,8 @@ export const MergePdf: React.FC = () => {
                         type="button"
                         onClick={() => moveFile(index, 'up')}
                         disabled={index === 0 || isProcessing}
-                        aria-label={`Move ${file.name} up`}
-                        title="Move up"
+                        aria-label={t('moveFileUp', { file: file.name })}
+                        title={t('moveUp')}
                         className="rounded-lg p-2 text-stone-500 transition hover:bg-orange-50 hover:text-orange-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 disabled:cursor-not-allowed disabled:opacity-30"
                       >
                         <ArrowUp className="h-4 w-4" aria-hidden="true" />
@@ -180,8 +137,8 @@ export const MergePdf: React.FC = () => {
                         type="button"
                         onClick={() => moveFile(index, 'down')}
                         disabled={index === files.length - 1 || isProcessing}
-                        aria-label={`Move ${file.name} down`}
-                        title="Move down"
+                        aria-label={t('moveFileDown', { file: file.name })}
+                        title={t('moveDown')}
                         className="rounded-lg p-2 text-stone-500 transition hover:bg-orange-50 hover:text-orange-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 disabled:cursor-not-allowed disabled:opacity-30"
                       >
                         <ArrowDown className="h-4 w-4" aria-hidden="true" />
@@ -190,8 +147,8 @@ export const MergePdf: React.FC = () => {
                         type="button"
                         onClick={() => removeFile(index)}
                         disabled={isProcessing}
-                        aria-label={`Remove ${file.name}`}
-                        title="Remove file"
+                        aria-label={t('removeFile', { file: file.name })}
+                        title={t('remove')}
                         className="rounded-lg p-2 text-stone-400 transition hover:bg-rose-50 hover:text-rose-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 disabled:cursor-not-allowed disabled:opacity-30"
                       >
                         <Trash2 className="h-4 w-4" aria-hidden="true" />
@@ -204,7 +161,7 @@ export const MergePdf: React.FC = () => {
           ) : (
             <div className="flex items-center justify-center gap-2 py-1 text-[11px] text-stone-400">
               <Files className="h-4 w-4" aria-hidden="true" />
-              Your list will appear here. You can reorder files before merging.
+              {t('empty')}
             </div>
           )}
 
@@ -214,7 +171,7 @@ export const MergePdf: React.FC = () => {
                 <Check className="h-4 w-4" aria-hidden="true" />
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block text-xs font-bold text-emerald-950">Your merged PDF is ready</span>
+                <span className="block text-xs font-bold text-emerald-950">{t('ready')}</span>
                 <span className="block truncate text-[10px] text-emerald-800">{downloadName}</span>
               </span>
               <a
@@ -223,12 +180,12 @@ export const MergePdf: React.FC = () => {
                 className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-emerald-800 px-3 py-2 text-xs font-bold text-white transition hover:bg-emerald-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
               >
                 <Download className="h-3.5 w-3.5" aria-hidden="true" />
-                Save PDF
+                {t('save')}
               </a>
             </div>
           )}
 
-          <button
+          {files.length > 0 && <button
             type="button"
             onClick={handleMerge}
             disabled={files.length < 2 || isProcessing}
@@ -237,15 +194,15 @@ export const MergePdf: React.FC = () => {
             {isProcessing ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-                <span>Merging your files…</span>
+                <span>{t('merging')}</span>
               </>
             ) : (
               <>
                 <Files className="h-4 w-4" aria-hidden="true" />
-                <span>{files.length < 2 ? 'Add at least two PDFs to continue' : 'Merge PDFs'}</span>
+                <span>{files.length < 2 ? t('addMore') : t('action')}</span>
               </>
             )}
-          </button>
+          </button>}
         </div>
       </section>
     </>

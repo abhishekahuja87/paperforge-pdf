@@ -1,24 +1,14 @@
 import React from 'react';
-import { FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PageMetadata } from '../components/common/PageMetadata';
+import { InfoPageLayout } from '../components/layout/InfoPageLayout';
 
 export const TermsPage: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 space-y-8 text-slate-700 leading-relaxed">
-      <PageMetadata
+    <InfoPageLayout
         title="Terms of Service"
+        subtitle="Last updated: November 2, 2026"
         description="Review the terms for using MyDailyUtils browser-based file utilities, business tools, downloads, and third-party services."
-      />
-      <div className="flex items-center space-x-3 pb-6 border-b border-slate-200">
-        <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
-          <FileText className="w-8 h-8" />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900">Terms of Service</h1>
-          <p className="text-sm text-slate-500">Last updated: November 2, 2026</p>
-        </div>
-      </div>
+      >
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">1. Acceptance of Terms</h2>
@@ -64,7 +54,7 @@ export const TermsPage: React.FC = () => {
           We may update the site or these terms as the tools change. Questions about the terms can be sent through the <Link to="/contact" className="font-semibold text-indigo-700 underline">Contact page</Link>.
         </p>
       </section>
-    </div>
+    </InfoPageLayout>
   );
 };
 

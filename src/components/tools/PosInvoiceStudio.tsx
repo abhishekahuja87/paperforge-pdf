@@ -510,14 +510,14 @@ export const PosInvoiceStudio: React.FC = () => {
     return (
       <div className="mx-auto max-w-6xl space-y-5">
         <input ref={importInputRef} type="file" accept=".json,application/json" className="hidden" onChange={(event) => void handleImport(event.target.files?.[0])} />
-        <section className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-white p-5 shadow-sm sm:p-7">
+        <section className="rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-start gap-3">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700"><Building2 className="h-5 w-5" /></span>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-indigo-700">Step 1 of 2 · Shop profile</p>
                 <h2 className="mt-1 text-xl font-extrabold text-slate-900">{store ? 'Review your shop profile' : 'Create your shop profile'}</h2>
-                <p className="mt-1 max-w-2xl text-sm leading-relaxed text-slate-600">Create a shop profile and add items to shop inventory, or import a saved profile to reuse them. Importing a bill JSON opens that bill directly. Your information stays in this browser unless you download a JSON file.</p>
+                <p className="mt-1 max-w-2xl text-sm leading-relaxed text-slate-600">Add your shop and inventory, or import a saved profile or bill.</p>
               </div>
             </div>
             <button type="button" className={secondaryButtonClass} onClick={() => importInputRef.current?.click()} title="Import a shop profile JSON or a bill JSON"><FileUp className="h-3.5 w-3.5" />Import profile or bill JSON</button>

@@ -2,23 +2,11 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { UnlockPdf } from '../components/tools/UnlockPdf';
 import { ToolGuide } from '../components/common/ToolGuide';
+import { usePageHeading } from '../lib/usePageHeading';
 import { siteConfig } from '../config/site';
 
 export const UnlockPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select a Protected PDF',
-      description: 'Select or drag your password-protected PDF document into the tool.',
-    },
-    {
-      title: 'Enter the Password',
-      description: 'Enter a password you are authorized to use to open the document.',
-    },
-    {
-      title: 'Unlock & Save',
-      description: 'The tool renders pages to images, rebuilds the PDF without encryption, and lets you download the result.',
-    },
-  ];
+  const heading = usePageHeading('unlock');
 
   const faqs = [
     {
@@ -45,9 +33,10 @@ export const UnlockPage: React.FC = () => {
 
   return (
     <ToolLayout
-      title="Unlock PDF Documents"
-      subtitle="Use the document password to save a decrypted copy of a PDF in your browser."
-      seoContent={<ToolGuide toolName="Unlock PDF" steps={steps} faqs={faqs} />}
+      title={heading.title}
+      subtitle={heading.subtitle}
+      contentLanguage={heading.language}
+      seoContent={<ToolGuide toolName="Unlock PDF" faqs={faqs} />}
     >
       <UnlockPdf />
     </ToolLayout>

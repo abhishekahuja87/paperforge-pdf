@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { FileDropZone } from '../common/FileDropZone';
 import { 
-  Upload, 
   ArrowUp, 
   ArrowDown, 
   Trash2, 
@@ -28,7 +28,6 @@ export const ImagesToPdf: React.FC = () => {
   const [downloadName, setDownloadName] = useState<string>('');
 
   const [lastGeneratedKey, setLastGeneratedKey] = useState<string>('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const currentSettingsKey = JSON.stringify({
     imageIds: images.map((img) => `${img.file.name}_${img.file.size}`).join('|'),
@@ -38,7 +37,7 @@ export const ImagesToPdf: React.FC = () => {
 
   const isOutOfSync = downloadUrl !== null && currentSettingsKey !== lastGeneratedKey;
 
-  const handleFiles = (fileList: FileList | null) => {
+  const handleFiles = (fileList: File[]) => {
     if (!fileList || fileList.length === 0) return;
 
     const validFiles = Array.from(fileList).filter((f) => 
@@ -139,33 +138,18 @@ export const ImagesToPdf: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 sm:p-6 space-y-6">
-      {/* Upload Zone */}
-      <div
-        onDragOver={(e) => e.preventDefault()}
-        onDrop={(e) => {
-          e.preventDefault();
-          handleFiles(e.dataTransfer.files);
-        }}
-        onClick={() => fileInputRef.current?.click()}
-        className="border-2 border-dashed border-slate-300 hover:border-indigo-500 rounded-xl p-8 sm:p-10 text-center cursor-pointer transition-colors bg-slate-50/50 hover:bg-indigo-50/20"
-      >
-        <input
-          type="file"
-          ref={fileInputRef}
-          className="hidden"
-          multiple
-          accept="image/png,image/jpeg,image/webp"
-          onChange={(e) => handleFiles(e.target.files)}
-        />
-        <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-          <Upload className="w-6 h-6" />
-        </div>
-        <h3 className="text-sm font-semibold text-slate-800">
-          Click to upload or drag & drop multiple images
-        </h3>
-        <p className="text-xs text-slate-500 mt-1">Supports JPG, PNG, and WebP &bull; Images are converted in your browser and are not uploaded to MyDailyUtils for processing.</p>
-      </div>
+    <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
+      <FileDropZone
+        accept="image/png,image/jpeg,image/webp"
+        multiple
+        disabled={status === 'processing'}
+        label="Choose images or drop them here"
+        hint="JPG, PNG, or WebP"
+        onFiles={handleFiles}
+      />
+      {images.length === 0 && errorMessage && (
+        <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800">{errorMessage}</p>
+      )}
 
       {images.length > 0 && (
         <div className="space-y-5">
@@ -311,11 +295,7 @@ export const ImagesToPdf: React.FC = () => {
             <button
               onClick={handleConvert}
               disabled={status === 'processing'}
-              className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition cursor-pointer ${
-                isOutOfSync
-                  ? 'bg-amber-600 hover:bg-amber-700 text-white'
-                  : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-              }`}
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-indigo-600 hover:bg-indigo-700 text-white"
             >
               {status === 'processing' ? (
                 <Sparkles className="w-4 h-4 animate-spin" />

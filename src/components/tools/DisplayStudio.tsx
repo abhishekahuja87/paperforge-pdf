@@ -7,10 +7,8 @@ import {
   Clock3,
   FileImage,
   FileText,
-  FolderOpen,
   Maximize,
   Minimize,
-  MonitorPlay,
   Pause,
   Play,
   RotateCcw,
@@ -19,11 +17,11 @@ import {
   SkipForward,
   Sun,
   Trash2,
-  Upload,
   X,
 } from 'lucide-react';
 import { renderDisplayFile } from '../../lib/display/render';
 import type { DisplaySlide } from '../../lib/display/types';
+import { FileDropZone } from '../common/FileDropZone';
 
 type FitMode = 'contain' | 'cover' | 'fill';
 type TransitionMode = 'none' | 'fade' | 'zoom';
@@ -65,7 +63,6 @@ const selectClass = 'mt-1 w-full rounded-lg border border-slate-200 bg-white px-
 export const DisplayStudio: React.FC = () => {
   const [slides, setSlides] = useState<DisplaySlide[]>([]);
   const [processing, setProcessing] = useState(false);
-  const [draggingFiles, setDraggingFiles] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
   const [notice, setNotice] = useState('');
   const [defaultDuration, setDefaultDuration] = useState(10);
@@ -89,7 +86,6 @@ export const DisplayStudio: React.FC = () => {
   const [controlsVisible, setControlsVisible] = useState(true);
   const [controlPulse, setControlPulse] = useState(0);
   const [now, setNow] = useState(() => new Date());
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const playerRef = useRef<HTMLDivElement>(null);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
   const lastPointerPosition = useRef<{ x: number; y: number } | null>(null);
@@ -128,7 +124,6 @@ export const DisplayStudio: React.FC = () => {
     }
     setErrors(fileErrors);
     setProcessing(false);
-    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
   const requestScreenWakeLock = async () => {
@@ -385,39 +380,15 @@ export const DisplayStudio: React.FC = () => {
         </div>
       ) : (
         <>
-          <div className="overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-sky-50 shadow-sm">
-            <div className="grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-center sm:p-7">
-              <div>
-                <div className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-indigo-100 bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-indigo-700">
-                  <MonitorPlay className="h-3.5 w-3.5" /> Classroom · TV · Store display
-                </div>
-                <h2 className="text-xl font-extrabold text-slate-900 sm:text-2xl">Build a show from your files</h2>
-                <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">
-                  Turn PDF pages, Word documents, and images into a local slideshow. Remove pages you do not need, set a timing for each slide, add captions, then present lessons, rotate product promotions, or leave a photo display running on a TV.
-                </p>
-              </div>
-              <div className="hidden h-20 w-20 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-lg sm:flex">
-                <MonitorPlay className="h-10 w-10" />
-              </div>
-            </div>
-          </div>
-
-          <div
-            className={`rounded-2xl border-2 border-dashed p-6 text-center transition ${draggingFiles ? 'border-indigo-500 bg-indigo-50' : 'border-slate-300 bg-white hover:border-indigo-300 hover:bg-indigo-50/40'}`}
-            onDragOver={(event) => { event.preventDefault(); setDraggingFiles(true); }}
-            onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setDraggingFiles(false); }}
-            onDrop={(event) => { event.preventDefault(); setDraggingFiles(false); void addFiles(event.dataTransfer.files); }}
-          >
-            <input ref={fileInputRef} type="file" multiple accept={FILE_ACCEPT} className="hidden" onChange={(event) => { if (event.target.files) void addFiles(event.target.files); }} />
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700"><Upload className="h-6 w-6" /></div>
-            <h3 className="font-bold text-slate-900">Add PDFs, Word documents, or images</h3>
-            <p className="mx-auto mt-1 max-w-2xl text-xs leading-relaxed text-slate-500">
-              PDF pages and DOCX pages become individual slides. Images supported by this browser become one slide each. Files are rendered on this device and are never uploaded. Each file must be 100 MB or smaller.
-            </p>
-            <button type="button" className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50" onClick={() => fileInputRef.current?.click()} disabled={processing}>
-              {processing ? <span className="inline-flex items-center gap-2"><span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />Preparing slides...</span> : <span className="inline-flex items-center gap-2"><FolderOpen className="h-4 w-4" />Choose files</span>}
-            </button>
-            <p className="mt-3 text-[11px] text-slate-400">Tip: drag files onto this area. Animated images are shown as a still slide; format support depends on your browser.</p>
+          <div className="mx-auto w-full max-w-3xl rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+            <FileDropZone
+              accept={FILE_ACCEPT}
+              multiple
+              disabled={processing}
+              label={processing ? 'Preparing slides...' : 'Choose files or drop them here'}
+              hint="PDF, DOCX, or images · up to 100 MB per file"
+              onFiles={(files) => { void addFiles(files); }}
+            />
           </div>
 
           {errors.length > 0 && (

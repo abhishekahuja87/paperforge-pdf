@@ -5,20 +5,6 @@ import { ToolGuide } from '../components/common/ToolGuide';
 import { siteConfig } from '../config/site';
 
 export const ImagesToPdfPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select Images',
-      description: 'Select or drag multiple JPG, PNG, or WebP pictures into the converter.',
-    },
-    {
-      title: 'Order & Choose Layout',
-      description: 'Reorder pages using the Up/Down buttons and select A4, US Letter, or Fit to Image.',
-    },
-    {
-      title: 'Convert & Download',
-      description: 'Compile the images into a multi-page PDF document locally without server latency.',
-    },
-  ];
 
   const faqs = [
     {
@@ -42,7 +28,7 @@ export const ImagesToPdfPage: React.FC = () => {
     <ToolLayout
       title="Convert Images to PDF"
       subtitle="Assemble JPG, PNG, and WebP images into a PDF using your browser."
-      seoContent={<ToolGuide toolName="Images to PDF" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="Images to PDF" faqs={faqs} />}
     >
       <ImagesToPdf />
     </ToolLayout>

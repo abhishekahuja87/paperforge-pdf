@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { FileDropZone } from '../common/FileDropZone';
 import {
-  Upload,
   Download,
   AlertCircle,
   FileText,
@@ -41,9 +41,7 @@ export const ProtectPdf: React.FC = () => {
     }
   };
 
-  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files?.[0];
-    if (!selectedFile) return;
+  const handleFileSelect = async (selectedFile: File) => {
 
     if (selectedFile.type !== 'application/pdf' && !selectedFile.name.endsWith('.pdf')) {
       setError('Please select a valid PDF file.');
@@ -109,28 +107,16 @@ export const ProtectPdf: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-slate-800">Protect PDF with Password</h2>
-          <p className="text-slate-500 text-sm mt-1">
-            Encrypt your document locally in your browser. Zero bytes leave your machine.
-          </p>
-        </div>
+    <div className="mx-auto w-full space-y-4">
+      <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+        {!file && error && <p role="alert" className="mb-3 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs text-rose-800">{error}</p>}
 
         {/* Upload Drop Zone matching MergePdf identically */}
         {!file ? (
-          <label className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-indigo-200 rounded-xl bg-indigo-50/40 hover:bg-indigo-50/70 transition cursor-pointer">
-            <Upload className="w-10 h-10 text-indigo-500 mb-2" />
-            <span className="font-semibold text-slate-700">Click to upload or drag & drop</span>
-            <span className="text-xs text-slate-400 mt-1">Single PDF file up to 100MB</span>
-            <input
-              type="file"
-              accept=".pdf,application/pdf"
-              onChange={handleFileSelect}
-              className="hidden"
-            />
-          </label>
+          <FileDropZone
+          accept=".pdf,application/pdf"
+          onFiles={(files) => { void handleFileSelect(files[0]); }}
+        />
         ) : (
           <div className="space-y-5">
             {/* File Info Card */}
@@ -253,7 +239,7 @@ export const ProtectPdf: React.FC = () => {
                   type="button"
                   onClick={handleProtect}
                   disabled={isProcessing}
-                  className="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-sm transition disabled:opacity-50 flex items-center justify-center space-x-2 cursor-pointer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none"
                 >
                   {isProcessing ? (
                     <>

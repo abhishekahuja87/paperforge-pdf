@@ -2,50 +2,52 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { MergePdf } from '../components/tools/MergePdf';
 import { ToolGuide } from '../components/common/ToolGuide';
+import { useTranslation } from 'react-i18next';
 
 export const MergePage: React.FC = () => {
+  const { t, i18n } = useTranslation('merge');
   const steps = [
     {
-      title: 'Add your PDFs',
-      description: 'Choose two or more files, or drop them into the box.',
+      title: t('step1Title'),
+      description: t('step1Description'),
     },
     {
-      title: 'Set the order',
-      description: 'Move files up or down. The first file becomes page 1.',
+      title: t('step2Title'),
+      description: t('step2Description'),
     },
     {
-      title: 'Merge and save',
-      description: 'Combine them and download the finished PDF.',
+      title: t('step3Title'),
+      description: t('step3Description'),
     },
   ];
 
   const faqs = [
     {
-      question: 'Is there a limit on file size or quantity?',
-      answer:
-        'The tool does not set a fixed file-size limit, but browser memory and device performance limit what can be processed. Very large files may fail or take longer.',
+      question: t('faq1Question'),
+      answer: t('faq1Answer'),
     },
     {
-      question: 'Can I reorder individual pages?',
-      answer:
-        'You can arrange whole files in sequence. To extract or reorganize individual pages, use the Split PDF utility.',
+      question: t('faq2Question'),
+      answer: t('faq2Answer'),
     },
     {
-      question: 'Do I need to create an account or sign up?',
-      answer:
-        'No registration, subscriptions, or personal details are required. All utilities run freely in your browser.',
+      question: t('faq3Question'),
+      answer: t('faq3Answer'),
     },
   ];
 
   return (
     <ToolLayout
-      title="Merge PDF"
-      subtitle="Combine multiple PDFs into one document, in the order you choose."
+      title={t('title')}
+      subtitle={t('subtitle')}
+      contentLanguage={i18n.language}
+      controlsLanguage={i18n.language}
       appearance="workshop"
-      steps={steps}
-      seoContent={<ToolGuide toolName="Merge PDF" faqs={faqs} appearance="workshop" />}
+      seoContent={<ToolGuide toolName={t('title')} steps={steps} faqs={faqs} appearance="workshop" contentLanguage={i18n.language} />}
     >
-      <MergePdf />
+      <div className="mx-auto w-full max-w-3xl">
+        <MergePdf />
+      </div>
     </ToolLayout>
   );
 };

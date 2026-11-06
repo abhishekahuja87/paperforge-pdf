@@ -1,3 +1,5 @@
+import en from '../locales/en.json';
+
 export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text' | 'display' | 'business';
 
 export type ToolIconName = 
@@ -35,32 +37,7 @@ export interface ToolItem {
   keywords: string[];
 }
 
-export const CATEGORIES: Record<ToolCategory, { name: string; description: string }> = {
-  pdf: {
-    name: 'PDF Utilities',
-    description: 'Manipulate, combine, and organize documents directly on your machine.',
-  },
-  media: {
-    name: 'Image & Media Tools',
-    description: 'Compress and transform graphic files without cloud latency.',
-  },
-  dev: {
-    name: 'Developer & Data Tools',
-    description: 'Prettify, convert, and inspect data securely without sharing keys.',
-  },
-  text: {
-    name: 'Text & Writing',
-    description: 'Character counts, casing transformations, and text utilities.',
-  },
-  display: {
-    name: 'Display & Presentation',
-    description: 'Create local browser-based slideshows for classrooms, events, and screens.',
-  },
-  business: {
-    name: 'Business & Sales',
-    description: 'Manage shop inventory and create bills locally in your browser.',
-  },
-};
+export const CATEGORIES: Record<ToolCategory, { name: string; description: string }> = en.categories;
 
 export const TOOLS: ToolItem[] = [
   // PDF

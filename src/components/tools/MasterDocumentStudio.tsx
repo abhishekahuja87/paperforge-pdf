@@ -10,9 +10,7 @@ import {
   Move,
   Pin,
   Plus,
-  ShieldCheck,
   Sparkles,
-  Upload,
   X,
   ZoomIn,
 } from 'lucide-react';
@@ -33,6 +31,8 @@ import { renderOutputPageImage } from '../../lib/documentStudio/studio';
 import { protectPdf } from '../../lib/pdf/protect';
 import { ContentsEntryModal, CustomPageModal, PageEditorModal, ProtectedPdfPasswordModal, SourcePagePreviewModal } from './documentStudio/StudioModals';
 import { SamplePdfModal } from './documentStudio/SamplePdfModal';
+import { FileDropZone } from '../common/FileDropZone';
+import { useTranslation } from 'react-i18next';
 
 function createDefaultStudioSettings(): StudioSettings {
   const timestamp = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 12);
@@ -103,6 +103,7 @@ function sourceTypeLabel(kind: SourceItem['kind']): string {
 }
 
 export const MasterDocumentStudio: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [sources, setSources] = useState<SourceItem[]>([]);
   const [pages, setPages] = useState<PageCard[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -129,7 +130,6 @@ export const MasterDocumentStudio: React.FC = () => {
   const [downloadUrl, setDownloadUrl] = useState('');
   const [downloadName, setDownloadName] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const dropZoneRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => () => {
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
@@ -427,64 +427,25 @@ export const MasterDocumentStudio: React.FC = () => {
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     setNotice(`${filename} downloaded.`);
   };
-  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    dropZoneRef.current?.classList.remove('ring-2', 'ring-indigo-500');
-    void addFiles(event.dataTransfer.files);
-  };
-
   const inputDeck = (
     <div className="space-y-4">
-      <div
-        ref={dropZoneRef}
-        onDragOver={(event) => {
-          event.preventDefault();
-          dropZoneRef.current?.classList.add('ring-2', 'ring-indigo-500');
-        }}
-        onDragLeave={() => dropZoneRef.current?.classList.remove('ring-2', 'ring-indigo-500')}
-        onDrop={handleDrop}
-        className="rounded-3xl border-2 border-dashed border-indigo-300 bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-6 shadow-sm transition sm:p-10"
-      >
-        <div className="flex flex-col items-center text-center">
-          <span className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-md shadow-indigo-200">
-            <Upload className="h-6 w-6" />
-          </span>
-          <span className="mb-2 rounded-full bg-indigo-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-700">Start building your document</span>
-          <h2 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">Bring your pages together in one place</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">Add PDFs, Word documents, or images, then choose the pages you need, put them in order, and customize the finished PDF. You can also add a page you create or a sample made from a template.</p>
-          <p className="mt-2 text-xs text-slate-500">Supported files: PDF, DOCX, PNG, JPG, JPEG, and WEBP. Drop files anywhere in this area or choose them below.</p>
-          <div className="mt-6 grid w-full max-w-3xl gap-3 sm:grid-cols-[1.4fr_auto_1fr_auto_1fr] sm:items-center">
-            <div className="flex flex-col items-center gap-2 rounded-2xl border border-indigo-200 bg-white p-4 shadow-sm sm:py-5">
-              <span className="text-[10px] font-bold uppercase tracking-wide text-indigo-700">Your documents</span>
-              <button type="button" onClick={() => fileInputRef.current?.click()} disabled={isLoading} className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-50">
-                {isLoading ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
-                {isLoading ? 'Reading files...' : 'Add files'}
-              </button>
-              <span className="text-center text-[10px] text-slate-500">Select pages from PDF, Word, or image files</span>
-            </div>
-            <span className="rounded-full border border-indigo-100 bg-white px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-indigo-600">and / or</span>
-            <div className="flex flex-col items-center gap-1.5 rounded-xl border border-slate-200 bg-white/80 p-2.5">
-              <span className="text-[9px] font-bold uppercase tracking-wide text-slate-600">Create a page</span>
-              <button type="button" onClick={() => setShowCustomPage(true)} className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2 py-2 text-[11px] font-semibold text-slate-700 hover:border-indigo-200 hover:bg-indigo-50">
-                <FilePlus2 className="h-4 w-4" />
-                Custom page
-              </button>
-              <span className="text-center text-[9px] leading-snug text-slate-500">Cover, note, or blank spacer</span>
-            </div>
-            <span className="rounded-full border border-indigo-100 bg-white px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-indigo-600">and / or</span>
-            <div className="flex flex-col items-center gap-1.5 rounded-xl border border-slate-200 bg-white/80 p-2.5">
-              <span className="text-[9px] font-bold uppercase tracking-wide text-slate-600">Start from a template</span>
-              <button type="button" onClick={() => setShowSamplePdf(true)} className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2 py-2 text-[11px] font-semibold text-slate-700 hover:border-indigo-200 hover:bg-indigo-50">
-                <Sparkles className="h-4 w-4" />
-                Sample PDF
-              </button>
-              <span className="text-center text-[9px] leading-snug text-slate-500">Choose a template and options</span>
-            </div>
-          </div>
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-emerald-800">
-            <ShieldCheck className="h-4 w-4 text-emerald-600" />
-            Files are processed in your browser and are not uploaded to MyDailyUtils for processing.
-          </div>
+      <div className="mx-auto w-full max-w-3xl rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+        <FileDropZone
+          accept=".pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp"
+          multiple
+          disabled={isLoading}
+          label={isLoading ? t('master.reading') : t('master.choose')}
+          hint={t('master.hint')}
+          labelLanguage={i18n.language}
+          onFiles={(files) => { void addFiles(files); }}
+        />
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
+          <button type="button" onClick={() => setShowCustomPage(true)} className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-stone-700 hover:border-orange-200 hover:bg-orange-50">
+            <FilePlus2 className="h-4 w-4" /> <span lang={i18n.language}>{t('master.custom')}</span>
+          </button>
+          <button type="button" onClick={() => setShowSamplePdf(true)} className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-stone-700 hover:border-orange-200 hover:bg-orange-50">
+            <Sparkles className="h-4 w-4" /> <span lang={i18n.language}>{t('master.sample')}</span>
+          </button>
         </div>
       </div>
 
@@ -611,22 +572,22 @@ export const MasterDocumentStudio: React.FC = () => {
       {notice && <div role="status" className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs font-medium text-emerald-800">{notice}</div>}
 
       {stage === 'selection' ? (
-        <div className="grid items-start gap-4 xl:grid-cols-[minmax(0,4fr)_minmax(250px,1fr)]">
+        <div className={sources.length > 0 ? 'grid items-start gap-4 xl:grid-cols-[minmax(0,4fr)_minmax(250px,1fr)]' : 'mx-auto max-w-3xl'}>
           <section className="min-w-0 space-y-4">
-            <div>
+            {sources.length > 0 && <div>
               <div className="mb-1 flex items-center gap-2">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">1</span>
-                <h1 className="text-lg font-bold text-slate-900">Input &amp; staging deck</h1>
+                <h2 lang={i18n.language} className="text-lg font-bold text-slate-900">{t('master.choosePages')}</h2>
               </div>
-              <p className="pl-8 text-xs text-slate-500">Choose pages in the order you want them to appear. Click any page again to remove it.</p>
-            </div>
+              <p lang={i18n.language} className="pl-8 text-xs text-slate-500">{t('master.choosePagesHint')}</p>
+            </div>}
             {inputDeck}
           </section>
-          <aside className="sticky top-20 space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          {sources.length > 0 && <aside className="sticky top-20 space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <h2 className="text-sm font-bold text-slate-900">Master output stream</h2>
-                <p className="mt-1 text-xs text-slate-500">{selectedIds.length} page{selectedIds.length === 1 ? '' : 's'} queued</p>
+                <h2 lang={i18n.language} className="text-sm font-bold text-slate-900">{t('master.selected')}</h2>
+                <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('master.queued', { count: selectedIds.length })}</p>
               </div>
               <span className="rounded-full bg-indigo-50 px-2 py-1 text-[10px] font-bold text-indigo-700">{selectedIds.length}</span>
             </div>
@@ -646,12 +607,12 @@ export const MasterDocumentStudio: React.FC = () => {
                   </div>
                 );
               })}
-              {selectedIds.length === 0 && <div className="rounded-lg border border-dashed border-slate-200 px-3 py-8 text-center text-xs text-slate-400">Selected pages appear in this sequence.</div>}
+              {selectedIds.length === 0 && <div lang={i18n.language} className="rounded-lg border border-dashed border-slate-200 px-3 py-8 text-center text-xs text-slate-400">{t('master.empty')}</div>}
             </div>
-            <button type="button" onClick={proceedToStudio} disabled={selectedIds.length === 0} className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-3 py-3 text-xs font-bold text-white shadow-sm transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40">
-              Proceed to Canvas Studio / Customize Output <ArrowRight className="h-4 w-4" />
-            </button>
-          </aside>
+            {selectedIds.length > 0 && <button type="button" onClick={proceedToStudio} className="flex w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200">
+              <span lang={i18n.language}>{t('master.continue')}</span> <ArrowRight className="h-4 w-4" />
+            </button>}
+          </aside>}
         </div>
       ) : (
         <div className="grid items-start gap-4 xl:grid-cols-[minmax(230px,1fr)_minmax(0,4fr)]">
@@ -661,7 +622,7 @@ export const MasterDocumentStudio: React.FC = () => {
               <div>
                 <div className="mb-1 flex items-center gap-2">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">2</span>
-                  <h1 className="text-lg font-bold text-slate-900">Master output workspace</h1>
+                  <h2 lang={i18n.language} className="text-lg font-bold text-slate-900">{t('master.editor')}</h2>
                 </div>
                 <p className="pl-8 text-xs text-slate-500">Drag pages to reorder. Pin any page to give it a title in your linked contents.</p>
               </div>

@@ -1,0 +1,323 @@
+{
+  "language": "Language",
+  "chooseOneFile": "Choose one file at a time.",
+  "languageNotice": "Translations are in progress; many tools and pages remain in English.",
+  "allTools": "All tools",
+  "exploreTools": "Explore tools",
+  "featured": "Our standout tools",
+  "pageHeadings": {
+    "extract": ["Extract Text from PDF", "Read, copy, and export text from a PDF. Scanned pages require OCR, which is not included."],
+    "protect": ["Protect PDF (Password Encryption)", "Set password protection for a PDF and choose document permissions in your browser."],
+    "unlock": ["Unlock PDF Documents", "Use the document password to save an image-based copy. Text and interactive features may not be retained."],
+    "sanitize": ["Sanitize PDF (Metadata & Privacy Stripper)", "Remove selected PDF metadata and document structures in your browser. Review the output before sharing."]
+  },
+  "pageGuides": {
+    "imageConverter": {
+      "faq": [
+        ["Are my images uploaded to {{siteName}}?", "No. Your images are decoded and converted in browser memory using HTML Canvas; the files are not sent to our servers."],
+        ["Which formats can I convert?", "This tool accepts PNG, JPG/JPEG, and WebP, and can output those same formats. SVG is not supported because canvas conversion rasterizes vector artwork."],
+        ["What happens to transparency?", "PNG and WebP can retain transparency. JPG does not support transparency, so transparent areas are filled white."],
+        ["Does conversion preserve metadata?", "No. Canvas re-encoding creates a new image and does not carry over metadata such as EXIF camera or location information."]
+      ]
+    },
+    "imageCompressor": {
+      "faq": [
+        ["Are images uploaded to {{siteName}}?", "No. Image processing runs locally in browser memory with HTML Canvas. Original files are not modified or uploaded."],
+        ["Will every image become smaller?", "Not necessarily. Some images are already optimized, and lossless PNG output can be larger. Results show the actual size change; try a smaller dimension or a lossy format for a smaller file."],
+        ["How does the dimension limit work?", "The selected maximum applies to the longer side. The original aspect ratio is preserved, and images smaller than the selected limit are not enlarged."],
+        ["What happens if I convert a transparent image to JPG?", "JPG cannot store transparency. Transparent areas are filled with white when producing JPG output."]
+      ]
+    },
+    "compress": {
+      "title": "Compress & Optimize PDF",
+      "subtitle": "Rewrite PDF structure and remove selected metadata in your browser. Size savings depend on the document; image data is not downsampled.",
+      "faq": [
+        ["How does PDF compression work on {{siteName}}?", "The tool rewrites the PDF using object streams and removes standard document metadata. The Strong option also removes selected XMP metadata, editing information, and embedded page thumbnails. It does not downsample images."],
+        ["Will text or vector drawings lose clarity?", "The tool does not rasterize pages or downsample embedded images. It rewrites PDF objects and metadata, so the resulting size may be similar to or larger than the original."],
+        ["Are my confidential documents uploaded anywhere?", "The PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The website still makes separate network requests for resources and advertising."]
+      ]
+    },
+    "crop": {
+      "title": "Crop & Trim PDF",
+      "subtitle": "Trim outer margins, remove printer bleed marks, and adjust PDF page boundaries in your browser.",
+      "faq": [
+        ["How does cropping work on {{siteName}}?", "Cropping adjusts the internal CropBox and MediaBox parameters of the PDF. This trims empty white borders, printer bleed marks, or unwanted headers without degrading typography or vector quality."],
+        ["Are my confidential files uploaded anywhere?", "The PDF is cropped in your browser and is not uploaded to {{siteName}} for processing. The site may still make separate requests for advertising and supporting resources."],
+        ["Can I crop only odd or even pages?", "Yes. You can select all pages, odd pages, even pages, or specify a custom page range."]
+      ]
+    },
+    "delete": {
+      "title": "Delete PDF Pages",
+      "subtitle": "Remove unnecessary, blank, or confidential pages from a PDF using your browser.",
+      "faq": [
+        ["Is it safe to delete pages from confidential PDFs on {{siteName}}?", "The selected PDF is processed in your browser and is not uploaded to {{siteName}} for processing. Advertising and other site requests are separate from the file operation."],
+        ["Can I remove the cover page or blank trailing pages?", "Yes. Use the quick buttons for the first or last page, or type comma-separated values like 1, 10 to remove them."],
+        ["Will deleting pages affect document links or quality?", "The tool removes selected pages without rasterizing the remaining page content. Check forms, links, or other document features in the saved copy."]
+      ]
+    }
+  },
+  "rotateControls": {
+    "invalid": "Please select a valid PDF file.",
+    "readError": "Failed to read PDF. The document might be password protected or corrupted.",
+    "rotateError": "An error occurred during rotation. Please verify your selected page range.",
+    "reading": "Reading PDF...",
+    "choose": "Choose a PDF or drop it here",
+    "pdfOnly": "PDF only",
+    "pages": "Total pages:",
+    "remove": "Remove file",
+    "angle": "Choose rotation angle",
+    "clockwise": "90° clockwise",
+    "right": "Turn right",
+    "flip": "180° flip",
+    "upsideDown": "Upside down",
+    "counterclockwise": "90° counterclockwise",
+    "left": "Turn left",
+    "scope": "Apply rotation to",
+    "all": "All pages",
+    "odd": "Odd pages (1, 3, 5...)",
+    "even": "Even pages (2, 4, 6...)",
+    "custom": "Custom range",
+    "range": "Specify pages or ranges to rotate",
+    "placeholder": "e.g. 1-2, 4, 6-{{count}}",
+    "rangeHint": "Separate numbers and ranges with commas (e.g. 1, 3-5). Max: {{count}}.",
+    "changed": "Settings changed since last rotation. Click below to refresh your file.",
+    "unsaved": "Unsaved",
+    "rotating": "Rotating document...",
+    "rerotate": "Re-rotate with new settings",
+    "rotate": "Rotate & save PDF",
+    "outdated": "Download outdated file",
+    "download": "Download rotated PDF"
+  },
+  "rotateGuide": {
+    "title": "Rotate PDF Pages",
+    "subtitle": "Change the rotation of selected PDF pages in your browser.",
+    "faq": [
+      ["Does rotating change the text or resolution on {{siteName}}?", "No. The internal PDF rotation matrix is modified directly. Text layers, embedded fonts, and vector graphics maintain their original quality."],
+      ["Can I rotate only horizontal or landscape pages?", "Yes. Use Custom Range to specify the page numbers to reorient, such as 2, 5, 8."],
+      ["Is my document uploaded to a server?", "The selected PDF is rotated in your browser and is not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."],
+      ["Can I undo a rotation?", "Select the reverse angle, for example 270° to reverse a 90° clockwise rotation, and save the document again."]
+    ]
+  },
+  "toolCatalog": {
+    "generate-sample-pdf": ["Sample PDF Generator", "Generate test PDFs with custom pages, sizes, and templates."],
+    "rotate-pdf": ["Rotate PDF", "Fix portrait or landscape orientation per page."],
+    "compress-pdf": ["Compress PDF", "Reduce file size while preserving quality."],
+    "delete-pdf-pages": ["Delete PDF Pages", "Remove unwanted, blank, or sensitive pages."],
+    "image-to-pdf": ["Image to PDF", "Convert JPG, PNG, and WebP images into a PDF."],
+    "add-page-numbers": ["Page Numbers", "Add page numbers, headers, and footers."],
+    "watermark-pdf": ["Watermark PDF", "Add custom text or confidential marks."],
+    "crop-pdf": ["Crop PDF", "Trim page margins and adjust visible borders."],
+    "sanitize-pdf": ["Sanitize PDF", "Remove supported metadata and hidden information."],
+    "n-up-pdf": ["N-Up (Pages Per Sheet)", "Combine 2 or 4 pages per sheet for handouts and print savings."],
+    "inspect-pdf": ["Inspect PDF", "Analyze PDF structures, versions, metadata, and security flags."],
+    "protect-pdf": ["Protect PDF", "Encrypt your PDF with passwords and restrict copying."],
+    "unlock-pdf": ["Unlock PDF", "Remove password protection from a PDF you can open."],
+    "flatten-pdf": ["Flatten PDF", "Flatten form fields into PDF page content."],
+    "pdf-to-images": ["PDF to Images", "Render PDF pages as PNG images."],
+    "extract-text": ["Extract Text", "Extract embedded text page by page."],
+    "organize-pdf": ["Organize PDF", "Reorder, rotate, or delete individual pages visually."],
+    "json-formatter": ["JSON Formatter", "Format, validate, and minify JSON data."],
+    "base64-tool": ["Base64 & Hash", "Encode or decode Base64 and calculate SHA hashes."]
+  },
+  "guideSteps": {
+    "generate-sample-pdf": [["Choose a template", "Choose prose, synthetic data, mixed page sizes or invoices."], ["Configure options", "Set bookmarks, forms, size targets or corrupted-byte test modes."], ["Generate and save", "Generate the document in your browser and download it."]],
+    "add-page-numbers": [["Select PDF", "Choose the PDF that needs page numbers, a header or footer."], ["Customize numbering", "Set placement, format, typography and cover-page skips."], ["Apply and download", "Review the settings and generate the revised PDF."]],
+    "sanitize-pdf": [["Select PDF", "Choose a PDF and keep an original copy before sanitizing."], ["Choose what to remove", "Select supported document information, XMP, PieceInfo, thumbnails or JavaScript actions."], ["Remove and review", "Download and review the result; not every type of hidden data is necessarily removed."]],
+    "inspect-pdf": [["Select PDF", "Choose a PDF to inspect."], ["Inspect structure", "Review the PDF version, metadata, encryption and JavaScript indicators."], ["Check page geometry", "Review page dimensions, aspect ratios and bounding boxes."]],
+    "n-up-pdf": [["Select PDF", "Choose a multipage PDF for printing."], ["Choose layout", "Select two or four pages per sheet, paper size, orientation and gutter."], ["Create sheets", "Arrange scaled pages on composite sheets in your browser."]],
+    "display-studio": [["Add files", "Load PDFs, DOCX files or images and choose the pages to display."], ["Set playback", "Choose timing, captions, fit, transitions, looping, shuffle and clock options."], ["Present", "Use fullscreen or F11. Move the pointer for controls and press Escape to exit fullscreen."]],
+    "pos-invoice-studio": [["Set up your shop", "Enter shop details and a bill prefix, add inventory or import a profile JSON."], ["Prepare a bill", "Choose inventory items, set quantities and enter customer details."], ["Export", "Share a PDF or image; export profile or bill JSON for an editable backup."]],
+    "image-converter": [["Choose images", "Select one or more PNG, JPG or WebP images."], ["Choose format", "Select PNG, JPG or WebP and adjust quality for JPG or WebP."], ["Convert and save", "Review dimensions and sizes, then download each image."]],
+    "image-compressor": [["Choose images", "Select one or more PNG, JPG or WebP images."], ["Set size and quality", "Choose format and quality, and optionally limit the maximum dimension."], ["Compare and download", "Review each result’s size and download the files you want to keep."]],
+    "json-formatter": [["Enter JSON", "Paste JSON, open a local file or load the example."], ["Choose an action", "Format, minify or validate, and optionally sort object keys."], ["Copy or download", "Copy the result or download it as formatted.json."]],
+    "base64-tool": [["Choose an operation", "Select Base64 encode, decode or hash."], ["Enter text or choose a file", "Base64 processes UTF-8 text; hashing also supports local files."], ["Run and copy", "Calculate the result locally and copy it."]],
+    "image-to-pdf": [["Choose images", "Select JPG, PNG or WebP images."], ["Arrange and choose layout", "Reorder images and choose A4, US Letter or fit to image."], ["Convert and download", "Create a PDF in your browser and download it."]],
+    "pdf-to-images": [["Choose PDF", "Select a PDF from your device."], ["Render pages", "Render pages to PNG; large or high-resolution PDFs may use substantial memory."], ["Download images", "Save individual page images to your device."]],
+    "extract-text": [["Choose PDF", "Select a PDF from your device."], ["Extract text", "Extract embedded text. Image-only scans require OCR, which this tool does not provide."], ["Copy or download", "Copy the extracted text or download it as a .txt file."]],
+    "organize-pdf": [["Choose PDF", "Select a PDF from your device."], ["Organize pages", "Use the controls to reorder, rotate or delete pages."], ["Save and download", "Save the revised PDF in your browser and download it."]],
+    "rotate-pdf": [["Select PDF", "Choose the PDF containing the pages you want to rotate."], ["Choose angle and pages", "Select 90°, 180°, or 270° and apply it to all, odd, even, or selected pages."], ["Rotate and download", "Rotate the pages in your browser and download the result."]],
+    "delete-pdf-pages": [["Select PDF", "Choose the PDF containing pages you want to remove."], ["Specify pages", "Enter page numbers or ranges, such as 1, 3, 5-8."], ["Remove and save", "Remove the selected pages, then download and review the result."]],
+    "crop-pdf": [["Select PDF", "Choose the PDF whose page boundaries you want to adjust."], ["Set margins", "Choose a preset or enter top, bottom, left and right margins in pt, mm or inches."], ["Crop and save", "Adjust the page boundaries in your browser and download the result."]],
+    "watermark-pdf": [["Select PDF", "Choose the PDF you want to watermark."], ["Set watermark", "Choose text or a preset, color, opacity, angle and target pages."], ["Apply and download", "Review the settings, apply the watermark and download the PDF."]],
+    "compress-pdf": [["Select PDF", "Choose a PDF. Large documents may use more memory and take longer."], ["Choose compression", "Select basic lossless optimization or strong optimization with metadata and thumbnail removal."], ["Compress and save", "Download the rewritten PDF and review its resulting size."]],
+    "protect-pdf": [["Select PDF", "Choose the PDF you want to protect."], ["Set password and permissions", "Set an open password and choose printing and copying restrictions."], ["Protect and save", "Create the protected PDF and test it in a PDF reader before sharing."]],
+    "unlock-pdf": [["Select protected PDF", "Choose your password-protected PDF."], ["Enter password", "Enter a password you are authorized to use to open the document."], ["Unlock and save", "The tool renders pages as images, rebuilds the PDF without encryption, and lets you download it."]],
+    "flatten-pdf": [["Select PDF", "Choose a PDF containing interactive form fields or annotations."], ["Flatten fields", "Flatten form fields into the page content."], ["Save PDF", "Download and review the flattened document."]]
+  },
+  "splitGuide": {
+    "title": "Split PDF Document",
+    "subtitle": "Extract selected page ranges into a separate PDF in your browser.",
+    "steps": [
+      { "title": "Select PDF", "description": "Drop or select the PDF document you wish to extract pages from." },
+      { "title": "Define Pages", "description": "Enter specific pages or comma-separated ranges (e.g. 1-3, 5, 8)." },
+      { "title": "Extract & Save", "description": "Extract the designated pages into a fresh document ready for instant download." }
+    ],
+    "faq": [
+      { "question": "Are my extracted pages uploaded to MyDailyUtils?", "answer": "Never. The parsing and extraction occur strictly in local client memory. No documents ever leave your machine." },
+      { "question": "How do I specify multiple separate page ranges?", "answer": "Use dashes for ranges and commas for separates (e.g., \"1-4, 7, 9-12\"). You can also click \"All Pages\" to select everything." },
+      { "question": "Can I split password-protected PDFs?", "answer": "Encrypted PDFs must be unlocked before client-side extraction can access their page tree." },
+      { "question": "Will splitting affect the original document quality?", "answer": "No. Pages are extracted with their vector content, fonts, and images intact at full fidelity." }
+    ]
+  },
+  "master": {
+    "subtitle": "Build one organized PDF from selected pages across documents, images, custom pages, and templates—then edit, add linked contents, and export.",
+    "reading": "Reading files…",
+    "choose": "Choose files or drop them here",
+    "hint": "PDF, DOCX, JPG, PNG, or WebP",
+    "custom": "Custom page",
+    "sample": "Sample PDF",
+    "choosePages": "Choose pages",
+    "choosePagesHint": "Choose pages in the order you want them to appear. Click any page again to remove it.",
+    "selected": "Selected pages",
+    "queued_one": "{{count}} page queued",
+    "queued_other": "{{count}} pages queued",
+    "empty": "Selected pages appear in this sequence.",
+    "continue": "Continue to editor",
+    "editor": "Edit your document",
+    "step1Title": "Add and choose pages",
+    "step1Description": "Combine PDFs, DOCX files, and images with custom cover, note or blank pages, or sample PDFs. Use Select all, page ranges such as 1-3, 5, or thumbnails to choose pages in order.",
+    "step2Title": "Organize and edit",
+    "step2Description": "Drag pages to reorder. Zoom and edit to rotate, crop, redact, duplicate, delete or export a page. Pin pages and add headings for linked contents.",
+    "step3Title": "Set PDF options and export",
+    "step3Description": "Set page size, numbering, margins, watermark, metadata, compression and optional password protection. Name the file and create the PDF on your device.",
+    "faq": [
+      { "question": "Are files uploaded to MyDailyUtils?", "answer": "No. Files are read, rendered, and assembled in your browser memory." },
+      { "question": "Does the export preserve PDF text quality?", "answer": "Regular PDF pages remain vector-based when possible. Images and rendered DOCX pages are raster content. Encrypted PDFs and pages with redactions are rendered as images; password-protecting the final PDF also rasterizes its pages." },
+      { "question": "How do I make a linked table of contents?", "answer": "In the workspace, click the pin on each page you want listed and enter a heading. The exported PDF adds a contents page at the beginning; each heading links to its page. Pages without a heading are not listed." },
+      { "question": "How do page numbering and “Skip first page” work?", "answer": "Choose None to omit numbers, or choose a header/footer position and format such as “Page {page} of {total}”. Skip first page hides the number on the first document page (after the contents page, if one is added); later pages retain their actual output page numbers." },
+      { "question": "Can I add a password-protected PDF?", "answer": "Yes. When prompted, enter either its open/user password or its owner password. Passwords stay in this browser. Encrypted source pages are rasterized in the finished output, so their text is not preserved as selectable vector text." },
+      { "question": "Can I password-protect the final PDF?", "answer": "Yes. Set a user/open password and optionally an owner password with printing/copying restrictions. The current protection method rasterizes the final pages; text selection/search and clickable contents links are not retained." },
+      { "question": "What do the page-size and compression options do?", "answer": "Choose A4 or US Letter to standardize output pages, or Preserve mixed sizes to keep each source page’s dimensions. Compression affects raster inputs only; size targets are best-effort and do not guarantee a final file size." },
+      { "question": "Can I save one page without exporting the whole document?", "answer": "Yes. Open Zoom & edit on a workspace page to export that page as its own PDF or image. You can also rotate, crop, add blackout redactions, and adjust image fit there." }
+    ]
+  },
+  "featuredTools": {
+    "master-document-studio": {
+      "title": "Master Document Studio",
+      "useCase": "For documents",
+      "description": "Bring PDFs, Word files, images and custom pages together, arrange them, add a linked contents page and export one finished PDF.",
+      "highlights": ["Mix PDF, Word & images", "Reorder pages", "Linked contents"]
+    },
+    "display-studio": {
+      "title": "Display & Presentation",
+      "useCase": "For screens & shops",
+      "description": "Turn any TV, tablet or phone into a display. Run timed slideshows of your menus, offers and documents in fullscreen.",
+      "highlights": ["Fullscreen slideshow", "Works on any device", "Timed playback"]
+    },
+    "pos-invoice-studio": {
+      "title": "POS & Bill Studio",
+      "useCase": "For businesses",
+      "description": "Manage your products and stock, then create printable bills. Everything works offline and stays in your browser.",
+      "highlights": ["Offline billing", "Inventory", "Printable bills", "JSON backup"]
+    }
+  },
+  "moreTools": "More everyday tools",
+  "expandAll": "Expand all",
+  "collapseAll": "Collapse all",
+  "hideTools": "Hide tools",
+  "showTools_one": "Show {{count}} tool",
+  "showTools_other": "Show {{count}} tools",
+  "noResults": "No tools match “{{query}}”.",
+  "openTool": "Open {{tool}}",
+  "howToUse": "How to use",
+  "questions": "Questions",
+  "privacy": "Privacy",
+  "localProcessing": "100% local file processing. Your files never leave your browser.",
+  "advertisements": "Advertisements",
+  "homeHeading": "Simple tools that work",
+  "homeHeadingAccent": "right in your browser.",
+  "homeDescription": "A growing collection of everyday tools with 100% local file processing on your own device.",
+  "findTool": "Find a tool",
+  "searchTools": "Search tools",
+  "searchPlaceholder": "Search tools by name or what they do",
+  "requestPrompt": "Need something that isn’t here?",
+  "requestLink": "Request a tool and we’ll build it for free",
+  "requestShort": "Request a free tool",
+  "networkNote": "Ads and contact submissions make separate network requests.",
+  "tools": "Tools",
+  "about": "About",
+  "contact": "Contact",
+  "privacyPolicy": "Privacy Policy",
+  "terms": "Terms of Service",
+  "merge": {
+    "title": "Merge PDF",
+    "subtitle": "Combine multiple PDFs into one document, in the order you choose.",
+    "step1Title": "Add your PDFs",
+    "step1Description": "Choose two or more files, or drop them into the box.",
+    "step2Title": "Set the order",
+    "step2Description": "Move files up or down. The first file becomes page 1.",
+    "step3Title": "Merge and save",
+    "step3Description": "Combine them and download the finished PDF.",
+    "faq1Question": "Is there a limit on file size or quantity?",
+    "faq1Answer": "The tool does not set a fixed file-size limit, but browser memory and device performance limit what can be processed. Very large files may fail or take longer.",
+    "faq2Question": "Can I reorder individual pages?",
+    "faq2Answer": "You can arrange whole files in sequence. To extract or reorganize individual pages, use the Split PDF utility.",
+    "faq3Question": "Do I need to create an account or sign up?",
+    "faq3Answer": "No registration, subscriptions, or personal details are required. All utilities run freely in your browser.",
+    "choose": "Choose PDFs or drop them here",
+    "hint": "Select more than one file · PDF only",
+    "invalid": "Only PDF files can be added. Other file types were skipped.",
+    "failed": "Could not merge these PDFs. Check that the files are valid and not password-protected.",
+    "order": "PDF merge order",
+    "orderCount_one": "Merge order · {{count}} file",
+    "orderCount_other": "Merge order · {{count}} files",
+    "firstPage": "First file becomes page 1",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "moveFileUp": "Move {{file}} up",
+    "moveFileDown": "Move {{file}} down",
+    "remove": "Remove file",
+    "removeFile": "Remove {{file}}",
+    "empty": "Your list will appear here. You can reorder files before merging.",
+    "ready": "Your merged PDF is ready",
+    "save": "Save PDF",
+    "merging": "Merging your files…",
+    "addMore": "Add at least two PDFs to continue",
+    "action": "Merge PDFs"
+  },
+  "image": {
+    "choose": "Choose images or drop them here",
+    "hint": "JPG, PNG, or WebP",
+    "selected_one": "{{count}} image selected",
+    "selected_other": "{{count}} images selected",
+    "startOver": "Start over",
+    "quality": "Quality · {{quality}}%",
+    "download": "Download",
+    "converting": "Converting images locally…",
+    "convert_one": "Convert {{count}} image",
+    "convert_other": "Convert {{count}} images",
+    "compressing": "Compressing locally…",
+    "compress_one": "Compress {{count}} image",
+    "compress_other": "Compress {{count}} images",
+    "converterTitle": "Image Converter",
+    "converterSubtitle": "Convert PNG, JPG, and WebP images to a format that fits your workflow—right in your browser.",
+    "compressorTitle": "Image Compressor",
+    "compressorSubtitle": "Reduce image file size by adjusting quality, dimensions, and output format—all processed locally."
+  },
+  "categories": {
+    "pdf": {
+      "name": "PDF Utilities",
+      "description": "Manipulate, combine, and organize documents directly on your machine."
+    },
+    "media": {
+      "name": "Image & Media Tools",
+      "description": "Compress and transform graphic files without cloud latency."
+    },
+    "dev": {
+      "name": "Developer & Data Tools",
+      "description": "Prettify, convert, and inspect data securely without sharing keys."
+    },
+    "text": {
+      "name": "Text & Writing",
+      "description": "Character counts, casing transformations, and text utilities."
+    },
+    "display": {
+      "name": "Display & Presentation",
+      "description": "Create local browser-based slideshows for classrooms, events, and screens."
+    },
+    "business": {
+      "name": "Business & Sales",
+      "description": "Manage shop inventory and create bills locally in your browser."
+    }
+  }
+}

@@ -4,20 +4,6 @@ import { GenerateSamplePdf } from '../components/tools/GenerateSamplePdf';
 import { ToolGuide } from '../components/common/ToolGuide';
 
 export const GenerateSamplePage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select Template & Preset',
-      description: 'Choose from multi-page prose, synthetic PII datasets, mixed-geometry sheets, or invoices.',
-    },
-    {
-      title: 'Configure Structures & QA Chaos',
-      description: 'Toggle bookmarks, fillable forms, target sizes, or test parser failure with corrupted byte modes.',
-    },
-    {
-      title: 'Generate & Save',
-      description: 'Synthesize the document directly in browser memory and download immediately.',
-    },
-  ];
 
   const faqs = [
     {
@@ -46,7 +32,7 @@ export const GenerateSamplePage: React.FC = () => {
     <ToolLayout
       title="Sample PDF Generator & QA Sandbox"
       subtitle="Generate sample PDFs with configurable layouts, synthetic test data, and optional malformed-file cases in your browser."
-      seoContent={<ToolGuide toolName="Sample PDF Generator" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="Sample PDF Generator" faqs={faqs} />}
     >
       <GenerateSamplePdf />
     </ToolLayout>

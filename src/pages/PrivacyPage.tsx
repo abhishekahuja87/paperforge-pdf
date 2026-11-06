@@ -1,24 +1,14 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PageMetadata } from '../components/common/PageMetadata';
+import { InfoPageLayout } from '../components/layout/InfoPageLayout';
 
 export const PrivacyPage: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 space-y-8 text-slate-700 leading-relaxed">
-      <PageMetadata
+    <InfoPageLayout
         title="Privacy Policy"
+        subtitle="Last updated: November 2, 2026"
         description="Read how MyDailyUtils handles browser-based file processing, local preferences, contact form submissions, advertising, and third-party resources."
-      />
-      <div className="flex items-center space-x-3 pb-6 border-b border-slate-200">
-        <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
-          <ShieldCheck className="w-8 h-8" />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900">Privacy Policy</h1>
-          <p className="text-sm text-slate-500">Last updated: November 2, 2026</p>
-        </div>
-      </div>
+      >
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">1. Local File Processing</h2>
@@ -33,7 +23,7 @@ export const PrivacyPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">2. Local preferences</h2>
         <p>
-          The site stores tool-visit counts in your browser’s local storage to show labels such as “Frequent” or “Favorite.” These counts stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
+          The site stores your language choice and tool-visit counts in your browser’s local storage. The counts are used to show labels such as “Frequent” or “Favorite.” These preferences stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
         </p>
       </section>
 
@@ -70,7 +60,7 @@ export const PrivacyPage: React.FC = () => {
           For questions about this policy or a contact form submission, please use the <Link to="/contact" className="font-semibold text-indigo-700 underline">Contact page</Link>. Requests about information submitted through Web3Forms may also depend on that provider’s handling of the submission.
         </p>
       </section>
-    </div>
+    </InfoPageLayout>
   );
 };
 

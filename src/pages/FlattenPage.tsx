@@ -5,20 +5,6 @@ import { ToolGuide } from '../components/common/ToolGuide';
 import { siteConfig } from '../config/site';
 
 export const FlattenPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Upload PDF',
-      description: 'Select or drag your PDF with interactive form fields or annotations into the tool.',
-    },
-    {
-      title: 'Flatten Form Fields',
-      description: 'Click Flatten PDF to permanently bake text inputs, checkboxes, and signatures into the base document graphic layer.',
-    },
-    {
-      title: 'Download Secure File',
-      description: 'Save your flattened document with non-editable, tamper-evident content in seconds.',
-    },
-  ];
 
   const faqs = [
     {
@@ -47,7 +33,7 @@ export const FlattenPage: React.FC = () => {
     <ToolLayout
       title="Flatten PDF Forms"
       subtitle="Lock fillable form fields and visual annotations permanently into non-editable page graphics without uploading to any server."
-      seoContent={<ToolGuide toolName="Flatten PDF" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="Flatten PDF" faqs={faqs} />}
     >
       <FlattenPdf />
     </ToolLayout>

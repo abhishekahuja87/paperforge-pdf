@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { AlertCircle, Check, Clipboard, Download, FileCode2, FileUp, RotateCcw, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { AlertCircle, Check, Clipboard, Download, RotateCcw, Sparkles } from 'lucide-react';
 import { copyText, downloadBlob } from '../../lib/browserTools';
+import { FileDropZone } from '../common/FileDropZone';
 
 type JsonAction = 'format' | 'minify' | 'validate';
 
@@ -33,7 +34,6 @@ export const JsonFormatter: React.FC = () => {
   const [error, setError] = useState('');
   const [status, setStatus] = useState('');
   const [isCopied, setIsCopied] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const process = (action: JsonAction) => {
     setError('');
@@ -94,21 +94,18 @@ export const JsonFormatter: React.FC = () => {
     setError('');
     setStatus('');
     setIsCopied(false);
-    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
   return (
-    <section className="mx-auto max-w-5xl rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
-      <header className="mb-6 text-center">
-        <span className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600"><FileCode2 className="h-5 w-5" /></span>
-        <h2 className="text-xl font-bold text-slate-900">Format and validate JSON</h2>
-        <p className="mt-1 text-sm text-slate-500">Paste JSON or open a file to format, minify, validate, and optionally sort object keys.</p>
-      </header>
-
-      <input ref={fileInputRef} type="file" accept=".json,application/json,text/plain" className="hidden" onChange={(event) => {
-        void loadFile(event.target.files?.[0]);
-        event.target.value = '';
-      }} />
+    <section className="mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+      <div className="mb-4">
+        <FileDropZone
+          accept=".json,application/json,text/plain"
+          label="Choose a JSON file or drop it here"
+          hint="Or paste JSON below"
+          onFiles={(files) => { void loadFile(files[0]); }}
+        />
+      </div>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <label className="text-xs font-semibold text-slate-700">
           Indentation
@@ -123,7 +120,6 @@ export const JsonFormatter: React.FC = () => {
             <input type="checkbox" checked={sortKeys} onChange={(event) => setSortKeys(event.target.checked)} className="accent-indigo-600" />
             Sort object keys
           </label>
-          <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"><FileUp className="h-3.5 w-3.5" />Open .json</button>
           <button type="button" onClick={() => { setInput(SAMPLE_JSON); setOutput(''); setError(''); setStatus('Sample JSON loaded.'); }} className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"><Sparkles className="h-3.5 w-3.5" />Example</button>
           <button type="button" onClick={reset} className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"><RotateCcw className="h-3.5 w-3.5" />Clear</button>
         </div>
@@ -132,7 +128,7 @@ export const JsonFormatter: React.FC = () => {
       <div className="grid gap-4 lg:grid-cols-2">
         <label className="block text-xs font-semibold text-slate-700">
           Input JSON
-          <textarea value={input} onChange={(event) => { setInput(event.target.value); setError(''); setStatus(''); }} spellCheck={false} rows={18} placeholder={'Paste JSON here, e.g. {"name":"Example"}'} className="mt-1.5 w-full resize-y rounded-xl border border-slate-200 bg-slate-950 p-4 font-mono text-xs leading-relaxed text-slate-100 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100" />
+          <textarea value={input} onChange={(event) => { setInput(event.target.value); setError(''); setStatus(''); }} spellCheck={false} rows={18} placeholder={'Paste JSON here, e.g. {"name":"Example"}'} className="mt-1.5 w-full resize-y rounded-xl border border-stone-200 bg-white p-4 font-mono text-xs leading-relaxed text-stone-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" />
           <span className="mt-1 block text-right font-normal text-slate-400">{input.length.toLocaleString()} characters</span>
         </label>
         <div className="block min-w-0 text-xs font-semibold text-slate-700">
@@ -145,11 +141,11 @@ export const JsonFormatter: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-4 grid gap-2 sm:grid-cols-3">
-        <button type="button" onClick={() => process('format')} className="rounded-xl bg-indigo-600 px-4 py-3 text-sm font-bold text-white hover:bg-indigo-700">Format / Beautify</button>
+      {input.trim() && <div className="mt-4 grid gap-2 sm:grid-cols-3">
+        <button type="button" onClick={() => process('format')} className="rounded-xl bg-orange-700 px-4 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200">Format / Beautify</button>
         <button type="button" onClick={() => process('minify')} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">Minify JSON</button>
         <button type="button" onClick={() => process('validate')} className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">Validate JSON</button>
-      </div>
+      </div>}
       {status && <p role="status" className="mt-3 flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-xs text-emerald-800"><Check className="h-4 w-4 shrink-0" />{status}</p>}
       {error && <p role="alert" className="mt-3 flex items-start gap-2 rounded-lg border border-red-100 bg-red-50 px-3 py-2 text-xs leading-relaxed text-red-700"><AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />{error}</p>}
       <p className="mt-5 border-t border-slate-100 pt-4 text-center text-[10px] text-slate-400">JSON parsing and formatting run locally in your browser. This tool does not evaluate code or send your data to a server.</p>

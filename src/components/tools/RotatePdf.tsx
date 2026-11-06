@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { FileDropZone } from '../common/FileDropZone';
 import { 
-  Upload, 
   FileText, 
   RotateCw, 
   Download, 
@@ -12,8 +12,10 @@ import {
 import { getPdfPageCount } from '../../lib/pdf/split';
 import { rotatePdf, type RotationAngle, type RotationScope } from '../../lib/pdf/rotate';
 import { generatePdfFilename } from '../../lib/pdf/naming';
+import { useTranslation } from 'react-i18next';
 
 export const RotatePdf: React.FC = () => {
+  const { t } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [angle, setAngle] = useState<RotationAngle>(90);
@@ -21,12 +23,11 @@ export const RotatePdf: React.FC = () => {
   const [rangeInput, setRangeInput] = useState<string>('');
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<'' | 'invalid' | 'readError' | 'rotateError'>('');
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [downloadName, setDownloadName] = useState<string>('');
 
   const [lastGeneratedKey, setLastGeneratedKey] = useState<string>('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const currentSettingsKey = JSON.stringify({
     fileName: file?.name,
@@ -39,7 +40,7 @@ export const RotatePdf: React.FC = () => {
 
   const handleFile = async (selectedFile: File) => {
     if (selectedFile.type !== 'application/pdf' && !selectedFile.name.endsWith('.pdf')) {
-      setErrorMessage('Please select a valid PDF file.');
+      setErrorMessage('invalid');
       setStatus('error');
       return;
     }
@@ -55,15 +56,8 @@ export const RotatePdf: React.FC = () => {
       setRangeInput(`1-${count}`);
       setStatus('idle');
     } catch {
-      setErrorMessage('Failed to read PDF. The document might be password protected or corrupted.');
+      setErrorMessage('readError');
       setStatus('error');
-    }
-  };
-
-  const onDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    if (e.dataTransfer.files?.[0]) {
-      handleFile(e.dataTransfer.files[0]);
     }
   };
 
@@ -95,7 +89,7 @@ export const RotatePdf: React.FC = () => {
       setLastGeneratedKey(currentSettingsKey);
       setStatus('done');
     } catch {
-      setErrorMessage('An error occurred during rotation. Please verify your selected page range.');
+      setErrorMessage('rotateError');
       setStatus('error');
     }
   };
@@ -112,29 +106,18 @@ export const RotatePdf: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 sm:p-6 space-y-6">
+    <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
       {!file && (
-        <div
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={onDrop}
-          onClick={() => fileInputRef.current?.click()}
-          className="border-2 border-dashed border-slate-300 hover:border-indigo-500 rounded-xl p-8 sm:p-12 text-center cursor-pointer transition-colors bg-slate-50/50 hover:bg-indigo-50/20"
-        >
-          <input
-            type="file"
-            ref={fileInputRef}
-            className="hidden"
-            accept="application/pdf"
-            onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
-          />
-          <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-            <Upload className="w-6 h-6" />
-          </div>
-          <h3 className="text-sm font-semibold text-slate-800">
-            Click to upload or drag & drop a PDF
-          </h3>
-          <p className="text-xs text-slate-500 mt-1">Processed locally on your device</p>
-        </div>
+        <FileDropZone
+          accept=".pdf,application/pdf"
+          disabled={status === 'loading'}
+          label={t(status === 'loading' ? 'rotateControls.reading' : 'rotateControls.choose')}
+          hint={t('rotateControls.pdfOnly')}
+          onFiles={(files) => { void handleFile(files[0]); }}
+        />
+      )}
+      {!file && errorMessage && (
+        <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800">{t(`rotateControls.${errorMessage}`)}</p>
       )}
 
       {file && (
@@ -148,14 +131,15 @@ export const RotatePdf: React.FC = () => {
               <div className="truncate">
                 <p className="text-xs font-semibold text-slate-800 truncate">{file.name}</p>
                 <p className="text-[11px] text-slate-500">
-                  Total pages: <strong className="text-slate-700">{pageCount}</strong> &bull; {(file.size / 1024 / 1024).toFixed(2)} MB
+                  {t('rotateControls.pages')} <strong className="text-slate-700">{pageCount}</strong> &bull; {(file.size / 1024 / 1024).toFixed(2)} MB
                 </p>
               </div>
             </div>
             <button
               onClick={handleReset}
               className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md transition cursor-pointer"
-              title="Remove file"
+              title={t('rotateControls.remove')}
+              aria-label={t('rotateControls.remove')}
             >
               <X className="w-4 h-4" />
             </button>
@@ -163,12 +147,12 @@ export const RotatePdf: React.FC = () => {
 
           {/* Rotation Angle Selection */}
           <div className="space-y-1.5">
-            <label className="block text-xs font-semibold text-slate-700">Choose Rotation Angle</label>
+            <label className="block text-xs font-semibold text-slate-700">{t('rotateControls.angle')}</label>
             <div className="grid grid-cols-3 gap-2">
               {[
-                { deg: 90 as RotationAngle, label: '90° Clockwise', desc: 'Turn Right' },
-                { deg: 180 as RotationAngle, label: '180° Flip', desc: 'Upside Down' },
-                { deg: 270 as RotationAngle, label: '90° Counter-CW', desc: 'Turn Left' },
+                { deg: 90 as RotationAngle, label: t('rotateControls.clockwise'), desc: t('rotateControls.right') },
+                { deg: 180 as RotationAngle, label: t('rotateControls.flip'), desc: t('rotateControls.upsideDown') },
+                { deg: 270 as RotationAngle, label: t('rotateControls.counterclockwise'), desc: t('rotateControls.left') },
               ].map((item) => (
                 <button
                   key={item.deg}
@@ -192,13 +176,13 @@ export const RotatePdf: React.FC = () => {
 
           {/* Scope Selection */}
           <div className="space-y-1.5">
-            <label className="block text-xs font-semibold text-slate-700">Apply Rotation To</label>
+            <label className="block text-xs font-semibold text-slate-700">{t('rotateControls.scope')}</label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
-                { id: 'all' as RotationScope, label: 'All Pages' },
-                { id: 'odd' as RotationScope, label: 'Odd Pages (1, 3, 5...)' },
-                { id: 'even' as RotationScope, label: 'Even Pages (2, 4, 6...)' },
-                { id: 'custom' as RotationScope, label: 'Custom Range' },
+                { id: 'all' as RotationScope, label: t('rotateControls.all') },
+                { id: 'odd' as RotationScope, label: t('rotateControls.odd') },
+                { id: 'even' as RotationScope, label: t('rotateControls.even') },
+                { id: 'custom' as RotationScope, label: t('rotateControls.custom') },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -220,17 +204,17 @@ export const RotatePdf: React.FC = () => {
           {scope === 'custom' && (
             <div className="space-y-1.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
               <label className="block text-xs font-semibold text-slate-700">
-                Specify Pages or Ranges to Rotate
+                {t('rotateControls.range')}
               </label>
               <input
                 type="text"
                 value={rangeInput}
                 onChange={(e) => setRangeInput(e.target.value)}
-                placeholder={`e.g. 1-2, 4, 6-${pageCount}`}
+                placeholder={t('rotateControls.placeholder', { count: pageCount })}
                 className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 bg-white"
               />
               <p className="text-[11px] text-slate-500">
-                Separate numbers and ranges with commas (e.g. <code className="text-slate-700">1, 3-5</code>). Max: {pageCount}.
+                {t('rotateControls.rangeHint', { count: pageCount })}
               </p>
             </div>
           )}
@@ -239,16 +223,16 @@ export const RotatePdf: React.FC = () => {
           {errorMessage && (
             <div className="p-3 bg-red-50 text-red-700 rounded-lg text-xs flex items-center space-x-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
-              <span>{errorMessage}</span>
+              <span>{t(`rotateControls.${errorMessage}`)}</span>
             </div>
           )}
 
           {/* Dirty State Warning */}
           {isOutOfSync && (
             <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200/80 text-amber-800 text-xs flex items-center justify-between">
-              <span>Settings changed since last rotation. Click below to refresh your file.</span>
+              <span>{t('rotateControls.changed')}</span>
               <span className="font-semibold text-amber-900 flex items-center gap-1">
-                <RefreshCw className="w-3 h-3 animate-spin" /> Unsaved
+                <RefreshCw className="w-3 h-3 animate-spin" /> {t('rotateControls.unsaved')}
               </span>
             </div>
           )}
@@ -258,11 +242,7 @@ export const RotatePdf: React.FC = () => {
             <button
               onClick={handleRotate}
               disabled={status === 'processing'}
-              className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition cursor-pointer ${
-                isOutOfSync
-                  ? 'bg-amber-600 hover:bg-amber-700 text-white'
-                  : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-              }`}
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-indigo-600 hover:bg-indigo-700 text-white"
             >
               {status === 'processing' ? (
                 <Sparkles className="w-4 h-4 animate-spin" />
@@ -273,10 +253,10 @@ export const RotatePdf: React.FC = () => {
               )}
               <span>
                 {status === 'processing'
-                  ? 'Rotating Document...'
+                  ? t('rotateControls.rotating')
                   : isOutOfSync
-                  ? 'Re-Rotate with New Settings'
-                  : 'Rotate & Save PDF'}
+                  ? t('rotateControls.rerotate')
+                  : t('rotateControls.rotate')}
               </span>
             </button>
 
@@ -292,7 +272,7 @@ export const RotatePdf: React.FC = () => {
               >
                 <Download className="w-4 h-4" />
                 <span>
-                  {isOutOfSync ? 'Download Outdated File' : 'Download Rotated PDF'}
+                  {t(isOutOfSync ? 'rotateControls.outdated' : 'rotateControls.download')}
                 </span>
               </a>
             )}

@@ -5,20 +5,6 @@ import { ToolGuide } from '../components/common/ToolGuide';
 import { siteConfig } from '../config/site';
 
 export const OrganizePage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select a PDF',
-      description: 'Choose or drag your PDF into the file selection area above.',
-    },
-    {
-      title: 'Organize Pages',
-      description: 'Use the arrow controls to rearrange page sequence, rotate individual sheets, or delete unwanted pages.',
-    },
-    {
-      title: 'Save & Download',
-      description: 'Click Save and Download PDF to re-encode your pages in browser memory and download the final file.',
-    },
-  ];
 
   const faqs = [
     {
@@ -47,7 +33,7 @@ export const OrganizePage: React.FC = () => {
     <ToolLayout
       title="Organize PDF Pages"
       subtitle="Reorder, rotate, or delete PDF pages visually in your browser."
-      seoContent={<ToolGuide toolName="Organize PDF" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="Organize PDF" faqs={faqs} />}
     >
       <OrganizePdf />
     </ToolLayout>

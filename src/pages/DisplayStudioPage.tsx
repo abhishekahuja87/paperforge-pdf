@@ -5,11 +5,6 @@ import { ToolLayout } from '../components/layout/ToolLayout';
 import { siteConfig } from '../config/site';
 
 export const DisplayStudioPage: React.FC = () => {
-  const steps = [
-    { title: 'Add files and choose slides', description: 'Load PDFs, DOCX Word documents, or browser-supported images. Each PDF or Word page becomes a separate slide; exclude pages you do not want.' },
-    { title: 'Set timing and screen options', description: 'Choose a default interval, override timing per slide, add optional captions, and set fit mode, transitions, looping, shuffle, date, and local time.' },
-    { title: 'Start presenting', description: 'Use the fullscreen button in the player, or press F11 in your browser. Move the pointer to bring back controls; press Escape to leave fullscreen.' },
-  ];
   const faqs = [
     { question: `Are my files uploaded to ${siteConfig.name}?`, answer: 'No. Your files are rendered in this browser and kept in the current page. They are not uploaded; closing or refreshing the page clears the playlist.' },
     { question: 'Which files can I display?', answer: 'PDFs, .docx Word documents, and image formats that the current browser can decode. PDF and DOCX pages become separate slides. A browser-supported image becomes one still slide; animated images are not played as animation. Password-protected PDFs must be unlocked before use.' },
@@ -22,9 +17,10 @@ export const DisplayStudioPage: React.FC = () => {
 
   return (
     <ToolLayout
+      wide
       title="Display & Presentation"
       subtitle="Turn PDFs, Word documents, and images into a browser-based fullscreen slideshow for lessons, events, photo frames, and in-store displays."
-      seoContent={<ToolGuide toolName="Display & Presentation" steps={steps} faqs={faqs} privacyNote="Files are rendered locally in browser memory and are not uploaded. The playlist is temporary and is cleared when you close or refresh this page." />}
+      seoContent={<ToolGuide toolName="Display & Presentation" faqs={faqs} privacyNote="Files are rendered locally in browser memory and are not uploaded. The playlist is temporary and is cleared when you close or refresh this page." />}
     >
       <DisplayStudio />
     </ToolLayout>

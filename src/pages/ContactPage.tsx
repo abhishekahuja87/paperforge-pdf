@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PageMetadata } from '../components/common/PageMetadata';
+import { InfoPageLayout } from '../components/layout/InfoPageLayout';
 
 export const ContactPage: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -37,23 +37,15 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-12">
-      <PageMetadata
-        title="Contact MyDailyUtils"
+    <InfoPageLayout
+        title="Contact Us"
+        subtitle="Questions, feedback, or an idea for a new tool? Let us know."
         description="Send MyDailyUtils a question, support request, or feedback. Contact form submissions are handled by Web3Forms."
-      />
-      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-        <div className="flex items-center space-x-3 mb-6">
-          <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
-            <Mail className="w-6 h-6" />
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">Contact Us</h1>
-            <p className="text-sm text-slate-500">
-              Have questions, feedback, or need support? Send us a note.
-            </p>
-          </div>
-        </div>
+      >
+        <section className="rounded-xl border border-orange-200 bg-orange-50 p-4">
+          <h2 className="text-sm font-bold text-orange-900">Request a free tool</h2>
+          <p className="mt-1 text-xs leading-5 text-stone-700">Tell us what you need and how you would use it. You can request a new tool to be built for free.</p>
+        </section>
         <p className="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-xs leading-relaxed text-slate-600">
           This form is handled by Web3Forms, a third-party service. When you submit it, your name, email address, and message are sent to Web3Forms to deliver your message. This is separate from our utility tools, which process your files in your browser. See our{' '}
           <Link to="/privacy" className="font-semibold text-indigo-700 underline">Privacy Policy</Link>.
@@ -139,8 +131,7 @@ export const ContactPage: React.FC = () => {
             </button>
           </form>
         )}
-      </div>
-    </div>
+    </InfoPageLayout>
   );
 };
 

@@ -120,7 +120,7 @@ export const GenerateSamplePdf: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 sm:p-6 space-y-6">
+    <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
       
       {/* 1. Template Selector */}
       <div className="space-y-2">
@@ -332,11 +332,7 @@ export const GenerateSamplePdf: React.FC = () => {
         <button
           onClick={handleGenerate}
           disabled={isGenerating}
-          className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition cursor-pointer ${
-            isOutOfSync
-              ? 'bg-amber-600 hover:bg-amber-700 text-white'
-              : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-          }`}
+          className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-indigo-600 hover:bg-indigo-700 text-white"
         >
           {isGenerating ? (
             <Sparkles className="w-4 h-4 animate-spin" />

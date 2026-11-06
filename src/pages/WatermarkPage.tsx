@@ -5,20 +5,6 @@ import { ToolGuide } from '../components/common/ToolGuide';
 import { siteConfig } from '../config/site';
 
 export const WatermarkPage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Choose a PDF',
-      description: 'Choose the PDF you want to mark with a status or text watermark.',
-    },
-    {
-      title: 'Customize Watermark',
-      description: 'Choose preset tags (CONFIDENTIAL, DRAFT), color, transparency, rotation angle, and target pages.',
-    },
-    {
-      title: 'Stamp & Download',
-      description: 'Preview the settings, apply the watermark in your browser, and download the revised PDF.',
-    },
-  ];
 
   const faqs = [
     {
@@ -42,7 +28,7 @@ export const WatermarkPage: React.FC = () => {
     <ToolLayout
       title="Watermark PDF"
       subtitle="Add a configurable text watermark to selected PDF pages in your browser."
-      seoContent={<ToolGuide toolName="Watermark PDF" steps={steps} faqs={faqs} />}
+      seoContent={<ToolGuide toolName="Watermark PDF" faqs={faqs} />}
     >
       <WatermarkPdf />
     </ToolLayout>

@@ -2,23 +2,11 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { SanitizePdf } from '../components/tools/SanitizePdf';
 import { ToolGuide } from '../components/common/ToolGuide';
+import { usePageHeading } from '../lib/usePageHeading';
 import { siteConfig } from '../config/site';
 
 export const SanitizePage: React.FC = () => {
-  const steps = [
-    {
-      title: 'Select PDF to Sanitize',
-      description: 'Select a PDF whose metadata you want to inspect and remove. Keep an original copy before sanitizing.',
-    },
-    {
-      title: 'Choose What to Strip',
-      description: 'Choose supported items such as document information, XMP metadata, PieceInfo data, thumbnails, and JavaScript actions.',
-    },
-    {
-      title: 'Purge & Download',
-      description: 'The selected metadata is removed in your browser. Review the output and do not assume every possible hidden-data type was removed.',
-    },
-  ];
+  const heading = usePageHeading('sanitize');
 
   const faqs = [
     {
@@ -40,9 +28,10 @@ export const SanitizePage: React.FC = () => {
 
   return (
     <ToolLayout
-      title="Sanitize PDF (Metadata & Privacy Stripper)"
-      subtitle="Remove selected PDF metadata and document structures in your browser. Review the output before sharing."
-      seoContent={<ToolGuide toolName="Sanitize PDF" steps={steps} faqs={faqs} />}
+      title={heading.title}
+      subtitle={heading.subtitle}
+      contentLanguage={heading.language}
+      seoContent={<ToolGuide toolName="Sanitize PDF" faqs={faqs} />}
     >
       <SanitizePdf />
     </ToolLayout>
