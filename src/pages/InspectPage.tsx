@@ -2,28 +2,18 @@ import React from 'react';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { InspectPdf } from '../components/tools/InspectPdf';
 import { ToolGuide } from '../components/common/ToolGuide';
-import { siteConfig } from '../config/site';
+import { usePageGuide } from '../lib/usePageGuide';
 
 export const InspectPage: React.FC = () => {
 
-  const faqs = [
-    {
-      question: `Why inspect PDFs on ${siteConfig.name}?`,
-      answer:
-        'Use the report to review basic PDF structure and look for features such as JavaScript actions. It is not a full security audit, malware scanner, or PDF/A conformance validator.',
-    },
-    {
-      question: 'Are my confidential documents uploaded to a remote server?',
-      answer:
-        'The selected PDF is analyzed in your browser and is not uploaded to MyDailyUtils for processing. The website makes separate requests for resources and advertising.',
-    },
-  ];
+  const guide = usePageGuide('inspect');
 
   return (
     <ToolLayout
-      title="PDF Structure & Metadata Inspector"
-      subtitle="Review PDF version, metadata, encryption status, page geometry, and selected document features in your browser."
-      seoContent={<ToolGuide toolName="PDF Inspector" faqs={faqs} />}
+      title={guide.title}
+      subtitle={guide.subtitle}
+      contentLanguage={guide.language}
+      seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}
     >
       <InspectPdf />
     </ToolLayout>

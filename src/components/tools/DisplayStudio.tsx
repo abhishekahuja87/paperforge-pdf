@@ -22,6 +22,7 @@ import {
 import { renderDisplayFile } from '../../lib/display/render';
 import type { DisplaySlide } from '../../lib/display/types';
 import { FileDropZone } from '../common/FileDropZone';
+import { useTranslation } from 'react-i18next';
 
 type FitMode = 'contain' | 'cover' | 'fill';
 type TransitionMode = 'none' | 'fade' | 'zoom';
@@ -61,6 +62,7 @@ const controlClass = 'inline-flex items-center justify-center gap-2 rounded-lg b
 const selectClass = 'mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100';
 
 export const DisplayStudio: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [slides, setSlides] = useState<DisplaySlide[]>([]);
   const [processing, setProcessing] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -385,8 +387,9 @@ export const DisplayStudio: React.FC = () => {
               accept={FILE_ACCEPT}
               multiple
               disabled={processing}
-              label={processing ? 'Preparing slides...' : 'Choose files or drop them here'}
-              hint="PDF, DOCX, or images · up to 100 MB per file"
+              label={t(processing ? 'displayPage.preparing' : 'displayPage.choose')}
+              hint={t('displayPage.hint')}
+              labelLanguage={i18n.language}
               onFiles={(files) => { void addFiles(files); }}
             />
           </div>
@@ -512,7 +515,7 @@ export const DisplayStudio: React.FC = () => {
           {slides.length === 0 && !processing && (
             <div className="rounded-xl border border-slate-200 bg-white p-5 text-center text-sm text-slate-500">
               <div className="mb-2 flex justify-center gap-2 text-slate-400"><FileText className="h-5 w-5" /><FileImage className="h-5 w-5" /></div>
-              Add files to preview their pages and build a playlist. You can exclude individual pages without changing the original files.
+              <span lang={i18n.language}>{t('displayPage.empty')}</span>
             </div>
           )}
         </>

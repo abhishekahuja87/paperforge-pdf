@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { InfoPageLayout } from '../components/layout/InfoPageLayout';
+import { Trans, useTranslation } from 'react-i18next';
 
 export const ContactPage: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [errorKey, setErrorKey] = useState<'failed' | 'networkError' | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
+    setErrorKey(null);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -28,35 +32,39 @@ export const ContactPage: React.FC = () => {
         form.reset();
       } else {
         setStatus('error');
-        setErrorMessage(data.message || 'Submission failed. Please try again.');
+        if (typeof data.message === 'string' && data.message) {
+          setErrorMessage(data.message);
+        } else {
+          setErrorKey('failed');
+        }
       }
     } catch {
       setStatus('error');
-      setErrorMessage('Network connection error. Please try again later.');
+      setErrorKey('networkError');
     }
   };
 
   return (
     <InfoPageLayout
-        title="Contact Us"
-        subtitle="Questions, feedback, or an idea for a new tool? Let us know."
-        description="Send MyDailyUtils a question, support request, or feedback. Contact form submissions are handled by Web3Forms."
+        title={t('contactPage.title')}
+        subtitle={t('contactPage.subtitle')}
+        description={t('contactPage.description')}
+        contentLanguage={i18n.language}
       >
         <section className="rounded-xl border border-orange-200 bg-orange-50 p-4">
-          <h2 className="text-sm font-bold text-orange-900">Request a free tool</h2>
-          <p className="mt-1 text-xs leading-5 text-stone-700">Tell us what you need and how you would use it. You can request a new tool to be built for free.</p>
+          <h2 className="text-sm font-bold text-orange-900">{t('contactPage.requestTitle')}</h2>
+          <p className="mt-1 text-xs leading-5 text-stone-700">{t('contactPage.requestDescription')}</p>
         </section>
         <p className="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-xs leading-relaxed text-slate-600">
-          This form is handled by Web3Forms, a third-party service. When you submit it, your name, email address, and message are sent to Web3Forms to deliver your message. This is separate from our utility tools, which process your files in your browser. See our{' '}
-          <Link to="/privacy" className="font-semibold text-indigo-700 underline">Privacy Policy</Link>.
+          <Trans i18nKey="contactPage.disclosure" components={{ privacy: <Link to="/privacy" className="font-semibold text-indigo-700 underline" /> }} />
         </p>
 
         {status === 'success' ? (
           <div role="status" aria-live="polite" className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
             <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
-            <h2 className="text-base font-semibold text-emerald-900">Message Sent</h2>
+            <h2 className="text-base font-semibold text-emerald-900">{t('contactPage.sent')}</h2>
             <p className="text-xs text-emerald-700">
-              Thank you for reaching out. We will review your message shortly.
+              {t('contactPage.thanks')}
             </p>
           </div>
         ) : (
@@ -65,21 +73,21 @@ export const ContactPage: React.FC = () => {
 
             <div>
               <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                Your Name
+                {t('contactPage.name')}
               </label>
               <input
                 id="contact-name"
                 type="text"
                 name="name"
                 required
-                placeholder="Your Name"
+                placeholder={t('contactPage.name')}
                 className="w-full px-3.5 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
 
             <div>
               <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                Your Email Address
+                {t('contactPage.email')}
               </label>
               <input
                 id="contact-email"
@@ -93,14 +101,14 @@ export const ContactPage: React.FC = () => {
 
             <div>
               <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                Message
+                {t('contactPage.message')}
               </label>
               <textarea
                 id="contact-message"
                 name="message"
                 rows={4}
                 required
-                placeholder="How can we help?"
+                placeholder={t('contactPage.placeholder')}
                 className="w-full px-3.5 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
@@ -108,7 +116,7 @@ export const ContactPage: React.FC = () => {
             {status === 'error' && (
               <div role="alert" className="flex items-center space-x-2 p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-xs">
                 <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{errorMessage}</span>
+                <span lang={errorKey ? i18n.language : undefined}>{errorKey ? t(`contactPage.${errorKey}`) : errorMessage}</span>
               </div>
             )}
 
@@ -120,12 +128,12 @@ export const ContactPage: React.FC = () => {
               {status === 'loading' ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Sending...</span>
+                  <span>{t('contactPage.sending')}</span>
                 </>
               ) : (
                 <>
                   <Send className="w-4 h-4" />
-                  <span>Send Message</span>
+                  <span>{t('contactPage.send')}</span>
                 </>
               )}
             </button>

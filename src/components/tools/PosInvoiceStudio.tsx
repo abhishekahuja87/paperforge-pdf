@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Archive,
   Building2,
@@ -117,6 +118,7 @@ function validateStore(store: StoreProfile): string {
 }
 
 export const PosInvoiceStudio: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [step, setStep] = useState<'setup' | 'billing'>('setup');
   const [hasStartedBilling, setHasStartedBilling] = useState(false);
   const [store, setStore] = useState<StoreProfile | null>(null);
@@ -381,72 +383,72 @@ export const PosInvoiceStudio: React.FC = () => {
     <>
       <div className="grid gap-3 sm:grid-cols-2">
         <label className={`${labelClass} sm:col-span-2`}>
-          Shop name *
+          <span lang={i18n.language}>{t('posPage.fields.name')}</span>
           <input className={fieldClass} value={storeForm.name} onChange={(event) => setStoreForm({ ...storeForm, name: event.target.value })} required autoComplete="organization" />
         </label>
         <label className={labelClass}>
-          Tagline
-          <input className={fieldClass} value={storeForm.tagline} onChange={(event) => setStoreForm({ ...storeForm, tagline: event.target.value })} placeholder="Optional" />
+          <span lang={i18n.language}>{t('posPage.fields.tagline')}</span>
+          <input className={fieldClass} value={storeForm.tagline} onChange={(event) => setStoreForm({ ...storeForm, tagline: event.target.value })} placeholder={t('posPage.fields.optional')} lang={i18n.language} />
         </label>
         <label className={labelClass}>
-          Tax ID
-          <input className={fieldClass} value={storeForm.taxId} onChange={(event) => setStoreForm({ ...storeForm, taxId: event.target.value })} placeholder="Optional" />
+          <span lang={i18n.language}>{t('posPage.fields.taxId')}</span>
+          <input className={fieldClass} value={storeForm.taxId} onChange={(event) => setStoreForm({ ...storeForm, taxId: event.target.value })} placeholder={t('posPage.fields.optional')} lang={i18n.language} />
         </label>
         <label className={`${labelClass} sm:col-span-2`}>
-          Address
-          <textarea className={fieldClass} rows={2} value={storeForm.address} onChange={(event) => setStoreForm({ ...storeForm, address: event.target.value })} placeholder="Business address" />
+          <span lang={i18n.language}>{t('posPage.fields.address')}</span>
+          <textarea className={fieldClass} rows={2} value={storeForm.address} onChange={(event) => setStoreForm({ ...storeForm, address: event.target.value })} placeholder={t('posPage.fields.addressPlaceholder')} lang={i18n.language} />
         </label>
         <label className={labelClass}>
-          Phone
+          <span lang={i18n.language}>{t('posPage.fields.phone')}</span>
           <input className={fieldClass} type="tel" value={storeForm.phone} onChange={(event) => setStoreForm({ ...storeForm, phone: event.target.value })} autoComplete="tel" />
         </label>
         <label className={labelClass}>
-          Email
+          <span lang={i18n.language}>{t('posPage.fields.email')}</span>
           <input className={fieldClass} type="email" value={storeForm.email} onChange={(event) => setStoreForm({ ...storeForm, email: event.target.value })} autoComplete="email" />
         </label>
         <label className={labelClass}>
-          Bill number prefix *
-          <input className={fieldClass} value={storeForm.invoicePrefix} onChange={(event) => setStoreForm({ ...storeForm, invoicePrefix: event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10) })} maxLength={10} placeholder="e.g. SHOP" required />
-          <span className="mt-1 block font-normal text-slate-500">Each new bill starts with this prefix, followed by its date and a unique code. Changing it later applies to future bills.</span>
+          <span lang={i18n.language}>{t('posPage.fields.prefix')}</span>
+          <input className={fieldClass} value={storeForm.invoicePrefix} onChange={(event) => setStoreForm({ ...storeForm, invoicePrefix: event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10) })} maxLength={10} placeholder={t('posPage.fields.prefixPlaceholder')} lang={i18n.language} required />
+          <span lang={i18n.language} className="mt-1 block font-normal text-slate-500">{t('posPage.fields.prefixHint')}</span>
         </label>
         <label className={labelClass}>
-          Currency code *
+          <span lang={i18n.language}>{t('posPage.fields.currency')}</span>
           <input className={fieldClass} value={storeForm.currency} onChange={(event) => setStoreForm({ ...storeForm, currency: event.target.value.toUpperCase() })} maxLength={3} placeholder="INR" required />
         </label>
         <label className={labelClass}>
-          Primary tax label
-          <input className={fieldClass} value={storeForm.taxLabel} onChange={(event) => setStoreForm({ ...storeForm, taxLabel: event.target.value })} placeholder="GST, VAT, Sales tax..." />
+          <span lang={i18n.language}>{t('posPage.fields.taxLabel')}</span>
+          <input className={fieldClass} value={storeForm.taxLabel} onChange={(event) => setStoreForm({ ...storeForm, taxLabel: event.target.value })} placeholder={t('posPage.fields.taxPlaceholder')} lang={i18n.language} />
         </label>
         <label className={labelClass}>
-          Primary tax rate (%)
+          <span lang={i18n.language}>{t('posPage.fields.taxRate')}</span>
           <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.taxRate} onChange={(event) => setStoreForm({ ...storeForm, taxRate: Number(event.target.value) })} />
         </label>
         <label className={labelClass}>
-          Additional tax label
-          <input className={fieldClass} value={storeForm.additionalTaxLabel} onChange={(event) => setStoreForm({ ...storeForm, additionalTaxLabel: event.target.value })} placeholder="e.g. Cess, local tax (optional)" />
+          <span lang={i18n.language}>{t('posPage.fields.additionalLabel')}</span>
+          <input className={fieldClass} value={storeForm.additionalTaxLabel} onChange={(event) => setStoreForm({ ...storeForm, additionalTaxLabel: event.target.value })} placeholder={t('posPage.fields.additionalPlaceholder')} lang={i18n.language} />
         </label>
         <label className={labelClass}>
-          Additional tax rate (%)
+          <span lang={i18n.language}>{t('posPage.fields.additionalRate')}</span>
           <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.additionalTaxRate} onChange={(event) => setStoreForm({ ...storeForm, additionalTaxRate: Number(event.target.value) })} />
         </label>
         <label className={labelClass}>
-          Other charge label
-          <input className={fieldClass} value={storeForm.chargeLabel} onChange={(event) => setStoreForm({ ...storeForm, chargeLabel: event.target.value })} placeholder="e.g. Delivery, packaging (optional)" />
+          <span lang={i18n.language}>{t('posPage.fields.chargeLabel')}</span>
+          <input className={fieldClass} value={storeForm.chargeLabel} onChange={(event) => setStoreForm({ ...storeForm, chargeLabel: event.target.value })} placeholder={t('posPage.fields.chargePlaceholder')} lang={i18n.language} />
         </label>
         <label className={labelClass}>
-          Other charge amount ({storeForm.currency || 'INR'})
+          <span lang={i18n.language}>{t('posPage.fields.chargeAmount', { currency: storeForm.currency || 'INR' })}</span>
           <input className={fieldClass} type="number" min="0" step="0.01" value={storeForm.chargeAmount} onChange={(event) => setStoreForm({ ...storeForm, chargeAmount: Number(event.target.value) })} />
         </label>
         <label className={labelClass}>
-          Tax calculation
+          <span lang={i18n.language}>{t('posPage.fields.calculation')}</span>
           <select className={fieldClass} value={storeForm.taxMode} onChange={(event) => setStoreForm({ ...storeForm, taxMode: event.target.value as StoreProfile['taxMode'] })}>
-            <option value="exclusive">Add tax to item prices</option>
-            <option value="inclusive">Item prices already include tax</option>
+            <option lang={i18n.language} value="exclusive">{t('posPage.fields.exclusive')}</option>
+            <option lang={i18n.language} value="inclusive">{t('posPage.fields.inclusive')}</option>
           </select>
         </label>
       </div>
-      <p className="text-[11px] leading-relaxed text-slate-500">
-        The additional percentage tax uses the same inclusive or exclusive setting as the primary tax and is calculated on the taxable subtotal. The flat charge is added once per bill after percentage taxes. This tool does not determine legal tax rates or guarantee tax compliance.
+      <p lang={i18n.language} className="text-[11px] leading-relaxed text-slate-500">
+        {t('posPage.fields.taxHint')}
       </p>
     </>
   );
@@ -454,39 +456,39 @@ export const PosInvoiceStudio: React.FC = () => {
   const renderInventoryPanel = () => (
     <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
       <div>
-        <h3 className="text-base font-bold text-slate-900">Shop inventory</h3>
-        <p className="mt-1 text-xs text-slate-500">Add items and prices to shop inventory. You can use fractional quantities for weight, volume, length, or count.</p>
+        <h3 lang={i18n.language} className="text-base font-bold text-slate-900">{t('posPage.inventory')}</h3>
+        <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('posPage.inventoryDescription')}</p>
       </div>
 
       <form onSubmit={addOrUpdateItem} className="space-y-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
         <div className="flex items-center justify-between">
-          <h4 className="text-xs font-bold text-slate-800">{editingItemId ? 'Edit inventory item' : 'Add an item'}</h4>
-          {editingItemId && <button type="button" aria-label="Cancel item edit" className="text-slate-400 hover:text-slate-700" onClick={() => { setEditingItemId(null); setItemForm(EMPTY_ITEM); }}><X className="h-4 w-4" /></button>}
+          <h4 lang={i18n.language} className="text-xs font-bold text-slate-800">{t(editingItemId ? 'posPage.fields.editItem' : 'posPage.fields.addItem')}</h4>
+          {editingItemId && <button type="button" lang={i18n.language} aria-label={t('posPage.fields.cancelEdit')} className="text-slate-400 hover:text-slate-700" onClick={() => { setEditingItemId(null); setItemForm(EMPTY_ITEM); }}><X className="h-4 w-4" /></button>}
         </div>
-        <label className={labelClass}>Item name *
-          <input className={fieldClass} value={itemForm.name} onChange={(event) => setItemForm({ ...itemForm, name: event.target.value })} placeholder="e.g. Loose almonds" required />
+        <label className={labelClass}><span lang={i18n.language}>{t('posPage.fields.itemName')}</span>
+          <input className={fieldClass} value={itemForm.name} onChange={(event) => setItemForm({ ...itemForm, name: event.target.value })} placeholder={t('posPage.fields.itemPlaceholder')} lang={i18n.language} required />
         </label>
         <div className="grid grid-cols-2 gap-3">
-          <label className={labelClass}>Selling price *
+          <label className={labelClass}><span lang={i18n.language}>{t('posPage.fields.price')}</span>
             <input className={fieldClass} type="number" min="0" step="0.01" value={itemForm.price} onChange={(event) => setItemForm({ ...itemForm, price: event.target.value })} placeholder="0.00" required />
           </label>
-          <label className={labelClass}>Unit
+          <label className={labelClass}><span lang={i18n.language}>{t('posPage.fields.unit')}</span>
             <select className={fieldClass} value={itemForm.unit} onChange={(event) => setItemForm({ ...itemForm, unit: event.target.value as ProductUnit })}>
-              {PRODUCT_UNITS.map((unit) => <option key={unit.value} value={unit.value}>{unit.label}</option>)}
+              {PRODUCT_UNITS.map((unit) => <option lang={i18n.language} key={unit.value} value={unit.value}>{t(`posPage.units.${unit.value}`)}</option>)}
             </select>
           </label>
         </div>
-        <label className={labelClass}>SKU / item code
-          <input className={fieldClass} value={itemForm.sku} onChange={(event) => setItemForm({ ...itemForm, sku: event.target.value })} placeholder="Optional" />
+        <label className={labelClass}><span lang={i18n.language}>{t('posPage.fields.sku')}</span>
+          <input className={fieldClass} value={itemForm.sku} onChange={(event) => setItemForm({ ...itemForm, sku: event.target.value })} placeholder={t('posPage.fields.optional')} lang={i18n.language} />
         </label>
-        <button type="submit" className={primaryButtonClass}><Save className="h-3.5 w-3.5" />{editingItemId ? 'Update item' : 'Add to inventory'}</button>
+        <button type="submit" lang={i18n.language} className={primaryButtonClass}><Save className="h-3.5 w-3.5" />{t(editingItemId ? 'posPage.fields.update' : 'posPage.fields.add')}</button>
       </form>
 
       <div className="space-y-2">
         <div className="flex items-center justify-between gap-2">
-          <label className="sr-only" htmlFor="pos-inventory-search">Search inventory</label>
-          <input id="pos-inventory-search" className={fieldClass} value={itemSearch} onChange={(event) => setItemSearch(event.target.value)} placeholder="Search inventory..." />
-          <span className="shrink-0 text-xs text-slate-500">{inventory.length} item{inventory.length === 1 ? '' : 's'}</span>
+          <label lang={i18n.language} className="sr-only" htmlFor="pos-inventory-search">{t('posPage.fields.search')}</label>
+          <input id="pos-inventory-search" lang={i18n.language} className={fieldClass} value={itemSearch} onChange={(event) => setItemSearch(event.target.value)} placeholder={t('posPage.fields.searchPlaceholder')} />
+          <span lang={i18n.language} className="shrink-0 text-xs text-slate-500">{t('posPage.fields.items', { count: inventory.length })}</span>
         </div>
         {filteredInventory.length ? filteredInventory.map((item) => (
           <div key={item.id} className="flex items-center gap-2 rounded-xl border border-slate-100 px-3 py-2.5">
@@ -494,12 +496,12 @@ export const PosInvoiceStudio: React.FC = () => {
               <p className="truncate text-xs font-bold text-slate-800">{item.name}</p>
               <p className="text-[10px] text-slate-500">{item.sku ? `${item.sku} · ` : ''}{formatMoney(item.price, (store ?? storeForm).currency)} / {item.unit}</p>
             </div>
-            <button type="button" className="rounded-lg p-2 text-slate-400 hover:bg-indigo-50 hover:text-indigo-700" aria-label={`Edit ${item.name}`} onClick={() => editItem(item)}><Pencil className="h-3.5 w-3.5" /></button>
-            <button type="button" className="rounded-lg p-2 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={`Delete ${item.name}`} onClick={() => removeItem(item)}><Trash2 className="h-3.5 w-3.5" /></button>
+            <button type="button" lang={i18n.language} className="rounded-lg p-2 text-slate-400 hover:bg-indigo-50 hover:text-indigo-700" aria-label={t('posPage.fields.edit', { name: item.name })} onClick={() => editItem(item)}><Pencil className="h-3.5 w-3.5" /></button>
+            <button type="button" lang={i18n.language} className="rounded-lg p-2 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={t('posPage.fields.delete', { name: item.name })} onClick={() => removeItem(item)}><Trash2 className="h-3.5 w-3.5" /></button>
           </div>
         )) : (
-          <p className="rounded-xl border border-dashed border-slate-200 px-3 py-5 text-center text-xs text-slate-500">
-            {inventory.length ? 'No inventory items match your search.' : 'Shop inventory is empty. Add your first item or import a shop profile.'}
+          <p lang={i18n.language} className="rounded-xl border border-dashed border-slate-200 px-3 py-5 text-center text-xs text-slate-500">
+            {t(inventory.length ? 'posPage.fields.noMatches' : 'posPage.fields.empty')}
           </p>
         )}
       </div>
@@ -515,12 +517,12 @@ export const PosInvoiceStudio: React.FC = () => {
             <div className="flex items-start gap-3">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700"><Building2 className="h-5 w-5" /></span>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-indigo-700">Step 1 of 2 · Shop profile</p>
-                <h2 className="mt-1 text-xl font-extrabold text-slate-900">{store ? 'Review your shop profile' : 'Create your shop profile'}</h2>
-                <p className="mt-1 max-w-2xl text-sm leading-relaxed text-slate-600">Add your shop and inventory, or import a saved profile or bill.</p>
+                <p lang={i18n.language} className="text-xs font-bold uppercase tracking-wider text-indigo-700">{t('posPage.step')}</p>
+                <h2 lang={i18n.language} className="mt-1 text-xl font-extrabold text-slate-900">{t(store ? 'posPage.review' : 'posPage.create')}</h2>
+                <p lang={i18n.language} className="mt-1 max-w-2xl text-sm leading-relaxed text-slate-600">{t('posPage.intro')}</p>
               </div>
             </div>
-            <button type="button" className={secondaryButtonClass} onClick={() => importInputRef.current?.click()} title="Import a shop profile JSON or a bill JSON"><FileUp className="h-3.5 w-3.5" />Import profile or bill JSON</button>
+            <button type="button" lang={i18n.language} className={secondaryButtonClass} onClick={() => importInputRef.current?.click()} title={t('posPage.importHint')}><FileUp className="h-3.5 w-3.5" />{t('posPage.import')}</button>
           </div>
         </section>
         {(error || notice) && (
@@ -531,22 +533,22 @@ export const PosInvoiceStudio: React.FC = () => {
         <div className="grid items-start gap-5 lg:grid-cols-2">
           <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
             <div>
-              <h3 className="text-base font-bold text-slate-900">Shop profile</h3>
-              <p className="mt-1 text-xs text-slate-500">These details identify your shop on the bill your customer receives.</p>
+              <h3 lang={i18n.language} className="text-base font-bold text-slate-900">{t('posPage.profile')}</h3>
+              <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('posPage.profileDescription')}</p>
             </div>
             <div className="space-y-4">{renderStoreFields()}</div>
           </section>
           {renderInventoryPanel()}
         </div>
         <section className="flex flex-col gap-4 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
-          <div className="max-w-2xl">
-            <h3 className="text-sm font-bold text-slate-900">Keep your shop profile and inventory for next time</h3>
-            <p className="mt-1 text-xs leading-relaxed text-slate-600">Download a profile JSON with your shop details, bill prefix, and shop inventory. Keep it on your device and import it whenever you return. JSON is your editable backup; it is not the customer bill.</p>
-            {!canContinueToBilling && <p className="mt-2 text-xs font-semibold text-amber-800">Add at least one item to shop inventory before continuing to the bill.</p>}
+          <div lang={i18n.language} className="max-w-2xl">
+            <h3 className="text-sm font-bold text-slate-900">{t('posPage.backupTitle')}</h3>
+            <p className="mt-1 text-xs leading-relaxed text-slate-600">{t('posPage.backupDescription')}</p>
+            {!canContinueToBilling && <p className="mt-2 text-xs font-semibold text-amber-800">{t('posPage.needItem')}</p>}
           </div>
           <div className="flex shrink-0 flex-wrap gap-2">
-            <button type="button" className={secondaryButtonClass} onClick={downloadSetup}><Archive className="h-3.5 w-3.5" />Download profile JSON</button>
-            <button type="button" className={primaryButtonClass} onClick={continueToBilling} disabled={!canContinueToBilling}><FilePlus2 className="h-3.5 w-3.5" />{store ? 'Save profile & return to bill' : 'Continue to bill'}</button>
+            <button type="button" lang={i18n.language} className={secondaryButtonClass} onClick={downloadSetup}><Archive className="h-3.5 w-3.5" />{t('posPage.downloadProfile')}</button>
+            <button type="button" lang={i18n.language} className={primaryButtonClass} onClick={continueToBilling} disabled={!canContinueToBilling}><FilePlus2 className="h-3.5 w-3.5" />{t(store ? 'posPage.returnToBill' : 'posPage.continue')}</button>
           </div>
         </section>
       </div>
@@ -575,7 +577,7 @@ export const PosInvoiceStudio: React.FC = () => {
         </div>
         <div className="flex flex-wrap gap-2">
           <button type="button" className={secondaryButtonClass} onClick={() => { setStoreForm(store); setStep('setup'); }}><Building2 className="h-3.5 w-3.5" />Edit shop profile & inventory</button>
-          <button type="button" className={secondaryButtonClass} onClick={() => importInputRef.current?.click()} title="Import a shop profile JSON or a bill JSON"><FileUp className="h-3.5 w-3.5" />Import profile or bill JSON</button>
+          <button type="button" lang={i18n.language} className={secondaryButtonClass} onClick={() => importInputRef.current?.click()} title={t('posPage.importHint')}><FileUp className="h-3.5 w-3.5" />{t('posPage.import')}</button>
         </div>
       </header>
       <p className="text-xs leading-relaxed text-slate-500">

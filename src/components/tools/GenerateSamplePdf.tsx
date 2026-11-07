@@ -14,8 +14,10 @@ import {
   type CorruptionMode 
 } from '../../lib/pdf/generateSample';
 import { generatePdfFilename } from '../../lib/pdf/naming';
+import { useTranslation } from 'react-i18next';
 
 export const GenerateSamplePdf: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [pageCount, setPageCount] = useState<number>(3);
   const [template, setTemplate] = useState<SampleTemplate>('invoice');
   const [customTitle, setCustomTitle] = useState<string>('Sample Invoice');
@@ -109,23 +111,22 @@ export const GenerateSamplePdf: React.FC = () => {
     }
   };
 
-  const templates: { id: SampleTemplate; label: string; desc: string }[] = [
-    { id: 'invoice', label: 'Invoice / Statement', desc: 'Clean tabular totals' },
-    { id: 'lorem', label: 'Multi-Page Article', desc: 'Formatted prose' },
-    { id: 'contract', label: 'Legal Contract / NDA', desc: 'Numbered clauses' },
-    { id: 'synthetic-pii', label: 'Synthetic PII / DLP', desc: 'Mock cards & redaction' },
-    { id: 'mixed-geometry', label: 'Mixed Geometry Stress', desc: 'A4, A3, Rotated & POS' },
-    { id: 'specsheet', label: 'Technical Spec Sheet', desc: 'System parameter tables' },
-    { id: 'minimal', label: 'Minimal Ingest File', desc: 'Clean vector header' },
+  const templateIds: SampleTemplate[] = [
+    'invoice', 'lorem', 'contract', 'synthetic-pii', 'mixed-geometry', 'specsheet', 'minimal',
   ];
+  const templates = templateIds.map((id) => ({
+    id,
+    label: t(`sampleControls.templates.${id}.0`),
+    desc: t(`sampleControls.templates.${id}.1`),
+  }));
 
   return (
-    <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
+    <div lang={i18n.language} className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
       
       {/* 1. Template Selector */}
       <div className="space-y-2">
         <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-          1. Choose Template Type
+          {t('sampleControls.choose')}
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {templates.map((tmpl) => (
@@ -149,24 +150,24 @@ export const GenerateSamplePdf: React.FC = () => {
       {/* 2. Basic Configuration */}
       <div className="space-y-3 pt-1 border-t border-slate-100">
         <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-          2. Document Details & Page Count
+          {t('sampleControls.details')}
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
-            <span className="text-xs text-slate-500 font-medium">Document Title Header</span>
+            <span className="text-xs text-slate-500 font-medium">{t('sampleControls.title')}</span>
             <input
               type="text"
               value={customTitle}
               onChange={(e) => setCustomTitle(e.target.value)}
               className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 bg-white"
-              placeholder="e.g. Sample Invoice"
+              placeholder={t('sampleControls.titlePlaceholder')}
             />
           </div>
 
           <div className="space-y-1">
             <div className="flex justify-between items-center text-xs">
-              <span className="text-slate-500 font-medium">Total Pages:</span>
-              <span className="text-indigo-600 font-bold">{pageCount} Pages</span>
+              <span className="text-slate-500 font-medium">{t('sampleControls.totalPages')}</span>
+              <span className="text-indigo-600 font-bold">{t('sampleControls.pages', { count: pageCount })}</span>
             </div>
             <div className="flex items-center space-x-2">
               <input
@@ -205,7 +206,7 @@ export const GenerateSamplePdf: React.FC = () => {
           onClick={() => setShowAdvanced(!showAdvanced)}
           className="flex items-center space-x-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 transition cursor-pointer"
         >
-          <span>Optional PDF Features & Chaos Testing</span>
+          <span>{t('sampleControls.advanced')}</span>
           {showAdvanced ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
         </button>
 
@@ -213,7 +214,7 @@ export const GenerateSamplePdf: React.FC = () => {
           <div className="mt-3 p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-4">
             {/* Feature checkboxes */}
             <div className="space-y-1.5">
-              <span className="text-[11px] font-semibold text-slate-600">Inject Specific Structures</span>
+              <span className="text-[11px] font-semibold text-slate-600">{t('sampleControls.structures')}</span>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-2">
                 <label className="flex items-center space-x-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer">
                   <input
@@ -222,7 +223,7 @@ export const GenerateSamplePdf: React.FC = () => {
                     onChange={(e) => setIncludeBookmarks(e.target.checked)}
                     className="rounded text-indigo-600 w-3.5 h-3.5 accent-indigo-600"
                   />
-                  <span className="text-[11px] text-slate-700 font-medium">Bookmarks Tree</span>
+                  <span className="text-[11px] text-slate-700 font-medium">{t('sampleControls.bookmarks')}</span>
                 </label>
 
                 <label className="flex items-center space-x-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer">
@@ -232,7 +233,7 @@ export const GenerateSamplePdf: React.FC = () => {
                     onChange={(e) => setIncludeImages(e.target.checked)}
                     className="rounded text-indigo-600 w-3.5 h-3.5 accent-indigo-600"
                   />
-                  <span className="text-[11px] text-slate-700 font-medium">Sample Graphic</span>
+                  <span className="text-[11px] text-slate-700 font-medium">{t('sampleControls.graphic')}</span>
                 </label>
 
                 <label className="flex items-center space-x-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer">
@@ -242,7 +243,7 @@ export const GenerateSamplePdf: React.FC = () => {
                     onChange={(e) => setIncludeFormFields(e.target.checked)}
                     className="rounded text-indigo-600 w-3.5 h-3.5 accent-indigo-600"
                   />
-                  <span className="text-[11px] text-slate-700 font-medium">Interactive Form</span>
+                  <span className="text-[11px] text-slate-700 font-medium">{t('sampleControls.form')}</span>
                 </label>
 
                 <label className="flex items-center space-x-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer">
@@ -252,17 +253,17 @@ export const GenerateSamplePdf: React.FC = () => {
                     onChange={(e) => setIncludeLinksAndAnnotations(e.target.checked)}
                     className="rounded text-indigo-600 w-3.5 h-3.5 accent-indigo-600"
                   />
-                  <span className="text-[11px] text-slate-700 font-medium">Highlights & URLs</span>
+                  <span className="text-[11px] text-slate-700 font-medium">{t('sampleControls.links')}</span>
                 </label>
               </div>
             </div>
 
             {/* Target Size Selection */}
             <div className="space-y-1.5">
-              <span className="text-[11px] font-semibold text-slate-600">Target File Size (Padded Data)</span>
+              <span className="text-[11px] font-semibold text-slate-600">{t('sampleControls.target')}</span>
               <div className="grid grid-cols-4 gap-2">
                 {[
-                  { mb: 0, label: 'Standard (~50KB)' },
+                  { mb: 0, label: t('sampleControls.standard') },
                   { mb: 1, label: '1 MB' },
                   { mb: 5, label: '5 MB' },
                   { mb: 10, label: '10 MB' },
@@ -287,14 +288,14 @@ export const GenerateSamplePdf: React.FC = () => {
             <div className="space-y-1.5">
               <div className="flex items-center space-x-1.5">
                 <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
-                <span className="text-[11px] font-semibold text-slate-700">QA Ingest Chaos (Corrupt Byte Stream)</span>
+                <span className="text-[11px] font-semibold text-slate-700">{t('sampleControls.chaos')}</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
-                  { id: 'none', label: 'Valid Document' },
-                  { id: 'truncated-eof', label: 'Cutoff EOF (Abort)' },
-                  { id: 'broken-header', label: 'Broken Magic Byte' },
-                  { id: 'scrambled-xref', label: 'Scrambled XRef' },
+                  { id: 'none', label: t('sampleControls.valid') },
+                  { id: 'truncated-eof', label: t('sampleControls.truncated') },
+                  { id: 'broken-header', label: t('sampleControls.header') },
+                  { id: 'scrambled-xref', label: t('sampleControls.xref') },
                 ].map((opt) => (
                   <button
                     key={opt.id}
@@ -320,9 +321,9 @@ export const GenerateSamplePdf: React.FC = () => {
       {/* Feedback banner if settings were changed after generating */}
       {isOutOfSync && (
         <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200/80 text-amber-800 text-xs flex items-center justify-between">
-          <span>Options changed since last generation. Click below to refresh your file.</span>
+          <span>{t('sampleControls.changed')}</span>
           <span className="font-semibold text-amber-900 flex items-center gap-1">
-            <RefreshCw className="w-3 h-3 animate-spin" /> Unsaved
+            <RefreshCw className="w-3 h-3 animate-spin" /> {t('sampleControls.unsaved')}
           </span>
         </div>
       )}
@@ -341,7 +342,7 @@ export const GenerateSamplePdf: React.FC = () => {
           ) : (
             <FilePlus className="w-4 h-4" />
           )}
-          <span>{isGenerating ? 'Synthesizing PDF...' : isOutOfSync ? 'Re-Generate with New Settings' : 'Generate Sample PDF'}</span>
+          <span>{t(isGenerating ? 'sampleControls.generating' : isOutOfSync ? 'sampleControls.regenerate' : 'sampleControls.generate')}</span>
         </button>
 
         {downloadUrl && (
@@ -357,8 +358,8 @@ export const GenerateSamplePdf: React.FC = () => {
             <Download className="w-4 h-4" />
             <span>
               {isOutOfSync
-                ? 'Download Outdated File (Re-generate recommended)'
-                : `Download ${customTitle} (${pageCount}p)`}
+                ? t('sampleControls.outdated')
+                : t('sampleControls.download', { title: customTitle, pages: pageCount })}
             </span>
           </a>
         )}

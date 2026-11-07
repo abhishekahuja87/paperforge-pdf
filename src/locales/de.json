@@ -5,6 +5,71 @@
   "allTools": "Alle Werkzeuge",
   "exploreTools": "Werkzeuge entdecken",
   "featured": "Unsere Highlights",
+  "base64Upload": { "choose": "Datei auswählen oder hier ablegen", "change": "{{name}} ändern", "hint": "Beliebige Datei · bis 100 MB", "memory": "Web Crypto liest die ausgewählte Datei in den Browserspeicher; Dateien bis 100 MB werden unterstützt." },
+  "toolInfo": {
+    "more": "Mehr über dieses Werkzeug",
+    "sanitize": ["Vor dem Teilen prüfen", "Dokumentinformationen", "Entfernen Sie ausgewählte Dokumentinformationen und Metadaten, die das Dokument oder seinen Autor identifizieren können.", "Seitenminiaturen", "Entfernen Sie unterstützte eingebettete Miniaturen, die ältere Inhalte zeigen können.", "Andere versteckte Daten", "Entfernen Sie ausgewählte Bearbeitungsdaten und unterstützte JavaScript-Aktionen. Nicht alle versteckten Inhalte können entfernt werden; prüfen Sie das Ergebnis."],
+    "nup": ["Mehrseitenlayouts", "Papier sparen", "Ordnen Sie zwei oder vier Seiten pro Blatt an, um die Anzahl gedruckter Blätter zu verringern.", "Folien und Handouts", "Ordnen Sie Präsentationsseiten für Handouts und Lernunterlagen auf Blättern an."],
+    "inspect": ["PDF-Inspektion", "Dokumentstruktur", "Prüfen Sie PDF-Version, Metadaten und Seitengeometrie, um Dateiprobleme zu untersuchen.", "Funktionsindikatoren", "Prüfen Sie Hinweise auf ausgewählte JavaScript-Aktionen und eingebettete Dateien. Dies ist kein vollständiges Sicherheitsaudit."]
+  },
+  "jsonUpload": { "choose": "JSON-Datei auswählen oder hier ablegen", "hint": "Oder JSON unten einfügen" },
+  "sampleControls": {
+    "templates": {
+      "invoice": ["Rechnung / Abrechnung", "Tabellarische Summen"], "lorem": ["Mehrseitiger Artikel", "Formatierter Fließtext"], "contract": ["Vertrag / NDA", "Nummerierte Klauseln"], "synthetic-pii": ["Synthetische PII / DLP", "Testkarten und Schwärzung"], "mixed-geometry": ["Mischgeometrie-Stresstest", "A4, A3, gedreht und Kasse"], "specsheet": ["Technisches Datenblatt", "Systemparametertabellen"], "minimal": ["Minimale Testdatei", "Vektorüberschrift"]
+    },
+    "choose": "1. Vorlagentyp wählen", "details": "2. Dokumentdetails und Seitenzahl", "title": "Dokumenttitel", "titlePlaceholder": "z. B. Beispielrechnung", "totalPages": "Seiten insgesamt:", "pages_one": "{{count}} Seite", "pages_other": "{{count}} Seiten",
+    "advanced": "Optionale PDF-Funktionen und Fehlertests", "structures": "Bestimmte Strukturen hinzufügen", "bookmarks": "Lesezeichenbaum", "graphic": "Beispielgrafik", "form": "Interaktives Formular", "links": "Markierungen und URLs", "target": "Zieldateigröße (Fülldaten)", "standard": "Standard (~50KB)", "chaos": "QA-Einlesetest (beschädigte Bytes)", "valid": "Gültiges Dokument", "truncated": "Abgeschnittenes EOF", "header": "Ungültiger Dateikopf", "xref": "Beschädigte XRef",
+    "changed": "Optionen wurden seit der letzten Erstellung geändert. Klicken Sie unten, um die Datei zu aktualisieren.", "unsaved": "Nicht gespeichert", "generating": "PDF wird erstellt...", "regenerate": "Mit neuen Einstellungen erneut erstellen", "generate": "Beispiel-PDF erstellen", "outdated": "Alte Datei herunterladen (Neuerstellung empfohlen)", "download": "{{title}} herunterladen ({{pages}} S.)"
+  },
+  "contactPage": {
+    "title": "Kontakt", "subtitle": "Fragen, Feedback oder eine Idee für ein neues Werkzeug? Schreiben Sie uns.",
+    "description": "Senden Sie MyDailyUtils eine Frage, eine Supportanfrage oder Feedback. Kontaktformulare werden von Web3Forms verarbeitet.",
+    "requestTitle": "Kostenloses Werkzeug anfragen", "requestDescription": "Teilen Sie uns mit, was Sie benötigen und wie Sie es nutzen würden. Sie können die kostenlose Entwicklung eines neuen Werkzeugs anfragen.",
+    "disclosure": "Dieses Formular wird von Web3Forms, einem Drittanbieter, verarbeitet. Beim Absenden werden Ihr Name, Ihre E-Mail-Adresse und Ihre Nachricht zur Zustellung an Web3Forms übermittelt. Dies ist von unseren Werkzeugen getrennt, die Ihre Dateien im Browser verarbeiten. Lesen Sie unsere <privacy>Datenschutzerklärung</privacy>.",
+    "sent": "Nachricht gesendet", "thanks": "Vielen Dank für Ihre Nachricht. Wir werden sie zeitnah prüfen.", "name": "Ihr Name", "email": "Ihre E-Mail-Adresse", "message": "Nachricht", "placeholder": "Wie können wir helfen?", "sending": "Wird gesendet...", "send": "Nachricht senden", "failed": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.", "networkError": "Netzwerkverbindungsfehler. Bitte versuchen Sie es später erneut."
+  },
+  "posPage": {
+    "backupTitle": "Ladenprofil und Inventar für das nächste Mal sichern", "backupDescription": "Laden Sie ein Profil-JSON mit Ladendaten, Rechnungspräfix und Inventar herunter. Bewahren Sie es auf Ihrem Gerät auf und importieren Sie es bei Ihrer Rückkehr. JSON ist Ihre bearbeitbare Sicherung, nicht die Kundenrechnung.", "needItem": "Fügen Sie mindestens einen Inventarartikel hinzu, bevor Sie zur Rechnung wechseln.", "downloadProfile": "Profil-JSON herunterladen", "returnToBill": "Profil speichern und zur Rechnung zurückkehren", "continue": "Weiter zur Rechnung",
+    "units": { "pcs": "Stück (pcs)", "box": "Karton", "pack": "Packung", "kg": "Kilogramm (kg)", "g": "Gramm (g)", "lb": "Pfund (lb)", "oz": "Unze (oz)", "L": "Liter (L)", "mL": "Milliliter (mL)", "m": "Meter (m)", "cm": "Zentimeter (cm)" },
+    "fields": {
+      "name": "Ladenname *", "tagline": "Slogan", "taxId": "Steuer-ID", "address": "Adresse", "addressPlaceholder": "Geschäftsadresse", "phone": "Telefon", "email": "E-Mail", "prefix": "Rechnungspräfix *", "prefixPlaceholder": "z. B. SHOP", "prefixHint": "Jede neue Rechnung beginnt mit diesem Präfix, gefolgt von Datum und einem eindeutigen Code. Spätere Änderungen gelten für zukünftige Rechnungen.",
+      "currency": "Währungscode *", "taxLabel": "Bezeichnung der Hauptsteuer", "taxPlaceholder": "USt., Mehrwertsteuer...", "taxRate": "Hauptsteuersatz (%)", "additionalLabel": "Bezeichnung der Zusatzsteuer", "additionalPlaceholder": "z. B. lokale Steuer (optional)", "additionalRate": "Zusatzsteuersatz (%)",
+      "chargeLabel": "Bezeichnung weiterer Gebühren", "chargePlaceholder": "z. B. Lieferung, Verpackung (optional)", "chargeAmount": "Betrag weiterer Gebühren ({{currency}})", "calculation": "Steuerberechnung", "exclusive": "Steuer zu Artikelpreisen hinzufügen", "inclusive": "Artikelpreise enthalten bereits Steuer",
+      "taxHint": "Die zusätzliche prozentuale Steuer nutzt dieselbe Inklusiv- oder Exklusiv-Einstellung wie die Hauptsteuer und wird auf die steuerpflichtige Zwischensumme berechnet. Die Pauschalgebühr wird nach den prozentualen Steuern einmal pro Rechnung hinzugefügt. Das Werkzeug bestimmt keine gesetzlichen Steuersätze und garantiert keine Steuerkonformität.",
+      "optional": "Optional", "editItem": "Inventarartikel bearbeiten", "addItem": "Artikel hinzufügen", "cancelEdit": "Bearbeitung abbrechen", "itemName": "Artikelname *", "itemPlaceholder": "z. B. lose Mandeln", "price": "Verkaufspreis *", "unit": "Einheit", "sku": "SKU / Artikelcode", "update": "Artikel aktualisieren", "add": "Zum Inventar hinzufügen", "search": "Inventar durchsuchen", "searchPlaceholder": "Inventar durchsuchen...", "items_one": "{{count}} Artikel", "items_other": "{{count}} Artikel", "edit": "{{name}} bearbeiten", "delete": "{{name}} löschen", "noMatches": "Keine Inventarartikel entsprechen Ihrer Suche.", "empty": "Das Inventar ist leer. Fügen Sie einen Artikel hinzu oder importieren Sie ein Ladenprofil."
+    },
+    "title": "Kassen- und Rechnungsstudio", "subtitle": "Ein lokales Werkzeug für Ladenprofile, Inventar, Bruchmengen, Rechnungen mit Steuern und Offline-JSON-Sicherungen.",
+    "privacy": "Ladenprofile, Inventar, Kundendaten und Rechnungen werden in dieser Browsersitzung verarbeitet. Sie werden nur gespeichert, wenn Sie ausdrücklich eine JSON-Datei exportieren; Kassendaten werden nicht auf einen Server hochgeladen.",
+    "step": "Schritt 1 von 2 · Ladenprofil", "create": "Ladenprofil erstellen", "review": "Ladenprofil überprüfen",
+    "intro": "Fügen Sie Ihren Laden und Ihr Inventar hinzu oder importieren Sie ein gespeichertes Profil oder eine Rechnung.", "import": "Profil- oder Rechnungs-JSON importieren", "importHint": "Ladenprofil- oder Rechnungs-JSON importieren",
+    "profile": "Ladenprofil", "profileDescription": "Diese Angaben kennzeichnen Ihren Laden auf der Rechnung für den Kunden.", "inventory": "Ladeninventar",
+    "inventoryDescription": "Fügen Sie Artikel und Preise zum Inventar hinzu. Für Gewicht, Volumen, Länge oder Stückzahl können Sie Bruchmengen verwenden.",
+    "faq": [
+      ["Lädt die App mein Ladenprofil, Inventar oder Rechnungen hoch?", "Nein. Das Kassenwerkzeug läuft im Browser. Die App sendet Ladenprofil, Inventar, Kundendaten und Rechnungen nicht an ein Backend."],
+      ["Wie verwende ich Profil und Inventar beim nächsten Mal wieder?", "Laden Sie das Profil-JSON auf der Profilseite herunter. Es enthält Ladendaten, Rechnungspräfix und Inventar. Speichern Sie es auf Ihrem Gerät und importieren Sie es in der nächsten Sitzung. Im Browserspeicher wird nichts automatisch gespeichert."],
+      ["Kann ich Bruchmengen verwenden?", "Ja. Mengenfelder unterstützen Dezimalzahlen für Stück-, Gewichts-, Volumen-, Längen- und Verpackungseinheiten."],
+      ["Wie funktionieren Steuern und andere Gebühren?", "Legen Sie eine primäre und optional eine zusätzliche prozentuale Steuer fest; beide verwenden dieselbe Einstellung für inklusive oder exklusive Steuer. Die optionale Pauschalgebühr wird nach den prozentualen Steuern einmal pro Rechnung hinzugefügt. Dies ist ein allgemeiner Rechner, keine Steuer- oder Buchhaltungsberatung; prüfen Sie die geltenden Regeln."],
+      ["Welche Rechnungsnummer sieht mein Kunde?", "Jede neue Rechnung beginnt mit dem im Ladenprofil gewählten Präfix, gefolgt von Datum und einem eindeutigen Code. Ältere Profile ohne Präfix verwenden INV."],
+      ["Wie teile ich eine Rechnung mit einem Kunden?", "Drucken / Rechnungs-PDF herunterladen öffnet den Druckdialog des Browsers zum Drucken oder Speichern als PDF. Kundenbild herunterladen erstellt ein PNG der Rechnung."],
+      ["Was ist der Unterschied zwischen Rechnungsexport und JSON?", "PDF und PNG sind lesbare Rechnungskopien für Kunden. JSON ist für Sie: Das Profil-JSON enthält Ladenprofil und Inventar, das Rechnungs-JSON zusätzlich die aktuelle Rechnung und ihre Artikel. Dieselbe Importschaltfläche akzeptiert beide JSON-Typen."]
+    ]
+  },
+  "displayPage": {
+    "title": "Anzeige und Präsentation",
+    "subtitle": "Erstellen Sie aus PDFs, Word-Dokumenten und Bildern eine Vollbild-Diashow im Browser für Unterricht, Veranstaltungen, Bilderrahmen und Ladenanzeigen.",
+    "choose": "Dateien auswählen oder hier ablegen", "preparing": "Folien werden vorbereitet...", "hint": "PDF, DOCX oder Bilder · bis zu 100 MB pro Datei",
+    "empty": "Fügen Sie Dateien hinzu, um ihre Seiten anzusehen und eine Wiedergabeliste zu erstellen. Einzelne Seiten können Sie ausschließen, ohne die Originaldateien zu verändern.",
+    "privacy": "Dateien werden lokal im Browserspeicher gerendert und nicht hochgeladen. Die Wiedergabeliste ist temporär und wird beim Schließen oder Neuladen der Seite gelöscht.",
+    "faq": [
+      ["Werden meine Dateien an {{siteName}} hochgeladen?", "Nein. Ihre Dateien werden in diesem Browser gerendert und auf der aktuellen Seite gehalten. Sie werden nicht hochgeladen; beim Schließen oder Neuladen wird die Wiedergabeliste gelöscht."],
+      ["Welche Dateien kann ich anzeigen?", "PDFs, .docx-Word-Dokumente und Bildformate, die der Browser dekodieren kann. PDF- und DOCX-Seiten werden einzelne Folien. Ein unterstütztes Bild wird eine Standbildfolie; animierte Bilder werden nicht animiert abgespielt. Passwortgeschützte PDFs müssen vorher entsperrt werden."],
+      ["Wie entferne ich eine Seite aus der Vorführung?", "Deaktivieren Sie die Einbeziehung einer Folie, um sie in der Liste zu behalten, aber bei der Wiedergabe zu überspringen. Mit X entfernen Sie sie vollständig aus der Liste. Die Originaldatei bleibt unverändert."],
+      ["Wie funktioniert die Anzeigedauer pro Folie?", "Ein leerer Wert verwendet die Standarddauer der Liste. Geben Sie Sekunden für eine eigene Dauer oder 0 für manuelles Weiterblättern ein. Manuelle Folien bleiben sichtbar, bis Sie Weiter oder eine Tastenkombination verwenden."],
+      ["Wie zeige ich die Präsentation auf einem Fernseher oder Klassenbildschirm?", "Starten Sie die Vorführung, wählen Sie im Player Vollbild und verbinden oder übertragen Sie den Browser mit der üblichen Bildschirmfreigabe Ihres Geräts. F11 schaltet auf vielen Computern das Browser-Vollbild um; Escape beendet es. TV-Browser und Fernbedienungen unterscheiden sich, prüfen Sie daher Verbindung und Steuerung vor der Veranstaltung."],
+      ["Bleibt der Bildschirm den ganzen Tag eingeschaltet?", "Das Werkzeug kann die Screen Wake Lock API des Browsers anfordern, falls verfügbar; dies ist nicht garantiert. Der Browser kann sie bei ausgeblendetem Tab freigeben, das Gerät sie nicht unterstützen oder Energieeinstellungen sie übersteuern. Passen Sie für längere Anzeigen die Ruhemodus-Einstellungen des Bildschirms an."],
+      ["Welche Uhrzeit und welches Datum werden angezeigt?", "Die optionale Einblendung verwendet das aktuelle lokale Datum und die Uhrzeit des Geräts einschließlich Region und Zeitzone. Sie ist weder eine synchronisierte Uhr noch ein zeitgesteuertes Werbesystem."]
+    ]
+  },
   "pageHeadings": {
     "extract": ["Text aus PDF extrahieren", "Lesen, kopieren und exportieren Sie Text aus einem PDF. Gescannte Seiten erfordern OCR, das nicht enthalten ist."],
     "protect": ["PDF schützen (Passwortverschlüsselung)", "Legen Sie im Browser einen Passwortschutz und Dokumentberechtigungen für ein PDF fest."],
@@ -12,6 +77,140 @@
     "sanitize": ["PDF bereinigen (Metadaten und Datenschutz)", "Entfernen Sie ausgewählte PDF-Metadaten und Dokumentstrukturen im Browser. Prüfen Sie das Ergebnis vor dem Teilen."]
   },
   "pageGuides": {
+    "flatten": {
+      "title": "PDF-Formulare abflachen",
+      "subtitle": "Flachen Sie unterstützte interaktive PDF-Formularfelder im Browser ab. Prüfen Sie die gespeicherte Datei.",
+      "faq": [
+        ["Wird das PDF zur Verarbeitung hochgeladen?", "Das ausgewählte PDF wird im Browser verarbeitet und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website kann separate Anfragen für Werbung und unterstützende Ressourcen stellen."],
+        ["Was flacht dieses Werkzeug ab?", "Es versucht, PDF-Formularfelder in ihre sichtbare Darstellung umzuwandeln. Es garantiert nicht, dass alle Anmerkungen oder anderen interaktiven Inhalte entfernt werden. Prüfen Sie die gespeicherte Datei."],
+        ["Bleibt der Rest des Dokuments unverändert?", "Das PDF wird ohne Rastern der Seiten neu geschrieben, die Ergebnisse können jedoch variieren. Prüfen Sie Aussehen, Text und andere Funktionen der gespeicherten Datei."],
+        ["Können abgeflachte Formularfelder erneut bearbeitet werden?", "Abgeflachte Felder können normalerweise nicht mehr als Formularfelder bearbeitet werden. Bewahren Sie das Original auf, falls Sie sie später bearbeiten müssen."]
+      ]
+    },
+    "base64": {
+      "title": "Base64 und Hash",
+      "subtitle": "Kodieren oder dekodieren Sie UTF-8-Text, erstellen Sie URL-sicheres Base64 oder berechnen Sie SHA-Fingerabdrücke für Text und Dateien.",
+      "faq": [
+        ["Lädt dieses Werkzeug meine Daten an {{siteName}} hoch?", "Nein. Kodierung, Dekodierung und Hashing nutzen Browser-APIs lokal. Ausgewählte Dateien werden im Speicher gelesen und niemals hochgeladen."],
+        ["Ist Base64 Verschlüsselung?", "Nein. Base64 ist eine umkehrbare Kodierung, keine Verschlüsselung. Jeder kann sie dekodieren; verwenden Sie sie nicht zum Schutz von Geheimnissen."],
+        ["Kann ein Hash umgekehrt werden?", "Kryptografische Hashes sind als Einweg-Fingerabdrücke konzipiert. Das Werkzeug bietet SHA-1, SHA-256, SHA-384 und SHA-512. SHA-1 dient der Kompatibilität, nicht neuen sicherheitskritischen Anwendungen."],
+        ["Was ändert URL-sicheres Base64?", "Es ersetzt Plus und Schrägstrich durch Bindestrich und Unterstrich und lässt beim Kodieren das Padding weg. Dies ist für URLs und Dateinamen nützlich; beim Dekodieren muss die passende Option verwendet werden."],
+        ["Warum lassen sich manche Base64-Daten nicht als Text dekodieren?", "Der Dekodierer zeigt nur UTF-8-Text an. Base64 kann beliebige Binärdaten wie Bilder oder Archive darstellen, die kein gültiger UTF-8-Text sind."]
+      ]
+    },
+    "extract": {
+      "faq": [
+        ["Ist das Extrahieren von Text bei {{siteName}} sicher?", "Die Textextraktion läuft im Browser. Das ausgewählte PDF wird nicht zur Verarbeitung an {{siteName}} hochgeladen; PDF.js kann unterstützende Zeichensatzdateien von einem Content Delivery Network anfordern."],
+        ["Kann dieses Werkzeug gescannte PDFs oder Fotos von Text lesen?", "Es extrahiert eingebetteten digitalen Text. Gescannte Dokumente oder reine Bild-PDFs benötigen optische Zeichenerkennung (OCR), die dieses Werkzeug nicht unterstützt."],
+        ["Bleibt das Layout beim Extrahieren erhalten?", "Das Werkzeug trennt extrahierten Text nach Seiten, erhält aber nicht das genaue visuelle Layout, die Spalten oder die Typografie des PDF."],
+        ["Gibt es eine Grenze für die Dokumentlänge?", "Die Oberfläche hat keine feste Seitengrenze, aber große PDFs können länger dauern oder den verfügbaren Browserspeicher überschreiten. Gescannte Seiten werden nicht per OCR verarbeitet."]
+      ]
+    },
+    "pdfToImages": {
+      "title": "PDF in Bilder umwandeln",
+      "subtitle": "Rendern Sie PDF-Seiten im Browser als PNG-Bilder.",
+      "faq": [
+        ["Ist die Umwandlung von PDF in Bilder bei {{siteName}} sicher?", "PDF-Seiten werden im Browser gerendert und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website stellt separate Anfragen für Ressourcen und Werbung."],
+        ["Welche Qualität haben die umgewandelten Bilder?", "Die Seiten werden im ausgewählten Maßstab als PNG gerendert. Größere Maßstäbe erzeugen größere Bilder und benötigen mehr Speicher; prüfen Sie das Ergebnis in der benötigten Größe."],
+        ["Welches Bildformat wird erzeugt?", "Die Seiten werden als verlustfreie PNG-Bilder gerendert."],
+        ["Gibt es eine Grenze für die Anzahl der Seiten?", "Die Oberfläche hat keine feste Seitengrenze, aber große Dokumente und hohe Rendermaßstäbe können länger dauern oder den verfügbaren Browserspeicher überschreiten."]
+      ]
+    },
+    "organize": {
+      "title": "PDF-Seiten organisieren",
+      "subtitle": "Ordnen, drehen oder löschen Sie PDF-Seiten visuell im Browser.",
+      "faq": [
+        ["Ist das Organisieren von PDF-Seiten bei {{siteName}} sicher?", "Das ausgewählte PDF wird im Browser gerendert und neu angeordnet; es wird nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website stellt separate Anfragen für Ressourcen und Werbung."],
+        ["Kann ich bestimmte Seiten entfernen?", "Ja. Klicken Sie auf das Papierkorbsymbol einer Seitenminiatur, um die Seite aus dem endgültigen Dokument zu entfernen."],
+        ["Beeinflusst das Drehen die Qualität?", "Die Drehung ändert die Seitendrehung, ohne Vektortext erneut zu komprimieren oder zu rastern."],
+        ["Gibt es eine Grenze für die Anzahl der Seiten?", "Die Oberfläche hat keine feste Seitengrenze, aber das Rendern und Neuanordnen großer PDFs kann länger dauern oder den verfügbaren Browserspeicher überschreiten."]
+      ]
+    },
+    "pageNumbers": {
+      "title": "Seitenzahlen zum PDF hinzufügen",
+      "subtitle": "Fügen Sie einem PDF im Browser Seitenzahlen sowie Kopf- und Fußzeilen hinzu.",
+      "faq": [
+        ["Wird vorhandener Text beim Hinzufügen von Seitenzahlen bei {{siteName}} neu gerendert?", "Nein. Originalinhalt, Schriftarten, Vektorgrafiken und Bilder bleiben unverändert. Neuer Text wird an den angegebenen Koordinaten darübergelegt."],
+        ["Kann ich das Deckblatt auslassen?", "Ja. Aktivieren Sie die Option zum Überspringen der ersten Seite, um ab Seite 2 zu nummerieren."],
+        ["Werden vertrauliche Dokumente auf einen Server hochgeladen?", "Das ausgewählte PDF wird im Browser verarbeitet und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website kann separate Anfragen für Werbung und unterstützende Ressourcen stellen."]
+      ]
+    },
+    "watermark": {
+      "title": "PDF mit Wasserzeichen versehen",
+      "subtitle": "Fügen Sie ausgewählten PDF-Seiten im Browser ein konfigurierbares Textwasserzeichen hinzu.",
+      "faq": [
+        ["Werden meine Dokumente bei {{siteName}} auf einen Server hochgeladen?", "Das ausgewählte PDF wird im Browser verarbeitet und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website stellt separate Anfragen für Ressourcen und Werbung."],
+        ["Verdeckt das Wasserzeichen vorhandenen Text?", "Sie können die Deckkraft auf 10%–25% reduzieren, damit darunterliegender Text und Grafiken besser lesbar sind. Prüfen Sie das Ergebnis vor dem Teilen."],
+        ["Kann ich nur bestimmte Seiten mit Wasserzeichen versehen?", "Ja. Wählen Sie alle, ungerade oder gerade Seiten oder geben Sie einen eigenen Seitenbereich an (zum Beispiel 1-5, 8)."]
+      ]
+    },
+    "nup": {
+      "title": "N-Up-PDF (mehrere Seiten pro Blatt)",
+      "subtitle": "Ordnen Sie zwei oder vier PDF-Seiten pro Blatt für Handouts und Präsentationsnotizen an.",
+      "faq": [
+        ["Was ist N-Up-Druck bei {{siteName}}?", "N-Up verkleinert mehrere Seiten (2 oder 4) und ordnet sie auf einem Blatt an, sodass weniger Blätter benötigt werden."],
+        ["Verlieren Text oder Vektorgrafiken beim Skalieren an Schärfe?", "Seiten werden als PDF-Seitenobjekte eingebettet statt gerastert, sodass Text und Vektoren skalierbar bleiben. Prüfen Sie das Ergebnis in der vorgesehenen Druckgröße."],
+        ["Werden meine Dateien beim Anordnen hochgeladen?", "Das ausgewählte PDF wird im Browser angeordnet und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website kann separate Anfragen für Ressourcen und Werbung stellen."]
+      ]
+    },
+    "sanitize": {
+      "faq": [
+        ["Wie unterscheidet sich die Bereinigung von {{siteName}} von normalen PDF-Editoren?", "Das Werkzeug entfernt ausgewählte Dokumentinformationen, XMP-Metadaten, PieceInfo-Daten, Seitenminiaturen und unterstützte JavaScript-Aktionen. Es kann nicht garantieren, alle versteckten Informationen oder in Seitengrafiken eingebetteten Inhalte zu entfernen."],
+        ["Ändert die Bereinigung sichtbaren Text, Bilder oder das Layout?", "Das Werkzeug bearbeitet Metadaten und ausgewählte PDF-Strukturen, nicht den sichtbaren Seiteninhalt. Prüfen Sie die bereinigte Datei und verlassen Sie sich nicht allein darauf, um vertrauliche Informationen zu verbergen."],
+        ["Werden vertrauliche Dateien auf einen Server hochgeladen?", "Das ausgewählte PDF wird im Browser verarbeitet und nicht zur Verarbeitung an {{siteName}} hochgeladen. Das Werkzeug entfernt die auf dieser Seite beschriebenen Metadatentypen, garantiert aber nicht die Entfernung aller versteckten Informationen."]
+      ]
+    },
+    "protect": {
+      "faq": [
+        ["Erhält {{siteName}} mein Passwort oder PDF?", "Passwort und ausgewähltes PDF werden im Browser verarbeitet und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website stellt separate Anfragen für Ressourcen und Werbung."],
+        ["Bleiben Text und Links im geschützten PDF auswählbar?", "Das Werkzeug rendert jede Seite als Bild, bevor es das PDF neu erstellt. Text ist möglicherweise nicht mehr auswählbar oder durchsuchbar; Links, Formulare und andere interaktive Funktionen bleiben möglicherweise nicht erhalten. Prüfen Sie das Ergebnis, bevor Sie das Original ersetzen."],
+        ["Verhindern Druck- und Kopierberechtigungen jede Art von Kopie?", "Nein. PDF-Reader beachten Berechtigungen unterschiedlich, und sie können Screenshots oder andere Aufnahmen nicht verhindern. Verwenden Sie ein starkes Passwort zur Kontrolle des Öffnens und betrachten Sie Berechtigungen nicht als kopiersicheren Schutz."]
+      ]
+    },
+    "unlock": {
+      "faq": [
+        ["Ist das Entsperren von PDFs bei {{siteName}} sicher?", "Passwort und ausgewähltes PDF werden im Browser verarbeitet und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website stellt separate Anfragen für Ressourcen und Werbung."],
+        ["Muss ich das Dokumentpasswort kennen?", "Ja. Geben Sie ein Passwort ein, das Sie zum Öffnen des PDFs verwenden dürfen. Dieses Werkzeug kann vergessene Passwörter nicht wiederherstellen."],
+        ["Ändert das Entsperren Formatierung oder Inhalt des PDFs?", "Das Werkzeug erstellt jede Seite als Bild neu. Text ist möglicherweise nicht mehr auswählbar oder durchsuchbar; Links, Formulare und andere interaktive Funktionen bleiben möglicherweise nicht erhalten. Prüfen Sie das Ergebnis, bevor Sie das Original ersetzen."],
+        ["Kann ich die Datei später erneut verschlüsseln?", "Ja. Nach dem Entsperren können Sie jederzeit das Werkzeug zum Schützen von PDFs öffnen und neue Passwörter oder Berechtigungen festlegen."]
+      ]
+    },
+    "jsonFormatter": {
+      "title": "JSON-Formatierer",
+      "subtitle": "Formatieren, minimieren und prüfen Sie JSON mit klaren Syntaxfehlern und optionaler Schlüsselsortierung.",
+      "faq": [
+        ["Wird mein JSON an {{siteName}} gesendet?", "Nein. Parsen, Sortieren und Formatieren erfolgen lokal im Browser. Das Werkzeug führt keinen Code aus und stellt keine Netzwerkanfragen mit Ihrem JSON."],
+        ["Verändert das Sortieren der Schlüssel meine Daten?", "Die Reihenfolge der Objektschlüssel wird rekursiv für bessere Lesbarkeit geändert. Reihenfolge und Werte von Arrays bleiben erhalten. Vermeiden Sie die Sortierung, wenn die ursprüngliche Reihenfolge für Ihren Arbeitsablauf wichtig ist."],
+        ["Prüft die Validierung ein Schema?", "Nein. Sie prüft, ob die Eingabe syntaktisch gültiges JSON ist. Anwendungsspezifische Felder oder ein JSON Schema werden nicht geprüft."]
+      ]
+    },
+    "sample": {
+      "title": "Beispiel-PDF-Generator und QA-Testumgebung",
+      "subtitle": "Erstellen Sie im Browser Beispiel-PDFs mit konfigurierbaren Layouts, synthetischen Testdaten und optional fehlerhaften Dateien.",
+      "faq": [
+        ["Was ist der Mischgeometrie-Stresstest?", "Ein mehrseitiges PDF, dessen Seiten unterschiedliche Größen oder Ausrichtungen haben (A4 Hochformat, A3-Querformatplan, 90 Grad im Uhrzeigersinn gedreht und ein langer mobiler Kassenbeleg). Damit prüfen Sie, ob Ihr PDF-Viewer oder die Miniaturbildverarbeitung ungewöhnliche Seiten unterstützt."],
+        ["Warum ein beschädigtes PDF erzeugen?", "Entwickler und QA-Teams müssen die Fehlerbehandlung beim Hochladen defekter oder unvollständiger Dateien prüfen. Die Testmodi simulieren sicher abgeschnittene Downloads, ungültige Dateiköpfe und beschädigte Querverweistabellen."],
+        ["Sind die synthetischen PII echte Kundendaten?", "Nein. Der Generator erstellt künstliche Namen, zahlungsähnliche Nummern und steuerähnliche Kennungen für Softwaretests. Sie sind keine echten Kundendaten und dürfen nicht für Transaktionen oder Identitätsprüfungen verwendet werden."],
+        ["Wie funktioniert die Dateigrößensimulation?", "Bei 1 MB, 5 MB oder 10 MB fügt der Generator aufgefüllte binäre Datenströme in das Dokument ein. So können Sie Uploadgrenzen testen, ohne große Dateien suchen zu müssen."]
+      ]
+    },
+    "imagesToPdf": {
+      "title": "Bilder in PDF umwandeln",
+      "subtitle": "Fügen Sie JPG-, PNG- und WebP-Bilder im Browser zu einem PDF zusammen.",
+      "faq": [
+        ["Werden meine Fotos bei {{siteName}} auf einen externen Server hochgeladen?", "Ausgewählte Bilder werden im Browser konvertiert und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website stellt separate Anfragen für Ressourcen und Werbung."],
+        ["Welche Bildformate werden unterstützt?", "JPG-, JPEG-, PNG- und WebP-Bilder werden unterstützt und in PDF-Datenströme umgewandelt."],
+        ["Kann ich die Reihenfolge der Bilder vor dem Erstellen ändern?", "Ja. Ordnen Sie die Seiten mit den Pfeiltasten neben den Vorschau-Miniaturen."]
+      ]
+    },
+    "inspect": {
+      "title": "PDF-Struktur- und Metadateninspektor",
+      "subtitle": "Prüfen Sie PDF-Version, Metadaten, Verschlüsselung, Seitengeometrie und ausgewählte Dokumentfunktionen im Browser.",
+      "faq": [
+        ["Warum PDFs bei {{siteName}} prüfen?", "Der Bericht zeigt die grundlegende PDF-Struktur und Merkmale wie JavaScript-Aktionen. Er ist kein vollständiges Sicherheitsaudit, Malware-Scanner oder PDF/A-Konformitätsprüfer."],
+        ["Werden meine vertraulichen Dokumente auf einen Server hochgeladen?", "Das ausgewählte PDF wird im Browser analysiert und nicht zur Verarbeitung an {{siteName}} hochgeladen. Die Website stellt separate Anfragen für Ressourcen und Werbung."]
+      ]
+    },
     "imageConverter": {
       "faq": [
         ["Werden meine Bilder an {{siteName}} hochgeladen?", "Nein. Die Bilder werden mit HTML Canvas im Browserspeicher dekodiert und konvertiert; die Dateien werden nicht an unsere Server gesendet."],

@@ -5,6 +5,73 @@
   "allTools": "All tools",
   "exploreTools": "Explore tools",
   "featured": "Our standout tools",
+  "base64Upload": { "choose": "Choose a file or drop it here", "change": "Change {{name}}", "hint": "Any file · up to 100 MB", "memory": "Web Crypto reads the selected file into browser memory; files up to 100 MB are supported." },
+  "toolInfo": {
+    "more": "More about this tool",
+    "sanitize": ["Review before sharing", "Document information", "Remove selected document information and metadata that may identify the document or its author.", "Page thumbnails", "Remove supported embedded page thumbnails that may show older content.", "Other hidden data", "Remove selected editing data and supported JavaScript actions. Not all hidden content can be removed; review the output."],
+    "nup": ["Multi-page layouts", "Save paper", "Place two or four pages per sheet to reduce the number of printed sheets.", "Slides and handouts", "Arrange presentation pages on sheets for handouts and revision guides."],
+    "inspect": ["PDF inspection", "Document structure", "Review the PDF version, metadata and page geometry to help investigate file issues.", "Feature indicators", "Check indicators for selected JavaScript actions and embedded files. This is not a full security audit."]
+  },
+  "jsonUpload": { "choose": "Choose a JSON file or drop it here", "hint": "Or paste JSON below" },
+  "sampleControls": {
+    "templates": {
+      "invoice": ["Invoice / Statement", "Clean tabular totals"], "lorem": ["Multi-Page Article", "Formatted prose"], "contract": ["Legal Contract / NDA", "Numbered clauses"], "synthetic-pii": ["Synthetic PII / DLP", "Mock cards & redaction"], "mixed-geometry": ["Mixed Geometry Stress", "A4, A3, Rotated & POS"], "specsheet": ["Technical Spec Sheet", "System parameter tables"], "minimal": ["Minimal Ingest File", "Clean vector header"]
+    },
+    "choose": "1. Choose Template Type", "details": "2. Document Details & Page Count", "title": "Document Title Header", "titlePlaceholder": "e.g. Sample Invoice", "totalPages": "Total Pages:", "pages_one": "{{count}} Page", "pages_other": "{{count}} Pages",
+    "advanced": "Optional PDF Features & Chaos Testing", "structures": "Inject Specific Structures", "bookmarks": "Bookmarks Tree", "graphic": "Sample Graphic", "form": "Interactive Form", "links": "Highlights & URLs", "target": "Target File Size (Padded Data)", "standard": "Standard (~50KB)", "chaos": "QA Ingest Chaos (Corrupt Byte Stream)", "valid": "Valid Document", "truncated": "Cutoff EOF (Abort)", "header": "Broken Magic Byte", "xref": "Scrambled XRef",
+    "changed": "Options changed since last generation. Click below to refresh your file.", "unsaved": "Unsaved", "generating": "Synthesizing PDF...", "regenerate": "Re-Generate with New Settings", "generate": "Generate Sample PDF", "outdated": "Download Outdated File (Re-generate recommended)", "download": "Download {{title}} ({{pages}}p)"
+  },
+  "contactPage": {
+    "title": "Contact Us", "subtitle": "Questions, feedback, or an idea for a new tool? Let us know.",
+    "description": "Send MyDailyUtils a question, support request, or feedback. Contact form submissions are handled by Web3Forms.",
+    "requestTitle": "Request a free tool", "requestDescription": "Tell us what you need and how you would use it. You can request a new tool to be built for free.",
+    "disclosure": "This form is handled by Web3Forms, a third-party service. When you submit it, your name, email address, and message are sent to Web3Forms to deliver your message. This is separate from our utility tools, which process your files in your browser. See our <privacy>Privacy Policy</privacy>.",
+    "sent": "Message Sent", "thanks": "Thank you for reaching out. We will review your message shortly.", "name": "Your Name", "email": "Your Email Address", "message": "Message", "placeholder": "How can we help?", "sending": "Sending...", "send": "Send Message", "failed": "Submission failed. Please try again.", "networkError": "Network connection error. Please try again later."
+  },
+  "posPage": {
+    "backupTitle": "Keep your shop profile and inventory for next time", "backupDescription": "Download a profile JSON with your shop details, bill prefix, and shop inventory. Keep it on your device and import it whenever you return. JSON is your editable backup; it is not the customer bill.", "needItem": "Add at least one item to shop inventory before continuing to the bill.", "downloadProfile": "Download profile JSON", "returnToBill": "Save profile & return to bill", "continue": "Continue to bill",
+    "units": { "pcs": "Pieces (pcs)", "box": "Box", "pack": "Pack", "kg": "Kilogram (kg)", "g": "Gram (g)", "lb": "Pound (lb)", "oz": "Ounce (oz)", "L": "Litre (L)", "mL": "Millilitre (mL)", "m": "Metre (m)", "cm": "Centimetre (cm)" },
+    "fields": {
+      "name": "Shop name *", "tagline": "Tagline", "taxId": "Tax ID", "address": "Address", "addressPlaceholder": "Business address", "phone": "Phone", "email": "Email", "prefix": "Bill number prefix *", "prefixPlaceholder": "e.g. SHOP", "prefixHint": "Each new bill starts with this prefix, followed by its date and a unique code. Changing it later applies to future bills.",
+      "currency": "Currency code *", "taxLabel": "Primary tax label", "taxPlaceholder": "GST, VAT, Sales tax...", "taxRate": "Primary tax rate (%)", "additionalLabel": "Additional tax label", "additionalPlaceholder": "e.g. Cess, local tax (optional)", "additionalRate": "Additional tax rate (%)",
+      "chargeLabel": "Other charge label", "chargePlaceholder": "e.g. Delivery, packaging (optional)", "chargeAmount": "Other charge amount ({{currency}})", "calculation": "Tax calculation", "exclusive": "Add tax to item prices", "inclusive": "Item prices already include tax",
+      "taxHint": "The additional percentage tax uses the same inclusive or exclusive setting as the primary tax and is calculated on the taxable subtotal. The flat charge is added once per bill after percentage taxes. This tool does not determine legal tax rates or guarantee tax compliance.",
+      "optional": "Optional", "editItem": "Edit inventory item", "addItem": "Add an item", "cancelEdit": "Cancel item edit", "itemName": "Item name *", "itemPlaceholder": "e.g. Loose almonds", "price": "Selling price *", "unit": "Unit", "sku": "SKU / item code", "update": "Update item", "add": "Add to inventory", "search": "Search inventory", "searchPlaceholder": "Search inventory...", "items_one": "{{count}} item", "items_other": "{{count}} items", "edit": "Edit {{name}}", "delete": "Delete {{name}}", "noMatches": "No inventory items match your search.", "empty": "Shop inventory is empty. Add your first item or import a shop profile."
+    },
+    "title": "POS & Bill Studio", "subtitle": "A local-only tool for shop profiles, inventory, fractional quantities, tax-aware bills, and offline JSON backups.",
+    "privacy": "Shop profiles, inventory, customer information, and bills are processed in this browser session. They are only saved when you explicitly export a JSON file; no POS data is uploaded to a server.",
+    "step": "Step 1 of 2 · Shop profile", "create": "Create your shop profile", "review": "Review your shop profile",
+    "intro": "Add your shop and inventory, or import a saved profile or bill.", "import": "Import profile or bill JSON", "importHint": "Import a shop profile JSON or a bill JSON",
+    "profile": "Shop profile", "profileDescription": "These details identify your shop on the bill your customer receives.", "inventory": "Shop inventory",
+    "inventoryDescription": "Add items and prices to shop inventory. You can use fractional quantities for weight, volume, length, or count.",
+    "faq": [
+      ["Does the app upload my shop profile, inventory, or bills?", "No. The POS tool runs in your browser. The app does not send your shop profile, inventory, customer information, or bills to a backend."],
+      ["How do I reuse my shop profile and inventory next time?", "Download the profile JSON from the shop profile screen. It contains your shop profile details, bill prefix, and inventory. Keep it on your device and import it next session. Nothing is stored automatically in browser storage."],
+      ["Can I use fractional inventory quantities?", "Yes. Quantity fields support decimals for count, weight, volume, length, and package units."],
+      ["How do taxes and other charges work?", "Set a primary and optional additional percentage tax; both use the same inclusive or exclusive setting. The optional flat charge is added once per bill after percentage taxes. This is a general calculator, not tax or accounting advice; verify the rules that apply to your shop."],
+      ["What bill number will my customer see?", "Each new bill starts with the prefix you choose in your shop profile, followed by the date and a unique code. Older profile files without a prefix use INV."],
+      ["How do I share a bill with a customer?", "Print / download bill PDF opens the browser print dialog, where you can print or choose Save as PDF. Download customer image creates a PNG of the bill."],
+      ["What is the difference between bill exports and JSON?", "PDF and PNG are readable bill copies to share with your customer. JSON is for you: profile JSON contains your shop profile and inventory, while bill JSON also contains the current bill and its items. The same import button accepts either JSON type."]
+    ]
+  },
+  "displayPage": {
+    "title": "Display & Presentation",
+    "subtitle": "Turn PDFs, Word documents, and images into a browser-based fullscreen slideshow for lessons, events, photo frames, and in-store displays.",
+    "choose": "Choose files or drop them here",
+    "preparing": "Preparing slides...",
+    "hint": "PDF, DOCX, or images · up to 100 MB per file",
+    "empty": "Add files to preview their pages and build a playlist. You can exclude individual pages without changing the original files.",
+    "privacy": "Files are rendered locally in browser memory and are not uploaded. The playlist is temporary and is cleared when you close or refresh this page.",
+    "faq": [
+      ["Are my files uploaded to {{siteName}}?", "No. Your files are rendered in this browser and kept in the current page. They are not uploaded; closing or refreshing the page clears the playlist."],
+      ["Which files can I display?", "PDFs, .docx Word documents, and image formats that the current browser can decode. PDF and DOCX pages become separate slides. A browser-supported image becomes one still slide; animated images are not played as animation. Password-protected PDFs must be unlocked before use."],
+      ["How do I remove a page from the show?", "Uncheck Include on a slide to keep it in your playlist but skip it during playback. Use the X button to remove that slide from the playlist entirely. The original file is never changed."],
+      ["How does per-slide timing work?", "A blank duration uses the playlist default. Set an individual slide to a number of seconds to override it, or set it to 0 for manual advance. Manual-advance slides remain visible until you use Next or a keyboard shortcut."],
+      ["How do I show this on a TV or classroom screen?", "Start the show, choose the fullscreen control in the player, and connect or cast your browser to the display using your device’s normal screen-sharing method. F11 toggles browser fullscreen on many computers; Escape exits fullscreen. TV browsers and remotes differ, so test the connection and controls before an event."],
+      ["Will the screen stay awake all day?", "The tool can request the browser Screen Wake Lock API when available, but this is best-effort. The browser may release it when the tab is hidden, the device may not support it, and TV or operating-system power settings can override it. For long-running signage, adjust the display’s own sleep settings."],
+      ["What time and date are shown?", "The optional overlay uses the device’s current local date and time, including its locale and timezone. It is not a synchronized clock or a scheduled advertisement system."]
+    ]
+  },
   "pageHeadings": {
     "extract": ["Extract Text from PDF", "Read, copy, and export text from a PDF. Scanned pages require OCR, which is not included."],
     "protect": ["Protect PDF (Password Encryption)", "Set password protection for a PDF and choose document permissions in your browser."],
@@ -12,6 +79,140 @@
     "sanitize": ["Sanitize PDF (Metadata & Privacy Stripper)", "Remove selected PDF metadata and document structures in your browser. Review the output before sharing."]
   },
   "pageGuides": {
+    "flatten": {
+      "title": "Flatten PDF Forms",
+      "subtitle": "Flatten supported interactive form fields in a PDF using your browser. Review the saved file.",
+      "faq": [
+        ["Is the PDF uploaded for processing?", "The selected PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The website may make separate requests for advertising and supporting resources."],
+        ["What does this tool flatten?", "It attempts to flatten PDF form fields into their visual appearance. It does not guarantee that all annotations or other interactive content are removed. Check the saved file."],
+        ["Will the rest of the document stay unchanged?", "The PDF is rewritten without rasterizing its pages, but results can vary. Check the saved file, including its appearance, text and other features."],
+        ["Can flattened form fields be edited again?", "Flattened form fields cannot normally be edited as form fields again. Keep the original file if you may need to edit them later."]
+      ]
+    },
+    "base64": {
+      "title": "Base64 & Hash",
+      "subtitle": "Encode or decode UTF-8 text, create URL-safe Base64, or calculate SHA fingerprints for text and files.",
+      "faq": [
+        ["Does this tool upload my data to {{siteName}}?", "No. Encoding, decoding, and hashing use browser APIs locally. Selected files are read in memory and never uploaded."],
+        ["Is Base64 encryption?", "No. Base64 is a reversible encoding, not encryption. Anyone can decode it; never use it to protect secrets."],
+        ["Can a hash be reversed?", "Cryptographic hashes are designed to be one-way fingerprints. This tool offers SHA-1, SHA-256, SHA-384, and SHA-512. SHA-1 is included for compatibility, not for security-sensitive new designs."],
+        ["What does URL-safe Base64 change?", "It substitutes hyphen and underscore for plus and slash, and omits padding when encoding. This is useful in URLs and filenames; decoding must use the matching option."],
+        ["Why can’t some Base64 data be decoded as text?", "The decoder displays UTF-8 text only. Base64 may represent arbitrary binary data such as an image or archive; that data is not valid UTF-8 text."]
+      ]
+    },
+    "extract": {
+      "faq": [
+        ["Is extracting text safe on {{siteName}}?", "Text extraction runs in your browser. The selected PDF is not uploaded to {{siteName}} for processing; PDF.js may request supporting character-map resources from a content delivery network."],
+        ["Can this tool read scanned PDFs or photos of text?", "This tool extracts embedded digital text. Scanned documents or image-only PDFs require optical character recognition (OCR), which this tool does not support."],
+        ["Does the extraction preserve layout formatting?", "The tool separates extracted text by page, but it does not preserve the exact visual layout, columns, or typography of the PDF."],
+        ["Is there a limit on how long the document can be?", "There is no fixed page limit in the interface, but large PDFs may take longer or exceed available browser memory. Scanned pages are not OCR-processed."]
+      ]
+    },
+    "pdfToImages": {
+      "title": "Convert PDF to Images",
+      "subtitle": "Render PDF pages as PNG images in your browser.",
+      "faq": [
+        ["Is converting PDF to images safe on {{siteName}}?", "PDF pages are rendered in your browser and are not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."],
+        ["What is the quality of the converted images?", "Pages are rendered as PNG images at the tool’s selected scale. Larger scales create larger images and use more memory; check the results at the size you need."],
+        ["What image format is produced?", "Pages are rendered as lossless PNG images."],
+        ["Is there a limit on how many pages I can convert?", "There is no fixed page limit in the interface, but large documents and high render scales may take longer or exceed available browser memory."]
+      ]
+    },
+    "organize": {
+      "title": "Organize PDF Pages",
+      "subtitle": "Reorder, rotate, or delete PDF pages visually in your browser.",
+      "faq": [
+        ["Is organizing PDF pages safe on {{siteName}}?", "The selected PDF is rendered and reorganized in your browser; it is not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."],
+        ["Can I remove specific pages from my PDF?", "Yes. Click the trash icon on any page thumbnail to remove that page from the final document."],
+        ["Will rotating pages affect document quality?", "Rotation updates the page's rotation without re-compressing or rasterizing vector text."],
+        ["Is there a limit on how many pages I can organize?", "There is no fixed page limit in the interface, but rendering and reorganizing large PDFs may take longer or exceed available browser memory."]
+      ]
+    },
+    "pageNumbers": {
+      "title": "Add Page Numbers to PDF",
+      "subtitle": "Add page numbers, headers, and footers to a PDF using your browser.",
+      "faq": [
+        ["Does adding page numbers re-render existing text on {{siteName}}?", "No. The original page contents, fonts, vector drawings, and images remain untouched. New text streams are overlaid at specified coordinates."],
+        ["Can I omit the cover or title page?", "Yes. Enable the Skip first page checkbox to start numbering from page 2 onward."],
+        ["Are my confidential documents uploaded to a server?", "The selected PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The website may make separate requests for advertising and supporting resources."]
+      ]
+    },
+    "watermark": {
+      "title": "Watermark PDF",
+      "subtitle": "Add a configurable text watermark to selected PDF pages in your browser.",
+      "faq": [
+        ["Are my watermarked documents uploaded to a remote server on {{siteName}}?", "The selected PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."],
+        ["Will the watermark obscure my existing text?", "You can reduce the opacity to 10%–25% to make underlying text and graphics easier to read. Review the result before sharing."],
+        ["Can I watermark only specific pages?", "Yes. Select all, odd or even pages, or enter a custom page range (for example 1-5, 8)."]
+      ]
+    },
+    "nup": {
+      "title": "N-Up PDF (Multiple Pages Per Sheet)",
+      "subtitle": "Arrange two or four PDF pages on each sheet for handouts and presentation notes.",
+      "faq": [
+        ["What is N-Up printing on {{siteName}}?", "N-Up scales multiple pages (2 or 4) and positions them on one sheet, reducing the number of sheets required."],
+        ["Will text or vector drawings lose clarity when scaled?", "Pages are embedded as PDF page objects rather than rasterized, so text and vector elements remain scalable. Check the result at your intended print size."],
+        ["Are my files uploaded anywhere during layout composition?", "The selected PDF is arranged in your browser and is not uploaded to {{siteName}} for processing. The website may make separate requests for resources and advertising."]
+      ]
+    },
+    "sanitize": {
+      "faq": [
+        ["What makes {{siteName}} sanitization different from standard PDF editors?", "The tool removes the selected document information, XMP metadata, PieceInfo data, page thumbnails, and supported JavaScript actions. It cannot guarantee removal of every kind of hidden information or content embedded in page artwork."],
+        ["Will sanitizing a PDF alter my visible text, images, or layout?", "The tool targets metadata and selected PDF structures, not visible page content. Check the sanitized file and do not rely on it as the sole method for concealing sensitive information."],
+        ["Are my confidential files uploaded to any server?", "The selected PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The tool removes the metadata types described on this page; it cannot guarantee removal of every kind of hidden information."]
+      ]
+    },
+    "protect": {
+      "faq": [
+        ["Does {{siteName}} receive my password or PDF?", "The password and selected PDF are processed in your browser and are not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."],
+        ["Will the protected PDF retain selectable text and links?", "This tool renders each page to an image before rebuilding the PDF. Text may no longer be selectable or searchable, and links, forms, and other interactive features may not be retained. Review the result before replacing your original."],
+        ["Do the printing and copying permissions prevent every kind of copying?", "No. PDF permissions are honored differently by different readers and cannot prevent screenshots or other ways of capturing content. Use a strong password to control opening, and do not treat permission flags as copy-proof security."]
+      ]
+    },
+    "unlock": {
+      "faq": [
+        ["Is unlocking PDFs safe on {{siteName}}?", "The password and selected PDF are processed in your browser and are not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."],
+        ["Do I need to know the document password?", "Yes. Enter a password you are authorized to use to open the PDF. This tool cannot recover a forgotten password."],
+        ["Will unlocking alter the formatting or contents of my PDF?", "This tool rebuilds each page as an image. Text may no longer be selectable or searchable, and links, forms, and other interactive features may not be retained. Check the output before replacing your original."],
+        ["Can I re-encrypt the file later?", "Yes. Once unlocked, you can open the Protect PDF tool at any time to assign new passwords or custom permissions."]
+      ]
+    },
+    "jsonFormatter": {
+      "title": "JSON Formatter",
+      "subtitle": "Beautify, minify, and validate JSON data with clear syntax errors and optional key sorting.",
+      "faq": [
+        ["Is my JSON sent to {{siteName}}?", "No. Parsing, sorting, and formatting happen locally in your browser. The tool does not evaluate code or make network requests with your JSON."],
+        ["Does sorting keys change my data?", "It changes the order of object keys recursively for readability. Array order and values are retained. Avoid key sorting if the original order is meaningful to your workflow."],
+        ["Does validation check a schema?", "No. Validation checks whether the input is syntactically valid JSON. It does not validate application-specific fields or a JSON Schema."]
+      ]
+    },
+    "sample": {
+      "title": "Sample PDF Generator & QA Sandbox",
+      "subtitle": "Generate sample PDFs with configurable layouts, synthetic test data, and optional malformed-file cases in your browser.",
+      "faq": [
+        ["What is the Mixed-Geometry Stress Test?", "A single multi-page PDF where each page has a different size or orientation (A4 portrait, A3 landscape blueprint, 90-degree clockwise rotation, and a long mobile POS receipt). It tests if your PDF viewer or thumbnail pipeline handles non-standard pages."],
+        ["Why would I generate a corrupted PDF?", "Software developers and QA engineers need to test error handling when users upload broken or incomplete files. Our chaos modes simulate truncated downloads, invalid magic headers, and scrambled cross-reference tables safely."],
+        ["Is the Synthetic PII dataset real customer data?", "No. The generator creates synthetic names, payment-like numbers, and tax-like identifiers for software testing. They are not real customer data and should not be used for transactions or identity verification."],
+        ["How does the file size simulation work?", "When you select 1 MB, 5 MB, or 10 MB, the generator injects padded binary data streams into the document, allowing you to test file-upload limits without hunting for arbitrary large files."]
+      ]
+    },
+    "imagesToPdf": {
+      "title": "Convert Images to PDF",
+      "subtitle": "Assemble JPG, PNG, and WebP images into a PDF using your browser.",
+      "faq": [
+        ["Are my photos uploaded to an external server on {{siteName}}?", "Selected images are converted in your browser and are not uploaded to {{siteName}} for processing. The site makes separate requests for resources and advertising."],
+        ["Which image formats are supported?", "JPG, JPEG, PNG, and WebP images are supported and converted to PDF streams."],
+        ["Can I change the order of images before making the PDF?", "Yes. Use the up and down arrow buttons next to each preview thumbnail to arrange the pages."]
+      ]
+    },
+    "inspect": {
+      "title": "PDF Structure & Metadata Inspector",
+      "subtitle": "Review PDF version, metadata, encryption status, page geometry, and selected document features in your browser.",
+      "faq": [
+        ["Why inspect PDFs on {{siteName}}?", "Use the report to review basic PDF structure and look for features such as JavaScript actions. It is not a full security audit, malware scanner, or PDF/A conformance validator."],
+        ["Are my confidential documents uploaded to a remote server?", "The selected PDF is analyzed in your browser and is not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."]
+      ]
+    },
     "imageConverter": {
       "faq": [
         ["Are my images uploaded to {{siteName}}?", "No. Your images are decoded and converted in browser memory using HTML Canvas; the files are not sent to our servers."],

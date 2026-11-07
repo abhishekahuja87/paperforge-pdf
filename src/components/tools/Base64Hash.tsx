@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AlertCircle, Check, Clipboard, RotateCcw, ShieldCheck } from 'lucide-react';
 import { copyText } from '../../lib/browserTools';
 import { FileDropZone } from '../common/FileDropZone';
+import { useTranslation } from 'react-i18next';
 
 type ToolMode = 'encode' | 'decode' | 'hash';
 type HashAlgorithm = 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512';
@@ -51,6 +52,7 @@ function bytesToHex(bytes: Uint8Array): string {
 }
 
 export const Base64Hash: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [mode, setMode] = useState<ToolMode>('encode');
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
@@ -172,13 +174,14 @@ export const Base64Hash: React.FC = () => {
             <div className="sm:col-span-2">
               <FileDropZone
                 disabled={isWorking}
-                label={file ? `Change ${file.name}` : 'Choose a file or drop it here'}
-                hint="Any file · up to 100 MB"
+                label={file ? t('base64Upload.change', { name: file.name }) : t('base64Upload.choose')}
+                hint={t('base64Upload.hint')}
+                labelLanguage={i18n.language}
                 onFiles={(files) => { setFile(files[0]); setOutput(''); setError(''); setStatus(''); }}
               />
             </div>
           )}
-          {mode === 'hash' && hashInput === 'file' && <p className="mb-3 text-[10px] text-slate-500">Web Crypto reads the selected file into browser memory; files up to 100 MB are supported.</p>}
+          {mode === 'hash' && hashInput === 'file' && <p lang={i18n.language} className="mb-3 text-[10px] text-slate-500">{t('base64Upload.memory')}</p>}
         </div>
       )}
 

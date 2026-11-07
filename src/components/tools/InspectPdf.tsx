@@ -9,8 +9,10 @@ import {
   FileCode2
 } from 'lucide-react';
 import { inspectPdf, type PdfInspectionReport } from '../../lib/pdf/inspect';
+import { useTranslation } from 'react-i18next';
 
 export const InspectPdf: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [report, setReport] = useState<PdfInspectionReport | null>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
@@ -66,29 +68,29 @@ export const InspectPdf: React.FC = () => {
         />
       )}
 
-      <details className="rounded-xl border border-stone-200 bg-white p-3">
-        <summary className="cursor-pointer text-xs font-semibold text-stone-700">More about this tool</summary>
+      <details lang={i18n.language} className="rounded-xl border border-stone-200 bg-white p-3">
+        <summary className="cursor-pointer text-xs font-semibold text-stone-700">{t('toolInfo.more')}</summary>
         <div className="mt-3">
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
               <Terminal className="w-4 h-4 text-indigo-600" />
-              Developer & Pre-Flight Forensics
+              {t('toolInfo.inspect.0')}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
               <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
                 <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-                  <FileCode2 className="w-3.5 h-3.5 text-indigo-600" /> Pipeline Debugging
+                  <FileCode2 className="w-3.5 h-3.5 text-indigo-600" /> {t('toolInfo.inspect.1')}
                 </span>
                 <p className="text-[11px] text-slate-500 leading-snug">
-                  Audit specs, version markers, and embedded stream structures to fix upload rejections in internal systems.
+                  {t('toolInfo.inspect.2')}
                 </p>
               </div>
               <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
                 <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Security Inspection
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> {t('toolInfo.inspect.3')}
                 </span>
                 <p className="text-[11px] text-slate-500 leading-snug">
-                  Identify hidden executable JavaScript hooks, automatic OpenAction triggers, and embedded attachments safely.
+                  {t('toolInfo.inspect.4')}
                 </p>
               </div>
             </div>

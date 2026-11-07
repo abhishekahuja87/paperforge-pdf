@@ -5,6 +5,71 @@
   "allTools": "Todas las herramientas",
   "exploreTools": "Explorar herramientas",
   "featured": "Herramientas destacadas",
+  "base64Upload": { "choose": "Elige un archivo o arrástralo aquí", "change": "Cambiar {{name}}", "hint": "Cualquier archivo · hasta 100 MB", "memory": "Web Crypto lee el archivo seleccionado en la memoria del navegador; se admiten archivos de hasta 100 MB." },
+  "toolInfo": {
+    "more": "Más sobre esta herramienta",
+    "sanitize": ["Revisa antes de compartir", "Información del documento", "Elimina la información y los metadatos seleccionados que puedan identificar el documento o su autor.", "Miniaturas de páginas", "Elimina las miniaturas incrustadas compatibles que puedan mostrar contenido anterior.", "Otros datos ocultos", "Elimina los datos de edición seleccionados y las acciones JavaScript compatibles. No se puede eliminar todo el contenido oculto; revisa el resultado."],
+    "nup": ["Diseños de varias páginas", "Ahorra papel", "Coloca dos o cuatro páginas por hoja para reducir el número de hojas impresas.", "Diapositivas y folletos", "Organiza páginas de presentación en hojas para folletos y guías de repaso."],
+    "inspect": ["Inspección PDF", "Estructura del documento", "Revisa la versión, los metadatos y la geometría de página para investigar problemas del archivo.", "Indicadores de funciones", "Comprueba los indicadores de determinadas acciones JavaScript y archivos incrustados. No es una auditoría de seguridad completa."]
+  },
+  "jsonUpload": { "choose": "Elige un archivo JSON o arrástralo aquí", "hint": "O pega JSON abajo" },
+  "sampleControls": {
+    "templates": {
+      "invoice": ["Factura / estado de cuenta", "Totales tabulados"], "lorem": ["Artículo de varias páginas", "Texto con formato"], "contract": ["Contrato legal / NDA", "Cláusulas numeradas"], "synthetic-pii": ["PII sintéticos / DLP", "Tarjetas ficticias y redacción"], "mixed-geometry": ["Prueba de geometría mixta", "A4, A3, giro y POS"], "specsheet": ["Ficha técnica", "Tablas de parámetros"], "minimal": ["Archivo mínimo de ingesta", "Encabezado vectorial"]
+    },
+    "choose": "1. Elige el tipo de plantilla", "details": "2. Datos del documento y número de páginas", "title": "Título del documento", "titlePlaceholder": "p. ej. Factura de muestra", "totalPages": "Páginas totales:", "pages_one": "{{count}} página", "pages_other": "{{count}} páginas",
+    "advanced": "Funciones PDF opcionales y pruebas de fallos", "structures": "Añadir estructuras específicas", "bookmarks": "Árbol de marcadores", "graphic": "Gráfico de muestra", "form": "Formulario interactivo", "links": "Resaltados y URL", "target": "Tamaño objetivo (datos de relleno)", "standard": "Estándar (~50KB)", "chaos": "Prueba de ingesta QA (bytes corruptos)", "valid": "Documento válido", "truncated": "EOF truncado", "header": "Cabecera inválida", "xref": "XRef alterado",
+    "changed": "Las opciones cambiaron desde la última generación. Haz clic abajo para actualizar el archivo.", "unsaved": "Sin guardar", "generating": "Generando PDF...", "regenerate": "Generar de nuevo con la nueva configuración", "generate": "Generar PDF de muestra", "outdated": "Descargar archivo anterior (se recomienda regenerar)", "download": "Descargar {{title}} ({{pages}} pág.)"
+  },
+  "contactPage": {
+    "title": "Contacto", "subtitle": "¿Tienes preguntas, comentarios o una idea para una herramienta? Cuéntanos.",
+    "description": "Envía a MyDailyUtils una pregunta, solicitud de ayuda o comentario. Web3Forms gestiona los envíos del formulario.",
+    "requestTitle": "Solicita una herramienta gratuita", "requestDescription": "Cuéntanos qué necesitas y cómo lo usarías. Puedes solicitar que se cree una herramienta nueva gratis.",
+    "disclosure": "Este formulario lo gestiona Web3Forms, un servicio externo. Al enviarlo, tu nombre, correo electrónico y mensaje se envían a Web3Forms para entregar tu mensaje. Esto es independiente de nuestras herramientas, que procesan tus archivos en el navegador. Consulta nuestra <privacy>Política de privacidad</privacy>.",
+    "sent": "Mensaje enviado", "thanks": "Gracias por contactarnos. Revisaremos tu mensaje pronto.", "name": "Tu nombre", "email": "Tu correo electrónico", "message": "Mensaje", "placeholder": "¿Cómo podemos ayudarte?", "sending": "Enviando...", "send": "Enviar mensaje", "failed": "No se pudo enviar. Inténtalo de nuevo.", "networkError": "Error de conexión de red. Inténtalo más tarde."
+  },
+  "posPage": {
+    "backupTitle": "Conserva tu perfil e inventario para la próxima vez", "backupDescription": "Descarga un JSON con los datos de la tienda, el prefijo de factura y el inventario. Guárdalo en tu dispositivo e impórtalo cuando vuelvas. JSON es tu copia editable, no la factura del cliente.", "needItem": "Añade al menos un artículo al inventario antes de continuar a la factura.", "downloadProfile": "Descargar JSON del perfil", "returnToBill": "Guardar perfil y volver a la factura", "continue": "Continuar a la factura",
+    "units": { "pcs": "Piezas (pcs)", "box": "Caja", "pack": "Paquete", "kg": "Kilogramo (kg)", "g": "Gramo (g)", "lb": "Libra (lb)", "oz": "Onza (oz)", "L": "Litro (L)", "mL": "Mililitro (mL)", "m": "Metro (m)", "cm": "Centímetro (cm)" },
+    "fields": {
+      "name": "Nombre de la tienda *", "tagline": "Eslogan", "taxId": "Identificación fiscal", "address": "Dirección", "addressPlaceholder": "Dirección del negocio", "phone": "Teléfono", "email": "Correo electrónico", "prefix": "Prefijo de factura *", "prefixPlaceholder": "p. ej. SHOP", "prefixHint": "Cada factura nueva comienza con este prefijo, seguido de la fecha y un código único. Los cambios posteriores afectan a las facturas futuras.",
+      "currency": "Código de moneda *", "taxLabel": "Nombre del impuesto principal", "taxPlaceholder": "IVA, impuesto de ventas...", "taxRate": "Tasa del impuesto principal (%)", "additionalLabel": "Nombre del impuesto adicional", "additionalPlaceholder": "p. ej. impuesto local (opcional)", "additionalRate": "Tasa del impuesto adicional (%)",
+      "chargeLabel": "Nombre de otro cargo", "chargePlaceholder": "p. ej. entrega, embalaje (opcional)", "chargeAmount": "Importe de otro cargo ({{currency}})", "calculation": "Cálculo de impuestos", "exclusive": "Añadir impuestos a los precios", "inclusive": "Los precios ya incluyen impuestos",
+      "taxHint": "El impuesto porcentual adicional usa el mismo ajuste inclusivo o exclusivo que el principal y se calcula sobre el subtotal imponible. El cargo fijo se añade una vez por factura después de los impuestos. Esta herramienta no determina tasas legales ni garantiza el cumplimiento fiscal.",
+      "optional": "Opcional", "editItem": "Editar artículo", "addItem": "Añadir artículo", "cancelEdit": "Cancelar edición", "itemName": "Nombre del artículo *", "itemPlaceholder": "p. ej. almendras a granel", "price": "Precio de venta *", "unit": "Unidad", "sku": "SKU / código del artículo", "update": "Actualizar artículo", "add": "Añadir al inventario", "search": "Buscar en inventario", "searchPlaceholder": "Buscar en inventario...", "items_one": "{{count}} artículo", "items_other": "{{count}} artículos", "edit": "Editar {{name}}", "delete": "Eliminar {{name}}", "noMatches": "Ningún artículo coincide con la búsqueda.", "empty": "El inventario está vacío. Añade el primer artículo o importa un perfil de tienda."
+    },
+    "title": "Estudio de punto de venta y facturas", "subtitle": "Herramienta local para perfiles de tienda, inventario, cantidades fraccionarias, facturas con impuestos y copias JSON sin conexión.",
+    "privacy": "Los perfiles, inventario, datos de clientes y facturas se procesan en esta sesión del navegador. Solo se guardan al exportar explícitamente un archivo JSON; no se suben datos del punto de venta a un servidor.",
+    "step": "Paso 1 de 2 · Perfil de tienda", "create": "Crea tu perfil de tienda", "review": "Revisa tu perfil de tienda",
+    "intro": "Añade tu tienda e inventario, o importa un perfil o factura guardados.", "import": "Importar JSON de perfil o factura", "importHint": "Importar JSON de perfil de tienda o de factura",
+    "profile": "Perfil de tienda", "profileDescription": "Estos datos identifican tu tienda en la factura que recibe el cliente.", "inventory": "Inventario de tienda",
+    "inventoryDescription": "Añade artículos y precios al inventario. Puedes usar cantidades fraccionarias para peso, volumen, longitud o unidades.",
+    "faq": [
+      ["¿La aplicación sube mi perfil, inventario o facturas?", "No. La herramienta funciona en tu navegador y no envía el perfil, inventario, datos de clientes ni facturas a un servidor."],
+      ["¿Cómo reutilizo mi perfil e inventario la próxima vez?", "Descarga el JSON del perfil desde la pantalla de perfil. Contiene los datos de la tienda, el prefijo de factura y el inventario. Guárdalo en tu dispositivo e impórtalo en la próxima sesión. No se guarda nada automáticamente en el almacenamiento del navegador."],
+      ["¿Puedo usar cantidades fraccionarias?", "Sí. Los campos de cantidad admiten decimales para unidades de cuenta, peso, volumen, longitud y paquetes."],
+      ["¿Cómo funcionan los impuestos y otros cargos?", "Define un impuesto porcentual principal y otro opcional; ambos usan el mismo ajuste inclusivo o exclusivo. El cargo fijo opcional se añade una vez por factura después de los impuestos porcentuales. Es una calculadora general, no asesoramiento fiscal o contable; verifica las normas aplicables a tu tienda."],
+      ["¿Qué número de factura verá el cliente?", "Cada factura nueva comienza con el prefijo elegido en el perfil, seguido de la fecha y un código único. Los perfiles antiguos sin prefijo usan INV."],
+      ["¿Cómo comparto una factura con un cliente?", "Imprimir / descargar PDF abre el diálogo de impresión del navegador, donde puedes imprimir o guardar como PDF. Descargar imagen para el cliente crea un PNG de la factura."],
+      ["¿Qué diferencia hay entre las exportaciones de factura y JSON?", "PDF y PNG son copias legibles para compartir con el cliente. El JSON es para ti: el de perfil contiene el perfil y el inventario, mientras que el de factura también contiene la factura actual y sus artículos. El mismo botón de importación acepta ambos tipos."]
+    ]
+  },
+  "displayPage": {
+    "title": "Pantalla y presentación",
+    "subtitle": "Convierte PDF, documentos Word e imágenes en una presentación a pantalla completa en el navegador para clases, eventos, marcos digitales y escaparates.",
+    "choose": "Elige archivos o arrástralos aquí", "preparing": "Preparando diapositivas...", "hint": "PDF, DOCX o imágenes · hasta 100 MB por archivo",
+    "empty": "Añade archivos para previsualizar sus páginas y crear una lista. Puedes excluir páginas individuales sin modificar los originales.",
+    "privacy": "Los archivos se renderizan localmente en la memoria del navegador y no se suben. La lista es temporal y se borra al cerrar o actualizar la página.",
+    "faq": [
+      ["¿Se suben mis archivos a {{siteName}}?", "No. Los archivos se renderizan en este navegador y permanecen en la página actual. No se suben; cerrar o actualizar la página borra la lista."],
+      ["¿Qué archivos puedo mostrar?", "PDF, documentos Word .docx y formatos de imagen que el navegador pueda decodificar. Las páginas PDF y DOCX se convierten en diapositivas separadas. Cada imagen compatible es una diapositiva fija; las imágenes animadas no se reproducen como animación. Desbloquea primero los PDF protegidos con contraseña."],
+      ["¿Cómo quito una página de la presentación?", "Desmarca la opción de incluir una diapositiva para conservarla en la lista pero omitirla durante la reproducción. El botón X la elimina de la lista. El archivo original nunca cambia."],
+      ["¿Cómo funciona la duración de cada diapositiva?", "Una duración vacía usa el valor predeterminado de la lista. Indica segundos para cambiarlo o 0 para avanzar manualmente. La diapositiva permanece visible hasta usar Siguiente o un atajo de teclado."],
+      ["¿Cómo lo muestro en un televisor o una pantalla de clase?", "Inicia la presentación, activa pantalla completa en el reproductor y conecta o transmite el navegador mediante el método habitual de tu dispositivo. F11 alterna la pantalla completa en muchos ordenadores; Escape sale de ella. Los navegadores y mandos de TV varían, así que comprueba la conexión y los controles antes del evento."],
+      ["¿Permanecerá encendida la pantalla todo el día?", "La herramienta puede solicitar la API Screen Wake Lock cuando esté disponible, pero no está garantizado. El navegador puede liberarla al ocultar la pestaña, el dispositivo puede no admitirla y la configuración de energía del televisor o sistema puede anularla. Para presentaciones prolongadas, ajusta la suspensión de la pantalla."],
+      ["¿Qué fecha y hora se muestran?", "La superposición opcional usa la fecha y hora local actuales del dispositivo, incluidos su configuración regional y zona horaria. No es un reloj sincronizado ni un sistema de publicidad programada."]
+    ]
+  },
   "pageHeadings": {
     "extract": ["Extraer texto de PDF", "Lee, copia y exporta texto de un PDF. Las páginas escaneadas requieren OCR, que no está incluido."],
     "protect": ["Proteger PDF (cifrado con contraseña)", "Establece una contraseña para un PDF y elige los permisos del documento en tu navegador."],
@@ -12,6 +77,140 @@
     "sanitize": ["Sanear PDF (metadatos y privacidad)", "Elimina metadatos y estructuras seleccionados del PDF en tu navegador. Revisa el resultado antes de compartirlo."]
   },
   "pageGuides": {
+    "flatten": {
+      "title": "Acoplar formularios PDF",
+      "subtitle": "Acopla los campos de formulario compatibles de un PDF en tu navegador. Revisa el archivo guardado.",
+      "faq": [
+        ["¿Se sube el PDF para procesarlo?", "El PDF seleccionado se procesa en tu navegador y no se sube a {{siteName}} para procesarlo. La web puede realizar solicitudes separadas para publicidad y recursos."],
+        ["¿Qué acopla esta herramienta?", "Intenta acoplar los campos de formulario PDF a su apariencia visual. No garantiza eliminar todas las anotaciones u otros contenidos interactivos. Comprueba el archivo guardado."],
+        ["¿El resto del documento permanecerá igual?", "El PDF se reescribe sin rasterizar las páginas, pero los resultados pueden variar. Comprueba el aspecto, el texto y las demás funciones del archivo guardado."],
+        ["¿Se pueden editar de nuevo los campos acoplados?", "Normalmente no se pueden volver a editar como campos de formulario. Conserva el original si puedes necesitar editarlos más adelante."]
+      ]
+    },
+    "base64": {
+      "title": "Base64 y hash",
+      "subtitle": "Codifica o decodifica texto UTF-8, crea Base64 seguro para URL o calcula huellas SHA de textos y archivos.",
+      "faq": [
+        ["¿Esta herramienta sube mis datos a {{siteName}}?", "No. La codificación, decodificación y cálculo de hash usan API locales del navegador. Los archivos seleccionados se leen en memoria y nunca se suben."],
+        ["¿Base64 es cifrado?", "No. Base64 es una codificación reversible, no cifrado. Cualquiera puede decodificarla; no la uses para proteger secretos."],
+        ["¿Se puede invertir un hash?", "Los hashes criptográficos están diseñados como huellas unidireccionales. Esta herramienta ofrece SHA-1, SHA-256, SHA-384 y SHA-512. SHA-1 se incluye por compatibilidad, no para nuevos diseños sensibles a la seguridad."],
+        ["¿Qué cambia Base64 seguro para URL?", "Sustituye el signo más y la barra por guion y guion bajo, y omite el relleno al codificar. Es útil en URL y nombres de archivo; al decodificar hay que usar la opción correspondiente."],
+        ["¿Por qué algunos datos Base64 no se decodifican como texto?", "El decodificador solo muestra texto UTF-8. Base64 puede representar datos binarios arbitrarios, como imágenes o archivos comprimidos, que no son texto UTF-8 válido."]
+      ]
+    },
+    "extract": {
+      "faq": [
+        ["¿Es seguro extraer texto en {{siteName}}?", "La extracción se realiza en tu navegador. El PDF seleccionado no se sube a {{siteName}} para procesarlo; PDF.js puede solicitar recursos de mapas de caracteres a una red de distribución."],
+        ["¿Puede esta herramienta leer PDF escaneados o fotos de texto?", "Extrae texto digital incrustado. Los documentos escaneados o PDF que solo contienen imágenes requieren reconocimiento óptico de caracteres (OCR), que esta herramienta no admite."],
+        ["¿La extracción conserva el diseño?", "La herramienta separa el texto por página, pero no conserva el diseño visual exacto, las columnas ni la tipografía del PDF."],
+        ["¿Hay un límite de longitud del documento?", "La interfaz no establece un límite fijo de páginas, pero los PDF grandes pueden tardar más o superar la memoria disponible del navegador. Las páginas escaneadas no se procesan con OCR."]
+      ]
+    },
+    "pdfToImages": {
+      "title": "Convertir PDF a imágenes",
+      "subtitle": "Renderiza páginas PDF como imágenes PNG en tu navegador.",
+      "faq": [
+        ["¿Es seguro convertir PDF a imágenes en {{siteName}}?", "Las páginas PDF se renderizan en tu navegador y no se suben a {{siteName}} para procesarlas. La web realiza solicitudes separadas para recursos y publicidad."],
+        ["¿Qué calidad tienen las imágenes convertidas?", "Las páginas se renderizan como PNG a la escala seleccionada. Las escalas mayores producen imágenes más grandes y usan más memoria; comprueba el resultado al tamaño que necesitas."],
+        ["¿Qué formato de imagen se genera?", "Las páginas se renderizan como imágenes PNG sin pérdida."],
+        ["¿Hay un límite de páginas para convertir?", "La interfaz no establece un límite fijo, pero los documentos grandes y las escalas altas pueden tardar más o superar la memoria disponible del navegador."]
+      ]
+    },
+    "organize": {
+      "title": "Organizar páginas PDF",
+      "subtitle": "Reordena, gira o elimina páginas PDF visualmente en tu navegador.",
+      "faq": [
+        ["¿Es seguro organizar páginas PDF en {{siteName}}?", "El PDF seleccionado se renderiza y reorganiza en tu navegador; no se sube a {{siteName}} para procesarlo. La web realiza solicitudes separadas para recursos y publicidad."],
+        ["¿Puedo eliminar páginas concretas de mi PDF?", "Sí. Pulsa el icono de papelera en cualquier miniatura para eliminar esa página del documento final."],
+        ["¿Girar páginas afecta a la calidad?", "El giro actualiza la rotación de la página sin volver a comprimir ni rasterizar el texto vectorial."],
+        ["¿Hay un límite de páginas para organizar?", "La interfaz no establece un límite fijo, pero renderizar y reorganizar PDF grandes puede tardar más o superar la memoria disponible del navegador."]
+      ]
+    },
+    "pageNumbers": {
+      "title": "Añadir números de página al PDF",
+      "subtitle": "Añade números de página, encabezados y pies a un PDF desde tu navegador.",
+      "faq": [
+        ["¿Añadir números vuelve a renderizar el texto existente en {{siteName}}?", "No. El contenido original, las fuentes, los gráficos vectoriales y las imágenes permanecen intactos. Se superpone texto nuevo en las coordenadas indicadas."],
+        ["¿Puedo omitir la portada?", "Sí. Activa la casilla de omitir la primera página para numerar desde la página 2."],
+        ["¿Se suben mis documentos confidenciales a un servidor?", "El PDF seleccionado se procesa en tu navegador y no se sube a {{siteName}} para procesarlo. La web puede realizar solicitudes separadas para publicidad y recursos."]
+      ]
+    },
+    "watermark": {
+      "title": "Añadir marca de agua al PDF",
+      "subtitle": "Añade una marca de agua de texto configurable a las páginas PDF seleccionadas en tu navegador.",
+      "faq": [
+        ["¿Se suben mis documentos con marca de agua a un servidor remoto en {{siteName}}?", "El PDF seleccionado se procesa en tu navegador y no se sube a {{siteName}} para procesarlo. La web realiza solicitudes separadas para recursos y publicidad."],
+        ["¿La marca de agua ocultará el texto existente?", "Puedes reducir la opacidad al 10%–25% para facilitar la lectura del texto y los gráficos subyacentes. Revisa el resultado antes de compartirlo."],
+        ["¿Puedo aplicar la marca solo a ciertas páginas?", "Sí. Selecciona todas, las impares o las pares, o introduce un intervalo personalizado (por ejemplo 1-5, 8)."]
+      ]
+    },
+    "nup": {
+      "title": "PDF N-Up (varias páginas por hoja)",
+      "subtitle": "Organiza dos o cuatro páginas PDF por hoja para folletos y notas de presentación.",
+      "faq": [
+        ["¿Qué es la impresión N-Up en {{siteName}}?", "N-Up reduce varias páginas (2 o 4) y las coloca en una sola hoja, reduciendo el número de hojas necesarias."],
+        ["¿Perderán claridad el texto o los vectores al reducirse?", "Las páginas se incrustan como objetos PDF en lugar de rasterizarse, por lo que texto y vectores siguen siendo escalables. Comprueba el resultado al tamaño de impresión deseado."],
+        ["¿Se suben mis archivos durante la composición?", "El PDF seleccionado se organiza en tu navegador y no se sube a {{siteName}} para procesarlo. La web puede realizar solicitudes separadas para recursos y publicidad."]
+      ]
+    },
+    "sanitize": {
+      "faq": [
+        ["¿En qué se diferencia la limpieza de {{siteName}} de los editores PDF habituales?", "La herramienta elimina la información del documento, los metadatos XMP, los datos PieceInfo, las miniaturas y las acciones JavaScript compatibles que se seleccionen. No garantiza eliminar todo tipo de información oculta ni contenido incrustado en los gráficos de las páginas."],
+        ["¿La limpieza modifica el texto, las imágenes o el diseño visibles?", "La herramienta actúa sobre metadatos y estructuras seleccionadas, no sobre el contenido visible. Revisa el archivo y no confíes en ella como único método para ocultar información sensible."],
+        ["¿Se suben mis archivos confidenciales a algún servidor?", "El PDF seleccionado se procesa en tu navegador y no se sube a {{siteName}} para procesarlo. La herramienta elimina los tipos de metadatos descritos en esta página, pero no garantiza eliminar toda información oculta."]
+      ]
+    },
+    "protect": {
+      "faq": [
+        ["¿Recibe {{siteName}} mi contraseña o PDF?", "La contraseña y el PDF seleccionado se procesan en tu navegador y no se suben a {{siteName}} para procesarlos. La web realiza solicitudes separadas para recursos y publicidad."],
+        ["¿El PDF protegido conservará el texto seleccionable y los enlaces?", "La herramienta convierte cada página en una imagen antes de reconstruir el PDF. Puede que el texto ya no se pueda seleccionar ni buscar y que no se conserven enlaces, formularios u otras funciones interactivas. Revisa el resultado antes de reemplazar el original."],
+        ["¿Los permisos de impresión y copia impiden cualquier copia?", "No. Los lectores PDF respetan los permisos de manera diferente y estos no impiden capturas de pantalla ni otros métodos de captura. Usa una contraseña segura para controlar la apertura y no consideres los permisos una protección infalible contra copias."]
+      ]
+    },
+    "unlock": {
+      "faq": [
+        ["¿Es seguro desbloquear PDF en {{siteName}}?", "La contraseña y el PDF seleccionado se procesan en tu navegador y no se suben a {{siteName}} para procesarlos. La web realiza solicitudes separadas para recursos y publicidad."],
+        ["¿Necesito conocer la contraseña del documento?", "Sí. Introduce una contraseña que estés autorizado a usar para abrir el PDF. Esta herramienta no puede recuperar contraseñas olvidadas."],
+        ["¿El desbloqueo cambia el formato o contenido del PDF?", "La herramienta reconstruye cada página como imagen. Puede que el texto ya no se pueda seleccionar ni buscar y que no se conserven enlaces, formularios u otras funciones interactivas. Comprueba el resultado antes de reemplazar el original."],
+        ["¿Puedo volver a cifrar el archivo más tarde?", "Sí. Una vez desbloqueado, puedes abrir la herramienta Proteger PDF en cualquier momento para asignar nuevas contraseñas o permisos personalizados."]
+      ]
+    },
+    "jsonFormatter": {
+      "title": "Formateador JSON",
+      "subtitle": "Formatea, minifica y valida JSON con errores de sintaxis claros y ordenación opcional de claves.",
+      "faq": [
+        ["¿Se envía mi JSON a {{siteName}}?", "No. El análisis, la ordenación y el formato se realizan localmente en tu navegador. La herramienta no ejecuta código ni realiza solicitudes de red con tu JSON."],
+        ["¿Ordenar las claves cambia mis datos?", "Cambia recursivamente el orden de las claves de los objetos para facilitar la lectura. Se conservan el orden y los valores de los arrays. Evita ordenar las claves si el orden original es importante para tu trabajo."],
+        ["¿La validación comprueba un esquema?", "No. Comprueba si la entrada tiene una sintaxis JSON válida. No valida campos específicos de una aplicación ni un JSON Schema."]
+      ]
+    },
+    "sample": {
+      "title": "Generador de PDF de muestra y banco de pruebas",
+      "subtitle": "Genera PDF de muestra con diseños configurables, datos sintéticos y casos opcionales de archivos malformados en tu navegador.",
+      "faq": [
+        ["¿Qué es la prueba de geometría mixta?", "Un PDF de varias páginas con distintos tamaños u orientaciones (A4 vertical, plano A3 horizontal, giro de 90 grados en sentido horario y un recibo POS largo). Sirve para comprobar si el visor o el sistema de miniaturas admite páginas no estándar."],
+        ["¿Por qué generar un PDF corrupto?", "Los desarrolladores y profesionales de calidad necesitan probar el manejo de errores al subir archivos rotos o incompletos. Los modos de prueba simulan de forma segura descargas truncadas, cabeceras inválidas y tablas de referencias cruzadas alteradas."],
+        ["¿El conjunto de datos PII sintéticos contiene datos reales?", "No. El generador crea nombres, números similares a pagos e identificadores fiscales ficticios para pruebas. No son datos de clientes y no deben usarse para transacciones ni verificación de identidad."],
+        ["¿Cómo funciona la simulación del tamaño de archivo?", "Al elegir 1 MB, 5 MB o 10 MB, el generador añade flujos binarios de relleno al documento para probar límites de subida sin tener que buscar archivos grandes."]
+      ]
+    },
+    "imagesToPdf": {
+      "title": "Convertir imágenes a PDF",
+      "subtitle": "Combina imágenes JPG, PNG y WebP en un PDF desde tu navegador.",
+      "faq": [
+        ["¿Se suben mis fotos a un servidor externo en {{siteName}}?", "Las imágenes seleccionadas se convierten en tu navegador y no se suben a {{siteName}} para procesarlas. La web realiza solicitudes separadas para recursos y publicidad."],
+        ["¿Qué formatos de imagen se admiten?", "Se admiten imágenes JPG, JPEG, PNG y WebP, que se convierten en flujos PDF."],
+        ["¿Puedo cambiar el orden de las imágenes antes de crear el PDF?", "Sí. Usa las flechas arriba y abajo junto a cada miniatura para ordenar las páginas."]
+      ]
+    },
+    "inspect": {
+      "title": "Inspector de estructura y metadatos PDF",
+      "subtitle": "Revisa la versión, metadatos, cifrado, geometría de página y funciones seleccionadas del PDF en tu navegador.",
+      "faq": [
+        ["¿Por qué inspeccionar PDF en {{siteName}}?", "Usa el informe para revisar la estructura básica del PDF y buscar funciones como acciones JavaScript. No es una auditoría de seguridad completa, un escáner de malware ni un validador de conformidad PDF/A."],
+        ["¿Se suben mis documentos confidenciales a un servidor remoto?", "El PDF seleccionado se analiza en tu navegador y no se sube a {{siteName}} para procesarlo. La web realiza solicitudes separadas para recursos y publicidad."]
+      ]
+    },
     "imageConverter": {
       "faq": [
         ["¿Se suben mis imágenes a {{siteName}}?", "No. Las imágenes se decodifican y convierten en la memoria del navegador mediante HTML Canvas; los archivos no se envían a nuestros servidores."],
