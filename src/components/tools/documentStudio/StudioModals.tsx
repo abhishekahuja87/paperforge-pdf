@@ -377,7 +377,7 @@ export const PageEditorModal: React.FC<ModalProps & {
                 onPointerCancel={finishBlackout}
                 className={`relative inline-block max-h-[60vh] max-w-full select-none ${blackoutMode ? 'cursor-crosshair touch-none' : ''}`}
               >
-                <img src={preview.image} alt="Zoomed page preview" className="block max-h-[60vh] max-w-full object-contain shadow-lg" />
+                <img src={preview.image} alt="Zoomed page preview" draggable={false} className="block max-h-[60vh] max-w-full object-contain shadow-lg" />
                 {draft.redactions.map((box, index) => (
                   <div key={`blackout-${index}`} aria-label="Blackout preview" className="pointer-events-none absolute bg-black" style={{ left: `${box.x * 100}%`, top: `${box.y * 100}%`, width: `${box.width * 100}%`, height: `${box.height * 100}%` }} />
                 ))}

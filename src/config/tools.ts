@@ -40,6 +40,16 @@ export interface ToolItem {
 export const CATEGORIES: Record<ToolCategory, { name: string; description: string }> = en.categories;
 
 export const TOOLS: ToolItem[] = [
+  {
+    id: 'digitize-documents',
+    title: 'Digitize Documents',
+    description: 'Turn scans and photos into searchable PDFs.',
+    category: 'pdf',
+    path: '/digitize-documents',
+    icon: 'file-text',
+    isAvailable: true,
+    keywords: ['digitize', 'digitise', 'scan', 'ocr', 'searchable', 'image', 'pdf', 'archive'],
+  },
   // PDF
   {
     id: 'merge-pdf',

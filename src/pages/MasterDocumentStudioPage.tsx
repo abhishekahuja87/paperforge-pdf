@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ToolGuide } from '../components/common/ToolGuide';
 import { ToolLayout } from '../components/layout/ToolLayout';
 import { MasterDocumentStudio } from '../components/tools/MasterDocumentStudio';
@@ -7,6 +7,7 @@ import en from '../locales/en.json';
 
 export const MasterDocumentStudioPage: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const [hasSources, setHasSources] = useState(false);
   const steps = [
     {
       title: t('master.step1Title'),
@@ -32,9 +33,9 @@ export const MasterDocumentStudioPage: React.FC = () => {
       title={t('featuredTools.master-document-studio.title')}
       subtitle={t('master.subtitle')}
       contentLanguage={i18n.language}
-      seoContent={<ToolGuide toolName={t('featuredTools.master-document-studio.title')} steps={steps} faqs={faqs} contentLanguage={i18n.language} />}
+      seoContent={!hasSources ? <ToolGuide toolName={t('featuredTools.master-document-studio.title')} steps={steps} faqs={faqs} contentLanguage={i18n.language} /> : undefined}
     >
-      <MasterDocumentStudio />
+      <MasterDocumentStudio onHasSourcesChange={setHasSources} />
     </ToolLayout>
   );
 };

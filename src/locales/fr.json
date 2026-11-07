@@ -1,4 +1,13 @@
 {
+  "digitize": {
+    "targetExceeded": "Au moins un PDF dépasse la taille cible.", "editorLanguage": "Certaines commandes d'édition sont actuellement en anglais.",
+    "title": "Numériser des documents", "subtitle": "Transformez vos anciennes images de documents en PDF consultables. Organisez et modifiez les pages avant l'export.",
+    "choose": "Choisissez des images ou déposez-les ici", "hint": "PNG, JPG ou WebP · plusieurs images", "invalidFile": "{{name}} : choisissez une image PNG, JPG ou WebP.",
+    "output": "Sortie", "merged": "Un PDF", "separate": "PDF séparés (ZIP)", "preparing": "Préparation de l'OCR...", "progress": "Document {{document}} sur {{documents}} · page {{page}} sur {{total}}", "cancel": "Annuler", "cancelled": "Numérisation annulée.", "create": "Créer un PDF consultable", "finished": "{{name}} est prêt.",
+    "note": "Reconnaissance du texte anglais uniquement. L'OCR traite les pages modifiées dans le navigateur ; le moteur et le modèle sont téléchargés depuis ce site. Vérifiez le résultat. La protection par mot de passe est indisponible car l'outil existant supprime le texte consultable.",
+    "step1": "Importer les images", "step1Detail": "Choisissez des photos ou scans de documents.", "step2": "Organiser et modifier", "step2Detail": "Sélectionnez, réordonnez, recadrez, pivotez ou masquez les pages et réglez le PDF.", "step3": "Créer les PDF consultables", "step3Detail": "Choisissez un PDF ou plusieurs PDF et téléchargez.",
+    "q1": "Le texte est-il toujours exact ?", "a1": "Non. L'OCR dépend de la qualité et reconnaît uniquement l'anglais. Vérifiez le PDF.", "q2": "Mes images sont-elles envoyées ?", "a2": "Non. Elles sont traitées dans le navigateur. Le moteur et les données linguistiques sont téléchargés depuis ce site.", "q3": "Comment fonctionnent les PDF séparés ?", "a3": "Chaque image produit un PDF avec ses copies sélectionnées. Tous les PDF sont téléchargés dans un ZIP."
+  },
   "language": "Langue",
   "chooseOneFile": "Choisissez un fichier à la fois.",
   "languageNotice": "Traduction en cours ; de nombreux outils et pages restent en anglais.",
@@ -390,23 +399,24 @@
     ]
   },
   "featuredTools": {
+    "digitize-documents": { "title": "Numériser des documents", "useCase": "Archives consultables", "description": "Transformez photos et scans en PDF consultables avec l'OCR anglais. Modifiez et organisez les pages, ajoutez un sommaire lié et exportez un ou plusieurs PDF.", "highlights": ["Image en PDF consultable", "OCR anglais", "Recadrer, pivoter, masquer", "Sommaire avec liens", "Un PDF ou ZIP"] },
     "master-document-studio": {
       "title": "Studio de documents",
       "useCase": "Pour les documents",
-      "description": "Réunissez des PDF, fichiers Word, images et pages personnalisées, organisez-les, ajoutez une table des matières liée et exportez un PDF.",
-      "highlights": ["PDF, Word et images", "Réorganiser les pages", "Sommaire avec liens"]
+      "description": "Combinez PDF, fichiers Word, images et pages personnalisées. Modifiez et organisez les pages, créez un sommaire avec liens et personnalisez le PDF final.",
+      "highlights": ["PDF, Word et images", "Recadrer, pivoter, masquer", "Sommaire avec liens", "Filigrane et pagination", "Protection par mot de passe"]
     },
     "display-studio": {
       "title": "Affichage et présentation",
       "useCase": "Pour écrans et commerces",
-      "description": "Transformez un téléviseur, une tablette ou un téléphone en écran. Diffusez vos menus, offres et documents en diaporama plein écran.",
-      "highlights": ["Diaporama plein écran", "Tous appareils", "Lecture temporisée"]
+      "description": "Créez un diaporama plein écran à partir de PDF, fichiers Word et images. Organisez les diapositives, réglez leur durée et leurs transitions, et affichez l'heure ou la date.",
+      "highlights": ["Lecture plein écran", "PDF, Word et images", "Durées et transitions", "Boucle et lecture aléatoire", "Heure et date"]
     },
     "pos-invoice-studio": {
       "title": "Studio de caisse et factures",
       "useCase": "Pour les entreprises",
-      "description": "Gérez vos produits et stocks, puis créez des factures imprimables. Tout fonctionne hors ligne dans votre navigateur.",
-      "highlights": ["Facturation hors ligne", "Stocks", "Factures imprimables", "Sauvegarde JSON"]
+      "description": "Configurez votre boutique et votre catalogue, créez des factures avec taxes et frais, puis imprimez-les ou téléchargez-les. Enregistrez les profils dans le navigateur ou en JSON.",
+      "highlights": ["Profil et catalogue", "Taxes et frais", "Imprimer ou télécharger", "Stockage navigateur", "Sauvegarde JSON"]
     }
   },
   "moreTools": "Plus d’outils au quotidien",

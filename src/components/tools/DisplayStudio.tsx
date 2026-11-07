@@ -61,7 +61,7 @@ function formatDate(date: Date): string {
 const controlClass = 'inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50 disabled:cursor-not-allowed disabled:opacity-45';
 const selectClass = 'mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100';
 
-export const DisplayStudio: React.FC = () => {
+export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) => void }> = ({ onHasSlidesChange }) => {
   const { t, i18n } = useTranslation();
   const [slides, setSlides] = useState<DisplaySlide[]>([]);
   const [processing, setProcessing] = useState(false);
@@ -91,6 +91,10 @@ export const DisplayStudio: React.FC = () => {
   const playerRef = useRef<HTMLDivElement>(null);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
   const lastPointerPosition = useRef<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    onHasSlidesChange?.(slides.length > 0);
+  }, [onHasSlidesChange, slides.length]);
 
   const includedSlides = useMemo(() => slides.filter((slide) => slide.included), [slides]);
   const currentIndex = playbackOrder.indexOf(currentSlideId ?? '');

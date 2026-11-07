@@ -1,4 +1,19 @@
 {
+  "digitize": {
+    "targetExceeded": "At least one PDF exceeds the requested size goal.", "editorLanguage": "Some editing controls are currently in English.",
+    "title": "Digitize Documents",
+    "subtitle": "Turn old document images into searchable PDFs. Arrange and edit pages before exporting.",
+    "choose": "Choose images or drop them here",
+    "hint": "PNG, JPG or WebP · multiple images",
+    "invalidFile": "{{name}}: choose a PNG, JPG or WebP image.",
+    "output": "Output", "merged": "One PDF", "separate": "Separate PDFs (ZIP)",
+    "preparing": "Preparing OCR...", "progress": "Document {{document}} of {{documents}} · page {{page}} of {{total}}", "cancel": "Cancel", "cancelled": "Digitization cancelled.", "create": "Create searchable PDF", "finished": "{{name}} is ready.",
+    "note": "English text recognition only. OCR runs on edited pages in your browser; the OCR engine and English model are downloaded from this site. Check the output for recognition errors. Password protection is unavailable because the existing protection tool removes searchable text.",
+    "step1": "Upload images", "step1Detail": "Choose your document photos or scans.", "step2": "Arrange and edit", "step2Detail": "Select, reorder, crop, rotate or blackout pages and set PDF options.", "step3": "Create searchable PDFs", "step3Detail": "Choose one PDF or separate PDFs and download.",
+    "q1": "Is the text always accurate?", "a1": "No. OCR depends on image quality and recognizes English only. Check the resulting PDF.",
+    "q2": "Are my images uploaded?", "a2": "No. Processing happens in your browser. The OCR engine and language data are downloaded from this site.",
+    "q3": "How do separate PDFs work?", "a3": "Each uploaded image becomes a PDF containing its selected copies. All PDFs are downloaded together in a ZIP file."
+  },
   "language": "Language",
   "chooseOneFile": "Choose one file at a time.",
   "languageNotice": "Translations are in progress; many tools and pages remain in English.",
@@ -416,23 +431,29 @@
     ]
   },
   "featuredTools": {
+    "digitize-documents": {
+      "title": "Digitize Documents",
+      "useCase": "Searchable archives",
+      "description": "Turn photos and scans into searchable PDFs with English OCR. Edit and arrange pages, add a linked contents page, then export one PDF or separate PDFs.",
+      "highlights": ["Image 2 searchable PDF", "English OCR", "Crop, rotate & blackout", "Linked contents", "Single PDF or ZIP"]
+    },
     "master-document-studio": {
       "title": "Master Document Studio",
       "useCase": "For documents",
-      "description": "Bring PDFs, Word files, images and custom pages together, arrange them, add a linked contents page and export one finished PDF.",
-      "highlights": ["Mix PDF, Word & images", "Reorder pages", "Linked contents"]
+      "description": "Combine PDFs, Word files, images and custom pages. Edit and arrange pages, create a linked table of contents, and customize your finished PDF.",
+      "highlights": ["PDF, Word & images", "Crop, rotate & blackout", "Linked table of contents", "Watermark & page numbers", "Password protection"]
     },
     "display-studio": {
       "title": "Display & Presentation",
       "useCase": "For screens & shops",
-      "description": "Turn any TV, tablet or phone into a display. Run timed slideshows of your menus, offers and documents in fullscreen.",
-      "highlights": ["Fullscreen slideshow", "Works on any device", "Timed playback"]
+      "description": "Build a fullscreen slideshow from PDFs, Word files and images. Arrange slides, set timing and transitions, and display a clock or date.",
+      "highlights": ["Fullscreen playback", "PDF, Word & images", "Timing & transitions", "Loop & shuffle", "Clock & date"]
     },
     "pos-invoice-studio": {
       "title": "POS & Bill Studio",
       "useCase": "For businesses",
-      "description": "Manage your products and stock, then create printable bills. Everything works offline and stays in your browser.",
-      "highlights": ["Offline billing", "Inventory", "Printable bills", "JSON backup"]
+      "description": "Set up your shop and product catalog, create bills with taxes and charges, and print or download them. Save profiles in your browser or back up to JSON.",
+      "highlights": ["Shop profile & inventory", "Taxes & charges", "Print or download bills", "Browser storage", "JSON backup"]
     }
   },
   "moreTools": "More everyday tools",

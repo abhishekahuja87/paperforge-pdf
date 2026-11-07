@@ -1,4 +1,13 @@
 {
+  "digitize": {
+    "targetExceeded": "Al menos un PDF supera el tamaño objetivo.", "editorLanguage": "Algunos controles de edición están actualmente en inglés.",
+    "title": "Digitalizar documentos", "subtitle": "Convierte imágenes de documentos antiguos en PDF con texto buscable. Organiza y edita las páginas antes de exportar.",
+    "choose": "Elige imágenes o arrástralas aquí", "hint": "PNG, JPG o WebP · varias imágenes", "invalidFile": "{{name}}: elige una imagen PNG, JPG o WebP.",
+    "output": "Salida", "merged": "Un PDF", "separate": "PDF separados (ZIP)", "preparing": "Preparando OCR...", "progress": "Documento {{document}} de {{documents}} · página {{page}} de {{total}}", "cancel": "Cancelar", "cancelled": "Digitalización cancelada.", "create": "Crear PDF buscable", "finished": "{{name}} está listo.",
+    "note": "Reconocimiento de texto solo en inglés. El OCR procesa las páginas editadas en el navegador; el motor y el modelo se descargan de este sitio. Revisa los errores. La protección con contraseña no está disponible porque la herramienta existente elimina el texto buscable.",
+    "step1": "Sube imágenes", "step1Detail": "Elige fotos o escaneos de documentos.", "step2": "Organiza y edita", "step2Detail": "Selecciona, ordena, recorta, gira o cubre páginas y configura el PDF.", "step3": "Crea PDF buscables", "step3Detail": "Elige un PDF o varios separados y descarga.",
+    "q1": "¿El texto siempre es exacto?", "a1": "No. El OCR depende de la calidad y solo reconoce inglés. Revisa el PDF.", "q2": "¿Se suben mis imágenes?", "a2": "No. Se procesan en el navegador. El motor y los datos de idioma se descargan de este sitio.", "q3": "¿Cómo funcionan los PDF separados?", "a3": "Cada imagen genera un PDF con sus copias seleccionadas. Todos se descargan en un ZIP."
+  },
   "language": "Idioma",
   "chooseOneFile": "Elige un archivo a la vez.",
   "languageNotice": "Traducción en curso; muchas herramientas y páginas siguen en inglés.",
@@ -390,23 +399,24 @@
     ]
   },
   "featuredTools": {
+    "digitize-documents": { "title": "Digitalizar documentos", "useCase": "Archivos buscables", "description": "Convierte fotos y escaneos en PDF buscables con OCR en inglés. Edita y ordena páginas, añade un índice con enlaces y exporta uno o varios PDF.", "highlights": ["Imagen a PDF buscable", "OCR en inglés", "Recorta, gira y oculta", "Índice con enlaces", "Un PDF o ZIP"] },
     "master-document-studio": {
       "title": "Estudio de documentos",
       "useCase": "Para documentos",
-      "description": "Reúne PDF, archivos Word, imágenes y páginas personalizadas, organízalos, añade un índice con enlaces y exporta un PDF.",
-      "highlights": ["Combina PDF, Word e imágenes", "Reordena páginas", "Índice con enlaces"]
+      "description": "Combina PDF, archivos Word, imágenes y páginas personalizadas. Edita y ordena páginas, crea un índice con enlaces y personaliza el PDF final.",
+      "highlights": ["PDF, Word e imágenes", "Recorta, gira y oculta", "Índice con enlaces", "Marca de agua y numeración", "Protección con contraseña"]
     },
     "display-studio": {
       "title": "Pantallas y presentaciones",
       "useCase": "Para pantallas y comercios",
-      "description": "Convierte un televisor, tableta o teléfono en una pantalla. Muestra menús, ofertas y documentos a pantalla completa con intervalos.",
-      "highlights": ["Presentación a pantalla completa", "Funciona en cualquier dispositivo", "Reproducción programada"]
+      "description": "Crea una presentación a pantalla completa con PDF, archivos Word e imágenes. Ordena diapositivas, ajusta tiempos y transiciones, y muestra la hora o la fecha.",
+      "highlights": ["Pantalla completa", "PDF, Word e imágenes", "Tiempos y transiciones", "Bucle y orden aleatorio", "Hora y fecha"]
     },
     "pos-invoice-studio": {
       "title": "Estudio de ventas y facturas",
       "useCase": "Para negocios",
-      "description": "Gestiona productos y existencias y crea facturas imprimibles. Todo funciona sin conexión y permanece en tu navegador.",
-      "highlights": ["Facturación sin conexión", "Inventario", "Facturas imprimibles", "Copia JSON"]
+      "description": "Configura tu tienda y catálogo, crea facturas con impuestos y cargos e imprímelas o descárgalas. Guarda perfiles en el navegador o crea copias JSON.",
+      "highlights": ["Perfil e inventario", "Impuestos y cargos", "Imprimir o descargar facturas", "Almacenamiento local", "Copia JSON"]
     }
   },
   "moreTools": "Más herramientas cotidianas",

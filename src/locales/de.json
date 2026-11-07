@@ -1,4 +1,13 @@
 {
+  "digitize": {
+    "targetExceeded": "Mindestens eine PDF überschreitet die Zielgröße.", "editorLanguage": "Einige Bearbeitungsfunktionen sind derzeit auf Englisch.",
+    "title": "Dokumente digitalisieren", "subtitle": "Verwandeln Sie alte Dokumentbilder in durchsuchbare PDFs. Ordnen und bearbeiten Sie Seiten vor dem Export.",
+    "choose": "Bilder auswählen oder hier ablegen", "hint": "PNG, JPG oder WebP · mehrere Bilder", "invalidFile": "{{name}}: Wählen Sie ein PNG-, JPG- oder WebP-Bild.",
+    "output": "Ausgabe", "merged": "Eine PDF", "separate": "Separate PDFs (ZIP)", "preparing": "OCR wird vorbereitet...", "progress": "Dokument {{document}} von {{documents}} · Seite {{page}} von {{total}}", "cancel": "Abbrechen", "cancelled": "Digitalisierung abgebrochen.", "create": "Durchsuchbare PDF erstellen", "finished": "{{name}} ist bereit.",
+    "note": "Nur englischer Text wird erkannt. OCR verarbeitet bearbeitete Seiten im Browser; Engine und Modell werden von dieser Website geladen. Prüfen Sie das Ergebnis. Passwortschutz ist nicht verfügbar, da das vorhandene Werkzeug durchsuchbaren Text entfernt.",
+    "step1": "Bilder hochladen", "step1Detail": "Wählen Sie Dokumentfotos oder Scans.", "step2": "Ordnen und bearbeiten", "step2Detail": "Seiten auswählen, sortieren, zuschneiden, drehen oder schwärzen und PDF-Optionen einstellen.", "step3": "Durchsuchbare PDFs erstellen", "step3Detail": "Eine oder separate PDFs wählen und herunterladen.",
+    "q1": "Ist der Text immer korrekt?", "a1": "Nein. OCR hängt von der Bildqualität ab und erkennt nur Englisch. Prüfen Sie die PDF.", "q2": "Werden meine Bilder hochgeladen?", "a2": "Nein. Die Verarbeitung erfolgt im Browser. Engine und Sprachdaten werden von dieser Website geladen.", "q3": "Wie funktionieren separate PDFs?", "a3": "Jedes Bild erzeugt eine PDF mit seinen ausgewählten Kopien. Alle PDFs werden als ZIP heruntergeladen."
+  },
   "language": "Sprache",
   "chooseOneFile": "Wählen Sie jeweils eine Datei aus.",
   "languageNotice": "Die Übersetzung ist in Arbeit; viele Werkzeuge und Seiten sind noch auf Englisch.",
@@ -390,23 +399,24 @@
     ]
   },
   "featuredTools": {
+    "digitize-documents": { "title": "Dokumente digitalisieren", "useCase": "Durchsuchbare Archive", "description": "Erstellen Sie durchsuchbare PDFs aus Fotos und Scans mit englischer OCR. Bearbeiten und ordnen Sie Seiten, ergänzen Sie ein verlinktes Inhaltsverzeichnis und exportieren Sie eine oder mehrere PDFs.", "highlights": ["Bild zu durchsuchbarer PDF", "Englische OCR", "Zuschneiden, drehen, schwärzen", "Verlinktes Inhaltsverzeichnis", "Eine PDF oder ZIP"] },
     "master-document-studio": {
       "title": "Dokumentenstudio",
       "useCase": "Für Dokumente",
-      "description": "Führen Sie PDFs, Word-Dateien, Bilder und eigene Seiten zusammen, ordnen Sie sie, ergänzen Sie ein verlinktes Inhaltsverzeichnis und exportieren Sie ein PDF.",
-      "highlights": ["PDF, Word und Bilder", "Seiten neu anordnen", "Verlinktes Inhaltsverzeichnis"]
+      "description": "Kombinieren Sie PDFs, Word-Dateien, Bilder und eigene Seiten. Bearbeiten und ordnen Sie Seiten, erstellen Sie ein verlinktes Inhaltsverzeichnis und passen Sie die PDF an.",
+      "highlights": ["PDF, Word und Bilder", "Zuschneiden, drehen, schwärzen", "Verlinktes Inhaltsverzeichnis", "Wasserzeichen und Seitenzahlen", "Passwortschutz"]
     },
     "display-studio": {
       "title": "Anzeige und Präsentation",
       "useCase": "Für Bildschirme und Geschäfte",
-      "description": "Nutzen Sie Fernseher, Tablet oder Telefon als Anzeige. Zeigen Sie Menüs, Angebote und Dokumente zeitgesteuert im Vollbild.",
-      "highlights": ["Vollbild-Diashow", "Für alle Geräte", "Zeitgesteuerte Wiedergabe"]
+      "description": "Erstellen Sie eine Vollbild-Diashow aus PDFs, Word-Dateien und Bildern. Ordnen Sie Folien, legen Sie Zeiten und Übergänge fest und zeigen Sie Uhrzeit oder Datum an.",
+      "highlights": ["Vollbildwiedergabe", "PDF, Word und Bilder", "Zeiten und Übergänge", "Schleife und Zufallsfolge", "Uhrzeit und Datum"]
     },
     "pos-invoice-studio": {
       "title": "Kassen- und Rechnungsstudio",
       "useCase": "Für Unternehmen",
-      "description": "Verwalten Sie Produkte und Bestand und erstellen Sie druckbare Rechnungen. Alles funktioniert offline und bleibt im Browser.",
-      "highlights": ["Offline-Rechnungen", "Bestand", "Druckbare Rechnungen", "JSON-Sicherung"]
+      "description": "Richten Sie Ihr Geschäft und Ihren Produktkatalog ein, erstellen Sie Rechnungen mit Steuern und Gebühren und drucken oder laden Sie sie herunter. Speichern Sie Profile im Browser oder als JSON.",
+      "highlights": ["Geschäftsprofil und Katalog", "Steuern und Gebühren", "Rechnungen drucken oder laden", "Browserspeicher", "JSON-Sicherung"]
     }
   },
   "moreTools": "Weitere Alltagswerkzeuge",

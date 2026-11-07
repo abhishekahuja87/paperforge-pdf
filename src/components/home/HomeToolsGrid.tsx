@@ -42,12 +42,12 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
       {featured.length > 0 && (
         <section aria-label={t('featured')} className="space-y-3">
           <h2 className="text-lg font-black tracking-tight text-stone-900 sm:text-xl">{t('featured')}</h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2">
             {featured.map(({ tool, info }) => (
               <Link
                 key={tool.id}
                 to={tool.path}
-                className="group flex flex-col rounded-2xl border border-orange-200 bg-gradient-to-br from-white to-orange-50/70 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-400 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                className="group flex flex-col rounded-2xl border border-orange-200 bg-gradient-to-br from-white to-orange-50/70 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-400 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
               >
                 <div className="flex items-center gap-3">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
@@ -58,8 +58,8 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
                     <h3 className="text-lg font-extrabold leading-tight text-stone-900">{info.title}</h3>
                   </div>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-stone-600">{info.description}</p>
-                <ul className="mb-4 mt-3 flex flex-wrap gap-1.5">
+                <p className="mt-2 text-sm leading-5 text-stone-600">{info.description}</p>
+                <ul className="mb-3 mt-2 flex flex-wrap gap-1.5">
                   {info.highlights.map((highlight) => (
                     <li key={highlight} className="rounded-md bg-orange-100/70 px-2 py-0.5 text-[11px] font-semibold text-orange-900">
                       {highlight}

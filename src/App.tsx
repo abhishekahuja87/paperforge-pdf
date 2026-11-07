@@ -27,6 +27,7 @@ const PdfToImagesPage = lazy(() => import('./pages/PdfToImagesPage').then((m) =>
 const ExtractTextPage = lazy(() => import('./pages/ExtractTextPage').then((m) => ({ default: m.ExtractTextPage })));
 const OrganizePage = lazy(() => import('./pages/OrganizePage').then((m) => ({ default: m.OrganizePage })));
 const MasterDocumentStudioPage = lazy(() => import('./pages/MasterDocumentStudioPage').then((m) => ({ default: m.MasterDocumentStudioPage })));
+const DigitizeDocumentsPage = lazy(() => import('./pages/DigitizeDocumentsPage').then((m) => ({ default: m.DigitizeDocumentsPage })));
 const ImageConverterPage = lazy(() => import('./pages/ImageConverterPage').then((m) => ({ default: m.ImageConverterPage })));
 const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').then((m) => ({ default: m.ImageCompressorPage })));
 const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
@@ -68,6 +69,7 @@ export const App: React.FC = () => {
               <Route path="/extract-text" element={<ExtractTextPage />} />
               <Route path="/organize-pdf" element={<OrganizePage />} />
               <Route path="/master-document-studio" element={<MasterDocumentStudioPage />} />
+              <Route path="/digitize-documents" element={<DigitizeDocumentsPage />} />
               <Route path="/image-converter" element={<ImageConverterPage />} />
               <Route path="/image-compressor" element={<ImageCompressorPage />} />
               <Route path="/json-formatter" element={<JsonFormatterPage />} />

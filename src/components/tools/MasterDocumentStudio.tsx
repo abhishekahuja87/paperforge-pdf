@@ -102,13 +102,16 @@ function sourceTypeLabel(kind: SourceItem['kind']): string {
   return kind === 'pdf' ? 'PDF' : kind === 'docx' ? 'DOCX' : kind === 'custom' ? 'CUSTOM' : 'IMAGE';
 }
 
-export const MasterDocumentStudio: React.FC = () => {
+export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesChange?: (hasSources: boolean) => void }> = ({ digitize = false, onHasSourcesChange }) => {
   const { t, i18n } = useTranslation();
   const [sources, setSources] = useState<SourceItem[]>([]);
   const [pages, setPages] = useState<PageCard[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [outputItems, setOutputItems] = useState<OutputSequenceItem[]>([]);
-  const [settings, setSettings] = useState<StudioSettings>(createDefaultStudioSettings);
+  const [settings, setSettings] = useState<StudioSettings>(() => {
+    const defaults = createDefaultStudioSettings();
+    return digitize ? { ...defaults, outputFileName: defaults.outputFileName.replace('master-document', 'digitized-documents') } : defaults;
+  });
   const [stage, setStage] = useState<'selection' | 'studio'>('selection');
   const [isLoading, setIsLoading] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
@@ -129,8 +132,15 @@ export const MasterDocumentStudio: React.FC = () => {
   const [pageRangeErrors, setPageRangeErrors] = useState<Record<string, string>>({});
   const [downloadUrl, setDownloadUrl] = useState('');
   const [downloadName, setDownloadName] = useState('');
+  const [separate, setSeparate] = useState(false);
+  const [ocrProgress, setOcrProgress] = useState('');
+  const cancelOcr = useRef<AbortController | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    onHasSourcesChange?.(sources.length > 0);
+  }, [onHasSourcesChange, sources.length]);
+  useEffect(() => () => cancelOcr.current?.abort(), []);
   useEffect(() => () => {
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
   }, [downloadUrl]);
@@ -156,14 +166,15 @@ export const MasterDocumentStudio: React.FC = () => {
   const addFiles = async (files: FileList | File[]) => {
     const accepted = Array.from(files);
     if (accepted.length === 0) return;
+    setDownloadUrl('');
     setIsLoading(true);
     setError('');
     setNotice('');
     try {
       for (const [fileIndex, file] of accepted.entries()) {
         const extension = file.name.split('.').pop()?.toLowerCase();
-        if (!['pdf', 'docx', 'png', 'jpg', 'jpeg', 'webp'].includes(extension ?? '')) {
-          setError(`${file.name}: choose a PDF, DOCX, PNG, JPG, JPEG, or WEBP file.`);
+        if (!(digitize ? ['png', 'jpg', 'jpeg', 'webp'] : ['pdf', 'docx', 'png', 'jpg', 'jpeg', 'webp']).includes(extension ?? '') || (digitize && file.type !== '' && !file.type.startsWith('image/'))) {
+          setError(digitize ? t('digitize.invalidFile', { name: file.name }) : `${file.name}: choose a PDF, DOCX, PNG, JPG, JPEG, or WEBP file.`);
           continue;
         }
         try {
@@ -237,6 +248,7 @@ export const MasterDocumentStudio: React.FC = () => {
   };
 
   const togglePage = (pageId: string) => {
+    setDownloadUrl('');
     setSelectedIds((current) => current.includes(pageId)
       ? current.filter((id) => id !== pageId)
       : [...current, pageId]);
@@ -244,6 +256,7 @@ export const MasterDocumentStudio: React.FC = () => {
   };
 
   const toggleSourcePages = (sourceId: string, shouldSelect: boolean) => {
+    setDownloadUrl('');
     const sourcePageIds = pages.filter((page) => page.sourceId === sourceId).map((page) => page.id);
     setSelectedIds((current) => {
       const withoutSourcePages = current.filter((id) => !sourcePageIds.includes(id));
@@ -254,6 +267,7 @@ export const MasterDocumentStudio: React.FC = () => {
   };
 
   const applyPageRange = (sourceId: string) => {
+    setDownloadUrl('');
     const sourcePages = pages.filter((page) => page.sourceId === sourceId);
     const result = parsePageRange(pageRanges[sourceId] ?? '', sourcePages.length);
     if (!result.pageNumbers) {
@@ -276,6 +290,7 @@ export const MasterDocumentStudio: React.FC = () => {
     const selectedPages = selectedIds.map((id) => pageMap.get(id)).filter((page): page is PageCard => Boolean(page));
     if (selectedPages.length === 0) return;
     setOutputItems(selectedPages.map(newOutputItem));
+    setDownloadUrl('');
     setStage('studio');
     setError('');
   };
@@ -287,6 +302,7 @@ export const MasterDocumentStudio: React.FC = () => {
   };
 
   const removeSource = (sourceId: string) => {
+    setDownloadUrl('');
     const pageIds = pages.filter((page) => page.sourceId === sourceId).map((page) => page.id);
     setSources((current) => current.filter((source) => source.id !== sourceId));
     setPages((current) => current.filter((page) => page.sourceId !== sourceId));
@@ -346,7 +362,42 @@ export const MasterDocumentStudio: React.FC = () => {
     setError('');
     setNotice('');
     setDownloadUrl('');
+    const controller = new AbortController();
+    cancelOcr.current = controller;
     try {
+      if (digitize) {
+        const { makeSearchable } = await import('../../lib/documentStudio/searchable');
+        const groups = separate
+          ? [...new Set(outputItems.map((item) => item.page.sourceId))]
+            .map((id) => outputItems.filter((item) => item.page.sourceId === id))
+          : [outputItems];
+        const zip = separate ? new (await import('jszip')).default() : null;
+        let output: Uint8Array = new Uint8Array();
+        let exceededTarget = false;
+        for (const [index, group] of groups.entries()) {
+          controller.signal.throwIfAborted();
+          const result = await exportMasterPdf(group, sourceMap, settings);
+          const searchable = await makeSearchable(result.bytes, (page, total) => {
+            setOcrProgress(t('digitize.progress', { document: index + 1, documents: groups.length, page, total }));
+          }, controller.signal);
+          if (result.targetBytes !== null && searchable.byteLength > result.targetBytes) exceededTarget = true;
+          if (zip) zip.file(`${index + 1}-${pdfFileName(group[0].page.sourceName.replace(/\.[^.]+$/, ''))}`, searchable);
+          else output = searchable;
+        }
+        controller.signal.throwIfAborted();
+        const filename = separate ? pdfFileName(settings.outputFileName).replace(/\.pdf$/, '.zip') : pdfFileName(settings.outputFileName);
+        const blob = zip ? await zip.generateAsync({ type: 'blob' }) : new Blob([arrayBufferFromBytes(output)], { type: 'application/pdf' });
+        controller.signal.throwIfAborted();
+        const url = URL.createObjectURL(blob);
+        setDownloadUrl(url);
+        setDownloadName(filename);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        link.click();
+        setNotice(`${t('digitize.finished', { name: filename })}${exceededTarget ? ` ${t('digitize.targetExceeded')}` : ''}`);
+        return;
+      }
       const result = await exportMasterPdf(outputItems, sourceMap, settings);
       const bytes = settings.protectOutput
         ? await protectPdf({
@@ -382,8 +433,12 @@ export const MasterDocumentStudio: React.FC = () => {
           ? `${filename} downloaded${settings.protectOutput ? ' with password protection' : ''} (${size} MB), within the ${targetDescription} size goal.`
           : `${filename} downloaded${settings.protectOutput ? ' with password protection' : ''} (${size} MB), above the ${targetDescription} size goal. Size goals are estimates, not guarantees.`);
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : 'The PDF could not be exported.');
+      setError(controller.signal.aborted
+        ? t('digitize.cancelled')
+        : reason instanceof Error ? reason.message : typeof reason === 'string' ? reason : 'The PDF could not be exported.');
     } finally {
+      cancelOcr.current = null;
+      setOcrProgress('');
       setIsExporting(false);
     }
   };
@@ -397,7 +452,10 @@ export const MasterDocumentStudio: React.FC = () => {
       pageStandard: 'preserve',
       numberPosition: 'none',
     });
-    const blob = new Blob([arrayBufferFromBytes(result.bytes)], { type: 'application/pdf' });
+    const bytes = digitize
+      ? await (await import('../../lib/documentStudio/searchable')).makeSearchable(result.bytes, () => {}, new AbortController().signal)
+      : result.bytes;
+    const blob = new Blob([arrayBufferFromBytes(bytes)], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
     const pageIndex = outputItems.findIndex((outputItem) => outputItem.id === item.id);
     const filename = `outputPdfPag${Math.max(1, pageIndex + 1)}.pdf`;
@@ -431,22 +489,22 @@ export const MasterDocumentStudio: React.FC = () => {
     <div className="min-w-0 space-y-4">
       <div className={`mx-auto w-full rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 ${sources.length > 0 ? '' : 'max-w-3xl'}`}>
         <FileDropZone
-          accept=".pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp"
+          accept={digitize ? '.png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp' : '.pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp'}
           multiple
           disabled={isLoading}
-          label={isLoading ? t('master.reading') : t('master.choose')}
-          hint={t('master.hint')}
+          label={isLoading ? t('master.reading') : digitize ? t('digitize.choose') : t('master.choose')}
+          hint={digitize ? t('digitize.hint') : t('master.hint')}
           labelLanguage={i18n.language}
           onFiles={(files) => { void addFiles(files); }}
         />
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
+        {!digitize && <div className="mt-4 flex flex-wrap justify-center gap-2">
           <button type="button" onClick={() => setShowCustomPage(true)} className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-stone-700 hover:border-orange-200 hover:bg-orange-50">
             <FilePlus2 className="h-4 w-4" /> <span lang={i18n.language}>{t('master.custom')}</span>
           </button>
           <button type="button" onClick={() => setShowSamplePdf(true)} className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-stone-700 hover:border-orange-200 hover:bg-orange-50">
             <Sparkles className="h-4 w-4" /> <span lang={i18n.language}>{t('master.sample')}</span>
           </button>
-        </div>
+        </div>}
       </div>
 
       {sources.length > 0 ? (
@@ -567,10 +625,12 @@ export const MasterDocumentStudio: React.FC = () => {
 
   return (
     <div className="mx-auto w-full min-w-0 space-y-4">
-      <input ref={fileInputRef} type="file" multiple accept=".pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp" onChange={(event) => { if (event.target.files) void addFiles(event.target.files); }} className="hidden" />
+      <input ref={fileInputRef} type="file" multiple accept={digitize ? '.png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp' : '.pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp'} onChange={(event) => { if (event.target.files) void addFiles(event.target.files); }} className="hidden" />
       {error && <div role="alert" className="flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"><X className="mt-0.5 h-4 w-4 shrink-0" />{error}</div>}
       {notice && <div role="status" className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs font-medium text-emerald-800">{notice}</div>}
 
+      {digitize && isExporting && <div role="status" className="rounded-xl bg-indigo-50 p-4 text-sm text-indigo-900">{ocrProgress || t('digitize.preparing')} <button type="button" onClick={() => cancelOcr.current?.abort()} className="ml-3 font-bold underline">{t('digitize.cancel')}</button></div>}
+      <fieldset disabled={digitize && isExporting} className={`min-w-0 ${digitize && isExporting ? 'pointer-events-none opacity-60' : ''}`}>
       {stage === 'selection' ? (
         <div className="space-y-4">
           {sources.length > 0 && <div>
@@ -580,7 +640,7 @@ export const MasterDocumentStudio: React.FC = () => {
             </div>
             <p lang={i18n.language} className="pl-8 text-xs text-slate-500">{t('master.choosePagesHint')}</p>
           </div>}
-          <div className={sources.length > 0 ? 'grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,1.65fr)_minmax(300px,1fr)]' : 'mx-auto max-w-3xl'}>
+          <div className={sources.length > 0 ? 'grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(240px,280px)]' : 'mx-auto max-w-3xl'}>
             <section className="min-w-0">
               {inputDeck}
             </section>
@@ -785,7 +845,7 @@ export const MasterDocumentStudio: React.FC = () => {
                     </select>
                     <span className="mt-1 block font-normal text-slate-400">Only raster inputs are recompressed. Original PDF pages remain vector-based; a size goal cannot be guaranteed.</span>
                   </label>
-                  <div className="space-y-2 rounded-xl border border-slate-200 p-3 sm:col-span-2 xl:col-span-3">
+                  {!digitize && <div className="space-y-2 rounded-xl border border-slate-200 p-3 sm:col-span-2 xl:col-span-3">
                     <label className="flex items-center gap-2 text-xs font-semibold text-slate-700">
                       <input type="checkbox" checked={settings.protectOutput} onChange={(event) => updateSettings('protectOutput', event.target.checked)} className="accent-indigo-600" />
                       Password-protect the final PDF
@@ -811,15 +871,15 @@ export const MasterDocumentStudio: React.FC = () => {
                         <p className="rounded-lg bg-amber-50 px-3 py-2 text-[10px] leading-relaxed text-amber-800">Password protection re-encodes pages as images. Text will no longer be searchable/selectable, and clickable contents links are removed.</p>
                       </>
                     )}
-                  </div>
+                  </div>}
                 </div>
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
-                <p className="max-w-xl text-[10px] text-slate-500">Create the finished PDF from the pages above, then download it to your device. Your source files stay in this browser.</p>
+                {digitize ? <label className="text-xs font-semibold text-slate-700">{t('digitize.output')} <select value={separate ? 'separate' : 'merged'} onChange={(event) => { setSeparate(event.target.value === 'separate'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="merged">{t('digitize.merged')}</option><option value="separate">{t('digitize.separate')}</option></select></label> : <p className="max-w-xl text-[10px] text-slate-500">Create the finished PDF from the pages above, then download it to your device. Your source files stay in this browser.</p>}
                 <div className="flex flex-wrap gap-2">
                   {downloadUrl && <a href={downloadUrl} download={downloadName} className="inline-flex items-center gap-2 rounded-lg border border-emerald-300 bg-emerald-50 px-4 py-2.5 text-xs font-bold text-emerald-800 hover:bg-emerald-100"><Download className="h-4 w-4" />Download again</a>}
                   <button type="button" onClick={() => void handleExport()} disabled={isExporting || outputItems.length === 0} className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50">
                     {isExporting ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
-                    {isExporting ? 'Creating PDF...' : 'Create & download final PDF'}
+                    {digitize ? (isExporting ? t('digitize.preparing') : t('digitize.create')) : (isExporting ? 'Creating PDF...' : 'Create & download final PDF')}
                   </button>
                 </div>
               </div>
@@ -827,6 +887,7 @@ export const MasterDocumentStudio: React.FC = () => {
           </section>
         </div>
       )}
+      </fieldset>
 
       {showCustomPage && <CustomPageModal onClose={() => setShowCustomPage(false)} onCreate={addCustomPage} />}
       {showSamplePdf && <SamplePdfModal onClose={() => setShowSamplePdf(false)} onAdd={addGeneratedSample} />}

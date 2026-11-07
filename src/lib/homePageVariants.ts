@@ -11,7 +11,7 @@ export interface FeaturedTool {
   highlights: string[];
 }
 
-const FEATURED_IDS = ['master-document-studio', 'display-studio', 'pos-invoice-studio'] as const;
+const FEATURED_IDS = ['master-document-studio', 'digitize-documents', 'display-studio', 'pos-invoice-studio'] as const;
 
 export const HOME_CATEGORY_STYLES: Record<ToolCategory, { icon: string; panel: string }> = {
   pdf: { icon: 'bg-orange-100 text-orange-800', panel: 'border-stone-200 bg-[var(--theme-surface)]' },

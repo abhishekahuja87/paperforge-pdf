@@ -1,4 +1,13 @@
 {
+  "digitize": {
+    "targetExceeded": "至少一个 PDF 超过了目标大小。", "editorLanguage": "部分编辑控件目前仅提供英文。",
+    "title": "文档数字化", "subtitle": "将旧文档图片转换为可搜索的 PDF。导出前整理并编辑页面。",
+    "choose": "选择图片或拖放到此处", "hint": "PNG、JPG 或 WebP · 可选多张", "invalidFile": "{{name}}：请选择 PNG、JPG 或 WebP 图片。",
+    "output": "输出", "merged": "一个 PDF", "separate": "多个 PDF（ZIP）", "preparing": "正在准备 OCR...", "progress": "文档 {{document}} / {{documents}} · 页面 {{page}} / {{total}}", "cancel": "取消", "cancelled": "已取消数字化。", "create": "创建可搜索 PDF", "finished": "{{name}} 已准备就绪。",
+    "note": "仅识别英文文本。OCR 在浏览器中处理编辑后的页面；引擎和英文模型从本站下载。请检查识别结果。现有密码保护工具会移除可搜索文本，因此此处不提供密码保护。",
+    "step1": "上传图片", "step1Detail": "选择文档照片或扫描件。", "step2": "整理和编辑", "step2Detail": "选择、排序、裁剪、旋转或遮盖页面并设置 PDF 选项。", "step3": "创建可搜索 PDF", "step3Detail": "选择一个或多个 PDF 并下载。",
+    "q1": "文字识别总是准确吗？", "a1": "不一定。OCR 取决于图片质量，且仅识别英文。请检查生成的 PDF。", "q2": "图片会上传吗？", "a2": "不会。处理在浏览器中进行，OCR 引擎和语言数据从本站下载。", "q3": "多个 PDF 如何生成？", "a3": "每张上传的图片及其选定副本生成一个 PDF，所有 PDF 打包为 ZIP 下载。"
+  },
   "language": "语言",
   "chooseOneFile": "每次选择一个文件。",
   "languageNotice": "翻译正在进行中；许多工具和页面仍为英文。",
@@ -389,23 +398,24 @@
     ]
   },
   "featuredTools": {
+    "digitize-documents": { "title": "文档数字化", "useCase": "可搜索的档案", "description": "使用英文 OCR 将照片和扫描件转换为可搜索的 PDF。编辑和整理页面、添加可点击目录，并导出一个或多个 PDF。", "highlights": ["图片转可搜索 PDF", "英文 OCR", "裁剪、旋转和遮盖", "可点击目录", "单个 PDF 或 ZIP"] },
     "master-document-studio": {
       "title": "主文档工作室",
       "useCase": "文档处理",
-      "description": "合并 PDF、Word 文件、图片和自定义页面，调整顺序，添加可点击的目录并导出完整 PDF。",
-      "highlights": ["合并 PDF、Word 和图片", "调整页面顺序", "可点击目录"]
+      "description": "合并 PDF、Word 文件、图片和自定义页面。编辑和整理页面，创建可点击目录，并自定义最终 PDF。",
+      "highlights": ["PDF、Word 和图片", "裁剪、旋转和遮盖", "可点击目录", "水印和页码", "密码保护"]
     },
     "display-studio": {
       "title": "显示和演示",
       "useCase": "屏幕和商店",
-      "description": "将电视、平板或手机用作展示屏，全屏定时播放菜单、优惠和文档。",
-      "highlights": ["全屏幻灯片", "适用于各种设备", "定时播放"]
+      "description": "使用 PDF、Word 文件和图片创建全屏幻灯片。调整顺序、时长和切换效果，并显示时间或日期。",
+      "highlights": ["全屏播放", "PDF、Word 和图片", "时长和切换效果", "循环和随机播放", "时间和日期"]
     },
     "pos-invoice-studio": {
       "title": "收银与账单工作室",
       "useCase": "商业用途",
-      "description": "管理商品和库存，然后创建可打印的账单。所有操作均可离线完成，数据保留在浏览器中。",
-      "highlights": ["离线账单", "库存", "可打印账单", "JSON 备份"]
+      "description": "设置店铺和商品目录，创建包含税费的账单并打印或下载。在浏览器中保存资料，或使用 JSON 备份。",
+      "highlights": ["店铺资料和商品目录", "税费", "打印或下载账单", "浏览器存储", "JSON 备份"]
     }
   },
   "moreTools": "更多日常工具",
