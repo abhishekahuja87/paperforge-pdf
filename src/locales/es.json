@@ -28,6 +28,29 @@
     "disclosure": "Este formulario lo gestiona Web3Forms, un servicio externo. Al enviarlo, tu nombre, correo electrónico y mensaje se envían a Web3Forms para entregar tu mensaje. Esto es independiente de nuestras herramientas, que procesan tus archivos en el navegador. Consulta nuestra <privacy>Política de privacidad</privacy>.",
     "sent": "Mensaje enviado", "thanks": "Gracias por contactarnos. Revisaremos tu mensaje pronto.", "name": "Tu nombre", "email": "Tu correo electrónico", "message": "Mensaje", "placeholder": "¿Cómo podemos ayudarte?", "sending": "Enviando...", "send": "Enviar mensaje", "failed": "No se pudo enviar. Inténtalo de nuevo.", "networkError": "Error de conexión de red. Inténtalo más tarde."
   },
+  "posBill": {
+    "addNote": "Añadir nota", "editNote": "Editar nota", "note": "Nota de la factura", "notePlaceholder": "Nota opcional o instrucciones de pago", "noteHint": "Guarda o cancela antes de compartir o cambiar de perfil. Guardar actualiza esta factura; descarga el JSON de factura para conservarla.", "noteSave": "Guardar nota", "noteCancel": "Cancelar",
+    "preview": "Vista previa de la factura",
+    "taxSummary": "Impuestos y cargos · Principal {{primary}}% · Adicional {{additional}}% · Cargo {{charge}}", "taxHint": "Edita aquí las tasas, el cargo y sus nombres. La factura se actualiza al instante.", "editTaxes": "Editar impuestos y cargos",
+    "importHint": "Importa un JSON de perfil o factura para continuar trabajando.",
+    "shareTitle": "Compartir la factura", "shareDescription": "Imprime o descarga una copia para el cliente.",
+    "print": "Imprimir / descargar PDF", "preparing": "Preparando imagen...", "image": "Descargar imagen",
+    "backupTitle": "Guardar factura editable", "backupDescription": "El JSON incluye la factura actual, el perfil de tienda y el inventario.",
+    "saveJson": "Descargar JSON de factura", "saveNext": "Guardar JSON y comenzar otra factura"
+  },
+  "posStorage": {
+    "manage": "Gestionar perfil, inventario e importaciones", "editProfile": "Editar perfil e inventario",
+    "title": "Perfiles guardados en este navegador", "description": "Guarda aquí el perfil y el inventario, o importa y guarda un JSON. Las facturas no se guardan aquí. Los datos pueden borrarse o no estar disponibles en navegación privada; conserva una copia JSON.",
+    "current": "Perfil actual:", "newProfile": "Nuevo, no guardado en el navegador", "fileSource": "Archivo importado: {{name}}", "browserSource": "Navegador: {{name}}", "modified": "Cambios no guardados en este origen",
+    "saveNew": "Guardar como perfil nuevo", "import": "Importar JSON", "refresh": "Actualizar lista", "empty": "No hay perfiles guardados en este navegador.", "updated": "Actualizado {{date}} · {{count}} artículos",
+    "load": "Usar perfil", "replace": "Sustituir por el actual", "delete": "Eliminar",
+    "confirmLoad": "Cargar otro perfil sustituirá el perfil, inventario y factura actuales en memoria, incluidos los cambios sin guardar. Descarga una copia JSON primero si la necesitas. ¿Continuar?",
+    "confirmReplace": "¿Sustituir el perfil y el inventario guardados “{{name}}” por los actuales? No se puede deshacer.",
+    "confirmDelete": "¿Eliminar “{{name}}” del almacenamiento del navegador? El perfil actual en memoria no se eliminará.",
+    "saved": "Guardado en este navegador: {{name}}", "loaded": "Cargado desde este navegador: {{name}}", "deleted": "Eliminado del navegador: {{name}}",
+    "failure": "No se pudo acceder al almacenamiento o los datos guardados no son válidos. Comprueba los ajustes o actualiza la lista; conserva una copia JSON.", "pendingItem": "Añade o actualiza el artículo, o limpia el formulario, antes de guardar el perfil.",
+    "sessionNotice": "El perfil está listo. Guárdalo en el navegador o descarga el JSON para usarlo más tarde.", "billReminder": "Nada se guarda automáticamente. Guarda el perfil en el navegador o descarga JSON; exporta el JSON de factura para conservar la factura actual."
+  },
   "posPage": {
     "backupTitle": "Conserva tu perfil e inventario para la próxima vez", "backupDescription": "Descarga un JSON con los datos de la tienda, el prefijo de factura y el inventario. Guárdalo en tu dispositivo e impórtalo cuando vuelvas. JSON es tu copia editable, no la factura del cliente.", "needItem": "Añade al menos un artículo al inventario antes de continuar a la factura.", "downloadProfile": "Descargar JSON del perfil", "returnToBill": "Guardar perfil y volver a la factura", "continue": "Continuar a la factura",
     "units": { "pcs": "Piezas (pcs)", "box": "Caja", "pack": "Paquete", "kg": "Kilogramo (kg)", "g": "Gramo (g)", "lb": "Libra (lb)", "oz": "Onza (oz)", "L": "Litro (L)", "mL": "Mililitro (mL)", "m": "Metro (m)", "cm": "Centímetro (cm)" },
@@ -39,14 +62,14 @@
       "optional": "Opcional", "editItem": "Editar artículo", "addItem": "Añadir artículo", "cancelEdit": "Cancelar edición", "itemName": "Nombre del artículo *", "itemPlaceholder": "p. ej. almendras a granel", "price": "Precio de venta *", "unit": "Unidad", "sku": "SKU / código del artículo", "update": "Actualizar artículo", "add": "Añadir al inventario", "search": "Buscar en inventario", "searchPlaceholder": "Buscar en inventario...", "items_one": "{{count}} artículo", "items_other": "{{count}} artículos", "edit": "Editar {{name}}", "delete": "Eliminar {{name}}", "noMatches": "Ningún artículo coincide con la búsqueda.", "empty": "El inventario está vacío. Añade el primer artículo o importa un perfil de tienda."
     },
     "title": "Estudio de punto de venta y facturas", "subtitle": "Herramienta local para perfiles de tienda, inventario, cantidades fraccionarias, facturas con impuestos y copias JSON sin conexión.",
-    "privacy": "Los perfiles, inventario, datos de clientes y facturas se procesan en esta sesión del navegador. Solo se guardan al exportar explícitamente un archivo JSON; no se suben datos del punto de venta a un servidor.",
+    "privacy": "Los datos se procesan en el navegador y no se suben a un servidor. Puedes guardar explícitamente perfiles e inventario en este navegador o exportarlos como JSON. Las facturas y datos de clientes no se guardan en el navegador; exporta un JSON de factura para conservarlos.",
     "step": "Paso 1 de 2 · Perfil de tienda", "create": "Crea tu perfil de tienda", "review": "Revisa tu perfil de tienda",
     "intro": "Añade tu tienda e inventario, o importa un perfil o factura guardados.", "import": "Importar JSON de perfil o factura", "importHint": "Importar JSON de perfil de tienda o de factura",
     "profile": "Perfil de tienda", "profileDescription": "Estos datos identifican tu tienda en la factura que recibe el cliente.", "inventory": "Inventario de tienda",
     "inventoryDescription": "Añade artículos y precios al inventario. Puedes usar cantidades fraccionarias para peso, volumen, longitud o unidades.",
     "faq": [
       ["¿La aplicación sube mi perfil, inventario o facturas?", "No. La herramienta funciona en tu navegador y no envía el perfil, inventario, datos de clientes ni facturas a un servidor."],
-      ["¿Cómo reutilizo mi perfil e inventario la próxima vez?", "Descarga el JSON del perfil desde la pantalla de perfil. Contiene los datos de la tienda, el prefijo de factura y el inventario. Guárdalo en tu dispositivo e impórtalo en la próxima sesión. No se guarda nada automáticamente en el almacenamiento del navegador."],
+      ["¿Cómo reutilizo mi perfil e inventario la próxima vez?", "Guarda el perfil en este navegador y cárgalo al volver, o descarga e importa un JSON. El almacenamiento puede borrarse, así que conserva una copia JSON. No se guarda nada automáticamente."],
       ["¿Puedo usar cantidades fraccionarias?", "Sí. Los campos de cantidad admiten decimales para unidades de cuenta, peso, volumen, longitud y paquetes."],
       ["¿Cómo funcionan los impuestos y otros cargos?", "Define un impuesto porcentual principal y otro opcional; ambos usan el mismo ajuste inclusivo o exclusivo. El cargo fijo opcional se añade una vez por factura después de los impuestos porcentuales. Es una calculadora general, no asesoramiento fiscal o contable; verifica las normas aplicables a tu tienda."],
       ["¿Qué número de factura verá el cliente?", "Cada factura nueva comienza con el prefijo elegido en el perfil, seguido de la fecha y un código único. Los perfiles antiguos sin prefijo usan INV."],

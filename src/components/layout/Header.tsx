@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
             {t('allTools')}
           </Link>
 
-          <div className="relative" ref={dropdownRef}>
+          <div className="sm:relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               aria-expanded={isDropdownOpen}
@@ -55,14 +55,14 @@ export const Header: React.FC = () => {
             </button>
 
             {isDropdownOpen && (
-              <div id="explore-tools-menu" className="absolute right-0 mt-2 max-h-[calc(100vh-5rem)] w-72 overflow-y-auto overscroll-contain rounded-xl border border-stone-200 bg-[var(--theme-surface)] p-2 shadow-xl z-50">
+              <div id="explore-tools-menu" className="absolute inset-x-4 top-full z-50 max-h-[60vh] overflow-y-auto overscroll-contain rounded-xl border border-stone-200 bg-[var(--theme-surface)] p-2 shadow-xl sm:inset-x-auto sm:right-0 sm:mt-2 sm:max-h-[calc(100vh-5rem)] sm:w-72">
                 {categoryKeys.map((catKey) => {
                   const catTools = activeTools.filter((t) => t.category === catKey);
                   if (catTools.length === 0) return null;
 
                   return (
                     <div key={catKey} className="mb-2 last:mb-0">
-                      <div className="sticky top-0 z-10 bg-[var(--theme-surface)]/95 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-500 backdrop-blur">
+                      <div className="bg-[var(--theme-surface)]/95 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-500 backdrop-blur sm:sticky sm:top-0 sm:z-10">
                         {t(`${catKey}.name`, { ns: 'categories' })}
                       </div>
                       <div className="space-y-0.5">

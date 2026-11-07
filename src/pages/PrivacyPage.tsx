@@ -13,7 +13,7 @@ export const PrivacyPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">1. Local File Processing</h2>
         <p>
-          At <strong>MyDailyUtils</strong> (https://www.mydailyutils.in), supported file operations are performed in your web browser. Files selected for these tools are not uploaded to MyDailyUtils for processing. Work is temporary unless you download the result; the site does not provide cloud storage for your files.
+          At <strong>MyDailyUtils</strong> (https://www.mydailyutils.in), supported file operations are performed in your web browser. Files selected for these tools are not uploaded to MyDailyUtils for processing. Work is temporary unless you download it or explicitly save a POS profile and inventory in your browser; the site does not provide cloud storage for your files.
         </p>
         <p>
           The website loads pages and third-party resources. Some PDF tools request character-map files from jsDelivr when needed to render or read certain PDFs. These are supporting resources; the selected PDF is not sent to jsDelivr for processing. Local file processing does not mean the website is offline or makes no network requests.
@@ -24,6 +24,9 @@ export const PrivacyPage: React.FC = () => {
         <h2 className="text-xl font-bold text-slate-900">2. Local preferences</h2>
         <p>
           The site stores your language choice and tool-visit counts in your browser’s local storage. The counts are used to show labels such as “Frequent” or “Favorite.” These preferences stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
+        </p>
+        <p>
+          If you choose to save a POS shop profile and inventory, they are stored in this browser’s IndexedDB on your device, including the shop details and inventory entered. Customer bills are not saved there. Saved profiles can be loaded or deleted in the POS tool, and clearing site data also removes them. Browser storage may be accessible to others using the same browser profile and may not persist in private browsing; keep a JSON backup.
         </p>
       </section>
 

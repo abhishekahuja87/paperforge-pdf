@@ -28,6 +28,29 @@
     "disclosure": "Ce formulaire est géré par Web3Forms, un service tiers. Lorsque vous l’envoyez, votre nom, votre adresse e-mail et votre message sont transmis à Web3Forms pour acheminer votre message. Cela est distinct de nos outils, qui traitent vos fichiers dans votre navigateur. Consultez notre <privacy>politique de confidentialité</privacy>.",
     "sent": "Message envoyé", "thanks": "Merci de nous avoir contactés. Nous examinerons bientôt votre message.", "name": "Votre nom", "email": "Votre adresse e-mail", "message": "Message", "placeholder": "Comment pouvons-nous vous aider ?", "sending": "Envoi en cours...", "send": "Envoyer le message", "failed": "Échec de l’envoi. Veuillez réessayer.", "networkError": "Erreur de connexion réseau. Veuillez réessayer plus tard."
   },
+  "posBill": {
+    "addNote": "Ajouter une note", "editNote": "Modifier la note", "note": "Note de la facture", "notePlaceholder": "Note ou instructions de paiement facultatives", "noteHint": "Enregistrez ou annulez avant de partager ou de changer de profil. L’enregistrement met à jour cette facture ; téléchargez son JSON pour la conserver.", "noteSave": "Enregistrer la note", "noteCancel": "Annuler",
+    "preview": "Aperçu de la facture",
+    "taxSummary": "Taxes et frais · Principale {{primary}} % · Supplémentaire {{additional}} % · Frais {{charge}}", "taxHint": "Modifiez ici les taux, les frais et leurs noms. La facture est actualisée immédiatement.", "editTaxes": "Modifier les taxes et frais",
+    "importHint": "Importez un JSON de profil ou de facture pour continuer.",
+    "shareTitle": "Partager la facture", "shareDescription": "Imprimez ou téléchargez une copie pour le client.",
+    "print": "Imprimer / télécharger le PDF", "preparing": "Préparation de l’image...", "image": "Télécharger l’image",
+    "backupTitle": "Enregistrer une facture modifiable", "backupDescription": "Le JSON contient la facture actuelle, le profil du commerce et l’inventaire.",
+    "saveJson": "Télécharger le JSON de facture", "saveNext": "Enregistrer le JSON et créer la facture suivante"
+  },
+  "posStorage": {
+    "manage": "Gérer profil, inventaire et imports", "editProfile": "Modifier le profil et l’inventaire",
+    "title": "Profils enregistrés dans ce navigateur", "description": "Enregistrez ici un profil et son inventaire, ou importez et enregistrez un JSON. Les factures ne sont pas stockées ici. Les données peuvent être effacées ou indisponibles en navigation privée ; gardez une sauvegarde JSON.",
+    "current": "Profil actuel :", "newProfile": "Nouveau, non enregistré dans le navigateur", "fileSource": "Fichier importé : {{name}}", "browserSource": "Navigateur : {{name}}", "modified": "Modifications non enregistrées dans cette source",
+    "saveNew": "Enregistrer un nouveau profil", "import": "Importer un JSON", "refresh": "Actualiser la liste", "empty": "Aucun profil enregistré dans ce navigateur.", "updated": "Mis à jour le {{date}} · {{count}} articles",
+    "load": "Utiliser le profil", "replace": "Remplacer par le profil actuel", "delete": "Supprimer",
+    "confirmLoad": "Charger un autre profil remplacera le profil, l’inventaire et la facture en mémoire, ainsi que les modifications non enregistrées. Téléchargez d’abord une sauvegarde JSON si nécessaire. Continuer ?",
+    "confirmReplace": "Remplacer le profil et l’inventaire enregistrés « {{name}} » par les données actuelles ? Cette action est irréversible.",
+    "confirmDelete": "Supprimer « {{name}} » du stockage du navigateur ? Le profil actuel en mémoire ne sera pas supprimé.",
+    "saved": "Enregistré dans ce navigateur : {{name}}", "loaded": "Chargé depuis ce navigateur : {{name}}", "deleted": "Supprimé du navigateur : {{name}}",
+    "failure": "Le stockage du navigateur est inaccessible ou les données enregistrées sont invalides. Vérifiez les paramètres ou actualisez la liste ; gardez une sauvegarde JSON.", "pendingItem": "Ajoutez ou mettez à jour l’article, ou effacez le formulaire, avant d’enregistrer le profil.",
+    "sessionNotice": "Le profil est prêt. Enregistrez-le dans le navigateur ou téléchargez le JSON pour plus tard.", "billReminder": "Rien n’est enregistré automatiquement. Enregistrez le profil dans le navigateur ou téléchargez un JSON ; exportez le JSON de facture pour conserver la facture actuelle."
+  },
   "posPage": {
     "backupTitle": "Conservez votre profil et votre inventaire pour la prochaine fois", "backupDescription": "Téléchargez un JSON contenant les détails du commerce, le préfixe de facture et l’inventaire. Conservez-le sur votre appareil et importez-le à votre retour. Le JSON est votre sauvegarde modifiable, pas la facture du client.", "needItem": "Ajoutez au moins un article à l’inventaire avant de continuer vers la facture.", "downloadProfile": "Télécharger le JSON du profil", "returnToBill": "Enregistrer le profil et revenir à la facture", "continue": "Continuer vers la facture",
     "units": { "pcs": "Pièces (pcs)", "box": "Boîte", "pack": "Paquet", "kg": "Kilogramme (kg)", "g": "Gramme (g)", "lb": "Livre (lb)", "oz": "Once (oz)", "L": "Litre (L)", "mL": "Millilitre (mL)", "m": "Mètre (m)", "cm": "Centimètre (cm)" },
@@ -39,14 +62,14 @@
       "optional": "Facultatif", "editItem": "Modifier l’article", "addItem": "Ajouter un article", "cancelEdit": "Annuler la modification", "itemName": "Nom de l’article *", "itemPlaceholder": "ex. amandes en vrac", "price": "Prix de vente *", "unit": "Unité", "sku": "SKU / code article", "update": "Mettre à jour", "add": "Ajouter à l’inventaire", "search": "Rechercher dans l’inventaire", "searchPlaceholder": "Rechercher dans l’inventaire...", "items_one": "{{count}} article", "items_other": "{{count}} articles", "edit": "Modifier {{name}}", "delete": "Supprimer {{name}}", "noMatches": "Aucun article ne correspond à la recherche.", "empty": "L’inventaire est vide. Ajoutez votre premier article ou importez un profil."
     },
     "title": "Studio de caisse et de facturation", "subtitle": "Un outil local pour le profil du commerce, l’inventaire, les quantités fractionnaires, les factures avec taxes et les sauvegardes JSON hors ligne.",
-    "privacy": "Les profils, inventaires, données clients et factures sont traités dans cette session du navigateur. Ils ne sont enregistrés que lorsque vous exportez explicitement un fichier JSON ; aucune donnée de caisse n’est envoyée à un serveur.",
+    "privacy": "Les données sont traitées dans le navigateur et ne sont pas envoyées à un serveur. Vous pouvez enregistrer explicitement les profils et inventaires dans ce navigateur ou les exporter en JSON. Les factures et données clients ne sont pas stockées dans le navigateur ; exportez un JSON de facture pour les conserver.",
     "step": "Étape 1 sur 2 · Profil du commerce", "create": "Créez le profil de votre commerce", "review": "Vérifiez le profil de votre commerce",
     "intro": "Ajoutez votre commerce et son inventaire ou importez un profil ou une facture enregistrés.", "import": "Importer un JSON de profil ou de facture", "importHint": "Importer un JSON de profil de commerce ou de facture",
     "profile": "Profil du commerce", "profileDescription": "Ces informations identifient votre commerce sur la facture remise au client.", "inventory": "Inventaire du commerce",
     "inventoryDescription": "Ajoutez des articles et des prix à l’inventaire. Les quantités fractionnaires sont possibles pour le poids, le volume, la longueur ou le nombre.",
     "faq": [
       ["L’application envoie-t-elle mon profil, mon inventaire ou mes factures ?", "Non. L’outil de caisse fonctionne dans votre navigateur. L’application n’envoie pas le profil, l’inventaire, les données clients ou les factures à un serveur."],
-      ["Comment réutiliser mon profil et mon inventaire ?", "Téléchargez le JSON du profil depuis l’écran du profil. Il contient les détails du commerce, le préfixe de facture et l’inventaire. Conservez-le sur votre appareil et importez-le lors de la prochaine session. Rien n’est enregistré automatiquement dans le stockage du navigateur."],
+      ["Comment réutiliser mon profil et mon inventaire ?", "Enregistrez un profil dans ce navigateur et rechargez-le à votre retour, ou téléchargez et importez un JSON. Le stockage peut être effacé : gardez une sauvegarde JSON. Rien n’est enregistré automatiquement."],
       ["Puis-je utiliser des quantités fractionnaires ?", "Oui. Les champs de quantité acceptent les décimales pour les unités de nombre, poids, volume, longueur et colis."],
       ["Comment fonctionnent les taxes et autres frais ?", "Définissez une taxe principale et une taxe supplémentaire facultative en pourcentage ; elles partagent le même réglage inclus ou exclus. Les frais fixes facultatifs sont ajoutés une fois par facture après les taxes. Ce calculateur ne fournit pas de conseil fiscal ou comptable ; vérifiez les règles applicables à votre commerce."],
       ["Quel numéro de facture verra le client ?", "Chaque nouvelle facture commence par le préfixe choisi dans le profil, suivi de la date et d’un code unique. Les anciens profils sans préfixe utilisent INV."],

@@ -28,6 +28,29 @@
     "disclosure": "此表单由第三方服务 Web3Forms 处理。提交时，您的姓名、电子邮箱地址和消息会发送给 Web3Forms 以转送消息。这与在浏览器中处理文件的工具是分开的。请参阅我们的<privacy>隐私政策</privacy>。",
     "sent": "消息已发送", "thanks": "感谢您联系我们。我们会尽快查看您的消息。", "name": "您的姓名", "email": "您的电子邮箱地址", "message": "消息", "placeholder": "我们能如何帮助您？", "sending": "正在发送...", "send": "发送消息", "failed": "提交失败，请重试。", "networkError": "网络连接错误，请稍后重试。"
   },
+  "posBill": {
+    "addNote": "添加备注", "editNote": "编辑备注", "note": "账单备注", "notePlaceholder": "可选备注或付款说明", "noteHint": "分享或切换资料前请保存或取消。保存会更新当前账单；请下载账单 JSON 以保留。", "noteSave": "保存备注", "noteCancel": "取消",
+    "preview": "账单预览",
+    "taxSummary": "税费与收费 · 主要税率 {{primary}}% · 附加税率 {{additional}}% · 收费 {{charge}}", "taxHint": "在此编辑税率、费用和名称，账单会立即更新。", "editTaxes": "编辑税费与收费",
+    "importHint": "导入资料或账单 JSON 以继续使用。",
+    "shareTitle": "分享账单", "shareDescription": "打印或下载供客户使用的副本。",
+    "print": "打印 / 下载 PDF", "preparing": "正在准备图片...", "image": "下载图片",
+    "backupTitle": "保存可编辑账单", "backupDescription": "账单 JSON 包含当前账单、商店资料和库存。",
+    "saveJson": "下载账单 JSON", "saveNext": "保存账单 JSON 并开始下一张账单"
+  },
+  "posStorage": {
+    "manage": "管理资料、库存和导入", "editProfile": "编辑资料和库存",
+    "title": "保存在此浏览器中的资料", "description": "在此保存商店资料和库存，或导入并保存 JSON。账单不会保存在此处。浏览器数据可能被清除，隐私浏览中的数据也可能无法保留；请保留 JSON 备份。",
+    "current": "当前资料：", "newProfile": "新资料，尚未保存在浏览器中", "fileSource": "导入的文件：{{name}}", "browserSource": "浏览器：{{name}}", "modified": "更改尚未保存到此来源",
+    "saveNew": "保存为新资料", "import": "导入 JSON", "refresh": "刷新保存列表", "empty": "此浏览器中没有保存的资料。", "updated": "更新于 {{date}} · {{count}} 件商品",
+    "load": "使用资料", "replace": "用当前资料替换", "delete": "删除",
+    "confirmLoad": "加载其他资料会替换内存中当前的资料、库存和账单，包括未保存的更改。如有需要，请先下载 JSON 备份。继续吗？",
+    "confirmReplace": "用当前资料和库存替换已保存的“{{name}}”？此操作无法撤销。",
+    "confirmDelete": "从浏览器存储中删除“{{name}}”？当前内存中的资料不会被删除。",
+    "saved": "已保存在此浏览器：{{name}}", "loaded": "已从此浏览器加载：{{name}}", "deleted": "已从浏览器存储中删除：{{name}}",
+    "failure": "无法访问浏览器存储或保存的数据无效。请检查浏览器设置或刷新列表；请保留 JSON 备份。", "pendingItem": "保存资料前，请先添加或更新商品，或清空商品表单。",
+    "sessionNotice": "商店资料已准备好。请将其保存在浏览器中或下载 JSON 供以后使用。", "billReminder": "数据不会自动保存。请将资料保存在浏览器中或下载 JSON；导出账单 JSON 以保留当前账单。"
+  },
   "posPage": {
     "backupTitle": "保存商店资料和库存供下次使用", "backupDescription": "下载包含商店详情、账单前缀和库存的资料 JSON。将其保存在设备上，下次使用时导入。JSON 是可编辑的备份，不是客户账单。", "needItem": "继续创建账单前，请至少添加一件库存商品。", "downloadProfile": "下载资料 JSON", "returnToBill": "保存资料并返回账单", "continue": "继续创建账单",
     "units": { "pcs": "件 (pcs)", "box": "盒", "pack": "包", "kg": "千克 (kg)", "g": "克 (g)", "lb": "磅 (lb)", "oz": "盎司 (oz)", "L": "升 (L)", "mL": "毫升 (mL)", "m": "米 (m)", "cm": "厘米 (cm)" },
@@ -39,14 +62,14 @@
       "optional": "可选", "editItem": "编辑库存商品", "addItem": "添加商品", "cancelEdit": "取消编辑商品", "itemName": "商品名称 *", "itemPlaceholder": "例如散装杏仁", "price": "售价 *", "unit": "单位", "sku": "SKU / 商品代码", "update": "更新商品", "add": "添加到库存", "search": "搜索库存", "searchPlaceholder": "搜索库存...", "items_one": "{{count}} 件商品", "items_other": "{{count}} 件商品", "edit": "编辑 {{name}}", "delete": "删除 {{name}}", "noMatches": "没有符合搜索条件的库存商品。", "empty": "商店库存为空。请添加第一个商品或导入商店资料。"
     },
     "title": "收银与账单工作室", "subtitle": "用于商店资料、库存、非整数数量、含税账单和离线 JSON 备份的本地工具。",
-    "privacy": "商店资料、库存、客户信息和账单均在当前浏览器会话中处理。只有您主动导出 JSON 文件时才会保存；收银数据不会上传到服务器。",
+    "privacy": "收银数据在浏览器中处理，不会上传到服务器。您可以主动将资料和库存保存在此浏览器中或导出为 JSON。账单和客户信息不会保存在浏览器存储中；请导出账单 JSON 以保留。",
     "step": "第 1 步，共 2 步 · 商店资料", "create": "创建商店资料", "review": "检查商店资料",
     "intro": "添加商店和库存，或导入已保存的资料或账单。", "import": "导入资料或账单 JSON", "importHint": "导入商店资料 JSON 或账单 JSON",
     "profile": "商店资料", "profileDescription": "这些信息用于在客户收到的账单上标识您的商店。", "inventory": "商店库存",
     "inventoryDescription": "将商品和价格添加到库存。重量、体积、长度或数量可以使用小数。",
     "faq": [
       ["应用会上传我的商店资料、库存或账单吗？", "不会。收银工具在浏览器中运行，不会将商店资料、库存、客户信息或账单发送到后端。"],
-      ["下次如何继续使用商店资料和库存？", "从商店资料页面下载资料 JSON，其中包含商店详情、账单前缀和库存。将其保存在设备上，下次使用时导入。浏览器存储不会自动保存这些信息。"],
+      ["下次如何继续使用商店资料和库存？", "将资料保存在此浏览器中，回来时加载，或下载并导入资料 JSON。浏览器存储可能被清除，请保留 JSON 备份。数据不会自动保存。"],
       ["库存数量可以使用小数吗？", "可以。数量字段支持件数、重量、体积、长度和包装单位的小数。"],
       ["税费和其他费用如何计算？", "设置主要百分比税率和可选的附加百分比税率；两者使用相同的含税或未含税设置。可选固定费用在百分比税之后每张账单加收一次。这是通用计算器，不提供税务或会计建议；请核实适用于您商店的规则。"],
       ["客户会看到什么账单编号？", "每张新账单以您在商店资料中选择的前缀开头，后面是日期和唯一代码。没有前缀的旧资料使用 INV。"],

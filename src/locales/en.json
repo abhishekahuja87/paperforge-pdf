@@ -28,6 +28,29 @@
     "disclosure": "This form is handled by Web3Forms, a third-party service. When you submit it, your name, email address, and message are sent to Web3Forms to deliver your message. This is separate from our utility tools, which process your files in your browser. See our <privacy>Privacy Policy</privacy>.",
     "sent": "Message Sent", "thanks": "Thank you for reaching out. We will review your message shortly.", "name": "Your Name", "email": "Your Email Address", "message": "Message", "placeholder": "How can we help?", "sending": "Sending...", "send": "Send Message", "failed": "Submission failed. Please try again.", "networkError": "Network connection error. Please try again later."
   },
+  "posBill": {
+    "addNote": "Add note", "editNote": "Edit note", "note": "Bill note", "notePlaceholder": "Optional note or payment instructions", "noteHint": "Save or cancel before sharing or switching profiles. Save updates this bill; download bill JSON to keep it.", "noteSave": "Save note", "noteCancel": "Cancel",
+    "preview": "Bill preview",
+    "taxSummary": "Taxes & charges · Primary {{primary}}% · Additional {{additional}}% · Charge {{charge}}", "taxHint": "Edit the rates, charge and labels here. The bill updates immediately.", "editTaxes": "Edit taxes & charges",
+    "importHint": "Import a profile or bill JSON to continue working.",
+    "shareTitle": "Share the bill", "shareDescription": "Print or download a customer-ready copy.",
+    "print": "Print / download PDF", "preparing": "Preparing image...", "image": "Download image",
+    "backupTitle": "Save an editable bill", "backupDescription": "Bill JSON includes the current bill, shop profile and inventory.",
+    "saveJson": "Download bill JSON", "saveNext": "Save bill JSON & start next bill"
+  },
+  "posStorage": {
+    "manage": "Manage profile, inventory & imports", "editProfile": "Edit profile & inventory",
+    "title": "Profiles saved in this browser", "description": "Save a profile and inventory here, or import JSON and save it. Bills are not stored here. Browser data can be cleared or unavailable in private browsing; keep a JSON backup.",
+    "current": "Current profile:", "newProfile": "New, not saved in browser", "fileSource": "Imported file: {{name}}", "browserSource": "Browser: {{name}}", "modified": "Changes not saved to this source",
+    "saveNew": "Save as new profile", "import": "Import JSON", "refresh": "Refresh saved list", "empty": "No profiles saved in this browser.", "updated": "Updated {{date}} · {{count}} items",
+    "load": "Use profile", "replace": "Replace with current", "delete": "Delete",
+    "confirmLoad": "Loading another profile replaces the current profile, inventory and bill in memory, including unsaved edits. Download a JSON backup first if needed. Continue?",
+    "confirmReplace": "Replace the saved profile and inventory “{{name}}” with the current profile and inventory? This cannot be undone.",
+    "confirmDelete": "Delete “{{name}}” from browser storage? The current in-memory profile will not be deleted.",
+    "saved": "Saved in this browser: {{name}}", "loaded": "Loaded from this browser: {{name}}", "deleted": "Deleted from browser storage: {{name}}",
+    "failure": "Browser storage could not be accessed or the saved data is invalid. Check browser settings or refresh the list; keep a JSON backup.", "pendingItem": "Add or update the item, or clear the item form, before saving the profile.",
+    "sessionNotice": "Shop profile is ready. Save it in this browser or download JSON to keep it for later.", "billReminder": "Nothing is saved automatically. Save the profile in this browser or download JSON; export bill JSON to keep the current bill."
+  },
   "posPage": {
     "backupTitle": "Keep your shop profile and inventory for next time", "backupDescription": "Download a profile JSON with your shop details, bill prefix, and shop inventory. Keep it on your device and import it whenever you return. JSON is your editable backup; it is not the customer bill.", "needItem": "Add at least one item to shop inventory before continuing to the bill.", "downloadProfile": "Download profile JSON", "returnToBill": "Save profile & return to bill", "continue": "Continue to bill",
     "units": { "pcs": "Pieces (pcs)", "box": "Box", "pack": "Pack", "kg": "Kilogram (kg)", "g": "Gram (g)", "lb": "Pound (lb)", "oz": "Ounce (oz)", "L": "Litre (L)", "mL": "Millilitre (mL)", "m": "Metre (m)", "cm": "Centimetre (cm)" },
@@ -39,14 +62,14 @@
       "optional": "Optional", "editItem": "Edit inventory item", "addItem": "Add an item", "cancelEdit": "Cancel item edit", "itemName": "Item name *", "itemPlaceholder": "e.g. Loose almonds", "price": "Selling price *", "unit": "Unit", "sku": "SKU / item code", "update": "Update item", "add": "Add to inventory", "search": "Search inventory", "searchPlaceholder": "Search inventory...", "items_one": "{{count}} item", "items_other": "{{count}} items", "edit": "Edit {{name}}", "delete": "Delete {{name}}", "noMatches": "No inventory items match your search.", "empty": "Shop inventory is empty. Add your first item or import a shop profile."
     },
     "title": "POS & Bill Studio", "subtitle": "A local-only tool for shop profiles, inventory, fractional quantities, tax-aware bills, and offline JSON backups.",
-    "privacy": "Shop profiles, inventory, customer information, and bills are processed in this browser session. They are only saved when you explicitly export a JSON file; no POS data is uploaded to a server.",
+    "privacy": "POS data is processed in your browser and is not uploaded to a server. Profiles and inventory can be explicitly saved in this browser or exported as JSON. Bills and customer information are not saved in browser storage; export a bill JSON to keep them.",
     "step": "Step 1 of 2 · Shop profile", "create": "Create your shop profile", "review": "Review your shop profile",
     "intro": "Add your shop and inventory, or import a saved profile or bill.", "import": "Import profile or bill JSON", "importHint": "Import a shop profile JSON or a bill JSON",
     "profile": "Shop profile", "profileDescription": "These details identify your shop on the bill your customer receives.", "inventory": "Shop inventory",
     "inventoryDescription": "Add items and prices to shop inventory. You can use fractional quantities for weight, volume, length, or count.",
     "faq": [
       ["Does the app upload my shop profile, inventory, or bills?", "No. The POS tool runs in your browser. The app does not send your shop profile, inventory, customer information, or bills to a backend."],
-      ["How do I reuse my shop profile and inventory next time?", "Download the profile JSON from the shop profile screen. It contains your shop profile details, bill prefix, and inventory. Keep it on your device and import it next session. Nothing is stored automatically in browser storage."],
+      ["How do I reuse my shop profile and inventory next time?", "Save a profile in this browser and load it when you return, or download and import a profile JSON. Browser storage can be cleared, so keep a JSON backup. Nothing is saved automatically."],
       ["Can I use fractional inventory quantities?", "Yes. Quantity fields support decimals for count, weight, volume, length, and package units."],
       ["How do taxes and other charges work?", "Set a primary and optional additional percentage tax; both use the same inclusive or exclusive setting. The optional flat charge is added once per bill after percentage taxes. This is a general calculator, not tax or accounting advice; verify the rules that apply to your shop."],
       ["What bill number will my customer see?", "Each new bill starts with the prefix you choose in your shop profile, followed by the date and a unique code. Older profile files without a prefix use INV."],

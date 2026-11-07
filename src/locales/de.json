@@ -28,6 +28,29 @@
     "disclosure": "Dieses Formular wird von Web3Forms, einem Drittanbieter, verarbeitet. Beim Absenden werden Ihr Name, Ihre E-Mail-Adresse und Ihre Nachricht zur Zustellung an Web3Forms übermittelt. Dies ist von unseren Werkzeugen getrennt, die Ihre Dateien im Browser verarbeiten. Lesen Sie unsere <privacy>Datenschutzerklärung</privacy>.",
     "sent": "Nachricht gesendet", "thanks": "Vielen Dank für Ihre Nachricht. Wir werden sie zeitnah prüfen.", "name": "Ihr Name", "email": "Ihre E-Mail-Adresse", "message": "Nachricht", "placeholder": "Wie können wir helfen?", "sending": "Wird gesendet...", "send": "Nachricht senden", "failed": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.", "networkError": "Netzwerkverbindungsfehler. Bitte versuchen Sie es später erneut."
   },
+  "posBill": {
+    "addNote": "Notiz hinzufügen", "editNote": "Notiz bearbeiten", "note": "Rechnungsnotiz", "notePlaceholder": "Optionale Notiz oder Zahlungshinweise", "noteHint": "Speichern oder verwerfen Sie die Notiz vor dem Teilen oder Profilwechsel. Speichern aktualisiert diese Rechnung; laden Sie Rechnungs-JSON herunter, um sie zu behalten.", "noteSave": "Notiz speichern", "noteCancel": "Abbrechen",
+    "preview": "Rechnungsvorschau",
+    "taxSummary": "Steuern und Gebühren · Hauptsteuer {{primary}} % · Zusatzsteuer {{additional}} % · Gebühr {{charge}}", "taxHint": "Bearbeiten Sie hier Steuersätze, Gebühr und Bezeichnungen. Die Rechnung wird sofort aktualisiert.", "editTaxes": "Steuern und Gebühren bearbeiten",
+    "importHint": "Importieren Sie ein Profil- oder Rechnungs-JSON, um weiterzuarbeiten.",
+    "shareTitle": "Rechnung teilen", "shareDescription": "Drucken oder laden Sie eine Kopie für den Kunden herunter.",
+    "print": "Drucken / PDF herunterladen", "preparing": "Bild wird vorbereitet...", "image": "Bild herunterladen",
+    "backupTitle": "Bearbeitbare Rechnung sichern", "backupDescription": "Das Rechnungs-JSON enthält die aktuelle Rechnung, das Ladenprofil und das Inventar.",
+    "saveJson": "Rechnungs-JSON herunterladen", "saveNext": "JSON speichern und nächste Rechnung beginnen"
+  },
+  "posStorage": {
+    "manage": "Profil, Inventar und Importe verwalten", "editProfile": "Profil und Inventar bearbeiten",
+    "title": "In diesem Browser gespeicherte Profile", "description": "Speichern Sie Profil und Inventar hier oder importieren und speichern Sie JSON. Rechnungen werden hier nicht gespeichert. Browserdaten können gelöscht werden oder im privaten Modus verloren gehen; behalten Sie eine JSON-Sicherung.",
+    "current": "Aktuelles Profil:", "newProfile": "Neu, nicht im Browser gespeichert", "fileSource": "Importierte Datei: {{name}}", "browserSource": "Browser: {{name}}", "modified": "Änderungen nicht in dieser Quelle gespeichert",
+    "saveNew": "Als neues Profil speichern", "import": "JSON importieren", "refresh": "Liste aktualisieren", "empty": "In diesem Browser sind keine Profile gespeichert.", "updated": "Aktualisiert {{date}} · {{count}} Artikel",
+    "load": "Profil verwenden", "replace": "Durch aktuelles ersetzen", "delete": "Löschen",
+    "confirmLoad": "Beim Laden werden das aktuelle Profil, Inventar und die Rechnung im Speicher einschließlich ungespeicherter Änderungen ersetzt. Laden Sie bei Bedarf zuerst eine JSON-Sicherung herunter. Fortfahren?",
+    "confirmReplace": "Das gespeicherte Profil und Inventar „{{name}}“ durch die aktuellen Daten ersetzen? Dies kann nicht rückgängig gemacht werden.",
+    "confirmDelete": "„{{name}}“ aus dem Browserspeicher löschen? Das aktuelle Profil im Arbeitsspeicher bleibt erhalten.",
+    "saved": "In diesem Browser gespeichert: {{name}}", "loaded": "Aus diesem Browser geladen: {{name}}", "deleted": "Aus dem Browser gelöscht: {{name}}",
+    "failure": "Der Browserspeicher ist nicht verfügbar oder die gespeicherten Daten sind ungültig. Prüfen Sie die Einstellungen oder aktualisieren Sie die Liste; behalten Sie eine JSON-Sicherung.", "pendingItem": "Fügen Sie den Artikel hinzu, aktualisieren Sie ihn oder leeren Sie das Formular, bevor Sie das Profil speichern.",
+    "sessionNotice": "Das Ladenprofil ist bereit. Speichern Sie es im Browser oder laden Sie JSON für später herunter.", "billReminder": "Nichts wird automatisch gespeichert. Speichern Sie das Profil im Browser oder laden Sie JSON herunter; exportieren Sie Rechnungs-JSON für die aktuelle Rechnung."
+  },
   "posPage": {
     "backupTitle": "Ladenprofil und Inventar für das nächste Mal sichern", "backupDescription": "Laden Sie ein Profil-JSON mit Ladendaten, Rechnungspräfix und Inventar herunter. Bewahren Sie es auf Ihrem Gerät auf und importieren Sie es bei Ihrer Rückkehr. JSON ist Ihre bearbeitbare Sicherung, nicht die Kundenrechnung.", "needItem": "Fügen Sie mindestens einen Inventarartikel hinzu, bevor Sie zur Rechnung wechseln.", "downloadProfile": "Profil-JSON herunterladen", "returnToBill": "Profil speichern und zur Rechnung zurückkehren", "continue": "Weiter zur Rechnung",
     "units": { "pcs": "Stück (pcs)", "box": "Karton", "pack": "Packung", "kg": "Kilogramm (kg)", "g": "Gramm (g)", "lb": "Pfund (lb)", "oz": "Unze (oz)", "L": "Liter (L)", "mL": "Milliliter (mL)", "m": "Meter (m)", "cm": "Zentimeter (cm)" },
@@ -39,14 +62,14 @@
       "optional": "Optional", "editItem": "Inventarartikel bearbeiten", "addItem": "Artikel hinzufügen", "cancelEdit": "Bearbeitung abbrechen", "itemName": "Artikelname *", "itemPlaceholder": "z. B. lose Mandeln", "price": "Verkaufspreis *", "unit": "Einheit", "sku": "SKU / Artikelcode", "update": "Artikel aktualisieren", "add": "Zum Inventar hinzufügen", "search": "Inventar durchsuchen", "searchPlaceholder": "Inventar durchsuchen...", "items_one": "{{count}} Artikel", "items_other": "{{count}} Artikel", "edit": "{{name}} bearbeiten", "delete": "{{name}} löschen", "noMatches": "Keine Inventarartikel entsprechen Ihrer Suche.", "empty": "Das Inventar ist leer. Fügen Sie einen Artikel hinzu oder importieren Sie ein Ladenprofil."
     },
     "title": "Kassen- und Rechnungsstudio", "subtitle": "Ein lokales Werkzeug für Ladenprofile, Inventar, Bruchmengen, Rechnungen mit Steuern und Offline-JSON-Sicherungen.",
-    "privacy": "Ladenprofile, Inventar, Kundendaten und Rechnungen werden in dieser Browsersitzung verarbeitet. Sie werden nur gespeichert, wenn Sie ausdrücklich eine JSON-Datei exportieren; Kassendaten werden nicht auf einen Server hochgeladen.",
+    "privacy": "Kassendaten werden im Browser verarbeitet und nicht auf einen Server hochgeladen. Profile und Inventar können ausdrücklich in diesem Browser gespeichert oder als JSON exportiert werden. Rechnungen und Kundendaten werden nicht im Browserspeicher gespeichert; exportieren Sie dafür ein Rechnungs-JSON.",
     "step": "Schritt 1 von 2 · Ladenprofil", "create": "Ladenprofil erstellen", "review": "Ladenprofil überprüfen",
     "intro": "Fügen Sie Ihren Laden und Ihr Inventar hinzu oder importieren Sie ein gespeichertes Profil oder eine Rechnung.", "import": "Profil- oder Rechnungs-JSON importieren", "importHint": "Ladenprofil- oder Rechnungs-JSON importieren",
     "profile": "Ladenprofil", "profileDescription": "Diese Angaben kennzeichnen Ihren Laden auf der Rechnung für den Kunden.", "inventory": "Ladeninventar",
     "inventoryDescription": "Fügen Sie Artikel und Preise zum Inventar hinzu. Für Gewicht, Volumen, Länge oder Stückzahl können Sie Bruchmengen verwenden.",
     "faq": [
       ["Lädt die App mein Ladenprofil, Inventar oder Rechnungen hoch?", "Nein. Das Kassenwerkzeug läuft im Browser. Die App sendet Ladenprofil, Inventar, Kundendaten und Rechnungen nicht an ein Backend."],
-      ["Wie verwende ich Profil und Inventar beim nächsten Mal wieder?", "Laden Sie das Profil-JSON auf der Profilseite herunter. Es enthält Ladendaten, Rechnungspräfix und Inventar. Speichern Sie es auf Ihrem Gerät und importieren Sie es in der nächsten Sitzung. Im Browserspeicher wird nichts automatisch gespeichert."],
+      ["Wie verwende ich Profil und Inventar beim nächsten Mal wieder?", "Speichern Sie ein Profil in diesem Browser und laden Sie es bei der Rückkehr, oder laden Sie ein JSON herunter und importieren es. Browserspeicher kann gelöscht werden; behalten Sie eine JSON-Sicherung. Nichts wird automatisch gespeichert."],
       ["Kann ich Bruchmengen verwenden?", "Ja. Mengenfelder unterstützen Dezimalzahlen für Stück-, Gewichts-, Volumen-, Längen- und Verpackungseinheiten."],
       ["Wie funktionieren Steuern und andere Gebühren?", "Legen Sie eine primäre und optional eine zusätzliche prozentuale Steuer fest; beide verwenden dieselbe Einstellung für inklusive oder exklusive Steuer. Die optionale Pauschalgebühr wird nach den prozentualen Steuern einmal pro Rechnung hinzugefügt. Dies ist ein allgemeiner Rechner, keine Steuer- oder Buchhaltungsberatung; prüfen Sie die geltenden Regeln."],
       ["Welche Rechnungsnummer sieht mein Kunde?", "Jede neue Rechnung beginnt mit dem im Ladenprofil gewählten Präfix, gefolgt von Datum und einem eindeutigen Code. Ältere Profile ohne Präfix verwenden INV."],
