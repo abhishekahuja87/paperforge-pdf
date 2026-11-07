@@ -178,9 +178,9 @@ export const ImagesToPdf: React.FC = () => {
             </div>
 
             {pageLayout !== 'fit' && (
-              <div className="pt-2 flex items-center justify-between border-t border-slate-200/60">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-200/60 pt-2">
                 <span className="text-xs text-slate-600 font-medium">Page Margins:</span>
-                <div className="flex gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {[
                     { label: 'None', val: 0 },
                     { label: 'Small (20pt)', val: 20 },

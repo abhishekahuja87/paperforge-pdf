@@ -382,7 +382,7 @@ export const DisplayStudio: React.FC = () => {
         </div>
       ) : (
         <>
-          <div className="mx-auto w-full max-w-3xl rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+          <div className={`mx-auto w-full rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 ${slides.length === 0 ? 'max-w-3xl' : ''}`}>
             <FileDropZone
               accept={FILE_ACCEPT}
               multiple
@@ -424,14 +424,14 @@ export const DisplayStudio: React.FC = () => {
                         <span className="absolute left-2 top-2 rounded-md bg-black/65 px-2 py-1 text-[10px] font-semibold text-white">Slide {index + 1}</span>
                       </div>
                       <div className="space-y-3 p-3">
-                        <div className="flex items-start gap-2">
+                        <div className="flex flex-wrap items-start gap-2">
                           <label className="mt-0.5 flex shrink-0 items-center gap-1.5 text-xs font-semibold text-slate-700">
                             <input type="checkbox" checked={slide.included} onChange={(event) => updateSlide(slide.id, { included: event.target.checked })} className="h-4 w-4 accent-indigo-600" />
                             Include
                           </label>
-                          <div className="min-w-0 flex-1">
+                          <div className="min-w-0 flex-[1_1_8rem]">
                             <p className="truncate text-xs font-bold text-slate-800" title={slide.sourceName}>{slide.sourceName}</p>
-                            <p className="text-[10px] text-slate-500">{slide.sourceKind === 'pdf' || slide.sourceKind === 'docx' ? `Page ${slide.pageNumber}` : 'Image'} · {slide.title}</p>
+                            <p className="break-words text-[10px] text-slate-500">{slide.sourceKind === 'pdf' || slide.sourceKind === 'docx' ? `Page ${slide.pageNumber}` : 'Image'} · {slide.title}</p>
                           </div>
                           <div className="flex shrink-0 gap-0.5">
                             <button type="button" aria-label={`Move slide ${index + 1} up`} className="rounded p-1 text-slate-500 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-30" disabled={index === 0} onClick={() => moveSlide(index, -1)}><ArrowUp className="h-4 w-4" /></button>
@@ -513,7 +513,7 @@ export const DisplayStudio: React.FC = () => {
           )}
 
           {slides.length === 0 && !processing && (
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center text-sm text-slate-500">
+            <div className="mx-auto w-full max-w-3xl rounded-xl border border-slate-200 bg-white p-5 text-center text-sm text-slate-500">
               <div className="mb-2 flex justify-center gap-2 text-slate-400"><FileText className="h-5 w-5" /><FileImage className="h-5 w-5" /></div>
               <span lang={i18n.language}>{t('displayPage.empty')}</span>
             </div>

@@ -149,11 +149,11 @@ export const OrganizePdf: React.FC = () => {
 
           {/* Interactive Thumbnails Grid */}
           {!isLoading && pages.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 pt-2">
+            <div className="grid grid-cols-2 gap-3.5 pt-2 sm:grid-cols-3 md:grid-cols-4">
               {pages.map((p, idx) => (
                 <div
                   key={p.id}
-                  className="group relative bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-xl p-2.5 flex flex-col space-y-2 transition-all shadow-sm"
+                  className="group relative flex min-w-0 flex-col space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-2.5 shadow-sm transition-all hover:border-indigo-400"
                 >
                   {/* Thumbnail Image */}
                   <div className="relative aspect-[3/4] bg-white rounded-lg overflow-hidden border border-slate-100 flex items-center justify-center">
@@ -169,7 +169,7 @@ export const OrganizePdf: React.FC = () => {
                   </div>
 
                   {/* Ordering & Rotation Toolbar */}
-                  <div className="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-600">
+                  <div className="flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 pt-1 text-slate-600">
                     <div className="flex space-x-1">
                       <button
                         type="button"

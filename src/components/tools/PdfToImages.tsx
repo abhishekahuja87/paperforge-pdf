@@ -125,7 +125,7 @@ export const PdfToImages: React.FC = () => {
                       alt={`Page ${p.pageNumber}`}
                       className="w-full h-auto object-contain flex-1 bg-white"
                     />
-                    <div className="p-2.5 flex items-center justify-between bg-slate-50 border-t border-slate-100 text-xs">
+                    <div className="flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 bg-slate-50 p-2.5 text-xs">
                       <span className="font-medium text-slate-700">Page {p.pageNumber}</span>
                       <a
                         href={p.dataUrl}

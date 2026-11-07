@@ -428,8 +428,8 @@ export const MasterDocumentStudio: React.FC = () => {
     setNotice(`${filename} downloaded.`);
   };
   const inputDeck = (
-    <div className="space-y-4">
-      <div className="mx-auto w-full max-w-3xl rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+    <div className="min-w-0 space-y-4">
+      <div className={`mx-auto w-full rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 ${sources.length > 0 ? '' : 'max-w-3xl'}`}>
         <FileDropZone
           accept=".pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp"
           multiple
@@ -454,7 +454,7 @@ export const MasterDocumentStudio: React.FC = () => {
           {sources.map((source, sourceIndex) => {
             const sourcePages = pages.filter((page) => page.sourceId === source.id);
             return (
-              <section key={source.id} className="rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
+              <section key={source.id} className="min-w-0 rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
                 <div className="mb-3 space-y-3">
                   <div className="flex items-center gap-3">
                     <span className="whitespace-nowrap rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white">Document {sourceIndex + 1}</span>
@@ -502,12 +502,12 @@ export const MasterDocumentStudio: React.FC = () => {
                   )}
                 </div>
                 {sourcePages.length > 0 ? (
-                  <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4">
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                     {sourcePages.map((page) => {
                       const sequenceNumber = selectedIds.indexOf(page.id) + 1;
                       const isSelected = sequenceNumber > 0;
                       return (
-                        <article key={page.id} className={`group relative flex flex-col rounded-xl border p-2.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${isSelected ? 'border-indigo-500 bg-indigo-50/30 ring-2 ring-indigo-100' : 'border-slate-200 bg-slate-50'}`}>
+                        <article key={page.id} className={`group relative flex min-w-0 flex-col rounded-xl border p-2.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${isSelected ? 'border-indigo-500 bg-indigo-50/30 ring-2 ring-indigo-100' : 'border-slate-200 bg-slate-50'}`}>
                           <input type="checkbox" checked={isSelected} onChange={() => togglePage(page.id)} className="absolute left-3 top-3 z-10 h-5 w-5 accent-indigo-600" aria-label={`Add ${page.sourceName} page ${page.originalPageNumber} to output`} />
                           <div className="mb-2 flex h-48 items-center justify-center overflow-hidden rounded-lg bg-white p-2">
                             <img src={page.thumbnailUrl} alt={`${page.sourceName} page ${page.originalPageNumber}`} loading="lazy" className="max-h-full max-w-full object-contain shadow-sm" />
@@ -536,7 +536,7 @@ export const MasterDocumentStudio: React.FC = () => {
   );
 
   const sourceRail = (
-    <aside className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <aside className="min-w-0 space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
       <div>
         <h2 className="text-sm font-bold text-slate-900">Source overview</h2>
         <p className="mt-1 text-xs text-slate-500">{sources.length} source{sources.length === 1 ? '' : 's'} · {outputItems.length} output pages</p>
@@ -566,56 +566,58 @@ export const MasterDocumentStudio: React.FC = () => {
   );
 
   return (
-    <div className="mx-auto max-w-[1500px] space-y-4">
+    <div className="mx-auto w-full min-w-0 space-y-4">
       <input ref={fileInputRef} type="file" multiple accept=".pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp" onChange={(event) => { if (event.target.files) void addFiles(event.target.files); }} className="hidden" />
       {error && <div role="alert" className="flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"><X className="mt-0.5 h-4 w-4 shrink-0" />{error}</div>}
       {notice && <div role="status" className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs font-medium text-emerald-800">{notice}</div>}
 
       {stage === 'selection' ? (
-        <div className={sources.length > 0 ? 'grid items-start gap-4 xl:grid-cols-[minmax(0,4fr)_minmax(250px,1fr)]' : 'mx-auto max-w-3xl'}>
-          <section className="min-w-0 space-y-4">
-            {sources.length > 0 && <div>
-              <div className="mb-1 flex items-center gap-2">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">1</span>
-                <h2 lang={i18n.language} className="text-lg font-bold text-slate-900">{t('master.choosePages')}</h2>
-              </div>
-              <p lang={i18n.language} className="pl-8 text-xs text-slate-500">{t('master.choosePagesHint')}</p>
-            </div>}
-            {inputDeck}
-          </section>
-          {sources.length > 0 && <aside className="sticky top-20 space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-            <div className="flex items-start justify-between gap-2">
-              <div>
-                <h2 lang={i18n.language} className="text-sm font-bold text-slate-900">{t('master.selected')}</h2>
-                <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('master.queued', { count: selectedIds.length })}</p>
-              </div>
-              <span className="rounded-full bg-indigo-50 px-2 py-1 text-[10px] font-bold text-indigo-700">{selectedIds.length}</span>
+        <div className="space-y-4">
+          {sources.length > 0 && <div>
+            <div className="mb-1 flex items-center gap-2">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">1</span>
+              <h2 lang={i18n.language} className="text-lg font-bold text-slate-900">{t('master.choosePages')}</h2>
             </div>
-            <div className="max-h-[55vh] space-y-2 overflow-y-auto pr-1">
-              {selectedIds.map((id, index) => {
-                const page = pageMap.get(id);
-                if (!page) return null;
-                return (
-                  <div key={id} className="flex items-center gap-2 rounded-lg border border-slate-100 bg-slate-50 p-2">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-[10px] font-bold text-white">{index + 1}</span>
-                    <img src={page.thumbnailUrl} alt="" className="h-12 w-9 rounded bg-white object-contain" />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-[10px] font-semibold text-slate-700">{page.sourceName}</p>
-                      <p className="text-[9px] text-slate-400">Original page {page.originalPageNumber}</p>
+            <p lang={i18n.language} className="pl-8 text-xs text-slate-500">{t('master.choosePagesHint')}</p>
+          </div>}
+          <div className={sources.length > 0 ? 'grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,1.65fr)_minmax(300px,1fr)]' : 'mx-auto max-w-3xl'}>
+            <section className="min-w-0">
+              {inputDeck}
+            </section>
+            {sources.length > 0 && <aside className="min-w-0 space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm lg:sticky lg:top-20">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <h2 lang={i18n.language} className="text-sm font-bold text-slate-900">{t('master.selected')}</h2>
+                  <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('master.queued', { count: selectedIds.length })}</p>
+                </div>
+                <span className="rounded-full bg-indigo-50 px-2 py-1 text-[10px] font-bold text-indigo-700">{selectedIds.length}</span>
+              </div>
+              <div className="max-h-[55vh] space-y-2 overflow-y-auto pr-1">
+                {selectedIds.map((id, index) => {
+                  const page = pageMap.get(id);
+                  if (!page) return null;
+                  return (
+                    <div key={id} className="flex items-center gap-2 rounded-lg border border-slate-100 bg-slate-50 p-2">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-[10px] font-bold text-white">{index + 1}</span>
+                      <img src={page.thumbnailUrl} alt="" className="h-12 w-9 rounded bg-white object-contain" />
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-[10px] font-semibold text-slate-700">{page.sourceName}</p>
+                        <p className="text-[9px] text-slate-400">Original page {page.originalPageNumber}</p>
+                      </div>
+                      <button type="button" aria-label={`Remove output page ${index + 1}`} onClick={() => togglePage(id)} className="rounded p-1 text-slate-400 hover:bg-red-50 hover:text-red-600"><X className="h-3.5 w-3.5" /></button>
                     </div>
-                    <button type="button" aria-label={`Remove output page ${index + 1}`} onClick={() => togglePage(id)} className="rounded p-1 text-slate-400 hover:bg-red-50 hover:text-red-600"><X className="h-3.5 w-3.5" /></button>
-                  </div>
-                );
-              })}
-              {selectedIds.length === 0 && <div lang={i18n.language} className="rounded-lg border border-dashed border-slate-200 px-3 py-8 text-center text-xs text-slate-400">{t('master.empty')}</div>}
-            </div>
-            {selectedIds.length > 0 && <button type="button" onClick={proceedToStudio} className="flex w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200">
-              <span lang={i18n.language}>{t('master.continue')}</span> <ArrowRight className="h-4 w-4" />
-            </button>}
-          </aside>}
+                  );
+                })}
+                {selectedIds.length === 0 && <div lang={i18n.language} className="rounded-lg border border-dashed border-slate-200 px-3 py-8 text-center text-xs text-slate-400">{t('master.empty')}</div>}
+              </div>
+              {selectedIds.length > 0 && <button type="button" onClick={proceedToStudio} className="flex w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200">
+                <span lang={i18n.language}>{t('master.continue')}</span> <ArrowRight className="h-4 w-4" />
+              </button>}
+            </aside>}
+          </div>
         </div>
       ) : (
-        <div className="grid items-start gap-4 xl:grid-cols-[minmax(230px,1fr)_minmax(0,4fr)]">
+        <div className="grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(230px,260px)_minmax(0,1fr)]">
           {sourceRail}
           <section className="min-w-0 space-y-4">
             <div className="flex flex-wrap items-end justify-between gap-3">
@@ -634,7 +636,7 @@ export const MasterDocumentStudio: React.FC = () => {
             </div>
 
             {outputItems.length > 0 ? (
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
                 {outputItems.map((item, index) => {
                   return (
                     <div
@@ -665,7 +667,7 @@ export const MasterDocumentStudio: React.FC = () => {
                         setDraggedItemId(null);
                         setDropTargetItemId(null);
                       }}
-                      className={`group relative rounded-xl border bg-white p-2.5 shadow-sm transition-all duration-200 ${draggedItemId === item.id ? 'scale-[0.98] border-dashed border-slate-300 opacity-45' : dropTargetItemId === item.id ? 'translate-y-[-3px] border-2 border-indigo-500 bg-indigo-50/60 shadow-lg ring-4 ring-indigo-100' : 'border-slate-200 hover:border-indigo-300 hover:shadow-md'}`}
+                      className={`group relative min-w-0 rounded-xl border bg-white p-2.5 shadow-sm transition-all duration-200 ${draggedItemId === item.id ? 'scale-[0.98] border-dashed border-slate-300 opacity-45' : dropTargetItemId === item.id ? 'translate-y-[-3px] border-2 border-indigo-500 bg-indigo-50/60 shadow-lg ring-4 ring-indigo-100' : 'border-slate-200 hover:border-indigo-300 hover:shadow-md'}`}
                     >
                       <span className="absolute left-3 top-3 z-10 rounded-full bg-indigo-600 px-2 py-1 text-[10px] font-bold text-white">outputPdfPag{index + 1}</span>
                       <div className="mb-2 flex h-56 items-center justify-center overflow-hidden rounded-lg bg-slate-100 p-2">
@@ -680,7 +682,7 @@ export const MasterDocumentStudio: React.FC = () => {
                           <Pin className="mr-1 inline h-3 w-3 fill-current" />{item.contentsTitle}
                         </div>
                       )}
-                      <div className="mt-2 flex items-center justify-between border-t border-slate-100 pt-2">
+                      <div className="mt-2 flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 pt-2">
                         <span className="inline-flex items-center gap-1 text-[9px] text-slate-400"><Move className="h-3 w-3" />Drag to reorder</span>
                         <div className="flex items-center gap-1">
                           <button type="button" aria-label={`${item.contentsTitle ? 'Edit' : 'Add'} table of contents entry for outputPdfPag${index + 1}`} aria-pressed={Boolean(item.contentsTitle)} onClick={() => setContentsEntryItemId(item.id)} className={`rounded-lg p-1.5 ${item.contentsTitle ? 'bg-amber-100 text-amber-800 hover:bg-amber-200' : 'text-slate-500 hover:bg-amber-50 hover:text-amber-700'}`} title={item.contentsTitle ? 'Edit contents entry' : 'Add to table of contents'}><Pin className={`h-4 w-4 ${item.contentsTitle ? 'fill-current' : ''}`} /></button>

@@ -44,7 +44,7 @@ interface ItemForm {
 
 const EMPTY_ITEM: ItemForm = { name: '', sku: '', unit: 'pcs', price: '' };
 const fieldClass = 'mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100';
-const labelClass = 'block text-xs font-semibold text-slate-600';
+const labelClass = 'block min-w-0 text-xs font-semibold text-slate-600';
 const secondaryButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50 disabled:cursor-not-allowed disabled:opacity-50';
 const primaryButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50';
 const OKLCH_PATTERN = /oklch\(([^)]+)\)/gi;
@@ -454,7 +454,7 @@ export const PosInvoiceStudio: React.FC = () => {
   );
 
   const renderInventoryPanel = () => (
-    <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+    <section className="min-w-0 space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
       <div>
         <h3 lang={i18n.language} className="text-base font-bold text-slate-900">{t('posPage.inventory')}</h3>
         <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('posPage.inventoryDescription')}</p>
@@ -494,7 +494,7 @@ export const PosInvoiceStudio: React.FC = () => {
           <div key={item.id} className="flex items-center gap-2 rounded-xl border border-slate-100 px-3 py-2.5">
             <div className="min-w-0 flex-1">
               <p className="truncate text-xs font-bold text-slate-800">{item.name}</p>
-              <p className="text-[10px] text-slate-500">{item.sku ? `${item.sku} · ` : ''}{formatMoney(item.price, (store ?? storeForm).currency)} / {item.unit}</p>
+              <p className="break-words text-[10px] text-slate-500">{item.sku ? `${item.sku} · ` : ''}{formatMoney(item.price, (store ?? storeForm).currency)} / {item.unit}</p>
             </div>
             <button type="button" lang={i18n.language} className="rounded-lg p-2 text-slate-400 hover:bg-indigo-50 hover:text-indigo-700" aria-label={t('posPage.fields.edit', { name: item.name })} onClick={() => editItem(item)}><Pencil className="h-3.5 w-3.5" /></button>
             <button type="button" lang={i18n.language} className="rounded-lg p-2 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={t('posPage.fields.delete', { name: item.name })} onClick={() => removeItem(item)}><Trash2 className="h-3.5 w-3.5" /></button>
@@ -531,7 +531,7 @@ export const PosInvoiceStudio: React.FC = () => {
           </div>
         )}
         <div className="grid items-start gap-5 lg:grid-cols-2">
-          <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+          <section className="min-w-0 space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
             <div>
               <h3 lang={i18n.language} className="text-base font-bold text-slate-900">{t('posPage.profile')}</h3>
               <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('posPage.profileDescription')}</p>
@@ -546,7 +546,7 @@ export const PosInvoiceStudio: React.FC = () => {
             <p className="mt-1 text-xs leading-relaxed text-slate-600">{t('posPage.backupDescription')}</p>
             {!canContinueToBilling && <p className="mt-2 text-xs font-semibold text-amber-800">{t('posPage.needItem')}</p>}
           </div>
-          <div className="flex shrink-0 flex-wrap gap-2">
+          <div className="flex min-w-0 flex-wrap gap-2">
             <button type="button" lang={i18n.language} className={secondaryButtonClass} onClick={downloadSetup}><Archive className="h-3.5 w-3.5" />{t('posPage.downloadProfile')}</button>
             <button type="button" lang={i18n.language} className={primaryButtonClass} onClick={continueToBilling} disabled={!canContinueToBilling}><FilePlus2 className="h-3.5 w-3.5" />{t(store ? 'posPage.returnToBill' : 'posPage.continue')}</button>
           </div>
