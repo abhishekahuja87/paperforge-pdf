@@ -131,6 +131,11 @@ const PAGE_GUIDE_KEYS: Record<string, string> = {
   'fd-calculator': 'fdCalc',
   'ppf-calculator': 'ppfCalc',
   'gst-calculator': 'gstCalc',
+  'gratuity-calculator': 'gratuityCalc',
+  'lumpsum-calculator': 'lumpsumCalc',
+  'inflation-calculator': 'inflationCalc',
+  'bmi-calculator': 'bmiCalc',
+  'bill-splitter': 'billSplitter',
   'simple-compound-interest-calculator': 'simpleCompoundCalc',
   'rd-calculator': 'rdCalc',
   'cagr-calculator': 'cagrCalc',
@@ -308,8 +313,8 @@ export function getShellPages(): ShellPage[] {
     };
   });
 
-  const info = (path: string, title: string, subtitle: string, description: string): ShellPage => ({
-    kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [], article: [], jsonLd: [],
+  const info = (path: string, title: string, subtitle: string, description: string, article: ShellSection[] = []): ShellPage => ({
+    kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [], article, jsonLd: [],
   });
 
   const guidePages: ShellPage[] = [
@@ -344,11 +349,19 @@ export function getShellPages(): ShellPage[] {
     ...tools,
     ...guidePages,
     info('/about', 'About MyDailyUtils', 'Simple browser-based tools for everyday tasks.',
-      'Learn about MyDailyUtils online tools and utilities for files, data, and everyday tasks, how local file processing works, and how to get support.'),
+      'Learn about MyDailyUtils, a growing set of free online tools and calculators for everyday tasks, how in-browser processing works, and how to get support.', [
+        { heading: 'What you can do here', paragraphs: ['MyDailyUtils is a growing collection of free, practical tools that run in your browser: finance and tax calculators, date, unit and percentage tools, text and password utilities, image and PDF tools, data formatters, presentations and shop bills.'] },
+        { heading: 'Runs on your device', paragraphs: ['Selected files and the numbers you enter are processed in your browser and are not sent to MyDailyUtils for processing. The site itself still loads pages, advertising and other resources over the network.'] },
+        { heading: 'Support', paragraphs: ['Use the contact form to report a problem or request a tool.'] },
+      ]),
     info('/contact', en.contactPage.title, en.contactPage.subtitle, en.contactPage.description),
-    info('/privacy', 'Privacy Policy', 'Last updated: November 2, 2026',
-      'Read how MyDailyUtils handles browser-based file processing, local preferences, contact form submissions, advertising, and third-party resources.'),
-    info('/terms', 'Terms of Service', 'Last updated: November 2, 2026',
-      'Review the terms for using MyDailyUtils browser-based file utilities, business tools, downloads, and third-party services.'),
+    info('/privacy', 'Privacy Policy', 'Last updated: November 8, 2026',
+      'Read how MyDailyUtils handles in-browser processing, local preferences, contact form submissions, advertising, analytics and third-party resources.', [
+        { heading: 'Summary', paragraphs: ['Supported file operations, calculators and text tools run in your browser and what you enter is not uploaded to MyDailyUtils for processing. Contact form messages are sent to Web3Forms, advertising and analytics are provided by third parties, and language and usage preferences are kept in your browser. Read the full policy on this page after the app loads.'] },
+      ]),
+    info('/terms', 'Terms of Service', 'Last updated: November 8, 2026',
+      'Review the terms for using MyDailyUtils browser-based tools, calculators, downloads, and third-party services.', [
+        { heading: 'Summary', paragraphs: ['MyDailyUtils provides browser-based tools and calculators for everyday, finance, text, PDF, image, data, display and business tasks. Results are provided as is and calculators give estimates, not financial, tax, legal or medical advice. Read the full terms on this page after the app loads.'] },
+      ]),
   ];
 }

@@ -5,6 +5,11 @@ import { ToolLayout } from '../components/layout/ToolLayout';
 import { CagrCalculator } from '../components/tools/finance/CagrCalculator';
 import { RdCalculator } from '../components/tools/finance/RdCalculator';
 import { SimpleCompoundInterestCalculator } from '../components/tools/finance/SimpleCompoundInterestCalculator';
+import { GratuityCalculator } from '../components/tools/finance/GratuityCalculator';
+import { InflationCalculator } from '../components/tools/finance/InflationCalculator';
+import { LumpsumCalculator } from '../components/tools/finance/LumpsumCalculator';
+import { BillSplitter } from '../components/tools/utilities/BillSplitter';
+import { BmiCalculator } from '../components/tools/utilities/BmiCalculator';
 import { AgeCalculator } from '../components/tools/utilities/AgeCalculator';
 import { CaseConverter } from '../components/tools/utilities/CaseConverter';
 import { DateDifferenceCalculator } from '../components/tools/utilities/DateDifferenceCalculator';
@@ -28,6 +33,11 @@ const TOOLS = {
   wordCounter: { Component: WordCounter, guide: 'wordCounter' },
   caseConverter: { Component: CaseConverter, guide: 'caseConverter' },
   numberToWords: { Component: NumberToWords, guide: 'numberToWords' },
+  gratuity: { Component: GratuityCalculator, guide: 'gratuityCalc' },
+  lumpsum: { Component: LumpsumCalculator, guide: 'lumpsumCalc' },
+  inflation: { Component: InflationCalculator, guide: 'inflationCalc' },
+  bmi: { Component: BmiCalculator, guide: 'bmiCalc' },
+  billSplitter: { Component: BillSplitter, guide: 'billSplitter' },
   password: { Component: PasswordGenerator, guide: 'passwordGenerator' },
 } as const;
 

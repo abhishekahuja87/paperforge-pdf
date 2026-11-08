@@ -6,7 +6,7 @@ export const TermsPage: React.FC = () => {
   return (
     <InfoPageLayout
         title="Terms of Service"
-        subtitle="Last updated: November 2, 2026"
+        subtitle="Last updated: November 8, 2026"
         description="Review the terms for using MyDailyUtils browser-based file utilities, business tools, downloads, and third-party services."
       >
 

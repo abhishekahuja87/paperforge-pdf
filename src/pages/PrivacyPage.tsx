@@ -7,7 +7,7 @@ export const PrivacyPage: React.FC = () => {
   return (
     <InfoPageLayout
         title="Privacy Policy"
-        subtitle="Last updated: November 2, 2026"
+        subtitle="Last updated: November 8, 2026"
         description="Read how MyDailyUtils handles browser-based file processing, local preferences, contact form submissions, advertising, and third-party resources."
       >
 
