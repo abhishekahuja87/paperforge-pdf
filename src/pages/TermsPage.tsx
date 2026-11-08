@@ -20,7 +20,7 @@ export const TermsPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">2. Description of Service</h2>
         <p>
-          MyDailyUtils provides browser-based tools for PDF, image, data, display, and business tasks. Supported file processing runs in your browser; selected files are not uploaded to MyDailyUtils for processing. The Contact form and third-party advertising are separate services that make network requests.
+          MyDailyUtils provides browser-based tools and calculators for everyday, finance, text, PDF, image, data, display, and business tasks. Supported file processing runs in your browser; selected files are not uploaded to MyDailyUtils for processing. The Contact form and third-party advertising are separate services that make network requests.
         </p>
       </section>
 

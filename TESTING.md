@@ -1,5 +1,31 @@
 # Testing notes
 
+## Baseline: November 8, 2026 (everyday utilities)
+
+Checks for the batch that added 12 tools (simple/compound interest, RD, CAGR, age,
+date difference, percentage, discount, unit converter, word counter, case
+converter, number to words, password generator) and the general-purpose rebrand.
+The working environment for this batch had no installed packages and no network,
+so the full `pnpm build` and `pnpm lint` could not be run there. Run both after
+merging and treat the first hosted build as the real check.
+
+- The calculation modules in `src/lib/utilities/` were type-checked with `tsc
+  --strict` and exercised with a Node script: leap-day and short-month age
+  arithmetic, next-birthday on 29 February, weekday counts, text statistics,
+  case conversion, rupee amounts in Indian and international words, unit
+  factors including temperature, interest, recurring deposit and CAGR figures.
+  Two defects found this way (negative days in some month-end ranges and word
+  splitting in mixed-case text) were fixed.
+- `en.json` was parsed after the edits and every new tool id was confirmed to
+  have catalog, steps and article entries.
+- The social preview image was regenerated and viewed.
+- Not checked: rendering of the new components in a browser, mobile layout,
+  the generated static pages and sitemap, other-language fallbacks for new keys.
+
+The November 7 baseline below is historical: it predates the finance, guides,
+image resizer and utilities work, and its "27 tool routes" count is out of date
+(the catalog now has well over fifty).
+
 ## Baseline: November 7, 2026
 
 The following checks were performed on the then-current working tree, including

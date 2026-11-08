@@ -20,7 +20,7 @@ export const PrivacyPage: React.FC = () => {
           The website loads pages and third-party resources. Some PDF tools request character-map files from jsDelivr when needed to render or read certain PDFs. These are supporting resources; the selected PDF is not sent to jsDelivr for processing. Local file processing does not mean the website is offline or makes no network requests.
         </p>
         <p>
-          Document digitization downloads its OCR worker, engine and English language model from this site. Recognition runs in the browser on the edited document; images and recognized text are not uploaded for OCR. Browser or network caches may retain the downloaded engine and model, but not the selected document through this feature.
+          Calculators, converters, the word counter and the password generator run entirely in your browser: the numbers and text you enter are not sent to MyDailyUtils, and generated passwords are neither sent nor stored. Document digitization downloads its OCR worker, engine and English language model from this site. Recognition runs in the browser on the edited document; images and recognized text are not uploaded for OCR. Browser or network caches may retain the downloaded engine and model, but not the selected document through this feature.
         </p>
       </section>
 

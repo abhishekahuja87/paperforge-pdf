@@ -8,8 +8,8 @@ export const siteConfig = {
   contactEmail: 'mydailyutils@gmail.com',
   tagline: 'Everyday tools and utilities, right inside your browser.',
   description:
-    'Useful browser-based tools and utilities for files, data, and everyday tasks. All file processing happens in your browser. Request a free utility if you cannot find what you need.',
-  privacyHook: '100% local file processing',
+    'Free browser-based tools and calculators for everyday tasks: tax, loans and savings, dates, units, text, passwords, images and PDFs. Files and numbers are processed in your browser. Request a free tool if you cannot find what you need.',
+  privacyHook: 'Runs in your browser',
   /** Added after a tool's name in its page title, for example "Merge PDF Online Free, No Upload | MyDailyUtils". */
   toolTitleSuffix: 'Online Free, No Upload',
 };
