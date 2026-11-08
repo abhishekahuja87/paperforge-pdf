@@ -87,7 +87,15 @@ export function listSavedProfiles(): Promise<SavedProfile[]> {
     const request = store.getAll();
     request.onsuccess = () => {
       try {
-        setResult(request.result.map(readRecord).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)));
+        // A damaged record is skipped so the other saved profiles stay usable.
+        const profiles = request.result.flatMap((record: unknown) => {
+          try {
+            return [readRecord(record)];
+          } catch {
+            return [];
+          }
+        });
+        setResult(profiles.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)));
       } catch (reason) {
         fail(reason instanceof Error ? reason : new Error('A saved profile is invalid.'));
       }
