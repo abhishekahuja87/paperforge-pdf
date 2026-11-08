@@ -1,7 +1,7 @@
 import { TOOLS, type ToolCategory, type ToolItem } from '../config/tools';
 import { getFeaturedCopy, getToolCopy, isFeaturedId } from './localizedTool';
 
-export const HOME_CATEGORY_ORDER: ToolCategory[] = ['pdf', 'media', 'dev'];
+export const HOME_CATEGORY_ORDER: ToolCategory[] = ['pdf', 'media', 'finance', 'dev'];
 
 export interface FeaturedTool {
   id: string;
@@ -21,6 +21,7 @@ export const HOME_CATEGORY_STYLES: Record<ToolCategory, { icon: string; panel: s
   dev: { icon: 'bg-amber-100 text-amber-800', panel: 'border-stone-200 bg-[var(--theme-surface)]' },
   text: { icon: 'bg-sky-100 text-sky-800', panel: 'border-stone-200 bg-[var(--theme-surface)]' },
   display: { icon: 'bg-violet-100 text-violet-800', panel: 'border-stone-200 bg-[var(--theme-surface)]' },
+  finance: { icon: 'bg-teal-100 text-teal-800', panel: 'border-stone-200 bg-[var(--theme-surface)]' },
   business: { icon: 'bg-rose-100 text-rose-800', panel: 'border-stone-200 bg-[var(--theme-surface)]' },
 };
 

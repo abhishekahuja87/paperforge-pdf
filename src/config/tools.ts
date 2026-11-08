@@ -1,6 +1,6 @@
 import en from '../locales/en.json';
 
-export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text' | 'display' | 'business';
+export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text' | 'display' | 'business' | 'finance';
 
 export type ToolIconName = 
   | 'layers' 
@@ -23,7 +23,8 @@ export type ToolIconName =
   | 'file-text'
   | 'presentation'
   | 'git-merge'
-  | 'receipt';
+  | 'receipt'
+  | 'calculator';
 
 export type ToolTier = 'popular' | 'workspace' | 'more' | 'advanced';
 
@@ -424,5 +425,93 @@ export const TOOLS: ToolItem[] = [
     isAvailable: true,
     tier: 'workspace',
     keywords: ['pos', 'invoice', 'billing', 'bill', 'receipt', 'inventory', 'product', 'sales', 'tax', 'store', 'business'],
+  },
+  {
+    id: 'income-tax-calculator',
+    title: 'Income Tax Calculator (Old vs New Regime)',
+    description: 'Compare old and new tax regime for FY 2026-27.',
+    category: 'finance',
+    path: '/income-tax-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'more',
+    keywords: ['income tax', 'tax', 'old regime', 'new regime', 'salary', '80c', 'itr', 'calculator', 'india'],
+  },
+  {
+    id: 'salary-calculator',
+    title: 'Salary Calculator (CTC to In-Hand)',
+    description: 'Convert annual CTC to monthly in-hand salary.',
+    category: 'finance',
+    path: '/salary-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'more',
+    keywords: ['salary', 'ctc', 'in-hand', 'take home', 'pf', 'payslip', 'calculator', 'india'],
+  },
+  {
+    id: 'hra-calculator',
+    title: 'HRA Exemption Calculator',
+    description: 'Calculate the tax-exempt part of your HRA.',
+    category: 'finance',
+    path: '/hra-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'advanced',
+    keywords: ['hra', 'house rent allowance', 'rent', 'exemption', 'tax', 'salary', 'calculator'],
+  },
+  {
+    id: 'emi-calculator',
+    title: 'EMI Calculator',
+    description: 'Monthly EMI, total interest and repayment schedule.',
+    category: 'finance',
+    path: '/emi-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'more',
+    keywords: ['emi', 'loan', 'home loan', 'car loan', 'personal loan', 'interest', 'calculator', 'repayment'],
+  },
+  {
+    id: 'sip-calculator',
+    title: 'SIP Calculator',
+    description: 'Estimate SIP returns with optional yearly step-up.',
+    category: 'finance',
+    path: '/sip-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'more',
+    keywords: ['sip', 'mutual fund', 'investment', 'returns', 'step-up', 'wealth', 'calculator'],
+  },
+  {
+    id: 'fd-calculator',
+    title: 'FD Calculator',
+    description: 'Fixed deposit maturity amount and interest.',
+    category: 'finance',
+    path: '/fd-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'advanced',
+    keywords: ['fd', 'fixed deposit', 'maturity', 'interest', 'bank', 'compounding', 'calculator'],
+  },
+  {
+    id: 'ppf-calculator',
+    title: 'PPF Calculator',
+    description: 'Project PPF balance and maturity value.',
+    category: 'finance',
+    path: '/ppf-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'advanced',
+    keywords: ['ppf', 'public provident fund', 'tax saving', '80c', 'maturity', 'calculator', 'savings'],
+  },
+  {
+    id: 'gst-calculator',
+    title: 'GST Calculator',
+    description: 'Add or remove GST and see CGST and SGST.',
+    category: 'finance',
+    path: '/gst-calculator',
+    icon: 'calculator',
+    isAvailable: true,
+    tier: 'more',
+    keywords: ['gst', 'tax', 'cgst', 'sgst', 'igst', 'invoice', 'price', 'calculator', 'india'],
   },
 ];
