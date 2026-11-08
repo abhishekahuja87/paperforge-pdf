@@ -1,33 +1,34 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ToolGuide } from '../components/common/ToolGuide';
 import { ToolLayout } from '../components/layout/ToolLayout';
-import { CagrCalculator } from '../components/tools/finance/CagrCalculator';
-import { RdCalculator } from '../components/tools/finance/RdCalculator';
-import { SimpleCompoundInterestCalculator } from '../components/tools/finance/SimpleCompoundInterestCalculator';
-import { GratuityCalculator } from '../components/tools/finance/GratuityCalculator';
-import { InflationCalculator } from '../components/tools/finance/InflationCalculator';
-import { LumpsumCalculator } from '../components/tools/finance/LumpsumCalculator';
-import { BillSplitter } from '../components/tools/utilities/BillSplitter';
-import { BmiCalculator } from '../components/tools/utilities/BmiCalculator';
-import { GstInvoiceGenerator } from '../components/tools/finance/GstInvoiceGenerator';
-import { EpfCalculator } from '../components/tools/finance/EpfCalculator';
-import { ColorConverter } from '../components/tools/utilities/ColorConverter';
-import { LoremIpsumGenerator } from '../components/tools/utilities/LoremIpsumGenerator';
-import { TimeZoneConverter } from '../components/tools/utilities/TimeZoneConverter';
-import { TimestampConverter } from '../components/tools/utilities/TimestampConverter';
-import { UrlEncoderDecoder } from '../components/tools/utilities/UrlEncoderDecoder';
-import { UuidGenerator } from '../components/tools/utilities/UuidGenerator';
-import { AgeCalculator } from '../components/tools/utilities/AgeCalculator';
-import { CaseConverter } from '../components/tools/utilities/CaseConverter';
-import { DateDifferenceCalculator } from '../components/tools/utilities/DateDifferenceCalculator';
-import { DiscountCalculator } from '../components/tools/utilities/DiscountCalculator';
-import { NumberToWords } from '../components/tools/utilities/NumberToWords';
-import { PasswordGenerator } from '../components/tools/utilities/PasswordGenerator';
-import { PercentageCalculator } from '../components/tools/utilities/PercentageCalculator';
-import { UnitConverter } from '../components/tools/utilities/UnitConverter';
-import { WordCounter } from '../components/tools/utilities/WordCounter';
 import { usePageGuide } from '../lib/usePageGuide';
+
+const CagrCalculator = lazy(() => import('../components/tools/finance/CagrCalculator').then((m) => ({ default: m.CagrCalculator })));
+const RdCalculator = lazy(() => import('../components/tools/finance/RdCalculator').then((m) => ({ default: m.RdCalculator })));
+const SimpleCompoundInterestCalculator = lazy(() => import('../components/tools/finance/SimpleCompoundInterestCalculator').then((m) => ({ default: m.SimpleCompoundInterestCalculator })));
+const GratuityCalculator = lazy(() => import('../components/tools/finance/GratuityCalculator').then((m) => ({ default: m.GratuityCalculator })));
+const InflationCalculator = lazy(() => import('../components/tools/finance/InflationCalculator').then((m) => ({ default: m.InflationCalculator })));
+const LumpsumCalculator = lazy(() => import('../components/tools/finance/LumpsumCalculator').then((m) => ({ default: m.LumpsumCalculator })));
+const BillSplitter = lazy(() => import('../components/tools/utilities/BillSplitter').then((m) => ({ default: m.BillSplitter })));
+const BmiCalculator = lazy(() => import('../components/tools/utilities/BmiCalculator').then((m) => ({ default: m.BmiCalculator })));
+const GstInvoiceGenerator = lazy(() => import('../components/tools/finance/GstInvoiceGenerator').then((m) => ({ default: m.GstInvoiceGenerator })));
+const EpfCalculator = lazy(() => import('../components/tools/finance/EpfCalculator').then((m) => ({ default: m.EpfCalculator })));
+const ColorConverter = lazy(() => import('../components/tools/utilities/ColorConverter').then((m) => ({ default: m.ColorConverter })));
+const LoremIpsumGenerator = lazy(() => import('../components/tools/utilities/LoremIpsumGenerator').then((m) => ({ default: m.LoremIpsumGenerator })));
+const TimeZoneConverter = lazy(() => import('../components/tools/utilities/TimeZoneConverter').then((m) => ({ default: m.TimeZoneConverter })));
+const TimestampConverter = lazy(() => import('../components/tools/utilities/TimestampConverter').then((m) => ({ default: m.TimestampConverter })));
+const UrlEncoderDecoder = lazy(() => import('../components/tools/utilities/UrlEncoderDecoder').then((m) => ({ default: m.UrlEncoderDecoder })));
+const UuidGenerator = lazy(() => import('../components/tools/utilities/UuidGenerator').then((m) => ({ default: m.UuidGenerator })));
+const AgeCalculator = lazy(() => import('../components/tools/utilities/AgeCalculator').then((m) => ({ default: m.AgeCalculator })));
+const CaseConverter = lazy(() => import('../components/tools/utilities/CaseConverter').then((m) => ({ default: m.CaseConverter })));
+const DateDifferenceCalculator = lazy(() => import('../components/tools/utilities/DateDifferenceCalculator').then((m) => ({ default: m.DateDifferenceCalculator })));
+const DiscountCalculator = lazy(() => import('../components/tools/utilities/DiscountCalculator').then((m) => ({ default: m.DiscountCalculator })));
+const NumberToWords = lazy(() => import('../components/tools/utilities/NumberToWords').then((m) => ({ default: m.NumberToWords })));
+const PasswordGenerator = lazy(() => import('../components/tools/utilities/PasswordGenerator').then((m) => ({ default: m.PasswordGenerator })));
+const PercentageCalculator = lazy(() => import('../components/tools/utilities/PercentageCalculator').then((m) => ({ default: m.PercentageCalculator })));
+const UnitConverter = lazy(() => import('../components/tools/utilities/UnitConverter').then((m) => ({ default: m.UnitConverter })));
+const WordCounter = lazy(() => import('../components/tools/utilities/WordCounter').then((m) => ({ default: m.WordCounter })));
 
 const TOOLS = {
   simpleCompound: { Component: SimpleCompoundInterestCalculator, guide: 'simpleCompoundCalc' },
@@ -65,7 +66,9 @@ export const UtilityPage: React.FC<{ kind: UtilityKind }> = ({ kind }) => {
   const guide = usePageGuide(guideId);
   return (
     <ToolLayout title={guide.title} subtitle={guide.subtitle} contentLanguage={i18n.language} seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}>
-      <Component />
+      <Suspense fallback={<div className="py-10 text-center text-sm text-slate-500" role="status">Loading…</div>}>
+        <Component />
+      </Suspense>
     </ToolLayout>
   );
 };
