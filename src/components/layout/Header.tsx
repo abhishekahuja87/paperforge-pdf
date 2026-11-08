@@ -44,6 +44,10 @@ export const Header: React.FC = () => {
             {t('allTools')}
           </Link>
 
+          <Link to="/guides" className="hidden sm:inline hover:text-orange-700 transition text-xs font-semibold">
+            {t('guides')}
+          </Link>
+
           <div className="sm:relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
