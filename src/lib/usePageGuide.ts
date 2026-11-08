@@ -14,7 +14,7 @@ export function usePageFaqs(id: keyof typeof en.pageGuides) {
   };
 }
 
-export function usePageGuide(id: 'compress' | 'crop' | 'delete' | 'sample' | 'imagesToPdf' | 'inspect' | 'jsonFormatter' | 'pageNumbers' | 'watermark' | 'nup' | 'pdfToImages' | 'organize' | 'flatten' | 'base64' | 'imageResizer' | 'imageResizer20' | 'imageResizer50' | 'imageResizer100' | 'imageResizer200') {
+export function usePageGuide(id: 'compress' | 'crop' | 'delete' | 'sample' | 'imagesToPdf' | 'inspect' | 'jsonFormatter' | 'pageNumbers' | 'watermark' | 'nup' | 'pdfToImages' | 'organize' | 'flatten' | 'base64' | 'incomeTaxCalc' | 'salaryCalc' | 'hraCalc' | 'emiCalc' | 'sipCalc' | 'fdCalc' | 'ppfCalc' | 'gstCalc' | 'imageResizer' | 'imageResizer20' | 'imageResizer50' | 'imageResizer100' | 'imageResizer200') {
   const { t } = useTranslation();
   const guide = usePageFaqs(id);
   return {

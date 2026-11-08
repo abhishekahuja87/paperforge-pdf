@@ -122,6 +122,14 @@ const PAGE_GUIDE_KEYS: Record<string, string> = {
   'unlock-pdf': 'unlock',
   'image-converter': 'imageConverter',
   'image-compressor': 'imageCompressor',
+  'income-tax-calculator': 'incomeTaxCalc',
+  'salary-calculator': 'salaryCalc',
+  'hra-calculator': 'hraCalc',
+  'emi-calculator': 'emiCalc',
+  'sip-calculator': 'sipCalc',
+  'fd-calculator': 'fdCalc',
+  'ppf-calculator': 'ppfCalc',
+  'gst-calculator': 'gstCalc',
   'image-resizer': 'imageResizer',
   'resize-image-to-20kb': 'imageResizer20',
   'resize-image-to-50kb': 'imageResizer50',
@@ -240,6 +248,7 @@ export function getShellGroups(): ShellGroup[] {
   return [
     { name: en.pdfTools, tools: availableTools.filter((tool) => tool.category === 'pdf' && tool.tier !== 'workspace') },
     { name: en.imageTools, tools: availableTools.filter((tool) => tool.category === 'media') },
+    { name: en.financeTools, tools: availableTools.filter((tool) => tool.category === 'finance') },
     { name: en.developerTools, tools: availableTools.filter((tool) => tool.category === 'dev') },
     { name: en.workspaces, tools: availableTools.filter((tool) => tool.tier === 'workspace') },
   ]

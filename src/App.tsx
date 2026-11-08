@@ -30,6 +30,7 @@ const MasterDocumentStudioPage = lazy(() => import('./pages/MasterDocumentStudio
 const DigitizeDocumentsPage = lazy(() => import('./pages/DigitizeDocumentsPage').then((m) => ({ default: m.DigitizeDocumentsPage })));
 const ImageConverterPage = lazy(() => import('./pages/ImageConverterPage').then((m) => ({ default: m.ImageConverterPage })));
 const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').then((m) => ({ default: m.ImageCompressorPage })));
+const FinanceCalculatorPage = lazy(() => import('./pages/FinanceCalculatorPage').then((m) => ({ default: m.FinanceCalculatorPage })));
 const ImageResizerPage = lazy(() => import('./pages/ImageResizerPage').then((m) => ({ default: m.ImageResizerPage })));
 const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
 const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => ({ default: m.Base64ToolPage })));
@@ -79,6 +80,14 @@ export const App: React.FC = () => {
               <Route path="/digitize-documents" element={<DigitizeDocumentsPage />} />
               <Route path="/image-converter" element={<ImageConverterPage />} />
               <Route path="/image-compressor" element={<ImageCompressorPage />} />
+              <Route path="/income-tax-calculator" element={<FinanceCalculatorPage kind="incomeTax" />} />
+              <Route path="/salary-calculator" element={<FinanceCalculatorPage kind="salary" />} />
+              <Route path="/hra-calculator" element={<FinanceCalculatorPage kind="hra" />} />
+              <Route path="/emi-calculator" element={<FinanceCalculatorPage kind="emi" />} />
+              <Route path="/sip-calculator" element={<FinanceCalculatorPage kind="sip" />} />
+              <Route path="/fd-calculator" element={<FinanceCalculatorPage kind="fd" />} />
+              <Route path="/ppf-calculator" element={<FinanceCalculatorPage kind="ppf" />} />
+              <Route path="/gst-calculator" element={<FinanceCalculatorPage kind="gst" />} />
               <Route path="/image-resizer" element={<ImageResizerPage guideId="imageResizer" defaultMaxKb={100} />} />
               <Route path="/resize-image-to-20kb" element={<ImageResizerPage guideId="imageResizer20" defaultMaxKb={20} />} />
               <Route path="/resize-image-to-50kb" element={<ImageResizerPage guideId="imageResizer50" defaultMaxKb={50} />} />

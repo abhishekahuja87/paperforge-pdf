@@ -13,6 +13,7 @@ export const Footer: React.FC = () => {
   const toolColumns = [
     { key: 'pdfTools', tools: available.filter((tool) => tool.category === 'pdf' && tool.tier !== 'workspace') },
     { key: 'imageTools', tools: available.filter((tool) => tool.category === 'media') },
+    { key: 'financeTools', tools: available.filter((tool) => tool.category === 'finance') },
     { key: 'developerTools', tools: available.filter((tool) => tool.category === 'dev') },
     { key: 'workspaces', tools: available.filter((tool) => tool.tier === 'workspace') },
   ].filter((column) => column.tools.length > 0);
