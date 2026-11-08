@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import {
   Download,
@@ -20,6 +20,8 @@ export const ProtectPdf: React.FC = () => {
   const [allowCopying, setAllowCopying] = useState<boolean>(false);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  // Free the generated file when it is replaced or the page is left.
+  useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [error, setError] = useState<string | null>(null);
 
   const resetState = () => {
@@ -38,7 +40,7 @@ export const ProtectPdf: React.FC = () => {
 
   const handleFileSelect = async (selectedFile: File) => {
 
-    if (selectedFile.type !== 'application/pdf' && !selectedFile.name.endsWith('.pdf')) {
+    if (selectedFile.type !== 'application/pdf' && !selectedFile.name.toLowerCase().endsWith('.pdf')) {
       setError('Please select a valid PDF file.');
       return;
     }
@@ -64,7 +66,7 @@ export const ProtectPdf: React.FC = () => {
   const handleProtect = async () => {
     if (!file) return;
 
-    if (!userPassword && !ownerPassword) {
+    if (!userPassword.trim() && !ownerPassword.trim()) {
       setError('Please provide at least a Document Open password or an Owner password.');
       return;
     }
@@ -134,6 +136,8 @@ export const ProtectPdf: React.FC = () => {
                 Change
               </button>
             </div>
+
+            <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900">To add the password, each page is turned into an image. The protected file looks the same, but its text cannot be selected or searched and links and form fields are lost. Keep your original.</p>
 
             {/* Security Options */}
             <div className="space-y-4 pt-2">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
   FileText, 
@@ -35,6 +35,8 @@ export const SanitizePdf: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  // Free the generated file when it is replaced or the page is left.
+  useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [downloadName, setDownloadName] = useState<string>('');
   const [result, setResult] = useState<SanitizeResult | null>(null);
 
@@ -53,7 +55,7 @@ export const SanitizePdf: React.FC = () => {
   const isOutOfSync = downloadUrl !== null && currentSettingsKey !== lastGeneratedKey;
 
   const handleFile = async (selectedFile: File) => {
-    if (selectedFile.type !== 'application/pdf' && !selectedFile.name.endsWith('.pdf')) {
+    if (selectedFile.type !== 'application/pdf' && !selectedFile.name.toLowerCase().endsWith('.pdf')) {
       setErrorMessage('Please select a valid PDF file.');
       setStatus('error');
       return;

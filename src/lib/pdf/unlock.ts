@@ -26,26 +26,27 @@ export async function unlockPdf(options: UnlockPdfOptions): Promise<Uint8Array> 
     cMapPacked: true,
   });
 
-  let attempts = 0;
-  loadingTask.onPassword = (updatePassword: (pwd: string) => void) => {
-    attempts++;
-    if (attempts > 1) {
-      updatePassword('');
+  // pdf.js asks again after every wrong password, so answering with a password a second time would
+  // loop forever. Stop after the first answer and report what went wrong instead.
+  let passwordProblem: 'required' | 'invalid' | null = null;
+  loadingTask.onPassword = (updatePassword: (pwd: string) => void, reason: number) => {
+    if (reason === pdfjsLib.PasswordResponses.NEED_PASSWORD && password) {
+      updatePassword(password);
       return;
     }
-    updatePassword(password);
+    passwordProblem = password ? 'invalid' : 'required';
+    void loadingTask.destroy();
   };
 
   let pdfDoc: pdfjsLib.PDFDocumentProxy;
   try {
     pdfDoc = await loadingTask.promise;
-  } catch (err: any) {
-    if (err?.name === 'PasswordException') {
-      if (!password) {
-        throw new Error('PASSWORD_REQUIRED: Please enter the password to unlock this PDF.');
-      } else {
-        throw new Error('INVALID_PASSWORD: The password you entered is incorrect.');
-      }
+  } catch (err: unknown) {
+    if (passwordProblem === 'required') {
+      throw new Error('PASSWORD_REQUIRED: Please enter the password to unlock this PDF.');
+    }
+    if (passwordProblem === 'invalid') {
+      throw new Error('INVALID_PASSWORD: The password you entered is incorrect.');
     }
     throw err;
   }

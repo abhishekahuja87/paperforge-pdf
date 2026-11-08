@@ -10,8 +10,8 @@ export const HomePage2: React.FC = () => {
   return (
     <div className="min-h-full space-y-3 bg-[var(--theme-background)] pb-12">
       <PageMetadata
-        title="Everyday Tools & Utilities"
-        description="Find useful browser-based tools and utilities for files, data, and everyday tasks. Request a free utility if you cannot find the one you need."
+        title="Online Tools & Utilities | PDF, Images & More"
+        description="Explore browser-based tools and utilities for files, data, and everyday tasks. PDF, images, and more, with supported file processing done locally in your browser."
         jsonLd={buildHomeJsonLd()}
       />
       <HomeTopBanner query={query} onQueryChange={setQuery} />

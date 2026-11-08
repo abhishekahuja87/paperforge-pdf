@@ -40,7 +40,7 @@ export async function inspectPdf(fileBuffer: ArrayBuffer): Promise<PdfInspection
     headerVersion = `PDF ${versionMatch[1]}`;
   }
 
-  const pdfDoc = await PDFDocument.load(fileBuffer, { ignoreEncryption: true });
+  const pdfDoc = await PDFDocument.load(fileBuffer, { ignoreEncryption: true, updateMetadata: false });
   const catalog = pdfDoc.catalog;
 
   // Metadata check
@@ -86,7 +86,7 @@ export async function inspectPdf(fileBuffer: ArrayBuffer): Promise<PdfInspection
   // Names / Script / Attachment detection
   let hasJavaScript = false;
   let hasEmbeddedFiles = false;
-  const names = catalog.get(PDFName.of('Names'));
+  const names = catalog.lookup(PDFName.of('Names'));
   if (names instanceof PDFDict) {
     if (names.has(PDFName.of('JavaScript'))) hasJavaScript = true;
     if (names.has(PDFName.of('EmbeddedFiles'))) hasEmbeddedFiles = true;

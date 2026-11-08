@@ -12,7 +12,4 @@ export const siteConfig = {
   privacyHook: '100% local file processing',
   /** Added after a tool's name in its page title, for example "Merge PDF Online Free, No Upload | MyDailyUtils". */
   toolTitleSuffix: 'Online Free, No Upload',
-  links: {
-    github: 'https://github.com',
-  },
 };

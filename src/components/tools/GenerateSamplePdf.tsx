@@ -33,6 +33,7 @@ export const GenerateSamplePdf: React.FC = () => {
   // UI state
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
+  const [generationError, setGenerationError] = useState<string>('');
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [downloadName, setDownloadName] = useState<string>('');
   
@@ -106,6 +107,7 @@ export const GenerateSamplePdf: React.FC = () => {
       setLastGeneratedKey(currentSettingsKey);
     } catch (err) {
       console.error('Failed to generate sample PDF:', err);
+      setGenerationError('The sample PDF could not be generated. Try fewer pages or turn off some options.');
     } finally {
       setIsGenerating(false);
     }
@@ -327,6 +329,8 @@ export const GenerateSamplePdf: React.FC = () => {
           </span>
         </div>
       )}
+
+      {generationError && <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs text-rose-800">{generationError}</p>}
 
       {/* 4. Action Buttons */}
       <div className="pt-2 flex flex-col sm:flex-row gap-3">

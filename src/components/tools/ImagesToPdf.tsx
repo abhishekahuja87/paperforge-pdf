@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
   ArrowUp, 
@@ -27,6 +27,8 @@ export const ImagesToPdf: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'processing' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  // Free the generated file when it is replaced or the page is left.
+  useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [downloadName, setDownloadName] = useState<string>('');
 
   const [lastGeneratedKey, setLastGeneratedKey] = useState<string>('');
@@ -54,21 +56,23 @@ export const ImagesToPdf: React.FC = () => {
 
     setErrorMessage('');
 
-    validFiles.forEach((file) => {
+    // Load every image first so the pages keep the order the files were chosen in.
+    void Promise.all(validFiles.map((file) => new Promise<ImageFileEntry | null>((resolve) => {
       const previewUrl = URL.createObjectURL(file);
       const img = new Image();
-      img.onload = () => {
-        setImages((prev) => [
-          ...prev,
-          {
-            file,
-            previewUrl,
-            width: img.naturalWidth,
-            height: img.naturalHeight,
-          },
-        ]);
+      img.onload = () => resolve({ file, previewUrl, width: img.naturalWidth, height: img.naturalHeight });
+      img.onerror = () => {
+        URL.revokeObjectURL(previewUrl);
+        resolve(null);
       };
       img.src = previewUrl;
+    }))).then((loaded) => {
+      const entries = loaded.filter((entry): entry is ImageFileEntry => entry !== null);
+      if (entries.length > 0) setImages((prev) => [...prev, ...entries]);
+      const failed = validFiles.filter((_, index) => loaded[index] === null);
+      if (failed.length > 0) {
+        setErrorMessage(`These images could not be read and were skipped: ${failed.map((file) => file.name).join(', ')}.`);
+      }
     });
   };
 

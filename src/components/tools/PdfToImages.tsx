@@ -24,7 +24,7 @@ export const PdfToImages: React.FC = () => {
 
   const handleFileChange = (selected: File) => {
     if (selected) {
-      if (selected.type !== 'application/pdf' && !selected.name.endsWith('.pdf')) {
+      if (selected.type !== 'application/pdf' && !selected.name.toLowerCase().endsWith('.pdf')) {
         setError('Please select a valid PDF file.');
         return;
       }

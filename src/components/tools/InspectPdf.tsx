@@ -19,7 +19,7 @@ export const InspectPdf: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleFile = async (selectedFile: File) => {
-    if (selectedFile.type !== 'application/pdf' && !selectedFile.name.endsWith('.pdf')) {
+    if (selectedFile.type !== 'application/pdf' && !selectedFile.name.toLowerCase().endsWith('.pdf')) {
       setErrorMessage('Please select a valid PDF file.');
       setStatus('error');
       return;

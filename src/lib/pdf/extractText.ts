@@ -23,8 +23,12 @@ export async function extractTextFromPdf(fileBuffer: ArrayBuffer): Promise<Extra
     const textContent = await page.getTextContent();
 
     const textItems = textContent.items
-      .map((item: any) => item.str)
-      .join(' ');
+      .map((item) => {
+        const piece = item as { str?: string; hasEOL?: boolean };
+        return `${piece.str ?? ''}${piece.hasEOL ? '\n' : ' '}`;
+      })
+      .join('')
+      .replace(/[ \t]+\n/g, '\n');
 
     extractedPages.push({
       pageNumber: pageNum,

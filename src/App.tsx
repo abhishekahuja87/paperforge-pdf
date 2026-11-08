@@ -4,6 +4,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/common/ScrollToTop';
 import { PageLoader } from './components/common/PageLoader';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 // Lazy-loaded route components for optimal bundle splitting
 const HomePage = lazy(() => import('./pages/HomePage2').then((m) => ({ default: m.HomePage2 })));
@@ -51,8 +52,10 @@ export const App: React.FC = () => {
     <Router>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-[var(--theme-background)] text-stone-900">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-stone-900 focus:shadow-lg">Skip to main content</a>
         <Header />
-        <main className="flex-1">
+        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
+          <ErrorBoundary>
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -108,6 +111,7 @@ export const App: React.FC = () => {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
+          </ErrorBoundary>
         </main>
         <Footer />
       </div>
