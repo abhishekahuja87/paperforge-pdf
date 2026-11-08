@@ -51,3 +51,18 @@ export function entropyBits(options: PasswordOptions): number {
   const pool = activeSets(options).join('').length;
   return pool > 1 ? Math.floor(options.length * Math.log2(pool)) : 0;
 }
+
+/** Numeric PIN made only of digits, drawn with the same unbiased secure source. */
+export function generatePin(length: number): string {
+  return Array.from({ length: Math.max(4, Math.min(12, Math.floor(length))) }, () => String(randomBelow(10))).join('');
+}
+
+/** Plain-language time for an attacker making 10 billion guesses a second to try half the possibilities. */
+export function crackTime(bits: number): string {
+  if (bits <= 0) return 'instantly';
+  const seconds = 2 ** (bits - 1) / 1e10;
+  const units: [number, string][] = [[31_557_600 * 1e9, 'billion years'], [31_557_600 * 1e6, 'million years'], [31_557_600 * 1e3, 'thousand years'], [31_557_600, 'years'], [86_400, 'days'], [3600, 'hours'], [60, 'minutes']];
+  if (seconds < 1) return 'less than a second';
+  for (const [size, name] of units) if (seconds >= size) return `about ${Math.round(seconds / size).toLocaleString('en-IN')} ${name}`;
+  return `about ${Math.round(seconds)} seconds`;
+}

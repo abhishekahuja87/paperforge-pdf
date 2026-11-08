@@ -30,6 +30,16 @@ Gratuity, lumpsum, inflation, BMI and bill splitter were added. Their maths in
 ≈ ₹55,839) were checked by hand. `en.json` parses. As before, no build, lint or
 browser rendering was possible in that environment; run `pnpm build` and `pnpm lint`.
 
+## Update: November 8, 2026 (depth pass)
+
+Extras added to the new tools. Helper logic was exercised in Node: zodiac date edges,
+month-end addition (31 Jan + 1 month = 28 Feb), toggle/alternating case, line clean-up
+ops, word statistics, PIN length, guess-time text (40 bits is about 55 seconds at 10
+billion guesses a second) and the calorie formula. The components were type-checked
+against a minimal stub of React (no real React types were installed), which only
+flagged event-handler parameters that the stub leaves untyped. Not checked: browser
+rendering, mobile layout, printing, clipboard behaviour, build and lint.
+
 The November 7 baseline below is historical: it predates the finance, guides,
 image resizer and utilities work, and its "27 tool routes" count is out of date
 (the catalog now has well over fifty).

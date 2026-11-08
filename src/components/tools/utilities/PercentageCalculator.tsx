@@ -27,11 +27,18 @@ export const PercentageCalculator: React.FC = () => {
   const [b2, setB2] = useState('180');
   const [a3, setA3] = useState('80');
   const [b3, setB3] = useState('100');
+  const [a4, setA4] = useState('20');
+  const [b4, setB4] = useState('500');
+  const [a5, setA5] = useState('25');
+  const [b5, setB5] = useState('60');
 
   const r1 = (num(a1) / 100) * num(b1);
   const r2 = (num(a2) / num(b2)) * 100;
   const change = ((num(b3) - num(a3)) / Math.abs(num(a3))) * 100;
   const r3 = Number.isFinite(change) ? `${change >= 0 ? '+' : ''}${fmt(change)}% (${change >= 0 ? 'increase' : 'decrease'})` : '—';
+  const up = num(b4) * (1 + num(a4) / 100);
+  const down = num(b4) * (1 - num(a4) / 100);
+  const whole = (num(b5) / num(a5)) * 100;
 
   return (
     <section className={`${calcCard} space-y-4`}>
@@ -47,6 +54,15 @@ export const PercentageCalculator: React.FC = () => {
         <Field label="From (X)" value={a3} onChange={setA3} />
         <Field label="To (Y)" value={b3} onChange={setB3} />
       </Row>
+      <Row title="Increase or decrease Y by X%" result={Number.isFinite(up) ? `Increased: ${fmt(up)} · Decreased: ${fmt(down)}` : '—'}>
+        <Field label="Percentage (X)" value={a4} onChange={setA4} />
+        <Field label="Number (Y)" value={b4} onChange={setB4} />
+      </Row>
+      <Row title="Reverse: Y is X% of what number?" result={Number.isFinite(whole) ? `${fmt(num(b5))} is ${fmt(num(a5))}% of ${fmt(whole)}` : '—'}>
+        <Field label="Percentage (X)" value={a5} onChange={setA5} />
+        <Field label="Known part (Y)" value={b5} onChange={setB5} />
+      </Row>
+      <p className="text-[11px] text-slate-500">Tip: a rise of 25% followed by a fall of 25% does not return to the start, because the second percentage applies to a different base.</p>
       <CalcFooter />
     </section>
   );

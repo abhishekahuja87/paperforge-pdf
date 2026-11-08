@@ -18,7 +18,7 @@ export function todayInput(): string {
 export interface YearsMonthsDays { years: number; months: number; days: number }
 
 /** Adds whole months, clamping to the last day of a shorter month (31 Jan + 1 month = 28/29 Feb). */
-function addMonths(date: Date, months: number): Date {
+export function addMonths(date: Date, months: number): Date {
   const target = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + months, 1));
   const lastDay = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate();
   target.setUTCDate(Math.min(date.getUTCDate(), lastDay));
@@ -63,4 +63,20 @@ export const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
 
 export function formatDate(date: Date): string {
   return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+}
+
+export function addDays(date: Date, days: number): Date {
+  return new Date(date.getTime() + days * DAY_MS);
+}
+
+/** Western zodiac sign for a date of birth. */
+export function zodiacSign(date: Date): string {
+  const month = date.getUTCMonth() + 1;
+  const day = date.getUTCDate();
+  const edges: [number, number, string][] = [
+    [1, 20, 'Capricorn'], [2, 19, 'Aquarius'], [3, 21, 'Pisces'], [4, 20, 'Aries'], [5, 21, 'Taurus'], [6, 21, 'Gemini'],
+    [7, 23, 'Cancer'], [8, 23, 'Leo'], [9, 23, 'Virgo'], [10, 23, 'Libra'], [11, 22, 'Scorpio'], [12, 22, 'Sagittarius'],
+  ];
+  const [, cutoff, sign] = edges[month - 1];
+  return day < cutoff ? sign : edges[month % 12][2];
 }

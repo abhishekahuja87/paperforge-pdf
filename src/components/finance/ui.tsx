@@ -1,5 +1,6 @@
 import React from 'react';
 import { amountInWords, parseAmount } from '../../lib/finance/format';
+import { CopyButton } from '../tools/utilities/common';
 
 export const calcCard = 'mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6';
 const inputClass = 'mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900';
@@ -94,4 +95,38 @@ export const CalcFooter: React.FC = () => (
   <p className="mt-5 border-t border-slate-100 pt-4 text-center text-[10px] text-slate-400">
     Calculated in your browser; nothing you type is sent anywhere. Results are estimates for planning, not financial, tax or legal advice.
   </p>
+);
+
+export interface SplitPart { label: string; value: number; className: string }
+
+/** One horizontal bar showing how a total divides into parts, with a legend. */
+export const SplitBar: React.FC<{ title: string; parts: SplitPart[]; format: (value: number) => string }> = ({ title, parts, format }) => {
+  const total = parts.reduce((sum, part) => sum + Math.max(0, part.value), 0);
+  if (total <= 0) return null;
+  return (
+    <figure className="mt-4" aria-label={title}>
+      <figcaption className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500">{title}</figcaption>
+      <div className="flex h-3 overflow-hidden rounded-full bg-slate-100" role="img" aria-label={parts.map((part) => `${part.label} ${format(part.value)}`).join(', ')}>
+        {parts.map((part) => <span key={part.label} className={part.className} style={{ width: `${(Math.max(0, part.value) / total) * 100}%` }} />)}
+      </div>
+      <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-slate-600">
+        {parts.map((part) => (
+          <li key={part.label} className="flex items-center gap-1.5">
+            <span className={`h-2 w-2 rounded-full ${part.className}`} aria-hidden="true" />
+            {part.label}: <strong className="text-slate-800">{format(part.value)}</strong> ({Math.round((Math.max(0, part.value) / total) * 100)}%)
+          </li>
+        ))}
+      </ul>
+    </figure>
+  );
+};
+
+/** Copy a plain-text summary of the result, or print the page (print dialog can save as PDF). */
+export const ResultActions: React.FC<{ summary: string }> = ({ summary }) => (
+  <div className="mt-4 flex flex-wrap gap-2 print:hidden">
+    <CopyButton text={summary} label="Copy summary" />
+    <button type="button" onClick={() => window.print()} className="inline-flex min-h-10 items-center rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">
+      Print or save as PDF
+    </button>
+  </div>
 );
