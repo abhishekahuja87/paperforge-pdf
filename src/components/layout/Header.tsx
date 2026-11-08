@@ -23,7 +23,8 @@ export const Header: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const activeTools = TOOLS.filter((t) => t.isAvailable);
+  // Footer-only (advanced) pages stay out of this menu so it remains short; the footer lists every tool.
+  const activeTools = TOOLS.filter((tool) => tool.isAvailable && tool.tier !== 'advanced');
   const categoryKeys = Object.keys(CATEGORIES) as ToolCategory[];
 
   return (
