@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Crop, Download, FilePlus2, Image, RotateCcw, RotateCw, Scissors, Trash2, X } from 'lucide-react';
+import { useDialog } from '../../../lib/useDialog';
 import { renderPageEditorPreview } from '../../../lib/documentStudio/studio';
 import type {
   CropBounds,
@@ -23,6 +24,7 @@ export const ContentsEntryModal: React.FC<ModalProps & {
   onSave: (title: string) => void;
   onRemove: () => void;
 }> = ({ onClose, item, outputPageName, onSave, onRemove }) => {
+  const dialogRef = useDialog<HTMLFormElement>(onClose);
   const [title, setTitle] = useState(item.contentsTitle ?? '');
 
   const submit = (event: React.FormEvent) => {
@@ -33,7 +35,7 @@ export const ContentsEntryModal: React.FC<ModalProps & {
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/60 p-4" role="presentation">
-      <form onSubmit={submit} role="dialog" aria-modal="true" aria-labelledby="contents-entry-title" className="w-full max-w-md rounded-2xl bg-white p-5 shadow-2xl">
+      <form onSubmit={submit} ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="contents-entry-title" className="w-full max-w-md rounded-2xl bg-white p-5 shadow-2xl">
         <div className="mb-4 flex items-start justify-between gap-3">
           <div>
             <h2 id="contents-entry-title" className="text-lg font-bold text-slate-900">{item.contentsTitle ? 'Edit contents entry' : 'Add to table of contents'}</h2>
@@ -62,6 +64,7 @@ export const ContentsEntryModal: React.FC<ModalProps & {
 export const CustomPageModal: React.FC<ModalProps & {
   onCreate: (options: GeneratedPageOptions) => void;
 }> = ({ onClose, onCreate }) => {
+  const dialogRef = useDialog<HTMLFormElement>(onClose);
   const [type, setType] = useState<GeneratedPageOptions['type']>('blank');
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
@@ -77,7 +80,7 @@ export const CustomPageModal: React.FC<ModalProps & {
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/60 p-4" role="presentation">
-      <form onSubmit={submit} role="dialog" aria-modal="true" aria-labelledby="custom-page-title" className="max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl">
+      <form onSubmit={submit} ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="custom-page-title" className="max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl">
         <div className="mb-5 flex items-center justify-between">
           <div>
             <h2 id="custom-page-title" className="text-lg font-bold text-slate-900">Create a custom page</h2>
@@ -148,6 +151,7 @@ export const ProtectedPdfPasswordModal: React.FC<ModalProps & {
   isLoading: boolean;
   onSubmit: (password: string) => void;
 }> = ({ onClose, fileName, error, isLoading, onSubmit }) => {
+  const dialogRef = useDialog<HTMLFormElement>(onClose);
   const [password, setPassword] = useState('');
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -156,7 +160,7 @@ export const ProtectedPdfPasswordModal: React.FC<ModalProps & {
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/60 p-4" role="presentation">
-      <form onSubmit={submit} role="dialog" aria-modal="true" aria-labelledby="protected-pdf-title" className="w-full max-w-md rounded-2xl bg-white p-5 shadow-2xl">
+      <form onSubmit={submit} ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="protected-pdf-title" className="w-full max-w-md rounded-2xl bg-white p-5 shadow-2xl">
         <div className="mb-4 flex items-start justify-between gap-3">
           <div>
             <h2 id="protected-pdf-title" className="text-lg font-bold text-slate-900">Password-protected PDF</h2>
@@ -183,6 +187,7 @@ export const SourcePagePreviewModal: React.FC<ModalProps & {
   page: PageCard;
   source: SourceItem;
 }> = ({ onClose, page, source }) => {
+  const dialogRef = useDialog<HTMLDivElement>(onClose);
   const [preview, setPreview] = useState<PageEditorPreview | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -205,7 +210,7 @@ export const SourcePagePreviewModal: React.FC<ModalProps & {
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/70 p-3 sm:p-5">
-      <div role="dialog" aria-modal="true" aria-labelledby="source-page-preview-title" className="flex max-h-[94vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
+      <div ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="source-page-preview-title" className="flex max-h-[94vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="flex items-start justify-between gap-3 border-b border-slate-200 px-4 py-3 sm:px-6">
           <div className="min-w-0">
             <h2 id="source-page-preview-title" className="truncate text-base font-bold text-slate-900">Preview source page</h2>
@@ -235,6 +240,7 @@ export const PageEditorModal: React.FC<ModalProps & {
   onDuplicate: () => void;
   onDelete: () => void;
 }> = ({ onClose, item, source, onApply, onExportPage, onExportImage, onDuplicate, onDelete }) => {
+  const dialogRef = useDialog<HTMLDivElement>(onClose);
   const [draft, setDraft] = useState(item);
   const [preview, setPreview] = useState<PageEditorPreview | null>(null);
   const [previewError, setPreviewError] = useState('');
@@ -353,7 +359,7 @@ export const PageEditorModal: React.FC<ModalProps & {
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/70 p-3 sm:p-5">
-      <div role="dialog" aria-modal="true" aria-labelledby="page-editor-title" className="flex max-h-[94vh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
+      <div ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="page-editor-title" className="flex max-h-[94vh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="flex items-start justify-between gap-3 border-b border-slate-200 px-4 py-3 sm:px-6">
           <div className="min-w-0">
             <h2 id="page-editor-title" className="truncate text-base font-bold text-slate-900">Zoom &amp; edit page</h2>

@@ -746,7 +746,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
         </div>
 
           <div className="flex flex-col gap-2 rounded-xl border border-orange-200 bg-orange-50/50 p-3 sm:flex-row">
-            <select className={`${fieldClass} mt-0 min-w-0 flex-1`} value={selectedItemId} onChange={(event) => setSelectedItemId(event.target.value)} aria-label="Select an item from inventory">
+            <select aria-label="Inventory item to add" className={`${fieldClass} mt-0 min-w-0 flex-1`} value={selectedItemId} onChange={(event) => setSelectedItemId(event.target.value)} aria-label="Select an item from inventory">
               <option value="">Select an item from inventory...</option>
               {inventory.map((item) => <option key={item.id} value={item.id}>{item.name} · {formatMoney(item.price, store.currency)} / {item.unit}</option>)}
             </select>
@@ -765,7 +765,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
                     <td className="px-3 py-2.5 text-slate-600">{formatMoney(line.unitPrice, store.currency)}</td>
                     <td className="px-3 py-2.5"><input className="w-24 rounded-md border border-slate-200 px-2 py-1.5 text-xs" type="number" min="0.001" step="any" value={line.quantity || ''} placeholder="0" aria-label={`Quantity of ${line.name}`} onChange={(event) => updateLine(line.id, Math.max(0, Number(event.target.value)))} /></td>
                     <td className="px-3 py-2.5 text-right font-semibold text-slate-800">{formatMoney(line.quantity * line.unitPrice, store.currency)}</td>
-                    <td className="px-2 py-2.5"><button type="button" className="rounded-md p-1.5 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={`Remove ${line.name} from bill`} onClick={() => removeLine(line.id)}><X className="h-3.5 w-3.5" /></button></td>
+                    <td className="px-2 py-2.5"><button type="button" className="rounded-md inline-flex min-h-10 min-w-10 items-center justify-center p-1 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={`Remove ${line.name} from bill`} onClick={() => removeLine(line.id)}><X className="h-3.5 w-3.5" /></button></td>
                   </tr>
                 ))}
                 {!invoice.lines.length && <tr><td colSpan={5} className="px-3 py-8 text-center text-slate-500">Add items from inventory to build this bill.</td></tr>}
@@ -816,7 +816,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
           <div className="rounded-2xl bg-stone-800 p-3 shadow-lg sm:p-4 print:bg-transparent print:p-0 print:shadow-none">
           <div lang={i18n.language} className="mb-3 flex flex-wrap items-center justify-between gap-2 print:hidden">
             <h3 className="text-xs font-bold uppercase tracking-wider text-orange-100">{t('posBill.preview')}</h3>
-            {!editingNote && <button type="button" className="inline-flex items-center gap-1.5 rounded-lg border border-stone-500 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-stone-700" onClick={() => { setNoteDraft(invoice.notes); setEditingNote(true); }}>
+            {!editingNote && <button type="button" className="inline-flex items-center gap-1.5 rounded-lg border border-stone-500 px-2.5 py-2 min-h-10 text-xs font-semibold text-white hover:bg-stone-700" onClick={() => { setNoteDraft(invoice.notes); setEditingNote(true); }}>
               <Pencil className="h-3.5 w-3.5" aria-hidden="true" />{t(invoice.notes ? 'posBill.editNote' : 'posBill.addNote')}
             </button>}
           </div>

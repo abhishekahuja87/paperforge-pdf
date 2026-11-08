@@ -200,8 +200,8 @@ export const WatermarkPdf: React.FC = () => {
           {/* Watermark Text & Custom Color */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="sm:col-span-2 space-y-1">
-              <label className="block text-xs font-semibold text-slate-700">Watermark Text</label>
-              <input
+              <label className="block text-xs font-semibold text-slate-700" htmlFor="WatermarkPdf-204">Watermark Text</label>
+              <input id="WatermarkPdf-204"
                 type="text"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
@@ -210,15 +210,15 @@ export const WatermarkPdf: React.FC = () => {
               />
             </div>
             <div className="space-y-1">
-              <label className="block text-xs font-semibold text-slate-700">Color</label>
+              <label className="block text-xs font-semibold text-slate-700" htmlFor="WatermarkPdf-215">Color</label>
               <div className="flex items-center space-x-2">
-                <input
+                <input id="WatermarkPdf-215"
                   type="color"
                   value={colorHex}
                   onChange={(e) => setColorHex(e.target.value)}
                   className="w-8 h-8 rounded border border-slate-300 cursor-pointer p-0.5 bg-white"
                 />
-                <input
+                <input aria-label="Watermark colour as a hex code"
                   type="text"
                   value={colorHex}
                   onChange={(e) => setColorHex(e.target.value)}
@@ -236,7 +236,7 @@ export const WatermarkPdf: React.FC = () => {
                   <span>Font Size</span>
                   <span className="text-indigo-600 font-bold">{fontSize}pt</span>
                 </div>
-                <input
+                <input aria-label="Watermark font size"
                   type="range"
                   min={18}
                   max={96}
@@ -251,7 +251,7 @@ export const WatermarkPdf: React.FC = () => {
                   <span>Rotation</span>
                   <span className="text-indigo-600 font-bold">{rotationAngle}°</span>
                 </div>
-                <input
+                <input aria-label="Watermark rotation angle"
                   type="range"
                   min={-90}
                   max={90}
@@ -267,7 +267,7 @@ export const WatermarkPdf: React.FC = () => {
                   <span>Transparency (Opacity)</span>
                   <span className="text-indigo-600 font-bold">{Math.round(opacity * 100)}%</span>
                 </div>
-                <input
+                <input aria-label="Watermark opacity"
                   type="range"
                   min={5}
                   max={100}
@@ -280,8 +280,8 @@ export const WatermarkPdf: React.FC = () => {
 
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 border-t border-slate-200/60">
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700">Typography Font</label>
-                <select
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="WatermarkPdf-284">Typography Font</label>
+                <select id="WatermarkPdf-284"
                   value={fontChoice}
                   onChange={(e) => setFontChoice(e.target.value as WatermarkFont)}
                   className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
@@ -293,8 +293,8 @@ export const WatermarkPdf: React.FC = () => {
               </div>
 
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700">Apply To</label>
-                <select
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="WatermarkPdf-297">Apply To</label>
+                <select id="WatermarkPdf-297"
                   value={scope}
                   onChange={(e) => setScope(e.target.value as any)}
                   className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
@@ -309,7 +309,7 @@ export const WatermarkPdf: React.FC = () => {
 
             {scope === 'custom' && (
               <div className="pt-1">
-                <input
+                <input aria-label="Custom page ranges to watermark"
                   type="text"
                   value={rangeString}
                   onChange={(e) => setRangeString(e.target.value)}

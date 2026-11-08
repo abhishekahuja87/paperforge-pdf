@@ -205,10 +205,10 @@ export const RotatePdf: React.FC = () => {
           {/* Custom Range Input (shown when scope === 'custom') */}
           {scope === 'custom' && (
             <div className="space-y-1.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
-              <label className="block text-xs font-semibold text-slate-700">
+              <label className="block text-xs font-semibold text-slate-700" htmlFor="RotatePdf-211">
                 {t('rotateControls.range')}
               </label>
-              <input
+              <input id="RotatePdf-211"
                 type="text"
                 value={rangeInput}
                 onChange={(e) => setRangeInput(e.target.value)}

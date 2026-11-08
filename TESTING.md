@@ -49,6 +49,19 @@ browser with the new background colour, the preset buttons on mobile, the four n
 landing pages, build and lint. Test with a real photo and signature after deploying,
 and confirm the output size in KB and pixels.
 
+## Update: November 8, 2026 (accessibility round)
+
+Added dialog keyboard handling (`useDialog`) to the six Document Studio dialogs, linked
+18 visible labels to their inputs with `htmlFor`/`id` (found by a script that looks for
+inputs with no label), added `aria-label` to 11 controls that had none, and enlarged
+six small buttons. A script check found no remaining icon-only buttons without a name
+and no unlabelled inputs in the tool components (apart from hidden and file inputs).
+One wrong label link the script made (Add Page Numbers, skip-first-page checkbox) was
+found in review and fixed. Not checked: real keyboard and screen-reader use, focus
+return in each dialog, mobile tap targets, build and lint. Test: open each Document
+Studio dialog, press Tab repeatedly (focus must stay inside), press Escape (it must
+close and focus must return to the button that opened it).
+
 The November 7 baseline below is historical: it predates the finance, guides,
 image resizer and utilities work, and its "27 tool routes" count is out of date
 (the catalog now has well over fifty).

@@ -227,8 +227,8 @@ export const NUpPdf: React.FC = () => {
           <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700">Output Sheet Format</label>
-                <select
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="NUpPdf-231">Output Sheet Format</label>
+                <select id="NUpPdf-231"
                   value={paperSize}
                   onChange={(e) => setPaperSize(e.target.value as NUpPaperSize)}
                   className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
@@ -245,7 +245,7 @@ export const NUpPdf: React.FC = () => {
                   <span>Page Spacing (Gutter)</span>
                   <span className="text-indigo-600 font-bold">{spacing}pt</span>
                 </div>
-                <input
+                <input aria-label="Page spacing in points"
                   type="range"
                   min={5}
                   max={30}

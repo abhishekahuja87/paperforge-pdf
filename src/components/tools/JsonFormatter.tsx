@@ -124,7 +124,7 @@ export const JsonFormatter: React.FC = () => {
             Sort object keys
           </label>
           <button type="button" onClick={() => { setInput(SAMPLE_JSON); setOutput(''); setError(''); setStatus('Sample JSON loaded.'); }} className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"><Sparkles className="h-3.5 w-3.5" />Example</button>
-          <button type="button" onClick={reset} className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"><RotateCcw className="h-3.5 w-3.5" />Clear</button>
+          <button type="button" onClick={reset} className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-2 min-h-10 text-xs font-medium text-slate-600 hover:bg-slate-50"><RotateCcw className="h-3.5 w-3.5" />Clear</button>
         </div>
       </div>
 

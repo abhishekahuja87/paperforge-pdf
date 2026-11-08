@@ -438,9 +438,9 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
                             <p className="break-words text-[10px] text-slate-500">{slide.sourceKind === 'pdf' || slide.sourceKind === 'docx' ? `Page ${slide.pageNumber}` : 'Image'} · {slide.title}</p>
                           </div>
                           <div className="flex shrink-0 gap-0.5">
-                            <button type="button" aria-label={`Move slide ${index + 1} up`} className="rounded p-1 text-slate-500 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-30" disabled={index === 0} onClick={() => moveSlide(index, -1)}><ArrowUp className="h-4 w-4" /></button>
-                            <button type="button" aria-label={`Move slide ${index + 1} down`} className="rounded p-1 text-slate-500 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-30" disabled={index === slides.length - 1} onClick={() => moveSlide(index, 1)}><ArrowDown className="h-4 w-4" /></button>
-                            <button type="button" aria-label={`Remove slide ${index + 1}`} className="rounded p-1 text-slate-500 hover:bg-rose-50 hover:text-rose-600" onClick={() => removeSlide(slide.id)}><X className="h-4 w-4" /></button>
+                            <button type="button" aria-label={`Move slide ${index + 1} up`} className="rounded inline-flex min-h-10 min-w-10 items-center justify-center p-1 text-slate-500 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-30" disabled={index === 0} onClick={() => moveSlide(index, -1)}><ArrowUp className="h-4 w-4" /></button>
+                            <button type="button" aria-label={`Move slide ${index + 1} down`} className="rounded inline-flex min-h-10 min-w-10 items-center justify-center p-1 text-slate-500 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-30" disabled={index === slides.length - 1} onClick={() => moveSlide(index, 1)}><ArrowDown className="h-4 w-4" /></button>
+                            <button type="button" aria-label={`Remove slide ${index + 1}`} className="rounded inline-flex min-h-10 min-w-10 items-center justify-center p-1 text-slate-500 hover:bg-rose-50 hover:text-rose-600" onClick={() => removeSlide(slide.id)}><X className="h-4 w-4" /></button>
                           </div>
                         </div>
                         <label className="block text-[11px] font-semibold text-slate-600">
