@@ -68,12 +68,24 @@ export async function cropPdf(options: CropPdfOptions): Promise<Uint8Array> {
     if (!targetIndices.includes(i)) continue;
 
     const page = pages[i];
-    const { width, height } = page.getSize();
+    // Work from the page's current visible box (it may not start at 0,0) and from the side each
+    // margin lands on after the page's own rotation, so "top" always means the top you see.
+    const box = page.getCropBox();
+    const width = box.width;
+    const height = box.height;
+    const angle = ((page.getRotation().angle % 360) + 360) % 360;
+    const sides = angle === 90
+      ? { left: topPt, top: rightPt, right: bottomPt, bottom: leftPt }
+      : angle === 180
+        ? { left: rightPt, top: bottomPt, right: leftPt, bottom: topPt }
+        : angle === 270
+          ? { left: bottomPt, top: leftPt, right: topPt, bottom: rightPt }
+          : { left: leftPt, top: topPt, right: rightPt, bottom: bottomPt };
 
-    const newX = leftPt;
-    const newY = bottomPt;
-    const newWidth = width - leftPt - rightPt;
-    const newHeight = height - topPt - bottomPt;
+    const newX = box.x + sides.left;
+    const newY = box.y + sides.bottom;
+    const newWidth = width - sides.left - sides.right;
+    const newHeight = height - sides.top - sides.bottom;
 
     if (newWidth <= 50 || newHeight <= 50) {
       throw new Error(
