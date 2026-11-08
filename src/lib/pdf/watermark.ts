@@ -1,7 +1,6 @@
 import { PDFDocument, rgb, degrees, StandardFonts } from 'pdf-lib';
 import { parsePageRanges } from './split';
 
-export type WatermarkLayer = 'over' | 'under';
 export type WatermarkFont = 'helvetica' | 'helvetica-bold' | 'courier';
 
 export interface WatermarkOptions {
@@ -11,7 +10,6 @@ export interface WatermarkOptions {
   rotationAngle: number;
   opacity: number; // 0.05 to 1.0
   colorHex: string;
-  layer: WatermarkLayer;
   fontChoice: WatermarkFont;
   scope: 'all' | 'odd' | 'even' | 'custom';
   rangeString?: string;
@@ -37,7 +35,6 @@ export async function addWatermarkToPdf(options: WatermarkOptions): Promise<Uint
     rotationAngle = 45,
     opacity = 0.25,
     colorHex = '#ef4444',
-    layer = 'over',
     fontChoice = 'helvetica-bold',
     scope = 'all',
     rangeString = '',
@@ -100,7 +97,6 @@ export async function addWatermarkToPdf(options: WatermarkOptions): Promise<Uint
       color: rgb(r, g, b),
       rotate: degrees(rotationAngle),
       opacity: Math.max(0.05, Math.min(1.0, opacity)),
-      blendMode: layer === 'over' ? undefined : undefined,
     });
   }
 

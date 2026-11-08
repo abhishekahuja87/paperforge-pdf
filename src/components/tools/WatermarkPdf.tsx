@@ -12,7 +12,6 @@ import {
 import { getPdfPageCount } from '../../lib/pdf/split';
 import { 
   addWatermarkToPdf, 
-  type WatermarkLayer, 
   type WatermarkFont 
 } from '../../lib/pdf/watermark';
 import { generatePdfFilename } from '../../lib/pdf/naming';
@@ -27,7 +26,6 @@ export const WatermarkPdf: React.FC = () => {
   const [rotationAngle, setRotationAngle] = useState<number>(45);
   const [opacity, setOpacity] = useState<number>(0.25);
   const [colorHex, setColorHex] = useState<string>('#ef4444');
-  const [layer] = useState<WatermarkLayer>('over');
   const [fontChoice, setFontChoice] = useState<WatermarkFont>('helvetica-bold');
   const [scope, setScope] = useState<'all' | 'odd' | 'even' | 'custom'>('all');
   const [rangeString, setRangeString] = useState<string>('');
@@ -46,7 +44,6 @@ export const WatermarkPdf: React.FC = () => {
     rotationAngle,
     opacity,
     colorHex,
-    layer,
     fontChoice,
     scope,
     rangeString: rangeString.trim(),
@@ -99,8 +96,7 @@ export const WatermarkPdf: React.FC = () => {
         rotationAngle,
         opacity,
         colorHex,
-        layer,
-        fontChoice,
+            fontChoice,
         scope,
         rangeString,
       });

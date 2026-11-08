@@ -30,7 +30,7 @@ export const AddPageNumbers: React.FC = () => {
   const [margin, setMargin] = useState<number>(30);
   const [startNumber, setStartNumber] = useState<number>(1);
   const [skipFirstPage, setSkipFirstPage] = useState<boolean>(false);
-  const [scope] = useState<'all' | 'custom'>('all');
+  const [scope, setScope] = useState<'all' | 'custom'>('all');
   const [rangeString, setRangeString] = useState<string>('');
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');
@@ -82,6 +82,11 @@ export const AddPageNumbers: React.FC = () => {
 
   const handleApply = async () => {
     if (!file) return;
+    if (scope === 'custom' && !rangeString.trim()) {
+      setErrorMessage('Enter the pages to number, for example 2-5, 8.');
+      setStatus('error');
+      return;
+    }
 
     try {
       setStatus('processing');
@@ -267,6 +272,32 @@ export const AddPageNumbers: React.FC = () => {
                   className="w-full accent-indigo-600 cursor-pointer"
                 />
               </div>
+            </div>
+
+            <div className="grid gap-3 pt-2 sm:grid-cols-2 border-t border-slate-200/60">
+              <label className="block text-xs font-medium text-slate-700">
+                Pages to number
+                <select
+                  value={scope}
+                  onChange={(e) => setScope(e.target.value === 'custom' ? 'custom' : 'all')}
+                  className="mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm"
+                >
+                  <option value="all">All pages</option>
+                  <option value="custom">Selected pages only</option>
+                </select>
+              </label>
+              {scope === 'custom' && (
+                <label className="block text-xs font-medium text-slate-700">
+                  Page range
+                  <input
+                    type="text"
+                    value={rangeString}
+                    onChange={(e) => setRangeString(e.target.value)}
+                    placeholder="e.g. 2-5, 8"
+                    className="mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm"
+                  />
+                </label>
+              )}
             </div>
 
             <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-slate-200/60">
