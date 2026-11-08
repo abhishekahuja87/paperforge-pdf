@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
         </nav>
 
         <p className="pt-4 border-t border-stone-700/80 text-[11px] text-stone-400 text-center sm:text-right">
-          &copy; {new Date().getFullYear()} {siteConfig.name}.
+          &copy; {new Date().getFullYear()} {siteConfig.name} &middot; {siteConfig.location}
         </p>
       </div>
     </footer>

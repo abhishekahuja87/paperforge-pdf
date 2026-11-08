@@ -31,6 +31,7 @@
     "changed": "Optionen wurden seit der letzten Erstellung geändert. Klicken Sie unten, um die Datei zu aktualisieren.", "unsaved": "Nicht gespeichert", "generating": "PDF wird erstellt...", "regenerate": "Mit neuen Einstellungen erneut erstellen", "generate": "Beispiel-PDF erstellen", "outdated": "Alte Datei herunterladen (Neuerstellung empfohlen)", "download": "{{title}} herunterladen ({{pages}} S.)"
   },
   "contactPage": {
+    "emailLabel": "E-Mail", "basedIn": "Sitz: {{location}}",
     "title": "Kontakt", "subtitle": "Fragen, Feedback oder eine Idee für ein neues Werkzeug? Schreiben Sie uns.",
     "description": "Senden Sie MyDailyUtils eine Frage, eine Supportanfrage oder Feedback. Kontaktformulare werden von Web3Forms verarbeitet.",
     "requestTitle": "Kostenloses Werkzeug anfragen", "requestDescription": "Teilen Sie uns mit, was Sie benötigen und wie Sie es nutzen würden. Sie können die kostenlose Entwicklung eines neuen Werkzeugs anfragen.",

@@ -37,6 +37,7 @@
     "changed": "Options changed since last generation. Click below to refresh your file.", "unsaved": "Unsaved", "generating": "Synthesizing PDF...", "regenerate": "Re-Generate with New Settings", "generate": "Generate Sample PDF", "outdated": "Download Outdated File (Re-generate recommended)", "download": "Download {{title}} ({{pages}}p)"
   },
   "contactPage": {
+    "emailLabel": "Email", "basedIn": "Based in {{location}}",
     "title": "Contact Us", "subtitle": "Questions, feedback, or an idea for a new tool? Let us know.",
     "description": "Send MyDailyUtils a question, support request, or feedback. Contact form submissions are handled by Web3Forms.",
     "requestTitle": "Request a free tool", "requestDescription": "Tell us what you need and how you would use it. You can request a new tool to be built for free.",

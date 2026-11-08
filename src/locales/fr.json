@@ -31,6 +31,7 @@
     "changed": "Les options ont changé depuis la dernière génération. Cliquez ci-dessous pour actualiser le fichier.", "unsaved": "Non enregistré", "generating": "Génération du PDF...", "regenerate": "Régénérer avec les nouveaux réglages", "generate": "Générer le PDF de test", "outdated": "Télécharger l’ancien fichier (régénération conseillée)", "download": "Télécharger {{title}} ({{pages}} p.)"
   },
   "contactPage": {
+    "emailLabel": "E-mail", "basedIn": "Basé à {{location}}",
     "title": "Nous contacter", "subtitle": "Une question, un commentaire ou une idée de nouvel outil ? Dites-le-nous.",
     "description": "Envoyez une question, une demande d’aide ou un commentaire à MyDailyUtils. Les envois du formulaire sont traités par Web3Forms.",
     "requestTitle": "Demander un outil gratuit", "requestDescription": "Dites-nous ce dont vous avez besoin et comment vous l’utiliseriez. Vous pouvez demander la création gratuite d’un nouvel outil.",

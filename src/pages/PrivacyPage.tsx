@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { InfoPageLayout } from '../components/layout/InfoPageLayout';
+import { siteConfig } from '../config/site';
 
 export const PrivacyPage: React.FC = () => {
   return (
@@ -63,7 +64,7 @@ export const PrivacyPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">6. Questions and requests</h2>
         <p>
-          For questions about this policy or a contact form submission, please use the <Link to="/contact" className="font-semibold text-indigo-700 underline">Contact page</Link>. Requests about information submitted through Web3Forms may also depend on that provider’s handling of the submission.
+          For questions about this policy or a contact form submission, please use the <Link to="/contact" className="font-semibold text-indigo-700 underline">Contact page</Link>{siteConfig.contactEmail && (<> or email <a href={`mailto:${siteConfig.contactEmail}`} className="font-semibold text-indigo-700 underline">{siteConfig.contactEmail}</a></>)}. Requests about information submitted through Web3Forms may also depend on that provider’s handling of the submission.
         </p>
       </section>
     </InfoPageLayout>

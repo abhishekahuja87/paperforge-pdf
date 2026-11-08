@@ -3,6 +3,7 @@ import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { InfoPageLayout } from '../components/layout/InfoPageLayout';
 import { Trans, useTranslation } from 'react-i18next';
+import { siteConfig } from '../config/site';
 
 export const ContactPage: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -57,6 +58,16 @@ export const ContactPage: React.FC = () => {
         </section>
         <p className="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-xs leading-relaxed text-slate-600">
           <Trans i18nKey="contactPage.disclosure" components={{ privacy: <Link to="/privacy" className="font-semibold text-indigo-700 underline" /> }} />
+        </p>
+        <p className="text-xs leading-5 text-slate-600">
+          {siteConfig.contactEmail && (
+            <>
+              <strong>{t('contactPage.emailLabel')}:</strong>{' '}
+              <a href={`mailto:${siteConfig.contactEmail}`} className="font-semibold text-indigo-700 underline">{siteConfig.contactEmail}</a>
+              {' · '}
+            </>
+          )}
+          {t('contactPage.basedIn', { location: siteConfig.location })}
         </p>
 
         {status === 'success' ? (
