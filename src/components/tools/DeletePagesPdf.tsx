@@ -149,11 +149,11 @@ export const DeletePagesPdf: React.FC = () => {
 
           {/* Deletion Input */}
           <div className="space-y-2">
-            <label className="block text-xs font-semibold text-slate-700">
+            <label className="block text-xs font-semibold text-slate-700" htmlFor="DeletePagesPdf-156">
               Page Numbers to Remove
             </label>
             <div className="flex flex-col sm:flex-row gap-2">
-              <input
+              <input id="DeletePagesPdf-156"
                 type="text"
                 value={pagesInput}
                 onChange={(e) => setPagesInput(e.target.value)}

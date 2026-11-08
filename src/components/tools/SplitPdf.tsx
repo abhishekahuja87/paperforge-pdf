@@ -130,11 +130,11 @@ export const SplitPdf: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="block text-xs font-semibold text-slate-700">
+            <label className="block text-xs font-semibold text-slate-700" htmlFor="SplitPdf-137">
               Pages to Extract
             </label>
             <div className="flex flex-col sm:flex-row gap-2">
-              <input
+              <input id="SplitPdf-137"
                 type="text"
                 value={rangeInput}
                 onChange={(e) => setRangeInput(e.target.value)}

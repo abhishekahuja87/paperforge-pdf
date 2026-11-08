@@ -235,8 +235,8 @@ export const AddPageNumbers: React.FC = () => {
           <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700">Typography Font</label>
-                <select
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="AddPageNumbers-239">Typography Font</label>
+                <select id="AddPageNumbers-239"
                   value={fontChoice}
                   onChange={(e) => setFontChoice(e.target.value as NumberingFont)}
                   className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
@@ -248,10 +248,10 @@ export const AddPageNumbers: React.FC = () => {
               </div>
 
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700">
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="AddPageNumbers-254">
                   Font Size: <span className="text-indigo-600 font-bold">{fontSize}pt</span>
                 </label>
-                <input
+                <input id="AddPageNumbers-254"
                   type="range"
                   min={8}
                   max={16}
@@ -262,10 +262,10 @@ export const AddPageNumbers: React.FC = () => {
               </div>
 
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700">
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="AddPageNumbers-268">
                   Page Margin: <span className="text-indigo-600 font-bold">{margin}pt</span>
                 </label>
-                <input
+                <input id="AddPageNumbers-268"
                   type="range"
                   min={15}
                   max={60}
@@ -315,7 +315,7 @@ export const AddPageNumbers: React.FC = () => {
 
               <div className="flex items-center space-x-2">
                 <span className="text-xs text-slate-600">Start count from:</span>
-                <input
+                <input id="AddPageNumbers-318" aria-label="Start page numbering from"
                   type="number"
                   min={1}
                   max={9999}

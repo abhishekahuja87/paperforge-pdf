@@ -101,10 +101,10 @@ export const UnlockPdf: React.FC = () => {
           {/* Password Input Field */}
           {!isUnlocked && (
             <div className="space-y-1.5 pt-2">
-              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider px-1">
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider px-1" htmlFor="UnlockPdf-107">
                 Document Password
               </label>
-              <input
+              <input id="UnlockPdf-107"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

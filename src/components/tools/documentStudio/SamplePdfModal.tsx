@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDialog } from '../../../lib/useDialog';
 import { LoaderCircle, Sparkles, X } from 'lucide-react';
 import { generateSamplePdf, type SampleTemplate } from '../../../lib/pdf/generateSample';
 
@@ -18,6 +19,7 @@ const TEMPLATES: { id: SampleTemplate; label: string }[] = [
 ];
 
 export const SamplePdfModal: React.FC<SamplePdfModalProps> = ({ onClose, onAdd }) => {
+  const dialogRef = useDialog<HTMLDivElement>(onClose);
   const [template, setTemplate] = useState<SampleTemplate>('invoice');
   const [pageCount, setPageCount] = useState(3);
   const [title, setTitle] = useState('Sample Invoice');
@@ -59,7 +61,7 @@ export const SamplePdfModal: React.FC<SamplePdfModalProps> = ({ onClose, onAdd }
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/60 p-4" role="presentation">
-      <div role="dialog" aria-modal="true" aria-labelledby="sample-pdf-title" className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl">
+      <div ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="sample-pdf-title" className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl">
         <div className="mb-5 flex items-start justify-between gap-3">
           <div>
             <h2 id="sample-pdf-title" className="text-lg font-bold text-slate-900">Create a sample PDF input</h2>

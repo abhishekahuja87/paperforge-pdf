@@ -255,11 +255,11 @@ export const CropPdf: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {(['top', 'bottom', 'left', 'right'] as (keyof CropMargins)[]).map((side) => (
                 <div key={side} className="space-y-1">
-                  <label className="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider">
+                  <label className="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider" htmlFor="CropPdf-262">
                     {side}
                   </label>
                   <div className="relative">
-                    <input
+                    <input id="CropPdf-262"
                       type="number"
                       min={0}
                       step={unit === 'pt' ? 1 : 0.1}
@@ -278,8 +278,8 @@ export const CropPdf: React.FC = () => {
             {/* Scope Selection */}
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 border-t border-slate-200/60">
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700">Apply Crop To</label>
-                <select
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="CropPdf-282">Apply Crop To</label>
+                <select id="CropPdf-282"
                   value={scope}
                   onChange={(e) => setScope(e.target.value as any)}
                   className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
@@ -301,7 +301,7 @@ export const CropPdf: React.FC = () => {
 
             {scope === 'custom' && (
               <div className="pt-1">
-                <input
+                <input aria-label="Custom page ranges to crop"
                   type="text"
                   value={rangeString}
                   onChange={(e) => setRangeString(e.target.value)}

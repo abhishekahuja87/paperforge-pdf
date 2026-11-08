@@ -142,10 +142,10 @@ export const ProtectPdf: React.FC = () => {
             {/* Security Options */}
             <div className="space-y-4 pt-2">
               <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 px-1">
+                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 px-1" htmlFor="ProtectPdf-148">
                   Document Open Password (User Password)
                 </label>
-                <input
+                <input id="ProtectPdf-148"
                   type="password"
                   value={userPassword}
                   onChange={(e) => setUserPassword(e.target.value)}
@@ -155,10 +155,10 @@ export const ProtectPdf: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 px-1">
+                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 px-1" htmlFor="ProtectPdf-161">
                   Owner Password (Optional)
                 </label>
-                <input
+                <input id="ProtectPdf-161"
                   type="password"
                   value={ownerPassword}
                   onChange={(e) => setOwnerPassword(e.target.value)}

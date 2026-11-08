@@ -151,13 +151,13 @@ export const GenerateSamplePdf: React.FC = () => {
 
       {/* 2. Basic Configuration */}
       <div className="space-y-3 pt-1 border-t border-slate-100">
-        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+        <label className="block text-xs font-bold uppercase tracking-wider text-slate-600" htmlFor="GenerateSamplePdf-160">
           {t('sampleControls.details')}
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
             <span className="text-xs text-slate-500 font-medium">{t('sampleControls.title')}</span>
-            <input
+            <input id="GenerateSamplePdf-160"
               type="text"
               value={customTitle}
               onChange={(e) => setCustomTitle(e.target.value)}
@@ -172,7 +172,7 @@ export const GenerateSamplePdf: React.FC = () => {
               <span className="text-indigo-600 font-bold">{t('sampleControls.pages', { count: pageCount })}</span>
             </div>
             <div className="flex items-center space-x-2">
-              <input
+              <input aria-label="Number of pages"
                 type="range"
                 min={1}
                 max={50}
