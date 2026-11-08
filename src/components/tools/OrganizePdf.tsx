@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import {
   RotateCw,
@@ -19,6 +19,8 @@ export const OrganizePdf: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  // Free the generated file when it is replaced or the page is left.
+  useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [error, setError] = useState<string | null>(null);
   const [fileBuffer, setFileBuffer] = useState<ArrayBuffer | null>(null);
 
@@ -38,7 +40,7 @@ export const OrganizePdf: React.FC = () => {
   const handleFileChange = async (selected: File) => {
     if (!selected) return;
 
-    if (selected.type !== 'application/pdf' && !selected.name.endsWith('.pdf')) {
+    if (selected.type !== 'application/pdf' && !selected.name.toLowerCase().endsWith('.pdf')) {
       setError('Please select a valid PDF file.');
       return;
     }
@@ -59,6 +61,14 @@ export const OrganizePdf: React.FC = () => {
     }
   };
 
+  // Any edit makes a previously exported file out of date, so drop it.
+  const discardExport = () => {
+    if (downloadUrl) {
+      URL.revokeObjectURL(downloadUrl);
+      setDownloadUrl(null);
+    }
+  };
+
   const movePage = (index: number, direction: 'left' | 'right') => {
     const targetIndex = direction === 'left' ? index - 1 : index + 1;
     if (targetIndex < 0 || targetIndex >= pages.length) return;
@@ -67,6 +77,7 @@ export const OrganizePdf: React.FC = () => {
     const temp = updated[index];
     updated[index] = updated[targetIndex];
     updated[targetIndex] = temp;
+    discardExport();
     setPages(updated);
   };
 
@@ -76,6 +87,7 @@ export const OrganizePdf: React.FC = () => {
       ...updated[index],
       rotation: (updated[index].rotation + 90) % 360,
     };
+    discardExport();
     setPages(updated);
   };
 
@@ -85,6 +97,7 @@ export const OrganizePdf: React.FC = () => {
       return;
     }
     setError(null);
+    discardExport();
     setPages(pages.filter((_, idx) => idx !== index));
   };
 

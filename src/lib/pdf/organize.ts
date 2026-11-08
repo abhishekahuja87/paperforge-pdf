@@ -72,6 +72,9 @@ export async function exportOrganizedPdf(
   }
 
   const sourcePdf = await PDFDocument.load(originalBuffer, { ignoreEncryption: true });
+  if (sourcePdf.isEncrypted) {
+    throw new Error('This PDF is password-protected. Remove the password with the Unlock PDF tool first.');
+  }
   const targetPdf = await PDFDocument.create();
 
   // Copy pages in the exact order present in the thumbnail list

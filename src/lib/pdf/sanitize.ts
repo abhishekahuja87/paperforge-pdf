@@ -88,7 +88,7 @@ export async function sanitizePdf(options: SanitizeOptions): Promise<SanitizeRes
 
   // 5. Strip Names / JavaScript / Actions (Malicious or Form Scripts)
   if (stripFormScripts) {
-    const names = catalog.get(PDFName.of('Names'));
+    const names = catalog.lookup(PDFName.of('Names'));
     if (names instanceof PDFDict) {
       if (names.get(PDFName.of('JavaScript'))) {
         names.delete(PDFName.of('JavaScript'));
@@ -107,7 +107,7 @@ export async function sanitizePdf(options: SanitizeOptions): Promise<SanitizeRes
 
   // 6. Strip Embedded Files & Attachments
   if (stripEmbeddedFiles) {
-    const names = catalog.get(PDFName.of('Names'));
+    const names = catalog.lookup(PDFName.of('Names'));
     if (names instanceof PDFDict) {
       if (names.get(PDFName.of('EmbeddedFiles'))) {
         names.delete(PDFName.of('EmbeddedFiles'));

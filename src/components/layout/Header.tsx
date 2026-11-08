@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
   const categoryKeys = Object.keys(CATEGORIES) as ToolCategory[];
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--theme-surface)]/95 backdrop-blur-md border-b border-stone-200">
+    <header className="print:hidden sticky top-0 z-50 bg-[var(--theme-surface)]/95 backdrop-blur-md border-b border-stone-200">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link to="/" aria-label={siteConfig.name} className="flex items-center space-x-2 group">
           <div className="w-8 h-8 rounded-lg bg-orange-700 flex items-center justify-center text-white shadow-sm">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import { FileText, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import { unlockPdf } from '../../lib/pdf/unlock';
@@ -8,6 +8,8 @@ export const UnlockPdf: React.FC = () => {
   const [password, setPassword] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  // Free the generated file when it is replaced or the page is left.
+  useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [downloadName, setDownloadName] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -26,7 +28,7 @@ export const UnlockPdf: React.FC = () => {
 
   const handleFileChange = (selected: File) => {
     if (selected) {
-      if (selected.type !== 'application/pdf' && !selected.name.endsWith('.pdf')) {
+      if (selected.type !== 'application/pdf' && !selected.name.toLowerCase().endsWith('.pdf')) {
         setError('Please select a valid PDF file.');
         return;
       }
@@ -128,6 +130,8 @@ export const UnlockPdf: React.FC = () => {
           {error}
         </div>
       )}
+
+      {file && <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900">The unlocked copy is rebuilt from page images, so its text can no longer be selected or searched and links and form fields are lost.</p>}
 
       {/* Action Buttons */}
       {file && (

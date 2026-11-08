@@ -27,7 +27,7 @@ export const ExtractText: React.FC = () => {
 
   const handleFileChange = (selected: File) => {
     if (selected) {
-      if (selected.type !== 'application/pdf' && !selected.name.endsWith('.pdf')) {
+      if (selected.type !== 'application/pdf' && !selected.name.toLowerCase().endsWith('.pdf')) {
         setError('Please select a valid PDF file.');
         return;
       }
@@ -53,7 +53,8 @@ export const ExtractText: React.FC = () => {
     }
   };
 
-  const fullText = pages.map((p) => `--- Page ${p.pageNumber} ---\n\n${p.text}`).join('\n\n');
+  const hasAnyText = pages.some((p) => p.text.length > 0);
+  const fullText = hasAnyText ? pages.map((p) => `--- Page ${p.pageNumber} ---\n\n${p.text}`).join('\n\n') : '';
 
   const copyToClipboard = () => {
     if (!fullText) return;

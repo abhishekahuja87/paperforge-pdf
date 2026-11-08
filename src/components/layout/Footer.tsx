@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
   const linkClass = 'transition hover:text-white';
 
   return (
-    <footer className="bg-stone-900 text-stone-300 text-xs border-t border-stone-800 mt-auto">
+    <footer className="print:hidden bg-stone-900 text-stone-300 text-xs border-t border-stone-800 mt-auto">
       <div className="max-w-6xl mx-auto px-4 py-8 space-y-6">
         {/* Brand & slogan */}
         <div className="flex flex-col sm:flex-row items-center gap-3 pb-6 border-b border-stone-700/80 text-center sm:text-left">

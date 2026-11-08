@@ -852,6 +852,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                     </label>
                     {settings.protectOutput && (
                       <>
+                        <p className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-relaxed text-amber-900">Password protection turns every page into an image: text in the final PDF can no longer be selected or searched, and links (including the contents page) stop working.</p>
                         <div className="grid gap-3 sm:grid-cols-2">
                           <label className="text-[10px] font-semibold text-slate-600">
                             User / open password

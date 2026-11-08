@@ -7,17 +7,21 @@ export interface FlattenResult {
 
 export async function flattenPdf(fileBuffer: ArrayBuffer): Promise<FlattenResult> {
   const pdfDoc = await PDFDocument.load(fileBuffer, { ignoreEncryption: true });
+  if (pdfDoc.isEncrypted) {
+    throw new Error('This PDF is password-protected. Remove the password with the Unlock PDF tool first.');
+  }
   let fieldCount = 0;
 
+  let fields: unknown[] = [];
   try {
-    const form = pdfDoc.getForm();
-    const fields = form.getFields();
-    fieldCount = fields.length;
-    if (fieldCount > 0) {
-      form.flatten();
-    }
+    fields = pdfDoc.getForm().getFields();
   } catch {
-    fieldCount = 0;
+    fields = [];
+  }
+  fieldCount = fields.length;
+  if (fieldCount > 0) {
+    // Let a failure surface: returning an unflattened file as if it were flattened would mislead.
+    pdfDoc.getForm().flatten();
   }
 
   const pdfBytes = await pdfDoc.save({ useObjectStreams: false });

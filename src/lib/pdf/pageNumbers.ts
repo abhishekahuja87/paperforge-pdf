@@ -62,6 +62,8 @@ export async function addPageNumbersToPdf(options: AddPageNumbersOptions): Promi
 
   const pages = pdfDoc.getPages();
   let currentNumber = startNumber;
+  // When only some pages are numbered, each label follows the page's position in the file.
+  const followsPosition = scope === 'custom';
 
   for (let i = 0; i < pages.length; i++) {
     if (i === 0 && skipFirstPage) {
@@ -74,6 +76,8 @@ export async function addPageNumbersToPdf(options: AddPageNumbersOptions): Promi
 
     const page = pages[i];
     const { width, height } = page.getSize();
+
+    if (followsPosition) currentNumber = startNumber + i;
 
     // Format label string
     let label = `${currentNumber}`;

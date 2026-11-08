@@ -30,7 +30,7 @@ export interface ProtectPdfOptions {
 export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array> {
   const { fileBuffer, userPassword = '', ownerPassword = '', metadata, permissions } = options;
 
-  if (!userPassword && !ownerPassword) {
+  if (!userPassword.trim() && !ownerPassword.trim()) {
     throw new Error('Please set at least a user password (to open) or an owner password.');
   }
 

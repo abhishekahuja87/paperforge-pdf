@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import {
   FileText,
@@ -13,6 +13,8 @@ export const FlattenPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  // Free the generated file when it is replaced or the page is left.
+  useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [downloadName, setDownloadName] = useState<string>('');
   const [flattenedCount, setFlattenedCount] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -30,7 +32,7 @@ export const FlattenPdf: React.FC = () => {
 
   const handleFileChange = (selected: File) => {
     if (selected) {
-      if (selected.type !== 'application/pdf' && !selected.name.endsWith('.pdf')) {
+      if (selected.type !== 'application/pdf' && !selected.name.toLowerCase().endsWith('.pdf')) {
         setError('Please select a valid PDF file.');
         return;
       }
@@ -55,8 +57,10 @@ export const FlattenPdf: React.FC = () => {
       setDownloadUrl(url);
       setDownloadName(`flattened_${file.name}`);
       setFlattenedCount(fieldCount);
-    } catch {
-      setError('Failed to flatten PDF document. Please verify the file is not corrupted or password-protected.');
+    } catch (err) {
+      setError(err instanceof Error && err.message.includes('password-protected')
+        ? err.message
+        : 'Failed to flatten PDF document. The file may be damaged, or a form field may contain characters the tool cannot draw.');
     } finally {
       setIsProcessing(false);
     }

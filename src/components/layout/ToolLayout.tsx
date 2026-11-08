@@ -70,14 +70,14 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
         {/* SEO / Questionnaire Guide (Steps & FAQs) */}
         {seoContent && (
-          <div className={`w-full ${isWorkshop ? 'pt-3' : 'border-t border-slate-200 pt-4'}`}>
+          <div className={`w-full print:hidden ${isWorkshop ? 'pt-3' : 'border-t border-slate-200 pt-4'}`}>
             {seoContent}
           </div>
         )}
 
         <section
           aria-label={t('advertisements')}
-          className="w-full max-w-4xl mx-auto py-4"
+          className="w-full max-w-4xl mx-auto py-4 print:hidden"
         >
           <p className="mb-2 text-center text-[10px] font-semibold uppercase tracking-wider text-slate-500">
             {t('advertisements')}
