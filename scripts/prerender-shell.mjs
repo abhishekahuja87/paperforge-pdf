@@ -48,6 +48,11 @@ function withHead(template, page, site) {
   }
   html = replaceOnce(html, /<link rel="canonical" href="[^"]*"\s*\/>/, `<link rel="canonical" href="${escapeHtml(canonical)}" />`, 'canonical link');
   html = replaceOnce(html, /<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${escapeHtml(canonical)}" />`, 'og:url');
+  if (page.jsonLd?.length) {
+    // Escape "<" so page text can never close the script element.
+    const json = JSON.stringify(page.jsonLd).replaceAll('<', '\\u003c');
+    html = replaceOnce(html, /<\/head>/, `<script type="application/ld+json" id="page-jsonld">${json}</script></head>`, '</head>');
+  }
   return html;
 }
 

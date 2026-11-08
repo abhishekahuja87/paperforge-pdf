@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HomeTopBanner } from '../components/home/HomeTopBanner';
 import { HomeToolsGrid } from '../components/home/HomeToolsGrid';
 import { PageMetadata } from '../components/common/PageMetadata';
+import { buildHomeJsonLd } from '../lib/structuredData';
 
 export const HomePage2: React.FC = () => {
   const [query, setQuery] = useState('');
@@ -11,6 +12,7 @@ export const HomePage2: React.FC = () => {
       <PageMetadata
         title="Everyday Tools & Utilities"
         description="Find useful browser-based tools and utilities for files, data, and everyday tasks. Request a free utility if you cannot find the one you need."
+        jsonLd={buildHomeJsonLd()}
       />
       <HomeTopBanner query={query} onQueryChange={setQuery} />
       <HomeToolsGrid query={query} />
