@@ -22,6 +22,14 @@ merging and treat the first hosted build as the real check.
 - Not checked: rendering of the new components in a browser, mobile layout,
   the generated static pages and sitemap, other-language fallbacks for new keys.
 
+## Update: November 8, 2026 (calculators batch 3)
+
+Gratuity, lumpsum, inflation, BMI and bill splitter were added. Their maths in
+`src/lib/utilities/more.ts` type-checks under `tsc --strict`; spot values
+(gratuity 50,000 × 15 × 11 ÷ 26 = 3,17,308; ₹1 lakh after 10 years at 6% inflation
+≈ ₹55,839) were checked by hand. `en.json` parses. As before, no build, lint or
+browser rendering was possible in that environment; run `pnpm build` and `pnpm lint`.
+
 The November 7 baseline below is historical: it predates the finance, guides,
 image resizer and utilities work, and its "27 tool routes" count is out of date
 (the catalog now has well over fifty).
