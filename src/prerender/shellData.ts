@@ -119,6 +119,11 @@ const PAGE_GUIDE_KEYS: Record<string, string> = {
   'unlock-pdf': 'unlock',
   'image-converter': 'imageConverter',
   'image-compressor': 'imageCompressor',
+  'image-resizer': 'imageResizer',
+  'resize-image-to-20kb': 'imageResizer20',
+  'resize-image-to-50kb': 'imageResizer50',
+  'resize-image-to-100kb': 'imageResizer100',
+  'resize-image-to-200kb': 'imageResizer200',
 };
 
 interface ToolCopy {
