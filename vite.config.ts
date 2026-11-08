@@ -42,10 +42,13 @@ function localOcrAssets(): Plugin {
 }
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     react(),
     tailwindcss(),
-    localOcrAssets(),
+    // The SSR build only bundles src/prerender/shellData.ts for scripts/prerender-shell.mjs,
+    // so it must not copy the OCR engine and language data again.
+    ...(isSsrBuild ? [] : [localOcrAssets()]),
   ],
-});
+  build: isSsrBuild ? { copyPublicDir: false } : undefined,
+}));

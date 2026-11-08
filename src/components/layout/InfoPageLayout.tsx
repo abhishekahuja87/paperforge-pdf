@@ -10,13 +10,14 @@ interface InfoPageLayoutProps {
   description: string;
   children: React.ReactNode;
   contentLanguage?: string;
+  noindex?: boolean;
 }
 
-export const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ title, subtitle, description, children, contentLanguage = 'en' }) => {
+export const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ title, subtitle, description, children, contentLanguage = 'en', noindex = false }) => {
   const { t } = useTranslation();
   return (
   <div className="min-h-full bg-[var(--theme-background)] px-4 py-8 sm:py-10">
-    <PageMetadata title={title} description={description} />
+    <PageMetadata title={title} description={description} noindex={noindex} />
     <div className="mx-auto max-w-3xl space-y-7">
       <header className="text-center">
         <Link to="/" className="mb-4 inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800">
