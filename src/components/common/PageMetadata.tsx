@@ -7,6 +7,8 @@ interface PageMetadataProps {
   description: string;
   /** Ask search engines not to index this page (used by the 404 page). */
   noindex?: boolean;
+  /** schema.org data for this page, written as one JSON-LD script (see src/lib/structuredData.ts). */
+  jsonLd?: unknown;
 }
 
 function setMetaContent(selector: string, content: string): void {
@@ -20,7 +22,7 @@ function setMetaContent(selector: string, content: string): void {
   element.content = content;
 }
 
-export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description, noindex = false }) => {
+export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description, noindex = false, jsonLd }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -42,6 +44,21 @@ export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description, 
     }
     canonical.href = canonicalUrl;
   }, [description, pathname, title]);
+
+  const jsonLdText = jsonLd ? JSON.stringify(jsonLd) : '';
+  useEffect(() => {
+    if (!jsonLdText) return undefined;
+    // The static page written at build time uses the same id, so the app replaces it instead of duplicating it.
+    let script = document.head.querySelector<HTMLScriptElement>('script#page-jsonld');
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'page-jsonld';
+      document.head.appendChild(script);
+    }
+    script.textContent = jsonLdText;
+    return () => script?.remove();
+  }, [jsonLdText]);
 
   useEffect(() => {
     if (!noindex) return undefined;
