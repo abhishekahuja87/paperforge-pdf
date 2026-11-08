@@ -9,6 +9,7 @@
 import en from '../locales/en.json';
 import { siteConfig } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
+import { GUIDES } from '../content/guides';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
 type Json = Record<string, unknown>;
@@ -253,7 +254,14 @@ export function getShellGroups(): ShellGroup[] {
     { name: en.workspaces, tools: availableTools.filter((tool) => tool.tier === 'workspace') },
   ]
     .filter((group) => group.tools.length > 0)
-    .map((group) => ({ name: group.name, links: group.tools.map(toLink) }));
+    .map((group) => ({ name: group.name, links: group.tools.map(toLink) }))
+    .concat([{
+      name: 'Guides',
+      links: [
+        { path: '/guides', title: 'All guides', description: '' },
+        ...GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, title: guide.title, description: guide.description })),
+      ],
+    }]);
 }
 
 export function getShellPages(): ShellPage[] {
@@ -290,9 +298,37 @@ export function getShellPages(): ShellPage[] {
     kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [], article: [], jsonLd: [],
   });
 
+  const guidePages: ShellPage[] = [
+    {
+      kind: 'info',
+      path: '/guides',
+      title: 'Guides',
+      description: 'Step-by-step guides: reduce photo size for online forms, merge and compress PDFs, choose between the old and new tax regime, calculate EMI, SIP, HRA and GST.',
+      heading: 'Guides',
+      subtitle: 'Plain-language how-to guides for PDFs, images, tax and money calculations.',
+      steps: [],
+      faqs: [],
+      article: [{ heading: 'All guides', paragraphs: GUIDES.map((guide) => `${guide.title}: ${guide.description}`) }],
+      jsonLd: [],
+    },
+    ...GUIDES.map((guide): ShellPage => ({
+      kind: 'info',
+      path: `/guides/${guide.slug}`,
+      title: guide.title,
+      description: guide.description,
+      heading: guide.title,
+      subtitle: guide.description,
+      steps: [],
+      faqs: [],
+      article: guide.sections,
+      jsonLd: [],
+    })),
+  ];
+
   return [
     home,
     ...tools,
+    ...guidePages,
     info('/about', 'About MyDailyUtils', 'Simple browser-based tools for everyday tasks.',
       'Learn about MyDailyUtils online tools and utilities for files, data, and everyday tasks, how local file processing works, and how to get support.'),
     info('/contact', en.contactPage.title, en.contactPage.subtitle, en.contactPage.description),

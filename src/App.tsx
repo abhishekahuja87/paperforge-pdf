@@ -40,6 +40,8 @@ const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ defa
 const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
+const GuidesPage = lazy(() => import('./pages/GuidesPage').then((m) => ({ default: m.GuidesPage })));
+const GuidePage = lazy(() => import('./pages/GuidePage').then((m) => ({ default: m.GuidePage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 const Ac1Page = lazy(() => import('./pages/Ac1Page').then((m) => ({ default: m.Ac1Page })));
 const CatalogTemplatesPage = lazy(() => import('./pages/CatalogTemplatesPage').then((m) => ({ default: m.CatalogTemplatesPage })));
@@ -97,6 +99,8 @@ export const App: React.FC = () => {
               <Route path="/base64-tool" element={<Base64ToolPage />} />
               <Route path="/display-studio" element={<DisplayStudioPage />} />
               <Route path="/pos-invoice-studio" element={<PosInvoiceStudioPage />} />
+              <Route path="/guides" element={<GuidesPage />} />
+              <Route path="/guides/:slug" element={<GuidePage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/about" element={<AboutPage />} />

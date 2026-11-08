@@ -52,6 +52,7 @@ export const Footer: React.FC = () => {
           <div>
             <h2 className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-stone-400">{t('company')}</h2>
             <ul className="space-y-1.5">
+              <li><Link to="/guides" className={linkClass}>{t('guides')}</Link></li>
               <li><Link to="/about" className={linkClass}>{t('about')}</Link></li>
               <li><Link to="/contact" className={linkClass}>{t('contact')}</Link></li>
               <li><Link to="/privacy" className={linkClass}>{t('privacyPolicy')}</Link></li>
