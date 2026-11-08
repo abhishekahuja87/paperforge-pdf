@@ -25,6 +25,8 @@ export type ToolIconName =
   | 'git-merge'
   | 'receipt';
 
+export type ToolTier = 'popular' | 'workspace' | 'more' | 'advanced';
+
 export interface ToolItem {
   id: string;
   title: string;
@@ -34,6 +36,8 @@ export interface ToolItem {
   icon: ToolIconName;
   isPopularInternet?: boolean;
   isAvailable: boolean;
+  /** Where the tool is surfaced: popular/workspace/more on the homepage, advanced in the footer only. */
+  tier: ToolTier;
   keywords: string[];
 }
 
@@ -48,6 +52,7 @@ export const TOOLS: ToolItem[] = [
     path: '/digitize-documents',
     icon: 'file-text',
     isAvailable: true,
+    tier: 'workspace',
     keywords: ['digitize', 'digitise', 'scan', 'ocr', 'searchable', 'image', 'pdf', 'archive'],
   },
   // PDF
@@ -60,6 +65,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'git-merge',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'popular',
     keywords: ['merge', 'combine', 'join', 'pdf'],
   },
   {
@@ -71,6 +77,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'scissors',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'popular',
     keywords: ['split', 'extract', 'pages', 'pdf'],
   },
   {
@@ -82,6 +89,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'file-plus',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'advanced',
     keywords: ['sample', 'dummy', 'test', 'generate', 'pdf'],
   },
   {
@@ -92,6 +100,7 @@ export const TOOLS: ToolItem[] = [
     path: '/rotate-pdf',
     icon: 'rotate',
     isAvailable: true,
+    tier: 'more',
     keywords: ['rotate', 'turn', 'orientation', 'pdf'],
   },
   {
@@ -103,6 +112,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'minimize',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'popular',
     keywords: ['compress', 'shrink', 'reduce', 'size', 'pdf', 'optimize'],
   },
   {
@@ -114,6 +124,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'trash-2',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['delete', 'remove', 'pages', 'prune', 'pdf'],
   },
   {
@@ -125,6 +136,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'image',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'popular',
     keywords: ['image', 'jpg', 'jpeg', 'png', 'webp', 'convert', 'pdf'],
   },
   {
@@ -136,6 +148,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'hash',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['page', 'number', 'numbers', 'header', 'footer', 'pdf', 'pagination'],
   },
   {
@@ -147,6 +160,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'stamp',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['watermark', 'stamp', 'confidential', 'draft', 'overlay', 'pdf'],
   },
   {
@@ -158,6 +172,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'crop',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['crop', 'trim', 'margins', 'cut', 'borders', 'pdf'],
   },
   {
@@ -169,6 +184,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'shield-check',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'advanced',
     keywords: ['sanitize', 'metadata', 'privacy', 'strip', 'clean', 'author', 'history', 'pdf'],
   },
   {
@@ -180,6 +196,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'grid',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'advanced',
     keywords: ['nup', 'handout', 'slides', 'print', 'sheets', 'pages', 'grid', 'pdf'],
   },
   {
@@ -191,6 +208,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'binary',
     isPopularInternet: false,
     isAvailable: true,
+    tier: 'advanced',
     keywords: ['inspect', 'developer', 'metadata', 'structure', 'debug', 'qa', 'pdf'],
   },
   {
@@ -202,6 +220,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'lock',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['protect', 'encrypt', 'password', 'security', 'lock', 'pdf'],
   },
   {
@@ -213,6 +232,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'unlock',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['unlock', 'decrypt', 'password', 'remove', 'security', 'pdf'],
   },
   {
@@ -224,6 +244,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'layers',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'advanced',
     keywords: ['flatten', 'forms', 'lock', 'acroform', 'annotations', 'pdf'],
   },
   {
@@ -235,6 +256,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'image',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'popular',
     keywords: ['images', 'png', 'jpg', 'render', 'extract', 'pdf to image', 'pdf'],
   },
   {
@@ -246,6 +268,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'file-text',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['text', 'extract', 'read', 'txt', 'copy', 'content', 'pdf'],
   },
   {
@@ -257,6 +280,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'layers',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['organize', 'reorder', 'sort', 'arrange', 'delete', 'rotate', 'thumbnails', 'pdf'],
   },
   {
@@ -268,6 +292,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'layers',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'workspace',
     keywords: ['document', 'studio', 'assembler', 'combine', 'docx', 'image', 'custom', 'pdf'],
   },
 
@@ -281,6 +306,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'image',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['image', 'convert', 'webp', 'png', 'jpg'],
   },
   {
@@ -291,6 +317,7 @@ export const TOOLS: ToolItem[] = [
     path: '/image-compressor',
     icon: 'minimize',
     isAvailable: true,
+    tier: 'popular',
     keywords: ['compress', 'resize', 'image'],
   },
 
@@ -304,6 +331,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'file-code',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'more',
     keywords: ['json', 'format', 'prettify'],
   },
   {
@@ -314,6 +342,7 @@ export const TOOLS: ToolItem[] = [
     path: '/base64-tool',
     icon: 'binary',
     isAvailable: true,
+    tier: 'advanced',
     keywords: ['base64', 'sha256', 'hash'],
   },
   {
@@ -325,6 +354,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'presentation',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'workspace',
     keywords: ['display', 'presentation', 'slideshow', 'classroom', 'tv', 'signage', 'advertising', 'clock', 'fullscreen', 'pdf', 'docx', 'image'],
   },
   {
@@ -336,6 +366,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'receipt',
     isPopularInternet: true,
     isAvailable: true,
+    tier: 'workspace',
     keywords: ['pos', 'invoice', 'billing', 'bill', 'receipt', 'inventory', 'product', 'sales', 'tax', 'store', 'business'],
   },
 ];
