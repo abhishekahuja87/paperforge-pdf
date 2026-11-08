@@ -2,7 +2,8 @@ import React from 'react';
 import { AdBanner } from '../common/AdBanner';
 import { PageMetadata } from '../common/PageMetadata';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { ToolArticle } from '../common/ToolArticle';
 import { ADS_CONFIG } from '../../config/ads';
 import { useTranslation } from 'react-i18next';
 
@@ -28,6 +29,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   controlsLanguage = 'en',
 }) => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
   const isWorkshop = appearance === 'workshop';
 
   return (
@@ -56,6 +58,9 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
         {/* Main Tool Functional Area */}
         <div lang={controlsLanguage} className={isWorkshop ? `tool-workshop-controls mx-auto w-full ${wide ? 'max-w-6xl' : 'max-w-3xl'}` : 'w-full'}>{children}</div>
+
+        {/* Written explanation for this tool, when one exists (keyed by route path) */}
+        <ToolArticle id={pathname.replace(/^\/+|\/+$/g, '')} />
 
         {/* SEO / Questionnaire Guide (Steps & FAQs) */}
         {seoContent && (

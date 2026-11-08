@@ -22,6 +22,11 @@ export interface ShellFaq {
   answer: string;
 }
 
+export interface ShellSection {
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface ShellPage {
   kind: 'home' | 'tool' | 'info';
   /** Route path, for example "/merge-pdf". */
@@ -33,6 +38,8 @@ export interface ShellPage {
   subtitle: string;
   steps: ShellStep[];
   faqs: ShellFaq[];
+  /** Longer written explanation from en.toolArticles (empty when a tool has none yet). */
+  article: ShellSection[];
 }
 
 export interface ShellLink {
@@ -119,6 +126,15 @@ interface ToolCopy {
   subtitle: string;
   steps: ShellStep[];
   faqs: ShellFaq[];
+}
+
+function articleFor(tool: ToolItem): ShellSection[] {
+  const sections = arr(rec(rec(rec(en).toolArticles)[tool.path.slice(1)]).sections);
+  return sections.flatMap((item) => {
+    const heading = str(rec(item).heading);
+    const paragraphs = arr(rec(item).paragraphs).map(str).filter(Boolean);
+    return heading && paragraphs.length > 0 ? [{ heading, paragraphs }] : [];
+  });
 }
 
 function guideSteps(tool: ToolItem): ShellStep[] {
@@ -233,6 +249,7 @@ export function getShellPages(): ShellPage[] {
     subtitle: en.homeDescription,
     steps: [],
     faqs: [],
+    article: [],
   };
 
   const tools: ShellPage[] = availableTools.map((tool) => {
@@ -246,11 +263,12 @@ export function getShellPages(): ShellPage[] {
       subtitle: copy.subtitle,
       steps: copy.steps,
       faqs: copy.faqs,
+      article: articleFor(tool),
     };
   });
 
   const info = (path: string, title: string, subtitle: string, description: string): ShellPage => ({
-    kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [],
+    kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [], article: [],
   });
 
   return [
