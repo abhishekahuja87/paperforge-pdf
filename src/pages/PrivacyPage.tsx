@@ -30,7 +30,7 @@ export const PrivacyPage: React.FC = () => {
           The site stores your language choice and tool-visit counts in your browser’s local storage. The counts are used to show labels such as “Frequent” or “Favorite.” These preferences stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
         </p>
         <p>
-          If you choose to save a POS shop profile and inventory, they are stored in this browser’s IndexedDB on your device, including the shop details and inventory entered. Customer bills are not saved there. Saved profiles can be loaded or deleted in the POS tool, and clearing site data also removes them. Browser storage may be accessible to others using the same browser profile and may not persist in private browsing; keep a JSON backup.
+          If you tick “Remember my business details” in the GST Invoice Generator, your seller details, notes and bank details are kept in this browser’s local storage on your device until you untick the box or clear your browser data; buyer details and invoice items are not saved. If you choose to save a POS shop profile and inventory, they are stored in this browser’s IndexedDB on your device, including the shop details and inventory entered. Customer bills are not saved there. Saved profiles can be loaded or deleted in the POS tool, and clearing site data also removes them. Browser storage may be accessible to others using the same browser profile and may not persist in private browsing; keep a JSON backup.
         </p>
       </section>
 

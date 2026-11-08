@@ -131,6 +131,7 @@ const PAGE_GUIDE_KEYS: Record<string, string> = {
   'fd-calculator': 'fdCalc',
   'ppf-calculator': 'ppfCalc',
   'gst-calculator': 'gstCalc',
+  'gst-invoice-generator': 'gstInvoiceGen',
   'gratuity-calculator': 'gratuityCalc',
   'lumpsum-calculator': 'lumpsumCalc',
   'inflation-calculator': 'inflationCalc',
