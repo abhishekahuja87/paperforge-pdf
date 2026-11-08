@@ -73,6 +73,16 @@ React stub. Not checked: the print-to-PDF layout in real browsers (especially mo
 localStorage save and removal, build and lint. Test by printing an invoice to PDF on
 desktop and phone and by ticking and unticking 'Remember my business details'.
 
+## Update: November 8, 2026 (twelve new guides)
+
+Twelve guides were added (interest, RD vs FD, gratuity, CAGR, inflation, age on cut-off dates,
+GST invoices, photo and signature sizing, passwords, amounts in words, BMI, percentages). Every
+tool id they link to was confirmed to exist, and worked numbers were recomputed (for example
+31 years 4 months 17 days from 15 Aug 1995 to 1 Jan 2027 with the age code, and the interest,
+gratuity, inflation and BMI examples by hand). Statements about tax limits (gratuity ₹20 lakh) and
+BMI cut-offs are as the tools use them and should be rechecked when rules change. Not checked:
+rendering of the new guide pages, build and lint.
+
 The November 7 baseline below is historical: it predates the finance, guides,
 image resizer and utilities work, and its "27 tool routes" count is out of date
 (the catalog now has well over fifty).

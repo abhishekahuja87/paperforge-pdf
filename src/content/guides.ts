@@ -305,6 +305,258 @@ export const GUIDES: Guide[] = [
       ] },
     ],
   },
+  {
+    slug: "simple-vs-compound-interest",
+    title: "Simple interest vs compound interest: the difference and how to calculate both",
+    description: "What simple and compound interest mean, the formulas, and why compounding makes such a difference over long periods.",
+    tools: ["simple-compound-interest-calculator", "lumpsum-calculator", "fd-calculator"],
+    sections: [
+      { heading: "Simple interest in one line", paragraphs: [
+        "Simple interest is earned only on the original amount. If you invest ₹1,00,000 at 8% simple interest, you earn ₹8,000 every year, whether it is the first year or the tenth. The formula is interest = principal × rate × time ÷ 100.",
+      ] },
+      { heading: "Compound interest in one line", paragraphs: [
+        "With compound interest, the interest from each period is added to the balance, so the next period earns interest on a larger amount. The formula for the final amount is principal × (1 + rate ÷ (100 × n)) raised to the power n × time, where n is how many times a year interest is added.",
+      ] },
+      { heading: "Why the gap grows over time", paragraphs: [
+        "In the first year the two are almost the same. Over many years the difference widens, because compound interest earns interest on interest. At 8% for 3 years, ₹1,00,000 gives ₹24,000 as simple interest and about ₹26,824 as compound interest compounded quarterly. Over 20 years the gap is far bigger.",
+        "You can try your own numbers in the Simple & Compound Interest Calculator, which shows both side by side with a year-by-year table.",
+      ] },
+      { heading: "How often interest is added matters a little", paragraphs: [
+        "More frequent compounding (monthly instead of yearly) gives a slightly higher result at the same quoted rate. Most Indian banks compound fixed deposit interest quarterly; your deposit terms state the actual method.",
+      ] },
+      { heading: "Where each is used", paragraphs: [
+        "Savings accounts, fixed deposits and most investments grow by compounding. Some loans, especially informal ones, are quoted as simple interest. Always ask which method applies, because the same quoted rate can cost very different amounts.",
+      ] },
+    ],
+  },
+  {
+    slug: "rd-vs-fd-which-is-better",
+    title: "RD vs FD: how they differ and how to estimate each",
+    description: "How recurring and fixed deposits differ, how interest is worked out, and how to estimate what each will give you.",
+    tools: ["rd-calculator", "fd-calculator"],
+    sections: [
+      { heading: "The basic difference", paragraphs: [
+        "A fixed deposit (FD) is a single lump sum placed for a fixed period. A recurring deposit (RD) is a fixed amount you add every month for a fixed period. FD suits money you already have; RD suits people who want to build a sum from regular savings.",
+      ] },
+      { heading: "How the interest is worked out", paragraphs: [
+        "Both are usually compounded quarterly at Indian banks, so interest is added to the balance four times a year. In an RD each monthly instalment earns interest only from the month it is deposited, so the early instalments earn the most. That is why an RD of ₹5,000 a month for 5 years at 6.5% grows to about ₹3.55 lakh on ₹3 lakh deposited.",
+        "Use the RD Calculator and FD Calculator to estimate each; the RD calculator also shows a year-by-year table.",
+      ] },
+      { heading: "Things to compare before you choose", paragraphs: [
+        "Compare the interest rate for your period, whether the rate is fixed, penalties for early withdrawal or missed RD instalments, the minimum amount, and how interest is paid out. Senior citizens and some institutions offer different rates.",
+      ] },
+      { heading: "Tax on the interest", paragraphs: [
+        "Interest from both is taxable as income, and banks may deduct tax at source (TDS) above a threshold that can change. The calculators show interest before tax, so your actual return will be lower if you pay tax on it.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-gratuity-is-calculated",
+    title: "How gratuity is calculated, who gets it and what is tax-free",
+    description: "The gratuity formula, the 5-year rule, how part-years are counted and the tax-free limit, with a worked example.",
+    tools: ["gratuity-calculator"],
+    sections: [
+      { heading: "What gratuity is", paragraphs: [
+        "Gratuity is a lump sum an employer pays an employee as thanks for long service, usually when they leave, retire or resign after completing at least five years of continuous service. Exceptions exist, such as death or disability.",
+      ] },
+      { heading: "The formula", paragraphs: [
+        "For employers covered by the Payment of Gratuity Act, gratuity = last drawn monthly basic salary plus dearness allowance × 15 ÷ 26 × years of service. A part-year of six months or more is counted as a full year. For example, with a last basic plus DA of ₹50,000 and 10 years 7 months of service, 11 years are counted: 50,000 × 15 ÷ 26 × 11 = about ₹3,17,308.",
+        "If the employer is not covered by the Act, the usual formula uses 15 ÷ 30 and counts only completed years. The Gratuity Calculator lets you pick either.",
+      ] },
+      { heading: "Tax treatment", paragraphs: [
+        "Under current rules, gratuity received by a private-sector employee is tax-free up to ₹20 lakh, with the amount above that taxable. Rules and limits are revised from time to time, so confirm the latest position before you rely on it.",
+      ] },
+      { heading: "What the calculator shows", paragraphs: [
+        "Besides the amount for your service, it shows a table of what the same pay would give after 5, 10, 15 up to 35 years, so you can see how service length changes the result. Your employer may pay more than the legal minimum; check your appointment letter.",
+      ] },
+    ],
+  },
+  {
+    slug: "what-is-cagr-and-how-to-use-it",
+    title: "What is CAGR? How to calculate it and what it can and cannot tell you",
+    description: "CAGR explained with an example, the formula, and the cases where it misleads.",
+    tools: ["cagr-calculator", "sip-calculator", "lumpsum-calculator"],
+    sections: [
+      { heading: "CAGR in plain words", paragraphs: [
+        "Compound annual growth rate (CAGR) is the single steady yearly rate that would take an investment from its starting value to its ending value over a period. If ₹1,00,000 becomes ₹2,00,000 in 5 years, the CAGR is about 14.87% a year.",
+      ] },
+      { heading: "The formula", paragraphs: [
+        "CAGR = (final value ÷ initial value) raised to the power 1 ÷ years, minus 1. You can type the two values and the years into the CAGR Calculator, which also shows how long the value takes to double at that rate.",
+      ] },
+      { heading: "What CAGR hides", paragraphs: [
+        "Real investments go up and down. Two investments can have the same CAGR with very different risk along the way. CAGR also ignores money you add or withdraw during the period; for regular investments such as a SIP, use XIRR, which accounts for the dates of each payment.",
+      ] },
+      { heading: "Using it to compare options", paragraphs: [
+        "CAGR is useful for comparing two lump-sum results over the same period. Be careful to compare equal periods and the same start and end dates, and remember that past growth does not promise future returns.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-inflation-reduces-the-value-of-savings",
+    title: "How inflation reduces the value of your savings, with an example",
+    description: "Why money loses buying power over time, how to estimate the effect, and what it means for savings goals.",
+    tools: ["inflation-calculator", "lumpsum-calculator"],
+    sections: [
+      { heading: "What inflation does", paragraphs: [
+        "Inflation is the general rise in prices. If prices rise 6% a year, something that costs ₹1,00,000 today will cost about ₹1,79,000 in 10 years. Put the other way, ₹1,00,000 in 10 years will buy only about what ₹56,000 buys today.",
+      ] },
+      { heading: "How to calculate it", paragraphs: [
+        "Future cost = amount × (1 + inflation rate) raised to the number of years. The Inflation Calculator does this and shows a year-by-year table, plus the share of buying power lost.",
+      ] },
+      { heading: "Why a savings rate has to beat it", paragraphs: [
+        "If your savings earn less than inflation, their real value falls even though the balance grows. The Lumpsum Calculator can show a future value in today's buying power when you enter an inflation rate, which gives a more honest picture of a goal such as retirement or a child's education.",
+      ] },
+      { heading: "Choosing a rate", paragraphs: [
+        "Overall inflation in India has varied over the years, and some costs, such as education and healthcare, often rise faster than the headline figure. Try several rates, including a higher one, rather than relying on a single number.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-calculate-age-for-exam-and-job-forms",
+    title: "How to calculate your age on a cut-off date for exam and job forms",
+    description: "Why forms ask for age on a particular date, how years, months and days are counted, and how to avoid common mistakes.",
+    tools: ["age-calculator", "date-difference-calculator"],
+    sections: [
+      { heading: "Why the date matters", paragraphs: [
+        "Many exams and recruitments set a minimum or maximum age as on a specific date, such as 1 January or 1 August of the year. Your age today is not what counts; your age on that date is.",
+      ] },
+      { heading: "How to count", paragraphs: [
+        "Count completed years first, then completed months, then days. Someone born on 15 August 1995 is 31 years, 4 months and 17 days old on 1 January 2027. For your own dates, use the Age Calculator: set the \"Age on\" date to the cut-off and read the result.",
+      ] },
+      { heading: "Special cases", paragraphs: [
+        "If you were born on 29 February, the calculator treats your birthday as 1 March in years that are not leap years. Rules for how an exam counts this may differ, so follow the notification. Also note that age relaxations for some categories are set by each exam.",
+      ] },
+      { heading: "Other date questions", paragraphs: [
+        "To find the number of days or working days between two dates, or to add 90 days to a date, such as for a notice period, use the Date Difference Calculator. It does not know public holidays, so subtract those yourself.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-make-a-gst-invoice",
+    title: "How to make a GST invoice: what to include and how CGST, SGST and IGST work",
+    description: "The parts of a tax invoice, when CGST and SGST apply instead of IGST, and how to produce a clean PDF.",
+    tools: ["gst-invoice-generator", "gst-calculator"],
+    sections: [
+      { heading: "What goes on a tax invoice", paragraphs: [
+        "A tax invoice usually shows the seller's name, address and GSTIN, a unique invoice number and date, the buyer's details, the place of supply, a description of each item with its HSN or SAC code, quantity, taxable value, tax rate and amount, and the total. Exact requirements depend on your registration and the kind of supply, so check the current rules.",
+      ] },
+      { heading: "CGST and SGST or IGST", paragraphs: [
+        "If the seller and the place of supply are in the same state, the tax is split equally into CGST (central) and SGST (state or union territory). If they are in different states, IGST is charged instead. The GST Invoice Generator decides this from the two states you choose.",
+      ] },
+      { heading: "Tax invoice vs bill of supply", paragraphs: [
+        "A bill of supply is generally used when no GST is charged, for example by some composition dealers or for exempt goods. Choose the document that matches your registration; if you are unsure, ask a tax professional.",
+      ] },
+      { heading: "Making the PDF", paragraphs: [
+        "Fill in the details, add your items, check the preview and press Print or save as PDF, then choose Save as PDF in the print window. Nothing is uploaded; you can tick a box to remember your business details in your own browser.",
+      ] },
+      { heading: "What the tool does not do", paragraphs: [
+        "It does not create e-invoices with an IRN or QR code, file returns or check whether a GSTIN is registered. It only checks the GSTIN format and check character, which catches most typing mistakes.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-resize-a-passport-photo-and-signature-for-forms",
+    title: "How to resize a passport photo and signature for online forms",
+    description: "Getting a photo or signature to the exact pixel size and file size a form asks for, step by step.",
+    tools: ["passport-photo-resizer", "signature-resizer", "exam-photo-resizer", "image-resizer"],
+    sections: [
+      { heading: "Read the form first", paragraphs: [
+        "Look for the required width and height (in pixels, millimetres or inches), the maximum file size in KB, and the format. Requirements differ between forms and change from year to year, so always follow yours; any preset in a tool is only a starting point.",
+      ] },
+      { heading: "Preparing a good photo", paragraphs: [
+        "Use a plain, evenly lit background, face the camera, keep the head centred and avoid shadows. A clean picture compresses better, so you keep more detail under a small KB limit.",
+      ] },
+      { heading: "Resizing with the tool", paragraphs: [
+        "Open the Passport Photo Resizer, Signature Resizer or Exam Photo Resizer, choose your image, check the size and KB limit and press Resize. If your form lists millimetres or inches, change the unit and set a resolution; 300 DPI is common for printed photos. For example, 35 × 45 mm at 300 DPI is about 413 × 531 pixels.",
+      ] },
+      { heading: "Signatures", paragraphs: [
+        "Sign with a dark pen on plain white paper, photograph it in even light and crop closely. If the shape differs from the target size, choose \"Fit inside with white borders\" so no part of the signature is cut off.",
+      ] },
+      { heading: "If it still does not fit", paragraphs: [
+        "If the tool says it could not reach the limit, raise the limit if the form allows, use a smaller size or crop closer. The tool does not change backgrounds or check face position; if your form has such rules, prepare the photo accordingly.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-create-a-strong-password",
+    title: "How to create a strong password and keep it safe",
+    description: "What makes a password strong, how long it should be, and the habits that matter more than clever tricks.",
+    tools: ["password-generator"],
+    sections: [
+      { heading: "Length beats cleverness", paragraphs: [
+        "Each extra character makes a random password far harder to guess. For important accounts such as email and banking, use at least 12 characters, and 16 or more if the site allows. Predictable tricks, such as replacing letters with symbols in a word, add little.",
+      ] },
+      { heading: "Random is better than memorable", paragraphs: [
+        "People choose guessable passwords. A generator picks every character randomly. The Password Generator uses your browser's secure random source, makes the password on your device and does not store or send it. Its strength meter and guess-time estimate are guides only.",
+      ] },
+      { heading: "One password per account", paragraphs: [
+        "If one site leaks your password, attackers try it elsewhere. Use a different password for every account, and keep them in a reputable password manager so you need to remember only one strong master password.",
+      ] },
+      { heading: "Turn on two-step verification", paragraphs: [
+        "Where available, add a second step such as an authenticator app. It protects you even if a password is leaked. Be careful with PINs: a short numeric PIN is only safe where the number of attempts is limited, such as on a phone or ATM.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-write-an-amount-in-words-on-a-cheque",
+    title: "How to write an amount in words on a cheque or invoice (lakh and crore)",
+    description: "The standard way to write rupee amounts in words, and how to avoid alterations and mistakes.",
+    tools: ["number-to-words"],
+    sections: [
+      { heading: "The standard format", paragraphs: [
+        "In India amounts are written with lakh and crore, for example 12,34,567 as \"Twelve Lakh Thirty Four Thousand Five Hundred Sixty Seven Rupees Only\". With paise, write \"and Fifty Paise\" before \"Only\".",
+      ] },
+      { heading: "Why \"Only\" and asterisks", paragraphs: [
+        "Ending with \"Only\" shows nothing follows the amount, and some people add asterisks or a line before and after the words to prevent additions. The Number to Words tool has a cheque style option that adds asterisks and capitals.",
+      ] },
+      { heading: "Match the figure and the words", paragraphs: [
+        "The amount in words and in figures must agree. If they differ, a bank may refuse the cheque or follow the words. Always compare them before you sign; the tool shows the figure with grouped digits next to the words to help.",
+      ] },
+      { heading: "Indian and international systems", paragraphs: [
+        "The same number reads differently in the international system (million, billion). Pick the one your document needs. The tool supports up to 999,999,999,999.",
+      ] },
+    ],
+  },
+  {
+    slug: "understanding-bmi-what-it-is-and-its-limits",
+    title: "Understanding BMI: how it is calculated and what it can and cannot tell you",
+    description: "What body mass index is, why Indian guidance uses lower cut-offs, and why it is only a screening number.",
+    tools: ["bmi-calculator"],
+    sections: [
+      { heading: "How BMI is calculated", paragraphs: [
+        "BMI is weight in kilograms divided by the square of height in metres. A person who weighs 70 kg and is 1.70 m tall has a BMI of about 24.2.",
+      ] },
+      { heading: "Categories", paragraphs: [
+        "The WHO standard calls a BMI of 25 to 29.9 overweight and 30 or more obese. Guidance for Asian populations uses 23 and 25 as cut-offs because health risks can rise at lower BMI values. The BMI Calculator lets you choose either scale.",
+      ] },
+      { heading: "What BMI does not show", paragraphs: [
+        "BMI cannot tell muscle from fat, does not show where fat is carried and is not suited to children, pregnancy or athletes. Two people with the same BMI can have very different health.",
+      ] },
+      { heading: "Using the result", paragraphs: [
+        "Treat it as a starting point. The calculator also shows a healthy weight range for your height and an optional rough calorie estimate. None of this is medical advice; talk to a doctor or dietitian before making changes to your diet or exercise.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-calculate-percentages-and-discounts",
+    title: "How to calculate percentages, percentage change and discounts",
+    description: "The simple formulas behind everyday percentage questions, including why two discounts do not add up.",
+    tools: ["percentage-calculator", "discount-calculator", "gst-calculator"],
+    sections: [
+      { heading: "Percent of a number", paragraphs: [
+        "To find X% of Y, multiply Y by X and divide by 100. 15% of 2,400 is 360.",
+      ] },
+      { heading: "Percentage change", paragraphs: [
+        "Percentage change = (new − old) ÷ old × 100. A price going from 80 to 100 is a 25% increase. Going back from 100 to 80 is only a 20% decrease, because the base is now different.",
+      ] },
+      { heading: "Discounts", paragraphs: [
+        "A 30% discount on ₹2,499 gives ₹1,749.30. Two discounts do not add up: 30% then 10% is 37% overall, not 40%, because the second applies to the reduced price. If you know the sale price and the discount, the Discount Calculator can work back to the original price.",
+      ] },
+      { heading: "Adding GST", paragraphs: [
+        "Check whether a displayed price already includes GST. The Discount Calculator can add GST after the discounts, and the GST Calculator can add or remove GST from any amount.",
+      ] },
+    ],
+  },
 ];
 
 export function getGuide(slug: string | undefined): Guide | undefined {
