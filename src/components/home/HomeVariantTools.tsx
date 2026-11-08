@@ -43,10 +43,10 @@ export const HomePopularTile: React.FC<{ tool: ToolItem }> = ({ tool }) => {
       <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-50 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
         <ToolIcon name={tool.icon} className="h-4 w-4" />
       </span>
-      <span lang={copy.language} className="min-w-0">
+      <div lang={copy.language} className="min-w-0">
         <h3 className="text-sm font-bold leading-tight text-stone-900 group-hover:text-orange-800">{copy.title}</h3>
         <span className="mt-1 line-clamp-2 block text-[11px] leading-snug text-stone-500">{copy.description}</span>
-      </span>
+      </div>
     </Link>
   );
 };

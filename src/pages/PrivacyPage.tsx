@@ -50,7 +50,7 @@ export const PrivacyPage: React.FC = () => {
           You can manage Google personalized advertising through <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google Ads Settings</a>. You can also use the <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Digital Advertising Alliance opt-out page</a> for participating companies. Read <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google’s advertising information</a> and its <a href="https://support.google.com/adsense/answer/9012903?hl=en" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Ad technology partner information</a> for more detail. The providers available can depend on the publisher’s AdSense settings.
         </p>
         <p>
-          For visitors in the European Economic Area, the United Kingdom, and Switzerland, Google requires publishers to use a Google-certified consent management platform for applicable consent and disclosure requirements. The publisher must configure its consent message and advertising partners in AdSense; those account settings are not managed by this website’s source code.
+          Where the law requires it, for example for visitors in the European Economic Area, the United Kingdom and Switzerland, a consent message from Google is shown so you can choose whether cookies and personalised advertising are used. You can change your choice later through that message or your browser settings.
         </p>
       </section>
 

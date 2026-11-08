@@ -19,8 +19,15 @@ export const Header: React.FC = () => {
         setIsDropdownOpen(false);
       }
     };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsDropdownOpen(false);
+    };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   // Footer-only (advanced) pages stay out of this menu so it remains short; the footer lists every tool.
@@ -30,7 +37,7 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 bg-[var(--theme-surface)]/95 backdrop-blur-md border-b border-stone-200">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2 group">
+        <Link to="/" aria-label={siteConfig.name} className="flex items-center space-x-2 group">
           <div className="w-8 h-8 rounded-lg bg-orange-700 flex items-center justify-center text-white shadow-sm">
             <img src="/favicon.svg" alt="" className="h-8 w-8 rounded-lg" />
           </div>
@@ -52,7 +59,7 @@ export const Header: React.FC = () => {
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               aria-expanded={isDropdownOpen}
-              aria-controls="explore-tools-menu"
+              aria-controls={isDropdownOpen ? 'explore-tools-menu' : undefined}
               className="flex items-center space-x-1 hover:text-orange-700 transition py-1 text-xs font-semibold"
             >
               <span className="max-w-32 truncate sm:max-w-none">{t('exploreTools')}</span>

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && pnpm run build:static",
-    "build:static": "vite build --ssr src/prerender/shellData.ts --outDir dist-ssr --emptyOutDir && node scripts/prerender-shell.mjs || echo \"WARNING: static page generation failed. The site still works but pages will not have pre-built HTML.\"",
+    "build:static": "vite build --ssr src/prerender/shellData.ts --outDir dist-ssr --emptyOutDir && node scripts/prerender-shell.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

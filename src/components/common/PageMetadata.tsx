@@ -27,6 +27,10 @@ export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description, 
 
   useEffect(() => {
     const pageTitle = `${title} | ${siteConfig.shortName}`;
+    if (noindex) {
+      // Pages kept out of search results should not advertise a canonical address.
+      document.head.querySelector('link[rel="canonical"]')?.remove();
+    }
     const canonicalUrl = new URL(pathname, siteConfig.url).toString();
     document.title = pageTitle;
     setMetaContent('meta[name="description"]', description);
@@ -36,14 +40,16 @@ export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description, 
     setMetaContent('meta[name="twitter:title"]', pageTitle);
     setMetaContent('meta[name="twitter:description"]', description);
 
-    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.rel = 'canonical';
-      document.head.appendChild(canonical);
+    if (!noindex) {
+      let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+      }
+      canonical.href = canonicalUrl;
     }
-    canonical.href = canonicalUrl;
-  }, [description, pathname, title]);
+  }, [description, noindex, pathname, title]);
 
   const jsonLdText = jsonLd ? JSON.stringify(jsonLd) : '';
   useEffect(() => {
