@@ -144,7 +144,11 @@ async function main() {
     await writeFile(target, html, 'utf8');
     written += 1;
   }
-  console.log(`prerender-shell: wrote ${written} static pages to ${distDir}`);
+  // The sitemap is built from the same page list, so it can never drift from the real pages.
+  const entries = pages.map((page) => `  <url><loc>${escapeHtml(new URL(page.path, SHELL_SITE.url).toString())}</loc></url>`);
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`;
+  await writeFile(join(distDir, 'sitemap.xml'), sitemap, 'utf8');
+  console.log(`prerender-shell: wrote ${written} static pages and sitemap.xml (${entries.length} URLs) to ${distDir}`);
 }
 
 main().catch((error) => {

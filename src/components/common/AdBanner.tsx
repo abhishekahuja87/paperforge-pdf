@@ -3,7 +3,7 @@ import { ADS_CONFIG } from '../../config/ads';
 
 declare global {
   interface Window {
-    adsbygoogle: any[];
+    adsbygoogle: unknown[];
   }
 }
 
@@ -14,6 +14,17 @@ interface AdBannerProps {
   className?: string;
 }
 
+/** Asks AdSense to fill the unit once, and never twice for the same element. */
+function requestAd(element: HTMLElement | null): void {
+  if (!element || element.dataset.adRequested === 'true') return;
+  element.dataset.adRequested = 'true';
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  } catch (err) {
+    console.error('AdSense push error:', err);
+  }
+}
+
 export const AdBanner: React.FC<AdBannerProps> = ({
   slot,
   format = 'auto',
@@ -21,18 +32,26 @@ export const AdBanner: React.FC<AdBannerProps> = ({
   className = '',
 }) => {
   const adRef = useRef<HTMLModElement | null>(null);
-  const pushedRef = useRef(false);
 
   useEffect(() => {
-    // Only push when not in local dev mode and if not already pushed for this mount
-    if (!ADS_CONFIG.isDevelopment && !pushedRef.current) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        pushedRef.current = true;
-      } catch (err) {
-        console.error('AdSense push error:', err);
-      }
+    if (ADS_CONFIG.isDevelopment) return undefined;
+    const element = adRef.current;
+    if (!element) return undefined;
+
+    // Load the ad shortly before it scrolls into view. This keeps the first screen fast and
+    // means ads are only requested when a visitor can actually see them.
+    if (typeof IntersectionObserver === 'undefined') {
+      requestAd(element);
+      return undefined;
     }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        observer.disconnect();
+        requestAd(element);
+      }
+    }, { rootMargin: '300px 0px' });
+    observer.observe(element);
+    return () => observer.disconnect();
   }, [slot]);
 
   // Visual placeholder in development mode so you can preview placement & prevent layout shifts

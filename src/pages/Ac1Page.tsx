@@ -245,7 +245,7 @@ export function Ac1Page({ previewDesign }: { previewDesign?: CatalogDesign }) {
 
   return (
     <div className="ac1-stage" lang="en">
-      <PageMetadata title="Catalog Design Preview" description="A sample product catalog design." />
+      <PageMetadata title="Catalog Design Preview" description="A sample product catalog design." noindex />
       <div className="ac1-instructions">
         <Link to="/ac1">← All templates</Link>
         <p>Use the pencil icons to edit text and the photo controls to replace, zoom or move images. Changes are not saved after you leave this page.</p>

@@ -8,7 +8,7 @@ import './catalog-templates.css';
 export function CatalogTemplatesPage() {
   return (
     <div className="catalog-chooser" lang="en">
-      <PageMetadata title="Pamphlet Templates" description="Choose a product catalog design and make it your own." />
+      <PageMetadata title="Pamphlet Templates" description="Choose a product catalog design and make it your own." noindex />
       <div className="catalog-chooser-inner">
         <h1>Choose your pamphlet</h1>
         <p>Pick a design, then add your products and shop details.</p>
