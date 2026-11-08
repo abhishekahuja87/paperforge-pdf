@@ -83,6 +83,15 @@ gratuity, inflation and BMI examples by hand). Statements about tax limits (grat
 BMI cut-offs are as the tools use them and should be rechecked when rules change. Not checked:
 rendering of the new guide pages, build and lint.
 
+## Update: November 8, 2026 (batch 4: EPF, time zones, developer utilities)
+
+Checked in Node: colour conversions and the WCAG ratio (black on white 21:1), UUID format, epoch
+seconds and milliseconds, time zone conversion (9:00 IST is 03:30 UTC and 10:30 pm the previous day
+in New York; a July noon in New York is 16:00 UTC), lorem ipsum output and the EPF split (a
+₹15,000 wage over one year at 0% gives 28,206 contributed, 21,600 from the employee). Components
+type-check against a React stub. Not checked: rendering, the clipboard, the nonexistent-time case
+in a daylight saving gap, build and lint.
+
 The November 7 baseline below is historical: it predates the finance, guides,
 image resizer and utilities work, and its "27 tool routes" count is out of date
 (the catalog now has well over fifty).
