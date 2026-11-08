@@ -579,7 +579,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
         </label>
         <label className={labelClass}>
           <span lang={i18n.language}>{t('posPage.fields.taxRate')}</span>
-          <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.taxRate} onChange={(event) => setStoreForm({ ...storeForm, taxRate: Number(event.target.value) })} />
+          <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.taxRate || ''} placeholder="0" onChange={(event) => setStoreForm({ ...storeForm, taxRate: Number(event.target.value) })} />
         </label>
         <label className={labelClass}>
           <span lang={i18n.language}>{t('posPage.fields.additionalLabel')}</span>
@@ -587,7 +587,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
         </label>
         <label className={labelClass}>
           <span lang={i18n.language}>{t('posPage.fields.additionalRate')}</span>
-          <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.additionalTaxRate} onChange={(event) => setStoreForm({ ...storeForm, additionalTaxRate: Number(event.target.value) })} />
+          <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={storeForm.additionalTaxRate || ''} placeholder="0" onChange={(event) => setStoreForm({ ...storeForm, additionalTaxRate: Number(event.target.value) })} />
         </label>
         <label className={labelClass}>
           <span lang={i18n.language}>{t('posPage.fields.chargeLabel')}</span>
@@ -595,7 +595,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
         </label>
         <label className={labelClass}>
           <span lang={i18n.language}>{t('posPage.fields.chargeAmount', { currency: storeForm.currency || 'INR' })}</span>
-          <input className={fieldClass} type="number" min="0" step="0.01" value={storeForm.chargeAmount} onChange={(event) => setStoreForm({ ...storeForm, chargeAmount: Number(event.target.value) })} />
+          <input className={fieldClass} type="number" min="0" step="0.01" value={storeForm.chargeAmount || ''} placeholder="0" onChange={(event) => setStoreForm({ ...storeForm, chargeAmount: Number(event.target.value) })} />
         </label>
         <label className={labelClass}>
           <span lang={i18n.language}>{t('posPage.fields.calculation')}</span>
@@ -763,7 +763,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
                   <tr key={line.id}>
                     <td className="px-3 py-2.5"><p className="font-semibold text-slate-800">{line.name}</p><p className="text-[10px] text-slate-500">{line.sku ? `${line.sku} · ` : ''}{line.unit}</p></td>
                     <td className="px-3 py-2.5 text-slate-600">{formatMoney(line.unitPrice, store.currency)}</td>
-                    <td className="px-3 py-2.5"><input className="w-24 rounded-md border border-slate-200 px-2 py-1.5 text-xs" type="number" min="0.001" step="any" value={line.quantity} aria-label={`Quantity of ${line.name}`} onChange={(event) => updateLine(line.id, Math.max(0, Number(event.target.value)))} /></td>
+                    <td className="px-3 py-2.5"><input className="w-24 rounded-md border border-slate-200 px-2 py-1.5 text-xs" type="number" min="0.001" step="any" value={line.quantity || ''} placeholder="0" aria-label={`Quantity of ${line.name}`} onChange={(event) => updateLine(line.id, Math.max(0, Number(event.target.value)))} /></td>
                     <td className="px-3 py-2.5 text-right font-semibold text-slate-800">{formatMoney(line.quantity * line.unitPrice, store.currency)}</td>
                     <td className="px-2 py-2.5"><button type="button" className="rounded-md p-1.5 text-slate-400 hover:bg-rose-50 hover:text-rose-700" aria-label={`Remove ${line.name} from bill`} onClick={() => removeLine(line.id)}><X className="h-3.5 w-3.5" /></button></td>
                   </tr>
@@ -794,13 +794,13 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
             <p className="mt-2 text-xs leading-relaxed text-slate-600">{t('posBill.taxHint')}</p>
             <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               <label className={labelClass}>{t('posPage.fields.taxRate')}
-                <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={store.taxRate} onChange={(event) => updateBillingSetting('taxRate', Math.min(100, Math.max(0, Number(event.target.value))))} />
+                <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={store.taxRate || ''} placeholder="0" onChange={(event) => updateBillingSetting('taxRate', Math.min(100, Math.max(0, Number(event.target.value))))} />
               </label>
               <label className={labelClass}>{t('posPage.fields.additionalRate')}
-                <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={store.additionalTaxRate} onChange={(event) => updateBillingSetting('additionalTaxRate', Math.min(100, Math.max(0, Number(event.target.value))))} />
+                <input className={fieldClass} type="number" min="0" max="100" step="0.01" value={store.additionalTaxRate || ''} placeholder="0" onChange={(event) => updateBillingSetting('additionalTaxRate', Math.min(100, Math.max(0, Number(event.target.value))))} />
               </label>
               <label className={labelClass}>{t('posPage.fields.chargeAmount', { currency: store.currency })}
-                <input className={fieldClass} type="number" min="0" step="0.01" value={store.chargeAmount} onChange={(event) => updateBillingSetting('chargeAmount', Math.max(0, Number(event.target.value)))} />
+                <input className={fieldClass} type="number" min="0" step="0.01" value={store.chargeAmount || ''} placeholder="0" onChange={(event) => updateBillingSetting('chargeAmount', Math.max(0, Number(event.target.value)))} />
               </label>
               <label className={labelClass}>{t('posPage.fields.taxLabel')}
                 <input className={fieldClass} value={store.taxLabel} onChange={(event) => updateBillingSetting('taxLabel', event.target.value)} />
