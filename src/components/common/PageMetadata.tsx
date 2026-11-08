@@ -5,6 +5,8 @@ import { siteConfig } from '../../config/site';
 interface PageMetadataProps {
   title: string;
   description: string;
+  /** Ask search engines not to index this page (used by the 404 page). */
+  noindex?: boolean;
 }
 
 function setMetaContent(selector: string, content: string): void {
@@ -18,7 +20,7 @@ function setMetaContent(selector: string, content: string): void {
   element.content = content;
 }
 
-export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description }) => {
+export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description, noindex = false }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -40,6 +42,14 @@ export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description }
     }
     canonical.href = canonicalUrl;
   }, [description, pathname, title]);
+
+  useEffect(() => {
+    if (!noindex) return undefined;
+    const robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const previous = robots?.content ?? 'index, follow';
+    setMetaContent('meta[name="robots"]', 'noindex, follow');
+    return () => setMetaContent('meta[name="robots"]', previous);
+  }, [noindex]);
 
   return null;
 };

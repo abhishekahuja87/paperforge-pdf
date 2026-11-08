@@ -12,7 +12,7 @@ Browser-based tools for PDFs, images, text and data, presentations, and billing.
 
 ## Architecture
 
-- `src/App.tsx` defines the lazy-loaded routes and shared header and footer.
+- `src/App.tsx` defines the lazy-loaded routes and shared header and footer. A catch-all `*` route renders `src/pages/NotFoundPage.tsx` (localized, links to popular tools, and `noindex` through `PageMetadata`). Static hosts still answer unknown URLs with the SPA shell, so the `noindex` tag is what keeps those URLs out of search results.
 - `src/pages/` connects route-specific headings and guides to tool components.
 - The unlisted `/ac1` catalog trial offers designs for 4, 6, 9 or 12 products, including arched, asymmetric, side-panel and list layouts. Its English-only editor uses local sample photos, in-memory text and image edits (uploaded photos fit inside their frames by default, with per-photo zoom and vertical positioning), and browser-side PNG export for A4 and Instagram sizes. Changes are lost on reload.
 - `src/components/tools/` contains the interactive tools; `src/lib/pdf/`, `src/lib/media/`, `src/lib/documentStudio/`, `src/lib/display/`, and `src/lib/pos/` contain domain-specific processing and helpers.
