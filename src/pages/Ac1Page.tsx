@@ -15,13 +15,14 @@ import beautySet from '../assets/ac1/24602075.jpg';
 import essentialSet from '../assets/ac1/6167442.jpg';
 import glowDrops from '../assets/ac1/31251033.jpg';
 import './ac1.css';
+import './catalog-designs.css';
 
 const initialShop = {
   name: 'Ahuja Collection Superstore, Balod',
   subtitle: 'Diwali Offers on huge variety of products',
-  whatsapp: '00000 00000',
-  facebook: 'example.com/shop',
-  instagram: '@example.shop',
+  whatsapp: '78049-91800',
+  facebook: 'https://www.facebook.com/ahujacollectionbalod/',
+  instagram: 'https://www.instagram.com/ahujacollectionbalod/',
 };
 
 type Product = { name: string; original: string; price: string; image: string; zoom: number; offsetY: number; fit: 'cover' | 'contain' };
@@ -218,7 +219,7 @@ export function Ac1Page({ previewDesign }: { previewDesign?: CatalogDesign }) {
           ))}
         </section>
 
-        <footer className="ac1-footer" aria-label="Sample contact details">
+        <footer className="ac1-footer" aria-label="Shop contact details">
           <div className="ac1-contact">
             <MessageCircle aria-hidden="true" />
             <div><span>WhatsApp</span><strong><EditableText label="WhatsApp number" value={shop.whatsapp} maxLength={50} onChange={(whatsapp) => setShop((current) => ({ ...current, whatsapp }))} /></strong></div>
