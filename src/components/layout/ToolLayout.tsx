@@ -5,6 +5,8 @@ import { ArrowLeft, ShieldCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ToolArticle } from '../common/ToolArticle';
 import { ADS_CONFIG } from '../../config/ads';
+import { siteConfig } from '../../config/site';
+import { buildToolJsonLd } from '../../lib/structuredData';
 import { useTranslation } from 'react-i18next';
 
 interface ToolLayoutProps {
@@ -35,7 +37,11 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   return (
     <div className={isWorkshop ? 'min-h-full bg-[var(--theme-background)] text-stone-900' : ''}>
       <div className={`mx-auto px-4 py-8 ${isWorkshop ? 'max-w-6xl space-y-7 sm:py-10' : 'max-w-5xl space-y-8'}`}>
-        <PageMetadata title={title} description={subtitle} />
+        <PageMetadata
+          title={`${title} ${siteConfig.toolTitleSuffix}`}
+          description={subtitle}
+          jsonLd={buildToolJsonLd({ name: title, description: subtitle, path: pathname })}
+        />
         {isWorkshop ? (
           <header className="mx-auto max-w-2xl text-center">
             <Link to="/" className="mb-4 inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800">

@@ -9,6 +9,7 @@
 import en from '../locales/en.json';
 import { siteConfig } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
+import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
 type Json = Record<string, unknown>;
 
@@ -40,6 +41,8 @@ export interface ShellPage {
   faqs: ShellFaq[];
   /** Longer written explanation from en.toolArticles (empty when a tool has none yet). */
   article: ShellSection[];
+  /** schema.org data written into the page head as JSON-LD. */
+  jsonLd: JsonLd[];
 }
 
 export interface ShellLink {
@@ -250,6 +253,7 @@ export function getShellPages(): ShellPage[] {
     steps: [],
     faqs: [],
     article: [],
+    jsonLd: buildHomeJsonLd(),
   };
 
   const tools: ShellPage[] = availableTools.map((tool) => {
@@ -257,18 +261,19 @@ export function getShellPages(): ShellPage[] {
     return {
       kind: 'tool',
       path: tool.path,
-      title: copy.heading,
+      title: `${copy.heading} ${siteConfig.toolTitleSuffix}`,
       description: copy.subtitle,
       heading: copy.heading,
       subtitle: copy.subtitle,
       steps: copy.steps,
       faqs: copy.faqs,
       article: articleFor(tool),
+      jsonLd: buildToolJsonLd({ name: copy.heading, description: copy.subtitle, path: tool.path }),
     };
   });
 
   const info = (path: string, title: string, subtitle: string, description: string): ShellPage => ({
-    kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [], article: [],
+    kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [], article: [], jsonLd: [],
   });
 
   return [
