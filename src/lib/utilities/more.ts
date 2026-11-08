@@ -40,3 +40,20 @@ export function splitBill(total: number, tipPercent: number, people: number) {
   const grand = total + tip;
   return { tip, grand, perPerson: grand / people };
 }
+
+export type ActivityLevel = 'sedentary' | 'light' | 'moderate' | 'active';
+const ACTIVITY: Record<ActivityLevel, number> = { sedentary: 1.2, light: 1.375, moderate: 1.55, active: 1.725 };
+
+/** Mifflin-St Jeor estimate of resting energy use and daily calories to maintain weight. */
+export function dailyCalories(weightKg: number, heightCm: number, age: number, male: boolean, activity: ActivityLevel) {
+  const bmr = 10 * weightKg + 6.25 * heightCm - 5 * age + (male ? 5 : -161);
+  return { bmr, maintain: bmr * ACTIVITY[activity] };
+}
+
+export function yearlyGrowth(principal: number, ratePercent: number, years: number) {
+  const rows: { year: number; value: number }[] = [];
+  for (let year = 1; year <= Math.min(Math.ceil(years), 60); year += 1) {
+    rows.push({ year, value: principal * (1 + ratePercent / 100) ** Math.min(year, years) });
+  }
+  return rows;
+}
