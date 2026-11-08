@@ -95,6 +95,13 @@ export const App: React.FC = () => {
               <Route path="/ppf-calculator" element={<FinanceCalculatorPage kind="ppf" />} />
               <Route path="/gst-calculator" element={<FinanceCalculatorPage kind="gst" />} />
               <Route path="/gst-invoice-generator" element={<UtilityPage kind="gstInvoice" />} />
+              <Route path="/epf-calculator" element={<UtilityPage kind="epf" />} />
+              <Route path="/time-zone-converter" element={<UtilityPage kind="timeZone" />} />
+              <Route path="/lorem-ipsum-generator" element={<UtilityPage kind="lorem" />} />
+              <Route path="/color-converter" element={<UtilityPage kind="color" />} />
+              <Route path="/uuid-generator" element={<UtilityPage kind="uuid" />} />
+              <Route path="/timestamp-converter" element={<UtilityPage kind="timestamp" />} />
+              <Route path="/url-encoder-decoder" element={<UtilityPage kind="url" />} />
               <Route path="/gratuity-calculator" element={<UtilityPage kind="gratuity" />} />
               <Route path="/lumpsum-calculator" element={<UtilityPage kind="lumpsum" />} />
               <Route path="/inflation-calculator" element={<UtilityPage kind="inflation" />} />

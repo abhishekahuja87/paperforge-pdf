@@ -11,6 +11,13 @@ import { LumpsumCalculator } from '../components/tools/finance/LumpsumCalculator
 import { BillSplitter } from '../components/tools/utilities/BillSplitter';
 import { BmiCalculator } from '../components/tools/utilities/BmiCalculator';
 import { GstInvoiceGenerator } from '../components/tools/finance/GstInvoiceGenerator';
+import { EpfCalculator } from '../components/tools/finance/EpfCalculator';
+import { ColorConverter } from '../components/tools/utilities/ColorConverter';
+import { LoremIpsumGenerator } from '../components/tools/utilities/LoremIpsumGenerator';
+import { TimeZoneConverter } from '../components/tools/utilities/TimeZoneConverter';
+import { TimestampConverter } from '../components/tools/utilities/TimestampConverter';
+import { UrlEncoderDecoder } from '../components/tools/utilities/UrlEncoderDecoder';
+import { UuidGenerator } from '../components/tools/utilities/UuidGenerator';
 import { AgeCalculator } from '../components/tools/utilities/AgeCalculator';
 import { CaseConverter } from '../components/tools/utilities/CaseConverter';
 import { DateDifferenceCalculator } from '../components/tools/utilities/DateDifferenceCalculator';
@@ -40,6 +47,13 @@ const TOOLS = {
   bmi: { Component: BmiCalculator, guide: 'bmiCalc' },
   billSplitter: { Component: BillSplitter, guide: 'billSplitter' },
   gstInvoice: { Component: GstInvoiceGenerator, guide: 'gstInvoiceGen' },
+  epf: { Component: EpfCalculator, guide: 'epfCalc' },
+  timeZone: { Component: TimeZoneConverter, guide: 'timeZoneConverter' },
+  lorem: { Component: LoremIpsumGenerator, guide: 'loremIpsum' },
+  color: { Component: ColorConverter, guide: 'colorConverter' },
+  uuid: { Component: UuidGenerator, guide: 'uuidGenerator' },
+  timestamp: { Component: TimestampConverter, guide: 'timestampConverter' },
+  url: { Component: UrlEncoderDecoder, guide: 'urlEncoder' },
   password: { Component: PasswordGenerator, guide: 'passwordGenerator' },
 } as const;
 
