@@ -31,6 +31,7 @@ const MasterDocumentStudioPage = lazy(() => import('./pages/MasterDocumentStudio
 const DigitizeDocumentsPage = lazy(() => import('./pages/DigitizeDocumentsPage').then((m) => ({ default: m.DigitizeDocumentsPage })));
 const ImageConverterPage = lazy(() => import('./pages/ImageConverterPage').then((m) => ({ default: m.ImageConverterPage })));
 const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').then((m) => ({ default: m.ImageCompressorPage })));
+const UtilityPage = lazy(() => import('./pages/UtilityPage').then((m) => ({ default: m.UtilityPage })));
 const FinanceCalculatorPage = lazy(() => import('./pages/FinanceCalculatorPage').then((m) => ({ default: m.FinanceCalculatorPage })));
 const ImageResizerPage = lazy(() => import('./pages/ImageResizerPage').then((m) => ({ default: m.ImageResizerPage })));
 const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
@@ -93,6 +94,18 @@ export const App: React.FC = () => {
               <Route path="/fd-calculator" element={<FinanceCalculatorPage kind="fd" />} />
               <Route path="/ppf-calculator" element={<FinanceCalculatorPage kind="ppf" />} />
               <Route path="/gst-calculator" element={<FinanceCalculatorPage kind="gst" />} />
+              <Route path="/simple-compound-interest-calculator" element={<UtilityPage kind="simpleCompound" />} />
+              <Route path="/rd-calculator" element={<UtilityPage kind="rd" />} />
+              <Route path="/cagr-calculator" element={<UtilityPage kind="cagr" />} />
+              <Route path="/age-calculator" element={<UtilityPage kind="age" />} />
+              <Route path="/date-difference-calculator" element={<UtilityPage kind="dateDifference" />} />
+              <Route path="/percentage-calculator" element={<UtilityPage kind="percentage" />} />
+              <Route path="/discount-calculator" element={<UtilityPage kind="discount" />} />
+              <Route path="/unit-converter" element={<UtilityPage kind="unit" />} />
+              <Route path="/word-counter" element={<UtilityPage kind="wordCounter" />} />
+              <Route path="/case-converter" element={<UtilityPage kind="caseConverter" />} />
+              <Route path="/number-to-words" element={<UtilityPage kind="numberToWords" />} />
+              <Route path="/password-generator" element={<UtilityPage kind="password" />} />
               <Route path="/image-resizer" element={<ImageResizerPage guideId="imageResizer" defaultMaxKb={100} />} />
               <Route path="/resize-image-to-20kb" element={<ImageResizerPage guideId="imageResizer20" defaultMaxKb={20} />} />
               <Route path="/resize-image-to-50kb" element={<ImageResizerPage guideId="imageResizer50" defaultMaxKb={50} />} />
