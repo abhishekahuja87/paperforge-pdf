@@ -137,6 +137,10 @@ These are smoke checks with small synthetic files, not exhaustive tests of all
 settings, output fidelity, redaction cases, devices, browsers, languages, or
 accessibility. The reused digitization editor still has English-only controls.
 
+## Performance note (static review, not measured)
+
+The sandbox cannot run `pnpm build`, so the per-tool lazy loading in `UtilityPage` was checked only by reading the code and imports. After the next Amplify build, compare chunk sizes in the build log and run Lighthouse on `/` and one utility page.
+
 ## Future changes
 
 Start with focused checks for the changed behavior and its directly affected
