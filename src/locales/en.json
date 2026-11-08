@@ -572,5 +572,175 @@
       "name": "Business & Sales",
       "description": "Manage shop inventory and create bills locally in your browser."
     }
+  },
+  "toolArticles": {
+    "merge-pdf": {
+      "sections": [
+        {
+          "heading": "What Merge PDF does",
+          "paragraphs": [
+            "Merge PDF joins two or more PDF files into one document. The pages of each file are copied in the order you choose, so the first page of your first file becomes page 1 of the result and the last page of your last file becomes the final page. The tool works with whole files, which makes it a good fit for combining a cover letter with an application, several scanned receipts into one expense report, or separate chapters into a single handout."
+          ]
+        },
+        {
+          "heading": "Getting the order right",
+          "paragraphs": [
+            "After you add your files they appear in a list with up and down buttons. Use them to move a file earlier or later, and remove any file you added by mistake. The order of the list is the order of the finished PDF, so check it before you merge. If you need to rearrange individual pages inside the merged file, merge first and then use Organize PDF, or pull out the pages you want with Split PDF."
+          ]
+        },
+        {
+          "heading": "Tips for good results",
+          "paragraphs": [
+            "Name your files so they sort sensibly before you add them, for example 01-cover.pdf and 02-form.pdf, so the list starts close to the right order. Very large PDFs, or many files at once, use a lot of memory on your device. If the page slows down or the merge fails, merge in smaller batches and then merge the results."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "Merge PDF has no fixed file-size limit of its own, but your browser and device memory set a practical one. Password-protected PDFs cannot be merged. If you know the password and are allowed to remove it, use Unlock PDF first. Your files are processed in your browser and are not uploaded to MyDailyUtils for processing."
+          ]
+        }
+      ]
+    },
+    "split-pdf": {
+      "sections": [
+        {
+          "heading": "What Split PDF does",
+          "paragraphs": [
+            "Split PDF takes the pages you choose from a PDF and saves them as a new PDF. You enter single page numbers, ranges or a mix, and the tool builds one new document containing exactly those pages. It is a quick way to pull a single form out of a long scan, to send only the relevant pages of a contract, or to cut a large document down before sharing it."
+          ]
+        },
+        {
+          "heading": "How to enter pages",
+          "paragraphs": [
+            "After you choose a file the tool shows how many pages it has. Type page numbers separated by commas and use a hyphen for a range: 1, 4, 7 gives you three pages and 2-5 gives you pages two to five. You can combine both, such as 1-3, 7, 10-12. The pages come out in their original order whatever order you type them in, and a page you type twice is included once. Numbers outside the document are ignored, so check the page count shown before you extract."
+          ]
+        },
+        {
+          "heading": "Getting several separate files",
+          "paragraphs": [
+            "The result is always a single PDF made from the pages you selected. To produce several separate files, run the tool once for each set of pages. If you want to remove pages rather than keep them, Delete PDF Pages is quicker, and Organize PDF lets you reorder, rotate or delete pages visually."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "A password-protected or damaged PDF may fail to load. Unlock PDF can remove a password if you know it and are allowed to. The downloaded file name includes the page selection and a timestamp, so you can keep several versions side by side. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing."
+          ]
+        }
+      ]
+    },
+    "compress-pdf": {
+      "sections": [
+        {
+          "heading": "What Compress PDF does, and what it does not",
+          "paragraphs": [
+            "Compress PDF makes a PDF smaller by removing information the document does not need in order to display, and by saving it with a more compact internal structure. It does not re-encode or shrink the pictures inside your file. Results therefore depend on what the PDF contains: documents with a lot of editing leftovers, thumbnails or metadata can get noticeably smaller, while a PDF made mostly of large scanned photos usually shrinks only a little."
+          ]
+        },
+        {
+          "heading": "The two optimization levels",
+          "paragraphs": [
+            "Basic optimization is lossless. It clears document properties such as title, author, subject, keywords, creator and producer, and saves the file in a compact structure, so what you see on the pages does not change. Strong optimization does the same and also removes the document-level XMP metadata, editing data left behind by applications such as Illustrator, Photoshop and InDesign, and the small preview thumbnails stored for each page. These items are not part of the visible page content. One side effect of clearing properties is that a PDF reader may no longer show a document title."
+          ]
+        },
+        {
+          "heading": "If the file is still too large",
+          "paragraphs": [
+            "After compressing, the tool shows the original size, the new size and how much was saved. If the saving is small, the file size is probably dominated by images. In that case reduce the images before you build the PDF: shrink them with Image Compressor and combine them with Image to PDF, or scan at a lower resolution. If a form or portal asks for a file under a specific size, check the result before you upload it, because this tool cannot target an exact size."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "Password-protected or damaged PDFs may fail to load. Keep your original file, since the compressed copy has its metadata removed. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing."
+          ]
+        }
+      ]
+    },
+    "image-to-pdf": {
+      "sections": [
+        {
+          "heading": "What Image to PDF does",
+          "paragraphs": [
+            "Image to PDF turns one or more pictures into a single PDF with each image on its own page. It accepts JPG, PNG and WebP images, which makes it useful for phone photos of documents, screenshots, receipts and scanned pages that arrived as images. The result is an ordinary PDF that you can email, print or upload to a form."
+          ]
+        },
+        {
+          "heading": "Choosing page size and margins",
+          "paragraphs": [
+            "Choose A4 portrait, A4 landscape, US Letter or Fit to Image. A4 and US Letter give you standard page sizes for printing and for portals that expect them. Fit to Image makes each page the size of its picture and uses no margin. For the fixed sizes you can pick no margin, a small margin of 20 points or a standard margin of 40 points, where 72 points is one inch."
+          ]
+        },
+        {
+          "heading": "Order and file size",
+          "paragraphs": [
+            "Images are added in the order you select them, and you can move any image up or down before you create the PDF. The tool does not apply extra lossy compression to your pictures, and WebP images are converted to PNG in your browser first, so the PDF will be about as large as the images you put in. To keep it small, reduce the pictures first with Image Compressor."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "Only JPG, PNG and WebP images are accepted, so convert other formats first. Many high-resolution photos at once can be slow on a phone, so convert in smaller batches if the page struggles. Your images are processed in your browser and are not uploaded to MyDailyUtils for processing."
+          ]
+        }
+      ]
+    },
+    "pdf-to-images": {
+      "sections": [
+        {
+          "heading": "What PDF to Images does",
+          "paragraphs": [
+            "PDF to Images turns every page of a PDF into a separate PNG image. Use it to share a single page as a picture, to place pages into a slide deck or chat, or to get image versions of a document for a tool that does not accept PDFs."
+          ]
+        },
+        {
+          "heading": "Quality and file size",
+          "paragraphs": [
+            "Pages are rendered at twice their standard size, which gives sharp text and graphics for screens and most documents. PNG is lossless, so the images stay crisp, but a page with photos or heavy graphics can produce a large file. If you need smaller images, run the PNG files through Image Compressor and choose JPG or WebP."
+          ]
+        },
+        {
+          "heading": "Saving your pages",
+          "paragraphs": [
+            "When the conversion finishes, each page appears with its own download button. Files are named after your PDF with the page number, for example report_page_3.png, so you can download only the pages you need."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "All pages are converted in one go, so a PDF with very many pages uses a lot of memory and may be slow on a phone. Password-protected or damaged PDFs may fail to convert. Your PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. For some documents with non-Latin fonts, the PDF viewer library may download font mapping files from a public CDN, jsDelivr, but your document itself is not sent anywhere."
+          ]
+        }
+      ]
+    },
+    "image-compressor": {
+      "sections": [
+        {
+          "heading": "What Image Compressor does",
+          "paragraphs": [
+            "Image Compressor reduces the file size of JPG, PNG and WebP images. You choose a quality, optionally limit the longest side of the picture, and optionally switch format. The tool shows how much smaller each result is, so you can decide before you save. It is handy for photos that are too large to email, to upload to a form, or to publish on a web page."
+          ]
+        },
+        {
+          "heading": "The settings that matter",
+          "paragraphs": [
+            "Quality runs from 10 to 95 and controls lossy compression for JPG and WebP: lower values give smaller files with more visible artefacts. The maximum dimension option shrinks the picture so that its longest side is at most 2560, 1920, 1280 or 800 pixels, which often saves more than quality alone. For format you can keep the original where possible, or choose JPG (small for photos, no transparency), WebP (efficient, keeps transparency) or PNG (lossless, can be larger). With keep, PNG and WebP images stay as they are and JPG stays JPG."
+          ]
+        },
+        {
+          "heading": "Choosing settings",
+          "paragraphs": [
+            "For photos, start at 75 percent quality and a longest side of 1920 pixels or less, then lower either one if the result is still too big. PNG is lossless, so the quality slider has no effect on PNG output. To shrink a PNG, reduce its dimensions or convert it to JPG or WebP. Screenshots and graphics with sharp edges usually look best as PNG or WebP. If a result comes out larger than the original, the tool tells you so, and you can try a lower quality or smaller dimensions."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "Compression redraws the picture, so lossy formats lose some detail and information such as camera or location data is generally not carried over. Your original file is never changed. Very large images use a lot of memory, and formats other than JPG, PNG and WebP are not accepted. Your images are processed in your browser and are not uploaded to MyDailyUtils for processing."
+          ]
+        }
+      ]
+    }
   }
 }

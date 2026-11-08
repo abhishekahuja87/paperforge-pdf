@@ -83,6 +83,10 @@ function shellBody(page, groups, text, site) {
     parts.push(`<p>${escapeHtml(text.localProcessing)}</p>`);
   }
 
+  for (const section of page.article ?? []) {
+    parts.push(`<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</section>`);
+  }
+
   if (page.steps.length > 0) {
     parts.push(`<section><h2>${escapeHtml(text.howToUse)}</h2><ol>${page.steps
       .map((step) => `<li><strong>${escapeHtml(step.title)}</strong> &ndash; ${escapeHtml(step.description)}</li>`)
