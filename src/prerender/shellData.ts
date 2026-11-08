@@ -327,7 +327,7 @@ export function getShellPages(): ShellPage[] {
       kind: 'info',
       path: '/guides',
       title: 'Guides',
-      description: 'Step-by-step guides: reduce photo size for online forms, merge and compress PDFs, choose between the old and new tax regime, calculate EMI, SIP, HRA and GST.',
+      description: 'Step-by-step guides on photo and PDF size for online forms, income tax, EMI, SIP, FD and RD, gratuity, GST invoices, age on cut-off dates, passwords and more.',
       heading: 'Guides',
       subtitle: 'Plain-language how-to guides for PDFs, images, tax, money, dates and everyday calculations.',
       steps: [],
