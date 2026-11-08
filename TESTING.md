@@ -40,6 +40,15 @@ against a minimal stub of React (no real React types were installed), which only
 flagged event-handler parameters that the stub leaves untyped. Not checked: browser
 rendering, mobile layout, printing, clipboard behaviour, build and lint.
 
+## Update: November 8, 2026 (form photo tools)
+
+The unit-to-pixel conversion was checked in Node (35 × 45 mm at 300 DPI gives 413 × 531
+px; 2 inch gives 600 px; 3.5 cm gives 413 px). The resizer component was type-checked
+against a React stub with no errors of its own. Not checked: the actual resizing in a
+browser with the new background colour, the preset buttons on mobile, the four new
+landing pages, build and lint. Test with a real photo and signature after deploying,
+and confirm the output size in KB and pixels.
+
 The November 7 baseline below is historical: it predates the finance, guides,
 image resizer and utilities work, and its "27 tool routes" count is out of date
 (the catalog now has well over fifty).

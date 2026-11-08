@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AlertCircle, Download, LoaderCircle, Maximize2, RotateCcw } from 'lucide-react';
 import { FileDropZone } from '../common/FileDropZone';
 import { downloadBlob, formatBytes, safeFileBaseName } from '../../lib/browserTools';
+import { PHOTO_PRESETS, toPixels, type PhotoPreset, type SizeUnit } from '../../lib/media/photoPresets';
 import { resizeImageToTarget, type ResizeFit, type ResizeToTargetResult } from '../../lib/media/resizeToTarget';
 import { useTranslation } from 'react-i18next';
 
@@ -16,16 +17,23 @@ interface ResizedImage extends ResizeToTargetResult {
 interface ImageResizerProps {
   /** Starting value for the size limit, in KB. */
   defaultMaxKb?: number;
+  /** Id of a preset in photoPresets.ts to apply when the page opens. */
+  defaultPreset?: string;
 }
 
-export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100 }) => {
+export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, defaultPreset }) => {
+  const initial = PHOTO_PRESETS.find((item) => item.id === defaultPreset);
   const { i18n } = useTranslation();
   const [files, setFiles] = useState<File[]>([]);
   const [results, setResults] = useState<ResizedImage[]>([]);
-  const [maxKb, setMaxKb] = useState(String(defaultMaxKb));
-  const [useExact, setUseExact] = useState(false);
-  const [width, setWidth] = useState('600');
-  const [height, setHeight] = useState('600');
+  const [maxKb, setMaxKb] = useState(String(initial?.maxKb ?? defaultMaxKb));
+  const [useExact, setUseExact] = useState(Boolean(initial));
+  const [unit, setUnit] = useState<SizeUnit>(initial?.unit ?? 'px');
+  const [dpi, setDpi] = useState(String(initial?.dpi ?? 300));
+  const [width, setWidth] = useState(String(initial?.width ?? 600));
+  const [height, setHeight] = useState(String(initial?.height ?? 600));
+  const [background, setBackground] = useState('#ffffff');
+  const [activePreset, setActivePreset] = useState(initial?.id ?? '');
   const [fit, setFit] = useState<ResizeFit>('crop');
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState('');
@@ -45,8 +53,13 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100 }
 
   const run = async () => {
     const kb = Number(maxKb);
-    const exactWidth = Math.round(Number(width));
-    const exactHeight = Math.round(Number(height));
+    const dpiValue = Number(dpi);
+    if (useExact && unit !== 'px' && !(dpiValue >= 50 && dpiValue <= 1200)) {
+      setError('Enter a resolution between 50 and 1200 DPI.');
+      return;
+    }
+    const exactWidth = toPixels(Number(width), unit, dpiValue);
+    const exactHeight = toPixels(Number(height), unit, dpiValue);
     if (!Number.isFinite(kb) || kb < 5 || kb > 20000) {
       setError('Enter a size limit between 5 KB and 20000 KB.');
       return;
@@ -65,6 +78,7 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100 }
         try {
           const result = await resizeImageToTarget(file, {
             maxBytes: Math.floor(kb * 1024),
+            background,
             ...(useExact ? { exact: { width: exactWidth, height: exactHeight, fit } } : {}),
           });
           processed.push({ ...result, file, previewUrl: URL.createObjectURL(result.blob) });
@@ -84,6 +98,20 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100 }
     clearResults();
     setError('');
   };
+
+  const applyPreset = (preset: PhotoPreset) => {
+    setActivePreset(preset.id);
+    setUseExact(true);
+    setUnit(preset.unit);
+    setDpi(String(preset.dpi));
+    setWidth(String(preset.width));
+    setHeight(String(preset.height));
+    setMaxKb(String(preset.maxKb));
+    setFit('crop');
+    clearResults();
+  };
+  const pixelsW = toPixels(Number(width), unit, Number(dpi));
+  const pixelsH = toPixels(Number(height), unit, Number(dpi));
 
   const field = 'mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm';
 
@@ -115,6 +143,17 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100 }
               ))}
             </ul>
 
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Quick presets for forms</h3>
+              <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Photo size presets">
+                {PHOTO_PRESETS.map((preset) => (
+                  <button key={preset.id} type="button" aria-pressed={activePreset === preset.id} disabled={isProcessing} onClick={() => applyPreset(preset)} className={`min-h-10 rounded-lg border px-3 py-2 text-xs font-semibold transition disabled:opacity-50 ${activePreset === preset.id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
+                    {preset.label}, up to {preset.maxKb} KB
+                  </button>
+                ))}
+              </div>
+              <p className="mt-1.5 text-[11px] text-slate-500">These are commonly requested sizes. Forms differ and change, so always follow the size and KB limit written on yours; you can edit every value below.</p>
+            </div>
             <div className="grid gap-4 rounded-xl bg-slate-50 p-4 sm:grid-cols-2">
               <label className="text-xs font-semibold text-slate-700 sm:col-span-2">
                 Maximum file size (KB)
@@ -125,16 +164,37 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100 }
                 <input type="checkbox" checked={useExact} disabled={isProcessing} onChange={(event) => { setUseExact(event.target.checked); clearResults(); }} className="h-4 w-4 accent-indigo-600" />
                 Set an exact width and height
               </label>
+              <label className="flex items-center gap-3 text-xs font-semibold text-slate-700 sm:col-span-2">
+                Background colour (for transparent areas{useExact ? ' and white borders' : ''})
+                <input type="color" value={background} disabled={isProcessing} onChange={(event) => { setBackground(event.target.value); clearResults(); }} className="h-9 w-12 cursor-pointer rounded border border-slate-200 bg-white p-0.5" />
+              </label>
               {useExact && (
                 <>
                   <label className="text-xs font-semibold text-slate-700">
-                    Width (px)
-                    <input type="number" inputMode="numeric" min={16} max={MAX_EXACT_SIDE} value={width} disabled={isProcessing} onChange={(event) => { setWidth(event.target.value); clearResults(); }} className={field} />
+                    Unit
+                    <select value={unit} disabled={isProcessing} onChange={(event) => { setUnit(event.target.value as SizeUnit); setActivePreset(''); clearResults(); }} className={field}>
+                      <option value="px">Pixels (px)</option>
+                      <option value="mm">Millimetres (mm)</option>
+                      <option value="cm">Centimetres (cm)</option>
+                      <option value="in">Inches (in)</option>
+                    </select>
+                  </label>
+                  {unit !== 'px' ? (
+                    <label className="text-xs font-semibold text-slate-700">
+                      Resolution (DPI)
+                      <input type="number" inputMode="numeric" min={50} max={1200} value={dpi} disabled={isProcessing} onChange={(event) => { setDpi(event.target.value); clearResults(); }} className={field} />
+                      <span className="mt-1 block font-normal text-slate-500">300 DPI is common for printed photos</span>
+                    </label>
+                  ) : <div className="hidden sm:block" />}
+                  <label className="text-xs font-semibold text-slate-700">
+                    Width ({unit})
+                    <input type="number" inputMode="decimal" step="any" min={0} value={width} disabled={isProcessing} onChange={(event) => { setWidth(event.target.value); setActivePreset(''); clearResults(); }} className={field} />
                   </label>
                   <label className="text-xs font-semibold text-slate-700">
-                    Height (px)
-                    <input type="number" inputMode="numeric" min={16} max={MAX_EXACT_SIDE} value={height} disabled={isProcessing} onChange={(event) => { setHeight(event.target.value); clearResults(); }} className={field} />
+                    Height ({unit})
+                    <input type="number" inputMode="decimal" step="any" min={0} value={height} disabled={isProcessing} onChange={(event) => { setHeight(event.target.value); setActivePreset(''); clearResults(); }} className={field} />
                   </label>
+                  <p className="text-xs text-slate-600 sm:col-span-2" aria-live="polite">Output size: <strong>{Number.isFinite(pixelsW) && Number.isFinite(pixelsH) ? `${pixelsW} × ${pixelsH} px` : '—'}</strong></p>
                   <label className="text-xs font-semibold text-slate-700 sm:col-span-2">
                     If the shape is different
                     <select value={fit} disabled={isProcessing} onChange={(event) => { setFit(event.target.value as ResizeFit); clearResults(); }} className={field}>
