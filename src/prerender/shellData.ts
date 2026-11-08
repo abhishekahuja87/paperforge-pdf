@@ -153,6 +153,10 @@ const PAGE_GUIDE_KEYS: Record<string, string> = {
   'resize-image-to-50kb': 'imageResizer50',
   'resize-image-to-100kb': 'imageResizer100',
   'resize-image-to-200kb': 'imageResizer200',
+  'passport-photo-resizer': 'passportPhoto',
+  'signature-resizer': 'signatureResizer',
+  'exam-photo-resizer': 'examPhoto',
+  'resize-image-to-30kb': 'imageResizer30',
 };
 
 interface ToolCopy {
