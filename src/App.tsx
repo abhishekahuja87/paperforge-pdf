@@ -38,6 +38,8 @@ const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ defa
 const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
+const Ac1Page = lazy(() => import('./pages/Ac1Page').then((m) => ({ default: m.Ac1Page })));
+const CatalogTemplatesPage = lazy(() => import('./pages/CatalogTemplatesPage').then((m) => ({ default: m.CatalogTemplatesPage })));
 
 export const App: React.FC = () => {
   return (
@@ -49,6 +51,9 @@ export const App: React.FC = () => {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/ac1" element={<CatalogTemplatesPage />} />
+              <Route path="/ac1/edit" element={<Ac1Page />} />
+              <Route path="/catalog-templates" element={<CatalogTemplatesPage />} />
               <Route path="/merge-pdf" element={<MergePage />} />
               <Route path="/split-pdf" element={<SplitPage />} />
               <Route path="/generate-sample-pdf" element={<GenerateSamplePage />} />
