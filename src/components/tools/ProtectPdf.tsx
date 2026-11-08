@@ -5,7 +5,6 @@ import {
   AlertCircle,
   FileText,
   RefreshCw,
-  KeyRound,
   ShieldCheck,
   Printer,
   Copy,
@@ -15,8 +14,6 @@ import { protectPdf } from '../../lib/pdf/protect';
 export const ProtectPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
-  const [requiresCurrentPassword, setRequiresCurrentPassword] = useState<boolean>(false);
-  const [currentPassword, setCurrentPassword] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
   const [ownerPassword, setOwnerPassword] = useState<string>('');
   const [allowPrinting, setAllowPrinting] = useState<boolean>(true);
@@ -28,8 +25,6 @@ export const ProtectPdf: React.FC = () => {
   const resetState = () => {
     setFile(null);
     setPageCount(null);
-    setRequiresCurrentPassword(false);
-    setCurrentPassword('');
     setUserPassword('');
     setOwnerPassword('');
     setAllowPrinting(true);
@@ -92,12 +87,10 @@ export const ProtectPdf: React.FC = () => {
       const blob = new Blob([protectedBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
-      setRequiresCurrentPassword(false);
     } catch (err: any) {
       const msg = err?.message || String(err);
-      if (msg.includes('PASSWORD_REQUIRED') || msg.includes('INVALID_PASSWORD')) {
-        setRequiresCurrentPassword(true);
-        setError(msg.replace(/^(PASSWORD_REQUIRED|INVALID_PASSWORD):\s*/, ''));
+      if (msg.includes('already password-protected')) {
+        setError('This PDF is already password-protected. Remove its password with the Unlock PDF tool first, then protect it again.');
       } else {
         setError(msg || 'Failed to encrypt document.');
       }
@@ -141,26 +134,6 @@ export const ProtectPdf: React.FC = () => {
                 Change
               </button>
             </div>
-
-            {/* Existing Password Warning Input */}
-            {requiresCurrentPassword && (
-              <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl space-y-2">
-                <div className="flex items-center space-x-2 text-amber-800 font-medium text-sm">
-                  <KeyRound className="w-4 h-4" />
-                  <span>This PDF is already password-protected</span>
-                </div>
-                <p className="text-xs text-amber-700">
-                  Enter its current password below to unlock and apply your new security settings:
-                </p>
-                <input
-                  type="password"
-                  value={currentPassword}
-                  onChange={(e) => setCurrentPassword(e.target.value)}
-                  placeholder="Enter current password..."
-                  className="w-full px-3 py-2 text-sm bg-white border border-amber-300 rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                />
-              </div>
-            )}
 
             {/* Security Options */}
             <div className="space-y-4 pt-2">
