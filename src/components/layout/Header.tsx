@@ -86,16 +86,18 @@ export const Header: React.FC = () => {
               </div>
             )}
           </div>
-          <label>
-            <span className="sr-only">{t('language')}</span>
-            <select
-              value={i18n.language}
-              onChange={(event) => { void i18n.changeLanguage(event.target.value); }}
-              className="max-w-24 rounded-lg border border-stone-200 bg-white px-1.5 py-1.5 text-xs font-semibold text-stone-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 sm:max-w-none"
-            >
-              {languages.map(({ code, label }) => <option key={code} value={code}>{label}</option>)}
-            </select>
-          </label>
+          {languages.length > 1 && (
+            <label>
+              <span className="sr-only">{t('language')}</span>
+              <select
+                value={i18n.language}
+                onChange={(event) => { void i18n.changeLanguage(event.target.value); }}
+                className="max-w-24 rounded-lg border border-stone-200 bg-white px-1.5 py-1.5 text-xs font-semibold text-stone-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 sm:max-w-none"
+              >
+                {languages.map(({ code, label }) => <option key={code} value={code}>{label}</option>)}
+              </select>
+            </label>
+          )}
         </nav>
       </div>
       {i18n.language !== 'en' && (

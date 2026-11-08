@@ -7,7 +7,7 @@ import fr from './locales/fr.json';
 import de from './locales/de.json';
 import zhCN from './locales/zh-CN.json';
 
-export const languages = [
+const allLanguages = [
   { code: 'en', label: 'English' },
   { code: 'hi', label: 'हिन्दी' },
   { code: 'es', label: 'Español' },
@@ -15,6 +15,14 @@ export const languages = [
   { code: 'de', label: 'Deutsch' },
   { code: 'zh-CN', label: '简体中文' },
 ] as const;
+
+/**
+ * Languages offered to visitors. The other locale files stay in the repository and are still
+ * registered with i18next, but they are only partly translated (see README), so they are hidden
+ * until a language is complete and reviewed. To offer a language again, add its code here.
+ */
+const enabledLanguageCodes: readonly string[] = ['en'];
+export const languages = allLanguages.filter(({ code }) => enabledLanguageCodes.includes(code));
 
 const storageKey = 'mdu_language';
 let initialLanguage = 'en';
