@@ -2,6 +2,7 @@ import React from 'react';
 import { Lock, Zap, Cpu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { InfoPageLayout } from '../components/layout/InfoPageLayout';
+import { siteConfig } from '../config/site';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -56,9 +57,16 @@ export const AboutPage: React.FC = () => {
       </section>
 
       <section className="space-y-3">
+        <h2 className="text-xl font-bold text-slate-900">Who runs MyDailyUtils</h2>
+        <p>
+          <strong>MyDailyUtils</strong> is an independent website based in {siteConfig.location}. The tools are free to use. The site is supported by advertising shown through Google AdSense, which helps cover hosting and development costs. Advertising does not change how your files are processed.
+        </p>
+      </section>
+
+      <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">Questions or feedback?</h2>
         <p>
-          If you find a problem or have a suggestion, please use the <Link to="/contact" className="font-semibold text-indigo-700 underline">contact form</Link>. Contact form submissions are handled by Web3Forms, a third-party service; file processing remains separate.
+          If you find a problem or have a suggestion, please use the <Link to="/contact" className="font-semibold text-indigo-700 underline">contact form</Link>.{siteConfig.contactEmail && (<> You can also email <a href={`mailto:${siteConfig.contactEmail}`} className="font-semibold text-indigo-700 underline">{siteConfig.contactEmail}</a>.</>)} Contact form submissions are handled by Web3Forms, a third-party service; file processing remains separate.
         </p>
       </section>
     </InfoPageLayout>

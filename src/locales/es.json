@@ -31,6 +31,7 @@
     "changed": "Las opciones cambiaron desde la última generación. Haz clic abajo para actualizar el archivo.", "unsaved": "Sin guardar", "generating": "Generando PDF...", "regenerate": "Generar de nuevo con la nueva configuración", "generate": "Generar PDF de muestra", "outdated": "Descargar archivo anterior (se recomienda regenerar)", "download": "Descargar {{title}} ({{pages}} pág.)"
   },
   "contactPage": {
+    "emailLabel": "Correo electrónico", "basedIn": "Con sede en {{location}}",
     "title": "Contacto", "subtitle": "¿Tienes preguntas, comentarios o una idea para una herramienta? Cuéntanos.",
     "description": "Envía a MyDailyUtils una pregunta, solicitud de ayuda o comentario. Web3Forms gestiona los envíos del formulario.",
     "requestTitle": "Solicita una herramienta gratuita", "requestDescription": "Cuéntanos qué necesitas y cómo lo usarías. Puedes solicitar que se cree una herramienta nueva gratis.",

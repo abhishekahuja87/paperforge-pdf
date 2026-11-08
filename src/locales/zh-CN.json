@@ -31,6 +31,7 @@
     "changed": "上次生成后选项已更改。点击下方按钮更新文件。", "unsaved": "未保存", "generating": "正在生成 PDF...", "regenerate": "使用新设置重新生成", "generate": "生成示例 PDF", "outdated": "下载旧文件（建议重新生成）", "download": "下载 {{title}}（{{pages}} 页）"
   },
   "contactPage": {
+    "emailLabel": "电子邮件", "basedIn": "总部位于 {{location}}",
     "title": "联系我们", "subtitle": "有问题、反馈或新工具的想法？请告诉我们。",
     "description": "向 MyDailyUtils 发送问题、支持请求或反馈。联系表单由 Web3Forms 处理。",
     "requestTitle": "请求免费工具", "requestDescription": "告诉我们您需要什么以及如何使用。您可以请求免费开发新工具。",
