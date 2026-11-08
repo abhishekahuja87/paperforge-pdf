@@ -30,6 +30,7 @@ const MasterDocumentStudioPage = lazy(() => import('./pages/MasterDocumentStudio
 const DigitizeDocumentsPage = lazy(() => import('./pages/DigitizeDocumentsPage').then((m) => ({ default: m.DigitizeDocumentsPage })));
 const ImageConverterPage = lazy(() => import('./pages/ImageConverterPage').then((m) => ({ default: m.ImageConverterPage })));
 const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').then((m) => ({ default: m.ImageCompressorPage })));
+const ImageResizerPage = lazy(() => import('./pages/ImageResizerPage').then((m) => ({ default: m.ImageResizerPage })));
 const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
 const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => ({ default: m.Base64ToolPage })));
 const DisplayStudioPage = lazy(() => import('./pages/DisplayStudioPage').then((m) => ({ default: m.DisplayStudioPage })));
@@ -78,6 +79,11 @@ export const App: React.FC = () => {
               <Route path="/digitize-documents" element={<DigitizeDocumentsPage />} />
               <Route path="/image-converter" element={<ImageConverterPage />} />
               <Route path="/image-compressor" element={<ImageCompressorPage />} />
+              <Route path="/image-resizer" element={<ImageResizerPage guideId="imageResizer" defaultMaxKb={100} />} />
+              <Route path="/resize-image-to-20kb" element={<ImageResizerPage guideId="imageResizer20" defaultMaxKb={20} />} />
+              <Route path="/resize-image-to-50kb" element={<ImageResizerPage guideId="imageResizer50" defaultMaxKb={50} />} />
+              <Route path="/resize-image-to-100kb" element={<ImageResizerPage guideId="imageResizer100" defaultMaxKb={100} />} />
+              <Route path="/resize-image-to-200kb" element={<ImageResizerPage guideId="imageResizer200" defaultMaxKb={200} />} />
               <Route path="/json-formatter" element={<JsonFormatterPage />} />
               <Route path="/base64-tool" element={<Base64ToolPage />} />
               <Route path="/display-studio" element={<DisplayStudioPage />} />
