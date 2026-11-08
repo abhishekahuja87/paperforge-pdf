@@ -1,11 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
-import hi from './locales/hi.json';
-import es from './locales/es.json';
-import fr from './locales/fr.json';
-import de from './locales/de.json';
-import zhCN from './locales/zh-CN.json';
 
 const allLanguages = [
   { code: 'en', label: 'English' },
@@ -33,22 +28,44 @@ try {
   console.warn('Could not read the saved language preference:', error);
 }
 
+type LocaleFile = typeof en;
+
+/**
+ * Other languages are loaded only when a visitor actually switches to one, so the English-only
+ * site does not ship their text in the main JavaScript file.
+ */
+const lazyLocales: Record<string, () => Promise<{ default: unknown }>> = {
+  hi: () => import('./locales/hi.json'),
+  es: () => import('./locales/es.json'),
+  fr: () => import('./locales/fr.json'),
+  de: () => import('./locales/de.json'),
+  'zh-CN': () => import('./locales/zh-CN.json'),
+};
+
 void i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en, merge: en.merge, image: en.image, categories: en.categories },
-    hi: { translation: hi, merge: hi.merge, image: hi.image, categories: hi.categories },
-    es: { translation: es, merge: es.merge, image: es.image, categories: es.categories },
-    fr: { translation: fr, merge: fr.merge, image: fr.image, categories: fr.categories },
-    de: { translation: de, merge: de.merge, image: de.image, categories: de.categories },
-    'zh-CN': { translation: zhCN, merge: zhCN.merge, image: zhCN.image, categories: zhCN.categories },
   },
-  lng: initialLanguage,
+  lng: 'en',
   fallbackLng: 'en',
   interpolation: { escapeValue: false },
   initAsync: false,
 });
 
-document.documentElement.lang = initialLanguage;
+/** Switches language, loading its text first when it is not English. */
+export async function changeAppLanguage(code: string): Promise<void> {
+  const load = lazyLocales[code];
+  if (load && !i18n.hasResourceBundle(code, 'translation')) {
+    const data = (await load()).default as LocaleFile;
+    i18n.addResourceBundle(code, 'translation', data, true, true);
+    i18n.addResourceBundle(code, 'merge', data.merge, true, true);
+    i18n.addResourceBundle(code, 'image', data.image, true, true);
+    i18n.addResourceBundle(code, 'categories', data.categories, true, true);
+  }
+  await i18n.changeLanguage(code);
+}
+
+document.documentElement.lang = 'en';
 i18n.on('languageChanged', (language) => {
   document.documentElement.lang = language;
   try {
@@ -57,5 +74,7 @@ i18n.on('languageChanged', (language) => {
     console.warn('Could not save the language preference:', error);
   }
 });
+
+if (initialLanguage !== 'en') void changeAppLanguage(initialLanguage);
 
 export default i18n;

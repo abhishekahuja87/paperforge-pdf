@@ -147,6 +147,11 @@ async function main() {
       : join(distDir, page.path.replace(/^\//, ''), 'index.html');
     await mkdir(dirname(target), { recursive: true });
     await writeFile(target, html, 'utf8');
+    // Also write /route.html. Some hosts (AWS Amplify) serve /route from route.html and would
+    // otherwise redirect to /route/ (a different URL from the canonical one).
+    if (page.path !== '/') {
+      await writeFile(join(distDir, `${page.path.replace(/^\//, '')}.html`), html, 'utf8');
+    }
     written += 1;
   }
   // The sitemap is built from the same page list, so it can never drift from the real pages.
