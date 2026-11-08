@@ -18,6 +18,7 @@ export async function extractTextFromPdf(fileBuffer: ArrayBuffer): Promise<Extra
   const pdfDoc = await loadingTask.promise;
   const extractedPages: ExtractedPageText[] = [];
 
+  try {
   for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
     const textContent = await page.getTextContent();
@@ -38,8 +39,9 @@ export async function extractTextFromPdf(fileBuffer: ArrayBuffer): Promise<Extra
     page.cleanup();
   }
 
-  pdfDoc.cleanup();
-  loadingTask.destroy();
-
   return extractedPages;
+  } finally {
+    pdfDoc.cleanup();
+    void loadingTask.destroy();
+  }
 }

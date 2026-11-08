@@ -1,5 +1,6 @@
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { safeRenderScale } from './renderScale';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -24,9 +25,10 @@ export async function convertPdfToImages(
   const pdfDoc = await loadingTask.promise;
   const results: PageImageResult[] = [];
 
+  try {
   for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
-    const viewport = page.getViewport({ scale });
+    const viewport = page.getViewport({ scale: safeRenderScale(page, scale) });
 
     const canvas = document.createElement('canvas');
     canvas.width = Math.floor(viewport.width);
@@ -56,8 +58,9 @@ export async function convertPdfToImages(
     page.cleanup();
   }
 
-  pdfDoc.cleanup();
-  loadingTask.destroy();
-
   return results;
+  } finally {
+    pdfDoc.cleanup();
+    void loadingTask.destroy();
+  }
 }

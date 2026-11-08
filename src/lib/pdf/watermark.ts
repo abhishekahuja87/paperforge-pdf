@@ -1,5 +1,6 @@
 import { PDFDocument, rgb, degrees, StandardFonts } from 'pdf-lib';
 import { parsePageRanges } from './split';
+import { friendlyFontError } from './fontErrors';
 
 export type WatermarkFont = 'helvetica' | 'helvetica-bold' | 'courier';
 
@@ -27,7 +28,7 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } {
   return { r, g, b };
 }
 
-export async function addWatermarkToPdf(options: WatermarkOptions): Promise<Uint8Array> {
+async function addWatermarkInner(options: WatermarkOptions): Promise<Uint8Array> {
   const {
     fileBuffer,
     text,
@@ -101,4 +102,12 @@ export async function addWatermarkToPdf(options: WatermarkOptions): Promise<Uint
   }
 
   return await pdfDoc.save();
+}
+
+export async function addWatermarkToPdf(options: WatermarkOptions): Promise<Uint8Array> {
+  try {
+    return await addWatermarkInner(options);
+  } catch (error) {
+    throw friendlyFontError(error);
+  }
 }

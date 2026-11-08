@@ -2,6 +2,7 @@ import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { safeRenderScale } from './renderScale';
 
 if (pdfFonts && (pdfFonts as any).pdfMake?.vfs) {
   (pdfMake as any).vfs = (pdfFonts as any).pdfMake.vfs;
@@ -63,7 +64,7 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
 
   for (let pageNum = 1; pageNum <= numPages; pageNum++) {
     const page = await pdfDoc.getPage(pageNum);
-    const viewport = page.getViewport({ scale });
+    const viewport = page.getViewport({ scale: safeRenderScale(page, scale) });
 
     const canvas = document.createElement('canvas');
     canvas.width = Math.floor(viewport.width);
