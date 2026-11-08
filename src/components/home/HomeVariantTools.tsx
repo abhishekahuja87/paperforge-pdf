@@ -1,8 +1,8 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { TOOLS, type ToolCategory, type ToolItem } from '../../config/tools';
-import { HOME_CATEGORY_STYLES } from '../../lib/homePageVariants';
+import type { ToolCategory, ToolItem } from '../../config/tools';
+import { HOME_CATEGORY_STYLES, type FeaturedTool } from '../../lib/homePageVariants';
 import { ToolIcon } from '../common/ToolIcon';
 import { useTranslation } from 'react-i18next';
 import { getToolCopy } from '../../lib/localizedTool';
@@ -31,38 +31,51 @@ export const HomeToolCard: React.FC<{
   );
 };
 
-export const HomeStudioCard: React.FC<{ horizontal?: boolean }> = ({ horizontal = false }) => {
-  const studio = TOOLS.find((tool) => tool.id === 'master-document-studio');
-  if (!studio?.isAvailable) return null;
-
+/** Vertical tile used in the "Most used" row: icon, title and a short description. */
+export const HomePopularTile: React.FC<{ tool: ToolItem }> = ({ tool }) => {
+  const { i18n } = useTranslation();
+  const copy = getToolCopy(tool, i18n.language);
   return (
     <Link
-      to={studio.path}
-      className={`group relative flex overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50 via-white to-violet-50 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg ${horizontal ? 'items-center gap-5 p-4 sm:p-5' : 'min-h-44 flex-col justify-between p-4 sm:p-5'}`}
+      to={tool.path}
+      className="group flex min-w-0 flex-col gap-2 rounded-xl border border-stone-200/80 bg-white/90 p-3 transition duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-indigo-200/50 blur-2xl transition group-hover:bg-indigo-300/60" />
-      <div className="relative min-w-0">
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="rounded-full bg-indigo-100 px-2 py-1 text-[9px] font-bold uppercase tracking-wide text-indigo-700">All-in-one PDF workspace</span>
-          <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[9px] font-bold text-amber-700">Featured</span>
-        </div>
-        <h2 className="mt-3 text-base font-extrabold leading-tight text-slate-900 group-hover:text-indigo-700 sm:text-lg">{studio.title}</h2>
-        <p className="mt-1.5 max-w-xl text-[10px] leading-relaxed text-slate-600 sm:text-[11px]">
-          Select PDF, Word, image, or custom pages. Reorder and edit them, add linked contents, then export a finished PDF—all in one workspace.
-        </p>
-        <div className="mt-3 flex flex-wrap gap-1.5 text-[9px] font-semibold text-indigo-800">
-          {['Choose pages', 'Edit & reorder', 'Create contents', 'Export PDF'].map((feature) => (
-            <span key={feature} className="rounded-md border border-indigo-100 bg-white/80 px-2 py-1">{feature}</span>
-          ))}
-        </div>
-      </div>
-      <div className={`relative mt-3 flex items-center justify-between border-t border-indigo-100 pt-2.5 ${horizontal ? 'w-full shrink-0 sm:mt-0 sm:w-auto sm:min-w-36 sm:flex-col sm:items-end sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0' : ''}`}>
-        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-indigo-700">Open Studio <ArrowRight className="h-3 w-3 transition group-hover:translate-x-0.5" /></span>
-        <span className="text-[9px] font-medium text-slate-500">Open workspace</span>
-      </div>
+      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-50 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
+        <ToolIcon name={tool.icon} className="h-4 w-4" />
+      </span>
+      <span lang={copy.language} className="min-w-0">
+        <h3 className="text-sm font-bold leading-tight text-stone-900 group-hover:text-orange-800">{copy.title}</h3>
+        <span className="mt-1 line-clamp-2 block text-[11px] leading-snug text-stone-500">{copy.description}</span>
+      </span>
     </Link>
   );
 };
+
+/** Slim card used in the "Workspaces" row. The whole card is the link. */
+export const HomeWorkspaceCard: React.FC<{ tool: ToolItem; info: FeaturedTool }> = ({ tool, info }) => (
+  <Link
+    to={tool.path}
+    className="group flex min-w-0 flex-col gap-2 rounded-2xl border border-orange-200 bg-gradient-to-br from-white to-orange-50/70 p-3.5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-400 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+  >
+    <div className="flex items-center gap-2.5">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
+        <ToolIcon name={tool.icon} className="h-4 w-4" />
+      </span>
+      <div className="min-w-0">
+        <p className="truncate text-[10px] font-bold uppercase tracking-[0.12em] text-orange-700">{info.useCase}</p>
+        <h3 className="text-sm font-extrabold leading-tight text-stone-900">{info.title}</h3>
+      </div>
+    </div>
+    <p className="line-clamp-2 text-xs leading-5 text-stone-600">{info.description}</p>
+    <ul className="mt-auto flex flex-wrap gap-1">
+      {info.highlights.slice(0, 3).map((highlight) => (
+        <li key={highlight} className="rounded-md bg-orange-100/70 px-1.5 py-0.5 text-[10px] font-semibold text-orange-900">
+          {highlight}
+        </li>
+      ))}
+    </ul>
+  </Link>
+);
 
 export const HomeCategoryHeading: React.FC<{ category: ToolCategory }> = ({ category }) => {
   const { t } = useTranslation('categories');
@@ -73,7 +86,7 @@ export const HomeCategoryHeading: React.FC<{ category: ToolCategory }> = ({ cate
         <ToolIcon name={iconName} className="h-4 w-4" />
       </span>
       <span className="min-w-0">
-        <h2 className="text-sm font-extrabold tracking-tight text-stone-900">{t(`${category}.name`)}</h2>
+        <h3 className="text-sm font-extrabold tracking-tight text-stone-900">{t(`${category}.name`)}</h3>
         <p className="mt-0.5 text-[11px] leading-snug text-stone-500">{t(`${category}.description`)}</p>
       </span>
     </header>
