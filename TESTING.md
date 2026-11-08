@@ -62,6 +62,17 @@ return in each dialog, mobile tap targets, build and lint. Test: open each Docum
 Studio dialog, press Tab repeatedly (focus must stay inside), press Escape (it must
 close and focus must return to the button that opened it).
 
+## Update: November 8, 2026 (GST invoice generator)
+
+The GSTIN validator was checked against a known valid number (27AAPFU0939F1ZV passes;
+altered, short and wrong-state-code numbers fail). Invoice maths was checked by hand for
+an intra-state and an inter-state example (taxable 1,539.97; CGST and SGST 73.60 each;
+total 1,687.17 rounded to 1,687; the IGST version differs by one paisa because each
+half is rounded separately, which is expected). The component type-checks against a
+React stub. Not checked: the print-to-PDF layout in real browsers (especially mobile),
+localStorage save and removal, build and lint. Test by printing an invoice to PDF on
+desktop and phone and by ticking and unticking 'Remember my business details'.
+
 The November 7 baseline below is historical: it predates the finance, guides,
 image resizer and utilities work, and its "27 tool routes" count is out of date
 (the catalog now has well over fifty).

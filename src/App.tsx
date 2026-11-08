@@ -94,6 +94,7 @@ export const App: React.FC = () => {
               <Route path="/fd-calculator" element={<FinanceCalculatorPage kind="fd" />} />
               <Route path="/ppf-calculator" element={<FinanceCalculatorPage kind="ppf" />} />
               <Route path="/gst-calculator" element={<FinanceCalculatorPage kind="gst" />} />
+              <Route path="/gst-invoice-generator" element={<UtilityPage kind="gstInvoice" />} />
               <Route path="/gratuity-calculator" element={<UtilityPage kind="gratuity" />} />
               <Route path="/lumpsum-calculator" element={<UtilityPage kind="lumpsum" />} />
               <Route path="/inflation-calculator" element={<UtilityPage kind="inflation" />} />

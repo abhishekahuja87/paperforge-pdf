@@ -10,6 +10,7 @@ import { InflationCalculator } from '../components/tools/finance/InflationCalcul
 import { LumpsumCalculator } from '../components/tools/finance/LumpsumCalculator';
 import { BillSplitter } from '../components/tools/utilities/BillSplitter';
 import { BmiCalculator } from '../components/tools/utilities/BmiCalculator';
+import { GstInvoiceGenerator } from '../components/tools/finance/GstInvoiceGenerator';
 import { AgeCalculator } from '../components/tools/utilities/AgeCalculator';
 import { CaseConverter } from '../components/tools/utilities/CaseConverter';
 import { DateDifferenceCalculator } from '../components/tools/utilities/DateDifferenceCalculator';
@@ -38,6 +39,7 @@ const TOOLS = {
   inflation: { Component: InflationCalculator, guide: 'inflationCalc' },
   bmi: { Component: BmiCalculator, guide: 'bmiCalc' },
   billSplitter: { Component: BillSplitter, guide: 'billSplitter' },
+  gstInvoice: { Component: GstInvoiceGenerator, guide: 'gstInvoiceGen' },
   password: { Component: PasswordGenerator, guide: 'passwordGenerator' },
 } as const;
 

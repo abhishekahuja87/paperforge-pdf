@@ -745,4 +745,15 @@ export const TOOLS: ToolItem[] = [
     tier: 'advanced',
     keywords: ['resize', 'image', '30kb', '30 kb', 'photo', 'signature', 'form'],
   },
+  {
+    id: 'gst-invoice-generator',
+    title: "GST Invoice Generator",
+    description: "Make a GST tax invoice or bill of supply and save it as PDF.",
+    category: 'finance',
+    path: '/gst-invoice-generator',
+    icon: 'receipt',
+    isAvailable: true,
+    tier: 'more',
+    keywords: ['gst invoice', 'tax invoice', 'invoice generator', 'bill maker', 'gst bill', 'bill of supply', 'cgst', 'sgst', 'igst', 'hsn', 'invoice pdf', 'free invoice'],
+  },
 ];
