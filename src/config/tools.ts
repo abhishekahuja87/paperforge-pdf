@@ -78,7 +78,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'scissors',
     isPopularInternet: true,
     isAvailable: true,
-    tier: 'popular',
+    tier: 'more',
     keywords: ['split', 'extract', 'pages', 'pdf'],
   },
   {
@@ -137,7 +137,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'image',
     isPopularInternet: true,
     isAvailable: true,
-    tier: 'popular',
+    tier: 'more',
     keywords: ['image', 'jpg', 'jpeg', 'png', 'webp', 'convert', 'pdf'],
   },
   {
@@ -257,7 +257,7 @@ export const TOOLS: ToolItem[] = [
     icon: 'image',
     isPopularInternet: true,
     isAvailable: true,
-    tier: 'popular',
+    tier: 'more',
     keywords: ['images', 'png', 'jpg', 'render', 'extract', 'pdf to image', 'pdf'],
   },
   {
@@ -434,7 +434,7 @@ export const TOOLS: ToolItem[] = [
     path: '/income-tax-calculator',
     icon: 'calculator',
     isAvailable: true,
-    tier: 'more',
+    tier: 'popular',
     keywords: ['income tax', 'tax', 'old regime', 'new regime', 'salary', '80c', 'itr', 'calculator', 'india'],
   },
   {
@@ -467,7 +467,7 @@ export const TOOLS: ToolItem[] = [
     path: '/emi-calculator',
     icon: 'calculator',
     isAvailable: true,
-    tier: 'more',
+    tier: 'popular',
     keywords: ['emi', 'loan', 'home loan', 'car loan', 'personal loan', 'interest', 'calculator', 'repayment'],
   },
   {
@@ -555,7 +555,7 @@ export const TOOLS: ToolItem[] = [
     path: '/age-calculator',
     icon: 'calculator',
     isAvailable: true,
-    tier: 'more',
+    tier: 'popular',
     keywords: ['age', 'date of birth', 'dob', 'birthday', 'years months days', 'calculator'],
   },
   {

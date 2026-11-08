@@ -282,7 +282,7 @@ export function getShellPages(): ShellPage[] {
   const home: ShellPage = {
     kind: 'home',
     path: '/',
-    title: 'Online Tools & Utilities',
+    title: 'Free Online Tools & Calculators',
     description: siteConfig.description,
     heading: `${en.homeHeading} ${en.homeHeadingAccent}`,
     subtitle: en.homeDescription,
@@ -319,7 +319,7 @@ export function getShellPages(): ShellPage[] {
       title: 'Guides',
       description: 'Step-by-step guides: reduce photo size for online forms, merge and compress PDFs, choose between the old and new tax regime, calculate EMI, SIP, HRA and GST.',
       heading: 'Guides',
-      subtitle: 'Plain-language how-to guides for PDFs, images, tax and money calculations.',
+      subtitle: 'Plain-language how-to guides for PDFs, images, tax, money, dates and everyday calculations.',
       steps: [],
       faqs: [],
       article: [{ heading: 'All guides', paragraphs: GUIDES.map((guide) => `${guide.title}: ${guide.description}`) }],

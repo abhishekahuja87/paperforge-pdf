@@ -9,13 +9,13 @@ export const AboutPage: React.FC = () => {
     <InfoPageLayout
         title="About MyDailyUtils"
         subtitle="Simple browser-based tools for everyday tasks."
-        description="Learn about MyDailyUtils online tools and utilities for files, data, and everyday tasks, how local file processing works, and how to get support."
+        description="Learn about MyDailyUtils, a growing set of free online tools and calculators for everyday tasks, how in-browser processing works, and how to get support."
       >
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">What you can do here</h2>
         <p>
-          <strong>MyDailyUtils</strong> is a collection of practical browser tools for working with PDFs, images, text and data, presentations, and shop bills. You can combine or organize PDF pages, convert images, inspect or format data, build a presentation, or prepare a bill without installing a desktop application.
+          <strong>MyDailyUtils</strong> is a growing collection of free, practical tools that run in your browser. Work out income tax, salary, EMI, SIP and GST, find an age or the days between two dates, convert units, count words, write an amount in words, generate a strong password, resize or compress images, work with PDF pages, format data, build a presentation or prepare a shop bill, all without installing anything.
         </p>
         <p>
           Choose a tool from the home page, add the files or information it asks for, review the result, and download it when you are ready. Each tool page includes instructions and answers to common questions about that task.

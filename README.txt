@@ -5,8 +5,11 @@ Use this file to instantly bootstrap fresh chats with zero context loss.
 
 1. PROJECT SUMMARY
 ------------------
-Name: PaperForge / MyDailyUtils
-Objective: Browser-based utilities for PDF, image, data, display, and business tasks.
+Name: MyDailyUtils (repository name: paperforge-pdf, an older name)
+Objective: A growing set of free browser-based everyday tools: finance and tax calculators,
+date, unit and percentage tools, text and password utilities, image and PDF tools, data,
+display, and business tasks. PDF is one category, not the whole product: keep headings,
+titles and copy general.
 Core Principle: Supported file operations run in the user's browser. Selected files
 are not uploaded to MyDailyUtils for processing; the site itself still makes
 network requests for pages, third-party resources, and advertising.
@@ -43,14 +46,17 @@ message. These requests are separate from file processing.
 - Styling: Tailwind CSS v4
 - Icons: Lucide React
 - PDF Libraries: pdf-lib, PDF.js, and pdfmake; file operations run in the browser
+- Calculators and utilities: plain TypeScript in `src/lib/finance/` and `src/lib/utilities/`
+  (no extra libraries); the password generator uses `crypto.getRandomValues`
 - Hosting / CI/CD: AWS Amplify (connected to GitHub main branch)
 - OS / Shell: Windows 11 / PowerShell
 
 3. DESIGN SYSTEM & ARCHITECTURAL PATTERNS
 -----------------------------------------
 - Decoupled Hierarchy:
-    1. Config: `src/config/tools.ts` (registry, metadata, categories, icons)
-    2. Engine: `src/lib/pdf/[tool].ts` (pure binary manipulation functions)
+    1. Config: `src/config/tools.ts` (registry, metadata, categories, tiers, icons)
+    2. Engine: `src/lib/pdf/[tool].ts` (pure binary manipulation functions); non-PDF tools keep
+       their maths in `src/lib/finance/` or `src/lib/utilities/`
     3. UI Component: `src/components/tools/[ToolName].tsx` (state, drag-and-drop, UI)
     4. Route Page: `src/pages/[ToolPage].tsx` (page metadata, ToolGuide, layout)
 - Layout Standard:
@@ -76,7 +82,9 @@ message. These requests are separate from file processing.
 
 4. SELECTED IMPLEMENTED TOOLS & ROUTES
 --------------------------------------
-The examples below are not exhaustive. `src/config/tools.ts` is the current tool
+The numbered PDF examples below are historical and not exhaustive. Calculators and utilities
+(finance, everyday, text, password) are mapped to routes by `src/pages/FinanceCalculatorPage.tsx`
+and `src/pages/UtilityPage.tsx`; see README.md for the full list. `src/config/tools.ts` is the current tool
 registry and `src/App.tsx` defines the public routes.
 1. Merge PDF:
    - Route: `/merge-pdf`
@@ -190,8 +198,9 @@ registry and `src/App.tsx` defines the public routes.
 -----------------------------------------------
 - Google AdSense is loaded from `index.html`; publisher and ad-unit IDs are
   configured in `src/config/ads.ts`. `public/ads.txt` identifies the publisher.
-- A Google Analytics script is not currently configured. Do not add a placeholder
-  measurement ID; update the Privacy Policy if analytics is introduced later.
+- Google Tag Manager (container GTM-T22RPG7D) is loaded from `index.html` with consent
+  defaulting to denied in the EEA, UK and Switzerland; the GA4 tag lives inside Tag
+  Manager. Keep the Privacy Policy (section 5) consistent with it.
 - Contact form submissions are sent to Web3Forms. The Contact page and Privacy
   Policy disclose this separate third-party request.
 - Tool visit counts are kept in browser local storage for usage labels. No selected
@@ -209,8 +218,8 @@ registry and `src/App.tsx` defines the public routes.
   `src/components/common/ToolGuide.tsx`
 - Public crawler files: `public/robots.txt`, `public/sitemap.xml`, `public/ads.txt`
 - Tool implementations and route pages: `src/components/tools/`, `src/pages/`
-- AWS Amplify deployment: configure a `200 (Rewrite)` rule from extensionless
-  app routes to `/index.html` in Hosting > Rewrites and redirects. Without it,
-  direct requests to routes such as `/privacy` return 404 on the live site.
+- AWS Amplify deployment: use ONE rewrite rule, source `/<*>`, target `/index.html`,
+  type `404-200`, in Hosting > Rewrites and redirects. The usual single-page-app 200
+  rewrite hides the pre-built static pages. See README.md (Hosting) for details.
 
 ================================================================================

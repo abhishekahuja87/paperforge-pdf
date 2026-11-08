@@ -12,7 +12,7 @@ export interface FeaturedTool {
 }
 
 /** Display order for the homepage "Most used" row and the "Workspaces" row. */
-const POPULAR_ORDER = ['merge-pdf', 'split-pdf', 'compress-pdf', 'image-to-pdf', 'pdf-to-images', 'image-compressor'];
+const POPULAR_ORDER = ['merge-pdf', 'compress-pdf', 'image-compressor', 'income-tax-calculator', 'emi-calculator', 'age-calculator'];
 const WORKSPACE_ORDER = ['master-document-studio', 'digitize-documents', 'pos-invoice-studio', 'display-studio'];
 
 export const HOME_CATEGORY_STYLES: Record<ToolCategory, { icon: string; panel: string }> = {
