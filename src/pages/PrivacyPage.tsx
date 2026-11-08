@@ -57,7 +57,7 @@ export const PrivacyPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">5. Analytics</h2>
         <p>
-          MyDailyUtils does not currently have a configured Google Analytics property. Advertising providers may independently measure ad impressions and interactions as described above.
+          MyDailyUtils uses Google Tag Manager and Google Analytics to count visits and see which pages and tools are used. This can involve cookies or similar technologies and technical information such as your IP address, browser, device and the pages you view. We do not send the contents of files you select or numbers you type into tools to Google Analytics. In the European Economic Area, the United Kingdom and Switzerland, analytics cookies stay off until you make a choice in the consent message. You can also block them with your browser settings or Google’s browser add-on. Advertising providers may separately measure ad impressions and interactions as described above.
         </p>
       </section>
 
