@@ -214,3 +214,15 @@ Check after deploy:
 - Document Studio: file names in Hindi or Russian as contents titles, a Hindi watermark, and a Cyrillic page-number format all export legibly; Latin text stays selectable.
 - Organize PDF and Unlock: load a good file, a corrupt file and a wrong password; no console errors, memory does not climb across repeats.
 - Non-English locales are hidden, so they were not updated; they fall back to English.
+
+### Group settle-up, Screenshot Redactor, slug mode
+
+Checked in the sandbox: `allocate` always sums to the total (2,000 random cases); `minimalTransfers` settles every balance and matches a brute-force minimum on 400 random groups of 2 to 8; a 25-person greedy case settles; slugify cases (accents, apostrophes, Hindi kept, symbols only gives empty); redaction in headless Chromium (solid box exact colour, pixelate yields a few flat tiles, pixels outside boxes unchanged, drag then Download gives an image with the box burned in); Group Settle and Redactor screens mounted with React in Chromium (add expense, payments listed, picture 1080 px wide, equal mode still works). `tsc` and `vite build` were not run.
+
+Check after deploy:
+- Bill Splitter: Equal split still gives the same numbers as before; no rupee sign anywhere; old share links with round=5 still open correctly.
+- Group settle-up on a phone: add 4 people, 3 expenses (one with Unequal shares and one person left out), check the payments add up by hand; Download picture and Copy picture; reload the page and confirm the data is still there; Clear all.
+- Screenshot Redactor on a phone: choose a screenshot, drag a box with a finger, turn off Draw mode and scroll, undo, download PNG and JPG, open the saved file and confirm the covered text cannot be read. On desktop test Ctrl+V of a copied screenshot and the Paste from clipboard button (Safari may ask permission).
+- Large image (for example 4000 by 8000 px) stays responsive; an image above 80 megapixels shows the message.
+- Case converter: URL slug for "Café Münster: Don't Miss!" gives cafe-munster-dont-miss.
+- New page /screenshot-redactor appears in search, home page list, footer and sitemap, and its static HTML has the heading and FAQ.

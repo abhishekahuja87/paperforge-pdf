@@ -37,8 +37,8 @@
         {
           "heading": "Splitting trips and shared costs",
           "paragraphs": [
-            "The same maths works for more than restaurants. Use it for a rented holiday home, a shared taxi, a cake for the office, a gift from a group or a utility bill in a flat. Enter the total, the number of people and any extra, and everyone sees the same figure.",
-            "For trips where people pay for different things, add up what each person paid, work out the average per person, and settle the difference. Whoever paid less than the average pays the difference to whoever paid more. Doing this once at the end is simpler than settling after every purchase."
+            "The same maths works for more than restaurants: a rented holiday home, a shared taxi, a cake for the office, a gift from a group or a utility bill in a flat. For these, Equal split is enough when one total is shared by everyone.",
+            "On a trip where people pay for different things, use Group settle-up. Add each expense as it happens, with who paid and who shared it, and let the page do the rest at the end. Doing it once at the end is simpler than settling after every purchase, and the payments it suggests are the fewest needed."
           ]
         },
         {
@@ -46,6 +46,19 @@
           "paragraphs": [
             "Agree on the rules before the bill arrives: split equally, or pay for what you ordered. For alcohol or an expensive dish, many groups let those who had it pay for it and split the rest. Small differences are not worth an argument, so round to a simple amount and move on.",
             "Show the figures to the group to avoid confusion. The shared screen of this page lets everyone see the same numbers."
+          ]
+        },
+        {
+          "heading": "How Group settle-up reduces the number of payments",
+          "paragraphs": [
+            "After every expense is counted, each person is either owed money, owes money or is even. The simplest approach, where everyone pays back the person who paid, can produce many small transfers. This page instead looks for groups of people whose balances cancel out among themselves, because each such group needs one payment fewer than its size. With up to sixteen people who still have a balance, it finds the best split into groups exactly; with more, it uses a simple method that is never worse than one payment fewer than the number of people.",
+            "For example, if A is owed 50, B owes 30 and C owes 20, two payments settle it. If A is owed 50 and B owes 50 while C and D are owed and owe 10 each, the page finds the two separate pairs instead of routing everything through one person."
+          ]
+        },
+        {
+          "heading": "Unequal shares",
+          "paragraphs": [
+            "Mark an expense as unequal and type portions next to each name. A child who eats half as much can have 0.5 while adults have 1, and someone who did not drink can be left out of the drinks expense. Portions are only weights, so any numbers work, and the amounts still add up exactly."
           ]
         }
       ]
@@ -1156,6 +1169,14 @@
         [
           "How do I split when someone pays for everyone first?",
           "The person who paid collects each share from the others. Use the per-person figure shown and ask everyone to send it at once, for example by a payment app."
+        ],
+        [
+          "How does Group settle-up work for a trip?",
+          "Add everyone, then add each expense with its amount, who paid and who shared it. The page shows what each person paid and owes, and the fewest payments that settle the group. Save the result as a picture or text to send to everyone."
+        ],
+        [
+          "Can I leave someone out of an expense?",
+          "Yes. Each expense has a Shared by list; switch a person off and they are not charged for it. For unequal shares, turn on Unequal shares and type portions."
         ]
       ]
     },

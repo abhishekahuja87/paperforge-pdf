@@ -24,7 +24,7 @@ export function analyzeText(text: string): TextStats {
   };
 }
 
-export type CaseStyle = 'upper' | 'lower' | 'title' | 'sentence' | 'camel' | 'pascal' | 'snake' | 'kebab' | 'toggle' | 'alternating';
+export type CaseStyle = 'upper' | 'lower' | 'title' | 'sentence' | 'camel' | 'pascal' | 'snake' | 'kebab' | 'slug' | 'constant' | 'dot' | 'toggle' | 'alternating';
 
 function splitWords(text: string): string[] {
   return text
@@ -32,6 +32,25 @@ function splitWords(text: string): string[] {
     .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
     .split(/[^\p{L}\p{N}]+/u)
     .filter(Boolean);
+}
+
+/** Letters that do not split into a base letter plus an accent, so they are replaced by hand. */
+const SLUG_LETTERS: Record<string, string> = { ß: 'ss', æ: 'ae', œ: 'oe', ø: 'o', đ: 'd', ð: 'd', þ: 'th', ł: 'l', ı: 'i' };
+
+/**
+ * URL-friendly text: lower case, Latin accents removed (café becomes cafe), apostrophes dropped, anything that is
+ * not a letter or number turned into a single hyphen. Letters of other scripts, such as Hindi or Cyrillic, are kept.
+ */
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[ßæœøđðþłı]/g, (letter) => SLUG_LETTERS[letter] ?? letter)
+    .replace(/['\u2019\u2018`]/g, '')
+    .split(/[^\p{L}\p{N}\p{M}]+/u)
+    .filter(Boolean)
+    .join('-');
 }
 
 export function convertCase(text: string, style: CaseStyle): string {
@@ -53,6 +72,12 @@ export function convertCase(text: string, style: CaseStyle): string {
       return splitWords(text).map((word) => word.toLowerCase()).join('_');
     case 'kebab':
       return splitWords(text).map((word) => word.toLowerCase()).join('-');
+    case 'slug':
+      return slugify(text);
+    case 'constant':
+      return splitWords(text).map((word) => word.toUpperCase()).join('_');
+    case 'dot':
+      return splitWords(text).map((word) => word.toLowerCase()).join('.');
     case 'toggle':
       return Array.from(text).map((char) => (char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase())).join('');
     case 'alternating': {
