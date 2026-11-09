@@ -3,6 +3,7 @@ import { ArrowLeftRight } from 'lucide-react';
 import { CalcFooter, SelectField, SimpleTable, Stat, calcCard } from '../../finance/ui';
 import { ChoiceButtons, CopyButton, fieldClass } from './common';
 import { UNIT_CATEGORIES, convertUnit } from '../../../lib/utilities/units';
+import { acceptNumber, useShared } from '../../../lib/shareState';
 
 const shortLabel = (label: string) => label.match(/\(([^)]+)\)/)?.[1] ?? label;
 const show = (value: number) => Number(value.toPrecision(10)).toLocaleString('en-IN', { maximumFractionDigits: 8 });
@@ -11,6 +12,7 @@ export const UnitConverter: React.FC = () => {
   const [categoryId, setCategoryId] = useState('length');
   const category = UNIT_CATEGORIES.find((item) => item.id === categoryId) ?? UNIT_CATEGORIES[0];
   const [value, setValue] = useState('1');
+  useShared('Value', value, setValue, acceptNumber);
   const [from, setFrom] = useState(category.units[0].id);
   const [to, setTo] = useState(category.units[1].id);
 

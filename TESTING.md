@@ -137,6 +137,10 @@ These are smoke checks with small synthetic files, not exhaustive tests of all
 settings, output fidelity, redaction cases, devices, browsers, languages, or
 accessibility. The reused digitization editor still has English-only controls.
 
+## Shareable links (manual check needed)
+
+Not run in the sandbox. On EMI, Unit converter (change the unit type to Temperature and pick units), Time zone converter, HRA (tick metro), Date difference (Add or subtract mode) and Percentage: change the inputs, press Copy link, open the link in a new tab and confirm every input and the result match. A tampered value (letters in a number field, an unknown option) must be ignored, and the address bar should lose its query once the page loads.
+
 ## Password-protected PDFs (manual check needed)
 
 Not run in the sandbox. After deploying, upload a password-protected PDF to Split, Rotate, Compress, Merge and Organize. Expect a password dialog; a wrong password shows an error and stays open; the right password continues with the pages; Skip file drops it; an owner-password-only file opens with the field left empty.

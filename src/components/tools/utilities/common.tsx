@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check, Clipboard } from 'lucide-react';
 import { copyText } from '../../../lib/browserTools';
+import { acceptDate, useShared } from '../../../lib/shareState';
 
 export const fieldClass = 'mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900';
 
@@ -28,14 +29,19 @@ export const CopyButton: React.FC<{ text: string; label?: string; disabled?: boo
   );
 };
 
-export const DateField: React.FC<{ label: string; value: string; onChange: (value: string) => void }> = ({ label, value, onChange }) => (
-  <label className="block text-xs font-semibold text-slate-700">
-    {label}
-    <input type="date" value={value} onChange={(event) => onChange(event.target.value)} className={fieldClass} />
-  </label>
-);
+export const DateField: React.FC<{ label: string; value: string; onChange: (value: string) => void; shareKey?: string }> = ({ label, value, onChange, shareKey }) => {
+  useShared(label, value, onChange, acceptDate, shareKey);
+  return (
+    <label className="block text-xs font-semibold text-slate-700">
+      {label}
+      <input type="date" value={value} onChange={(event) => onChange(event.target.value)} className={fieldClass} />
+    </label>
+  );
+};
 
-export const ChoiceButtons: React.FC<{ label: string; value: string; onChange: (value: string) => void; options: { value: string; label: string }[] }> = ({ label, value, onChange, options }) => (
+export const ChoiceButtons: React.FC<{ label: string; value: string; onChange: (value: string) => void; options: { value: string; label: string }[] }> = ({ label, value, onChange, options }) => {
+  useShared(label, value, onChange, (text) => options.some((option) => option.value === text));
+  return (
   <div role="group" aria-label={label} className="flex flex-wrap gap-2">
     {options.map((option) => (
       <button
@@ -49,4 +55,5 @@ export const ChoiceButtons: React.FC<{ label: string; value: string; onChange: (
       </button>
     ))}
   </div>
-);
+  );
+};

@@ -126,6 +126,11 @@ export const CompressPdf: React.FC = () => {
           onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFile(prepared); }); }}
         />
       )}
+      {!file && (
+        <p className="rounded-xl bg-amber-50 px-3 py-2.5 text-xs leading-relaxed text-amber-900">
+          Typical limits, for orientation only: email attachments are often capped at about 20–25 MB in total, and many government and job portals ask for roughly 100 KB to 2 MB per file. Always follow the limit given by whoever you are sending to. This tool rewrites the PDF but does not shrink images, so a scan may not get as small as a strict limit needs.
+        </p>
+      )}
       {!file && errorMessage && (
         <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800">{errorMessage}</p>
       )}

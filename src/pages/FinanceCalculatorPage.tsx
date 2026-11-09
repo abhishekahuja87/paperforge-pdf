@@ -9,6 +9,8 @@ import { IncomeTaxCalculator } from '../components/tools/finance/IncomeTaxCalcul
 import { PpfCalculator } from '../components/tools/finance/PpfCalculator';
 import { SalaryCalculator } from '../components/tools/finance/SalaryCalculator';
 import { SipCalculator } from '../components/tools/finance/SipCalculator';
+import { ShareLinkBar } from '../components/common/ShareLinkBar';
+import { ShareProvider } from '../lib/shareState';
 import { usePageGuide } from '../lib/usePageGuide';
 import { useTranslation } from 'react-i18next';
 
@@ -35,7 +37,10 @@ export const FinanceCalculatorPage: React.FC<{ kind: FinanceCalculatorKind }> = 
   const Calculator = CALCULATORS[kind];
   return (
     <ToolLayout title={guide.title} subtitle={guide.subtitle} contentLanguage={i18n.language} seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}>
-      <Calculator />
+      <ShareProvider key={kind}>
+        <Calculator />
+        <ShareLinkBar />
+      </ShareProvider>
     </ToolLayout>
   );
 };
