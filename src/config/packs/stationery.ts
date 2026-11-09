@@ -1,4 +1,4 @@
-import stationery from '../../locales/packs/stationery.en.json';
+import stationery from '../../locales/packs/stationery.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** Printable paper: one full maker plus pages that open it on a single template. */

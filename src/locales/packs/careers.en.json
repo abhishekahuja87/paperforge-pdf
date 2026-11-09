@@ -1,18 +1,4 @@
 {
-  "toolCatalog": {
-    "resume-builder": [
-      "Free Resume Builder",
-      "Build a clean resume and save it as a PDF, free."
-    ],
-    "notice-period-calculator": [
-      "Notice Period and Last Working Day Calculator",
-      "Find your last working day, buyout cost and gap before a new job."
-    ],
-    "upload-file-checker": [
-      "Upload File Checker",
-      "Check size, type, pages and file name before you upload."
-    ]
-  },
   "guideSteps": {
     "resume-builder": [
       [

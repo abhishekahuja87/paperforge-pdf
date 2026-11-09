@@ -1,18 +1,4 @@
 {
-  "toolCatalog": {
-    "qr-code-generator": [
-      "QR Code Generator: Free, No Expiry, PNG and SVG Download",
-      "Make a QR code for a link, text, contact, Wi-Fi, email, phone, location or event."
-    ],
-    "wifi-qr-code-generator": [
-      "Wi-Fi QR Code Generator: Let Guests Join Without Typing the Password",
-      "Make a QR code that connects phones to your Wi-Fi when scanned."
-    ],
-    "vcard-qr-code-generator": [
-      "vCard QR Code Generator: Business Card QR That Saves Your Contact",
-      "Make a QR code that saves your contact details to a phone address book."
-    ]
-  },
   "guideSteps": {
     "qr-code-generator": [
       [

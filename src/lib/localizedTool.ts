@@ -1,6 +1,6 @@
 import i18n from '../i18n';
 import type { ToolItem } from '../config/tools';
-import { en } from '../locales/english';
+import { enCore as en } from '../locales/core';
 
 type FeaturedId = keyof typeof en.featuredTools;
 

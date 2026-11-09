@@ -1,4 +1,4 @@
-import planners from '../../locales/packs/planners.en.json';
+import planners from '../../locales/packs/planners.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** Printable calendars and planners: one maker plus pages that open it on a single kind. */

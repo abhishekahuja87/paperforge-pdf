@@ -1,0 +1,16 @@
+{
+  "toolCatalog": {
+    "freelance-rate-calculator": [
+      "Freelance Rate Calculator",
+      "Find the hourly, day and project rate you need to earn."
+    ],
+    "quotation-generator": [
+      "Free Quotation Generator",
+      "Create a clean quotation and save it as a PDF."
+    ],
+    "margin-markup-calculator": [
+      "Profit Margin and Markup Calculator",
+      "Work out margin, markup, price, discount impact and break-even."
+    ]
+  }
+}

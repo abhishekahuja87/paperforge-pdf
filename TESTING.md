@@ -202,3 +202,15 @@ Parser checked in Node: vCard 3.0 with folded lines, escapes and a skipped base6
 ### Flashcards
 
 Layout checked in Node against an independent physical model (flip the sheet, see where each back card lands) for portrait and landscape, long and short edge, five grids and two gap sizes: 336 cards, none misaligned. Parser checked for bar, tab and :: separators, \n breaks, quoted CSV. Page rendering checked in headless Chromium: front and back, mirrored columns, shrink-to-fit, long unbroken words, Cyrillic, Greek, accents and Japanese, fold mode with corner ticks. The React screen and the PDF download were not run. After deploying: /printable-flashcard-maker and /double-sided-flashcards-printable; the sample deck shows 8 cards; page 2 (back) has the columns swapped; download the alignment test, print it double-sided and hold it to the light (FRONT n behind BACK n), then try the other flip edge if not; landscape with long edge; fold mode one-sided; import a CSV from Google Sheets and one from Quizlet/Anki; a Hindi or Arabic deck prints in the right script; 100+ cards builds with the progress percentage; print at Actual size and measure a card.
+
+### Deferred items (locale split, Document Studio, pdf.js cleanup)
+
+Checked in the sandbox: en.json round trip equals the old merged data; locale modules type-check; esbuild sizes (core 14.6 KB gzip eager, content 129 KB gzip lazy, was 142 KB eager). `tsc` and `vite build` were not run here.
+
+Check after deploy:
+- Open a tool page directly by URL: guide, FAQ and article appear after a brief load, no raw keys such as `pageGuides.x` show.
+- Home page and tool search work; Network tab shows a separate content chunk.
+- Block the content chunk (offline): home still works; a tool page recovers on retry.
+- Document Studio: file names in Hindi or Russian as contents titles, a Hindi watermark, and a Cyrillic page-number format all export legibly; Latin text stays selectable.
+- Organize PDF and Unlock: load a good file, a corrupt file and a wrong password; no console errors, memory does not climb across repeats.
+- Non-English locales are hidden, so they were not updated; they fall back to English.

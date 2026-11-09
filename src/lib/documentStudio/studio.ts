@@ -1,3 +1,4 @@
+import { drawAnyText, textWidth } from './text';
 import { degrees, EncryptedPDFError, PDFDocument, PDFName, rgb, StandardFonts, type PDFPage } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
@@ -852,7 +853,7 @@ export async function exportMasterPdf(
       });
     });
 
-    contentsEntries.forEach((entry, index) => {
+    for (const [index, entry] of contentsEntries.entries()) {
       const contentsPageIndex = Math.floor(index / rowsPerPage);
       const rowIndex = index % rowsPerPage;
       const contentsPage = pages[contentsPageIndex];
@@ -861,17 +862,16 @@ export async function exportMasterPdf(
       const pageLabel = String(entry.pageIndex + contentsPageCount + 1).padStart(2, '0');
       const pageLabelWidth = font.widthOfTextAtSize(pageLabel, titleSize);
       const titleWidth = Math.max(1, pageWidth - 142 - pageLabelWidth);
-      const title = font.widthOfTextAtSize(entry.title, titleSize) <= titleWidth
+      const title = textWidth(font, entry.title, titleSize) <= titleWidth
         ? entry.title
         : (() => {
           let truncated = entry.title;
-          while (truncated.length > 1 && font.widthOfTextAtSize(`${truncated}...`, titleSize) > titleWidth) {
+          while (truncated.length > 1 && textWidth(font, `${truncated}...`, titleSize) > titleWidth) {
             truncated = truncated.slice(0, -1);
           }
           return `${truncated}...`;
         })();
-      const titleColor = rgb(0.12, 0.16, 0.23);
-      contentsPage.drawText(title, { x: 62, y, size: titleSize, font, color: titleColor });
+      await drawAnyText(output, contentsPage, title, { x: 62, y, size: titleSize, font, color: [0.12, 0.16, 0.23] });
       const rowLineY = y - 10;
       contentsPage.drawLine({
         start: { x: 56, y: rowLineY },
@@ -901,7 +901,7 @@ export async function exportMasterPdf(
         Dest: [output.getPage(entry.pageIndex + contentsPageCount).ref, PDFName.of('Fit')],
       }));
       contentsPage.node.addAnnot(annotation);
-    });
+    }
 
     pages.forEach((contentsPage, index) => {
       contentsPage.drawText('YOUR DOCUMENT, AT A GLANCE', {
@@ -929,35 +929,34 @@ export async function exportMasterPdf(
   }
 
   const pages = output.getPages();
-  pages.forEach((page, index) => {
+  for (const [index, page] of pages.entries()) {
     const { width: pageWidth, height: pageHeight } = page.getSize();
     if (settings.watermarkText.trim()) {
-      page.drawText(settings.watermarkText.trim(), {
+      await drawAnyText(output, page, settings.watermarkText.trim(), {
         x: pageWidth * 0.12,
         y: pageHeight * 0.43,
         size: Math.min(pageWidth, pageHeight) * 0.1,
         font: boldFont,
-        color: rgb(0.42, 0.45, 0.5),
+        bold: true,
+        color: [0.42, 0.45, 0.5],
         opacity: settings.watermarkOpacity / 100,
         rotate: degrees(settings.watermarkAngle),
       });
     }
-    if (settings.numberPosition === 'none' || (settings.skipFirstPage && index === contentsPageCount)) return;
+    if (settings.numberPosition === 'none' || (settings.skipFirstPage && index === contentsPageCount)) continue;
     const label = settings.numberFormat
       .replaceAll('{page}', String(index + 1))
       .replaceAll('{total}', String(pages.length));
     const size = 10;
-    const textWidth = font.widthOfTextAtSize(label, size);
+    const labelWidth = textWidth(font, label, size);
     const x = settings.numberPosition === 'bottom-center'
-      ? (pageWidth - textWidth) / 2
-      : settings.numberPosition === 'bottom-right'
-        ? pageWidth - margin - textWidth
-        : pageWidth - margin - textWidth;
+      ? (pageWidth - labelWidth) / 2
+      : pageWidth - margin - labelWidth;
     const y = settings.numberPosition === 'top-right'
       ? pageHeight - margin - size
       : Math.max(12, margin / 2);
-    page.drawText(label, { x, y, size, font, color: rgb(0.35, 0.38, 0.42) });
-  });
+    await drawAnyText(output, page, label, { x, y, size, font, color: [0.35, 0.38, 0.42] });
+  }
 
   const bytes = await output.save({ useObjectStreams: true });
   const targetBytes = settings.compression === 'target-2mb'
