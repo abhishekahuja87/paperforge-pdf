@@ -1,0 +1,235 @@
+{
+  "toolCatalog": {
+    "printable-flashcard-maker": [
+      "Printable Flashcard Maker: Make Flashcards as a PDF in Any Language",
+      "Type or import your cards and print flashcards with the answers lined up on the back."
+    ],
+    "double-sided-flashcards-printable": [
+      "Double-Sided Flashcards Printable: Front and Back That Line Up Exactly",
+      "Print double-sided flashcards with every answer lined up behind its question."
+    ]
+  },
+  "guideSteps": {
+    "printable-flashcard-maker": [
+      [
+        "Add your cards",
+        "Type one card per line as question | answer, or import a CSV, TSV or text file from a spreadsheet, Anki or Quizlet. Use \\n for a line break."
+      ],
+      [
+        "Choose the layout",
+        "Pick the paper size and how many cards fit on a page, from 4 big cards to 12 small ones. The preview updates as you change it."
+      ],
+      [
+        "Choose how you will print",
+        "Two-sided printing flipped on the long or short edge, or one-sided cards that you fold in the middle. The back pages are arranged for you."
+      ],
+      [
+        "Download the PDF",
+        "Check the front and back previews, then download one PDF. Print at actual size, cut along the dashed lines and sort your cards."
+      ]
+    ],
+    "double-sided-flashcards-printable": [
+      [
+        "Add your cards",
+        "Type the questions and answers, one card per line, or import a CSV or text file."
+      ],
+      [
+        "Choose the flip edge",
+        "Pick two-sided printing with the flip on the long edge or on the short edge to match the option in your print window."
+      ],
+      [
+        "Print the alignment test",
+        "Download the one-sheet test, print it double-sided and hold it to the light. Switch the flip option if the sides are not lined up."
+      ],
+      [
+        "Print the deck and cut",
+        "Print the deck at actual size, double-sided, then cut along the guides. The answer will be behind each question."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "flashcardGuide": {
+      "title": "Printable Flashcard Maker: Make Flashcards as a PDF in Any Language",
+      "subtitle": "Type your questions and answers, or import a CSV, and print ready-to-cut flashcards with the back side lined up behind the front. Works in any language. Free, with no sign-up.",
+      "faq": [
+        [
+          "Is the flashcard maker free, and is there a watermark?",
+          "It is free, needs no account and adds no watermark. Everything is made in your browser."
+        ],
+        [
+          "How do I make the back of each card line up with the front?",
+          "Choose the printing mode that matches your printer: two-sided with the flip on the long edge or on the short edge. The tool mirrors the back pages so each answer lands behind its question. The alignment test sheet lets you check your own printer before you print a whole deck."
+        ],
+        [
+          "Can I use my own language or script?",
+          "Yes. Pages are drawn by your browser, so any script your device can display works, including accented Latin, Cyrillic, Greek, Arabic, Hindi and Japanese. Right-to-left text is placed correctly."
+        ],
+        [
+          "How do I import cards from a spreadsheet, Anki or Quizlet?",
+          "Export the deck as CSV or text, then choose Import. The first two columns become the front and back. Tick \"First row is a header\" if the first row holds column names."
+        ],
+        [
+          "What happens to long answers?",
+          "Text shrinks to fit the card, down to a minimum of 6 points. If an answer is still too long, make the cards larger with fewer per page or shorten the text."
+        ],
+        [
+          "How many cards can I make at once?",
+          "Up to 500 cards in one PDF. Large decks take a little longer because each page is drawn at print quality."
+        ],
+        [
+          "What size are the cards?",
+          "The tool shows the size for your layout. Eight cards on A4 are about 97 by 70 mm, and six per page are about 97 by 93 mm. Index-card size is 76 by 127 mm."
+        ],
+        [
+          "Is my information uploaded?",
+          "No. Your cards are drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network, but the words on your cards stay on your device."
+        ]
+      ]
+    },
+    "duplexFlashcardGuide": {
+      "title": "Double-Sided Flashcards Printable: Front and Back That Line Up Exactly",
+      "subtitle": "Print flashcards on both sides of the paper with the back mirrored for your printer, check alignment with a test sheet, and cut cards that match. Free, with no sign-up.",
+      "faq": [
+        [
+          "Why do the backs of my flashcards not line up?",
+          "The back page must be mirrored, and the direction depends on whether the printer flips the sheet on the long or the short edge. Pick the matching option and use the alignment test sheet to confirm it."
+        ],
+        [
+          "What is the difference between flipping on the long edge and the short edge?",
+          "Long-edge flipping turns the sheet like a book page, so left and right swap. Short-edge flipping turns it like a notepad, so top and bottom swap. Portrait pages are usually printed with long-edge flipping."
+        ],
+        [
+          "Does landscape paper change anything?",
+          "Yes. The flip edge refers to the sheet, so a landscape page flipped on the long edge swaps top and bottom instead. The tool works out which way to mirror for the orientation you choose."
+        ],
+        [
+          "My printer has no automatic double-sided option. What can I do?",
+          "Print the fronts, put the pages back in the tray the way your printer needs them, and print the backs. Do a test sheet first to find the right way to load the paper. Or use the fold-over mode, which needs only one side."
+        ],
+        [
+          "Why are the fronts and backs still off by a millimetre or two?",
+          "Most printers are not perfectly precise when they feed a sheet twice. Larger margins, cards separated by cutting guides and text that sits well inside the card hide small shifts."
+        ],
+        [
+          "What paper should I use?",
+          "A thicker paper of 160 to 200 gsm is easier to handle and stops the other side showing through. Check that your printer can feed it."
+        ],
+        [
+          "Do I have to print every page double-sided?",
+          "The PDF alternates fronts and backs, page 1 front, page 2 back, and so on. A double-sided print setting prints them in the right order."
+        ],
+        [
+          "Is my information uploaded?",
+          "No. Your cards are drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network, but the words on your cards stay on your device."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "printable-flashcard-maker": {
+      "sections": [
+        {
+          "heading": "What the Printable Flashcard Maker does",
+          "paragraphs": [
+            "It turns a list of questions and answers into a PDF of printable flashcards. You type the cards or import them from a spreadsheet, choose how many fit on a page, and the tool lays out the fronts and the backs so that, once printed on both sides and cut, each card has the question on one side and the answer on the other.",
+            "Everything is done in your browser. There is no account, no watermark and no upload, so you can make cards for vocabulary, exam facts, formulas, medical terms, music theory or a game without sharing your material."
+          ]
+        },
+        {
+          "heading": "Typing or importing cards",
+          "paragraphs": [
+            "The simplest way is one card per line, with the front and the back separated by a bar, a tab or two colons. A line such as Bonjour | Hello makes a card. If you need a line break inside a side, type \\n. Lines with no separator become cards with a front only, and the tool counts them so you can fix them.",
+            "To use a deck you already have, export it as CSV or text from a spreadsheet, Anki or Quizlet and choose Import. The first two columns become the front and the back, quotes and commas inside cells are handled, and you can tell the tool to skip a header row."
+          ]
+        },
+        {
+          "heading": "Any language, any script",
+          "paragraphs": [
+            "The cards are drawn by your browser, which means the tool is not limited to a small list of fonts or to Latin letters. Accented European languages, Cyrillic, Greek, Arabic, Hindi, Chinese, Japanese and Korean all work as long as your device has a font for them. Text is centred and wrapped by words, or by characters in languages that do not use spaces.",
+            "Because text is placed as a 300 dpi image, it prints sharply on a home printer, but it cannot be selected or searched in the PDF. This is the trade-off for supporting every script."
+          ]
+        },
+        {
+          "heading": "Layout and card size",
+          "paragraphs": [
+            "Choose from 4 to 12 cards per page or set your own columns and rows. The size of each card is shown, so you can match a card box or a deck holder. Eight cards on A4 are roughly the size of a large playing card laid on its side, and six per page give room for longer answers. Margins and the gap between cards are adjustable, and a gap of zero means one cut separates two cards.",
+            "Pick a font and a largest size. Text starts at that size and shrinks until it fits the card, so short words look big and long definitions still fit. Colour the front and back differently, for example white and cream, so you can tell the sides apart in a pile."
+          ]
+        },
+        {
+          "heading": "Two-sided printing without the guesswork",
+          "paragraphs": [
+            "The hard part of printing flashcards is that the back page has to be mirrored. When a sheet is flipped on its long edge, the left and right columns swap, so the answer for the card in the top left must be printed at the top right of the back page. If the sheet is flipped on its short edge, rows swap instead. The tool does this for you.",
+            "Choose the mode that matches the option in your print window, then use the alignment test: it prints numbered fronts and backs so you can hold the sheet to the light and see whether they line up. If they do not, switch the flip option or reduce the effect with larger margins. Printers can still be a millimetre or two out, so leave the cutting guides on."
+          ]
+        },
+        {
+          "heading": "Fold-over cards",
+          "paragraphs": [
+            "If your printer cannot print on both sides, choose the one-sided fold mode. Each card has the question on the left and the answer on the right with a dashed fold line. Cut out the card, fold it in half and glue or tape the halves together. It uses more paper per card but needs no alignment at all.",
+            "With this mode, one column of wide cards usually reads better than two narrow columns, so try a 1-column layout."
+          ]
+        },
+        {
+          "heading": "Using your cards well",
+          "paragraphs": [
+            "Testing yourself from memory works better for most people than rereading notes. Say the answer aloud before turning the card. Put cards you know to one side and go back to the ones you missed. A simple box system, where cards you get right move to a box you review less often, is an easy way to space your practice.",
+            "Number the cards if you want to put a dropped stack back in order, and print a deck name on each card so that decks do not get mixed. Limits: the tool does not make images on cards or schedule reviews; it makes the paper cards. Your cards never leave your device."
+          ]
+        }
+      ]
+    },
+    "double-sided-flashcards-printable": {
+      "sections": [
+        {
+          "heading": "The problem with double-sided flashcards",
+          "paragraphs": [
+            "Printing flashcards on both sides sounds simple and goes wrong all the time. You print the questions on one side and the answers on the other, and after cutting, the answers are on the wrong cards. The reason is that the back of a sheet is a mirror image of the front. The card in the top left of the front is at the top right on the back.",
+            "This tool lays out the back pages mirrored, so that after printing and cutting, each answer sits directly behind its question, and it shows you both sides in the preview before you print."
+          ]
+        },
+        {
+          "heading": "Long edge or short edge",
+          "paragraphs": [
+            "Printers describe double-sided printing by the edge the sheet turns on. With a portrait page, long-edge flipping is like turning the page of a book. The left and right sides swap, so the columns on the back run in the opposite order. With short-edge flipping, as in a flip calendar, the top and bottom swap, so the rows on the back run in the opposite order.",
+            "Your print window has an option for this, often called flip on long edge or flip on short edge, or binding on the long or short side. Choose the same option here and the tool applies the right mirror. For landscape pages the edges refer to the sheet, not the picture, and the tool handles that."
+          ]
+        },
+        {
+          "heading": "Check it with the alignment test",
+          "paragraphs": [
+            "Before printing a long deck, print the one-sheet test. Its fronts are marked FRONT 1, FRONT 2 and so on, and its backs are marked BACK 1, BACK 2 and so on. Print it double-sided with the settings you plan to use, hold the sheet up to a window or lamp and look through it. FRONT 1 and BACK 1 should be in the same place.",
+            "If they are mirrored the wrong way, switch to the other flip edge in this tool or in your printer settings, not both. If they are only a little off, that is normal printer tolerance and the tips below will help."
+          ]
+        },
+        {
+          "heading": "Handling small shifts",
+          "paragraphs": [
+            "Few home printers feed a sheet back through perfectly. Expect the back to be off by up to a millimetre or two. Three things help. Keep text well inside the cards, which the tool does by default. Leave a margin on each card so a small shift does not push words off the edge. Use cutting guides and cut carefully along them, so that every card is cut the same way.",
+            "Coloured fronts and backs make a small shift less noticeable, and a gap of zero lets one cut separate two cards. If your printer drifts more than that, the fold-over mode avoids the problem."
+          ]
+        },
+        {
+          "heading": "Printers without automatic duplex",
+          "paragraphs": [
+            "If your printer cannot print on both sides by itself, print the odd pages first, which are the fronts, then put the stack back in the tray and print the even pages, which are the backs. Which way the paper must be loaded depends on the printer, so use the alignment test with two sheets first and note how you loaded them.",
+            "The fold-over mode is the easiest alternative. Each card has the question on the left and the answer on the right, with a dashed fold line. You cut, fold and glue, and there is nothing to line up."
+          ]
+        },
+        {
+          "heading": "Paper, cutting and sorting",
+          "paragraphs": [
+            "A paper of 160 to 200 gsm is stiffer than office paper and hides the print on the other side. Use a paper trimmer or a ruler and craft knife for straight, even cuts. With a zero gap between cards, a single cut gives you two edges.",
+            "Number your cards if you want to be able to put a dropped stack back in order, and use a different colour for the back so you can see at a glance which side is up."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "The tool cannot know how your particular printer feeds paper, which is why it offers both flip options and a test sheet. Text is placed as 300 dpi images so every language prints, and so it cannot be selected in the PDF. Everything runs in your browser and your cards are never uploaded."
+          ]
+        }
+      ]
+    }
+  }
+}
