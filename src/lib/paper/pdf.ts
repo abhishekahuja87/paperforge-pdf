@@ -13,9 +13,9 @@ const hexToRgb = (hex: string): [number, number, number] => {
 const safeText = (font: PDFFont, text: string): string =>
   Array.from(text).map((ch) => { try { font.encodeText(ch); return ch; } catch { return '?'; } }).join('');
 
-interface Fonts { regular: PDFFont; bold: PDFFont }
+export interface Fonts { regular: PDFFont; bold: PDFFont }
 
-function drawItems(page: PDFPage, items: Item[], height: number, fonts: Fonts, lib: typeof import('pdf-lib')): void {
+export function drawItems(page: PDFPage, items: Item[], height: number, fonts: Fonts, lib: typeof import('pdf-lib')): void {
   const { rgb } = lib;
   const color = (hex: string) => { const [r, g, b] = hexToRgb(hex); return rgb(r, g, b); };
   for (const item of items) {
@@ -69,6 +69,21 @@ export async function buildPaperPdf(settings: PaperSettings): Promise<Uint8Array
     }
   }
   out.setTitle('Printable paper');
+  out.setCreator('MyDailyUtils');
+  return out.save();
+}
+
+/** Builds a PDF with one page per sheet, for layouts where every page differs (calendars, planners). */
+export async function buildPdfFromSheets(sheets: Sheet[], title: string): Promise<Uint8Array> {
+  const lib = await import('pdf-lib');
+  const { PDFDocument, StandardFonts } = lib;
+  const out = await PDFDocument.create();
+  const fonts: Fonts = { regular: await out.embedFont(StandardFonts.Helvetica), bold: await out.embedFont(StandardFonts.HelveticaBold) };
+  for (const sheet of sheets) {
+    const page = out.addPage([sheet.width * PT, sheet.height * PT]);
+    drawItems(page, sheet.fixed, sheet.height, fonts, lib);
+  }
+  out.setTitle(title);
   out.setCreator('MyDailyUtils');
   return out.save();
 }

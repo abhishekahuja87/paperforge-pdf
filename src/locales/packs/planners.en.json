@@ -1,0 +1,320 @@
+{
+  "toolCatalog": {
+    "printable-planner-maker": [
+      "Printable Planner Maker: Weekly, Daily, Monthly and Year Planner",
+      "Make a printable weekly, daily, monthly or yearly planner as a PDF."
+    ],
+    "printable-calendar-maker": [
+      "Printable Calendar Maker: Monthly Calendar PDF for Any Month and Year",
+      "Print a monthly calendar for any month, any year, in seven languages."
+    ],
+    "daily-planner-printable": [
+      "Daily Planner Printable: Hourly Schedule, Priorities and To-Do List",
+      "Print daily planner pages with a time schedule, top priorities and to-do list."
+    ]
+  },
+  "guideSteps": {
+    "printable-planner-maker": [
+      [
+        "Choose the planner",
+        "Pick Monthly calendar, Weekly planner, Daily planner or Year at a glance. Each opens with sensible settings."
+      ],
+      [
+        "Set the dates and language",
+        "Enter the year and month, or the first day. Choose how many months, weeks or days to make, which day the week starts on, and the language of the month and day names."
+      ],
+      [
+        "Choose the layout",
+        "Pick the page size, portrait or landscape, margins, an ink tone and line weight. Add your name or project as a heading on every page."
+      ],
+      [
+        "Download or print",
+        "Flip through the pages in the preview, then download one PDF with all of them, or print the page shown."
+      ]
+    ],
+    "printable-calendar-maker": [
+      [
+        "Choose the month and year",
+        "Pick the starting month and the year. Set how many months to make, up to 24, in one PDF."
+      ],
+      [
+        "Set the week start and language",
+        "Choose whether the week starts on Monday, Sunday or Saturday, and the language of the names. Add an optional heading such as your name or team."
+      ],
+      [
+        "Adjust the page",
+        "Choose A4, A5, US Letter or Legal in landscape or portrait, the margins, an ink tone and the line weight. Turn the notes lines on or off."
+      ],
+      [
+        "Download and print",
+        "Flip through the months in the preview, download the PDF and print it at Actual size."
+      ]
+    ],
+    "daily-planner-printable": [
+      [
+        "Pick the first day and how many days",
+        "Choose the date of the first page and how many days to make, up to 62, in one PDF."
+      ],
+      [
+        "Set your hours",
+        "Choose when your schedule starts and ends, and whether the slots are hourly or every thirty minutes."
+      ],
+      [
+        "Choose the layout",
+        "Pick the page size, orientation, margins, ink tone and an optional heading with your name or project."
+      ],
+      [
+        "Download and print",
+        "Flip through the pages in the preview, download the PDF and print it at Actual size."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "plannerMakerGuide": {
+      "title": "Printable Planner Maker: Weekly, Daily, Monthly and Year Planner",
+      "subtitle": "Choose a planner type, set the dates, week start, language and page size, and download a clean PDF with as many weeks, days or months as you need. Free, with no sign-up.",
+      "faq": [
+        [
+          "Is the planner maker free, and is there a watermark?",
+          "It is free, needs no account and adds no watermark. Everything is made in your browser."
+        ],
+        [
+          "Which planner types can I make?",
+          "Monthly calendars, weekly planners, daily planners with an hourly schedule, priorities and a to-do list, and a year-at-a-glance page with all twelve months."
+        ],
+        [
+          "Can I make a planner for a whole year?",
+          "Yes. Set the monthly calendar to 12 months for twelve monthly pages, the weekly planner to 53 weeks for a full year of weeks, or use the daily planner for up to 62 days. Everything goes into one PDF."
+        ],
+        [
+          "Can I start the week on Monday, Sunday or Saturday?",
+          "Yes. The week start changes the order of the days on every page, which matters for school, work and religious or regional calendars."
+        ],
+        [
+          "Which languages are supported?",
+          "English, Spanish, French, German, Portuguese, Italian and Dutch, because the PDF font can show their letters and accents. Languages with other scripts are not supported yet."
+        ],
+        [
+          "Does it print public holidays?",
+          "No. Holidays and school terms differ by country, region and year, so the pages are left blank for you to write them in. This also keeps the planner usable in any country."
+        ],
+        [
+          "How do I print all the pages?",
+          "Press Download PDF, open the file and print it with \"Actual size\" selected. The Print button prints only the page shown in the preview."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The pages are drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your heading text and dates stay on your device."
+        ]
+      ]
+    },
+    "calendarMakerGuide": {
+      "title": "Printable Calendar Maker: Monthly Calendar PDF for Any Month and Year",
+      "subtitle": "Make a printable monthly calendar for any month from 1900 to 2200, with the week starting on Monday, Sunday or Saturday. Make one month or a whole year, then download a PDF.",
+      "faq": [
+        [
+          "Can I print a calendar for any year?",
+          "Yes, any year from 1900 to 2200. The days of the week are worked out for you, including leap years, so you can print a calendar for a past or future year."
+        ],
+        [
+          "How do I make a 12-month calendar?",
+          "Set the starting month to January, choose a count of 12 months and download the PDF. You get twelve pages, one per month, in one file."
+        ],
+        [
+          "Does the calendar include holidays?",
+          "No. Holidays differ by country and region and change from year to year, so the boxes are left blank for you to write in your own dates."
+        ],
+        [
+          "Why does a month sometimes have five rows and sometimes six?",
+          "The calendar uses only as many rows as the month needs. A month that starts late in the week can spread over six rows, and a short February that starts on the first day of the week may need only four, which gives the boxes more room."
+        ],
+        [
+          "Can I make the week start on Sunday?",
+          "Yes. Choose Sunday, Monday or Saturday as the first day. The weekday headings and the day numbers move to match."
+        ],
+        [
+          "What paper should I use?",
+          "Landscape A4 or US Letter suits a wall or desk calendar. A5 or portrait works for a diary or binder. Print on thicker paper if you want to write with a pen."
+        ],
+        [
+          "How do I print the whole year at once?",
+          "Download the PDF and print it with \"Actual size\" selected. For a two-sided printout, choose double-sided printing in your print window."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The pages are drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your heading text and dates stay on your device."
+        ]
+      ]
+    },
+    "dailyPlannerGuide": {
+      "title": "Daily Planner Printable: Hourly Schedule, Priorities and To-Do List",
+      "subtitle": "Make printable daily planner pages with an hourly or half-hourly schedule, three priorities, a to-do list with tick circles and a notes area. Choose your hours, dates and page size.",
+      "faq": [
+        [
+          "What is on a daily planner page?",
+          "The full date at the top, a schedule down the left side with a line for each hour or half hour, three priorities with tick circles, a to-do list with tick circles and a notes area at the bottom right."
+        ],
+        [
+          "Can I change the hours of the schedule?",
+          "Yes. Choose any start and end hour, for example 6:00 to 22:00 for a long day or 9:00 to 17:00 for a workday, and choose hourly or half-hourly slots."
+        ],
+        [
+          "How many days can I print at once?",
+          "Up to 62 days, which is two months, in one PDF. Make a new PDF for the next period, or use the weekly planner if you prefer a week on a page."
+        ],
+        [
+          "What is time blocking, and does this suit it?",
+          "Time blocking means giving each task a block of time in your calendar. The schedule column with half-hour slots is meant for this: write the task next to the time you plan to do it."
+        ],
+        [
+          "Why only three priorities?",
+          "Limiting the day to three main tasks helps you focus on what matters. You can leave one blank, or use the to-do list for smaller tasks."
+        ],
+        [
+          "Should I print portrait or landscape?",
+          "Portrait is the classic choice for a daily page. Landscape works if you want wider rows for the schedule, but the lists on the right become shorter."
+        ],
+        [
+          "Can I use it for shifts or appointments?",
+          "Yes. Set the hours to match your shift or clinic day, use half-hour slots for appointments and write names next to the times."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The pages are drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your heading text and dates stay on your device."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "printable-planner-maker": {
+      "sections": [
+        {
+          "heading": "What the Printable Planner Maker does",
+          "paragraphs": [
+            "It builds planner pages for any dates you choose and gives you one PDF to print. You are not limited to a template for one particular year: pick the start date, the number of pages and the kind of page, and the tool works out the weekdays, the number of weeks in each month and the labels for you.",
+            "Because the pages are drawn in your browser, you can try a setting, see the result at once, and change your mind before you print."
+          ]
+        },
+        {
+          "heading": "Four kinds of page",
+          "paragraphs": [
+            "The monthly calendar shows a month as a grid of days, with space to write in each box and optional lines for notes. The weekly planner gives each day of the week its own block of ruled lines. In landscape it becomes seven columns, in portrait seven rows. The daily planner has an hourly or half-hourly schedule, three priorities, a to-do list with tick circles and a notes area. The year at a glance shows all twelve months on one page.",
+            "Together they cover most planning styles: long range overview, month by month, week by week and day by day."
+          ]
+        },
+        {
+          "heading": "Settings that matter",
+          "paragraphs": [
+            "The week start decides whether Monday, Sunday or Saturday comes first. The language setting changes the names of the months and days. The count lets you make a bundle, for example the next twelve months or the next 53 weeks. The heading line prints your name, a class or a project at the top of each page so that loose sheets are easy to identify.",
+            "Page size, orientation, margins, ink tone and line weight work as they do in the paper maker: light tones save ink and stay out of the way of your handwriting."
+          ]
+        },
+        {
+          "heading": "Planning ideas",
+          "paragraphs": [
+            "Students can print a weekly planner for the whole term and write exam dates on the year page. Small teams can print monthly calendars for a project wall. Parents can print a daily planner for a busy week, and freelancers can use the half-hour schedule for time blocking.",
+            "Print double-sided and punch holes to make a planner for a binder, or take the PDF to a print shop for a bound version. The margin setting leaves room for hole punches."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "The planner does not print public holidays, moon phases or religious dates, since these differ by place and year. You can write them in by hand. Month and day names are available in languages that use the Latin alphabet.",
+            "Your settings are used only in your browser, and nothing is uploaded to {{siteName}}. If you need the same setup next time, note your choices or use the same links."
+          ]
+        }
+      ]
+    },
+    "printable-calendar-maker": {
+      "sections": [
+        {
+          "heading": "What the Printable Calendar Maker does",
+          "paragraphs": [
+            "It creates a monthly calendar page for any month and year, with a large writing box for every day. You can make a single month or a bundle of up to 24 months in one PDF. The calendar is drawn from the real dates, so a leap year and the day on which each month starts are always right.",
+            "It is a blank calendar by design. You write in birthdays, meetings, deadlines and holidays that matter to you."
+          ]
+        },
+        {
+          "heading": "Choosing how the week looks",
+          "paragraphs": [
+            "In many countries the week starts on Monday, in others on Sunday, and in some places on Saturday. The calendar lets you choose, and the weekday names across the top change at once. The names can be shown in English, Spanish, French, German, Portuguese, Italian or Dutch.",
+            "A short heading line prints your name, class or team at the top of each page, which is handy when you print calendars for several people."
+          ]
+        },
+        {
+          "heading": "Paper, margins and ink",
+          "paragraphs": [
+            "Landscape pages give each day a wide box, which suits a wall calendar or a desk pad. Portrait pages suit a binder or a diary. Pick A4, A5, US Letter or Legal, and set a margin that suits your printer and any punch holes.",
+            "Light tones such as soft gray save ink and keep the grid in the background. For a bold wall calendar, choose charcoal black and the Bold line weight."
+          ]
+        },
+        {
+          "heading": "Ideas for using the calendar",
+          "paragraphs": [
+            "Print a calendar for each month of the school year and write exam and assignment dates. Use a blank calendar for a content schedule, a meal plan, a habit challenge, a travel plan or shift planning. Print twelve pages, punch them and put them in a folder as a custom yearly calendar.",
+            "Because nothing is uploaded, you can use the names of real people and projects without sending them anywhere."
+          ]
+        },
+        {
+          "heading": "A calendar for the whole year",
+          "paragraphs": [
+            "To make a full year, choose January as the starting month and 12 as the count. The PDF has twelve pages in order, so you can print them double-sided or pin them up one after another. For a school year, start in the month your term begins and choose up to 24 months to cover two terms.",
+            "The year at a glance page in the planner maker shows all twelve months on a single sheet. Together with the monthly pages it gives you a long view and a close view of the same year."
+          ]
+        },
+        {
+          "heading": "Limits and printing tips",
+          "paragraphs": [
+            "The calendar does not print public holidays or festival dates. If you need them, write them in by hand or look them up for your country. Only languages that use the Latin alphabet are available.",
+            "Print at Actual size or 100% scale, and turn off Fit to page. Try one page first to make sure the margins suit your printer."
+          ]
+        }
+      ]
+    },
+    "daily-planner-printable": {
+      "sections": [
+        {
+          "heading": "What the Daily Planner Printable does",
+          "paragraphs": [
+            "It prints one page for each day you choose, with the full date at the top. A schedule runs down the left, and on the right are your top priorities, a to-do list and a notes area. You decide the hours in the schedule, the slot length, the page size and the ink tone.",
+            "It is a simple way to plan a day on paper, without an app or an account."
+          ]
+        },
+        {
+          "heading": "Using the schedule",
+          "paragraphs": [
+            "Write fixed commitments first, such as classes, meetings and appointments. Then place the tasks that need focus in the gaps. Half-hour slots give you room for short tasks, and hourly slots keep the page simple.",
+            "If you work in blocks, give each block a name rather than a long list. Leave a few empty slots as buffer for the things that always take longer than planned."
+          ]
+        },
+        {
+          "heading": "Priorities and to-do lists",
+          "paragraphs": [
+            "The three priority lines are for the tasks that would make the day a success even if nothing else got done. Tick each circle when done. The to-do list is for smaller jobs, calls, errands and reminders. Move unfinished items to the next day's page.",
+            "A notes area at the bottom is useful for ideas, numbers and decisions that come up during the day."
+          ]
+        },
+        {
+          "heading": "Setting up a stack of pages",
+          "paragraphs": [
+            "Choose the start date and the number of days, up to 62. Pick portrait for a classic look, margins that leave room for punch holes if you use a binder, and a light tone so your handwriting stands out. Add your name as a heading so loose pages are easy to match.",
+            "Print double-sided to halve the paper, and keep the stack on your desk or in a folder."
+          ]
+        },
+        {
+          "heading": "Habits that make a daily plan work",
+          "paragraphs": [
+            "Plan the day the evening before, when you know what is coming. Start with the three priorities, then fill the schedule around them. Keep the plan realistic: if the schedule has no gaps, one delay will break the whole day.",
+            "At the end of the day, tick off what you did, move what you did not do and note anything to remember. A few minutes of review stops tasks from silently disappearing and shows you how long things really take."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "The planner does not know your calendar or holidays, so you add the plan by hand. It has English labels such as Schedule, To do and Notes, while the date follows your chosen language in the full planner. Nothing is uploaded, and the PDF is made in your browser."
+          ]
+        }
+      ]
+    }
+  }
+}
