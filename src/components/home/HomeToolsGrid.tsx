@@ -54,7 +54,7 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
 
       <section aria-label={t('mostUsed')} className="space-y-3">
         <h2 className={sectionTitle}>{t('mostUsed')}</h2>
-        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6">
           {mostUsed.map((tool) => <HomePopularTile key={tool.id} tool={tool} />)}
         </div>
       </section>

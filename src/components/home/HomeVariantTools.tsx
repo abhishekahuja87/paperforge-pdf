@@ -41,14 +41,14 @@ export const HomePopularTile: React.FC<{ tool: ToolItem }> = ({ tool }) => {
   return (
     <Link
       to={tool.path}
-      className="group flex min-w-0 flex-col gap-1.5 rounded-xl border border-stone-200/80 bg-white/90 p-3 transition duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+      className="group flex min-w-0 flex-row items-center gap-3 rounded-xl border border-stone-200/80 bg-white/90 p-3 transition sm:flex-col sm:items-start sm:gap-1.5 duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
     >
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
         <ToolIcon name={tool.icon} className="h-4 w-4" />
       </span>
       <div lang={copy.language} className="min-w-0">
         <h3 className="line-clamp-2 text-[13px] font-bold leading-tight text-stone-900 group-hover:text-orange-800">{homeTitle(copy.title)}</h3>
-        <span className="mt-1 hidden line-clamp-2 text-[11px] leading-snug text-stone-500 sm:block">{copy.description}</span>
+        <span className="mt-1 line-clamp-2 block text-[11px] leading-snug text-stone-500">{copy.description}</span>
       </div>
     </Link>
   );

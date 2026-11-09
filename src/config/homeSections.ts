@@ -22,7 +22,7 @@ export const NEW_TOOLS = [
 /** Studio-style tools shown as a slim row. */
 export const WORKSPACES = ['master-document-studio', 'digitize-documents', 'pos-invoice-studio', 'display-studio'];
 
-/** How many tools each topic shows before the "Show more" fold. The rest stay in the page (and its links) inside the fold. */
+/** How many tools each topic shows on a phone before "Show more". Larger screens show every tool. */
 export const COLLECTION_PREVIEW = 6;
 
 /** Image tools named like resize-image-to-20kb are shown as small chips instead of cards. */
