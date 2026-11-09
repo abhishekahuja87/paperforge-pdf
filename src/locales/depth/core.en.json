@@ -15,6 +15,13 @@
             "Most languages have a habit. JavaScript and Java name variables in camelCase and classes in PascalCase. Python and Ruby prefer snake_case for variables and functions. CSS class names, URLs and file names on the web usually use kebab-case because hyphens are easy to read and search engines treat them as word breaks. Constants in many languages are written in UPPER_SNAKE_CASE.",
             "In everyday writing, use Title Case for headings in English if your style guide asks for it, and sentence case for body text. Whichever you choose, apply it the same way across a document so that it looks tidy."
           ]
+        },
+        {
+          "heading": "Cleaning up text quickly",
+          "paragraphs": [
+            "Convert text copied from a document with odd capitals, fix a heading typed in capital letters, or prepare names for a list. Doing this by hand takes minutes, while the tool does it in a moment. Check the result for names and acronyms, which a tool cannot always know, such as NASA or iPhone.",
+            "For code, convert a list of names in one go and paste the result into your file."
+          ]
         }
       ]
     },
@@ -32,6 +39,13 @@
           "paragraphs": [
             "The same maths works for more than restaurants. Use it for a rented holiday home, a shared taxi, a cake for the office, a gift from a group or a utility bill in a flat. Enter the total, the number of people and any extra, and everyone sees the same figure.",
             "For trips where people pay for different things, add up what each person paid, work out the average per person, and settle the difference. Whoever paid less than the average pays the difference to whoever paid more. Doing this once at the end is simpler than settling after every purchase."
+          ]
+        },
+        {
+          "heading": "Keeping it fair and friendly",
+          "paragraphs": [
+            "Agree on the rules before the bill arrives: split equally, or pay for what you ordered. For alcohol or an expensive dish, many groups let those who had it pay for it and split the rest. Small differences are not worth an argument, so round to a simple amount and move on.",
+            "Show the figures to the group to avoid confusion. The shared screen of this page lets everyone see the same numbers."
           ]
         }
       ]
@@ -51,6 +65,13 @@
             "Use words for buttons, labels and headings, where you need a small, exact amount. Use sentences for captions and short descriptions. Use paragraphs for articles, blog posts and product pages. Generating a little more than you need is better than too little, because you can trim text but you cannot judge a long page from a short sample.",
             "Test your design with the worst case as well: one very long word, a very long heading, and text in the longest language your site will use. Real content is rarely as tidy as placeholder text."
           ]
+        },
+        {
+          "heading": "Alternatives to lorem ipsum",
+          "paragraphs": [
+            "Some designers prefer realistic sample content, because it shows how real headlines and descriptions will fit. If the content is not ready, use short sample text that is similar in length and tone. It helps people reviewing the design understand what each part is for.",
+            "Lorem ipsum is still the quickest choice for early layouts, since people look at the shapes and not the words."
+          ]
         }
       ]
     },
@@ -68,6 +89,13 @@
           "paragraphs": [
             "A normal counter such as 1, 2, 3 is short and easy to read but needs one place to hand out the numbers and reveals how many records you have. A UUID is 36 characters long, harder to read, and can be made by anyone. Some databases store UUIDs less efficiently or find them slower to sort, so large systems sometimes choose time-ordered versions.",
             "This tool makes version 4 UUIDs, which are random. If you need an ID that you can sort by creation time, look for version 7 in your programming language's library."
+          ]
+        },
+        {
+          "heading": "Using UUIDs safely in a project",
+          "paragraphs": [
+            "Use UUIDs for identifiers that must be unique but need not be secret, and store them in a field made for them if your database supports it. Do not hide private information inside a UUID, and do not rely on it to protect a link from guessing if the link gives access to private data.",
+            "In tests, generate a few and paste them into your fixtures. In production, create UUIDs with your language's secure library so that your system makes them at the right time."
           ]
         }
       ]
@@ -87,6 +115,13 @@
             "The most frequent mistake is mixing up seconds and milliseconds, which gives dates in 1970 or in the far future. The second is forgetting the time zone: a timestamp is always UTC, but the date you see depends on the zone used to display it. A third is storing local times without the zone, which causes errors when daylight saving starts or ends.",
             "When in doubt, store UTC and convert to local time only when you show it to a person. Use the converter to check what a number means before you write code around it."
           ]
+        },
+        {
+          "heading": "Timestamps in everyday work",
+          "paragraphs": [
+            "Developers meet timestamps in server logs, API responses, databases, tokens and file information. Support teams use them to line up events across systems, and analysts use them to group records by day. Being able to read a timestamp quickly saves time when you are tracing a problem.",
+            "Convert the time of an error in a log to your own time zone, or turn a date into a timestamp to use in a query."
+          ]
         }
       ]
     },
@@ -104,6 +139,13 @@
           "paragraphs": [
             "Reading time helps you plan a speech: at an average speaking pace of about 130 words per minute, a five minute talk is roughly 650 words. For web articles, short paragraphs of two to four sentences are easier to read on a phone.",
             "Very long sentences are harder to follow. If the average sentence length is above 25 words, try splitting some of them. A varied rhythm of short and long sentences usually reads best."
+          ]
+        },
+        {
+          "heading": "Improving your writing",
+          "paragraphs": [
+            "Counting is the first step. Look at the average sentence length and the reading time, then edit. Cut filler words, split long sentences and remove repeats. Many writers find that shorter text reads better and gets read more often.",
+            "Check the limit twice before you submit, once while you write and again after the final edit."
           ]
         }
       ]
@@ -141,6 +183,13 @@
             "Check the type of unit before you convert. A fluid ounce measures volume, while an ounce measures weight. A US gallon is smaller than a UK gallon, and a tonne is not the same as a ton. For data, a kilobyte may mean 1,000 or 1,024 bytes depending on the context, so storage makers and operating systems can show different numbers for the same disk.",
             "If you are working on something where a mistake matters, such as medicine, building or travel documents, double-check the result against a trusted source."
           ]
+        },
+        {
+          "heading": "Converting for travel, cooking and study",
+          "paragraphs": [
+            "Travellers convert kilometres to miles, Celsius to Fahrenheit and kilograms to pounds. Cooks switch between cups, millilitres and ounces. Students convert units in physics and chemistry problems, where a missed conversion is a common source of lost marks.",
+            "Write the units next to every number as you calculate, and convert at the start. The result is easier to check."
+          ]
         }
       ]
     },
@@ -177,6 +226,13 @@
             "When a link does not work, decode it to read what it really contains. You may find a doubled encoding, where %2520 appears instead of %20, which means the text was encoded twice. You may also find a stray character or a missing parameter.",
             "When building links in code, encode each value separately, not the whole address. Encoding the whole URL would also change the colon and slashes that make it a link."
           ]
+        },
+        {
+          "heading": "Encoding in web development",
+          "paragraphs": [
+            "Developers encode values before adding them to a query string, so special characters do not break the link. Frameworks often do this automatically, but you may need to do it by hand when building links in a spreadsheet, an email template or a test.",
+            "Decode a long link to read where it goes, check the parameters or find tracking codes added to it."
+          ]
         }
       ]
     },
@@ -194,6 +250,13 @@
           "paragraphs": [
             "On a cheque, invoice or contract, figures can be changed more easily than words. If the two do not match, banks and courts usually go by the words. Writing the amount carefully in both ways helps prevent disputes and rejected cheques.",
             "Write the words starting at the left edge of the line, draw a line through any empty space, and make sure the words and the figures match exactly before signing."
+          ]
+        },
+        {
+          "heading": "Writing amounts on cheques and forms",
+          "paragraphs": [
+            "Write the amount in words on the first line without gaps, and write the figures in the box. Start the words at the far left and draw a line through the unused space. If you make a mistake, use a new cheque, since banks may refuse a cheque with changes.",
+            "Always check that the words match the figures before you sign. When they differ, the words usually decide, which may not be the amount you meant."
           ]
         }
       ]
@@ -737,6 +800,330 @@
           ]
         }
       ]
+    },
+    "sanitize-pdf": {
+      "sections": [
+        {
+          "heading": "When to sanitize a PDF",
+          "paragraphs": [
+            "Sanitize a file before you send it outside your organisation or publish it. Documents made in a word processor, a design program or a scanner often carry the author name, the software used, edit dates and sometimes comments or file paths. A job seeker may not want an old company name in the file properties, and a business may not want a client name to travel with a draft.",
+            "It is a good habit to sanitize before you upload a PDF to a public website, send a proposal to a competitor or share a report with a journalist."
+          ]
+        },
+        {
+          "heading": "What sanitizing does not change",
+          "paragraphs": [
+            "Sanitizing removes the hidden properties it supports. It does not remove text, images or comments that are visible on the pages, and it does not redact content. If a page shows a name, an address or a number you want to hide, you must delete or cover that page content before you export the file.",
+            "Check the result with the Inspect PDF tool. It shows the fields that remain, so you can confirm that the properties you cared about are gone."
+          ]
+        }
+      ]
+    },
+    "extract-text": {
+      "sections": [
+        {
+          "heading": "Good uses for extracted text",
+          "paragraphs": [
+            "Pull the text out of a report to quote it in an essay, move it into a spreadsheet, run a word count, translate it, or paste it into an email. For long documents, extracted text is also easier to search with your own tools and to compare with another version.",
+            "Because the output is page by page, you can find the page that a passage came from, which helps when you must cite a source."
+          ]
+        },
+        {
+          "heading": "When the result looks wrong",
+          "paragraphs": [
+            "Text in a PDF is stored in pieces, and the order of those pieces may not match the reading order, especially in columns, tables and forms. If words come out jumbled or a table becomes a stream of numbers, copy the passage from the original, or use the table as an image.",
+            "If no text appears at all, the PDF is probably a scan, which is a picture of a page. In that case use the Digitize Documents tool to read the text from the image, then review it for mistakes."
+          ]
+        }
+      ]
+    },
+    "n-up-pdf": {
+      "sections": [
+        {
+          "heading": "Saving paper and money",
+          "paragraphs": [
+            "Putting two pages on one sheet halves the paper, and four pages on a sheet cuts it to a quarter. This is useful for lecture slides, long reports for review and anything you only need to read. A slide deck of 40 slides at four per sheet prints on 10 sheets.",
+            "Set the orientation and the order of the pages so the sheet reads naturally. Left to right and top to bottom matches normal reading order."
+          ]
+        },
+        {
+          "heading": "Readability tips",
+          "paragraphs": [
+            "Smaller pages mean smaller text. Two pages per sheet in landscape is easy to read for most documents, while four per sheet suits slides with large type. For pages with small print, such as spreadsheets, test one sheet before printing the whole file.",
+            "Add a little spacing between pages and a thin border if the pages have no frame, so the content does not run together. Print double-sided to cut paper use further."
+          ]
+        }
+      ]
+    },
+    "crop-pdf": {
+      "sections": [
+        {
+          "heading": "Reasons to crop",
+          "paragraphs": [
+            "Remove wide margins from a scanned page so it fills the screen on a phone, cut off a header or footer you do not want, trim the black edges that a scanner leaves, or focus on one part of a page such as a chart or a table. Cropping makes the reader see the part that matters.",
+            "It is also handy before printing, because a page with smaller margins can be enlarged to use the paper better."
+          ]
+        },
+        {
+          "heading": "Cropping with care",
+          "paragraphs": [
+            "Cropping hides the outside area but may not delete the content in the file. If the hidden part holds private information, do not rely on cropping to remove it. Delete or redact the content in the source and export again.",
+            "Check a few pages after you crop, because pages in the same file may have different layouts. Apply the same crop to all pages only when the layout is consistent, and crop odd and even pages separately for a scan of a bound book."
+          ]
+        }
+      ]
+    },
+    "base64-tool": {
+      "sections": [
+        {
+          "heading": "What Base64 is used for",
+          "paragraphs": [
+            "Base64 turns any data into plain letters and numbers so that it can travel through systems built for text. It appears in email attachments, in data URLs that put a small image directly inside a web page, in API requests and in tokens. It makes data about a third larger.",
+            "You can paste text or choose a file to encode it, and paste an encoded string to turn it back into text or a file."
+          ]
+        },
+        {
+          "heading": "Hashes in short",
+          "paragraphs": [
+            "A hash such as SHA-256 is a short fingerprint of data. The same input always gives the same fingerprint, and a tiny change gives a completely different one. Websites publish the hash of a download so that you can check that the file was not changed on the way.",
+            "A hash cannot be turned back into the original data, so it is different from encoding. Do not store passwords with a plain SHA hash, since fast hashes are easy to guess against. Use a password hashing method that is made for the job."
+          ]
+        }
+      ]
+    },
+    "delete-pdf-pages": {
+      "sections": [
+        {
+          "heading": "Typical reasons to delete pages",
+          "paragraphs": [
+            "Take out blank pages from a scan, remove a cover sheet or a page that holds private information, drop old appendices from a report, or cut a long file down to the pages a form asks for. A smaller document is quicker to send and easier to read.",
+            "Enter single pages, ranges or a mix, such as 1, 3-5, 9. The tool shows what will be removed so that you can check before you save."
+          ]
+        },
+        {
+          "heading": "Before you save",
+          "paragraphs": [
+            "Count your pages before and after. Deleting page 3 moves page 4 up, so a second range written after the first deletion may point at different pages. Enter all pages to remove in one go, using the numbers as they are in the original.",
+            "If you remove pages for privacy, also check bookmarks, outlines and attachments, which can still mention the removed content. The Sanitize PDF tool helps with hidden properties. Keep the original file in case you need the pages later."
+          ]
+        }
+      ]
+    },
+    "unlock-pdf": {
+      "sections": [
+        {
+          "heading": "When unlocking makes sense",
+          "paragraphs": [
+            "You have a PDF that asks for a password every time you open it, and you know the password. A copy without the password is easier to open on a phone, to merge with other files, to upload to a portal that cannot handle encrypted files, or to print.",
+            "Unlocking needs the password that opens the file. The tool does not guess or break passwords."
+          ]
+        },
+        {
+          "heading": "Using unlocked files responsibly",
+          "paragraphs": [
+            "A password is often there for a reason, such as a bank statement or a medical report. Once you remove it, anyone who gets the new file can open it. Store the copy somewhere safe, and delete it when you no longer need it.",
+            "If you need to share the file again, protect it with the Protect PDF tool and send the password by a different route, for example a phone call instead of the same email."
+          ]
+        }
+      ]
+    },
+    "flatten-pdf": {
+      "sections": [
+        {
+          "heading": "Why flatten a form",
+          "paragraphs": [
+            "A filled form keeps its answers in fields that can be changed, and some viewers show them differently or not at all. Flattening makes the answers part of the page, like printed ink, so everyone sees the same thing and nobody can change a field by accident.",
+            "It is common to flatten a signed or completed form before you send it, archive it or upload it to a portal that rejects fillable files."
+          ]
+        },
+        {
+          "heading": "Before and after",
+          "paragraphs": [
+            "Fill in the form first and check every answer. After flattening, you cannot edit the fields, so keep the fillable version as your working copy. Open the flattened file to confirm that all the text, checkboxes and signatures show.",
+            "Flattening can also reduce problems when a PDF prints with missing text. If a field does not show after flattening, it may have been empty or hidden in the original."
+          ]
+        }
+      ]
+    },
+    "protect-pdf": {
+      "sections": [
+        {
+          "heading": "Choosing a good password",
+          "paragraphs": [
+            "A password only protects your file if it is hard to guess. Use at least 12 characters and avoid names, dates and common words. A random password from the Password Generator on this site is a good choice. Store it in a password manager.",
+            "Share the password through a different channel from the file. If you email the PDF, send the password by phone or a messaging app."
+          ]
+        },
+        {
+          "heading": "What protection can and cannot do",
+          "paragraphs": [
+            "With a password to open, the file cannot be read without it. Permission settings that stop printing or copying depend on the viewer respecting them, so treat them as a polite request, not a lock. If a file is truly confidential, use the open password.",
+            "Remember that the person who opens the file can still take a photo of the screen or retype the text. Protection reduces the risk, but it cannot control what an authorised reader does."
+          ]
+        }
+      ]
+    },
+    "add-page-numbers": {
+      "sections": [
+        {
+          "heading": "Where page numbers help",
+          "paragraphs": [
+            "Reports, theses, contracts, scanned documents and printed handouts are easier to use when each page has a number. Readers can find a section from the contents page, and a group can refer to \"page 12\" in a meeting. Numbers also make it clear when a page is missing.",
+            "Choose the position that suits your layout: bottom centre is common for reports, and bottom right works well for printed handouts that are bound on the left."
+          ]
+        },
+        {
+          "heading": "Starting and formatting",
+          "paragraphs": [
+            "For a document with a cover page, start numbering from the second page or set the first number so the first content page is 1. Use a format such as Page 3 of 12 when it is important that readers know the total length. Pick a font size that is readable but not larger than the body text.",
+            "Check the position on a page with a footer or a page border, so the number does not overlap existing text. Preview a few pages before you save."
+          ]
+        }
+      ]
+    },
+    "image-resizer": {
+      "sections": [
+        {
+          "heading": "Choosing size, format and quality",
+          "paragraphs": [
+            "Two limits matter on most upload forms: the file size in kilobytes and the dimensions in pixels. Set the target size, or an exact width and height, then check the preview. JPG is best for photographs, since it makes small files, while PNG suits logos, screenshots and drawings with flat colours.",
+            "If you need both an exact size and a small file, set the pixels first and let the tool reduce quality to reach the size."
+          ]
+        },
+        {
+          "heading": "Resizing for different uses",
+          "paragraphs": [
+            "For a website, a width of 1,200 to 1,600 pixels is usually enough, and a smaller image loads faster on a phone. For email, shrink large photos so that a message with several pictures stays under the limit. For social media, check the recommended sizes, but a clear image near those sizes will do.",
+            "Resize from the original photo each time. Repeatedly saving a JPG loses a little quality every time, so work from the best copy you have."
+          ]
+        }
+      ]
+    },
+    "compress-pdf": {
+      "sections": [
+        {
+          "heading": "Why PDFs get large",
+          "paragraphs": [
+            "A PDF becomes large when it holds big images, embedded fonts, scanned pages or many pages of graphics. A text-only document is small, but a scan of the same pages at high resolution can be fifty times larger. Knowing what makes your file big tells you how much it can shrink.",
+            "If your file is mostly text and is still big, the cause may be unused data inside the file, which compression can remove. If it is made of scanned images, you may need to reduce image quality."
+          ]
+        },
+        {
+          "heading": "Getting under a size limit",
+          "paragraphs": [
+            "Start with the gentler option and check the size. If it is still too large, try the stronger one and look at a few pages to make sure the text is readable. For a scan, reduce its resolution before you build the PDF, or split the file into parts if the form allows several uploads.",
+            "Do not compress again and again. Each pass can lower quality, and the savings get smaller. Keep your original so you can return to it if the compressed version is not good enough."
+          ]
+        }
+      ]
+    },
+    "generate-sample-pdf": {
+      "sections": [
+        {
+          "heading": "Who needs sample PDFs",
+          "paragraphs": [
+            "Developers use sample files to test upload forms, viewers, converters and file size limits without using real documents. Testers check how an application behaves with a very long file, odd page sizes or a damaged file. Teachers and trainers use them to demonstrate PDF tools without any private data.",
+            "Having a file of a known size and page count makes tests repeatable."
+          ]
+        },
+        {
+          "heading": "Testing carefully",
+          "paragraphs": [
+            "Use a clear name for each test file so that you know what it is for. Keep generated files out of production systems, and delete them when the test ends. Test the extremes your system must handle, such as the largest allowed size, a single page, and a file just over the limit.",
+            "Do not use real people's data for tests. The sample data in the tool is invented, so you can share the files with a team without privacy worries."
+          ]
+        }
+      ]
+    },
+    "rotate-pdf": {
+      "sections": [
+        {
+          "heading": "Why pages end up sideways",
+          "paragraphs": [
+            "Scanners and phone cameras decide the orientation of a page from how the paper was placed. A mixed batch of portrait and landscape scans often leaves some pages sideways or upside down. Rotating them fixes the file so that it reads properly on screen and in print.",
+            "Rotate individual pages when only a few are wrong, or the whole file when the entire scan is turned."
+          ]
+        },
+        {
+          "heading": "Rotation and printing",
+          "paragraphs": [
+            "A rotation is saved in the file, so it looks the same in other viewers. Check landscape pages that sit inside a portrait document: when you print double-sided, the back of a rotated page can face the wrong way, so test one sheet first.",
+            "If the text is still crooked after rotating by 90 degrees, the scan itself is skewed. Rotate the page and then use a scanner app to straighten the original."
+          ]
+        }
+      ]
+    },
+    "resize-image-to-20kb": {
+      "sections": [
+        {
+          "heading": "What 20 KB looks like",
+          "paragraphs": [
+            "A 20 KB image is very small. It is about the size of a signature scan, a small passport-style photo at low resolution or a tiny thumbnail. At this size a large photograph cannot keep much detail, so the tool lowers the pixel size and the quality until the file fits.",
+            "Crop the picture tightly around the subject before you start. A face that fills the frame stays recognisable at a small size, while a wide photo with a lot of background does not."
+          ]
+        },
+        {
+          "heading": "Tips for a clear result",
+          "paragraphs": [
+            "Use a plain, evenly lit original with no noise. Dark backgrounds and busy patterns need more bytes. If the first try looks too soft, reduce the width and height a little more and let the quality stay higher.",
+            "Check the requirements for pixels as well as kilobytes. Many forms ask for both, for example a width of 140 pixels for a signature. Open the final file and zoom in to be sure it is readable before you upload it."
+          ]
+        }
+      ]
+    },
+    "resize-image-to-50kb": {
+      "sections": [
+        {
+          "heading": "Where 50 KB is used",
+          "paragraphs": [
+            "A 50 KB limit is common for photos on exam and job application forms, and sometimes for ID card or membership uploads. It leaves room for a clear face photo at modest pixel dimensions, such as 200 by 230 pixels, but not for a large camera photo.",
+            "Start with a recent photo that follows the rules for the form, such as a plain background and your face fully visible."
+          ]
+        },
+        {
+          "heading": "Balancing quality and size",
+          "paragraphs": [
+            "The tool tries to keep the quality as high as possible while meeting the limit. If the picture is large, it first reduces the pixels, then the quality. Photos in good light with a plain background compress best.",
+            "After resizing, compare the result with the form's requirements for dimensions, format and background. Keep the original so you can create another size if a different form asks for one."
+          ]
+        }
+      ]
+    },
+    "resize-image-to-100kb": {
+      "sections": [
+        {
+          "heading": "Where 100 KB is used",
+          "paragraphs": [
+            "A limit of 100 KB is common for passport-style photographs, identity documents, college applications and online profile pictures. It allows a good quality photo at moderate pixel dimensions, and also a clear scan of a small document such as a certificate.",
+            "Documents with text need more care than photos. Use a higher quality so the letters stay readable, and check small print after resizing."
+          ]
+        },
+        {
+          "heading": "Photos and documents",
+          "paragraphs": [
+            "For a photo, crop to the head and shoulders, keep the background plain and use JPG. For a document scan, convert it to a straight, well-lit image first and avoid shadows. Scans of text at 150 dots per inch are usually readable and compress well.",
+            "If the document is longer than one page, use the Image to PDF or Compress PDF tools, since a form may allow a PDF within a size limit."
+          ]
+        }
+      ]
+    },
+    "resize-image-to-200kb": {
+      "sections": [
+        {
+          "heading": "Where 200 KB is used",
+          "paragraphs": [
+            "A 200 KB limit is a comfortable size for a photo with good detail, a scanned certificate, a signed form or a logo. It is also useful for images on a website, since a picture under this size loads quickly on a phone.",
+            "Because the limit is larger, you can keep more of the original pixels and quality. Check the form for any minimum size as well."
+          ]
+        },
+        {
+          "heading": "Keeping quality at this size",
+          "paragraphs": [
+            "Use the original photo and avoid resizing it several times. For a document scan, choose a high enough resolution that small text is readable, and a grey or black and white scan if colour is not needed, since it makes the file smaller.",
+            "Look at the finished image at full size. If you see blocky areas or blur around text, ask for a larger limit or reduce the pixel dimensions."
+          ]
+        }
+      ]
     }
   },
   "pageGuides": {
@@ -749,6 +1136,10 @@
         [
           "Will it change numbers, symbols or emoji?",
           "No. Only letters that have an upper and lower form are changed. Numbers, punctuation, emoji and spaces stay as they are, except where a code style such as snake_case replaces spaces with a separator."
+        ],
+        [
+          "Will it keep abbreviations in capitals?",
+          "Title case and sentence case treat each word by simple rules, so abbreviations may need a manual fix. Check them after converting."
         ]
       ]
     },
@@ -761,6 +1152,10 @@
         [
           "How do I handle one person who ordered much more?",
           "Equal splitting is easiest when meals cost about the same. If one person ordered much more, subtract their extra items from the total first, split the rest equally, and then add the extra items back to that person."
+        ],
+        [
+          "How do I split when someone pays for everyone first?",
+          "The person who paid collects each share from the others. Use the per-person figure shown and ask everyone to send it at once, for example by a payment app."
         ]
       ]
     },
@@ -773,6 +1168,10 @@
         [
           "Can I use the text in commercial projects?",
           "Yes. Lorem ipsum is a scrambled version of an old Latin text and is not protected by copyright. You can use it in any mock-up, template or design."
+        ],
+        [
+          "Why do designers avoid repeating the same sentence?",
+          "A repeated sentence makes lines and paragraphs look identical, so you cannot judge rhythm, line breaks or spacing. Varied text gives a more honest picture."
         ]
       ]
     },
@@ -785,6 +1184,10 @@
         [
           "Can I generate many UUIDs at once?",
           "Yes. Choose how many you need, and copy them all. You can also pick upper case, remove the hyphens or add braces to match the format your system expects."
+        ],
+        [
+          "What does the 4 in the middle of a UUID mean?",
+          "It marks the version. A version 4 UUID is random, and the digit at that position is always 4."
         ]
       ]
     },
@@ -797,6 +1200,10 @@
         [
           "Can it show the current timestamp?",
           "Yes. Use the current time option to see the present moment as a timestamp in seconds and milliseconds, and copy it for use in your code or tests."
+        ],
+        [
+          "Why does a timestamp of 0 show 1970?",
+          "Zero is the starting point, called the epoch: 1 January 1970 at midnight UTC. Dates before it are negative numbers."
         ]
       ]
     },
@@ -809,6 +1216,10 @@
         [
           "Does the counter include the title, references or quotes?",
           "It counts everything you paste. If your assignment excludes the title, bibliography or quotations, paste only the part that counts, or subtract those parts afterwards."
+        ],
+        [
+          "What is a good length for a blog post?",
+          "It depends on the topic. Many useful posts run from 800 to 2,000 words. Cover the question fully, and do not add length for its own sake."
         ]
       ]
     },
@@ -833,6 +1244,10 @@
         [
           "How do I convert between Celsius and Fahrenheit by hand?",
           "To go from Celsius to Fahrenheit, multiply by 1.8 and add 32. To go from Fahrenheit to Celsius, subtract 32 and divide by 1.8. The converter does this for you and avoids rounding slips."
+        ],
+        [
+          "Why do recipes use different cup sizes?",
+          "A cup is not the same everywhere: a US cup is about 237 ml, a metric cup is 250 ml and some old recipes use other sizes. For accuracy, weigh ingredients."
         ]
       ]
     },
@@ -857,6 +1272,10 @@
         [
           "Is URL encoding the same as encryption?",
           "No. It only changes how characters are written so that they travel safely in a link. Anyone can decode it, so never use it to hide passwords or private data."
+        ],
+        [
+          "Should I encode the whole address?",
+          "No. Encode each value, such as a search term. Encoding the entire URL also changes the colon and slashes and breaks the address."
         ]
       ]
     },
@@ -869,6 +1288,10 @@
         [
           "Does the tool support other currencies?",
           "It is designed for rupees and paise, with an option for a plain number. For other currencies, use the plain number option and add the currency name yourself."
+        ],
+        [
+          "Should I write \"and\" in amounts?",
+          "Customs differ. Indian cheques commonly write the rupees, then \"and\" before the paise, ending with \"Only\". Follow your bank's sample."
         ]
       ]
     },
@@ -1229,6 +1652,210 @@
         [
           "Does the order change the size of the file?",
           "Not noticeably. Reordering or deleting pages mostly changes what is included. Deleted pages are removed, which can reduce the size."
+        ]
+      ]
+    },
+    "sanitize": {
+      "faq": [
+        [
+          "Is metadata the same as hidden text?",
+          "No. Metadata is information about the file, such as author and dates. Hidden text is content inside the pages that is not visible, for example white text on a white background. Sanitizing is about the first kind."
+        ],
+        [
+          "Should I sanitize every PDF I share?",
+          "It is sensible for files that leave your organisation or go on a public site. For internal documents the metadata is usually harmless and can even be useful."
+        ]
+      ]
+    },
+    "extract": {
+      "faq": [
+        [
+          "Does extracting text keep fonts and formatting?",
+          "No. You get plain text. Bold, italics, colours and layout are not kept, though line breaks and page breaks are shown."
+        ],
+        [
+          "Can I extract text from a password-protected PDF?",
+          "You need to unlock the file first. The tool will ask for the password when it detects an encrypted file, so use the password you were given."
+        ]
+      ]
+    },
+    "nup": {
+      "faq": [
+        [
+          "Can I make a booklet with this tool?",
+          "N-up places pages in reading order on a sheet. A folded booklet needs a special page order, so use your printer's booklet option or a dedicated imposition tool."
+        ],
+        [
+          "Does it change the size of my text?",
+          "Yes. Each page is scaled down to fit its place on the sheet, so the text gets smaller. Choose fewer pages per sheet if it becomes too small."
+        ]
+      ]
+    },
+    "crop": {
+      "faq": [
+        [
+          "Is cropping reversible?",
+          "Usually the original page size is kept inside the file as a hidden box, but you should not count on undoing a crop in other software. Keep a copy of the original file."
+        ],
+        [
+          "Will cropping reduce the file size?",
+          "Not much, since the hidden content usually stays in the file. To reduce size, use the Compress PDF tool afterwards."
+        ]
+      ]
+    },
+    "base64": {
+      "faq": [
+        [
+          "How can I tell if a string is Base64?",
+          "It uses letters, numbers, plus and slash characters, and usually ends with one or two equals signs. Its length is a multiple of four. URL-safe versions use minus and underscore instead."
+        ],
+        [
+          "Why does my decoded text look like nonsense?",
+          "The data may be a file, not text, or it may use a different character encoding. Try saving the result as a file, or check that you copied the whole string."
+        ]
+      ]
+    },
+    "delete": {
+      "faq": [
+        [
+          "Can I undo a deletion?",
+          "The tool makes a new file and leaves the original untouched, so you can run it again with different pages. You cannot recover pages from the new file."
+        ],
+        [
+          "Can I delete every other page?",
+          "Enter the pages to remove as a list, such as 2, 4, 6, 8. For a long file, use the odd or even option if one is shown, or the Organize PDF tool to select pages visually."
+        ]
+      ]
+    },
+    "unlock": {
+      "faq": [
+        [
+          "Can I remove the restrictions on printing or copying?",
+          "If the file opens without a password but restricts printing or copying, those rules are set by the owner. Respect the owner's intent and the law. The tool is meant for files you are entitled to use."
+        ],
+        [
+          "What if I forgot the password?",
+          "The tool cannot recover a lost password. Ask the person or organisation that created the file, for example your bank, to send it again."
+        ]
+      ]
+    },
+    "flatten": {
+      "faq": [
+        [
+          "Does flattening remove comments or annotations?",
+          "It merges form fields into the page. Other items, such as highlights and notes, depend on the file, so check the result and keep the original."
+        ],
+        [
+          "Will a flattened PDF be smaller?",
+          "Sometimes slightly, since the form structure is removed. For a much smaller file, run the Compress PDF tool as well."
+        ]
+      ]
+    },
+    "protect": {
+      "faq": [
+        [
+          "What if I lose the password?",
+          "There is no way to recover it with this tool, and the file cannot be opened without it. Keep a safe record of the password and a copy of the unprotected original in a secure place."
+        ],
+        [
+          "Will the protected file work on phones and in other programs?",
+          "Standard PDF viewers on phones and computers ask for the password and open the file. Very old or simple viewers may not support all settings."
+        ]
+      ]
+    },
+    "pageNumbers": {
+      "faq": [
+        [
+          "Can I number only some pages?",
+          "Use the start and end page options to number a range. For a cover or a table of contents without numbers, begin on the first page that should have one."
+        ],
+        [
+          "Will it add a header or footer text as well?",
+          "Yes, the tool can add short header or footer text along with the numbers. Keep it brief so it does not crowd the page."
+        ]
+      ]
+    },
+    "imageResizer": {
+      "faq": [
+        [
+          "Will resizing make my photo blurry?",
+          "Making an image smaller keeps it sharp. Making it larger cannot add detail, so a small image enlarged will look soft."
+        ],
+        [
+          "Does the tool remove the location from my photo?",
+          "Resizing creates a new image file and usually drops the extra information stored in the original, such as camera details. Check the result if privacy matters."
+        ]
+      ]
+    },
+    "compress": {
+      "faq": [
+        [
+          "How much smaller will my PDF be?",
+          "It depends on the content. A PDF with large photos can shrink a lot, while one that is mostly text may change little. The tool shows the new size so you can decide."
+        ],
+        [
+          "Will compression make text harder to read?",
+          "Text and vector drawings are not blurred by this tool. Images may lose some detail at the stronger setting, so check them before you send the file."
+        ]
+      ]
+    },
+    "sample": {
+      "faq": [
+        [
+          "Can I create a file of an exact size?",
+          "The size simulation pads the file toward the size you choose. The final size can differ a little, so check it in your file manager."
+        ],
+        [
+          "Are the generated files safe to share?",
+          "Yes. They contain generated placeholder content only. A deliberately broken file is meant for testing and may not open in all programs."
+        ]
+      ]
+    },
+    "imageResizer20": {
+      "faq": [
+        [
+          "Is 20 KB the same as 20,000 bytes?",
+          "A kilobyte is 1,024 bytes in most file managers, though some systems use 1,000. To be safe, aim for a few KB under the limit."
+        ],
+        [
+          "Why does the tool lower the size of my picture?",
+          "Reaching a small file size sometimes needs fewer pixels, not only more compression. Reducing both keeps the image clearer than squeezing a large picture very hard."
+        ]
+      ]
+    },
+    "imageResizer50": {
+      "faq": [
+        [
+          "Can I use the same photo for several forms?",
+          "Often yes, if the limits and dimensions match. When they differ, resize from the original each time, not from a file that has already been reduced."
+        ],
+        [
+          "What if the form needs a minimum size as well?",
+          "Some forms require a file between two sizes, for example 20 to 50 KB. After resizing, check the file size, and if it is too small, ask for a larger limit in the tool, such as 50 KB, to keep more quality."
+        ]
+      ]
+    },
+    "imageResizer100": {
+      "faq": [
+        [
+          "Why is my 100 KB image still rejected?",
+          "The form may check the pixel size, the type of file, or count a kilobyte as 1,000 bytes. Aim well under the limit and read the form's rules."
+        ],
+        [
+          "Can I resize a PNG to 100 KB?",
+          "Yes. The tool can convert it to JPG, which is usually much smaller for photographs. Keep PNG only if the form requires it."
+        ]
+      ]
+    },
+    "imageResizer200": {
+      "faq": [
+        [
+          "Is 200 KB enough for a scanned page?",
+          "For a single page at a normal resolution, usually yes, especially in black and white. A page with photographs may need a larger limit."
+        ],
+        [
+          "Can I use this for a website image?",
+          "Yes. Under 200 KB is a good target for a normal web image. Smaller images load faster, so compress further if the page is heavy."
         ]
       ]
     }
