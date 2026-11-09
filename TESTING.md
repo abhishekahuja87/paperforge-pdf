@@ -239,3 +239,14 @@ Check after deploy (phone first):
 - Long tool names are shortened (for example "Printable Flashcard Maker") and none overflow.
 - Search still finds every tool, including ones that were footer-only before.
 - Page length on a phone is acceptable; if it is too long, lower `COLLECTION_PREVIEW` in `src/config/homeSections.ts`.
+
+### Home page polish
+
+Checked in the sandbox (Chromium, real catalogue, no CSS): the PDF topic shows 6 tiles and "Show 13 more"; pressing it shows all 19 and the button becomes "Show fewer" below the tiles; pressing again folds back; `aria-expanded` follows. The earlier "all tiles highlight on hover" came from the fold container sharing the `group` class with the tiles; the container no longer uses it. Looks were not checked (no Tailwind in the sandbox).
+
+Check after deploy:
+- Hover one tile inside an opened topic: only that tile highlights.
+- The button stays below the tiles when open and says Show fewer.
+- Workspace cards show the heading, the use-case label and the full description; none are cut off.
+- Topic tiles are small (two per row on a phone), names are shortened and the full description appears when you hover or long-press.
+- Topic descriptions read well and the "New" tag shows on the recently added tools.

@@ -14,7 +14,7 @@ export const MOST_USED = [
   'income-tax-calculator', 'emi-calculator', 'sip-calculator', 'age-calculator', 'qr-code-generator', 'resume-builder',
 ];
 
-/** Recently added tools, shown with a "New" tag. Replace the oldest when a new tool ships. */
+/** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
   'screenshot-redactor', 'bill-splitter', 'vcard-to-csv-converter', 'printable-flashcard-maker', 'printable-paper-maker', 'printable-planner-maker',
 ];
