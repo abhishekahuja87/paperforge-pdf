@@ -1,0 +1,127 @@
+{
+  "toolCatalog": {
+    "vcard-to-csv-converter": [
+      "VCF to CSV and Excel Converter: Convert Large vCard Files Offline in Your Browser",
+      "Convert vCard (.vcf) contacts to CSV or Excel, even very large files, without uploading them."
+    ]
+  },
+  "guideSteps": {
+    "vcard-to-csv-converter": [
+      [
+        "Choose your .vcf files",
+        "Pick one or several vCard files exported from a phone, Google Contacts, iCloud or Outlook. Large files are read in pieces with a progress bar."
+      ],
+      [
+        "Check what was found",
+        "See how many contacts were read, how many have a phone or an email, and how many duplicates will be removed."
+      ],
+      [
+        "Choose columns and clean-up",
+        "Pick the groups of columns you want, decide whether several phones go in separate columns or one cell, and tidy phone numbers or sort by last name if you like."
+      ],
+      [
+        "Download Excel or CSV",
+        "Check the preview, then download an .xlsx file or a CSV. Both open in Excel, Google Sheets, Numbers and LibreOffice."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "vcardConverterGuide": {
+      "title": "VCF to CSV and Excel Converter: Convert Large vCard Files Offline in Your Browser",
+      "subtitle": "Open one or many .vcf files, even hundreds of megabytes, choose the columns, remove duplicates and download Excel or CSV. Private: your contacts never leave your device.",
+      "faq": [
+        [
+          "Is the vCard converter free, and is there a file size limit?",
+          "It is free and needs no account. There is no upload, so there is no upload limit. The only limit is your device memory. Files are read in 4 MB pieces, and a list of 150,000 contacts takes about a second to read on a typical computer."
+        ],
+        [
+          "Are my contacts uploaded to a server?",
+          "No. The conversion happens in your browser. Many online converters upload the file to their servers, which matters when it holds other people's phone numbers and addresses."
+        ],
+        [
+          "Which vCard versions are supported?",
+          "Versions 2.1, 3.0 and 4.0, including the quoted-printable text that older Android phones write, grouped properties from iPhone and Google such as item1.TEL, and UTF-16 files."
+        ],
+        [
+          "What happens to a contact with several phone numbers?",
+          "By default each number gets its own column with its type, such as Cell or Work. Up to eight are separated; any beyond that are joined into the last column so nothing is lost. You can also put them all in one cell."
+        ],
+        [
+          "How does duplicate removal work?",
+          "A card is dropped when it has the same name as another card and every phone number and email on it is already on that card. Numbers are compared by digits and emails ignoring capitals. Different people with the same name and different numbers are both kept."
+        ],
+        [
+          "Why did my phone numbers lose the plus sign in Excel?",
+          "Excel turns a CSV value such as +919812345678 into a number. Use the Excel (.xlsx) download, which stores phone numbers as text, or turn on the CSV option that keeps the plus sign and leading zeros."
+        ],
+        [
+          "What about photos?",
+          "Contact photos are skipped. They are large and do not belong in a spreadsheet, and skipping them keeps big files fast."
+        ],
+        [
+          "Why does the Excel file have several sheets?",
+          "Excel holds about 1,048,576 rows per sheet. Larger lists are split across sheets in one workbook. CSV is always a single file."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Your .vcf files are read and converted in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network, but your contacts never leave your device."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "vcard-to-csv-converter": {
+      "sections": [
+        {
+          "heading": "What the vCard converter does",
+          "paragraphs": [
+            "A vCard file, with the extension .vcf, is the standard way to export contacts from a phone or an email account. It is a text format, which is good for moving contacts between devices but awkward when you want to see, sort or clean them. This tool reads one or many .vcf files and turns the contacts into a table that you can open in Excel, Google Sheets, Numbers or LibreOffice.",
+            "Each contact becomes a row. Names, company, job title, phone numbers, emails, websites, addresses, birthdays, categories and notes become columns, and you choose which groups to include. The result downloads as an Excel workbook or a CSV file."
+          ]
+        },
+        {
+          "heading": "Why many converters struggle with large files",
+          "paragraphs": [
+            "A phone that has collected contacts for ten years, a company address book or a backup of several accounts can produce a .vcf file of hundreds of megabytes, because each contact may carry a photo. Many web converters upload the file to a server, impose a size limit, or try to load the whole file as one string and run out of memory.",
+            "This converter reads the file in 4 MB pieces and parses contacts as they arrive, so memory use grows with the number of contacts rather than with the size of the photos. Photos are skipped entirely. A progress bar shows how far it has read, and the page stays responsive. A list of 150,000 contacts was read in about a second in testing, and the speed on your device depends on its processor and memory."
+          ]
+        },
+        {
+          "heading": "Messy files and older formats",
+          "paragraphs": [
+            "Real vCard files are rarely tidy. Long lines are folded onto several lines. Older Android phones write non-English names as quoted-printable text with codes like =C3=96. iPhone and Google exports attach labels to phone numbers through separate lines such as item1.X-ABLabel with values like _$!<Mobile>!$_. Some exports are saved as UTF-16 instead of UTF-8.",
+            "The reader handles all of these: it joins folded lines, decodes quoted-printable text in the character set the file declares, applies grouped labels to the right number, reads UTF-16, and understands the escapes for commas, semicolons and line breaks inside names and notes. Cards that have no name, company, phone or email are left out and counted for you."
+          ]
+        },
+        {
+          "heading": "Choosing the columns",
+          "paragraphs": [
+            "Start with what you need. For a mailing list that is the name and email. For a phone book it is the name and the phone numbers. Turn off the groups you do not need to keep the sheet narrow. The preview shows the first rows as they will appear.",
+            "When a contact has several phone numbers or emails, separate columns are best for filtering and sorting, because each column holds one kind of value. Choose the single-cell option when you plan to import the sheet into another program that expects one value per field, or when you want a compact list."
+          ]
+        },
+        {
+          "heading": "Removing duplicates and tidying",
+          "paragraphs": [
+            "Contacts that were synced from more than one account often appear twice, once with a number and once with a number and an email. The duplicate remover keeps the fullest card for each name and drops cards that add no phone number or email that is not already there. People who share a name but have different numbers are kept apart.",
+            "Tidy phone numbers strips spaces, dashes and brackets and keeps a leading plus, which makes the list easier to compare or import. Sorting by last name puts the list in address-book order. Check the counts at the top of the page before you download, so you know what was removed."
+          ]
+        },
+        {
+          "heading": "Excel, CSV and phone numbers",
+          "paragraphs": [
+            "Excel opens a CSV by guessing the type of each cell, and it treats a value such as +919812345678 as a number, dropping the plus sign and any leading zeros. The Excel download avoids this by storing every value as text, so phone numbers stay exactly as they are. It also freezes the header row, makes it bold and adds a filter.",
+            "CSV is the better choice for importing into another system. It is written as UTF-8 with a byte-order mark so accented letters show correctly in Excel. Cells that start with an equals sign or an at sign are prefixed with an apostrophe so a spreadsheet will not run them as formulas. If your CSV must open in Excel with plus signs intact, there is an option for that."
+          ]
+        },
+        {
+          "heading": "Privacy and limits",
+          "paragraphs": [
+            "Your contacts are other people's personal data, so it matters where they go. This tool never uploads them. The files are read with your browser, converted in memory and saved with a download link. The page itself loads advertising and other resources from the network, but the contact data stays on your device.",
+            "The tool converts from vCard to a table; it does not merge cards with different names, edit a vCard or write one back. If a .vcf file is damaged, the readable contacts are still converted. If your device runs short of memory on a very large file, split the file or close other tabs and try again."
+          ]
+        }
+      ]
+    }
+  }
+}

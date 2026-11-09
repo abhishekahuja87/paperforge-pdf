@@ -5,6 +5,7 @@ import freelancers from './packs/freelancers.en.json';
 import stationery from './packs/stationery.en.json';
 import planners from './packs/planners.en.json';
 import qr from './packs/qr.en.json';
+import vcard from './packs/vcard.en.json';
 import coreDepth from './depth/core.en.json';
 
 /**
@@ -12,7 +13,7 @@ import coreDepth from './depth/core.en.json';
  * A pack holds only the four per-tool sections below, keyed by tool id or guide key, so adding a pack never
  * touches en.json. To add a pack: create ./packs/<name>.en.json, import it here and add it to PACKS.
  */
-const PACKS = [careers, students, freelancers, stationery, planners, qr];
+const PACKS = [careers, students, freelancers, stationery, planners, qr, vcard];
 type Pack = (typeof PACKS)[number];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;

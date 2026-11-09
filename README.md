@@ -69,6 +69,7 @@ When adding or changing a tool, keep routes, catalog entries, search, guide cont
 
 - Planners pack (`planners`): Printable Planner Maker (`lib/planner`: `layout.ts` builds each calendar or planner page as the same shape list the paper maker uses, `dates.ts` does UTC date and Intl name work) with pages for the calendar and the daily planner. Shared sliders and toggles are in `components/tools/paper/controls.tsx`; `lib/paper/pdf.ts` has `buildPdfFromSheets` for pages that all differ.
 - QR pack (`qr`): QR Code Generator with Wi-Fi and vCard pages. `lib/qr/encoder.ts` is our own byte-mode encoder (versions 1 to 40, Reed-Solomon, mask selection); `payloads.ts` builds the text for link, Wi-Fi, vCard, email, phone, SMS, geo and calendar event plus the contrast helper; `render.ts` makes the SVG, PNG and the BarcodeDetector self-check. Screens in `components/tools/qr`, text in `locales/packs/qr.en.json`, entries in `config/packs/qr.ts`.
+- vCard pack (`vcard`): vCard to CSV and Excel converter. `lib/vcard/parser.ts` is a streaming reader (2.1/3.0/4.0, folding, quoted-printable, grouped labels, photos skipped), `read.ts` feeds a file in 4 MB pieces (UTF-8 or UTF-16), `table.ts` builds columns and removes duplicates, `export.ts` writes CSV (BOM, formula guard) and XLSX (via jszip, split past one million rows). Screen in `components/tools/vcard`, text in `locales/packs/vcard.en.json`.
 
 ## Extra page content (AdSense depth)
 

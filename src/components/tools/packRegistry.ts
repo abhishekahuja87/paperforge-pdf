@@ -5,6 +5,7 @@ import { FREELANCERS_COMPONENTS } from './freelancers/registry';
 import { PAPER_COMPONENTS } from './paper/registry';
 import { PLANNER_COMPONENTS } from './planner/registry';
 import { QR_COMPONENTS } from './qr/registry';
+import { VCARD_COMPONENTS } from './vcard/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -17,4 +18,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...PAPER_COMPONENTS,
   ...PLANNER_COMPONENTS,
   ...QR_COMPONENTS,
+  ...VCARD_COMPONENTS,
 };
