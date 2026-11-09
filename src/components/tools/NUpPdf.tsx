@@ -16,8 +16,10 @@ import { getPdfPageCount } from '../../lib/pdf/split';
 import { createNUpPdf, type NUpLayout, type NUpPaperSize } from '../../lib/pdf/nUp';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { useTranslation } from 'react-i18next';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
 export const NUpPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const { t, i18n } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
@@ -117,6 +119,7 @@ export const NUpPdf: React.FC = () => {
 
   return (
     <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
+      {passwordDialog}
       
 
       {!file && (
@@ -124,7 +127,7 @@ export const NUpPdf: React.FC = () => {
           accept=".pdf,application/pdf"
           disabled={status === 'loading'}
           readingPdf={status === 'loading'}
-          onFiles={(files) => { void handleFile(files[0]); }}
+          onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFile(prepared); }); }}
         />
       )}
       {!file && errorMessage && (

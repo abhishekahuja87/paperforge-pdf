@@ -13,8 +13,10 @@ import { mergePdfFiles } from '../../lib/pdf/merge';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { FileDropZone } from '../common/FileDropZone';
 import { useTranslation } from 'react-i18next';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
 export const MergePdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const { t } = useTranslation('merge');
   const [files, setFiles] = useState<File[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -27,7 +29,7 @@ export const MergePdf: React.FC = () => {
     return () => URL.revokeObjectURL(downloadUrl);
   }, [downloadUrl]);
 
-  const addFiles = (selectedFiles: File[]) => {
+  const addPreparedFiles = (selectedFiles: File[]) => {
     const pdfFiles = selectedFiles.filter(
       (file) => file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf'),
     );
@@ -81,6 +83,7 @@ export const MergePdf: React.FC = () => {
 
   return (
     <>
+      {passwordDialog}
       <section className="min-w-0 overflow-hidden rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)]">
         <div className="space-y-4 p-4 sm:p-6">
           <FileDropZone
@@ -89,7 +92,7 @@ export const MergePdf: React.FC = () => {
             disabled={isProcessing}
             label={t('choose')}
             hint={t('hint')}
-            onFiles={addFiles}
+            onFiles={(selected) => { void (async () => { const ready: File[] = []; for (const file of selected) { const prepared = await prepare(file); if (prepared) ready.push(prepared); } if (ready.length > 0) addPreparedFiles(ready); })(); }}
           />
 
           {error && (

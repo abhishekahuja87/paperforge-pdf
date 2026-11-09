@@ -9,8 +9,10 @@ import {
 } from 'lucide-react';
 import { convertPdfToImages } from '../../lib/pdf/pdfToImages';
 import type { PageImageResult } from '../../lib/pdf/pdfToImages';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
 export const PdfToImages: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
   const [pages, setPages] = useState<PageImageResult[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -52,11 +54,12 @@ export const PdfToImages: React.FC = () => {
 
   return (
     <div className="mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+      {passwordDialog}
 
       {!file ? (
         <FileDropZone
           accept=".pdf,application/pdf"
-          onFiles={(files) => { void handleFileChange(files[0]); }}
+          onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFileChange(prepared); }); }}
         />
       ) : (
         <div className="space-y-5">
