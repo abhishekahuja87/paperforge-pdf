@@ -47,7 +47,7 @@ export const TimeZoneConverter: React.FC = () => {
       </div>
       <button type="button" onClick={setNow} className="mt-3 min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">Use current date and time here</button>
       {instant ? (
-        <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
+        <div className="mt-4 w-full max-w-[calc(100vw-4rem)] overflow-x-auto rounded-xl border border-slate-200 sm:max-w-full">
           <table className="w-full text-left text-xs">
             <caption className="sr-only">The same moment in each chosen time zone</caption>
             <thead className="bg-slate-100 text-slate-600"><tr><th scope="col" className="px-3 py-2">Time zone</th><th scope="col" className="px-3 py-2">Date</th><th scope="col" className="px-3 py-2">Time</th><th scope="col" className="px-3 py-2">Working hours?</th><th scope="col" className="px-3 py-2"><span className="sr-only">Remove</span></th></tr></thead>

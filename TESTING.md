@@ -361,3 +361,14 @@ Use this as one pass on a real phone (and once on a desktop). Tick each line; no
 - [ ] EEA/UK/CH consent message, Amplify bare-domain redirect, Analytics and AdSense link, Search Console sitemap submission (add the three new URLs).
 
 When reporting: page, device and browser, what you did, what you expected and what happened; a screenshot helps most for layout problems.
+
+### Audit fixes (November 9, 2026)
+
+Checked in the sandbox: bulk QR file names for labels foo, foo, foo-2, foo give foo, foo-2, foo-2-2, foo-3 (no repeats); rent amounts Infinity, 1e12, -5 and abc show an error and disable printing, 15000 works. Not verified: the Time Zone Converter width (no Tailwind in the sandbox, `tsc` and `vite build` not run).
+
+Check after deploy:
+- [ ] Bulk QR: labels foo, foo, foo-2 give three files in the ZIP and `list.txt` names each once.
+- [ ] Rent receipt: typing Infinity or a negative number shows the error and Print stays disabled.
+- [ ] /time-zone-converter at a 360 px wide phone: the page does not scroll sideways; only the results table scrolls inside its box.
+- [ ] /privacy section 2 lists the poster maker, group settle-up, resume, quotation and rent receipt storage.
+- [ ] `/ac1`, `/ac1/edit`, `/ac1/poster` return HTTP 404 with `x-robots-tag: noindex, nofollow`. This is expected: the Amplify rule is `404-200`, so unlisted addresses fall back to the app. If you would rather they return 200, change the rule (in the Amplify console, not the repository).
