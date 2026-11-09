@@ -811,7 +811,7 @@
       ]
     }
   },
-  "moreTools": "More everyday tools",
+  "moreTools": "All tools by topic",
   "mostUsed": "Most used",
   "workspaces": "Workspaces",
   "pdfTools": "PDF tools",
@@ -938,6 +938,57 @@
     "business": {
       "name": "Business & Sales",
       "description": "Manage shop inventory and create bills locally in your browser."
+    }
+  },
+  "homeSections": {
+    "newTools": "New tools",
+    "newBadge": "New",
+    "jumpTo": "Jump to a topic",
+    "showMore": "Show {{count}} more",
+    "presets": "Exact file-size presets",
+    "toolCount": "{{count}} tools",
+    "otherTools": "More tools"
+  },
+  "homeCollections": {
+    "pdf": {
+      "name": "PDF tools",
+      "description": "Merge, split, compress, protect and organise PDFs in your browser."
+    },
+    "images": {
+      "name": "Image and photo tools",
+      "description": "Compress, resize, convert and redact images, including passport photo and exam sizes."
+    },
+    "money": {
+      "name": "Tax, loans and investing",
+      "description": "Income tax, EMI, SIP, GST and other money calculators."
+    },
+    "everyday": {
+      "name": "Everyday calculators",
+      "description": "Age, dates, percentages, discounts, units and splitting bills."
+    },
+    "printables": {
+      "name": "Printables and stationery",
+      "description": "Graph and dot paper, planners, calendars and flashcards to print at home."
+    },
+    "work": {
+      "name": "Jobs, freelancing and business",
+      "description": "Resume, notice period, quotations, rates, margins and invoices."
+    },
+    "study": {
+      "name": "Students and writing",
+      "description": "GPA, grades, citations, study plans and word tools."
+    },
+    "sharing": {
+      "name": "QR codes and contacts",
+      "description": "Make QR codes for links, Wi-Fi and contacts, and convert contact files."
+    },
+    "dev": {
+      "name": "Developer and data tools",
+      "description": "JSON, Base64, URLs, timestamps, colours, IDs and passwords."
+    },
+    "other": {
+      "name": "More tools",
+      "description": "Other tools on the site."
     }
   }
 }

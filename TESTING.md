@@ -226,3 +226,16 @@ Check after deploy:
 - Large image (for example 4000 by 8000 px) stays responsive; an image above 80 megapixels shows the message.
 - Case converter: URL slug for "Café Münster: Don't Miss!" gives cafe-munster-dont-miss.
 - New page /screenshot-redactor appears in search, home page list, footer and sitemap, and its static HTML has the heading and FAQ.
+
+### Home page redesign (trial)
+
+Checked in the sandbox: with the real catalogue, all 96 available tools get a link on the home page (92 in topics plus 4 workspaces), none twice, none left in "More tools"; type-check of the changed files (only missing-package noise); render in Chromium without errors. Not checked: how it looks, because the sandbox has no Tailwind CSS, and `tsc`/`vite build` were not run.
+
+Check after deploy (phone first):
+- Page order: search, topic chips, Most used (12), New tools (scrolls sideways on a phone), slim Workspaces, then 9 topic panels.
+- Workspaces row is small (two per row on a phone) and each card opens its tool.
+- Each topic panel shows up to 6 tools plus "Show N more"; tapping opens the rest. The Images panel has KB chips (20, 30, 50, 100, 200).
+- Topic chips jump to the right panel and the heading is not hidden under the header.
+- Long tool names are shortened (for example "Printable Flashcard Maker") and none overflow.
+- Search still finds every tool, including ones that were footer-only before.
+- Page length on a phone is acceptable; if it is too long, lower `COLLECTION_PREVIEW` in `src/config/homeSections.ts`.
