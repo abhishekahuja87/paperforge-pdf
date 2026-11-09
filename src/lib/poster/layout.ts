@@ -95,6 +95,6 @@ export function computeLayout(format: PosterFormat, n: number, kind: LayoutKind)
   const gap = Math.round(pad * 0.45);
   const area = { x: pad, y: headerBottom + pad * 0.6, w: w - pad * 2, h: footer.y - headerBottom - pad * 1.2 };
   // Feature and list designs suit a handful of products; with more, a plain grid keeps every photo large enough to see.
-  const cells = kind === 'feature' && n >= 3 && n <= 9 ? featureCells(area, n, gap) : kind === 'list' && n >= 3 && n <= 8 ? listCells(area, n, gap) : gridCells(area, n, gap);
+  const cells = kind === 'feature' && n >= 3 && n <= 9 ? featureCells(area, n, gap) : kind === 'list' && n >= 3 && n <= 6 && area.h / n >= 150 ? listCells(area, n, gap) : gridCells(area, n, gap);
   return { header, headerContent, footer, footerContent, cells, gap };
 }

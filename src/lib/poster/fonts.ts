@@ -1,29 +1,18 @@
-import { POSTER_FONT_CSS_URL, POSTER_FONT_FAMILIES } from '../../config/posterThemes';
+import { POSTER_FONT_FAMILIES } from '../../config/posterThemes';
 
-let pending: Promise<boolean> | null = null;
+let pending: Promise<void> | null = null;
 
 /**
- * Loads the poster fonts from Google Fonts. This is the only place the site contacts Google Fonts, and it only runs on the
- * Offer Poster Maker page. Resolves true when the fonts are ready, false when they could not be loaded (offline, blocked);
- * the designs then fall back to the system fonts named in each theme.
+ * Waits for the bundled poster fonts (declared in components/tools/shops/posterFonts.css) so the first picture is drawn
+ * with them. The fonts are files served by this site; nothing else is contacted. If one fails, the theme's fallback fonts are used.
  */
-export function loadPosterFonts(): Promise<boolean> {
+export function loadPosterFonts(): Promise<void> {
   if (pending) return pending;
-  pending = new Promise<boolean>((resolve) => {
-    if (typeof document === 'undefined') { resolve(false); return; }
-    const timer = window.setTimeout(() => resolve(false), 8000);
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = POSTER_FONT_CSS_URL;
-    link.onload = () => {
-      const sample = 'Aa Bb 0123456789 ₹ अआइ';
-      Promise.all(POSTER_FONT_FAMILIES.flatMap((family) => [
-        document.fonts.load(`400 40px "${family}"`, sample),
-        document.fonts.load(`700 40px "${family}"`, sample),
-      ])).then(() => { window.clearTimeout(timer); resolve(true); }, () => { window.clearTimeout(timer); resolve(false); });
-    };
-    link.onerror = () => { window.clearTimeout(timer); resolve(false); };
-    document.head.appendChild(link);
-  });
+  pending = typeof document === 'undefined' || !document.fonts
+    ? Promise.resolve()
+    : Promise.all(POSTER_FONT_FAMILIES.flatMap((family) => [
+      document.fonts.load(`500 40px "${family}"`, 'Aa 0123'),
+      document.fonts.load(`700 40px "${family}"`, 'Aa 0123'),
+    ])).then(() => undefined, () => undefined);
   return pending;
 }

@@ -22,6 +22,9 @@ export interface PosterProduct {
 
 export interface PosterShop { name: string; tagline: string; headline: string; whatsapp: string; facebook: string; instagram: string }
 
+/** Where an editable element was drawn, in poster pixels. Ids: shop.name, shop.tagline, footer.whatsapp, footer.facebook, footer.instagram, p<N>.photo, p<N>.name, p<N>.price. */
+export interface Hit { id: string; rect: Rect }
+
 /** Which part gets more room: the photos (default look), a balance, or the names and prices. */
 export type Emphasis = 'photos' | 'balanced' | 'text';
 const TEXT_SCALE: Record<Emphasis, number> = { photos: 0.85, balanced: 1, text: 1.3 };
@@ -33,6 +36,8 @@ export interface PosterInput {
   emphasis: Emphasis;
   /** Text in the big header badge, such as "UP TO 30% OFF" or "DIWALI SPECIAL". Empty hides it. */
   offerBadge: string;
+  /** Set by editors that overlay pencil buttons: draws hints for empty fields and records where each element sits. */
+  edit?: { hits: Hit[] };
 }
 
 const clamp = (value: number, low: number, high: number) => Math.min(high, Math.max(low, value));
@@ -237,7 +242,11 @@ function drawPhoto(ctx: CanvasRenderingContext2D, theme: PosterTheme, p: PosterP
   ctx.restore();
 }
 
-function drawCard(ctx: CanvasRenderingContext2D, theme: PosterTheme, r: Rect, p: PosterProduct, emphasis: Emphasis) {
+function drawCard(ctx: CanvasRenderingContext2D, theme: PosterTheme, r: Rect, p0: PosterProduct, emphasis: Emphasis, index: number, hits?: Hit[]) {
+  const editing = !!hits;
+  const noName = editing && p0.name.trim() === '';
+  const noPrice = editing && p0.price.trim() === '' && p0.original.trim() === '';
+  const p: PosterProduct = { ...p0, name: noName ? 'Add name' : p0.name, price: noPrice ? 'Add price' : p0.price };
   const c = theme.colors;
   const unit = Math.min(r.w, r.h * 0.9);
   const radius = { plain: 10, rounded: 26, border: 16, hard: 14, arch: 22, dark: 18, open: 0 }[theme.card] * clamp(unit / 380, 0.45, 1);
@@ -263,13 +272,14 @@ function drawCard(ctx: CanvasRenderingContext2D, theme: PosterTheme, r: Rect, p:
   let priceSize: number;
   let lines: string[] = [];
   if (horizontal) {
-    nameSize = clamp(r.h * 0.2 * k, 20, 48);
-    priceSize = clamp(r.h * 0.3 * k, 28, 68);
-    const iw = Math.min(r.h - pad * 2, r.w * 0.5);
+    nameSize = clamp(r.h * 0.24 * k, 20, 54);
+    priceSize = clamp(r.h * 0.32 * k, 28, 72);
+    const iw = Math.min(r.h - pad * 2, r.w * 0.4);
     image = { x: r.x + pad, y: r.y + pad, w: iw, h: r.h - pad * 2 };
-    text = { x: image.x + image.w + pad * 1.4, y: r.y + pad, w: r.w - iw - pad * 3.4, h: r.h - pad * 2 };
+    text = { x: image.x + image.w + pad * 1.6, y: r.y + pad, w: r.w - iw - pad * 3.6, h: r.h - pad * 2 };
     ctx.font = font(700, nameSize, theme.fonts.body);
-    lines = name ? wrapLines(ctx, name, text.w, 3) : [];
+    // Name on the left, price at the right edge of the row.
+    lines = name ? wrapLines(ctx, name, text.w * (hasPrice ? 0.58 : 1), 2) : [];
   } else {
     // The photo takes what the text does not need: text is capped to a share of the card, smaller when photos are favoured.
     nameSize = clamp(unit * 0.085 * k, 16, 44);
@@ -289,6 +299,7 @@ function drawCard(ctx: CanvasRenderingContext2D, theme: PosterTheme, r: Rect, p:
   const imgRadius: number | [number, number, number, number] = theme.card === 'arch' ? [image.w / 2, image.w / 2, 8, 8] : theme.card === 'open' ? 6 : Math.max(5, radius - pad * 0.6);
   drawPhoto(ctx, theme, p, image, imgRadius);
 
+  hits?.push({ id: `p${index}.photo`, rect: image });
   const badgeText = p.badge.trim();
   if (badgeText) {
     const size = clamp(image.w * 0.3, 44, 130);
@@ -302,18 +313,24 @@ function drawCard(ctx: CanvasRenderingContext2D, theme: PosterTheme, r: Rect, p:
   ctx.textAlign = horizontal ? 'left' : 'center';
   ctx.textBaseline = 'top';
   ctx.font = font(700, nameSize, theme.fonts.body);
-  const block = lines.length * lineH + (hasPrice ? priceSize * 1.3 : 0);
-  const nameTop = horizontal ? text.y + Math.max(0, (text.h - block) / 2) : text.y;
+  const nameTop = horizontal ? text.y + Math.max(0, (text.h - lines.length * lineH) / 2) : text.y;
   const tx = horizontal ? text.x : text.x + text.w / 2;
+  if (noName) ctx.globalAlpha = 0.45;
   lines.forEach((line, i) => ctx.fillText(line, tx, nameTop + i * lineH));
+  ctx.globalAlpha = 1;
+  if (lines.length) hits?.push({ id: `p${index}.name`, rect: horizontal ? { x: text.x, y: nameTop, w: text.w, h: lines.length * lineH } : { x: text.x, y: text.y, w: text.w, h: lines.length * lineH } });
   if (hasPrice) {
-    const priceY = horizontal ? nameTop + lines.length * lineH + priceSize * 0.65 : text.y + text.h - priceSize * 0.62;
-    drawPrices(ctx, theme, p, tx, priceY, text.w, priceSize, horizontal ? 'left' : 'center');
+    const priceY = horizontal ? text.y + text.h / 2 : text.y + text.h - priceSize * 0.62;
+    if (noPrice) ctx.globalAlpha = 0.45;
+    if (horizontal) drawPrices(ctx, theme, p, text.x + text.w, priceY, text.w * 0.42, priceSize, 'right');
+    else drawPrices(ctx, theme, p, tx, priceY, text.w, priceSize, 'center');
+    ctx.globalAlpha = 1;
+    hits?.push({ id: `p${index}.price`, rect: horizontal ? { x: text.x + text.w * 0.58, y: priceY - priceSize * 0.65, w: text.w * 0.42, h: priceSize * 1.3 } : { x: text.x, y: priceY - priceSize * 0.65, w: text.w, h: priceSize * 1.3 } });
   }
   ctx.restore();
 }
 
-function drawPrices(ctx: CanvasRenderingContext2D, theme: PosterTheme, p: PosterProduct, x: number, cy: number, maxW: number, size: number, align: 'left' | 'center') {
+function drawPrices(ctx: CanvasRenderingContext2D, theme: PosterTheme, p: PosterProduct, x: number, cy: number, maxW: number, size: number, align: 'left' | 'center' | 'right') {
   const c = theme.colors;
   const price = p.price.trim();
   const old = p.original.trim();
@@ -327,7 +344,7 @@ function drawPrices(ctx: CanvasRenderingContext2D, theme: PosterTheme, p: Poster
   const gap = old && price ? s * 0.35 : 0;
   while (m.a + m.b + gap > maxW && s > 12) { s *= 0.92; m = widths(1); }
   const total = m.a + m.b + gap;
-  const startX = align === 'center' ? x - total / 2 : x;
+  const startX = align === 'center' ? x - total / 2 : align === 'right' ? x - total : x;
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'left';
   if (price) { ctx.font = font(700, s * 1.05, theme.fonts.headline); ctx.fillStyle = c.price; ctx.fillText(price, startX, cy); }
@@ -360,9 +377,10 @@ function drawHeader(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: P
   const center = theme.header === 'center';
   const align: CanvasTextAlign = center ? 'center' : 'left';
   const tx = center ? hc.x + textW / 2 : hc.x;
-  const name = shop.name.trim();
+  const editing = !!input.edit;
+  const name = shop.name.trim() || (editing ? 'Shop name' : '');
   const headline = shop.headline.trim();
-  const tagline = shop.tagline.trim();
+  const tagline = shop.tagline.trim() || (editing ? 'Add a line about your offer' : '');
   // Every line is optional; the ones that are filled share the header, each with a cap so a single line does not become huge.
   const weights = headline ? { name: 0.2, headline: 0.5, tagline: 0.18 } : { name: 0.46, headline: 0, tagline: 0.22 };
   const present = (['name', 'headline', 'tagline'] as const).filter((key) => ({ name, headline, tagline })[key]);
@@ -374,7 +392,14 @@ function drawHeader(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: P
   let y = hc.y + gap;
   present.forEach((key) => {
     const h = heights[key];
-    if (key === 'name') drawFit(ctx, name, tx, y + h / 2, textW, h * 0.95, 700, theme.fonts.name, c.nameInk, align);
+    if (key === 'name' || key === 'tagline') {
+      const empty = key === 'name' ? shop.name.trim() === '' : shop.tagline.trim() === '';
+      if (editing && empty) ctx.globalAlpha = 0.5;
+      if (key === 'name') drawFit(ctx, name, tx, y + h / 2, textW, h * 0.95, 700, theme.fonts.name, c.nameInk, align);
+      else drawFit(ctx, tagline, tx, y + h / 2, textW, h * 0.85, 500, theme.fonts.body, c.taglineInk, align);
+      ctx.globalAlpha = 1;
+      input.edit?.hits.push({ id: key === 'name' ? 'shop.name' : 'shop.tagline', rect: { x: hc.x, y, w: textW, h } });
+    }
     else if (key === 'headline') {
       if (center) {
         const size = fitSize(ctx, headline, 700, theme.fonts.headline, textW - 70, h * 1.05);
@@ -385,7 +410,7 @@ function drawHeader(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: P
       } else {
         drawFit(ctx, headline, tx, y + h * 0.52, textW, h * 1.1, 700, theme.fonts.headline, c.headlineInk, 'left');
       }
-    } else drawFit(ctx, tagline, tx, y + h / 2, textW, h * 0.85, 500, theme.fonts.body, c.taglineInk, align);
+    }
     y += h + gap;
   });
   if (offer) drawBadge(ctx, theme, hc.x + hc.w - badgeD / 2, hc.y + hc.h / 2, badgeD, offer, true);
@@ -397,11 +422,12 @@ function drawFooter(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: P
   const { footer, footerContent } = layout;
   ctx.fillStyle = c.footerBg;
   ctx.fillRect(0, footer.y, footer.w, format.h - footer.y);
+  const editing = !!input.edit;
   const items = [
-    { kind: 'whatsapp' as const, text: input.shop.whatsapp.trim() },
-    { kind: 'facebook' as const, text: cleanHandle(input.shop.facebook, 'facebook') },
-    { kind: 'instagram' as const, text: cleanHandle(input.shop.instagram, 'instagram') },
-  ].filter((item) => item.text);
+    { kind: 'whatsapp' as const, text: input.shop.whatsapp.trim(), hint: 'WhatsApp number' },
+    { kind: 'facebook' as const, text: cleanHandle(input.shop.facebook, 'facebook'), hint: 'Facebook page' },
+    { kind: 'instagram' as const, text: cleanHandle(input.shop.instagram, 'instagram'), hint: 'Instagram ID' },
+  ].map((item) => ({ ...item, empty: !item.text, text: item.text || (editing ? item.hint : '') })).filter((item) => item.text);
   if (items.length === 0) return;
   // Icon plus text for each contact, sized to its own text and spread evenly across the footer.
   const d = footerContent.h * 0.5;
@@ -420,7 +446,10 @@ function drawFooter(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: P
     drawGlyph(ctx, item.kind, x + d / 2, cy, d * 0.56, c.footerBg);
     ctx.font = font(700, size, theme.fonts.body);
     ctx.fillStyle = c.footerInk; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    if (editing && item.empty) ctx.globalAlpha = 0.5;
     ctx.fillText(item.text, x + icon, cy);
+    ctx.globalAlpha = 1;
+    input.edit?.hits.push({ id: `footer.${item.kind}`, rect: { x, y: footerContent.y, w: widths[i], h: footerContent.h } });
     x += widths[i] + gap;
   });
 }
@@ -433,7 +462,7 @@ export function renderPoster(ctx: CanvasRenderingContext2D, theme: PosterTheme, 
   const layout = computeLayout(format, count, theme.layout);
   input.products.slice(0, count).forEach((product, i) => {
     const cell = layout.cells[i];
-    if (cell) drawCard(ctx, theme, cell, product, input.emphasis);
+    if (cell) drawCard(ctx, theme, cell, product, input.emphasis, i, input.edit?.hits);
   });
   drawHeader(ctx, theme, format, input);
   drawFooter(ctx, theme, format, input);

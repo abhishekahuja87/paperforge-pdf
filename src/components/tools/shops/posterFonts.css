@@ -1,0 +1,22 @@
+/* Fonts for the poster tools, served from this site (no third-party requests). Latin subset, SIL Open Font License; see fonts/poster/LICENSES.md. */
+@font-face { font-family: 'Teko'; font-weight: 500; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/teko-500.woff') format('woff'); }
+@font-face { font-family: 'Teko'; font-weight: 700; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/teko-700.woff') format('woff'); }
+@font-face { font-family: 'Baloo 2'; font-weight: 500; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/baloo2-500.woff') format('woff'); }
+@font-face { font-family: 'Baloo 2'; font-weight: 700; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/baloo2-700.woff') format('woff'); }
+@font-face { font-family: 'Montserrat'; font-weight: 500; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/montserrat-500.woff') format('woff'); }
+@font-face { font-family: 'Montserrat'; font-weight: 700; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/montserrat-700.woff') format('woff'); }
+@font-face { font-family: 'Fredoka'; font-weight: 500; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/fredoka-500.woff') format('woff'); }
+@font-face { font-family: 'Fredoka'; font-weight: 700; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/fredoka-700.woff') format('woff'); }
+@font-face { font-family: 'Oswald'; font-weight: 500; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/oswald-500.woff') format('woff'); }
+@font-face { font-family: 'Oswald'; font-weight: 700; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/oswald-700.woff') format('woff'); }
+@font-face { font-family: 'Poppins'; font-weight: 500; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/poppins-500.woff') format('woff'); }
+@font-face { font-family: 'Poppins'; font-weight: 700; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/poppins-700.woff') format('woff'); }
+@font-face { font-family: 'Playfair Display'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/playfair-700.woff') format('woff'); }
+@font-face { font-family: 'Dancing Script'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/dancing-700.woff') format('woff'); }
+@font-face { font-family: 'Pacifico'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/pacifico.woff') format('woff'); }
+@font-face { font-family: 'Rozha One'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/rozha.woff') format('woff'); }
+@font-face { font-family: 'Bebas Neue'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/bebas.woff') format('woff'); }
+@font-face { font-family: 'Anton'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/anton.woff') format('woff'); }
+@font-face { font-family: 'Lobster'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/lobster.woff') format('woff'); }
+@font-face { font-family: 'Abril Fatface'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/abril.woff') format('woff'); }
+@font-face { font-family: 'DM Serif Display'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('../../../assets/fonts/poster/dmserif.woff') format('woff'); }

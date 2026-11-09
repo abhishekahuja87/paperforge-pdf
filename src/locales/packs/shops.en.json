@@ -7,7 +7,7 @@
       ],
       [
         "Choose a design",
-        "Eight designs with different colours and fonts are shown with your own details, so you can compare them side by side. Tap one to use it. You can change your mind at any time."
+        "Many designs with different colours and fonts are shown with your own details, so you can compare them side by side. Tap one to use it. You can change your mind at any time."
       ],
       [
         "Fill in the top and bottom",
@@ -35,10 +35,6 @@
         [
           "Are my photos and prices uploaded?",
           "No. Photos, prices and contact details are used only inside your browser, and the poster is created there. Nothing is sent to MyDailyUtils."
-        ],
-        [
-          "Does this page contact Google?",
-          "Yes, for one reason only: the design fonts are downloaded from Google Fonts when this page opens. Google can see the usual technical details of that request, such as your IP address. No photo, price or shop detail is sent. If the fonts cannot be loaded, the page still works with plainer system fonts. No other page on the site loads Google Fonts."
         ],
         [
           "Which size should I use for Instagram?",
@@ -82,7 +78,7 @@
           "heading": "What the Offer Poster Maker is for",
           "paragraphs": [
             "A small shop does not need a designer to announce a sale. A clear picture with the shop name, a few products, the old price crossed out and the new price beside it, and a way to contact you is usually all that customers look at on a phone. This tool builds that picture from a form, in a few minutes, using layouts and colours chosen to look like the promotions people already see on shopping apps, Instagram and Facebook.",
-            "You fill in your details, pick one of eight designs, add your own product photos and download a PNG. The same poster can be made as an Instagram post, a story or an A4 page for the shop wall."
+            "You fill in your details, pick from many designs, add your own product photos and download a PNG. The same poster can be made as an Instagram post, a story or an A4 page for the shop wall."
           ]
         },
         {
@@ -107,9 +103,9 @@
           ]
         },
         {
-          "heading": "Privacy and Google Fonts",
+          "heading": "Privacy",
           "paragraphs": [
-            "Your photos, prices and contact details never leave your browser. There is one exception to the rule that this site keeps to itself: the design fonts are downloaded from Google Fonts when you open this page, so Google's servers are contacted to fetch the fonts. That request does not include your photos or details, but, like any web request, it reveals your IP address and browser type to Google. If you would rather avoid that, the other tools on this site do not load Google Fonts."
+            "Your photos, prices and contact details never leave your browser. The poster is drawn on your device and the PNG is created there, so nothing is uploaded to MyDailyUtils. The design fonts are part of the site itself, so no other service is contacted."
           ]
         }
       ]
