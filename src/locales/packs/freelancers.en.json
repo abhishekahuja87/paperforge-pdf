@@ -1,0 +1,307 @@
+{
+  "toolCatalog": {
+    "freelance-rate-calculator": [
+      "Freelance Rate Calculator",
+      "Find the hourly, day and project rate you need to earn."
+    ],
+    "quotation-generator": [
+      "Free Quotation Generator",
+      "Create a clean quotation and save it as a PDF."
+    ],
+    "margin-markup-calculator": [
+      "Profit Margin and Markup Calculator",
+      "Work out margin, markup, price, discount impact and break-even."
+    ]
+  },
+  "guideSteps": {
+    "freelance-rate-calculator": [
+      [
+        "Enter the income you want",
+        "Type the yearly take-home income you want after tax, your business costs and any benefits you pay for yourself, such as health cover or retirement saving."
+      ],
+      [
+        "Describe your working year",
+        "Add your tax set-aside, weeks off, working days and hours per week, and the share of your hours you can actually bill to clients."
+      ],
+      [
+        "Read your rates",
+        "See the hourly rate, day rate, weekly and monthly revenue needed, and a table that shows how the yearly figure is built up."
+      ],
+      [
+        "Check your own rate and price a project",
+        "Enter the rate you charge today to see the income it gives, or enter the hours for a project to get a quote with a cushion for changes."
+      ]
+    ],
+    "quotation-generator": [
+      [
+        "Add your details and the client's",
+        "Type your business name and contact details, the client's details, a quotation number, the date and how many days the price stays valid."
+      ],
+      [
+        "List what you are offering",
+        "Add each item with a description, quantity and price. Then add a discount, a tax name and rate, and a deposit if you want one."
+      ],
+      [
+        "Split the payments (optional)",
+        "Enter payment percentages such as 30, 40, 30 to show a payment schedule with the exact amounts. They must add up to 100."
+      ],
+      [
+        "Save as PDF",
+        "Press Print or save as PDF and choose Save as PDF as the destination. Tick the remember box to reuse your details next time."
+      ]
+    ],
+    "margin-markup-calculator": [
+      [
+        "Choose what to work out",
+        "Pick margin and markup, price for a target margin, effect of a discount, or break-even, and choose your currency."
+      ],
+      [
+        "Enter your cost and price",
+        "Type what it costs you to deliver one unit, hour or project, and the price you charge or want to charge."
+      ],
+      [
+        "Read the result",
+        "See the margin, markup and profit per sale, or the price, the effect of the discount or the sales needed to break even."
+      ],
+      [
+        "Compare options",
+        "Change the price, discount or cost to test different scenarios, then copy the summary or share a link to the same numbers."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "freelanceRateCalc": {
+      "title": "Freelance Rate Calculator",
+      "subtitle": "Turn the take-home income you want into the hourly rate, day rate and monthly revenue you need to charge, after tax, costs, time off and unbillable hours.",
+      "faq": [
+        [
+          "How do I work out my freelance hourly rate?",
+          "Start with the take-home income you want, add the tax you must set aside, your business costs and the benefits an employer would normally pay, then divide by the hours you can really bill in a year. The calculator does these steps and shows each one."
+        ],
+        [
+          "Why is a freelance rate higher than an employee's hourly pay?",
+          "A salary covers paid holidays, sick days, equipment, health cover, retirement contributions and time spent on admin. A freelancer pays for all of these and is paid only for billable hours, so the rate has to cover far more than the pay for the work itself."
+        ],
+        [
+          "What is a billable hours percentage?",
+          "It is the share of your working hours that you can charge to clients. Time spent on finding clients, writing proposals, invoicing, learning and rest between projects is not billable. For many freelancers 50 to 70 percent is realistic, and new freelancers are often lower."
+        ],
+        [
+          "How much tax should I set aside?",
+          "It depends on your country, your income and how you are registered. Some freelancers set aside a quarter to a third of their revenue. Ask an accountant or check your tax authority for the right figure, because the calculator uses the percentage you enter."
+        ],
+        [
+          "What is the buffer for?",
+          "Work is not always steady. The buffer adds a percentage on top of your needs to cover slow months, late payments, rising costs and money for growth. Set it to zero if you prefer to see your bare minimum rate."
+        ],
+        [
+          "How do I turn an hourly rate into a day rate or project price?",
+          "The day rate is the revenue you need divided by the billable days in a year. For a project, estimate the hours, add a cushion for revisions and extra requests, and multiply by your hourly rate. The calculator has a box for this under the main results."
+        ],
+        [
+          "Should I charge exactly the rate it shows?",
+          "Treat it as your floor. Market rates, your experience, the value you bring to the client and your demand all matter. If the result is higher than what others in your field charge, look at your costs, your billable share or the kind of work you take."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The calculation runs in your browser and nothing you enter is sent to {{siteName}}. The page still loads advertising and other resources from the network. A shared link contains only the numbers on the page."
+        ]
+      ]
+    },
+    "quotationGen": {
+      "title": "Free Quotation Generator",
+      "subtitle": "Write a professional price quotation with line items, discount, tax, deposit and payment schedule, and save it as a PDF from your browser. No account and no watermark.",
+      "faq": [
+        [
+          "What is the difference between a quotation and an invoice?",
+          "A quotation is an offer of a price before work starts. An invoice is a request for payment after, or during, the work. A client usually accepts a quotation and you then invoice for it. This tool makes quotations; for invoices use the GST Invoice or POS tools on this site where they apply."
+        ],
+        [
+          "Is the quotation really free, without a watermark?",
+          "Yes. There is no account, no watermark and no payment step. You fill in the form and save the quotation as a PDF from your browser's print window."
+        ],
+        [
+          "How do I save it as a PDF?",
+          "Press Print or save as PDF. In the print window choose Save as PDF as the destination, set margins to Default and turn off Headers and footers so only the quotation is on the page."
+        ],
+        [
+          "Can I use it for any currency and any tax?",
+          "You can choose from twelve currencies and type your own tax name and rate, such as VAT, GST or sales tax. The tool adds the tax to the amount after any discount. If your country has special rules, such as tax numbers or compound taxes, add those details to the notes."
+        ],
+        [
+          "What does the deposit and payment schedule do?",
+          "The deposit is a percentage of the total that the client pays before you start. The payment schedule splits the total into stages, for example 30, 40 and 30 percent, and shows the amount of each. The last payment absorbs rounding so the parts always add up to the total."
+        ],
+        [
+          "How long should a quotation be valid?",
+          "Thirty days is common. A shorter period protects you if your costs can change, and a longer one gives the client time to decide. The validity date is printed on the quotation."
+        ],
+        [
+          "Are my details saved?",
+          "Only if you tick the remember box, and then only in this browser on this device. Your client details, items and prices are never saved. Do not tick the box on a shared computer."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is not sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "marginCalc": {
+      "title": "Profit Margin and Markup Calculator",
+      "subtitle": "Find your profit margin and markup from cost and price, the price for a target margin, what a discount really costs you, and how many sales you need to break even.",
+      "faq": [
+        [
+          "What is the difference between margin and markup?",
+          "Margin is profit as a share of the selling price. Markup is profit as a share of the cost. If something costs 60 and sells for 100, the profit is 40, so the margin is 40 percent and the markup is 66.7 percent. They describe the same profit in different ways."
+        ],
+        [
+          "How do I calculate the selling price for a target margin?",
+          "Divide the cost by one minus the margin. For a cost of 60 and a margin of 40 percent, the price is 60 divided by 0.6, which is 100. The calculator also shows the markup that gives the same price."
+        ],
+        [
+          "Why is a 50 percent markup not a 50 percent margin?",
+          "Because they use different bases. Adding 50 percent to a cost of 100 gives a price of 150 and a profit of 50, which is a margin of 33.3 percent of the price. To get a 50 percent margin you need to double the cost, which is a 100 percent markup."
+        ],
+        [
+          "How much does a discount cost me?",
+          "A discount reduces the profit on every sale, so you have to sell more to earn the same total profit. With a 40 percent margin, a 10 percent discount means you must sell about a third more to stay even. The calculator shows this figure."
+        ],
+        [
+          "What is break-even?",
+          "Break-even is the number of sales at which the profit from each sale has paid for your fixed costs. Divide the fixed costs by the profit per sale and round up. After that point, every sale adds to your profit."
+        ],
+        [
+          "What costs should I include?",
+          "Include everything that is needed to deliver one sale: materials, your time, fees from platforms or payment providers, delivery and refunds. Costs that do not change with each sale, such as software or rent, belong in fixed costs for the break-even calculation."
+        ],
+        [
+          "Which one should I use, margin or markup?",
+          "Margin is better for judging how healthy your business is, because it shows how much of each sale you keep. Markup is handy for setting prices from a cost. Use the one that your client, accountant or marketplace asks for, and be clear about which you mean."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The calculation runs in your browser and nothing you enter is sent to {{siteName}}. The page still loads advertising and other resources from the network. A shared link contains only the numbers on the page."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "freelance-rate-calculator": {
+      "sections": [
+        {
+          "heading": "What the Freelance Rate Calculator does",
+          "paragraphs": [
+            "It answers the question every freelancer, consultant and contractor asks sooner or later: how much should I charge? Instead of guessing or copying a number from someone else, you start with the income you need and work backwards to a rate. The result is an hourly rate, a day rate, a weekly and monthly revenue target and the total revenue you need in a year.",
+            "It works in twelve currencies and for any kind of independent work, from design and writing to development, tutoring and consulting."
+          ]
+        },
+        {
+          "heading": "How the rate is built",
+          "paragraphs": [
+            "The calculator starts with your take-home target, then adds the tax you must set aside so the income you want is left after tax. To that it adds your business costs, such as software, a laptop, insurance, an accountant and a workspace, and the benefits that an employee would receive from an employer, including health cover, retirement saving and training. A buffer on top covers slow months and growth.",
+            "The total is the revenue you must bring in. It is divided by the hours you can actually bill, which is your working weeks times your weekly hours times your billable share. The table on the page shows each part, so you can see which costs push the rate up."
+          ]
+        },
+        {
+          "heading": "Billable hours are the key number",
+          "paragraphs": [
+            "Most people overestimate how much of their time they can bill. A forty hour week rarely gives forty hours of client work. Finding projects, answering emails, sending quotes, chasing payments and keeping your skills up to date all take time. If you assume you can bill 100 percent of your hours, your rate will be too low and you will fall short of your goal.",
+            "Try different billable shares to see the effect. Going from 60 to 50 percent raises the hourly rate you need by a fifth. If you can reduce unbillable work, or charge for it, your rate can come down."
+          ]
+        },
+        {
+          "heading": "Checking your rate and pricing projects",
+          "paragraphs": [
+            "Enter the rate you charge today and the calculator shows the take-home income it would give with the same assumptions, and how far above or below your goal it is. This is useful before a client negotiation or when you consider a raise.",
+            "For a project, enter the hours you expect it to take and a cushion for revisions and extra requests. The tool shows a project price. Fixed project prices protect you from underestimating only if the cushion is realistic, so look back at how long similar projects took you."
+          ]
+        },
+        {
+          "heading": "Limits and next steps",
+          "paragraphs": [
+            "The calculator is a planning aid. Tax, social contributions and what counts as a business cost differ between countries, and the market sets the price in the end. Use the result as a floor, compare it with what others in your field charge and review it every year.",
+            "When you are ready to send a price to a client, the Quotation Generator on this site turns it into a printable quotation, and the Profit Margin Calculator can check the margin on products or packages you sell."
+          ]
+        }
+      ]
+    },
+    "quotation-generator": {
+      "sections": [
+        {
+          "heading": "What the Quotation Generator does",
+          "paragraphs": [
+            "It helps you send a clear, professional price to a client in a few minutes. You fill in your details, the client's details and the items you offer, and the page builds a neat quotation with the totals worked out. When you are happy with the preview, you save it as a PDF and send it by email or message.",
+            "It is made for freelancers, consultants, small agencies, tradespeople and anyone who needs to quote a price without buying software or opening an account."
+          ]
+        },
+        {
+          "heading": "What a good quotation includes",
+          "paragraphs": [
+            "A good quotation names who is offering and who it is for, gives a number and date so both sides can refer to it, and says how long the price is valid. It lists what is included, with quantities and prices, so there are no surprises about the scope. It shows the subtotal, any discount, the tax and the total, and it states the payment terms.",
+            "The notes box lets you add what the price covers and does not cover, how many rounds of revisions are included and when the work can start. These lines prevent most disagreements later."
+          ]
+        },
+        {
+          "heading": "Deposits and payment schedules",
+          "paragraphs": [
+            "Many freelancers ask for a deposit before starting. It shows that the client is committed and helps with your cash flow. Enter the deposit as a percentage and the quotation shows the amount due now and the balance.",
+            "For larger projects, a payment schedule spreads the price over stages that match the work, for example at the start, at the first delivery and at completion. Enter the percentages, and the tool shows the amount of each payment. The percentages must total 100, and the last payment takes up any rounding."
+          ]
+        },
+        {
+          "heading": "Tips to win the job",
+          "paragraphs": [
+            "Send the quotation quickly and in the format the client expects, usually a PDF. Describe the outcome as well as the tasks, so the client sees what they get for the price. Keep the number of line items short and clear, and offer a choice of packages if you can.",
+            "If you are not sure of your price, use the Freelance Rate Calculator first. If you give discounts, check what they do to your profit with the Profit Margin Calculator."
+          ]
+        },
+        {
+          "heading": "Privacy and legal points",
+          "paragraphs": [
+            "The quotation is built in your browser and is not uploaded to {{siteName}}. Your business details are kept on your device only if you choose to remember them, and you can turn that off at any time, which deletes the saved copy.",
+            "A quotation is an offer, and the rules about what it must contain and whether it is binding differ by country. Add any registration or tax numbers your law requires, and ask a professional if the job is large or unusual."
+          ]
+        }
+      ]
+    },
+    "margin-markup-calculator": {
+      "sections": [
+        {
+          "heading": "What the Profit Margin and Markup Calculator does",
+          "paragraphs": [
+            "It answers the pricing questions that come up in every small business. You can find the margin and markup of a price you already charge, work out the price you need for a target margin or markup, test how much a discount hurts and see how many sales you need to cover your fixed costs.",
+            "It works for products, services, hours and packages, in twelve currencies, and it explains the difference between margin and markup so you do not mix them up."
+          ]
+        },
+        {
+          "heading": "Margin and markup, explained",
+          "paragraphs": [
+            "Margin and markup both describe profit, but they measure it against different things. Margin compares the profit with the selling price. Markup compares the profit with the cost. A product that costs 50 and sells for 100 has a markup of 100 percent and a margin of 50 percent.",
+            "The mix-up is common and expensive. Someone who adds 30 percent to cost and thinks they have a 30 percent margin actually has a margin of 23 percent. The calculator shows both numbers side by side so you can see the real figure."
+          ]
+        },
+        {
+          "heading": "Setting a price from a target",
+          "paragraphs": [
+            "If you know the margin you need to run the business, enter your cost and the margin and the calculator gives the price. If you prefer to think in markup, enter that instead. Both results are shown with the equivalent in the other measure.",
+            "Check that the price is also one your customers will accept. A margin target tells you the lowest price that works for you, and the market tells you the highest."
+          ]
+        },
+        {
+          "heading": "What a discount really costs",
+          "paragraphs": [
+            "A discount comes straight out of your profit. If your margin is 40 percent, a 10 percent discount cuts the profit on each sale by a quarter, and you have to sell around a third more to earn the same total profit. A 20 percent discount at the same margin needs twice as many sales.",
+            "The discount mode shows the new price, the new profit per sale, the new margin and the extra sales you would need. If the discount removes all your profit, the tool tells you."
+          ]
+        },
+        {
+          "heading": "Break-even and limits",
+          "paragraphs": [
+            "Break-even shows how many sales it takes before you make a profit. Enter your fixed costs, the price and the cost per sale, and you get the number of sales. It is a simple tool that does not include tax, changes in cost at higher volume or time value.",
+            "Use it for planning and comparing options. Your accountant can help with a full forecast. Nothing you enter leaves your device."
+          ]
+        }
+      ]
+    }
+  }
+}

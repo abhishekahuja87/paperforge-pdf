@@ -162,3 +162,7 @@ The sandbox cannot run `pnpm build`, so the per-tool lazy loading in `UtilityPag
 Start with focused checks for the changed behavior and its directly affected
 surfaces. Expand to broader checks when shared code, dependencies, risk, or a
 failure warrants it; do not treat the baseline above as proof for new changes.
+
+### Freelancers pack
+
+Logic checked in Node: rate build-up (tax, overhead, benefits, buffer, billable hours), income at a given rate, project price, margin and markup conversions, price for a target margin, discount impact, break-even, quotation totals with rounding, payment split adding up exactly. The screens were not run. After deploying: Freelance Rate (change each input and watch the rate; the check-my-rate and project boxes; a shared link restores the numbers); Quotation (add items, discount, tax, deposit and a 30,40,30 split; Print and check only the quotation prints; the remember box keeps and clears details after reload; a split that does not total 100 shows the warning); Margin (all four modes; 40% margin = 66.67% markup; a discount that removes all profit).

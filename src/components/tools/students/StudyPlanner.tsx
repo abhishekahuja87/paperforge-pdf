@@ -3,7 +3,7 @@ import { CalcFooter, InputGrid, Note, NumberField, ResultActions, Stat, StatGrid
 import { DateField } from '../utilities/common';
 import { buildStudyPlan, planToText } from '../../../lib/students/planner';
 import { todayInput } from '../../../lib/utilities/dates';
-import { RowButton, RowInput, nextRowId } from './rows';
+import { RowButton, RowInput, nextRowId } from '../shared/rows';
 
 interface Subject { id: string; name: string; examDate: string; hours: string }
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
