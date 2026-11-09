@@ -24,6 +24,20 @@ export const HOME_COLLECTION_STYLES: Record<string, string> = {
   other: 'bg-stone-200 text-stone-800',
 };
 
+/** Hover colour of a tile's icon in each topic: a darker shade of the topic colour, with a white icon. */
+export const HOME_COLLECTION_HOVER: Record<string, string> = {
+  pdf: 'group-hover:bg-orange-700 group-hover:text-white',
+  images: 'group-hover:bg-emerald-700 group-hover:text-white',
+  money: 'group-hover:bg-teal-700 group-hover:text-white',
+  everyday: 'group-hover:bg-indigo-700 group-hover:text-white',
+  printables: 'group-hover:bg-rose-700 group-hover:text-white',
+  work: 'group-hover:bg-amber-700 group-hover:text-white',
+  study: 'group-hover:bg-sky-700 group-hover:text-white',
+  sharing: 'group-hover:bg-violet-700 group-hover:text-white',
+  dev: 'group-hover:bg-slate-700 group-hover:text-white',
+  other: 'group-hover:bg-stone-700 group-hover:text-white',
+};
+
 export interface HomeCollection {
   id: string;
   icon: CollectionSpec['icon'];

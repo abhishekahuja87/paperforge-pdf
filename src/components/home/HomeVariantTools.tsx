@@ -12,7 +12,9 @@ export const HomeToolCard: React.FC<{
   compact?: boolean;
   dark?: boolean;
   isNew?: boolean;
-}> = ({ tool, compact = false, dark = false, isNew = false }) => {
+  /** Icon colours (resting and hover) from the topic the tile sits in. Without it the tile uses the orange brand colour. */
+  tone?: { box: string; hover: string };
+}> = ({ tool, compact = false, dark = false, isNew = false, tone }) => {
   const { t, i18n } = useTranslation();
   const copy = getToolCopy(tool, i18n.language);
   return (
@@ -21,7 +23,7 @@ export const HomeToolCard: React.FC<{
     title={copy.description}
     className={`group flex min-w-0 items-center gap-2 border transition duration-200 hover:border-orange-300 hover:shadow-sm ${compact ? 'min-h-9 rounded-lg px-1.5 py-1' : 'min-h-[68px] rounded-xl px-3 py-2.5 hover:-translate-y-0.5 hover:shadow-md'} ${dark ? 'border-white/10 bg-white/[0.06] text-white hover:border-orange-300/50 hover:bg-white/10' : 'border-stone-200/80 bg-white/90'}`}
   >
-    <span className={`flex shrink-0 items-center justify-center transition ${compact ? 'h-6 w-6 rounded-md' : 'h-8 w-8 rounded-lg'} ${dark ? 'bg-white/10 text-orange-200 group-hover:bg-orange-500 group-hover:text-white' : 'bg-orange-50 text-orange-800 group-hover:bg-orange-600 group-hover:text-white'}`}>
+    <span className={`flex shrink-0 items-center justify-center transition ${compact ? 'h-6 w-6 rounded-md' : 'h-8 w-8 rounded-lg'} ${dark ? 'bg-white/10 text-orange-200 group-hover:bg-orange-500 group-hover:text-white' : tone ? `${tone.box} ${tone.hover}` : 'bg-orange-50 text-orange-800 group-hover:bg-orange-600 group-hover:text-white'}`}>
       <ToolIcon name={tool.icon} className={compact ? 'h-3.5 w-3.5' : 'h-4 w-4'} />
     </span>
     <span lang={copy.language} className="min-w-0 flex-1">

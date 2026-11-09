@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { COLLECTION_PREVIEW } from '../../config/homeSections';
-import type { HomeCollection } from '../../lib/homePageVariants';
+import { HOME_COLLECTION_HOVER, HOME_COLLECTION_STYLES, type HomeCollection } from '../../lib/homePageVariants';
 import { getToolCopy } from '../../lib/localizedTool';
 import { HomeCollectionHeading, HomeToolCard } from './HomeVariantTools';
 
@@ -17,6 +17,7 @@ export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds:
   const { t, i18n } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const listId = useId();
+  const tone = { box: HOME_COLLECTION_STYLES[collection.id] ?? HOME_COLLECTION_STYLES.other, hover: HOME_COLLECTION_HOVER[collection.id] ?? HOME_COLLECTION_HOVER.other };
   const foldedCount = Math.max(0, collection.tools.length - COLLECTION_PREVIEW);
 
   return (
@@ -25,7 +26,7 @@ export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds:
       <div id={listId} className="grid grid-cols-1 gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
         {collection.tools.map((tool, index) => (
           <div key={tool.id} className={`min-w-0 ${index >= COLLECTION_PREVIEW && !expanded ? 'hidden sm:block' : ''}`}>
-            <HomeToolCard tool={tool} compact isNew={newIds.has(tool.id)} />
+            <HomeToolCard tool={tool} compact isNew={newIds.has(tool.id)} tone={tone} />
           </div>
         ))}
       </div>
