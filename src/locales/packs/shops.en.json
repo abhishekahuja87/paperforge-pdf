@@ -1,0 +1,114 @@
+{
+  "guideSteps": {
+    "offer-poster-maker": [
+      [
+        "Pick a size",
+        "Choose Instagram post (square or portrait), a story for Instagram or WhatsApp status, or A4 for a printed pamphlet. The story size keeps text away from the areas Instagram covers with its own buttons."
+      ],
+      [
+        "Choose a design",
+        "Eight designs with different colours and fonts are shown with your own details, so you can compare them side by side. Tap one to use it. You can change your mind at any time."
+      ],
+      [
+        "Add your shop details",
+        "Type the shop name, a short line under it, a big heading such as SALE or DIWALI OFFERS, and your WhatsApp number, Facebook page and Instagram ID. Leave any contact empty to hide it. Your shop details are remembered in this browser."
+      ],
+      [
+        "Update the products",
+        "Change each product's name, old price and new price, and tap the photo to use your own picture. The discount percentage is worked out for you. Use Adjust photo to zoom or move a picture, and Add product for up to 12."
+      ],
+      [
+        "Download the PNG",
+        "Check the preview, then download. Post it on Instagram or Facebook, send it on WhatsApp, or print the A4 version and put it up in the shop."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "offerPosterMakerGuide": {
+      "title": "Offer Poster Maker: Sale Posters for Instagram, WhatsApp and Print",
+      "subtitle": "Add your shop name, product photos, old and new prices and contact details, pick a design and download a PNG for Instagram, WhatsApp or print. Free, no watermark.",
+      "faq": [
+        [
+          "Is it free, and is there a watermark?",
+          "Yes, free with no account and no watermark on the picture."
+        ],
+        [
+          "Are my photos and prices uploaded?",
+          "No. Photos, prices and contact details are used only inside your browser, and the poster is created there. Nothing is sent to MyDailyUtils."
+        ],
+        [
+          "Does this page contact Google?",
+          "Yes, for one reason only: the design fonts are downloaded from Google Fonts when this page opens. Google can see the usual technical details of that request, such as your IP address. No photo, price or shop detail is sent. If the fonts cannot be loaded, the page still works with plainer system fonts. No other page on the site loads Google Fonts."
+        ],
+        [
+          "Which size should I use for Instagram?",
+          "Use the square post for the feed grid, the portrait post for the most screen space in the feed, and the story size for stories, reels covers and WhatsApp status. A4 is for printing."
+        ],
+        [
+          "Why is some space at the top and bottom of the story size empty?",
+          "Instagram places your profile name at the top and the reply bar at the bottom of a story. The poster keeps names, prices and contact details clear of those areas so nothing is hidden."
+        ],
+        [
+          "How is the discount percentage worked out?",
+          "From the old and the new price you enter: the difference divided by the old price, rounded to a whole number. If the new price is not lower than the old one, no badge is shown for that product. The big badge shows the largest discount among your products."
+        ],
+        [
+          "Can I use Hindi or other languages?",
+          "Yes. Names, headings and lines can be typed in any language your keyboard supports. Hindi text is shown in a clear fallback font. Some of the decorative display fonts are Latin-only, so a Hindi heading may look plainer in those designs."
+        ],
+        [
+          "Why do my photos look cropped?",
+          "Photos fill their box. Use Adjust photo to zoom or move the picture, or tick Show the whole photo to fit it without cropping."
+        ],
+        [
+          "What currency can I use?",
+          "Any. Prices are plain numbers with no currency symbol, so the poster suits any country. Add a symbol yourself in the price field if you want one."
+        ],
+        [
+          "Can I use the photos in the examples?",
+          "The example photos are from Pexels and are only there to show the designs. Replace them with pictures of your own products before you post."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "offer-poster-maker": {
+      "sections": [
+        {
+          "heading": "What the Offer Poster Maker is for",
+          "paragraphs": [
+            "A small shop does not need a designer to announce a sale. A clear picture with the shop name, a few products, the old price crossed out and the new price beside it, and a way to contact you is usually all that customers look at on a phone. This tool builds that picture from a form, in a few minutes, using layouts and colours chosen to look like the promotions people already see on shopping apps, Instagram and Facebook.",
+            "You fill in your details, pick one of eight designs, add your own product photos and download a PNG. The same poster can be made as an Instagram post, a story or an A4 page for the shop wall."
+          ]
+        },
+        {
+          "heading": "Choosing a size",
+          "paragraphs": [
+            "The square post works everywhere in the feed. The portrait post takes up more of the screen on a phone and is a good choice when you have six to nine products. The story size is taller, and leaves clear space at the top and bottom so Instagram's own profile bar and reply field do not cover your text. The A4 size has more room for products and prints sharply on an ordinary home or shop printer.",
+            "With one to three products the designs show larger photos. With many products they pack them into a neat grid and keep the prices large enough to read on a small screen."
+          ]
+        },
+        {
+          "heading": "Writing a poster that sells",
+          "paragraphs": [
+            "Keep the big heading short, such as SALE, WEEKEND OFFER or DIWALI DHAMAKA. Use the line under the shop name for the date or condition, for example offers valid till Sunday. Put the product people ask about most first, because the first photo is the biggest in some designs.",
+            "Use a photo taken in daylight against a plain background. Photos are cropped to fit, so keep the product in the middle, and use Adjust photo if something is cut off. Enter the real old price and the new price, and the discount badge is calculated for you, so the numbers on the poster always agree."
+          ]
+        },
+        {
+          "heading": "Posting and printing",
+          "paragraphs": [
+            "Download the PNG, then upload it to Instagram or Facebook, or send it in a WhatsApp group or status. Put your WhatsApp number on the poster so people can message you directly. For a printed pamphlet choose A4 and print at actual size on plain or glossy paper.",
+            "The picture is a normal PNG with no watermark. Because it is created on your device, you can make as many versions as you like, for example one per festival, and download each."
+          ]
+        },
+        {
+          "heading": "Privacy and Google Fonts",
+          "paragraphs": [
+            "Your photos, prices and contact details never leave your browser. There is one exception to the rule that this site keeps to itself: the design fonts are downloaded from Google Fonts when you open this page, so Google's servers are contacted to fetch the fonts. That request does not include your photos or details, but, like any web request, it reveals your IP address and browser type to Google. If you would rather avoid that, the other tools on this site do not load Google Fonts."
+          ]
+        }
+      ]
+    }
+  }
+}

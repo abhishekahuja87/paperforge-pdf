@@ -50,6 +50,9 @@ export const PrivacyPage: React.FC = () => {
           You can manage Google personalized advertising through <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google Ads Settings</a>. You can also use the <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Digital Advertising Alliance opt-out page</a> for participating companies. Read <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google’s advertising information</a> and its <a href="https://support.google.com/adsense/answer/9012903?hl=en" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Ad technology partner information</a> for more detail. The providers available can depend on the publisher’s AdSense settings.
         </p>
         <p>
+          The Offer Poster Maker page also downloads its design fonts from Google Fonts (fonts.googleapis.com and fonts.gstatic.com). Your browser contacts Google&rsquo;s servers to fetch those font files, which, like any web request, shares your IP address and browser details with Google. Your photos, prices and shop details are not sent. No other page on this site loads Google Fonts.
+        </p>
+        <p>
           Where the law requires it, for example for visitors in the European Economic Area, the United Kingdom and Switzerland, a consent message from Google is shown so you can choose whether cookies and personalised advertising are used. You can change your choice later through that message or your browser settings.
         </p>
       </section>
