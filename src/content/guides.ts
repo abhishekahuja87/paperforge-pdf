@@ -3,6 +3,8 @@
  * can use it too. English only for now. Every claim about a MyDailyUtils tool must match what
  * the tool really does; read the tool before editing a guide.
  */
+import { PACK_GUIDES } from './packGuides';
+
 export interface GuideSection {
   heading: string;
   paragraphs: string[];
@@ -18,7 +20,7 @@ export interface Guide {
   sections: GuideSection[];
 }
 
-export const GUIDES: Guide[] = [
+const CORE_GUIDES: Guide[] = [
   {
     slug: 'reduce-image-size-for-online-forms',
     title: 'How to reduce a photo to 20 KB, 50 KB or 100 KB for online forms',
@@ -558,6 +560,9 @@ export const GUIDES: Guide[] = [
     ],
   },
 ];
+
+/** Every guide: the core ones above plus those that go with the tool packs. */
+export const GUIDES: Guide[] = [...CORE_GUIDES, ...PACK_GUIDES];
 
 export function getGuide(slug: string | undefined): Guide | undefined {
   return GUIDES.find((guide) => guide.slug === slug);

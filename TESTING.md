@@ -174,3 +174,7 @@ Logic checked in Node: rate build-up (tax, overhead, benefits, buffer, billable 
 ### Page depth, second round
 
 A further 18 PDF, image and utility pages gained extra sections and FAQs (rotate PDF gets sections only). Spot-check /rotate-pdf, /resize-image-to-50kb and /protect-pdf for the new sections before the closing Limits and privacy section.
+
+### New guides
+
+Seven guides were added (GPA and CGPA, citations, freelance rate, margin vs markup, resume, study planning, notice period). Check /guides lists them, each opens, the "Try it" tool links work, and the sitemap has the seven URLs.

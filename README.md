@@ -68,3 +68,7 @@ When adding or changing a tool, keep routes, catalog entries, search, guide cont
 ## Extra page content (AdSense depth)
 
 Short tool pages get extra article sections and FAQs from `src/locales/depth/core.en.json` (keys `toolArticles.<tool id>` and `pageGuides.<guide key>`). `src/locales/english.ts` inserts them before the closing privacy entry, so the original text files stay untouched. To deepen another page, add its entry to that file. Aim for 800 or more words of useful, original text per tool page (steps, article, FAQs).
+
+## Guides
+
+Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are in `src/content/packGuides.ts` and are added to `GUIDES` there. Add the new slug to `public/sitemap.xml` too.
