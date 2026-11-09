@@ -47,11 +47,12 @@ export function extraForMonth(extras: Extras, month: number): number {
 /**
  * Builds the schedule. The EMI stays the same and extra payments shorten the loan. Interest each month is on the
  * balance left after the previous month, which is how banks usually charge it on a reducing-balance loan.
+ * Pass `payment` to pay a fixed amount each month instead of the EMI the tenure calls for.
  */
-export function buildSchedule(principal: number, annualRate: number, tenureMonths: number, extras: Extras = NO_EXTRAS): Schedule {
+export function buildSchedule(principal: number, annualRate: number, tenureMonths: number, extras: Extras = NO_EXTRAS, payment?: number): Schedule {
   const n = Math.max(1, Math.round(tenureMonths));
   const r = annualRate / 1200;
-  const emi = monthlyEmi(principal, annualRate, n);
+  const emi = payment !== undefined && payment > 0 ? payment : monthlyEmi(principal, annualRate, n);
   const rows: ScheduleRow[] = [];
   let balance = principal;
   let totalInterest = 0;
@@ -187,3 +188,41 @@ export function parseExtras(input: ExtraInputs): Extras {
 }
 
 export const hasExtras = (extras: Extras): boolean => extras.oneTime.length > 0 || extras.repeat !== null;
+
+export interface LongerLoan {
+  /** Extra years taken on the loan. */
+  extraMonths: number;
+  months: number;
+  rate: number;
+  /** The EMI the lender would ask for on the longer loan. */
+  requiredEmi: number;
+  /** False when the longer loan's own EMI is not below the EMI the person wants to keep paying. */
+  usable: boolean;
+  /** The loan as first entered. */
+  original: Schedule;
+  /** The longer loan, paying the original EMI every month. */
+  keepPaying: Schedule;
+  /** The longer loan, paying only the lower required EMI. */
+  onlyRequired: Schedule;
+}
+
+/**
+ * Take a longer loan but keep paying the EMI of the shorter one. At the same rate this is the same payoff as the shorter
+ * loan, with a lower required EMI to fall back on. A higher rate on the longer loan is allowed for.
+ */
+export function longerLoan(principal: number, annualRate: number, tenureMonths: number, extraMonths: number, longRate: number): LongerLoan {
+  const n = Math.max(1, Math.round(tenureMonths));
+  const months = n + extraMonths;
+  const original = buildSchedule(principal, annualRate, n);
+  const requiredEmi = monthlyEmi(principal, longRate, months);
+  return {
+    extraMonths, months, rate: longRate, requiredEmi,
+    usable: original.emi >= requiredEmi - 0.005,
+    original,
+    keepPaying: buildSchedule(principal, longRate, months, NO_EXTRAS, original.emi),
+    onlyRequired: buildSchedule(principal, longRate, months),
+  };
+}
+
+/** Extra years offered for a longer loan: up to 30 years in total. */
+export const longerOptions = (tenureMonths: number): number[] => [12, 24, 36, 60, 84, 120].filter((extra) => tenureMonths + extra <= 360);
