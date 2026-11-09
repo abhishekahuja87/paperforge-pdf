@@ -2,11 +2,12 @@ import React from 'react';
 import { Note, SimpleTable, Stat } from '../../finance/ui';
 import { formatInr } from '../../../lib/finance/format';
 import { durationText, type Advice } from '../../../lib/finance/emiSchedule';
+import EmiLonger from './EmiLonger';
 
 const plus = (value: number) => (value > 0 ? `+${formatInr(value)}` : formatInr(value));
 
 /** "Ways to pay less interest", shown after the result the person asked for. Every option changes one thing from the loan above. */
-export const EmiAdvice: React.FC<{ advice: Advice; tenureMonths: number }> = ({ advice, tenureMonths }) => {
+export const EmiAdvice: React.FC<{ advice: Advice; tenureMonths: number; principal: number; annualRate: number; startMonth: string }> = ({ advice, tenureMonths, principal, annualRate, startMonth }) => {
   const { pick, tenures, extras, borrowLess, lowerRate, base } = advice;
   return (
     <section className="mt-8" aria-labelledby="emi-advice">
@@ -22,21 +23,23 @@ export const EmiAdvice: React.FC<{ advice: Advice; tenureMonths: number }> = ({ 
       )}
       {pick && <p className="mt-2 text-[11px] text-slate-500">This is the shortest loan whose EMI is no more than 20% above today's. It is a starting point, not a recommendation: only choose it if the higher EMI is comfortable every month.</p>}
 
-      <h4 className="mt-5 text-sm font-semibold text-slate-900">1. Same amount, shorter time</h4>
+      <EmiLonger principal={principal} annualRate={annualRate} tenureMonths={tenureMonths} startMonth={startMonth} />
+
+      <h4 className="mt-5 text-sm font-semibold text-slate-900">2. Same amount, shorter time</h4>
       <SimpleTable
         caption="Same loan amount with a shorter tenure"
         head={['Tenure', 'EMI', 'Extra a month', 'Total interest', 'Interest saved']}
         rows={tenures.map((item) => [durationText(item.months), formatInr(item.emi), item.months === tenureMonths ? '-' : plus(item.extraPerMonth), formatInr(item.totalInterest), item.months === tenureMonths ? 'As entered' : formatInr(item.interestSaved)])}
       />
 
-      <h4 className="mt-5 text-sm font-semibold text-slate-900">2. Same loan, a little extra each month or year</h4>
+      <h4 className="mt-5 text-sm font-semibold text-slate-900">3. Same loan, a little extra each month or year</h4>
       <SimpleTable
         caption="Effect of small extra payments"
         head={['Extra payment', 'Loan ends in', 'Time saved', 'Interest saved']}
         rows={extras.map((item) => [item.label, durationText(item.months), durationText(item.monthsSaved), formatInr(item.interestSaved)])}
       />
 
-      <h4 className="mt-5 text-sm font-semibold text-slate-900">3. Borrow less (a bigger down payment)</h4>
+      <h4 className="mt-5 text-sm font-semibold text-slate-900">4. Borrow less (a bigger down payment)</h4>
       <SimpleTable
         caption="Smaller loan amounts for the same tenure"
         head={['Loan', 'Amount', 'EMI', 'Interest saved', 'Extra from your pocket']}
@@ -45,7 +48,7 @@ export const EmiAdvice: React.FC<{ advice: Advice; tenureMonths: number }> = ({ 
 
       {lowerRate.length > 0 && (
         <>
-          <h4 className="mt-5 text-sm font-semibold text-slate-900">4. A lower interest rate</h4>
+          <h4 className="mt-5 text-sm font-semibold text-slate-900">5. A lower interest rate</h4>
           <SimpleTable
             caption="Effect of a lower interest rate"
             head={['Rate', 'EMI', 'Interest saved']}
