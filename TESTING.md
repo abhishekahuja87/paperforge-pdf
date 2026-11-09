@@ -424,3 +424,15 @@ Check after deploy:
 - [ ] The comparison table has the first two columns (as entered) equal to the next two (longer loan, your EMI) at the same rate, and the last column stays above zero for the extra years. Year-wise and Month-wise both work and scroll inside their box on a phone.
 - [ ] Change "Take the loan for" (+1, +2, +3, +5, +7, +10 years where allowed up to 30 years) and the rate on the longer loan: the sentence, cards and tables update; a high rate shows the "nothing to compare" message.
 - [ ] Hand check one number: required EMI for the longer term = standard EMI formula at that tenure; interest with your EMI = total paid minus the loan.
+
+### Sports Court and Ground Size Guide (`/sports-court-size-guide`)
+
+Checked in the sandbox: every sport, version, fact, mark and margin id in the data has text in the locale file; the fit maths (both orientations, run-off per court) gives expected counts; diagrams render (27 versions). `tsc` and `vite build` were not run and styled layout was not viewed.
+
+Check after deploy:
+- [ ] Page opens; the sport list has 13 sports; each sport and version shows a court drawing in proportion with a dotted clear-space box, and the lines look like the real court.
+- [ ] Spot check against a source you trust: badminton 13.4 x 6.1 m (44 x 20 ft), tennis 23.77 x 10.97 m, pickleball 13.41 x 6.1 m, cricket pitch 20.12 m, basketball FIBA 28 x 15 m, volleyball 18 x 9 m.
+- [ ] Lengths read like "13.4 m (43 ft 11.6 in)". Marking plan shows the diagonal and line distances.
+- [ ] Fit my space: enter 20 x 10 m: badminton fits; enter 10 x 6 m: tennis does not and shows how short. Switch to feet and the result is the same space. Extra clear space of 1 m removes some courts.
+- [ ] Show this court jumps to the sizes tab for that court.
+- [ ] Notes and risks, how to play, sources (links open) and the checked date appear for every sport. At 360 px nothing makes the page scroll sideways.

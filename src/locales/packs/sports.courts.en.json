@@ -1,0 +1,482 @@
+{
+  "sports": {
+    "badminton": {
+      "name": "Badminton",
+      "summary": "A badminton court is 13.4 m long and 6.1 m wide for doubles. Singles uses the same court with the narrower inner side lines.",
+      "variants": {
+        "court": "Full court (doubles; singles uses the inner side lines)"
+      },
+      "facts": {
+        "length": "Court length",
+        "doublesWidth": "Width for doubles",
+        "singlesWidth": "Width for singles",
+        "shortService": "Short service line, from the net",
+        "longServiceDoubles": "Long service line for doubles, from the back line",
+        "netPosts": "Net height at the posts",
+        "netCentre": "Net height at the centre",
+        "lineWidth": "Line width"
+      },
+      "marks": {
+        "longServiceDoubles": "Long service line for doubles",
+        "shortService": "Short service line",
+        "net": "Net, in the middle of the court",
+        "singlesSideline": "Singles side line"
+      },
+      "margins": {
+        "bwf": "Clear space BWF asks for in competition halls: 2 m behind the back lines and 1.5 m at the sides"
+      },
+      "howToPlay": [
+        "The game is played to 21 points. Every rally scores a point for the side that wins it, whoever served.",
+        "At 20-all a side must win by 2 points. At 29-all the side that scores the 30th point wins.",
+        "A match is the best of three games.",
+        "The server and receiver stand in diagonally opposite service courts. The server serves from the right court when their side's score is even and from the left when it is odd.",
+        "The serve is hit underhand: the shuttle must be hit below the server's waist, and it must land in the receiver's service court."
+      ],
+      "notes": [
+        "The 1.55 m net height is at the posts, which stand on the doubles side lines. The net is 1.524 m high in the middle.",
+        "For doubles the long service line is the line 0.76 m in from the back line. In singles the back line itself is the long service line.",
+        "Two courts marked side by side need at least 1.5 m between them (BWF competition halls ask for 4 m for the biggest events).",
+        "A hall needs at least 9 m of clear height over the court for BWF practice halls, and 12 m for the top tournaments."
+      ]
+    },
+    "tennis": {
+      "name": "Tennis",
+      "summary": "A tennis court is 23.77 m long and 10.97 m wide for doubles. Singles uses the inner side lines, 8.23 m apart.",
+      "variants": {
+        "court": "Full court (doubles; singles uses the inner side lines)"
+      },
+      "facts": {
+        "length": "Court length",
+        "doublesWidth": "Width for doubles",
+        "singlesWidth": "Width for singles",
+        "serviceFromNet": "Service line, from the net",
+        "netPosts": "Net height at the posts",
+        "netCentre": "Net height at the centre"
+      },
+      "marks": {
+        "serviceLine": "Service line",
+        "net": "Net, in the middle of the court",
+        "singlesSideline": "Singles side line"
+      },
+      "margins": {
+        "club": "Clear space the ITF recommends for club and recreational play: 5.48 m behind the baselines and 3.05 m at the sides",
+        "international": "Clear space the ITF recommends for international competition: 6.4 m behind the baselines and 3.66 m at the sides"
+      },
+      "howToPlay": [
+        "Points in a game go 0, 15, 30, 40, then game. The server's score is called first.",
+        "At 40-all (deuce) a player must win two points in a row to win the game.",
+        "The first to 6 games, with a lead of 2 games, wins a set. At 6-6 the set is decided by a tie-break (first to 7 points, leading by 2) or by playing on, depending on the format announced before the event.",
+        "A match is the best of three sets, or the best of five.",
+        "Players change ends after the first game and then after every odd-numbered game of a set."
+      ],
+      "notes": [
+        "The ITF says the recommended space behind the baselines and at the sides is a minimum, and that the recommended roof height is at least 9 m over the court at the net.",
+        "Most courts are built with doubles lines. The net posts stand 0.914 m outside the doubles side lines.",
+        "Courts in a row usually share the side space in club layouts; this guide keeps each court's own clear space, so it may count fewer courts than a club would fit."
+      ]
+    },
+    "pickleball": {
+      "name": "Pickleball",
+      "summary": "A pickleball court is 6.1 m (20 ft) wide and 13.41 m (44 ft) long, the same for singles and doubles. It is the size of a doubles badminton court.",
+      "variants": {
+        "court": "Standard court"
+      },
+      "facts": {
+        "length": "Court length",
+        "width": "Court width",
+        "kitchen": "Non-volley zone (kitchen), from the net",
+        "netSides": "Net height at the sidelines",
+        "netCentre": "Net height at the centre",
+        "lineWidth": "Line width"
+      },
+      "marks": {
+        "kitchenLine": "Kitchen line",
+        "net": "Net, in the middle of the court"
+      },
+      "margins": {
+        "minimum": "Smallest playing area USA Pickleball describes: 30 ft x 60 ft (9.14 m x 18.29 m)",
+        "recommended": "Tournament playing area: 34 ft x 64 ft (10.36 m x 19.51 m)"
+      },
+      "howToPlay": [
+        "Games are normally played to 11 points and must be won by 2. Tournaments may play to 15 or 21.",
+        "Only the serving side can score a point. If the serving side faults, the serve passes on.",
+        "The serve is underhand, with the paddle contacting the ball below the navel, from behind the baseline to the diagonally opposite service court. The serve must clear the kitchen.",
+        "Double-bounce rule: the ball must bounce once on each side after the serve before anyone may volley it.",
+        "You may not volley while any part of you or your paddle touches the kitchen or its line. You may stand in the kitchen to hit a ball that has bounced."
+      ],
+      "notes": [
+        "The kitchen is 7 ft (2.13 m) deep from the net on each side across the full width of the court. A serve that lands on the kitchen line is short and a fault.",
+        "The net is 36 in (91.44 cm) high at the sidelines and 34 in (86.36 cm) in the middle.",
+        "The extra space listed is the total playing area; we split it equally on each side. Check how your venue measures it."
+      ]
+    },
+    "basketball": {
+      "name": "Basketball",
+      "summary": "A full FIBA basketball court is 28 m long and 15 m wide, measured from the inside edge of the boundary lines. 3x3 is played on a 15 m x 11 m court.",
+      "variants": {
+        "fiba": "FIBA full court (28 m x 15 m)",
+        "threeByThree": "3x3 court (15 m x 11 m)"
+      },
+      "facts": {
+        "length": "Court length",
+        "width": "Court width",
+        "freeThrow": "Free-throw line, from the end line",
+        "laneWidth": "Restricted area (lane) width",
+        "threePoint": "Three-point arc radius",
+        "cornerFromSide": "Three-point corner lines, in from the side line",
+        "circleRadius": "Centre circle and free-throw semicircle radius",
+        "rimHeight": "Rim height",
+        "twoPoint": "Two-point arc radius"
+      },
+      "marks": {
+        "freeThrow": "Free-throw line",
+        "halfway": "Halfway line",
+        "cornerFromSide": "Three-point corner line"
+      },
+      "margins": {
+        "free": "Clear space FIBA asks for: obstructions at least 2 m from the court"
+      },
+      "howToPlay": [
+        "Two teams of five players try to score by shooting the ball through the opponent's hoop.",
+        "A shot from inside the three-point arc scores 2 points, from outside it 3 points, and a free throw 1 point.",
+        "FIBA games are four periods of 10 minutes.",
+        "A player must dribble the ball when moving with it and may not carry it or take steps without dribbling.",
+        "3x3 is played at one hoop by teams of three; a shot inside the arc scores 1 point and outside it 2 points."
+      ],
+      "notes": [
+        "The FIBA text we checked (the 2012 article on court markings) gives these sizes. Check the current FIBA rules for any change.",
+        "The three-point arc is drawn from a point 1.575 m in from the end line, with straight lines 0.9 m from each side line running to the arc.",
+        "NBA and school courts differ from the FIBA size, so this guide shows FIBA only.",
+        "For the 3x3 court the 2 m clear space is applied for planning; check the 3x3 rules for competition requirements."
+      ]
+    },
+    "volleyball": {
+      "name": "Volleyball",
+      "summary": "An indoor volleyball court is 18 m x 9 m, split by the net into two 9 m x 9 m halves. A beach court is 16 m x 8 m.",
+      "variants": {
+        "indoor": "Indoor court",
+        "beach": "Beach court"
+      },
+      "facts": {
+        "length": "Court length",
+        "width": "Court width",
+        "attackLine": "Attack line, from the centre line",
+        "netMen": "Net height for men",
+        "netWomen": "Net height for women"
+      },
+      "marks": {
+        "attackLine": "Attack line",
+        "net": "Net, in the middle of the court"
+      },
+      "margins": {
+        "minimum": "Smallest clear space (free zone): 3 m on all sides",
+        "official": "Free zone for world and official competitions: 8 m at the end lines and 5 m at the sidelines"
+      },
+      "howToPlay": [
+        "Two teams of six (indoor) play on either side of a net. Each team may touch the ball up to three times before sending it over.",
+        "Every rally scores a point. A set is played to 25 points and must be won by 2.",
+        "A match is the best of five sets. The fifth set is played to 15 points.",
+        "The team that wins a rally serves next. Players rotate one position clockwise when their team wins the serve back.",
+        "In beach volleyball each team has two players, and the sets are played to 21 points (15 in the deciding set)."
+      ],
+      "notes": [
+        "The clear-space figures come from the Western Australia guide, which cites the 2013-2016 Volleyball Australia rules. Check the current FIVB or national rules before you build a court.",
+        "A free zone of at least 7 m of clear height above the court is listed.",
+        "The attack line is measured to the back edge of the line from the centre line, so the front zone is 3 m deep on each side."
+      ]
+    },
+    "football": {
+      "name": "Football (soccer)",
+      "summary": "The Laws of the Game let an 11-a-side pitch be 90-120 m long and 45-90 m wide, or 100-110 m by 64-75 m for international matches. Choose a size below.",
+      "variants": {
+        "smallest": "Smallest allowed (90 m x 45 m)",
+        "internationalMin": "Smallest international size (100 m x 64 m)",
+        "common": "A common full size (105 m x 68 m)",
+        "largest": "Largest allowed (120 m x 90 m)"
+      },
+      "facts": {
+        "length": "Pitch length (touchlines)",
+        "width": "Pitch width (goal lines)",
+        "goalWidth": "Goal width (inside the posts)",
+        "crossbar": "Crossbar height",
+        "goalArea": "Goal area, from the goal line",
+        "penaltyArea": "Penalty area, from the goal line",
+        "penaltyMark": "Penalty mark, from the goal line",
+        "circleRadius": "Centre circle and penalty arc radius",
+        "cornerArc": "Corner arc radius"
+      },
+      "marks": {
+        "goalArea": "Goal area line",
+        "penaltyMark": "Penalty mark",
+        "penaltyArea": "Penalty area line",
+        "halfway": "Halfway line"
+      },
+      "margins": {
+        "none": "The Laws of the Game do not set a run-off distance"
+      },
+      "howToPlay": [
+        "Two teams of 11 try to put the ball into the opponent's goal. The team with more goals at the end wins.",
+        "A match is two halves of 45 minutes.",
+        "Only the goalkeeper may handle the ball inside their own penalty area. Other players use their feet, body and head.",
+        "A foul inside the penalty area gives a penalty kick from the penalty mark.",
+        "The ball is out of play when it fully crosses the touchline or goal line."
+      ],
+      "notes": [
+        "The Laws give ranges, not one size. 105 m x 68 m is a common choice and is not a rule.",
+        "Upright advertising must be at least 1 m from the touchlines and the goal net.",
+        "Smaller games (5-a-side, 7-a-side, 9-a-side, futsal) use different sizes set by the league or federation, so they are not listed here. Follow your league's rules for those.",
+        "Goals must be firmly secured to the ground. The line width may be at most 12 cm."
+      ]
+    },
+    "cricket": {
+      "name": "Cricket",
+      "summary": "A cricket pitch is 22 yards (20.12 m) long and 10 ft (3.05 m) wide. The ground around it is oval; international boundaries are 65-90 yards from the centre for men.",
+      "variants": {
+        "pitch": "Pitch only (22 yards x 10 ft)",
+        "menMin": "Men's international, smallest boundary (65 yards from the centre)",
+        "menMax": "Men's international, largest boundary (90 yards from the centre)",
+        "womenMin": "Women's international, smallest boundary (60 yards from the centre)",
+        "womenMax": "Women's international, largest boundary (70 yards from the centre)"
+      },
+      "facts": {
+        "length": "Pitch length",
+        "width": "Pitch width",
+        "boundaryRadius": "Boundary distance from the centre of the pitch",
+        "diameter": "Ground width, boundary to boundary (as a circle)",
+        "fieldingCircle": "Fielding circle radius from each wicket (limited-overs)",
+        "pitchLength": "Pitch length"
+      },
+      "marks": {},
+      "margins": {
+        "none": "No clear space listed for a pitch alone",
+        "fence": "A gap of at least 3 yards between the boundary rope and fencing or advertising boards"
+      },
+      "howToPlay": [
+        "Two teams of 11 take turns to bat and to field. The team that scores more runs wins.",
+        "A batter scores runs by hitting the ball and running between the wickets, 22 yards apart, or by hitting it to the boundary for four or six.",
+        "The bowler delivers six balls in an over. The batter is out if bowled, caught, leg before wicket, run out, stumped and in other ways.",
+        "In a limited-overs match each team bats for a fixed number of overs. In a Test match each team bats up to twice with no overs limit.",
+        "The batting side loses when all but one batter is out, or when overs run out."
+      ],
+      "notes": [
+        "The ground is not a circle: real grounds are ovals. We draw and count a circle with the boundary distance as its radius, which is the safest size to plan for.",
+        "Boundary limits are those for men's Tests and ODIs (no more than 90 yards and no less than 65 yards from the centre of the pitch) and for women's international matches (60 to 70 yards). Local grounds, schools and club cricket use their own limits.",
+        "The 30-yard fielding circle applies in limited-overs matches.",
+        "Creases are not drawn in this guide because we could not confirm their measurements from a primary source."
+      ]
+    },
+    "hockey": {
+      "name": "Hockey (field)",
+      "summary": "A field hockey pitch is 91.4 m (100 yd) long and 55 m (60 yd) wide, with a goal 3.66 m wide at each end.",
+      "variants": {
+        "pitch": "Full pitch"
+      },
+      "facts": {
+        "length": "Pitch length (side lines)",
+        "width": "Pitch width (back lines)",
+        "goalWidth": "Goal width (inside the posts)",
+        "goalHeight": "Goal height",
+        "circleRadius": "Shooting circle radius",
+        "line23": "23 m line, from the back line",
+        "penaltySpot": "Penalty spot, from the goal line",
+        "lineWidth": "Line width"
+      },
+      "marks": {
+        "line23": "23 m line",
+        "halfway": "Halfway line",
+        "circleFront": "Front of the shooting circle"
+      },
+      "margins": {
+        "fih": "Run-off the FIH asks for: at least 2 m at the side lines and 3 m at the back lines"
+      },
+      "howToPlay": [
+        "Two teams of up to 11 players each on the pitch, including a goalkeeper, try to score by hitting the ball into the opponent's goal with a stick.",
+        "A goal counts only if the ball is hit from inside the shooting circle (the D).",
+        "Games are four quarters of 15 minutes.",
+        "Players may only use the flat side of the stick and may not play the ball with their body or foot, except the goalkeeper in the circle.",
+        "Fouls near the circle can give free hits, penalty corners or penalty strokes."
+      ],
+      "notes": [
+        "The 23 m line is 22.90 m from the back line. The shooting circle is drawn from two quadrant arcs of 14.63 m radius centred on the goalposts, joined by a 3.66 m straight line.",
+        "The FIH run-off is a minimum. The last metre can be a different surface.",
+        "These sizes come from a summary of the FIH rules (see sources). Check the current FIH Rules of Hockey for competitions."
+      ]
+    },
+    "kabaddi": {
+      "name": "Kabaddi",
+      "summary": "A men's kabaddi court is 13 m x 10 m. Women's courts are 12 m x 8 m and sub-junior courts 11 m x 8 m. A midline splits it into two halves.",
+      "variants": {
+        "men": "Men and junior boys (13 m x 10 m)",
+        "women": "Women and junior girls (12 m x 8 m)",
+        "subJunior": "Sub-junior boys and girls (11 m x 8 m)"
+      },
+      "facts": {
+        "length": "Court length",
+        "width": "Court width",
+        "baulk": "Baulk line, from the midline",
+        "bonus": "Bonus line, beyond the baulk line",
+        "lobby": "Lobby (strip along each side)"
+      },
+      "marks": {
+        "bonusLine": "Bonus line",
+        "baulkLine": "Baulk line",
+        "midline": "Midline",
+        "lobby": "Lobby line"
+      },
+      "margins": {
+        "none": "Overall ground: desirable 20 m x 20 m, no smaller than 17 m x 18 m (applied below)"
+      },
+      "howToPlay": [
+        "Two teams of seven take turns to send a raider into the other half.",
+        "A raider tries to touch defenders and return to their own half before 30 seconds are up, without being held until they run out of breath.",
+        "Each defender put out scores a point for the raiding side. A raider who is caught scores a point for the defenders.",
+        "An All Out, when a whole team is out, gives the other team two extra points.",
+        "One bonus point is given if a raider crosses the bonus line when at least six defenders are in the half.",
+        "Men play two halves of 20 minutes; women and juniors play two halves of 15 minutes, with a 5-minute break."
+      ],
+      "notes": [
+        "The IKF rules (version 2.1.0) are the source for these sizes. The 30-second raid limit is from the standard rules and is not stated in the document we checked.",
+        "Check the current rules of the Amateur Kabaddi Federation of India or your state association for national competitions.",
+        "The 1 m lobbies on both sides become part of the court after a touch or struggle starts."
+      ]
+    },
+    "khoKho": {
+      "name": "Kho Kho",
+      "summary": "A Kho Kho ground is a rectangle 27 m long and 16 m wide, with a central lane and cross lanes, and two poles.",
+      "variants": {
+        "ground": "Standard ground (27 m x 16 m)"
+      },
+      "facts": {
+        "length": "Ground length",
+        "width": "Ground width",
+        "centralLane": "Central lane width",
+        "crossLane": "Width of each of the 8 cross lanes",
+        "poleHeight": "Pole height (120-125 cm; lower value shown)"
+      },
+      "marks": {},
+      "margins": {
+        "none": "No clear space listed on the page we used"
+      },
+      "howToPlay": [
+        "Each team has nine players. One team chases and the other team's three runners are on the ground at a time.",
+        "Eight chasers sit in the squares along the central lane, facing alternate directions. The ninth, the active chaser, runs to touch the runners.",
+        "Chasers can only move in the direction they face and cannot cross the central lane; they pass the turn by touching a sitting chaser and saying Kho.",
+        "A match has two innings. Each inning has two turns of 9 minutes: one turn chasing and one turn running.",
+        "The team that scores more points by tagging out runners wins."
+      ],
+      "notes": [
+        "Only the outer size is drawn. The positions of the cross lanes and poles are not shown because the source we checked gave the number and width, not the spacing.",
+        "This guide has not confirmed whether the 9-a-side or 7-a-side format applies in your league; the World Cup uses 7-a-side.",
+        "Check the Kho Kho Federation of India rulebook for competitions."
+      ]
+    },
+    "tableTennis": {
+      "name": "Table tennis",
+      "summary": "A table tennis table is 2.74 m long, 1.525 m wide and 76 cm high. Competitions need a space of at least 14 m x 7 m, 5 m high.",
+      "variants": {
+        "table": "The table",
+        "competition": "Competition playing space (14 m x 7 m)",
+        "masters": "Reduced space for masters events (10 m x 5 m)",
+        "wheelchair": "Reduced space for wheelchair events (8 m x 6 m)"
+      },
+      "facts": {
+        "length": "Space length",
+        "width": "Space width",
+        "tableLength": "Table length",
+        "tableWidth": "Table width",
+        "tableHeight": "Table height above the floor",
+        "netHeight": "Net height above the playing surface"
+      },
+      "marks": {},
+      "margins": {
+        "none": "Competition space shown; no extra clear space listed"
+      },
+      "howToPlay": [
+        "Games are played to 11 points. At 10-all a side must win by 2.",
+        "The serve changes after every 2 points. At 10-all each player serves one point in turn.",
+        "A match is the best of any odd number of games.",
+        "The ball must be hit so that it bounces on your side of the table and then on the other side. A serve must bounce on your own half first."
+      ],
+      "notes": [
+        "The 14 m x 7 m x 5 m space is the competition minimum. Home and club tables need much less; the rules do not set a recreational size, so leave enough room to step back from the table.",
+        "The reduced sizes are those allowed for masters and wheelchair events.",
+        "The table is drawn at the centre of the space."
+      ]
+    },
+    "squash": {
+      "name": "Squash",
+      "summary": "A singles squash court is 9.75 m long and 6.4 m wide, enclosed by four walls. The doubles (hardball) court is 13.72 m x 7.62 m.",
+      "variants": {
+        "singles": "Singles court (9.75 m x 6.4 m)",
+        "doubles": "Doubles / hardball court (13.72 m x 7.62 m)"
+      },
+      "facts": {
+        "length": "Court length",
+        "width": "Court width",
+        "frontWall": "Front wall, height of the top line",
+        "backWall": "Back wall, height of the top line",
+        "tin": "Tin height",
+        "serviceLine": "Service line on the front wall, height"
+      },
+      "marks": {},
+      "margins": {
+        "none": "An enclosed court; no run-off is listed"
+      },
+      "howToPlay": [
+        "Two players take turns to hit the ball against the front wall above the tin and below the top line.",
+        "After a serve the ball must be hit before it bounces twice; it may hit the side and back walls first.",
+        "Points are scored on every rally (point-a-rally scoring). Games are normally played to 11 and must be won by 2.",
+        "A match is usually the best of five games.",
+        "The player who wins the rally serves next."
+      ],
+      "notes": [
+        "The short line and half-court line are not drawn because the two sources we checked differed slightly on the short line position (4.26 m from the back wall in one, 5.44 m from the front wall in the other).",
+        "Heights are measured on the walls and are not floor distances.",
+        "A squash court needs a ceiling above the front wall and the proper wall and floor finish; ask the Squash Rackets Association or WSF for the full specification before you build."
+      ]
+    }
+  },
+  "ui": {
+    "sizesTab": "Court sizes",
+    "fitTab": "Fit my space",
+    "sport": "Sport",
+    "variant": "Version",
+    "runoff": "Clear space around the court",
+    "courtSize": "Court size",
+    "spaceNeeded": "Space needed in all",
+    "height": "Clear height",
+    "metresFeet": "Metres, with feet and inches in brackets",
+    "facts": "Measurements",
+    "marking": "Marking plan",
+    "markingIntro": "Mark the outer rectangle first. Both diagonals must be the same length, which shows the corners are square. Then measure the lines from the points below.",
+    "diagonal": "Diagonal of the court (both must match)",
+    "fromEnd": "from the end line",
+    "fromSide": "from the side line",
+    "line": "Line",
+    "distance": "Distance",
+    "howTo": "How to play",
+    "notes": "Notes and risks",
+    "notesLead": "Read before you build or mark a court. Recreational, school and club courts often differ from the federation size.",
+    "sources": "Where these sizes come from",
+    "checked": "Checked on",
+    "drawingNote": "Drawn to scale. Solid lines are the court, dashed lines are nets and the dotted box is the clear space.",
+    "spaceLength": "Your space, length",
+    "spaceWidth": "Your space, width",
+    "unit": "Unit",
+    "extra": "Extra clear space on each side",
+    "extraHint": "Add this if you want a bigger safety gap than the rules ask for.",
+    "fits": "Fits in your space",
+    "noFit": "Does not fit",
+    "nothingFits": "Nothing in this guide fits in that space. Try a larger space or less extra clear space.",
+    "needs": "Needs",
+    "spare": "Spare",
+    "short": "Short by",
+    "courts": "courts",
+    "court": "court",
+    "openIt": "Show this court",
+    "enterSpace": "Enter the length and width of your space to see what fits.",
+    "fitNote": "Each court keeps its own clear space, so rows of courts are counted with a gap between them. The result is a planning guide, not a design.",
+    "disclaimer": "Sizes are from the sources listed and were checked on the date shown. Rules change, and local and school courts differ. Confirm with the governing body for your event before you build or mark a court. This guide is not a safety or engineering approval.",
+    "high": "above the court"
+  }
+}
