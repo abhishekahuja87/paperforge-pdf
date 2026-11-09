@@ -8,6 +8,8 @@ interface Details { tenant: string; landlord: string; pan: string; address: stri
 
 const STORAGE_KEY = 'rent-receipt-details';
 const PER_PAGE = 3;
+/** Largest monthly rent accepted; anything above is almost certainly a typing mistake. */
+const MAX_RENT = 1e9;
 
 const thisMonth = () => {
   const now = new Date();
@@ -57,7 +59,9 @@ export const RentReceiptGenerator: React.FC = () => {
   useEffect(() => { if (remember) saveDetails(details); }, [remember, details]);
 
   const setD = (key: keyof Details) => (value: string) => setDetails((current) => ({ ...current, [key]: value }));
-  const amount = Number(rent.replace(/,/g, '')) || 0;
+  const typed = Number(rent.replace(/,/g, ''));
+  const amount = Number.isFinite(typed) && typed > 0 && typed <= MAX_RENT ? typed : 0;
+  const amountInvalid = rent.trim() !== '' && amount === 0;
   const span = monthSpan(start, end);
   const months = rentMonths(start, end, Number(payDay));
   const pages: typeof months[] = [];
@@ -83,6 +87,7 @@ export const RentReceiptGenerator: React.FC = () => {
           <SelectField label="How it was paid" value={mode} onChange={setMode} options={['Bank transfer', 'UPI', 'Cheque', 'Cash'].map((item) => ({ value: item, label: item }))} />
         </div>
         {span > MAX_RECEIPT_MONTHS && <p role="alert" className="mt-2 text-xs text-rose-800">That range is {span} months. Receipts are made for the first {MAX_RECEIPT_MONTHS}; make a second set for the rest.</p>}
+        {amountInvalid && <p role="alert" className="mt-2 text-xs text-rose-800">Enter the monthly rent as a positive number, for example 15000.</p>}
         {span === 0 && <p role="alert" className="mt-2 text-xs text-rose-800">Choose a last month that is the same as or after the first month.</p>}
         {currency === 'INR' && amount > 0 && annual > HRA_PAN_LIMIT && !isPanShape(pan) && <p role="status" className="mt-2 text-xs text-amber-800">Yearly rent is about {formatMoney(annual, 'INR', 0)}. For an HRA claim above Rs 1 lakh a year, employers usually ask for the landlord's PAN, so add it above.</p>}
         {pan && !isPanShape(pan) && <p role="alert" className="mt-2 text-xs text-rose-800">A PAN has five letters, four digits and one letter, for example ABCDE1234F.</p>}

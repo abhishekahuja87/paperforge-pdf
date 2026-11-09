@@ -26,11 +26,12 @@ export function parseBulkLines(text: string): BulkItem[] {
 
 /** A safe file name for an item: label (or content) reduced to letters, digits, dashes, and made unique. */
 export function fileNames(items: BulkItem[]): string[] {
-  const used = new Map<string, number>();
+  const taken = new Set<string>();
   return items.map((item, index) => {
     const base = (item.label || item.content).toLowerCase().replace(/^https?:\/\//, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || `code-${index + 1}`;
-    const seen = used.get(base) ?? 0;
-    used.set(base, seen + 1);
-    return seen === 0 ? base : `${base}-${seen + 1}`;
+    let name = base;
+    for (let n = 2; taken.has(name); n += 1) name = `${base}-${n}`;
+    taken.add(name);
+    return name;
   });
 }

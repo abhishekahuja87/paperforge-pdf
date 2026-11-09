@@ -14,7 +14,7 @@ export const PrivacyPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">1. Local File Processing</h2>
         <p>
-          At <strong>MyDailyUtils</strong> (https://www.mydailyutils.in), supported file operations are performed in your web browser. Files selected for these tools are not uploaded to MyDailyUtils for processing. Work is temporary unless you download it or explicitly save a POS profile and inventory in your browser; the site does not provide cloud storage for your files.
+          At <strong>MyDailyUtils</strong> (https://www.mydailyutils.in), supported file operations are performed in your web browser. Files selected for these tools are not uploaded to MyDailyUtils for processing. Work is temporary unless you download it or the tool keeps some details in your browser on your device, as described in section 2; the site does not provide cloud storage for your files.
         </p>
         <p>
           The website loads pages and third-party resources. Some PDF tools request character-map files from jsDelivr when needed to render or read certain PDFs. These are supporting resources; the selected PDF is not sent to jsDelivr for processing. Local file processing does not mean the website is offline or makes no network requests.
@@ -28,6 +28,9 @@ export const PrivacyPage: React.FC = () => {
         <h2 className="text-xl font-bold text-slate-900">2. Local preferences</h2>
         <p>
           The site stores your language choice and tool-visit counts in your browser’s local storage. The counts are used to show labels such as “Frequent” or “Favorite.” These preferences stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
+        </p>
+        <p>
+          Some tools keep what you type in this browser’s local storage on your device so it is there when you return. Nothing is sent to MyDailyUtils. The Offer Poster Maker saves the shop name, tagline, heading and the WhatsApp, Facebook and Instagram details automatically (product photos are not saved). Group settle-up saves its group title, people’s names and expenses automatically. The Resume Builder, Quotation Generator and Rent Receipt Generator save your details (for example names, contact details, address, a landlord’s PAN number and your terms) only when you tick their “remember” box. Untick the box or clear this site’s browser data to remove them. Do not use these on a shared computer.
         </p>
         <p>
           If you tick “Remember my business details” in the GST Invoice Generator, your seller details, notes and bank details are kept in this browser’s local storage on your device until you untick the box or clear your browser data; buyer details and invoice items are not saved. If you choose to save a POS shop profile and inventory, they are stored in this browser’s IndexedDB on your device, including the shop details and inventory entered. Customer bills are not saved there. Saved profiles can be loaded or deleted in the POS tool, and clearing site data also removes them. Browser storage may be accessible to others using the same browser profile and may not persist in private browsing; keep a JSON backup.
