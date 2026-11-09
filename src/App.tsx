@@ -48,6 +48,7 @@ const GuidesPage = lazy(() => import('./pages/GuidesPage').then((m) => ({ defaul
 const GuidePage = lazy(() => import('./pages/GuidePage').then((m) => ({ default: m.GuidePage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 const Ac1Page = lazy(() => import('./pages/Ac1Page').then((m) => ({ default: m.Ac1Page })));
+const Ac1PosterPage = lazy(() => import('./pages/Ac1PosterPage').then((m) => ({ default: m.Ac1PosterPage })));
 const CatalogTemplatesPage = lazy(() => import('./pages/CatalogTemplatesPage').then((m) => ({ default: m.CatalogTemplatesPage })));
 
 export const App: React.FC = () => {
@@ -64,6 +65,7 @@ export const App: React.FC = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/ac1" element={<CatalogTemplatesPage />} />
               <Route path="/ac1/edit" element={<Ac1Page />} />
+              <Route path="/ac1/poster" element={<Ac1PosterPage />} />
               <Route path="/catalog-templates" element={<CatalogTemplatesPage />} />
               <Route path="/merge-pdf" element={<MergePage />} />
               <Route path="/split-pdf" element={<SplitPage />} />

@@ -1,7 +1,7 @@
 import shops from '../../locales/packs/shops.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
-/** Tools for small shops. Each runs in the browser; the poster maker also downloads its design fonts from Google Fonts. */
+/** Tools for small shops. Each runs in the browser. The poster maker's fonts are bundled with the site. */
 export const SHOPS_TOOLS: PackTool[] = [
   definePackTool({
     id: 'offer-poster-maker', kind: 'offerPosterMaker', guideKey: 'offerPosterMakerGuide', category: 'media', icon: 'receipt', tier: 'popular',

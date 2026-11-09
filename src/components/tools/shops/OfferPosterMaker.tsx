@@ -4,12 +4,15 @@ import { Note } from '../../finance/ui';
 import { Toggle, Slider, card, heading } from '../paper/controls';
 import { fieldClass } from '../utilities/common';
 import { POSTER_THEMES, findPosterTheme } from '../../../config/posterThemes';
+import { loadSamplePhotos } from '../../../lib/poster/samples';
 import { POSTER_COUNTS, POSTER_SAMPLE_PRODUCTS, POSTER_SAMPLE_SHOP, POSTER_SHOP_STORAGE_KEY } from '../../../config/posterSamples';
 import { POSTER_FORMATS, type FormatId } from '../../../lib/poster/layout';
 import { discountPercent, bestDiscount } from '../../../lib/poster/discount';
 import { renderPoster, type Emphasis, type PosterProduct, type PosterShop } from '../../../lib/poster/render';
-import { loadPhoto, loadPhotoFromUrl, type LoadedImage } from '../../../lib/poster/images';
+import { loadPhoto, type LoadedImage } from '../../../lib/poster/images';
+import { PosterThumb } from './PosterThumb';
 import { loadPosterFonts } from '../../../lib/poster/fonts';
+import './posterFonts.css';
 import { slugify } from '../../../lib/utilities/text';
 
 interface Row { id: number; name: string; original: string; price: string; image: LoadedImage | null; zoom: number; offsetX: number; offsetY: number; fit: 'cover' | 'contain'; badge: string; badgeEdited: boolean }
@@ -45,28 +48,27 @@ export const OfferPosterMaker: React.FC = () => {
   const [count, setCount] = useState(6);
   const [emphasis, setEmphasis] = useState<Emphasis>('photos');
   const [offerText, setOfferText] = useState<string | null>(null);
-  const [fonts, setFonts] = useState<'loading' | 'ready' | 'failed'>('loading');
+  const [fonts, setFonts] = useState<'loading' | 'ready'>('loading');
   const [message, setMessage] = useState('');
   const nextId = useRef(1);
   const previewRef = useRef<HTMLCanvasElement>(null);
   const picker = useRef<HTMLInputElement>(null);
   const pickFor = useRef<number | null>(null);
 
-  // Fonts come from Google Fonts, only on this page. Designs fall back to system fonts if they cannot load.
+  // Wait for the bundled fonts, then draw again.
   useEffect(() => {
     let alive = true;
-    loadPosterFonts().then((ok) => { if (alive) setFonts(ok ? 'ready' : 'failed'); });
+    loadPosterFonts().then(() => { if (alive) setFonts('ready'); });
     return () => { alive = false; };
   }, []);
 
   // Starter products with their sample photos.
   useEffect(() => {
     let alive = true;
-    Promise.all(POSTER_SAMPLE_PRODUCTS.map(async (sample) => {
-      let image: LoadedImage | null = null;
-      try { image = await loadPhotoFromUrl(sample.image); } catch { /* shown as an empty photo box */ }
-      return { id: nextId.current++, name: sample.name, original: sample.original, price: sample.price, image, zoom: 1, offsetX: 0, offsetY: 0, fit: 'cover' as const, badge: autoBadge(sample.original, sample.price), badgeEdited: false };
-    })).then((list) => { if (alive) setRows((current) => (current.length ? current : list)); });
+    loadSamplePhotos().then((photos) => {
+      const list = POSTER_SAMPLE_PRODUCTS.map((sample, i) => ({ id: nextId.current++, name: sample.name, original: sample.original, price: sample.price, image: photos[i] ?? null, zoom: 1, offsetX: 0, offsetY: 0, fit: 'cover' as const, badge: autoBadge(sample.original, sample.price), badgeEdited: false }));
+      if (alive) setRows((current) => (current.length ? current : list));
+    });
     return () => { alive = false; };
   }, []);
 
@@ -78,6 +80,8 @@ export const OfferPosterMaker: React.FC = () => {
   const offerBadge = offerText ?? autoOffer(shown);
   const input = useMemo(() => ({ shop, products: shown.map(toProduct), emphasis, offerBadge }), [shop, shown, emphasis, offerBadge]);
   const deferred = useDeferredValue(input);
+  // Previews draw at most six products, which is enough to judge a design and keeps sixteen drawings quick.
+  const thumbInput = useMemo(() => ({ ...deferred, products: deferred.products.slice(0, 6) }), [deferred]);
   const theme = findPosterTheme(themeId);
   const fmt = POSTER_FORMATS[format];
 
@@ -133,11 +137,7 @@ export const OfferPosterMaker: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      <Note>
-        Fill in your shop details and prices, pick a design, and download a PNG for Instagram, WhatsApp or print. Photos and prices stay on your device.
-        Only the design fonts are downloaded from Google Fonts, so Google&rsquo;s servers are contacted for that and for nothing else on this page.
-        {fonts === 'failed' && ' The fonts could not be loaded just now, so a plainer set of fonts is used in the preview.'}
-      </Note>
+      <Note>Fill in your shop details and prices, pick a design, and download a PNG for Instagram, WhatsApp or print. Photos and prices stay on your device.</Note>
 
       <div className={card}>
         <h3 className={heading}>1. Size</h3>
@@ -158,7 +158,7 @@ export const OfferPosterMaker: React.FC = () => {
           {POSTER_THEMES.map((item) => (
             <button key={item.id} type="button" onClick={() => setThemeId(item.id)} aria-pressed={themeId === item.id} aria-label={`${item.name} design`}
               className={`rounded-lg border-2 p-1.5 text-left ${themeId === item.id ? 'border-orange-700' : 'border-transparent hover:border-slate-300'}`}>
-              <ThemeThumb themeId={item.id} format={format} input={deferred} fonts={fonts} />
+              <PosterThumb themeId={item.id} format={format} input={thumbInput} ready={fonts} />
               <span className="mt-1 block text-xs font-bold text-slate-900">{item.name}</span>
               <span className="block text-[11px] text-slate-500">{item.description}</span>
             </button>
@@ -265,7 +265,7 @@ export const OfferPosterMaker: React.FC = () => {
           <Download size={16} /> Download PNG ({fmt.w} × {fmt.h})
         </button>
         <p className="mt-2 text-[11px] text-slate-500">
-          Story size keeps your text clear of the areas Instagram covers with its own buttons. Check the preview once more after fonts finish loading.
+          Story size keeps your text clear of the areas Instagram covers with its own buttons.
         </p>
       </div>
     </div>
@@ -284,26 +284,6 @@ const PhotoThumb: React.FC<{ image: LoadedImage | null }> = ({ image }) => {
     ctx.drawImage(image.source, (64 - image.width * k) / 2, (64 - image.height * k) / 2, image.width * k, image.height * k);
   }, [image]);
   return image ? <canvas ref={ref} className="h-full w-full" /> : <ImagePlus size={20} />;
-};
-
-/** Small preview of one design with the visitor's own details. */
-const ThemeThumb: React.FC<{ themeId: string; format: FormatId; input: Parameters<typeof renderPoster>[3]; fonts: string }> = ({ themeId, format, input, fonts }) => {
-  const ref = useRef<HTMLCanvasElement>(null);
-  const f = POSTER_FORMATS[format];
-  useEffect(() => {
-    const canvas = ref.current;
-    const ctx = canvas?.getContext('2d');
-    if (!canvas || !ctx) return;
-    const width = 180;
-    const scale = width / f.w;
-    canvas.width = width;
-    canvas.height = Math.round(f.h * scale);
-    ctx.save();
-    ctx.scale(scale, scale);
-    renderPoster(ctx, findPosterTheme(themeId), f, input, input.products.length);
-    ctx.restore();
-  }, [themeId, f, input, fonts]);
-  return <canvas ref={ref} className="h-auto w-full rounded" />;
 };
 
 export default OfferPosterMaker;

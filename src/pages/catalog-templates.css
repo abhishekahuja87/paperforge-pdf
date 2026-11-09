@@ -109,3 +109,11 @@
 @media (max-width: 590px) {
   .catalog-template-grid { grid-template-columns: 1fr; }
 }
+
+.catalog-section-title { margin: 28px 0 4px; font-size: 20px; font-weight: 750; letter-spacing: -0.02em; }
+.catalog-section-note { margin: 0 0 12px; color: #6a5e54; font-size: 14px; }
+.catalog-poster-options { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+.catalog-poster-options label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+.catalog-poster-options select { min-height: 38px; padding: 4px 8px; border: 1px solid #cfc4b6; border-radius: 8px; background: #fff; font-size: 13px; }
+.catalog-poster-thumb { display: block; width: auto; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 14px rgb(0 0 0 / 18%); }
+.catalog-template-info h3 { margin: 0; font-size: 16px; font-weight: 700; }

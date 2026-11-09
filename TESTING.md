@@ -273,15 +273,15 @@ Check after deploy:
 - Document Studio and Digitize: page badges read "Page 1", and a downloaded page is named output-page-1.pdf.
 - After deploy, load `/ac1` (curl -I) and check the `x-robots-tag: noindex, nofollow` header.
 
-### Offer Poster Maker
+### Offer Poster Maker and /ac1/poster
 
-Checked in the sandbox (headless Chromium, no Google Fonts because the sandbox has no network, so system fonts were used): all 8 designs drawn in post, portrait, story and A4 with 2, 4, 6, 9, 12 and 15 products, with empty name, heading, tagline, prices and badges; no errors, text fits, story safe zones clear, list design readable. Component, `tsc` and `vite build` were not run.
+Checked in the sandbox (headless Chromium, real bundled fonts): all 18 designs drawn in post, portrait, story and A4 with 2, 4, 6, 9, 12 and 15 products, with empty name, heading, tagline, prices and badges; list designs fall back to a grid when rows would be too thin. Both pages mounted with React: public page (15 rows, pre-filled contacts, badge edits, download 1080x1080 and 1080x1920) and /ac1/poster (pencil buttons for every element, edit name, subheading, price, photo zoom, clear a contact, download omits the cleared contact; the chooser shows 18 previews and the count/size selectors change the links). `tsc` and `vite build` were not run.
 
 Check after deploy:
-- Open /offer-poster-maker on a phone and a desktop. The designs should show Teko, Pacifico, Playfair, Rozha One, Baloo 2 and Poppins, not plain fonts. In DevTools Network, only fonts.googleapis.com and fonts.gstatic.com are contacted, and only on this page.
-- Change shop name, prices and a photo; thumbnails and preview update. Old price is struck through, the percentage badge is right (699 to 499 = 29%).
-- Download PNG in each size; open it and confirm the dimensions and that fonts match the preview. Story: nothing important in the top 150 px or bottom 190 px.
-- Long shop name, 12 products, a Hindi product name, an empty price, a very large photo. Block fonts.googleapis.com and reload: the page still works with plainer fonts and shows a notice.
+- /offer-poster-maker on a phone and desktop: designs show their real fonts (condensed Teko/Bebas/Anton, scripts like Pacifico/Dancing/Lobster, serifs like DM Serif/Abril/Playfair). In DevTools Network no request leaves mydailyutils.in (fonts are woff files from the site).
+- Change shop name, prices and a photo; thumbnails and preview update; old price struck through; badges editable or empty. Download PNG in each size and open it. Story: nothing important in the top 150 px or bottom 190 px.
+- 15 products: zoom into the PNG, names and prices readable. Long names, an empty price, a Hindi name, a very large photo.
 - Reload: shop details are remembered, photos are not.
-- /offer-poster-maker is in search on the home page, footer and sitemap; PrivacyPage section 4 mentions Google Fonts.
-- Change the corner badge to FLAT 200 OFF and a product badge to NEW; clear a badge, a name, and the Instagram box: each disappears and the footer re-spaces. Switch Bigger photos / Balanced / Bigger text. Choose 15 products and zoom into the PNG: names and prices should be readable.
+- /ac1 (chooser): new designs first, count and size selectors, "Use design" opens /ac1/poster with the right design, count and size; classic designs below still open /ac1/edit.
+- /ac1/poster on a phone: tap the pencil on the shop name, a price, a product name and a footer contact; the editor panel appears under the picture; photo buttons replace, zoom and move; Download PNG matches the screen. The page is not indexed (`x-robots-tag` header).
+- /offer-poster-maker is in search on the home page, footer and sitemap.
