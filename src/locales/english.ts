@@ -1,12 +1,13 @@
 import base from './en.json';
 import careers from './packs/careers.en.json';
+import students from './packs/students.en.json';
 
 /**
  * English text for the whole site: the main file (en.json) plus one file per tool pack in ./packs.
  * A pack holds only the four per-tool sections below, keyed by tool id or guide key, so adding a pack never
  * touches en.json. To add a pack: create ./packs/<name>.en.json, import it here and add it to PACKS.
  */
-const PACKS = [careers];
+const PACKS = [careers, students];
 type Pack = (typeof PACKS)[number];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
