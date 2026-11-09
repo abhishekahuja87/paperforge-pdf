@@ -1,0 +1,1236 @@
+{
+  "toolArticles": {
+    "case-converter": {
+      "sections": [
+        {
+          "heading": "Examples of each style",
+          "paragraphs": [
+            "Take the phrase \"user profile page\". In UPPER CASE it becomes USER PROFILE PAGE, in lower case user profile page and in Title Case User Profile Page. For programmers the same words become userProfilePage in camelCase, UserProfilePage in PascalCase, user_profile_page in snake_case, user-profile-page in kebab-case and USER_PROFILE_PAGE in constant case.",
+            "Sentence case keeps only the first letter of each sentence in capitals, which is the safest choice for normal writing such as emails and descriptions. Alternating and inverted case are mostly used for fun or for testing how a system treats capital letters."
+          ]
+        },
+        {
+          "heading": "Which style to use where",
+          "paragraphs": [
+            "Most languages have a habit. JavaScript and Java name variables in camelCase and classes in PascalCase. Python and Ruby prefer snake_case for variables and functions. CSS class names, URLs and file names on the web usually use kebab-case because hyphens are easy to read and search engines treat them as word breaks. Constants in many languages are written in UPPER_SNAKE_CASE.",
+            "In everyday writing, use Title Case for headings in English if your style guide asks for it, and sentence case for body text. Whichever you choose, apply it the same way across a document so that it looks tidy."
+          ]
+        }
+      ]
+    },
+    "bill-splitter": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Four friends have dinner and the bill is 2,400 before a 10 percent tip. The tip is 240, so the total is 2,640, and an equal split gives 660 each. If one person had only a drink and agrees to pay less, you can change the number of people sharing, or split the shared items equally and add the extras to the people who ordered them.",
+            "The page shows each person's share, the tip and the total so that everyone can see how the figure was reached. That transparency is what stops arguments after the meal."
+          ]
+        },
+        {
+          "heading": "Splitting trips and shared costs",
+          "paragraphs": [
+            "The same maths works for more than restaurants. Use it for a rented holiday home, a shared taxi, a cake for the office, a gift from a group or a utility bill in a flat. Enter the total, the number of people and any extra, and everyone sees the same figure.",
+            "For trips where people pay for different things, add up what each person paid, work out the average per person, and settle the difference. Whoever paid less than the average pays the difference to whoever paid more. Doing this once at the end is simpler than settling after every purchase."
+          ]
+        }
+      ]
+    },
+    "lorem-ipsum-generator": {
+      "sections": [
+        {
+          "heading": "Where designers and developers use placeholder text",
+          "paragraphs": [
+            "Placeholder text lets you judge a layout without being distracted by real words. Designers use it in mock-ups to check line length, spacing and font size. Developers use it to fill a template while the real content is still being written, and to test how a page behaves with short, medium and very long text.",
+            "Because lorem ipsum has a natural mix of long and short words, it looks like real text from a distance. Repeating a phrase such as \"text here\" makes a page look unrealistic and hides problems like awkward line breaks."
+          ]
+        },
+        {
+          "heading": "Choosing paragraphs, sentences or words",
+          "paragraphs": [
+            "Use words for buttons, labels and headings, where you need a small, exact amount. Use sentences for captions and short descriptions. Use paragraphs for articles, blog posts and product pages. Generating a little more than you need is better than too little, because you can trim text but you cannot judge a long page from a short sample.",
+            "Test your design with the worst case as well: one very long word, a very long heading, and text in the longest language your site will use. Real content is rarely as tidy as placeholder text."
+          ]
+        }
+      ]
+    },
+    "uuid-generator": {
+      "sections": [
+        {
+          "heading": "Where UUIDs are used",
+          "paragraphs": [
+            "A UUID is an identifier that can be created anywhere without asking a central system. That makes it useful for database records, file names, order numbers, session identifiers, API keys for testing and tracking events across services. Two computers can generate IDs at the same time and the chance of a clash is negligible.",
+            "They are also handy during development. You can fill a test database with unique IDs, create unique names for uploaded files, or make an ID for a record before it is saved."
+          ]
+        },
+        {
+          "heading": "UUIDs compared with other IDs",
+          "paragraphs": [
+            "A normal counter such as 1, 2, 3 is short and easy to read but needs one place to hand out the numbers and reveals how many records you have. A UUID is 36 characters long, harder to read, and can be made by anyone. Some databases store UUIDs less efficiently or find them slower to sort, so large systems sometimes choose time-ordered versions.",
+            "This tool makes version 4 UUIDs, which are random. If you need an ID that you can sort by creation time, look for version 7 in your programming language's library."
+          ]
+        }
+      ]
+    },
+    "timestamp-converter": {
+      "sections": [
+        {
+          "heading": "Reading a timestamp",
+          "paragraphs": [
+            "A Unix timestamp counts the seconds since 1 January 1970 at 00:00 UTC. The number 1700000000 is 14 November 2023 at 22:13:20 UTC. Because it is a single number, it is easy to store, sort and compare across systems and time zones.",
+            "Many programming languages and databases use it in logs, APIs and file information. When you see a ten-digit number in a log, it is usually seconds, and a thirteen-digit number is usually milliseconds."
+          ]
+        },
+        {
+          "heading": "Common mistakes with timestamps",
+          "paragraphs": [
+            "The most frequent mistake is mixing up seconds and milliseconds, which gives dates in 1970 or in the far future. The second is forgetting the time zone: a timestamp is always UTC, but the date you see depends on the zone used to display it. A third is storing local times without the zone, which causes errors when daylight saving starts or ends.",
+            "When in doubt, store UTC and convert to local time only when you show it to a person. Use the converter to check what a number means before you write code around it."
+          ]
+        }
+      ]
+    },
+    "word-counter": {
+      "sections": [
+        {
+          "heading": "Word limits you may meet",
+          "paragraphs": [
+            "Many tasks come with a limit. A tweet-length post is short, a meta description for a web page is about 155 characters, a college essay may have 250 to 650 words, a job cover letter is usually 250 to 400 words and a university assignment may run to thousands. Counting by hand is slow and mistakes are easy, especially after edits.",
+            "Paste your text to see the words, characters with and without spaces, sentences, paragraphs and reading time, and adjust until you meet the limit."
+          ]
+        },
+        {
+          "heading": "Writing tips from the numbers",
+          "paragraphs": [
+            "Reading time helps you plan a speech: at an average speaking pace of about 130 words per minute, a five minute talk is roughly 650 words. For web articles, short paragraphs of two to four sentences are easier to read on a phone.",
+            "Very long sentences are harder to follow. If the average sentence length is above 25 words, try splitting some of them. A varied rhythm of short and long sentences usually reads best."
+          ]
+        }
+      ]
+    },
+    "color-converter": {
+      "sections": [
+        {
+          "heading": "Colour formats in short",
+          "paragraphs": [
+            "HEX is a six-digit code such as #1E90FF that web pages use. RGB gives the amount of red, green and blue from 0 to 255, so the same colour is rgb(30, 144, 255). HSL describes it as hue (the position on the colour wheel from 0 to 360), saturation and lightness, which is easier to adjust by hand because you can make a colour lighter or less intense by changing one number.",
+            "The tool converts between all three, so you can take a colour from a design file and paste it into the format your code needs."
+          ]
+        },
+        {
+          "heading": "Building a readable colour palette",
+          "paragraphs": [
+            "Start with one main colour and make lighter and darker versions by changing the lightness in HSL. Keep text and background far enough apart in lightness to meet the contrast ratio, and do not rely on colour alone to carry meaning, since about one in twelve men has some form of colour blindness.",
+            "Use the contrast checker for your real combinations, for example grey text on a white background or white text on a brand colour. Small text needs a ratio of at least 4.5 to 1 to meet the common web accessibility guidance."
+          ]
+        }
+      ]
+    },
+    "unit-converter": {
+      "sections": [
+        {
+          "heading": "Everyday conversions",
+          "paragraphs": [
+            "One inch is 2.54 centimetres, one foot is 30.48 centimetres, one mile is about 1.609 kilometres and one kilogram is about 2.205 pounds. For temperature, multiply Celsius by 1.8 and add 32 to get Fahrenheit, so 25 degrees Celsius is 77 degrees Fahrenheit.",
+            "For cooking, a cup is about 240 millilitres in the metric system, though a US cup is 236.6 millilitres, and a tablespoon is about 15 millilitres. The converter uses exact conversion factors and rounds only when it shows the result."
+          ]
+        },
+        {
+          "heading": "Avoiding conversion errors",
+          "paragraphs": [
+            "Check the type of unit before you convert. A fluid ounce measures volume, while an ounce measures weight. A US gallon is smaller than a UK gallon, and a tonne is not the same as a ton. For data, a kilobyte may mean 1,000 or 1,024 bytes depending on the context, so storage makers and operating systems can show different numbers for the same disk.",
+            "If you are working on something where a mistake matters, such as medicine, building or travel documents, double-check the result against a trusted source."
+          ]
+        }
+      ]
+    },
+    "lumpsum-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Suppose you invest 1,00,000 once at an expected return of 12 percent a year, compounded yearly, for 10 years. The value after 10 years is 1,00,000 multiplied by 1.12 to the power of 10, which is about 3,10,585. Your gain is about 2,10,585, more than twice the amount you put in.",
+            "Change the years to 20 and the same investment grows to about 9,64,629. The longer you stay invested, the more of the final amount comes from growth, which is why starting early matters."
+          ]
+        },
+        {
+          "heading": "Expected returns are not guaranteed",
+          "paragraphs": [
+            "The rate you enter is an assumption. Fixed deposits and government schemes publish their rates, but market investments such as equity mutual funds rise and fall, and their returns in any one year can be far from the long term average. Use a range of rates, such as 8, 10 and 12 percent, to see what the result might look like in a poor, average and good case.",
+            "Remember to think about inflation and tax. A return of 8 percent in a year with 6 percent inflation adds little to your buying power. Use the Inflation Calculator and the tax rules for your investment to see the picture after those effects."
+          ]
+        }
+      ]
+    },
+    "url-encoder-decoder": {
+      "sections": [
+        {
+          "heading": "Examples of encoding",
+          "paragraphs": [
+            "A space becomes %20, an ampersand becomes %26, a question mark becomes %3F and a slash becomes %2F. So the search text \"fish & chips\" becomes fish%20%26%20chips when placed inside a link. Characters outside basic English, such as é or नमस्ते, are first turned into bytes and then written as several percent codes.",
+            "Encoding keeps a link valid. Without it, a literal ampersand in a value would be read as the start of a new parameter, and the receiving page would see the wrong data."
+          ]
+        },
+        {
+          "heading": "Debugging links",
+          "paragraphs": [
+            "When a link does not work, decode it to read what it really contains. You may find a doubled encoding, where %2520 appears instead of %20, which means the text was encoded twice. You may also find a stray character or a missing parameter.",
+            "When building links in code, encode each value separately, not the whole address. Encoding the whole URL would also change the colon and slashes that make it a link."
+          ]
+        }
+      ]
+    },
+    "number-to-words": {
+      "sections": [
+        {
+          "heading": "Examples",
+          "paragraphs": [
+            "The amount 1,25,000 is written as One Lakh Twenty-Five Thousand in the Indian system, and as One Hundred Twenty-Five Thousand in the international system. The amount 5,050.75 reads Five Thousand Fifty Rupees and Seventy-Five Paise Only on a cheque.",
+            "The word Only at the end shows that nothing can be added after the amount. It is a traditional guard on cheques and legal documents against alteration."
+          ]
+        },
+        {
+          "heading": "Why amounts are written in words",
+          "paragraphs": [
+            "On a cheque, invoice or contract, figures can be changed more easily than words. If the two do not match, banks and courts usually go by the words. Writing the amount carefully in both ways helps prevent disputes and rejected cheques.",
+            "Write the words starting at the left edge of the line, draw a line through any empty space, and make sure the words and the figures match exactly before signing."
+          ]
+        }
+      ]
+    },
+    "fd-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Say you put 5,00,000 in a fixed deposit at 7 percent a year, compounded quarterly, for 5 years. The maturity value is about 7,07,000 and the interest earned is about 2,07,000. If the bank compounded yearly instead, the maturity value would be a little lower, about 7,01,000.",
+            "Comparing options is where the calculator helps most. A slightly higher rate for a shorter or longer term may or may not suit you, and the numbers show the real difference in rupees."
+          ]
+        },
+        {
+          "heading": "Choosing an FD wisely",
+          "paragraphs": [
+            "Compare banks and small finance banks on rate, but also look at safety. In India, bank deposits are insured up to 5 lakh per depositor per bank, so spreading large amounts over several banks reduces risk. Check the rules about premature withdrawal, because breaking an FD early usually brings a penalty and a lower rate.",
+            "Senior citizens often get a higher rate, and tax-saving FDs have a five year lock-in. Keep in mind that interest is taxed according to your slab, and banks may deduct tax at source above a threshold, so the amount you keep can be lower than the headline figure."
+          ]
+        }
+      ]
+    },
+    "inflation-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "If prices rise by 6 percent a year, something that costs 1,00,000 today will cost about 1,79,000 in ten years and about 3,21,000 in twenty years. Put another way, 1,00,000 held in cash for twenty years would buy only about a third of what it buys now.",
+            "This is why saving without earning a return that beats inflation slowly loses value, even though the number in your account does not fall."
+          ]
+        },
+        {
+          "heading": "Using inflation in your planning",
+          "paragraphs": [
+            "Use inflation when you plan big costs: education, a wedding, retirement or a house. Education costs often rise faster than general prices, so use a higher rate for them. For retirement, estimate your monthly spending today, grow it by inflation to your retirement date and then plan how long your savings must last.",
+            "Also compare investment returns after inflation. A deposit paying 7 percent when inflation is 5 percent grows your buying power by about 2 percent a year, before tax."
+          ]
+        }
+      ]
+    },
+    "percentage-calculator": {
+      "sections": [
+        {
+          "heading": "Real-life examples",
+          "paragraphs": [
+            "Discounts: 25 percent off a price of 2,400 saves 600, so you pay 1,800. Marks: scoring 432 out of 600 is 72 percent. Tips: 12 percent of 850 is 102. Growth: a salary that rises from 40,000 to 44,000 has gone up by 10 percent.",
+            "The same few ideas cover most everyday percentage problems: find a part of a number, find what percent one number is of another, and find the change between two numbers."
+          ]
+        },
+        {
+          "heading": "Common percentage mistakes",
+          "paragraphs": [
+            "A rise of 50 percent followed by a fall of 50 percent does not return you to the start. Starting from 100, you go to 150 and then to 75. Percentage points are also different from percentages: moving from 10 percent to 12 percent is a rise of 2 percentage points, but a 20 percent increase.",
+            "When comparing, check what the percentage is of. A 10 percent discount on a higher price can be worth more than a 15 percent discount on a lower one."
+          ]
+        }
+      ]
+    },
+    "resize-image-to-30kb": {
+      "sections": [
+        {
+          "heading": "Where a 30 KB limit appears",
+          "paragraphs": [
+            "Small file limits are common on government, exam and job portals, where thousands of files are stored and servers must keep each one small. A limit of 30 KB is roughly the size of a small photo or a scanned signature at a modest resolution.",
+            "Because the limit is strict, a file even a few bytes over can be rejected, so use the tool to reach a size below the limit rather than exactly on it."
+          ]
+        },
+        {
+          "heading": "Getting the best quality at a small size",
+          "paragraphs": [
+            "Crop the photo to the area you need before you resize, because a smaller picture needs fewer bytes. Plain backgrounds compress better than busy ones, and well-lit photos with little noise stay sharper at low sizes. Save as JPG for photos; PNG files are usually larger for photographs.",
+            "If the result looks too soft, reduce the pixel size a little and try again, since a smaller picture can keep more detail per pixel than a large picture squeezed hard. Always check the form for the pixel size it requires as well as the file size."
+          ]
+        }
+      ]
+    },
+    "discount-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "A jacket is listed at 4,500 with 30 percent off. The saving is 1,350 and the sale price is 3,150. If a coupon takes another 10 percent off the sale price, the second saving is 315 and you pay 2,835. The total saving is 1,665, which is 37 percent of the original price, not 40.",
+            "Stacked discounts are applied one after the other, so the second discount works on a smaller amount. That is why two discounts of 30 and 10 percent do not add up to 40."
+          ]
+        },
+        {
+          "heading": "Spotting a good deal",
+          "paragraphs": [
+            "Check the starting price. A discount from an inflated list price is not a real saving. Compare the final price with other shops, and include delivery, tax and any membership fee. A smaller discount on a lower base price may be cheaper than a bigger discount on a higher one.",
+            "Use the reverse mode to find the original price when you know the sale price and the discount, and to confirm the saving on a bill."
+          ]
+        }
+      ]
+    },
+    "exam-photo-resizer": {
+      "sections": [
+        {
+          "heading": "Preparing your photo before resizing",
+          "paragraphs": [
+            "Use a recent photo with a plain light background, facing the camera, with your full face visible and no shadows. Avoid caps, dark glasses and filters unless the form allows them. A photo taken in daylight near a window usually works better than one in a dim room.",
+            "Crop the photo so your face fills most of the frame before you resize it. The tool then makes the size and weight fit, so you do not have to guess the pixel dimensions."
+          ]
+        },
+        {
+          "heading": "Common reasons for rejection",
+          "paragraphs": [
+            "Forms reject photos that are too large or small in file size, the wrong dimensions, blurry, with a shadow behind the head, or showing more than one person. Some require the name and date on the photo, and others ban them. Always read the notice for your exam.",
+            "After resizing, open the file and check that it looks sharp, that the colours look natural and that the file size is within the limit shown by your device. Keep the original photo as a backup in case you need another size."
+          ]
+        }
+      ]
+    },
+    "password-generator": {
+      "sections": [
+        {
+          "heading": "What makes a password strong",
+          "paragraphs": [
+            "Length matters most. Each extra character multiplies the number of guesses an attacker needs. A random password of 16 characters using letters, numbers and symbols would take an impractically long time to crack by guessing, while a short password made of a word and a number can be guessed in seconds.",
+            "Randomness matters too. People pick predictable patterns such as names, dates and keyboard runs, and attackers try those first. A generator avoids the patterns."
+          ]
+        },
+        {
+          "heading": "Using passwords safely",
+          "paragraphs": [
+            "Use a different password for every account, so that a leak at one site does not open the others. Keep them in a reputable password manager rather than a note or a message. Turn on two-step verification for email, banking and social accounts, because it protects you even if a password is stolen.",
+            "Change a password right away if a site tells you it was breached, and never share one by email or chat. If a site limits the symbols it accepts, turn off the ones it does not allow in the generator."
+          ]
+        }
+      ]
+    },
+    "date-difference-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "The difference between 15 January 2026 and 20 March 2026 is 64 days, which is 9 weeks and 1 day, or 2 months and 5 days. Between those dates there are about 46 working days if you count Monday to Friday only and ignore holidays.",
+            "Counting by hand across months of different length is easy to get wrong, and leap years add another trap. The calculator removes that risk."
+          ]
+        },
+        {
+          "heading": "Using date differences at work and in life",
+          "paragraphs": [
+            "Project managers count the days to a deadline, tenants count the days since a rent payment, and employees count the days of a notice period or leave. Students count the days to an exam and travellers count the days of a trip or a visa stay.",
+            "For legal and financial dates, check how the rule counts. Some include both the start and end date, some exclude the first day, and some count only business days. Use the option that matches the rule you must follow."
+          ]
+        }
+      ]
+    },
+    "cagr-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "An investment grows from 1,00,000 to 2,00,000 in 6 years. The CAGR is the sixth root of 2, minus 1, which is about 12.2 percent a year. It tells you the steady yearly rate that would give the same end result, even if the real returns were up and down along the way.",
+            "A second investment that grew from 1,00,000 to 1,60,000 in 4 years has a CAGR of about 12.5 percent, so it did slightly better per year even though the total gain is smaller. CAGR makes unlike periods comparable."
+          ]
+        },
+        {
+          "heading": "Using CAGR to compare",
+          "paragraphs": [
+            "Use CAGR to compare funds, stocks, salaries and business revenue over the same period. A salary that rose from 6 lakh to 9 lakh in 5 years grew at about 8.4 percent a year, which you can compare with inflation to judge real growth.",
+            "Look at the period too. A CAGR measured from a market low to a high looks great but is not typical. Check several periods, such as 3, 5 and 10 years, to see consistency."
+          ]
+        }
+      ]
+    },
+    "time-zone-converter": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "A meeting at 10:00 in India (UTC+5:30) is 04:30 in London in winter (UTC+0) and 05:30 in summer, when the UK uses UTC+1. It is 23:30 the previous evening in New York in winter. The same moment can be a different date in different places, so write the date and the time zone in every invitation.",
+            "The converter shows the local time for each city you add, so you can see a good slot for everyone at once."
+          ]
+        },
+        {
+          "heading": "Scheduling across time zones",
+          "paragraphs": [
+            "Find a window when everyone is within reasonable working hours. India and the UK overlap in the morning in India and the early hours of the day in the UK. India and the US East Coast overlap only in the evening in India. Rotating inconvenient times between teams is fairer than always asking the same group to stay late.",
+            "Always confirm the time zone with a name, like IST or GMT, or better the city, since abbreviations such as CST can mean different zones. Check dates around the days when clocks change, because the gap between two places can shift by an hour."
+          ]
+        }
+      ]
+    },
+    "bmi-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "A person who weighs 70 kg and is 1.70 m tall has a BMI of 70 divided by 1.70 squared, which is 70 divided by 2.89, or about 24.2. On the WHO scale that falls in the normal range of 18.5 to 24.9. On the Asian-Indian scale, which uses lower cut-offs, 23 to 24.9 is treated as overweight.",
+            "The result is a single number and a category. It is a starting point for a conversation, not a diagnosis."
+          ]
+        },
+        {
+          "heading": "Beyond BMI",
+          "paragraphs": [
+            "BMI does not measure fat. Muscular people can have a high BMI without extra fat, and older adults can have a normal BMI with little muscle. Where fat is stored also matters, which is why waist size is a useful additional measure.",
+            "If your BMI is outside the normal range, or if you are worried about your weight, speak to a doctor or a dietitian. They can look at your health history, blood tests and lifestyle, which a calculator cannot see. Children and teenagers use special growth charts, so this adult tool is not suitable for them."
+          ]
+        }
+      ]
+    },
+    "signature-resizer": {
+      "sections": [
+        {
+          "heading": "Preparing a scan or photo of your signature",
+          "paragraphs": [
+            "Sign with a dark pen on plain white paper, leaving space around the signature. Take a photo in good light from straight above, or scan it, so that the paper looks white and the ink looks dark. Avoid shadows and creases.",
+            "Crop closely around the signature before resizing, so that it fills most of the box. A signature that is too small inside a large white area becomes hard to read once the image is reduced."
+          ]
+        },
+        {
+          "heading": "Common problems on application forms",
+          "paragraphs": [
+            "Forms reject signatures that are too faint, too large in file size, the wrong dimensions or typed rather than handwritten. Some ask for black ink only, and some ban capital letters. Read the notice for exact instructions.",
+            "After resizing, zoom in and check that the strokes are clear and complete. If the signature looks broken, start again from a larger, sharper scan and resize once rather than resizing a file many times."
+          ]
+        }
+      ]
+    },
+    "rd-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "If you deposit 5,000 a month for 3 years in a recurring deposit at 6.5 percent, you put in 1,80,000. The maturity value is about 1,99,000, so the interest is about 19,000. Indian banks usually compound RD interest quarterly, which is what the calculator assumes.",
+            "A RD builds the habit of regular saving, and the return is fixed when you open the account, unlike market linked options."
+          ]
+        },
+        {
+          "heading": "RD compared with SIP and FD",
+          "paragraphs": [
+            "An RD is safer than a market investment because the rate is fixed, but it usually earns less over long periods. An FD needs a lump sum, while an RD takes small monthly amounts. A SIP in a mutual fund can earn more but may also lose value, so it suits goals that are far away.",
+            "For a goal within one to three years, such as a holiday or a deposit for a rented flat, an RD is a sensible choice. For goals more than five years away, consider adding growth investments after thinking about your risk."
+          ]
+        }
+      ]
+    },
+    "age-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Someone born on 12 August 1998 is, on 9 November 2026, 28 years, 2 months and 28 days old. That is 10,316 days in total. The calculator counts whole years first, then whole months, then the remaining days, which is the way ages are normally stated.",
+            "You can also see the next birthday and how many days remain, a useful detail for planning celebrations and reminders."
+          ]
+        },
+        {
+          "heading": "When an exact age matters",
+          "paragraphs": [
+            "Government exams, school admissions and job applications often set an age limit on a particular date. Being one day over can make you ineligible, so check the cut-off date in the notice and use that date as the as-on date in the calculator.",
+            "Insurance, pensions and retirement rules also depend on exact age. Where the rule counts age at the nearest birthday instead of the last birthday, the result differs, so read the policy wording."
+          ]
+        }
+      ]
+    },
+    "emi-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "A loan of 10,00,000 at 9 percent a year for 20 years has an EMI of about 8,997 a month. Over 240 payments you repay about 21,59,000, so the interest is about 11,59,000, more than the amount you borrowed. In the early years most of each EMI is interest, and the share of principal grows slowly.",
+            "Choosing a shorter term raises the EMI but cuts the total interest. At 15 years the EMI rises to about 10,142, yet the total repaid falls to about 18,26,000."
+          ]
+        },
+        {
+          "heading": "Ways to reduce the interest you pay",
+          "paragraphs": [
+            "Make a larger down payment so that you borrow less. Pay a little extra whenever you can, since a prepayment goes straight to the principal and shortens the loan. Compare offers on the rate, processing fee, prepayment charges and whether the rate is fixed or floating, because a small difference in the rate adds up over many years.",
+            "Before you borrow, check that the EMI fits comfortably in your budget. Many lenders and advisers suggest that all your EMIs together should stay well below half of your monthly income."
+          ]
+        }
+      ]
+    },
+    "ppf-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "If you deposit the maximum of 1,50,000 every year for 15 years and the rate stays at 7.1 percent, the balance at maturity is about 40.7 lakh, of which you put in 22.5 lakh and the rest is interest. The rate is set by the government every quarter, so the real figure will differ if the rate changes.",
+            "Depositing early in the year, before the 5th of the month in which interest is calculated, helps earn a little more, since interest is calculated on the lowest balance between the 5th and the end of each month."
+          ]
+        },
+        {
+          "heading": "Rules worth knowing",
+          "paragraphs": [
+            "A PPF account has a 15-year term that you can extend in blocks of five years. The minimum deposit is 500 a year and the maximum is 1,50,000. You can make a partial withdrawal from the seventh financial year and take a loan against the balance in the early years. Government rules change from time to time, so check the current terms with your bank or post office.",
+            "Many people use PPF for long term, low risk saving. Its return is lower than what equity has delivered over long periods but is set by the government and does not fall with the market."
+          ]
+        }
+      ]
+    },
+    "epf-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Take a basic salary of 40,000 a month. Your contribution of 12 percent is 4,800 and your employer adds a similar amount, part of which goes to the pension scheme. If you contribute for 25 years and the salary rises 6 percent a year at an interest rate around 8 percent, the balance can grow to a large sum, because both the contributions and the interest on earlier years keep rising.",
+            "Use the calculator to see how a different salary growth or interest rate changes the result."
+          ]
+        },
+        {
+          "heading": "Using your EPF wisely",
+          "paragraphs": [
+            "EPF is meant to support you in retirement, so avoid withdrawing when you change jobs. Transfer the account to your new employer so that your service and balance stay together. Withdrawing early can mean tax and a smaller sum when you retire.",
+            "Check your passbook on the member portal every year and make sure your employer is depositing on time. Keep your KYC details such as bank account, Aadhaar and PAN updated, because mismatches can delay claims."
+          ]
+        }
+      ]
+    },
+    "sip-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "A monthly SIP of 10,000 for 10 years invests 12,00,000 in total. If the fund earned a steady 12 percent a year, the value would be about 23 lakh, so growth would add around 11 lakh. If you raise the SIP by 10 percent every year with the step-up option, the final value is considerably higher, because later years carry larger instalments.",
+            "Real returns are not steady. Markets rise and fall, and a SIP buys more units when prices are low and fewer when they are high, which averages your cost over time."
+          ]
+        },
+        {
+          "heading": "Making SIPs work",
+          "paragraphs": [
+            "Start early and stay invested, since time does more of the work than the amount. Match the fund to the goal: equity funds for goals more than five years away, and debt or liquid funds for shorter goals. Increase the amount whenever your income rises.",
+            "Avoid stopping a SIP in a falling market. That is often when it buys the most units. Review your funds once a year, not every day, and check the costs, because a high expense ratio reduces your returns over many years."
+          ]
+        }
+      ]
+    },
+    "pdf-to-images": {
+      "sections": [
+        {
+          "heading": "When to convert a PDF to images",
+          "paragraphs": [
+            "Images are useful when you need to put a page into a presentation, share it in a chat app, upload it to a form that only accepts pictures or edit it in a photo editor. A single page of a report can become a PNG you can paste anywhere.",
+            "Converting also helps with documents that behave oddly on some systems. A picture of the page looks the same everywhere, which makes it useful for a quick preview."
+          ]
+        },
+        {
+          "heading": "Getting a good result",
+          "paragraphs": [
+            "Choose a higher scale for pages with small text or fine details, and a lower one for simple pages to keep files small. Convert only the pages you need, since a long document produces many large files. If you need to keep the text searchable, keep the PDF as well, because an image of text cannot be selected or searched.",
+            "For scanned documents, check that the images are straight and readable before you share them. If the text is small, use a larger scale."
+          ]
+        }
+      ]
+    },
+    "gratuity-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Suppose your last drawn basic plus dearness allowance is 50,000 a month and you have worked for 8 years in a company covered by the Payment of Gratuity Act. Gratuity is 50,000 multiplied by 15, divided by 26, multiplied by 8, which is about 2,30,769. For service of more than six months in the final year, the year is usually rounded up, so check how your company treats it.",
+            "If your employer is not covered by the Act, the formula divides by 30 instead of 26, which gives a lower amount."
+          ]
+        },
+        {
+          "heading": "Planning around gratuity",
+          "paragraphs": [
+            "Gratuity is normally paid after five years of continuous service, though there are exceptions for death or disability. If you are close to the five year mark, think about the date of leaving, since a few days can make the difference between receiving gratuity and receiving nothing.",
+            "The amount is paid by your employer, usually within thirty days of becoming due. Keep your joining and leaving dates in writing, and ask HR for a statement of the calculation if the figure differs from yours."
+          ]
+        }
+      ]
+    },
+    "hra-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Suppose your basic salary is 40,000 a month, you receive an HRA of 16,000 and you pay rent of 15,000 in a metro city. The three amounts are: the HRA received, 16,000; rent paid minus 10 percent of basic, which is 15,000 minus 4,000 or 11,000; and 50 percent of basic, which is 20,000. The exemption is the smallest of these, 11,000 a month, or 1,32,000 a year.",
+            "The remaining 5,000 of HRA each month is taxable as part of your salary."
+          ]
+        },
+        {
+          "heading": "Claiming HRA correctly",
+          "paragraphs": [
+            "Keep rent receipts, a rent agreement and your landlord's PAN if the yearly rent is above the limit that requires it. Your employer will usually ask for these proofs. If you live in a house owned by a parent and pay rent to them, the rent must be genuine and shown in their income as well.",
+            "If you did not claim HRA with your employer during the year, you can still claim the exemption when you file your return, as long as you have proof. Check which tax regime you are in, because the exemption applies only in the old regime."
+          ]
+        }
+      ]
+    },
+    "gst-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "Adding 18 percent GST to a price of 5,000 gives a tax of 900 and a total of 5,900. Removing GST from 5,900 means dividing by 1.18 to find the price of 5,000, or multiplying 5,900 by 18 and dividing by 118 to find the tax of 900. For a sale inside one state, the 900 is split into 450 of CGST and 450 of SGST.",
+            "For a sale between states, the whole 900 is charged as IGST. The total is the same, but the tax goes to a different account."
+          ]
+        },
+        {
+          "heading": "Common mistakes to avoid",
+          "paragraphs": [
+            "Do not take 18 percent off a GST-inclusive price. The tax is part of the total, so you must divide, not subtract. Taking 18 percent from 5,900 gives 4,838, not 5,000.",
+            "Also check the rate for your goods or service, because the rate depends on what you sell and rules are updated by the GST Council. Keep invoices that show the rate, the tax amount and the GSTIN so your records match what you report."
+          ]
+        }
+      ]
+    },
+    "json-formatter": {
+      "sections": [
+        {
+          "heading": "Common JSON errors and how to fix them",
+          "paragraphs": [
+            "The most common mistakes are a trailing comma after the last item, single quotes instead of double quotes, keys without quotes, comments, and a missing closing bracket. JSON is strict, so every key and every text value must use double quotes, and the last item in a list or object must not be followed by a comma.",
+            "When validation fails, the message tells you the position of the problem. Fix that one first and validate again, since one error can cause several others after it."
+          ]
+        },
+        {
+          "heading": "Working with JSON in practice",
+          "paragraphs": [
+            "Format JSON to read an API response or a configuration file, and minify it to send a smaller payload. Sort the keys when you want to compare two files, since the same data in a different order looks like a change. Remember that sorting does not change the meaning of an object, though it does not apply to lists.",
+            "Never paste secrets such as passwords or API keys into a tool you do not trust. This formatter runs in your browser and does not send the text anywhere, but it is still good practice to remove private values from samples you share."
+          ]
+        }
+      ]
+    },
+    "image-to-pdf": {
+      "sections": [
+        {
+          "heading": "Common uses",
+          "paragraphs": [
+            "Turn photos of documents into a single PDF for an application, collect receipts into one file for an expense claim, combine pages from a notebook into a document, or make a simple photo album. One PDF is easier to send than a dozen pictures and keeps the pages in order.",
+            "For documents, take photos in good light, flat on a table and from straight above, so the page is easy to read. Crop away the table and any shadows first."
+          ]
+        },
+        {
+          "heading": "Keeping the file small",
+          "paragraphs": [
+            "Photos from a phone can be several megabytes each, so a PDF of ten photos can be too large to email or upload. Resize the images before you combine them, or compress the finished PDF. A page of text is readable at a much smaller size than a full photo.",
+            "Use the same orientation for all pages where you can, and choose a page size that fits your purpose, such as A4 for printing. Check the order of the pages before you save."
+          ]
+        }
+      ]
+    },
+    "simple-compound-interest-calculator": {
+      "sections": [
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "On 1,00,000 at 8 percent for 10 years, simple interest is 8,000 each year, so the total interest is 80,000 and the final amount 1,80,000. With yearly compounding the interest is about 1,15,900, giving 2,15,900. The extra 35,900 is interest earned on earlier interest.",
+            "Over 20 years the gap is much larger: simple interest gives 1,60,000 of interest, while compounding gives about 3,66,100."
+          ]
+        },
+        {
+          "heading": "Where each type is used",
+          "paragraphs": [
+            "Simple interest is used in some short term loans, certain bonds and many textbook problems. Compound interest applies to most bank deposits, mutual funds, credit cards and long term loans. Credit cards compound very quickly, which is why a small unpaid balance can grow into a large debt.",
+            "When you save, compounding works for you, so a higher frequency and a longer time help. When you borrow, it works against you, so repay costly debt first."
+          ]
+        }
+      ]
+    },
+    "inspect-pdf": {
+      "sections": [
+        {
+          "heading": "What a PDF can reveal",
+          "paragraphs": [
+            "Besides its pages, a PDF can carry hidden information: the author name, the program that created it, the creation and edit dates, the title and keywords, and sometimes the file path from the author's computer. The report shows these fields so that you know what you are about to share.",
+            "You can also see the PDF version, the number of pages, the page sizes and whether the file is encrypted or has restrictions on printing and copying."
+          ]
+        },
+        {
+          "heading": "Using the report before you share",
+          "paragraphs": [
+            "If you are sending a document to a client, a recruiter or the public, check that it does not contain a different name, an old title or details from an earlier draft. If it does, the Sanitize PDF tool can remove the hidden metadata.",
+            "The report is also useful for troubleshooting. A file that will not open in some programs may use a newer PDF version, a form technology or an unusual security setting, and the report helps you understand why."
+          ]
+        }
+      ]
+    },
+    "watermark-pdf": {
+      "sections": [
+        {
+          "heading": "When to use a watermark",
+          "paragraphs": [
+            "Add a watermark such as DRAFT, CONFIDENTIAL or COPY to show the status of a document and to discourage misuse. A name or company on a document you share for review makes it easier to see where a leaked copy came from. A watermark does not make a file impossible to copy, but it reduces casual reuse.",
+            "For legal or business documents, a clear mark across the page makes it obvious to the reader that the file is not final."
+          ]
+        },
+        {
+          "heading": "Settings that work well",
+          "paragraphs": [
+            "A diagonal mark in a light grey with about 20 to 30 percent opacity is easy to see without hiding the text. Use a large font so the mark covers the page, and avoid red or very dark colours that hurt readability. Preview a page before you apply the mark to every page.",
+            "Keep the original file without a watermark. Once the mark is applied and saved, it is part of the page and cannot be removed cleanly."
+          ]
+        }
+      ]
+    },
+    "passport-photo-resizer": {
+      "sections": [
+        {
+          "heading": "Size in pixels",
+          "paragraphs": [
+            "A 35 by 45 mm photo at 300 dots per inch is about 413 by 531 pixels. Many online forms ask for the photo in pixels rather than millimetres, so check which one your form uses. If both are given, match the pixels and keep the proportions of 35 to 45.",
+            "DPI is only a label that tells a printer how large to print the pixels. The pixel size is what sets the detail and the file size, so match what the form requires."
+          ]
+        },
+        {
+          "heading": "Tips for a photo that passes",
+          "paragraphs": [
+            "Passport photo rules are strict. Use a recent photo, a plain light background, a neutral expression with both eyes open and your whole face visible, and no glasses glare or shadows. Take the photo against a wall in even light, with the camera at eye level.",
+            "Most offices check the photo against rules for head size and position. This tool resizes the image but does not move your head or change the background, so start with a photo that already follows the rules. If a form is for a visa or passport, check the official guidance of the issuing country first."
+          ]
+        }
+      ]
+    },
+    "salary-calculator": {
+      "sections": [
+        {
+          "heading": "Comparing job offers",
+          "paragraphs": [
+            "A higher CTC does not always mean higher pay in hand. Look at how much is fixed and how much is variable or paid only if targets are met, whether the employer pays gratuity or insurance as a part of the CTC, and how much goes to provident fund. Two offers with the same CTC can differ by thousands each month.",
+            "Put the numbers for each offer into the calculator and compare the monthly in-hand figure, and then think about the long term benefits such as retirement savings and insurance."
+          ]
+        },
+        {
+          "heading": "Understanding the parts of CTC",
+          "paragraphs": [
+            "CTC, or cost to company, is everything the employer spends on you in a year. It includes basic salary, allowances, employer provident fund, gratuity, insurance and sometimes bonuses. In-hand pay is what remains after your own provident fund, professional tax and income tax are taken out.",
+            "Ask HR for a breakup of the CTC in writing before you accept an offer, and check which parts are guaranteed. A good breakup helps you understand your taxes and your options for saving."
+          ]
+        }
+      ]
+    },
+    "organize-pdf": {
+      "sections": [
+        {
+          "heading": "Everyday uses",
+          "paragraphs": [
+            "Put pages in the right order after scanning them out of sequence, drop blank or duplicate pages, turn one sideways page the right way up, or build a short document from a long one by keeping only the pages you need. Doing it visually with thumbnails is easier than typing page numbers.",
+            "You can also use it to prepare a file for a form with a page limit, or to move a signature page to the end."
+          ]
+        },
+        {
+          "heading": "A tidy workflow",
+          "paragraphs": [
+            "Open the file, look through the thumbnails and fix the largest problems first, such as pages in the wrong place. Then rotate pages that need it and delete what you do not need. Check the final order before you save, and keep the original in case you need it again.",
+            "If the file is very large, the thumbnails may take a moment to load. For several documents, merge them first and then organize the pages in one place."
+          ]
+        }
+      ]
+    }
+  },
+  "pageGuides": {
+    "caseConverter": {
+      "faq": [
+        [
+          "Which case should I use for file names and web addresses?",
+          "Lower case with hyphens, such as my-report-2026, is the safest choice. It avoids problems on systems that treat capital letters as different from small ones, and hyphens are read as spaces by search engines."
+        ],
+        [
+          "Will it change numbers, symbols or emoji?",
+          "No. Only letters that have an upper and lower form are changed. Numbers, punctuation, emoji and spaces stay as they are, except where a code style such as snake_case replaces spaces with a separator."
+        ]
+      ]
+    },
+    "billSplitter": {
+      "faq": [
+        [
+          "What is a fair tip?",
+          "Customs differ by country and by place, and in some places service is already included in the bill. Check your bill first. A common range in restaurants where tipping is expected is 5 to 15 percent, and you can enter any percentage you prefer."
+        ],
+        [
+          "How do I handle one person who ordered much more?",
+          "Equal splitting is easiest when meals cost about the same. If one person ordered much more, subtract their extra items from the total first, split the rest equally, and then add the extra items back to that person."
+        ]
+      ]
+    },
+    "loremIpsum": {
+      "faq": [
+        [
+          "Is lorem ipsum bad for search engines or accessibility?",
+          "Placeholder text should never go on a live page. Search engines may treat it as low quality content, and screen reader users hear meaningless words. Replace it with real text before you publish."
+        ],
+        [
+          "Can I use the text in commercial projects?",
+          "Yes. Lorem ipsum is a scrambled version of an old Latin text and is not protected by copyright. You can use it in any mock-up, template or design."
+        ]
+      ]
+    },
+    "uuidGenerator": {
+      "faq": [
+        [
+          "Should I use a UUID as a password or secret?",
+          "No. A UUID is meant to be unique, not secret. Use the Password Generator for passwords and keys, and your platform's secure tools for secrets."
+        ],
+        [
+          "Can I generate many UUIDs at once?",
+          "Yes. Choose how many you need, and copy them all. You can also pick upper case, remove the hyphens or add braces to match the format your system expects."
+        ]
+      ]
+    },
+    "timestampConverter": {
+      "faq": [
+        [
+          "What is the Year 2038 problem?",
+          "Systems that store timestamps as a signed 32-bit number of seconds run out on 19 January 2038. Modern systems use 64-bit numbers, which last for billions of years."
+        ],
+        [
+          "Can it show the current timestamp?",
+          "Yes. Use the current time option to see the present moment as a timestamp in seconds and milliseconds, and copy it for use in your code or tests."
+        ]
+      ]
+    },
+    "wordCounter": {
+      "faq": [
+        [
+          "Do hyphenated words and numbers count as one word?",
+          "Words are counted as groups of characters separated by spaces, so a hyphenated word such as well-known counts as one, and a number counts as a word. Some institutions count differently, so check your own rules."
+        ],
+        [
+          "Does the counter include the title, references or quotes?",
+          "It counts everything you paste. If your assignment excludes the title, bibliography or quotations, paste only the part that counts, or subtract those parts afterwards."
+        ]
+      ]
+    },
+    "colorConverter": {
+      "faq": [
+        [
+          "What is the alpha value?",
+          "Alpha is transparency. A value of 1 is fully solid and 0 is invisible. Formats such as rgba and eight-digit hex include it, while plain HEX and RGB do not."
+        ],
+        [
+          "Why does the same colour look different on another screen?",
+          "Screens differ in brightness, colour accuracy and settings. The numbers are the same, but each display shows them a little differently. For print work, use a design program with colour profiles."
+        ]
+      ]
+    },
+    "unitConverter": {
+      "faq": [
+        [
+          "What is the difference between a ton and a tonne?",
+          "A metric tonne is 1,000 kilograms. A US short ton is 2,000 pounds, about 907 kilograms, and a UK long ton is 2,240 pounds, about 1,016 kilograms."
+        ],
+        [
+          "How do I convert between Celsius and Fahrenheit by hand?",
+          "To go from Celsius to Fahrenheit, multiply by 1.8 and add 32. To go from Fahrenheit to Celsius, subtract 32 and divide by 1.8. The converter does this for you and avoids rounding slips."
+        ]
+      ]
+    },
+    "lumpsumCalc": {
+      "faq": [
+        [
+          "Should I invest a lump sum or use a SIP?",
+          "A lump sum puts all your money to work immediately, which helps if the market rises, while a SIP spreads purchases over time and reduces the risk of investing everything at a high point. Many people use a lump sum when they receive a bonus and a SIP from monthly income."
+        ],
+        [
+          "Does the calculator include taxes and charges?",
+          "No. It shows the pre-tax value based on the rate you enter. Taxes, exit loads, expense ratios and fees can reduce your actual return, so subtract them from your assumed rate if you want a closer estimate."
+        ]
+      ]
+    },
+    "urlEncoder": {
+      "faq": [
+        [
+          "Why does my link show %20 instead of a space?",
+          "Spaces are not allowed in addresses, so they are written as %20, or sometimes as a plus sign in query strings. Browsers usually show the readable form in the address bar but send the encoded form."
+        ],
+        [
+          "Is URL encoding the same as encryption?",
+          "No. It only changes how characters are written so that they travel safely in a link. Anyone can decode it, so never use it to hide passwords or private data."
+        ]
+      ]
+    },
+    "numberToWords": {
+      "faq": [
+        [
+          "What is the difference between a lakh and a million?",
+          "A lakh is 100,000 and a crore is 10,000,000 in the Indian system. A million is 1,000,000, so ten lakh equals one million and one crore equals ten million."
+        ],
+        [
+          "Does the tool support other currencies?",
+          "It is designed for rupees and paise, with an option for a plain number. For other currencies, use the plain number option and add the currency name yourself."
+        ]
+      ]
+    },
+    "fdCalc": {
+      "faq": [
+        [
+          "Is it better to take interest monthly or at maturity?",
+          "Interest paid out regularly gives you income but does not compound, so the total at the end is lower. Reinvesting the interest, as in a cumulative FD, grows the money faster. Choose the payout if you need regular income."
+        ],
+        [
+          "What is the effective yield?",
+          "It is the actual annual return after compounding. A rate of 7 percent compounded quarterly gives an effective yield of about 7.19 percent, which helps you compare deposits with different compounding."
+        ]
+      ]
+    },
+    "inflationCalc": {
+      "faq": [
+        [
+          "Is inflation the same for everyone?",
+          "No. The headline figure is an average. Your personal inflation depends on what you buy, where you live and your lifestyle, so it can be higher or lower than the official rate."
+        ],
+        [
+          "What inflation rate has India had historically?",
+          "Consumer inflation in India has often been in the range of 4 to 7 percent in recent years, though it varies from year to year. Check current official data before you make a plan."
+        ]
+      ]
+    },
+    "percentageCalc": {
+      "faq": [
+        [
+          "How do I reverse a percentage change?",
+          "To undo an increase of p percent, divide by 1 plus p/100. For example, a price of 1,200 after a 20 percent rise was 1,000 before it. The calculator's reverse mode does this for you."
+        ],
+        [
+          "What is the difference between percentage and percentage points?",
+          "Percentage points describe the simple difference between two percentages. If an interest rate goes from 6 percent to 7 percent, it rises by one percentage point, which is a relative increase of about 16.7 percent."
+        ]
+      ]
+    },
+    "imageResizer30": {
+      "faq": [
+        [
+          "What if my image is already under 30 KB?",
+          "The tool keeps it as it is where possible. You do not need to make a file smaller than the limit, and a larger file with better quality is often better when the form allows it."
+        ],
+        [
+          "Why is the file bigger than the target after I change the size?",
+          "Compression has a floor. A very large or detailed image cannot always shrink to a very small size without reducing the pixel dimensions. Lower the width and height, then try again."
+        ]
+      ]
+    },
+    "discountCalc": {
+      "faq": [
+        [
+          "How do I calculate a discount in my head?",
+          "Find 10 percent by moving the decimal point one place, then build from there. For 30 percent, take 10 percent and multiply by 3. For 15 percent, add 10 percent and half of that."
+        ],
+        [
+          "Is the discount calculated before or after tax?",
+          "It depends on the shop. In many places tax is added after the discount, so the tax is on the reduced price. Check your bill, and use the GST option in the calculator to compare."
+        ]
+      ]
+    },
+    "examPhoto": {
+      "faq": [
+        [
+          "What if the exam asks for different dimensions?",
+          "Different exams use different sizes. Check the notice and use the Image Resizer tool, which lets you set the pixel size and the target file size yourself."
+        ],
+        [
+          "Should the photo be in colour or black and white?",
+          "Follow your exam notice. Most ask for a recent colour photo, though some accept black and white. If the notice does not say, a colour photo is the safer choice."
+        ]
+      ]
+    },
+    "passwordGenerator": {
+      "faq": [
+        [
+          "Is a passphrase better than a random password?",
+          "A passphrase of four or more random words is easier to remember and can be as strong as a shorter random string. Use it for the one password you must remember, such as the one for your password manager."
+        ],
+        [
+          "How often should I change my passwords?",
+          "Current advice is to change a password when you have a reason, such as a breach or sharing, rather than on a fixed schedule. Make each one unique and long, and use two-step verification."
+        ]
+      ]
+    },
+    "dateDifferenceCalc": {
+      "faq": [
+        [
+          "How many weeks are there between two dates?",
+          "Divide the number of days by 7. The calculator shows the full weeks and the extra days, so 64 days is 9 weeks and 1 day."
+        ],
+        [
+          "Can I count only weekdays?",
+          "Yes. The working days figure counts Monday to Friday. It does not know your local public holidays, so subtract those yourself if they apply."
+        ]
+      ]
+    },
+    "cagrCalc": {
+      "faq": [
+        [
+          "What is a good CAGR?",
+          "It depends on the asset and the period. A bank deposit may give 6 to 7 percent, long term equity has often given higher returns with large swings, and a business may aim for double digit growth. Compare with inflation and with similar investments."
+        ],
+        [
+          "Is CAGR the same as average annual return?",
+          "No. The simple average of yearly returns ignores compounding and can be higher than CAGR when returns vary. CAGR is the better measure of what you actually earned over the whole period."
+        ]
+      ]
+    },
+    "timeZoneConverter": {
+      "faq": [
+        [
+          "Which countries do not use daylight saving?",
+          "Many do not, including India, Japan, China and most of Africa and Asia. Some countries change on different dates, so the gap between two places can change twice a year."
+        ],
+        [
+          "What is UTC?",
+          "UTC is Coordinated Universal Time, the standard that time zones are measured from. Zones are written as an offset, such as UTC+5:30 for India or UTC-5 for New York in winter."
+        ]
+      ]
+    },
+    "bmiCalc": {
+      "faq": [
+        [
+          "What is a healthy waist size?",
+          "Guidance varies by population. Many health bodies suggest keeping waist measurement under half your height as a simple rule. Ask a doctor for advice that suits you."
+        ],
+        [
+          "Can I use BMI during pregnancy or for athletes?",
+          "BMI is not designed for pregnancy, and it can be misleading for athletes and people with a lot of muscle. Ask a health professional how to assess your weight in these cases."
+        ]
+      ]
+    },
+    "signatureResizer": {
+      "faq": [
+        [
+          "Can I use a digital or typed signature?",
+          "Most forms ask for a handwritten signature on paper. A typed or drawn signature may be rejected, so follow the notice. If drawing is allowed, a clear dark line on a white background works."
+        ],
+        [
+          "What file format should I use?",
+          "Use the format the form asks for, usually JPG. The tool saves a JPG that fits the pixel and size limits. Keep the original scan in case you need another size."
+        ]
+      ]
+    },
+    "rdCalc": {
+      "faq": [
+        [
+          "What happens if I miss an instalment?",
+          "Banks charge a small penalty for each missed instalment, and after a number of missed payments the account may be closed. Check your bank's rules and set up an auto-debit."
+        ],
+        [
+          "Can I close an RD early?",
+          "Yes, usually, but you receive a lower interest rate and may pay a penalty. Check the premature closure terms before you open the account."
+        ]
+      ]
+    },
+    "ageCalc": {
+      "faq": [
+        [
+          "How is age counted on a leap day birthday?",
+          "For a 29 February birthday, many legal systems treat the birthday as 28 February or 1 March in non-leap years. The rule differs by country and purpose, so check the one that applies to you."
+        ],
+        [
+          "Can I calculate the age of a child in months?",
+          "Yes. The result shows years, months and days, and the total in months, weeks and days, which doctors and nurseries often ask for."
+        ]
+      ]
+    },
+    "emiCalc": {
+      "faq": [
+        [
+          "What is the difference between a fixed and a floating rate?",
+          "A fixed rate stays the same for the period you agree, so your EMI does not change. A floating rate moves with a benchmark, so your EMI or loan term changes when rates move. Floating loans are common for home loans."
+        ],
+        [
+          "Does paying a lump sum reduce the EMI or the term?",
+          "It depends on your lender and your choice. Usually you can keep the EMI the same and shorten the term, which saves the most interest, or lower the EMI and keep the term."
+        ]
+      ]
+    },
+    "ppfCalc": {
+      "faq": [
+        [
+          "Can I have more than one PPF account?",
+          "No. An individual can have only one PPF account in their own name. Extra accounts can be merged or closed under the rules, so check with your bank."
+        ],
+        [
+          "What happens if I miss a yearly deposit?",
+          "The account becomes inactive. You can revive it by paying the minimum deposit for each missed year with a small penalty. Check the current rules with the bank or post office."
+        ]
+      ]
+    },
+    "epfCalc": {
+      "faq": [
+        [
+          "What is the difference between EPF and EPS?",
+          "EPF is the provident fund, which builds a balance you can withdraw. EPS is the pension scheme, which pays a monthly pension after retirement if you meet the conditions. Part of the employer contribution goes to EPS."
+        ],
+        [
+          "Is the interest on EPF taxable?",
+          "Interest on your own contributions is tax free up to a limit, and the rules differ for high contributions and for withdrawals before five years of service. Check the current rules or ask a tax adviser."
+        ]
+      ]
+    },
+    "sipCalc": {
+      "faq": [
+        [
+          "How much SIP do I need for a target amount?",
+          "Use the calculator by trying different monthly amounts, or work backwards: the longer the time and the higher the return, the lower the SIP you need. A rough target helps you pick an amount, and you can adjust each year."
+        ],
+        [
+          "Is a SIP the same as a mutual fund?",
+          "No. A SIP is a way of investing a fixed amount at regular intervals. The mutual fund is the product you invest in. You can run a SIP in many kinds of funds."
+        ]
+      ]
+    },
+    "pdfToImages": {
+      "faq": [
+        [
+          "Can I turn the images back into a PDF?",
+          "Yes. Use the Image to PDF tool on this site to put the pages together again in order."
+        ],
+        [
+          "Why are the image files large?",
+          "PNG images keep every detail and are larger than JPG for photographs. Reduce the scale or use the Image Resizer to make them smaller."
+        ]
+      ]
+    },
+    "gratuityCalc": {
+      "faq": [
+        [
+          "Is gratuity paid when I resign?",
+          "Yes, if you have completed the required service, whether you resign, retire or are laid off. The rule of five years applies, with exceptions for death and disability."
+        ],
+        [
+          "What counts as the last drawn salary?",
+          "For the standard formula it is basic salary plus dearness allowance. Other allowances and bonuses are generally not included, so use the basic and DA from your payslip."
+        ]
+      ]
+    },
+    "hraCalc": {
+      "faq": [
+        [
+          "Can I claim HRA and home loan benefit together?",
+          "In some situations you can, for example if you live in a rented house in one city and own a house in another. The rules are detailed, so ask a tax adviser about your case."
+        ],
+        [
+          "What if I pay rent to my spouse?",
+          "Rent paid to a spouse is generally not accepted for HRA exemption. Rent to parents can be accepted if it is genuine and the parent reports it as income."
+        ]
+      ]
+    },
+    "gstCalc": {
+      "faq": [
+        [
+          "How do I calculate GST on a discounted price?",
+          "Apply the discount first and then GST on the discounted price, unless the rule for your case says otherwise. The Discount Calculator can add GST after the discount."
+        ],
+        [
+          "What is the GST composition scheme?",
+          "It is an option for small businesses to pay a fixed percentage of turnover as tax instead of normal GST, with simpler returns. Businesses under it cannot collect GST from customers or claim input credit. Check eligibility with a professional."
+        ]
+      ]
+    },
+    "jsonFormatter": {
+      "faq": [
+        [
+          "What is the difference between JSON and a JavaScript object?",
+          "JSON is a text format with strict rules: keys in double quotes, no functions, no comments and no trailing commas. A JavaScript object is more flexible and lives in memory."
+        ],
+        [
+          "Can it handle large files?",
+          "It works for files of a few megabytes in most browsers. Very large files may be slow because the browser has to hold the whole text in memory."
+        ]
+      ]
+    },
+    "imagesToPdf": {
+      "faq": [
+        [
+          "Can I add images from different sources?",
+          "Yes. You can select images of different sizes and types. The tool places each one on its own page, scaled to fit."
+        ],
+        [
+          "Will the PDF be searchable?",
+          "No. The pages are pictures, so the text cannot be selected or searched. Use the Digitize Documents tool if you need a searchable text layer."
+        ]
+      ]
+    },
+    "simpleCompoundCalc": {
+      "faq": [
+        [
+          "What is the rule of 72?",
+          "It is a quick way to estimate how long money takes to double: divide 72 by the yearly rate. At 8 percent it takes about 9 years."
+        ],
+        [
+          "Does more frequent compounding make a big difference?",
+          "A little. Monthly instead of yearly compounding adds a small amount, and the gain from daily compounding is smaller still. The rate and the time matter far more."
+        ]
+      ]
+    },
+    "inspect": {
+      "faq": [
+        [
+          "Does inspecting change my file?",
+          "No. The tool only reads the file and shows a report. Your original is not modified or uploaded."
+        ],
+        [
+          "Can I see who last edited a PDF?",
+          "You can see the author and producer fields and the modified date, if the file has them. They can be missing or edited, so treat them as hints and not proof."
+        ]
+      ]
+    },
+    "watermark": {
+      "faq": [
+        [
+          "Can I add an image or logo as a watermark?",
+          "This tool adds text marks. For a logo or an image, use a PDF or image editor."
+        ],
+        [
+          "Is the watermark added in front or behind the text?",
+          "It is placed over the page so that it stays visible. A light colour and low opacity keep the text readable."
+        ]
+      ]
+    },
+    "passportPhoto": {
+      "faq": [
+        [
+          "Can I print the photo at a shop?",
+          "Yes. Save the resized file and take it to a photo shop that can print at 35 by 45 mm, or use a print template. Ask the shop to keep the size exact."
+        ],
+        [
+          "Why was my photo rejected?",
+          "Common reasons are shadows, a patterned background, a head that is too small or too large in the frame, a blurry image, or a file size or pixel size outside the limit. Read the rejection message for details."
+        ]
+      ]
+    },
+    "salaryCalc": {
+      "faq": [
+        [
+          "Why is my in-hand salary lower than CTC divided by 12?",
+          "Because the CTC includes items that you do not receive monthly, such as the employer's PF, gratuity, insurance and variable pay, and the in-hand pay is after deductions for PF, tax and professional tax."
+        ],
+        [
+          "Can I increase my in-hand salary?",
+          "Some employers allow you to restructure allowances or choose a lower PF contribution within the limits of the law. Compare the effect on your tax and long term savings before you change anything."
+        ]
+      ]
+    },
+    "organize": {
+      "faq": [
+        [
+          "Can I move several pages at once?",
+          "Yes. Select the pages you want to move and drag them together, or use the move controls. Check the order in the preview before you save."
+        ],
+        [
+          "Does the order change the size of the file?",
+          "Not noticeably. Reordering or deleting pages mostly changes what is included. Deleted pages are removed, which can reduce the size."
+        ]
+      ]
+    }
+  }
+}
