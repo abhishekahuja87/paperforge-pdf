@@ -15,6 +15,18 @@
     "cornell-notes-template": [
       "Cornell Notes Template: Free Printable Note-Taking Paper",
       "Print Cornell notes paper with cue column, notes area and summary box."
+    ],
+    "hexagon-graph-paper-generator": [
+      "Hexagon Graph Paper Generator: Printable Hex Grid for Maps, Games and Chemistry",
+      "Make printable hexagon grid paper with your own hex size, pointy or flat top."
+    ],
+    "calligraphy-practice-sheet-generator": [
+      "Calligraphy Practice Sheet Generator: Slant Guides, x-Height and Ascender Lines",
+      "Make printable calligraphy guide sheets with slant lines and adjustable x-height."
+    ],
+    "cross-stitch-pattern-grid-generator": [
+      "Cross-Stitch Pattern Grid Generator: Printable Stitch Chart and Pixel Grid",
+      "Make printable cross-stitch graph paper sized for your Aida count."
     ]
   },
   "guideSteps": {
@@ -89,6 +101,60 @@
         "Download and print",
         "Choose how many pages you need, download the PDF and print at Actual size. Print a few extra for revision."
       ]
+    ],
+    "hexagon-graph-paper-generator": [
+      [
+        "Open the hex grid",
+        "Pick the Hexagon grid style, or choose Hex map (games) from Quick start."
+      ],
+      [
+        "Set the size",
+        "Choose the radius from the corner to the centre, from 3 to 20 mm. Small hexagons suit chemistry and patchwork. Large ones suit game maps."
+      ],
+      [
+        "Choose the direction",
+        "Pointy top has a corner at the top. Flat top has a flat edge at the top. Turn on centre dots to mark each cell."
+      ],
+      [
+        "Print or download",
+        "Set the page size and margins, then download the PDF or print the sheet at 100% scale."
+      ]
+    ],
+    "calligraphy-practice-sheet-generator": [
+      [
+        "Open the calligraphy style",
+        "Pick Calligraphy, or choose Calligraphy practice from Quick start for a Copperplate setup."
+      ],
+      [
+        "Set the letter size",
+        "Choose the x-height, the height of the body of small letters, then the ascender and descender depth in multiples of it."
+      ],
+      [
+        "Set the slant",
+        "Pick Copperplate 55°, Spencerian 52°, italic or vertical, or drag the slider to any angle. Adjust the spacing between slant lines."
+      ],
+      [
+        "Print a stack",
+        "Choose the paper, ink tone and number of pages, then download one PDF or print the sheet. Light lines let your ink show."
+      ]
+    ],
+    "cross-stitch-pattern-grid-generator": [
+      [
+        "Open the cross-stitch style",
+        "Pick Cross-stitch chart, or choose it from Quick start for a 14-count grid."
+      ],
+      [
+        "Choose the fabric count",
+        "Pick 11, 14, 16 or 18 count, or enter any count from 5 to 32 stitches per inch. The square size follows from the count."
+      ],
+      [
+        "Set the guides",
+        "Keep the darker line every 10 squares and the dashed centre lines to find the middle quickly."
+      ],
+      [
+        "Print the grid",
+        "Choose the paper and ink tone, then download the PDF or print at 100% scale to chart your design."
+      ]
     ]
   },
   "pageGuides": {
@@ -135,6 +201,18 @@
         [
           "How do I print a whole bundle?",
           "Press Download PDF, open the file and print it with \"Actual size\" selected. The Print this sheet button prints only the sheet shown in the preview."
+        ],
+        [
+          "Can I make hexagon, calligraphy, cross-stitch or storyboard paper?",
+          "Yes. Hexagon grid, Calligraphy, Cross-stitch chart and Storyboard are in the Paper style list, each with its own size and layout options."
+        ],
+        [
+          "Can I share my settings with someone?",
+          "Yes. Press \"Copy link to these settings\". The link reopens the same sheet. The settings are stored after the # sign in the address, so they are not sent to any server."
+        ],
+        [
+          "Can I add punch-hole guides or print two A5 pages on an A4 sheet?",
+          "Yes. The Extras section has 2, 3 and 4 hole guides at standard spacing, a corner label, and a two-up layout that puts two A5 pages on one A4 sheet with a dashed cut line."
         ],
         [
           "Is my information uploaded or stored?",
@@ -253,6 +331,120 @@
         [
           "Is my information uploaded or stored?",
           "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Saved settings are a small file that you download yourself."
+        ]
+      ]
+    },
+    "hexPaperGuide": {
+      "title": "Hexagon Graph Paper Generator: Printable Hex Grid for Maps, Games and Chemistry",
+      "subtitle": "Choose the hexagon size and orientation, add centre dots if you like, and download a clean A4, A5 or Letter PDF. Free, with no sign-up and no watermark.",
+      "faq": [
+        [
+          "Is the hexagon grid generator free?",
+          "Yes. It is free, needs no account and adds no watermark. The grid is drawn in your browser."
+        ],
+        [
+          "What does the hexagon radius mean?",
+          "It is the distance from the centre of a hexagon to any corner, which is also the length of each side. The width across two flat sides is about 1.73 times the radius."
+        ],
+        [
+          "What is the difference between pointy-top and flat-top?",
+          "Pointy-top hexagons have a corner at the top and form straight horizontal rows. Flat-top hexagons have a flat edge at the top and form straight vertical columns. Games and map tools use both, so choose the one your rules or software expect."
+        ],
+        [
+          "How do I make 1 inch hexes?",
+          "A hexagon 1 inch (25.4 mm) across its flat sides has a radius of about 14.7 mm. Set 14.5 or 15 mm for a close match."
+        ],
+        [
+          "Why are some hexagons missing at the edge?",
+          "Only whole hexagons are drawn, so the grid is centred inside your margins and nothing is cut off. Reduce the margins or the radius to fit more."
+        ],
+        [
+          "Can I use it for organic chemistry?",
+          "Yes. A small hexagon grid gives rings of even size for drawing benzene and other ring structures. Use a light tone and a 4 to 6 mm radius."
+        ],
+        [
+          "Does the PDF print at the right size?",
+          "Yes, if you print at \"Actual size\" or 100% with \"Fit to page\" turned off. Print one sheet and measure a hexagon with a ruler to check."
+        ],
+        [
+          "Is my information uploaded?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. A shared link keeps your settings in the part of the address after the # sign, which browsers do not send to servers."
+        ]
+      ]
+    },
+    "calligraphyGuide": {
+      "title": "Calligraphy Practice Sheet Generator: Slant Guides, x-Height and Ascender Lines",
+      "subtitle": "Choose a slant angle, the x-height and the ascender and descender depth, and print practice sheets for Copperplate, Spencerian, italic and modern lettering. Free, no sign-up.",
+      "faq": [
+        [
+          "Is the calligraphy sheet generator free?",
+          "Yes. It is free, needs no account and adds no watermark. The sheet is drawn in your browser."
+        ],
+        [
+          "What slant angle should I use?",
+          "Copperplate is commonly taught at about 55 degrees from the baseline, and Spencerian at about 52 degrees. Italic hands are often close to upright, around 5 to 10 degrees from vertical, which is 80 to 85 degrees on this slider."
+        ],
+        [
+          "How is the angle measured?",
+          "From the baseline, so a larger number means more upright. 90 degrees gives vertical lines and 55 degrees gives the classic Copperplate lean."
+        ],
+        [
+          "What are the lines on the sheet?",
+          "Each group has a heavy baseline, a waist line at the top of small letters, a dashed ascender line above and a dashed descender line below. The slant lines run across all groups."
+        ],
+        [
+          "How do I choose the x-height?",
+          "For broad-edge pens, many teachers use about five nib widths. For pointed pens, 4 to 6 mm suits beginners. Larger sizes help when you are learning the shapes."
+        ],
+        [
+          "Can I print a bundle of pages?",
+          "Yes, up to 50 pages in one PDF. The identical pages are stored once, so the file stays small."
+        ],
+        [
+          "Why do my lines look pale?",
+          "Pale lines are deliberate so your ink stands out. Choose a darker tone or a bold line weight if you want stronger guides, or print on a light-table-friendly paper."
+        ],
+        [
+          "Is my information uploaded?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. A shared link keeps your settings in the part of the address after the # sign, which browsers do not send to servers."
+        ]
+      ]
+    },
+    "crossStitchGuide": {
+      "title": "Cross-Stitch Pattern Grid Generator: Printable Stitch Chart and Pixel Grid",
+      "subtitle": "Pick the fabric count, and print a stitch grid with a bold line every 10 squares and centre marks. Also good for pixel art, bead patterns and mosaic designs. Free, no sign-up.",
+      "faq": [
+        [
+          "Is the cross-stitch grid generator free?",
+          "Yes. It is free, needs no account and adds no watermark."
+        ],
+        [
+          "What is a fabric count?",
+          "The number of stitches per inch. 14-count Aida has 14 stitches in each inch, so each square on the chart is 1.81 mm. Higher counts give smaller stitches and finer detail."
+        ],
+        [
+          "How big will my finished piece be?",
+          "Divide the number of stitches by the count. A design 140 stitches wide on 14-count fabric is 10 inches wide, which is about 25.4 cm."
+        ],
+        [
+          "Why is there a darker line every 10 squares?",
+          "Counting is the slowest part of charting. Marking every 10th line lets you count in tens and place stitches accurately without losing your place."
+        ],
+        [
+          "What are the dashed centre lines for?",
+          "Starting from the middle of the chart and the middle of the fabric keeps the design centred. The dashed lines show where to begin."
+        ],
+        [
+          "Can I use it for pixel art and beads?",
+          "Yes. Each square is one pixel, stitch or bead. For 5 mm beads, use the Beads 5 mm option. For pixel art, a larger square gives you more room to colour."
+        ],
+        [
+          "Does the grid cover the whole page?",
+          "It fits as many whole squares as the margins allow and centres them. Reduce the margins or choose a higher count to get a bigger chart."
+        ],
+        [
+          "Is my information uploaded?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. A shared link keeps your settings in the part of the address after the # sign, which browsers do not send to servers."
         ]
       ]
     }
@@ -410,6 +602,165 @@
           "paragraphs": [
             "Set the number of pages and download the PDF. For a semester, print a few dozen and keep them in a binder with a divider for each subject. Print at Actual size, and use double-sided printing with the binding option for a tidy result.",
             "Everything is made in your browser. Your settings are not stored on a server, and you can save them in a small file to use again next term."
+          ]
+        }
+      ]
+    },
+    "hexagon-graph-paper-generator": {
+      "sections": [
+        {
+          "heading": "What the Hexagon Graph Paper Generator does",
+          "paragraphs": [
+            "It draws a grid of regular hexagons on a page and gives you a PDF to print. You choose the size of the hexagons, whether they point up or lie flat, the page size, the margins, the ink tone and the line weight. There is no fixed template to put up with: a small grid for chemistry sketches and a large grid for a campaign map are both a few clicks.",
+            "The page is built in your browser as vector lines, so the grid stays sharp at any print size and the file is small. Nothing you set is uploaded."
+          ]
+        },
+        {
+          "heading": "Pointy top or flat top",
+          "paragraphs": [
+            "A regular hexagon can sit on a corner or on an edge. With a corner at the top, the hexagons line up in horizontal rows and every second row is shifted sideways by half a hexagon. With a flat edge at the top, they line up in vertical columns and every second column is shifted up by half a hexagon.",
+            "The choice matters for games and software. Many tabletop games use pointy-top maps for rows of terrain, while other rules and programs assume flat-top. If you are copying a map into another tool, check which one it uses and match it, otherwise coordinates will not line up."
+          ]
+        },
+        {
+          "heading": "Choosing the size",
+          "paragraphs": [
+            "Size is set by the radius, the distance from the centre to a corner. Because the hexagon is regular, this is also the length of one side. The distance between the centres of two neighbouring hexagons is about 1.73 times the radius, which is useful when a rule says each hexagon is a fixed distance, such as one mile or one move.",
+            "For miniatures, work back from the figure: a base about 25 mm wide fits a hexagon of roughly 14.5 mm radius. For notes, doodles and patchwork templates, 4 to 8 mm is comfortable. Use the quick buttons for common sizes, then fine-tune with the slider."
+          ]
+        },
+        {
+          "heading": "Uses for hexagon paper",
+          "paragraphs": [
+            "Hexagon grids are used for role-playing and war-game maps, board game design, strategy planning, tile-laying puzzles, mosaic and honeycomb art, patchwork and quilting layouts, and the rings of organic chemistry. Designers use them to plan layouts where each cell has six equal neighbours, which a square grid cannot give.",
+            "Turn on the centre dots if you will place tokens or count steps from cell to cell. The dots mark the exact middle of each hexagon and do not change the size of the grid."
+          ]
+        },
+        {
+          "heading": "Printing and fit",
+          "paragraphs": [
+            "The grid is centred inside the margins and only whole hexagons are drawn, so the edge of the pattern is clean. A4, A5, US Letter and US Legal are available in portrait or landscape. If you are printing a map to be cut or joined, leave generous margins and print on the paper size your printer handles best.",
+            "Print at 100% scale with fit-to-page off, then check one hexagon with a ruler. Many printers also leave a thin unprintable border, so keep margins of at least 5 mm. A lighter ink tone makes the grid easy to draw over and saves ink."
+          ]
+        },
+        {
+          "heading": "Combining with other options",
+          "paragraphs": [
+            "Add punch-hole guides and a binding margin to make pages for a binder. Use the corner label for a campaign name, a class or the word Draft. Choose a bundle of up to 50 pages to print a whole notebook in one go, and use the link button to share the exact settings with a group.",
+            "If you need a square grid, a dot grid or an isometric grid instead, they are in the same tool, and the settings you pick for page, margins and tone carry over."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "The generator draws regular hexagons only, and it does not number or label the cells. Draw coordinates by hand, or add them in a design program. Very small hexagons on a low-quality printer may look heavy, so test one page before you print a bundle.",
+            "Everything happens in your browser, and nothing you set is stored on a server."
+          ]
+        }
+      ]
+    },
+    "calligraphy-practice-sheet-generator": {
+      "sections": [
+        {
+          "heading": "What the Calligraphy Practice Sheet Generator does",
+          "paragraphs": [
+            "It makes guide sheets for lettering practice: horizontal lines that mark the height of small and tall letters, and slanted lines that keep your strokes at a steady angle. You set the angle, the letter height and the spacing, and download a PDF to print as many times as you like.",
+            "Most free sheets online are fixed images for one hand and one nib size. Here every measure is adjustable, so the sheet can match the pen you actually use."
+          ]
+        },
+        {
+          "heading": "The lines on the sheet",
+          "paragraphs": [
+            "Every writing group has four horizontal lines. The baseline is the heavy line the letters sit on. The waist line is the top of lower-case letters such as a, c and e, so the space between waist line and baseline is the x-height. The ascender line is the top of tall letters such as b, d and l. The descender line is the bottom of letters such as g, p and y.",
+            "The ascender and descender distances are set as multiples of the x-height. The defaults are a starting point, since the proportions vary between scripts and teachers. Change them to match the exemplar you are copying."
+          ]
+        },
+        {
+          "heading": "Slant angle",
+          "paragraphs": [
+            "Slant is the lean of the downstrokes. In Copperplate, practice sheets commonly use 55 degrees from the baseline, and Spencerian is commonly taught at about 52. Upright hands such as many italic and modern brush styles use a small lean or none. The quick buttons set the common angles, and the slider covers everything in between.",
+            "The slant lines keep your downstrokes parallel, which does more for neat lettering than almost anything else. If your letters drift, slow down and check each stroke against the nearest guide line."
+          ]
+        },
+        {
+          "heading": "Choosing a size",
+          "paragraphs": [
+            "Large letters show the shapes and are easier to control while you learn. Small letters train fine control but magnify mistakes. A common approach is to start with an x-height of about 5 to 6 mm and reduce it as your hand steadies.",
+            "For broad-edge pens, work from the nib: many italic and gothic exercises are sized in nib widths, with an x-height of about five widths. Measure your nib by drawing a row of squares, then convert to millimetres and enter it."
+          ]
+        },
+        {
+          "heading": "Paper, ink and tone",
+          "paragraphs": [
+            "Calligraphy ink often bleeds on thin paper, so print the guides on smooth, heavy paper or print them and place them under a lightweight sheet on a light box. A light tone such as soft gray or slate blue keeps the lines visible without competing with your ink.",
+            "If the guide lines show through your final piece, switch to the ultra-fine weight and the lightest tone, or use the guide as an underlay rather than writing directly on it."
+          ]
+        },
+        {
+          "heading": "Practice routine",
+          "paragraphs": [
+            "Begin each session with warm-up strokes: straight downstrokes along the slant, ovals and compound curves. Then move to single letters, joined groups and finally words. Short, regular sessions of 20 minutes work better than a long weekly session.",
+            "Use the page bundle option to make a stack of identical sheets, add your name with the corner label, and number the pages so you can see progress over time."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "The sheets provide guides only. They do not contain letter exemplars or alphabets, which depend on the style you are learning, so keep an exemplar beside you. Angles are drawn exactly, but printers can stretch a page slightly, so print at 100% scale.",
+            "The tool runs in your browser, and nothing you set is uploaded."
+          ]
+        }
+      ]
+    },
+    "cross-stitch-pattern-grid-generator": {
+      "sections": [
+        {
+          "heading": "What the Cross-Stitch Pattern Grid Generator does",
+          "paragraphs": [
+            "It prints a grid of squares where each square stands for one stitch. You choose the fabric count and the tool works out the exact square size, then draws a bold line every 10 squares and dashed centre lines. You can colour the squares by hand with pencils, markers or symbols to design your own pattern.",
+            "The grid is drawn in your browser as sharp vector lines, so it prints cleanly at any size, and the settings are not uploaded."
+          ]
+        },
+        {
+          "heading": "Fabric count and square size",
+          "paragraphs": [
+            "Aida fabric is sold by count, the number of stitches per inch. A square on the chart matches one stitch, so the grid has to match your fabric to predict the size. The tool converts the count into millimetres: 11 count is 2.31 mm per square, 14 count is 1.81 mm, 16 count is 1.59 mm and 18 count is 1.41 mm.",
+            "Small squares fit more stitches on a page but are harder to colour. For design work, many people chart on a larger grid than the fabric count and rely on the count only when working out the finished size."
+          ]
+        },
+        {
+          "heading": "Working out the finished size",
+          "paragraphs": [
+            "Divide the stitches by the count. A 100 by 150 stitch design on 14 count measures about 7.1 by 10.7 inches, which is about 18 by 27 cm. On 18 count the same design is smaller, about 5.6 by 8.3 inches.",
+            "Remember to leave extra fabric around the design for framing, usually at least 2 inches on each side. Choosing the count before you design avoids a pattern that is too big or too small once it is stitched."
+          ]
+        },
+        {
+          "heading": "Counting made easier",
+          "paragraphs": [
+            "The darker line every 10 squares works as a ruler. When you transfer a design from the chart to the fabric, count the tens first and then the squares inside them. Mark every 10th row and column on the fabric with a water-soluble pen if it helps.",
+            "Start from the centre. The dashed centre lines show the middle of the chart. Fold your fabric in quarters to find its centre and match the two before the first stitch, so the design lands in the middle of the fabric."
+          ]
+        },
+        {
+          "heading": "Beyond cross-stitch",
+          "paragraphs": [
+            "The same grid suits pixel art, bead and brick patterns, mosaic and tile planning, knitting and crochet charts when the stitch proportions are close to square, and even simple map drawing. The Beads 5 mm setting makes each square about the size of a standard bead.",
+            "For colour, use pencils or fine markers and a key of symbols or numbers beside the grid. Print a few pages and keep one clean copy for the final chart."
+          ]
+        },
+        {
+          "heading": "Printing tips",
+          "paragraphs": [
+            "Print at 100% scale, with fit-to-page turned off, if you want the squares to match real stitches. Measure ten squares with a ruler to check. A light tone lets your colours stand out, and a darker tone is better if you plan to photocopy the chart.",
+            "Add a corner label with your project name and use the page bundle to print several sheets for a large chart that you tape together."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "The tool does not convert pictures into patterns and does not assign thread colours. It gives you an accurate, printable grid to design on. Printers may stretch a page slightly, so charts meant to join across sheets should be printed on the same printer in one session.",
+            "Everything runs in your browser, and nothing you set is sent to a server."
           ]
         }
       ]

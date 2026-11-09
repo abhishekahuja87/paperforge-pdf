@@ -1,11 +1,12 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { Download, FolderOpen, Printer, RotateCcw, Save } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
+import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
 import { buildSheet, hasBackSide } from '../../../lib/paper/geometry';
 import { buildPaperPdf } from '../../../lib/paper/pdf';
 import { PRESETS, parseSettingsFile, serializeSettings } from '../../../lib/paper/settings';
-import { DEFAULT_SETTINGS, HEADER_LABELS, PAGE_SIZES, STYLES, TONES, WEIGHTS, type HeaderField, type PaperSettings, type PaperStyle, type ToneId, type Weight } from '../../../lib/paper/types';
+import { encodeShare, decodeShare } from '../../../lib/paper/share';
+import { DEFAULT_SETTINGS, HEADER_LABELS, PAGE_SIZES, STORY_RATIOS, STYLES, TONES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings, type PaperStyle, type ToneId, type Weight } from '../../../lib/paper/types';
 import { SheetPreview } from './SheetPreview';
 import { Slider, Toggle, card, heading } from './controls';
 
@@ -18,7 +19,7 @@ const presetButtons = (spacings: { label: string; value: number }[], current: nu
 );
 
 export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialStyle }) => {
-  const [settings, setSettings] = useState<PaperSettings>(() => ({ ...DEFAULT_SETTINGS, style: initialStyle ?? DEFAULT_SETTINGS.style }));
+  const [settings, setSettings] = useState<PaperSettings>(() => (typeof window !== 'undefined' ? decodeShare(window.location.hash) : null) ?? { ...DEFAULT_SETTINGS, style: initialStyle ?? DEFAULT_SETTINGS.style });
   const [side, setSide] = useState<'front' | 'back'>('front');
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -30,6 +31,8 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
   const tightMargin = Math.min(margins.top, margins.bottom, margins.left, margins.right) < 5;
   const isCornell = settings.style === 'cornell';
   const headerApplies = settings.style !== 'cornell' && settings.style !== 'tracker';
+  const shareLink = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}#${encodeShare(settings)}` : '';
+  const twoUpOk = canTwoUp(settings);
   const sizeLabel = `${Math.round(sheet.width * 10) / 10} × ${Math.round(sheet.height * 10) / 10} mm`;
 
   const setMargin = (key: keyof PaperSettings['margins'], value: number) => update({ margins: { ...margins, [key]: value } });
@@ -132,6 +135,39 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
                 <Slider label="Space between staves" value={settings.music.gap} min={6} max={30} step={1} onChange={(gap) => update({ music: { ...settings.music, gap } })} />
                 {settings.music.mode === 'staff' && <Toggle label="Leave space for the clef" checked={settings.music.clefSpace} onChange={(clefSpace) => update({ music: { ...settings.music, clefSpace } })} hint="Marks a clef box at the start of each staff; draw the clef by hand" />}
               </>)}
+              {settings.style === 'hex' && (<>
+                {presetButtons([{ label: 'Small 4 mm', value: 4 }, { label: '6 mm', value: 6 }, { label: 'Map 10 mm', value: 10 }], settings.hex.radius, (radius) => update({ hex: { ...settings.hex, radius } }))}
+                <Slider label="Hexagon radius (centre to corner)" value={settings.hex.radius} min={3} max={20} step={0.5} onChange={(radius) => update({ hex: { ...settings.hex, radius } })} />
+                <ChoiceButtons label="Orientation" value={settings.hex.orientation} onChange={(orientation) => update({ hex: { ...settings.hex, orientation: orientation as 'pointy' | 'flat' } })} options={[{ value: 'pointy', label: 'Pointy top' }, { value: 'flat', label: 'Flat top' }]} />
+                <Toggle label="Dot in the centre of each hexagon" checked={settings.hex.centers} onChange={(centers) => update({ hex: { ...settings.hex, centers } })} hint="Useful for placing tokens or counting steps" />
+              </>)}
+              {settings.style === 'calligraphy' && (<>
+                {presetButtons([{ label: 'Copperplate 55°', value: 55 }, { label: 'Spencerian 52°', value: 52 }, { label: 'Italic 8°', value: 82 }, { label: 'Vertical', value: 90 }], settings.calligraphy.slant, (slant) => update({ calligraphy: { ...settings.calligraphy, slant } }))}
+                <Slider label="Slant angle from the baseline" value={settings.calligraphy.slant} min={0} max={90} step={1} unit="°" onChange={(slant) => update({ calligraphy: { ...settings.calligraphy, slant } })} />
+                <Slider label="x-height (body of small letters)" value={settings.calligraphy.xHeight} min={2.5} max={10} step={0.5} onChange={(xHeight) => update({ calligraphy: { ...settings.calligraphy, xHeight } })} />
+                <Slider label="Ascender height (in x-heights)" value={settings.calligraphy.ascender} min={1} max={4} step={0.25} unit="×" onChange={(ascender) => update({ calligraphy: { ...settings.calligraphy, ascender } })} />
+                <Slider label="Descender depth (in x-heights)" value={settings.calligraphy.descender} min={1} max={4} step={0.25} unit="×" onChange={(descender) => update({ calligraphy: { ...settings.calligraphy, descender } })} />
+                <Slider label="Space between lines of writing" value={settings.calligraphy.gap} min={0} max={15} step={0.5} onChange={(gap) => update({ calligraphy: { ...settings.calligraphy, gap } })} />
+                <Toggle label="Slant guide lines" checked={settings.calligraphy.slantLines} onChange={(slantLines) => update({ calligraphy: { ...settings.calligraphy, slantLines } })} />
+                {settings.calligraphy.slantLines && <Slider label="Distance between slant lines" value={settings.calligraphy.slantSpacing} min={4} max={30} step={1} onChange={(slantSpacing) => update({ calligraphy: { ...settings.calligraphy, slantSpacing } })} />}
+              </>)}
+              {settings.style === 'crossstitch' && (<>
+                {presetButtons([{ label: 'Beads 5 mm', value: 5 }, { label: '11 count', value: 11 }, { label: '14 count', value: 14 }, { label: '16 count', value: 16 }, { label: '18 count', value: 18 }], settings.crossstitch.count, (count) => update({ crossstitch: { ...settings.crossstitch, count } }))}
+                <Slider label="Stitches per inch (Aida count)" value={settings.crossstitch.count} min={5} max={32} step={1} unit="" onChange={(count) => update({ crossstitch: { ...settings.crossstitch, count } })} />
+                <p className="text-[11px] text-slate-500">Each square is {Math.round((25.4 / settings.crossstitch.count) * 100) / 100} mm, the size of one stitch on this fabric count.</p>
+                <Toggle label="Darker line every 10 squares" checked={settings.crossstitch.major} onChange={(major) => update({ crossstitch: { ...settings.crossstitch, major } })} hint="Makes counting stitches faster" />
+                <Toggle label="Dashed centre lines" checked={settings.crossstitch.centerLines} onChange={(centerLines) => update({ crossstitch: { ...settings.crossstitch, centerLines } })} hint="Start stitching from the middle of the fabric" />
+              </>)}
+              {settings.style === 'storyboard' && (<>
+                <ChoiceButtons label="Panel shape" value={settings.storyboard.ratio} onChange={(ratio) => update({ storyboard: { ...settings.storyboard, ratio: ratio as keyof typeof STORY_RATIOS } })} options={(Object.keys(STORY_RATIOS) as (keyof typeof STORY_RATIOS)[]).map((ratio) => ({ value: ratio, label: ratio }))} />
+                <div className="grid grid-cols-2 gap-3">
+                  <Slider label="Columns" value={settings.storyboard.cols} min={1} max={4} step={1} unit="" onChange={(cols) => update({ storyboard: { ...settings.storyboard, cols } })} />
+                  <Slider label="Rows" value={settings.storyboard.rows} min={1} max={5} step={1} unit="" onChange={(rows) => update({ storyboard: { ...settings.storyboard, rows } })} />
+                </div>
+                <Slider label="Note lines under each panel" value={settings.storyboard.memo} min={0} max={5} step={1} unit="" onChange={(memo) => update({ storyboard: { ...settings.storyboard, memo } })} />
+                <Slider label="Gap between panels" value={settings.storyboard.gutter} min={3} max={12} step={1} onChange={(gutter) => update({ storyboard: { ...settings.storyboard, gutter } })} />
+                <Toggle label="Number the panels" checked={settings.storyboard.numbers} onChange={(numbers) => update({ storyboard: { ...settings.storyboard, numbers } })} />
+              </>)}
               {settings.style === 'tracker' && (<>
                 <ChoiceButtons label="Days in the month" value={String(settings.tracker.days)} onChange={(value) => update({ tracker: { ...settings.tracker, days: Number(value) } })} options={[{ value: '28', label: '28' }, { value: '30', label: '30' }, { value: '31', label: '31' }]} />
                 <Slider label="Number of habits or tasks" value={settings.tracker.rows} min={3} max={30} step={1} unit="rows" onChange={(rows) => update({ tracker: { ...settings.tracker, rows } })} />
@@ -191,9 +227,22 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
           </div>
 
           <div className={card}>
-            <h2 className={heading}>5. How many pages</h2>
+            <h2 className={heading}>5. Extras</h2>
+            <div className="mt-3 space-y-3">
+              <ChoiceButtons label="Punch-hole guides" value={settings.holes} onChange={(holes) => update({ holes: holes as PaperSettings['holes'] })} options={[{ value: 'none', label: 'None' }, { value: '2', label: '2 holes' }, { value: '3', label: '3 holes' }, { value: '4', label: '4 holes' }]} />
+              {settings.holes !== 'none' && <p className="text-[11px] text-slate-500">Rings are drawn 12 mm from the binding edge at the standard spacing ({settings.holes === '3' ? '108 mm, US 3-ring' : '80 mm'}), and the pattern is kept clear of them. Holes that do not fit the page are left out. Use the rings as a guide for a punch, not as a template for the printer.</p>}
+              <label className="block text-xs font-semibold text-slate-700">Corner label (name, class or "Draft")
+                <input type="text" maxLength={40} value={settings.stamp.text} onChange={(event) => update({ stamp: { ...settings.stamp, text: event.target.value } })} className={fieldClass} />
+              </label>
+              {settings.stamp.text.trim() !== '' && <ChoiceButtons label="Label position" value={settings.stamp.corner} onChange={(corner) => update({ stamp: { ...settings.stamp, corner: corner as PaperSettings['stamp']['corner'] } })} options={[{ value: 'tl', label: 'Top left' }, { value: 'tr', label: 'Top right' }, { value: 'bl', label: 'Bottom left' }, { value: 'br', label: 'Bottom right' }]} />}
+              <Toggle label="Two A5 pages on one A4 sheet" checked={settings.twoUp && twoUpOk} onChange={(twoUp) => update({ twoUp })} hint={twoUpOk ? 'Prints two copies side by side with a dashed cut line, so one A4 sheet makes two A5 pages. Page numbers are not printed in this layout.' : 'Available when the page size is A5 in portrait.'} />
+            </div>
+          </div>
+
+          <div className={card}>
+            <h2 className={heading}>6. How many pages</h2>
             <div className="mt-3">
-              <Slider label="Pages in the PDF" value={settings.pages} min={1} max={50} step={1} unit="pages" onChange={(pages) => update({ pages })} />
+              <Slider label={settings.twoUp && twoUpOk ? 'Sheets in the PDF (2 pages each)' : 'Pages in the PDF'} value={settings.pages} min={1} max={50} step={1} unit="pages" onChange={(pages) => update({ pages })} />
               <p className="mt-2 text-[11px] text-slate-500">Make a ready-to-print notebook or binder refill in one file. Identical pages are stored once, so the file stays small.</p>
             </div>
           </div>
@@ -211,6 +260,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={() => void download()} disabled={busy} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building...' : 'Download PDF'}</button>
               <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this sheet</button>
+              <CopyButton text={shareLink} label="Copy link to these settings" />
               <button type="button" onClick={saveSettings} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><Save className="h-4 w-4" aria-hidden="true" />Save settings</button>
               <button type="button" onClick={() => fileRef.current?.click()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><FolderOpen className="h-4 w-4" aria-hidden="true" />Load settings</button>
               <button type="button" onClick={() => { setSettings({ ...DEFAULT_SETTINGS, style: initialStyle ?? DEFAULT_SETTINGS.style }); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>

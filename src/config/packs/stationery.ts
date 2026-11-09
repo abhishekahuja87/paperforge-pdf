@@ -19,4 +19,16 @@ export const STATIONERY_TOOLS: PackTool[] = [
     id: 'cornell-notes-template', kind: 'paperCornell', guideKey: 'cornellGuide', category: 'everyday', icon: 'file-text', tier: 'more',
     keywords: ['cornell notes template', 'cornell notes printable', 'cornell note taking', 'lecture notes template', 'study notes template'],
   }, stationery.toolCatalog),
+  definePackTool({
+    id: 'hexagon-graph-paper-generator', kind: 'paperHex', guideKey: 'hexPaperGuide', category: 'everyday', icon: 'grid', tier: 'more',
+    keywords: ['hexagon graph paper', 'hex grid printable', 'hex paper', 'hex map paper', 'honeycomb grid', 'hexagonal grid generator', 'organic chemistry hexagon paper'],
+  }, stationery.toolCatalog),
+  definePackTool({
+    id: 'calligraphy-practice-sheet-generator', kind: 'paperCalligraphy', guideKey: 'calligraphyGuide', category: 'everyday', icon: 'type', tier: 'more',
+    keywords: ['calligraphy practice sheets', 'calligraphy guide sheet', 'slant guide lines', 'copperplate practice sheet', 'lettering practice paper', 'hand lettering guide sheet', 'spencerian practice'],
+  }, stationery.toolCatalog),
+  definePackTool({
+    id: 'cross-stitch-pattern-grid-generator', kind: 'paperCrossStitch', guideKey: 'crossStitchGuide', category: 'everyday', icon: 'grid', tier: 'more',
+    keywords: ['cross stitch grid', 'cross stitch graph paper', 'cross stitch pattern paper', 'pixel art grid', 'bead pattern grid', 'stitch chart printable', 'aida grid'],
+  }, stationery.toolCatalog),
 ];

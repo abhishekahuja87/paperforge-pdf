@@ -1,4 +1,6 @@
-import { BINDING_MM, DOT_RADIUS, HEADER_LABELS, PAGE_SIZES, TONES, WEIGHTS, type HeaderField, type PaperSettings } from './types';
+import { clipSegment, fit, r3, type Box } from './util';
+import { calligraphy, crossStitch, hexGrid, holeGuides, stampItem, storyboard, twoUpItems } from './extra';
+import { BINDING_MM, DOT_RADIUS, HEADER_LABELS, PAGE_SIZES, TONES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings } from './types';
 
 /** Everything on a sheet is a handful of simple shapes in millimetres, origin top-left. The SVG preview and the PDF export both draw this list. */
 export type Item =
@@ -7,7 +9,9 @@ export type Item =
   | { t: 'ring'; x: number; y: number; r: number; w: number; c: string }
   | { t: 'text'; x: number; y: number; size: number; text: string; c: string; bold?: boolean; anchor?: 'start' | 'middle' | 'end' };
 
-export interface Rect { x: number; y: number; w: number; h: number }
+export type Rect = Box;
+
+export { clipSegment };
 
 export interface Sheet {
   width: number;
@@ -24,7 +28,6 @@ export type Side = 'front' | 'back';
 
 const TEXT = '#555555';
 const ACCENT = '#d98f8f';
-const r3 = (value: number) => Math.round(value * 1000) / 1000;
 
 export function pageSize(settings: PaperSettings): { width: number; height: number } {
   const { width, height } = PAGE_SIZES[settings.page];
@@ -42,27 +45,6 @@ export function printableArea(settings: PaperSettings, side: Side): Rect {
     else if (atStart) l += BINDING_MM; else r += BINDING_MM;
   }
   return { x: l, y: t, w: Math.max(10, width - l - r), h: Math.max(10, height - t - b) };
-}
-
-/** Clips a segment to a rectangle (Liang-Barsky), so grid lines never cross the margins. */
-export function clipSegment(x1: number, y1: number, x2: number, y2: number, box: Rect): [number, number, number, number] | null {
-  let t0 = 0;
-  let t1 = 1;
-  const dx = x2 - x1;
-  const dy = y2 - y1;
-  const edges: [number, number][] = [[-dx, x1 - box.x], [dx, box.x + box.w - x1], [-dy, y1 - box.y], [dy, box.y + box.h - y1]];
-  for (const [p, q] of edges) {
-    if (p === 0) { if (q < 0) return null; continue; }
-    const t = q / p;
-    if (p < 0) { if (t > t1) return null; if (t > t0) t0 = t; } else { if (t < t0) return null; if (t < t1) t1 = t; }
-  }
-  return [r3(x1 + t0 * dx), r3(y1 + t0 * dy), r3(x1 + t1 * dx), r3(y1 + t1 * dy)];
-}
-
-/** Whole cells that fit in a length, and the offset that centres them. */
-function fit(length: number, step: number): { count: number; offset: number } {
-  const count = Math.max(1, Math.floor(length / step + 1e-6));
-  return { count, offset: (length - count * step) / 2 };
 }
 
 function dotGrid(area: Rect, step: number, radius: number, color: string): Item[] {
@@ -268,8 +250,7 @@ function tracker(area: Rect, settings: PaperSettings, weight: number, color: str
   return items;
 }
 
-/** Builds the fixed shapes of one sheet. Page numbers are added per page by the caller. */
-export function buildSheet(settings: PaperSettings, side: Side = 'front'): Sheet {
+function buildPage(settings: PaperSettings, side: Side): Sheet {
   const { width, height } = pageSize(settings);
   const full = printableArea(settings, side);
   const weight = WEIGHTS[settings.weight].mm;
@@ -296,6 +277,10 @@ export function buildSheet(settings: PaperSettings, side: Side = 'front'): Sheet
     case 'lined': fixed.push(...ruledLines(area, settings.lined.spacing, weight, color, settings.lined.marginLine, settings.lined.midline)); break;
     case 'isometric': fixed.push(...isometric(area, settings.isometric.pitch, settings.isometric.mode, settings.isometric.axis, weight, color, DOT_RADIUS.medium)); break;
     case 'music': fixed.push(...musicLines(area, settings.music.mode, settings.music.space, settings.music.gap, settings.music.clefSpace, weight, color)); break;
+    case 'hex': fixed.push(...hexGrid(area, settings.hex, weight, color)); break;
+    case 'calligraphy': fixed.push(...calligraphy(area, settings.calligraphy, weight, color)); break;
+    case 'crossstitch': fixed.push(...crossStitch(area, settings.crossstitch, weight, color)); break;
+    case 'storyboard': fixed.push(...storyboard(area, settings.storyboard, weight, color)); break;
     case 'tracker': {
       fixed.push(...tracker(full, settings, weight, color));
       if (settings.headerFields.includes('page')) pageNumber = { x: r3(full.x + full.w), y: r3(full.y + 5), size: 9, anchor: 'end', c: TEXT };
@@ -304,6 +289,17 @@ export function buildSheet(settings: PaperSettings, side: Side = 'front'): Sheet
     default: break;
   }
   return { width, height, area, fixed, pageNumber };
+}
+
+/** Builds the fixed shapes of one sheet, with the punch-hole guides and corner stamp. Page numbers are added per page by the caller. */
+export function buildSheet(settings: PaperSettings, side: Side = 'front'): Sheet {
+  // Hole guides sit 12 mm from the edge, so the pattern is moved clear of them even if the binding margin is off.
+  const page = buildPage(settings.holes !== 'none' && !settings.binding ? { ...settings, binding: true } : settings, side);
+  const atStart = side === 'front' || !settings.bindingAlternate;
+  page.fixed.push(...holeGuides(page.width, page.height, settings.holes, settings.landscape, atStart), ...stampItem(page.width, page.height, settings.stamp));
+  if (!settings.twoUp || !canTwoUp(settings)) return page;
+  const width = PAGE_SIZES.a4.height;
+  return { width, height: page.height, area: page.area, fixed: twoUpItems(page.fixed, page.width, width, page.height), pageNumber: null };
 }
 
 /** Whether back pages differ from front pages (only when the binding edge alternates). */
