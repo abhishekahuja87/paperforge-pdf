@@ -64,3 +64,7 @@ Supported file operations, calculators and text tools run in the browser; this d
 Document digitization uses Tesseract.js with the English model. Vite serves and emits the worker, engine variants and language data from installed npm packages under `ocr-assets/`; they are downloaded from the application origin when needed. OCR runs on the rendered, edited pages after blackouts, and a text-only layer is added to the PDF. Separate output groups copies by source image into a ZIP. OCR is approximate and users should review the result. The digitization workspace does not offer password protection because the existing protection implementation rasterizes the PDF and removes searchable text. The reused Master Studio editor still has English-only controls.
 
 When adding or changing a tool, keep routes, catalog entries, search, guide content, metadata, accessibility, translations, and relevant privacy disclosures consistent. Keep UI composition separate from reusable processing logic. Update this document when architecture or processing boundaries change.
+
+## Extra page content (AdSense depth)
+
+Short tool pages get extra article sections and FAQs from `src/locales/depth/core.en.json` (keys `toolArticles.<tool id>` and `pageGuides.<guide key>`). `src/locales/english.ts` inserts them before the closing privacy entry, so the original text files stay untouched. To deepen another page, add its entry to that file. Aim for 800 or more words of useful, original text per tool page (steps, article, FAQs).
