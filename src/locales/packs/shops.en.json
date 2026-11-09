@@ -21,6 +21,24 @@
         "Download the PNG",
         "Check the preview, then download. Post it on Instagram or Facebook, send it on WhatsApp, or print the A4 version and put it up in the shop."
       ]
+    ],
+    "price-tag-maker": [
+      [
+        "Paste your product list",
+        "Type or paste one product per line as name | price | old price | code. You can paste columns straight from a spreadsheet. The old price and code are optional."
+      ],
+      [
+        "Choose size and style",
+        "Pick small (40 per sheet), medium (24) or large (10) tags, the colour, the text before the price such as Rs, an optional shop name, and whether to show a barcode, a QR code or no code."
+      ],
+      [
+        "Set the copies",
+        "Choose how many copies of each tag you want. The tool shows how many tags and sheets that makes."
+      ],
+      [
+        "Print on A4",
+        "Print the sheets at 100% scale on plain paper or sticker sheets, then cut along the light borders. Scan one printed barcode before you do a big batch."
+      ]
     ]
   },
   "pageGuides": {
@@ -69,6 +87,44 @@
           "The example photos are from Pexels and are only there to show the designs. Replace them with pictures of your own products before you post."
         ]
       ]
+    },
+    "priceTagGuide": {
+      "title": "Price Tag Maker: Printable Shelf Labels with Barcodes",
+      "subtitle": "Paste your products and prices and print A4 sheets of price tags with a crossed-out old price, a barcode or QR code and your shop colour. Free, runs in your browser.",
+      "faq": [
+        [
+          "Is the price tag maker free?",
+          "Yes. It is free, has no watermark and needs no account. The list you paste stays in your browser."
+        ],
+        [
+          "How do I enter my products?",
+          "Put one product on each line with the parts separated by a vertical bar or a tab: name | price | old price | code. You can copy columns from Excel or Google Sheets and paste them in. Commas also work if none of your prices has a comma in it."
+        ],
+        [
+          "Which barcode type does it make?",
+          "Code 128, which most shop barcode scanners read. It can hold letters, digits and simple symbols up to 40 characters. It is meant for your own stock codes. It does not create the official EAN or UPC numbers that packaged goods carry, which come from GS1."
+        ],
+        [
+          "Can I use a QR code instead?",
+          "Yes. Choose QR code and each tag shows a QR code for the text in the code column, such as a product link."
+        ],
+        [
+          "What sizes are available?",
+          "Small tags (4 by 10, 40 per A4 sheet), medium (3 by 8, 24 per sheet) and large (2 by 5, 10 per sheet). The text scales to fit each size."
+        ],
+        [
+          "Why do the tags look the wrong size when I print?",
+          "Printers sometimes shrink a page to fit. In the print window set the scale to 100% or Actual size, choose A4 and turn off headers and footers."
+        ],
+        [
+          "Does it work on sticker paper?",
+          "Yes, but the grid is a simple even grid with a small page margin, so it will not line up with every brand of label sheet. Print on plain paper first and hold it against your sticker sheet."
+        ],
+        [
+          "Is my product list uploaded?",
+          "No. Everything is drawn in your browser and nothing is sent to MyDailyUtils."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -106,6 +162,38 @@
           "heading": "Privacy",
           "paragraphs": [
             "Your photos, prices and contact details never leave your browser. The poster is drawn on your device and the PNG is created there, so nothing is uploaded to MyDailyUtils. The design fonts are part of the site itself, so no other service is contacted."
+          ]
+        }
+      ]
+    },
+    "price-tag-maker": {
+      "sections": [
+        {
+          "heading": "Clear tags help customers decide",
+          "paragraphs": [
+            "A shelf tag has one job: tell the customer the price quickly and clearly. Shops that handwrite tags often end up with tags that are hard to read, vary in size and get out of date. Printing them from a list solves all three problems and lets you reprint a whole shelf when prices change.",
+            "This tool turns a pasted list of products into sheets of tags with the name, a large price, an optional crossed-out old price, a saving line, and a barcode or QR code if you want one."
+          ]
+        },
+        {
+          "heading": "How to prepare your list",
+          "paragraphs": [
+            "Use one line per product. Write the name first, then the selling price, then the old price if the item is on offer, then your own code, separated by a vertical bar or a tab. For example: Basmati rice 5 kg | 649 | 749 | RICE-5KG. If you keep stock in a spreadsheet, copy the name, price, old price and code columns and paste them; spreadsheet columns arrive separated by tabs.",
+            "The saving line, such as Save 13%, is worked out from the two prices, so the numbers on the tag always agree. Turn it off if you do not want it."
+          ]
+        },
+        {
+          "heading": "Barcodes and QR codes",
+          "paragraphs": [
+            "The barcode is Code 128, a common type that most handheld and counter scanners read. It suits your own stock or SKU codes, such as ABC-1042. It is not an EAN or UPC number. Those come from GS1 and are issued to manufacturers, so do not invent numbers that look like them.",
+            "A QR code can hold longer text, such as a link to the product page or a payment link. Scan one printed tag with a phone or your scanner before printing a full batch."
+          ]
+        },
+        {
+          "heading": "Sizes and printing",
+          "paragraphs": [
+            "Small tags fit 40 on an A4 page and suit shelf edges and small items. Medium tags fit 24 and suit most shelves. Large tags fit 10 and work as counter signs for offers. Text sizes scale with the tag so the price stays the biggest thing on it.",
+            "Print at 100% scale. If your print dialog offers Fit to page, turn it off, or the tags will come out smaller than planned. Cut along the light dashed borders. If you use sticker sheets, test on plain paper first because label sheets differ."
           ]
         }
       ]

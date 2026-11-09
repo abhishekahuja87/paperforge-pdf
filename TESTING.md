@@ -291,3 +291,14 @@ Check after deploy:
 Checked in the sandbox: the QR row decoded with OpenCV for all three contacts in post, story, A4 and portrait (wa.me/917804991800 from 78049-91800 with code 91, the Facebook and Instagram profile links); both pages toggle it, and the public page shows the country-code field only when QR is on. WhatsApp kind in the QR generator builds `https://wa.me/<digits>?text=<message>`. Colours not checked visually (no Tailwind in the sandbox). `tsc` and `vite build` were not run.
 
 Check after deploy: scan each poster QR with a phone camera (WhatsApp should open a chat with the number; Facebook and Instagram should open the profile); try a number with +, one with 10 digits, one starting with 0; /qr-code-generator > WhatsApp, scan; home page: PDF, Images, Money, Everyday topics should be clearly different colours from each other and from the orange tiles above.
+
+### Rent Receipt, Price Tag Maker, Bulk QR
+
+Checked in the sandbox (headless Chromium, logic only, no Tailwind so styled layout is not judged): number-to-words (7, 15,000, 1,25,000, 12,34,567, paise), month ranges (12 months, 36 cap, end before start), PAN shape, 6 receipts on 2 pages; price tags with Code 128 and QR, copies, an unencodable code flagged; bulk list with comma, tab and link-only lines, ZIP built, all three PNGs decoded with OpenCV and list.txt correct. The Code 128 output was decoded from rendered pixels (start, check digit and text matched for five strings). `tsc` and `vite build` were not run.
+
+Check after deploy:
+- /rent-receipt-generator on a phone: fill details, choose 12 months, Print or save as PDF: 4 A4 pages, three receipts each, signature lines, nothing cut across pages. Rent above Rs 8,333 a month shows the PAN reminder without a PAN. Amount in words correct.
+- /price-tag-maker: paste the sample, print at 100% on A4: tags are in an even grid, prices large, old price struck through. Scan a printed barcode with a scanner or phone app. Try small, medium, large and QR.
+- /bulk-qr-code-generator: paste 3 lines, download ZIP, unzip, scan each PNG; SVG option; print the labelled sheet.
+- All three appear in search, the sitemap, and the home page (rent receipt under Money, tag maker under Work, bulk QR under Sharing).
+

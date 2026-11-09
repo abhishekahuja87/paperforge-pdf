@@ -15,4 +15,8 @@ export const QR_TOOLS: PackTool[] = [
     id: 'vcard-qr-code-generator', kind: 'qrContact', guideKey: 'vcardQrGuide', category: 'everyday', icon: 'file-text', tier: 'more',
     keywords: ['vcard qr code', 'business card qr code', 'contact qr code', 'qr code save contact', 'digital business card qr'],
   }, qr.toolCatalog),
+  definePackTool({
+    id: 'bulk-qr-code-generator', kind: 'qrBulk', guideKey: 'bulkQrGuide', category: 'everyday', icon: 'grid', tier: 'popular',
+    keywords: ['bulk qr code generator', 'batch qr code generator', 'qr codes from list', 'qr codes from excel', 'multiple qr codes at once', 'qr code zip download', 'table qr codes for restaurant', 'qr code labels sheet'],
+  }, qr.toolCatalog),
 ];

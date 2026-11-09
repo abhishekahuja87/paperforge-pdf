@@ -1,0 +1,8 @@
+{
+  "toolCatalog": {
+    "rent-receipt-generator": [
+      "Rent Receipt Generator: Monthly Rent Receipts for HRA, Free",
+      "Make rent receipts for every month in a range, with the amount in words, your landlord's PAN and a signature line. Print three to a page or save as PDF."
+    ]
+  }
+}

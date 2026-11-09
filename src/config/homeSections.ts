@@ -16,7 +16,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'offer-poster-maker', 'screenshot-redactor', 'bill-splitter', 'vcard-to-csv-converter', 'printable-flashcard-maker', 'printable-paper-maker',
+  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'bill-splitter',
 ];
 
 /** Studio-style tools shown as a slim row. */
@@ -45,7 +45,7 @@ export const COLLECTIONS: CollectionSpec[] = [
   ] },
   { id: 'money', icon: 'calculator', tools: [
     'income-tax-calculator', 'salary-calculator', 'emi-calculator', 'sip-calculator', 'gst-calculator', 'hra-calculator', 'fd-calculator', 'ppf-calculator', 'rd-calculator',
-    'lumpsum-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator', 'gratuity-calculator', 'epf-calculator',
+    'rent-receipt-generator', 'lumpsum-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator', 'gratuity-calculator', 'epf-calculator',
   ] },
   { id: 'everyday', icon: 'hash', tools: [
     'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bmi-calculator', 'bill-splitter', 'time-zone-converter', 'number-to-words',
@@ -55,13 +55,13 @@ export const COLLECTIONS: CollectionSpec[] = [
     'printable-flashcard-maker', 'double-sided-flashcards-printable', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
   ] },
   { id: 'work', icon: 'receipt', tools: [
-    'offer-poster-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator',
+    'offer-poster-maker', 'price-tag-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator',
   ] },
   { id: 'study', icon: 'type', tools: [
     'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter',
   ] },
   { id: 'sharing', icon: 'grid', tools: [
-    'qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
+    'qr-code-generator', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
   ] },
   { id: 'dev', icon: 'file-code', tools: [
     'json-formatter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',

@@ -11,6 +11,10 @@
     "vcard-qr-code-generator": [
       "vCard QR Code Generator: Business Card QR That Saves Your Contact",
       "Make a QR code that saves your contact details to a phone address book."
+    ],
+    "bulk-qr-code-generator": [
+      "Bulk QR Code Generator: Many QR Codes at Once, ZIP Download",
+      "Paste a list of labels and links and download all the QR codes as a ZIP of PNG or SVG files, or print a labelled sheet. Free and private."
     ]
   }
 }
