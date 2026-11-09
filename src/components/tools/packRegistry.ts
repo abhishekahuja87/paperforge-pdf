@@ -9,6 +9,7 @@ import { VCARD_COMPONENTS } from './vcard/registry';
 import { FLASHCARD_COMPONENTS } from './flashcards/registry';
 import { PRIVACY_COMPONENTS } from './privacy/registry';
 import { SHOPS_COMPONENTS } from './shops/registry';
+import { HOUSEHOLD_COMPONENTS } from './household/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -25,4 +26,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...FLASHCARD_COMPONENTS,
   ...PRIVACY_COMPONENTS,
   ...SHOPS_COMPONENTS,
+  ...HOUSEHOLD_COMPONENTS,
 };

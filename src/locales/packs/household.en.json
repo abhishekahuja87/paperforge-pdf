@@ -1,0 +1,102 @@
+{
+  "guideSteps": {
+    "rent-receipt-generator": [
+      [
+        "Enter the tenant and landlord",
+        "Type your name as tenant, the landlord's name and the address of the rented property. Add the landlord's PAN if your yearly rent is above Rs 1 lakh, since employers usually ask for it with an HRA claim."
+      ],
+      [
+        "Set the rent and the months",
+        "Enter the monthly rent and choose the first and last month. A receipt is made for every month in between, up to 36. Pick the day of the month the rent was paid and how it was paid."
+      ],
+      [
+        "Check the preview",
+        "Each receipt shows the date, the amount in figures and words, the rent period, the payment mode and a signature line for the landlord. Add a revenue stamp box if your landlord wants one."
+      ],
+      [
+        "Print and get them signed",
+        "Choose Print or save as PDF. Three receipts fit on each A4 page with cut lines. The landlord should sign every receipt before you submit them."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "rentReceiptGuide": {
+      "title": "Rent Receipt Generator: Monthly Rent Receipts for HRA, Free",
+      "subtitle": "Create a rent receipt for each month in a range, with the amount in words, landlord PAN and a signature line. Print three per A4 page or save as PDF. Free, private and no sign-up.",
+      "faq": [
+        [
+          "Is this rent receipt generator free?",
+          "Yes. It is free, needs no account and adds no watermark. It runs in your browser, so the names, address and PAN you type are not sent to MyDailyUtils."
+        ],
+        [
+          "Are these receipts valid for an HRA claim?",
+          "A rent receipt is one of the papers employers ask for with an HRA claim, along with details such as the rent agreement or bank proof. Whether a claim is accepted is decided by your employer and the Income Tax rules, so check what your payroll team asks for. These receipts are only valid for rent that was really paid."
+        ],
+        [
+          "When do I need the landlord's PAN?",
+          "If the rent you pay is more than Rs 1 lakh in a financial year, employers usually ask for the landlord's PAN. The tool shows a reminder when your yearly rent crosses that amount. It checks only the shape of a PAN (five letters, four digits, one letter), not that it exists."
+        ],
+        [
+          "Does the landlord have to sign?",
+          "Yes. A receipt is the landlord's acknowledgement that the rent was received, so the landlord should sign each one. The tool leaves a signature line for this. Do not sign on the landlord's behalf."
+        ],
+        [
+          "Do I need a revenue stamp?",
+          "Practices differ and the rules have changed over the years. Some landlords still want a stamp on cash receipts, so the tool can leave a small box for it. Ask your landlord or accountant what applies to you."
+        ],
+        [
+          "Can I make receipts for a whole year at once?",
+          "Yes. Choose the first and last month and the tool makes one receipt for each, up to 36 months, three to a page. For more than 36 months make a second set."
+        ],
+        [
+          "Can I use it for other currencies?",
+          "Yes. You can pick another currency. The amount in words is written for Indian rupees only; for other currencies the figure is shown without words."
+        ],
+        [
+          "Is my information saved?",
+          "Only if you tick the remember box, in which case the names, PAN and address stay in your own browser storage. Do not tick it on a shared computer."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "rent-receipt-generator": {
+      "sections": [
+        {
+          "heading": "What a rent receipt is for",
+          "paragraphs": [
+            "A rent receipt is a short written acknowledgement from the landlord that rent for a period has been received. Tenants who get house rent allowance (HRA) are often asked for these receipts when they declare their investments and rent to their employer, and they are also useful as a plain record of what you paid and when.",
+            "This tool produces the receipts from a form. You enter who paid whom, how much and for which months, and it lays out one receipt per month in a clean format that you can print or save as a PDF."
+          ]
+        },
+        {
+          "heading": "What each receipt contains",
+          "paragraphs": [
+            "Each receipt shows a receipt number and the month it covers, the date of payment, the tenant's name, the amount in figures and in words, the period the rent is for with its first and last day, the address of the property, how the rent was paid, the landlord's PAN if you entered one, and a signature line with the landlord's name. An optional box is left for a revenue stamp.",
+            "Writing the amount in words is a common habit on Indian receipts because it makes the figure harder to alter. The words use the Indian system, so 1,25,000 is written as One Lakh Twenty-Five Thousand."
+          ]
+        },
+        {
+          "heading": "PAN, HRA and the Rs 1 lakh limit",
+          "paragraphs": [
+            "When the rent you pay in a year is above Rs 1 lakh, employers usually ask for the landlord's PAN with the HRA claim. The tool shows a reminder when your monthly rent times twelve is above that figure. The rules and limits are set by the Income Tax Department and employers apply them in their own way, so confirm with your payroll team before you rely on any format.",
+            "If you need to work out how much HRA is exempt, use the HRA Calculator on this site alongside the receipts."
+          ]
+        },
+        {
+          "heading": "Use it for real rent only",
+          "paragraphs": [
+            "A receipt is a statement that money changed hands. Make receipts only for rent that was actually paid, and have the landlord sign them. Receipts that are made up to claim an allowance you are not entitled to can lead to tax penalties, and employers and the tax department can ask for bank statements or the rent agreement to match.",
+            "Keep the rent agreement and proof of payment such as bank transfer records or UPI screenshots together with the receipts."
+          ]
+        },
+        {
+          "heading": "Printing and saving",
+          "paragraphs": [
+            "Choose Print or save as PDF. Three receipts fit on each A4 page with dashed cut lines, so you can cut them out or keep the sheet whole. In the print dialog choose Save as PDF, leave margins at Default and turn off Headers and footers. Your details are used only in the browser to draw the page; nothing is uploaded."
+          ]
+        }
+      ]
+    }
+  }
+}

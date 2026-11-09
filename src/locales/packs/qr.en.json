@@ -53,6 +53,24 @@
         "Download or print",
         "Save a PNG or SVG for your business card design, or print a sheet of copies for badges and handouts."
       ]
+    ],
+    "bulk-qr-code-generator": [
+      [
+        "Paste your list",
+        "Write one code per line as a label, then a comma or tab, then what the code should hold, such as a link. You can paste two columns from a spreadsheet."
+      ],
+      [
+        "Choose colours and file type",
+        "Pick PNG or SVG, the PNG size and the colours. Keep a dark code on a light background so phones can read it."
+      ],
+      [
+        "Download the ZIP",
+        "Press Download. You get one file for each code, named from its label, plus a list.txt that shows which file holds what."
+      ],
+      [
+        "Or print a labelled sheet",
+        "Choose how many codes per row and print the sheet. Each code has its label underneath, ready to cut and stick."
+      ]
     ]
   },
   "pageGuides": {
@@ -183,6 +201,44 @@
         [
           "Is my information uploaded or stored?",
           "No. The code is calculated and drawn in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your Wi-Fi name, passwords, contact details and links stay on your device."
+        ]
+      ]
+    },
+    "bulkQrGuide": {
+      "title": "Bulk QR Code Generator: Many QR Codes at Once, ZIP Download",
+      "subtitle": "Paste a list of labels and links and get every QR code in a ZIP of PNG or SVG files, or print a labelled sheet. Free, no limits on scans, and nothing is uploaded.",
+      "faq": [
+        [
+          "Is the bulk QR code generator free?",
+          "Yes. It is free with no account. The codes are static, so they never expire and there is no limit on scans."
+        ],
+        [
+          "How many codes can I make at once?",
+          "Up to 500 per batch. For more, make the list in parts."
+        ],
+        [
+          "How do I format the list?",
+          "One code per line as label, then a comma or a tab, then the content. If a line holds only a link, it is used as the content and the file is named from the link. A comma inside a link is fine because the first comma is used only when no link starts before it."
+        ],
+        [
+          "Can I paste from Excel or Google Sheets?",
+          "Yes. Copy two columns, label and content, and paste. Spreadsheet columns arrive separated by tabs, which the tool understands."
+        ],
+        [
+          "PNG or SVG?",
+          "PNG works everywhere, including documents and phones. SVG stays sharp at any size and suits printing on large signs. For small prints use PNG at 1024 px or more."
+        ],
+        [
+          "What can the codes hold?",
+          "Links, plain text, a Wi-Fi string, a phone number or anything else typed as text. For a single Wi-Fi, contact or WhatsApp code, use the Wi-Fi, contact or main QR code generator."
+        ],
+        [
+          "Will the codes be scannable?",
+          "Yes if you keep a dark code on a light background. The tool warns when the two colours are too close. Scan a few codes with a phone before you print them all."
+        ],
+        [
+          "Is my list uploaded?",
+          "No. The codes and the ZIP file are made in your browser."
         ]
       ]
     }
@@ -342,6 +398,37 @@
           "heading": "Limits",
           "paragraphs": [
             "The contact has no photo and does not support several phone numbers or addresses in this version. Some phones show only the first email or number. The code cannot update later, so a new job or number means a new code. If you need a very rich card, link to a page instead."
+          ]
+        }
+      ]
+    },
+    "bulk-qr-code-generator": {
+      "sections": [
+        {
+          "heading": "When you need many QR codes",
+          "paragraphs": [
+            "A restaurant with twenty tables, a school with a code for each classroom, an event with a code for every stall and a shop with a link for each product all need many QR codes that are almost the same. Making them one by one is slow and easy to get wrong. This tool makes the whole set from a list in one step.",
+            "Each code is a static QR code. Static codes put the content directly in the picture, so they never expire, never depend on this site and have no scan limits."
+          ]
+        },
+        {
+          "heading": "Writing the list",
+          "paragraphs": [
+            "Put one code on each line: the label first, then a comma or a tab, then the content. A table menu might be Table 1, https://example.com/menu?table=1 and the next line Table 2, https://example.com/menu?table=2. The label names the file and the printed caption. If you leave the label out and paste only a link, the file is named from the link.",
+            "If you keep your list in a spreadsheet, copy the two columns and paste them. Tabs are handled automatically, so commas in links are never a problem."
+          ]
+        },
+        {
+          "heading": "Downloading and printing",
+          "paragraphs": [
+            "The ZIP contains one file per code, named from its label, and a list.txt that maps each file name to the label and content so you can check nothing was mixed up. PNG files are made at the size you choose, using whole pixels per square so the edges stay sharp. SVG files can be enlarged without loss.",
+            "To put the codes on paper, print the labelled sheet with three, four or five codes per row. Each code has its label below it so you can cut them apart and place each where it belongs."
+          ]
+        },
+        {
+          "heading": "Checking before you print",
+          "paragraphs": [
+            "Scan two or three codes with your phone camera before you print or send the full set, especially if you changed the colours. A code needs a clearly dark pattern on a clearly light background. If the colours are close the tool warns you. Keep some blank space around printed codes, because the pattern must not touch other artwork."
           ]
         }
       ]
