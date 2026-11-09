@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 import { CAREERS_COMPONENTS } from './careers/registry';
+import { STUDENTS_COMPONENTS } from './students/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -7,4 +8,5 @@ import { CAREERS_COMPONENTS } from './careers/registry';
  */
 export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...CAREERS_COMPONENTS,
+  ...STUDENTS_COMPONENTS,
 };

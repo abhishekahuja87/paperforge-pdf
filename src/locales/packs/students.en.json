@@ -1,0 +1,405 @@
+{
+  "toolCatalog": {
+    "gpa-cgpa-calculator": [
+      "GPA and CGPA Calculator",
+      "Work out GPA, CGPA, percentage and the grade you need next."
+    ],
+    "final-grade-calculator": [
+      "Final Grade Calculator",
+      "See your current grade and what you need on the final exam."
+    ],
+    "citation-generator": [
+      "Citation Generator: APA, MLA, Chicago and Harvard",
+      "Create citations and a sorted reference list in four styles."
+    ],
+    "study-planner": [
+      "Study Planner and Exam Schedule Maker",
+      "Turn exam dates and hours needed into a day-by-day study plan."
+    ]
+  },
+  "guideSteps": {
+    "gpa-cgpa-calculator": [
+      [
+        "Pick what you want to work out",
+        "Choose Semester GPA, CGPA from semesters, CGPA to percentage, or GPA needed to hit a target."
+      ],
+      [
+        "Enter your courses or semesters",
+        "For a semester, choose the grading scale and add each course with its credits and grade. For a CGPA, enter each semester's GPA and credits."
+      ],
+      [
+        "Read the result",
+        "See your GPA or CGPA, the credits counted and the grade points earned. Conversion shows both directions and a quick reference table."
+      ],
+      [
+        "Plan the next semester",
+        "Open the target mode, enter your current CGPA, completed credits and goal, and see the GPA you must score next semester."
+      ]
+    ],
+    "final-grade-calculator": [
+      [
+        "List the parts of the course",
+        "Add assignments, quizzes, midterms and the final exam with the weight of each, as a percentage of the final grade."
+      ],
+      [
+        "Enter the scores you have",
+        "Type your score as a percentage for each part you have finished. Leave the score empty for anything still to come."
+      ],
+      [
+        "Set your target",
+        "Enter the final grade you want, such as 80 for a B or 90 for an A."
+      ],
+      [
+        "Read what you need",
+        "See the score required on the remaining work, your best and worst possible grades, and a warning if the target is out of reach."
+      ]
+    ],
+    "citation-generator": [
+      [
+        "Choose a style and source type",
+        "Pick APA 7, MLA 9, Chicago author-date or Harvard, then choose Website, Book or Journal article."
+      ],
+      [
+        "Fill in the details",
+        "Type the authors, title and publication details. The page shows only the fields that source type needs, and it tells you if something important is missing."
+      ],
+      [
+        "Copy the citation",
+        "Copy it as plain text, or copy with italics so that the book or journal title keeps its formatting when you paste into Word or Google Docs."
+      ],
+      [
+        "Build your reference list",
+        "Add each citation to the list. It sorts itself A to Z and can be copied or printed as one block."
+      ]
+    ],
+    "study-planner": [
+      [
+        "Add your subjects",
+        "Type each subject with its exam date and the number of study hours you think it still needs."
+      ],
+      [
+        "Set your study time",
+        "Choose the first day, the days of the week you can study, how many hours you can study each day and how many days before each exam you want new material finished."
+      ],
+      [
+        "Read your plan",
+        "See each day with the subjects and hours to study, the total hours planned and a warning if a subject does not fit."
+      ],
+      [
+        "Copy or print it",
+        "Copy the plan as text or print it as a PDF, and change the inputs whenever your exam dates or free time change."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "gpaCalc": {
+      "title": "GPA and CGPA Calculator",
+      "subtitle": "Calculate your semester GPA, combine semesters into a CGPA, convert between CGPA and percentage, and find the GPA you need next term to reach a target.",
+      "faq": [
+        [
+          "How is GPA calculated?",
+          "GPA is a credit-weighted average. Multiply each course's grade points by its credits, add the results, then divide by the total credits. A 4-credit course with 9 points counts twice as much as a 2-credit course with 9 points."
+        ],
+        [
+          "What is the difference between GPA, SGPA and CGPA?",
+          "GPA or SGPA is the average for one semester or term. CGPA is the cumulative average across all semesters, and it is also weighted by credits, so a semester with more credits has more influence than a short one."
+        ],
+        [
+          "How do I convert CGPA to percentage?",
+          "Use the formula your university or board publishes. A common rule for a 10-point scale is CGPA multiplied by 9.5, while some institutions multiply by 10. For other scales, such as 4.0, the straight proportion is CGPA divided by the maximum, times 100. The converter lets you choose the formula and shows a reference table."
+        ],
+        [
+          "Which conversion formula should I use?",
+          "The one asked for by the institution, employer or college you are applying to. If a form needs a percentage and your university has no rule, ask your registrar for a written conversion. This tool cannot know which rule applies to you."
+        ],
+        [
+          "How do I find the GPA I need next semester?",
+          "Open the target mode. The tool treats your current CGPA and completed credits as one block and solves for the next semester's GPA so that the new overall average equals your target. If the answer is above the top of the scale, the target cannot be reached in one semester."
+        ],
+        [
+          "Can I use my own grade points?",
+          "Yes. Choose \"My own points\" and type the grade points for each course, which suits scales such as 5.0, 7.0 or a school with unusual grading. The credit weighting stays the same."
+        ],
+        [
+          "Do failed or repeated courses count?",
+          "Policies differ. Some universities count a fail as zero points, some replace the old grade when you repeat a course, and some average both. Enter the courses the way your policy counts them, and check the official rules for repeats."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The calculations run in your browser and nothing you enter is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "finalGradeCalc": {
+      "title": "Final Grade Calculator",
+      "subtitle": "Enter the weight and score of each part of a course to see your current average, your best and worst possible final grade, and the score you need on what is left.",
+      "faq": [
+        [
+          "How do I calculate my final grade?",
+          "Multiply each score by its weight and add the results. For example, 82% on a part worth 20% gives 16.4 points. The sum of all parts, with every weight adding to 100, is your final grade as a percentage."
+        ],
+        [
+          "What score do I need on the final exam?",
+          "Subtract the points you have already earned from your target, then divide by the weight of the remaining work. For example, if you have earned 36 points, want 80 and the final exam is worth the remaining 50, you need (80 − 36) ÷ 50 = 88% on the exam."
+        ],
+        [
+          "What if my weights do not add up to 100?",
+          "The tool uses the weights as entered and shows a warning. Check your course outline: weights may be points rather than percentages, or some parts may be optional or dropped."
+        ],
+        [
+          "Can I include extra credit?",
+          "Yes. Enter a score above 100 for a part, or add an extra part with a small weight. Check with your teacher how extra credit is counted, since some courses cap the total at 100."
+        ],
+        [
+          "What if my teacher drops the lowest score?",
+          "This tool does not drop scores automatically. Remove the lowest part from the list, or set its weight to zero, to see the effect. Then compare the two results."
+        ],
+        [
+          "What does \"best possible\" and \"lowest possible\" mean?",
+          "Best possible is the grade you would get with 100% on everything that is left. Lowest possible is the grade you would finish with if you scored zero on everything left, which is simply the points you have earned already."
+        ],
+        [
+          "Is this the same as my official grade?",
+          "No. Your teacher or school calculates the official grade and may apply rounding, curves, or different weights. Use this tool to plan and check, and ask your teacher if the numbers differ."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is calculated in your browser and nothing you enter is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "citationGen": {
+      "title": "Citation Generator: APA, MLA, Chicago and Harvard",
+      "subtitle": "Make a citation for a website, book or journal article in APA, MLA, Chicago or Harvard style, with italics kept, then build a reference list sorted A to Z.",
+      "faq": [
+        [
+          "Which citation styles does the generator support?",
+          "APA 7th edition, MLA 9th edition, Chicago author-date and Harvard (the common Cite Them Right style), each for websites, books and journal articles."
+        ],
+        [
+          "How do I cite a website with no author?",
+          "Leave the authors box empty. APA, Chicago and Harvard move the title into the author position, while MLA starts with the title in quotation marks. If the page names an organization, you can type it as the author."
+        ],
+        [
+          "How do I enter several authors?",
+          "Type one author per line, as \"First Last\" or \"Last, First\". The tool formats them for your style, for example \"Doe, J., & Patel, R.\" in APA or \"Doe, Jane, and Raj Patel\" in MLA, and shortens long lists where the style requires, such as \"et al.\" in MLA."
+        ],
+        [
+          "Why is my citation marked with missing details?",
+          "Each style expects certain details: for example the year for books and journals, or the journal name for an article. The citation is still created, but the note tells you what to look for so that your teacher is not left with gaps."
+        ],
+        [
+          "How do I keep the italics when I paste?",
+          "Use \"Copy with italics\". It places formatted text on the clipboard so that Word, Google Docs and similar programs keep the italic titles. If your browser does not allow it, use the plain-text copy and italicize the title yourself."
+        ],
+        [
+          "Is this accurate for every case?",
+          "It follows the usual rules for each style and for the three source types listed. Edge cases such as translated works, edited volumes, social media posts, legal sources and works with many authors may need small changes. Check your style guide or ask your teacher when in doubt."
+        ],
+        [
+          "Does the reference list sort correctly?",
+          "Entries are sorted alphabetically by the start of the citation, which is usually the first author. Styles have their own rules for entries without authors and for several works by one author, so check the order once before you hand in."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is not sent to {{siteName}}. Your reference list is kept only until you close or reload the page."
+        ]
+      ]
+    },
+    "studyPlannerGuide": {
+      "title": "Study Planner and Exam Schedule Maker",
+      "subtitle": "Enter your subjects, exam dates and the hours each one needs. Get a day-by-day plan that gives more time to what is most urgent and leaves days for revision.",
+      "faq": [
+        [
+          "How does the planner decide what to study each day?",
+          "Every day it fills your study time in half-hour blocks. For each block it picks the subject whose remaining hours are largest compared with the days left before its deadline, so exams that are closer or heavier get more time, and subjects are mixed rather than studied one after another."
+        ],
+        [
+          "What does \"finish new material before the exam\" mean?",
+          "It keeps the last days before an exam free of new study, so they can be used for revision and rest. Set it to 0 to plan up to the day before the exam, or to 2 or 3 for a longer revision period."
+        ],
+        [
+          "What if the plan says a subject does not fit?",
+          "There are not enough study days or hours before that exam. Add more study days, increase the hours per day, start earlier, or reduce the hours needed. The warning shows how many hours are short for each subject."
+        ],
+        [
+          "How many hours should I enter for a subject?",
+          "Use your own estimate based on how much is left to learn and how well you know it. A rough guide is the number of chapters or topics multiplied by the time a topic takes you, plus time for practice papers. You can always change it after the first week."
+        ],
+        [
+          "Can I study on weekends only, or skip certain days?",
+          "Yes. Press the weekday buttons to choose the days you can study. The plan uses only those days."
+        ],
+        [
+          "Does it include breaks or lessons?",
+          "No. It plans study hours only. Add breaks, classes and rest in your own calendar, and keep the hours per day realistic, as long unbroken sessions are rarely productive."
+        ],
+        [
+          "Can I save the plan?",
+          "You can copy it as text or print it to a PDF. The page does not save it for you, so copy it before you leave."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Your subjects and dates stay in your browser and are not sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "gpa-cgpa-calculator": {
+      "sections": [
+        {
+          "heading": "What the GPA and CGPA calculator does",
+          "paragraphs": [
+            "It handles the four calculations students need most often. You can work out the GPA for one semester from your courses, combine several semesters into a cumulative GPA, convert a CGPA to a percentage and back again, and find the GPA you need next term to reach a target CGPA.",
+            "Everything is on one page and works on a phone. You can switch between the 10-point scale, the 4.0 scale or your own grade points, so it suits students in many countries and institutions."
+          ]
+        },
+        {
+          "heading": "How GPA and CGPA are calculated",
+          "paragraphs": [
+            "Each course has credits and a grade. The grade is turned into grade points, for example A+ is 9 on a 10-point scale or A is 4.0 on a four-point scale. Multiply the points by the credits for each course, add them up and divide by the total credits. The result is your GPA for that term.",
+            "CGPA works the same way across terms. The usual method weights each semester's GPA by its credits, so a heavy semester counts for more. Some universities instead add all grade points from all courses, which gives the same answer when the semester GPAs are accurate."
+          ]
+        },
+        {
+          "heading": "Converting CGPA to percentage",
+          "paragraphs": [
+            "There is no single worldwide formula. For a 10-point CGPA, many boards and universities multiply by 9.5, others by 10, and some publish a table. For a 4.0 scale, many institutions use a proportion, or they have a table that depends on the grade bands.",
+            "The tool lets you pick a formula and shows a quick reference table for the common ones. If a college application or employer asks for a percentage, use the formula they name, and if none is given, include the official conversion from your university when possible."
+          ]
+        },
+        {
+          "heading": "Planning the next semester",
+          "paragraphs": [
+            "The target mode answers the question students ask before every term: what GPA do I need to lift my CGPA to a goal? It takes your current CGPA, the credits you have completed, the target and the credits in the next term. It tells you the GPA you must score, or tells you plainly if the target is out of reach in one term.",
+            "A target that needs a GPA close to the maximum is risky. A better plan may be to spread the improvement over two terms, which the tool lets you test by changing the target and credits."
+          ]
+        },
+        {
+          "heading": "Accuracy and limits",
+          "paragraphs": [
+            "Universities differ in how they handle repeated courses, pass or fail courses, grace marks, rounding and credit weights. This calculator follows the standard credit-weighted method and shows its working so you can compare it with your marksheet. Your official transcript and your university's rules always decide the figure that counts.",
+            "Nothing you type leaves your device, and the page forgets your entries when you close or reload it."
+          ]
+        }
+      ]
+    },
+    "final-grade-calculator": {
+      "sections": [
+        {
+          "heading": "What the Final Grade Calculator does",
+          "paragraphs": [
+            "It answers the question every student asks before an exam: what do I need to score to get the grade I want? You list the parts of a course, enter your scores so far, set a target, and the tool works out the score you need on everything that is left.",
+            "It also shows your current average, the points you have already earned and the highest and lowest final grades still possible, so you know how much of your grade is already decided."
+          ]
+        },
+        {
+          "heading": "How a weighted grade works",
+          "paragraphs": [
+            "Most courses do not count every task equally. A final exam may be worth 50% and homework 20%. A weighted grade multiplies each score by its weight. Scoring 80% on something worth 25% gives 20 points toward the final grade. Adding all the points gives the final percentage.",
+            "Your current average is different from your points earned. The average is based only on the parts you have finished, while the points show how far you are toward the full 100."
+          ]
+        },
+        {
+          "heading": "Finding the score you need",
+          "paragraphs": [
+            "Take the final grade you want and subtract the points you have earned. Divide what is left by the weight of the remaining work. The result is the average you need across everything still to come, shown as a percentage.",
+            "If the answer is above 100%, the target is out of reach, and the tool says so and shows the best grade you can still finish with. If it is zero or below, you have already secured the grade."
+          ]
+        },
+        {
+          "heading": "Using it to plan your effort",
+          "paragraphs": [
+            "Try different targets to see how the required score changes. A jump from 80 to 85 may need ten more points on the exam, and that can help you decide where to spend study time. If a low target is already safe, you can put your effort into other courses.",
+            "Use the study planner on this site to turn the hours you need into a schedule before the exam."
+          ]
+        },
+        {
+          "heading": "Accuracy and limits",
+          "paragraphs": [
+            "The result is only as good as the weights and scores you type. Check your syllabus for rules about dropped scores, rounding, curves, minimum pass marks in the final exam and penalties. Your teacher's gradebook is the official record.",
+            "Nothing you enter is stored or uploaded, and it disappears when you close the page."
+          ]
+        }
+      ]
+    },
+    "citation-generator": {
+      "sections": [
+        {
+          "heading": "What the Citation Generator does",
+          "paragraphs": [
+            "It turns the details of a source into a correctly formatted citation. You choose a style, enter the author, title and publication details, and the page shows the finished citation, with italics where the style requires them, as you type.",
+            "It also helps with the step after: building the reference list. You can add each citation to a list that keeps itself in alphabetical order, then copy the whole list with its formatting or print it."
+          ]
+        },
+        {
+          "heading": "The four styles in short",
+          "paragraphs": [
+            "APA 7th edition is common in psychology, education and the social sciences, and puts the date right after the author. MLA 9th edition is common in the humanities and uses the author's full name and a list of container details. Chicago author-date is used in many history and social science courses and puts the year after the author. Harvard is widely used in the UK and Australia and puts the year in brackets after the author.",
+            "The differences are in the order, punctuation, capitals, italics and how authors are shown. The tool applies each style's rules, so you can see how the same source looks in each one."
+          ]
+        },
+        {
+          "heading": "Citing websites, books and journal articles",
+          "paragraphs": [
+            "For a website you need the author or organization, the title of the page, the name of the site, the date and the web address. For a book you need the author, title, edition, publisher, city and year. For a journal article you need the author, article title, journal name, year, volume, issue, pages and the DOI or address.",
+            "Take these details from the source itself, such as the title page of a book or the page of a website, not from a search result. The tool warns you when a detail your style needs is missing."
+          ]
+        },
+        {
+          "heading": "Building a reference list",
+          "paragraphs": [
+            "Add each finished citation to the list. The list sorts A to Z by the start of each entry, which is how APA, MLA, Chicago and Harvard bibliographies are normally ordered. Remove an entry at any time, copy the whole list as text or with italics, or print it.",
+            "Keep all entries in one style. If your teacher wants a different style for a particular source, such as a legal case, check the style guide."
+          ]
+        },
+        {
+          "heading": "Check before you hand in",
+          "paragraphs": [
+            "Citation tools save time but cannot see your source. Check that names are spelled correctly, that the year is the year of the version you used, and that links work. Style guides are updated, and teachers sometimes have their own preferences, so read the assignment instructions.",
+            "Your entries stay on your device, and the list is cleared when you close the page, so copy it before you leave."
+          ]
+        }
+      ]
+    },
+    "study-planner": {
+      "sections": [
+        {
+          "heading": "What the Study Planner does",
+          "paragraphs": [
+            "It takes the exams you have coming up and turns them into a plan you can follow. You enter each subject, its exam date and the hours you expect to need. You say which days you can study and for how long. The planner spreads the work over the days available and shows what to study each day.",
+            "It also tells you honestly when the plan does not fit, so you find out now rather than the night before the exam."
+          ]
+        },
+        {
+          "heading": "How the plan is built",
+          "paragraphs": [
+            "The planner goes through your study days in order. For each half-hour of study time it looks at the subjects that still need hours and have an exam to come, then picks the subject that is most urgent: the one with the most hours left for the number of days remaining. That keeps the work moving on every subject and gives extra time to those with close deadlines or a large amount left.",
+            "The result mixes subjects across the week, which most study advice recommends, instead of finishing one subject before touching another."
+          ]
+        },
+        {
+          "heading": "Leaving time for revision",
+          "paragraphs": [
+            "Learning new material right up to the exam leaves no time to review it. The planner lets you choose how many days before each exam you want the new study to be finished. The days after that are free for past papers, summaries and rest.",
+            "If you are short of time, reduce the revision period only as a last choice. A shorter period of well-planned revision is usually better than extra cramming."
+          ]
+        },
+        {
+          "heading": "Making a plan you can keep",
+          "paragraphs": [
+            "Be honest about your hours. A plan with three focused hours a day is more useful than a plan with eight hours that you give up after two days. Include rest days, and start with the exam that is nearest. If you fall behind, change the start date or the hours and generate the plan again.",
+            "Combine the planner with the Final Grade Calculator to find out which exams matter most for your result."
+          ]
+        },
+        {
+          "heading": "Limits",
+          "paragraphs": [
+            "The planner is simple on purpose. It does not know the difficulty of topics, your lessons, deadlines for coursework or your energy through the day. Treat it as a starting point and adjust as you go. Nothing is stored or uploaded, so copy or print the plan before you close the page."
+          ]
+        }
+      ]
+    }
+  }
+}
