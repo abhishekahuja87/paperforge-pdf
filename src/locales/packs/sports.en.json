@@ -1,0 +1,103 @@
+{
+  "guideSteps": {
+    "sports-court-size-guide": [
+      [
+        "Pick a sport and version",
+        "Choose badminton, tennis, pickleball, basketball, volleyball, football, cricket, hockey, kabaddi, kho kho, table tennis or squash. Then choose the version, such as doubles or 3x3, or the pitch size."
+      ],
+      [
+        "Read the size and the space needed",
+        "The court is drawn to scale. Sizes are in metres with feet and inches in brackets, and the space needed includes the clear space around the court that the rules ask for."
+      ],
+      [
+        "Use the marking plan",
+        "Mark the outer rectangle, check that both diagonals match, then measure the key lines from the distances listed."
+      ],
+      [
+        "Try Fit my space",
+        "Enter the length and width of your hall, ground or plot. The guide lists which courts fit, how many, and how much room is spare or missing."
+      ],
+      [
+        "Read the notes and sources",
+        "Each sport lists notes, risks, how to play, the sources used and the date they were checked. Confirm with the governing body before you build."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "sportsCourtGuide": {
+      "title": "Sports Court and Ground Size Guide: Dimensions and Fit My Space",
+      "subtitle": "Court and ground sizes for 13 sports, drawn to scale in metres and feet, with a marking plan, short how-to-play notes and a check of which courts fit your space. Free, private and no sign-up.",
+      "faq": [
+        [
+          "What is the size of a badminton court?",
+          "A badminton court is 13.4 m (44 ft) long and 6.1 m (20 ft) wide for doubles. For singles the court is 5.18 m wide, using the inner side lines. The BWF asks for about 2 m behind the back lines and 1.5 m at the sides in competition halls."
+        ],
+        [
+          "How big is a tennis court?",
+          "A tennis court is 23.77 m (78 ft) long and 10.97 m (36 ft) wide for doubles, and 8.23 m (27 ft) wide for singles. The ITF recommends 5.48 m behind the baselines and 3.05 m at the sides for club play."
+        ],
+        [
+          "What size is a pickleball court?",
+          "A pickleball court is 6.1 m x 13.41 m (20 ft x 44 ft), the same for singles and doubles, with a 2.13 m (7 ft) non-volley zone on each side of the net."
+        ],
+        [
+          "How long is a cricket pitch?",
+          "The pitch is 22 yards (20.12 m) long and 10 ft (3.05 m) wide. The size of the ground is not fixed; international boundaries for men are between 65 and 90 yards from the centre of the pitch."
+        ],
+        [
+          "Does football have one fixed pitch size?",
+          "No. The Laws of the Game allow 90 to 120 m in length and 45 to 90 m in width, and 100 to 110 m by 64 to 75 m for international matches. 105 m x 68 m is common but is not a rule."
+        ],
+        [
+          "How does Fit my space work?",
+          "You enter the length and width of your space and any extra clear space you want. The guide adds the clear space the rules ask for around each court and lists which courts fit, how many fit side by side, and the spare room or the shortfall."
+        ],
+        [
+          "Are these sizes official?",
+          "They come from the governing bodies or sources listed on each sport, and the check date is shown. Some figures come from summaries of the rules or older editions, and the notes say so. Rules change, so confirm with the federation for your event."
+        ],
+        [
+          "Can I use this to build or mark a court?",
+          "It is a planning guide. Use it to plan and to mark lines, but confirm the rules for your event and have a qualified person check the safety and surface of a venue before you build."
+        ],
+        [
+          "Why do school and local courts differ from these sizes?",
+          "Recreational, school and club courts are often smaller than the full sizes, and some leagues set their own limits. Follow the rulebook of your league or federation."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "sports-court-size-guide": {
+      "sections": [
+        {
+          "heading": "Why court sizes are worth checking",
+          "paragraphs": [
+            "Most sports are played on a marked area whose length, width and lines are fixed by a governing body. The numbers are easy to mix up: a doubles court is wider than a singles court, a hall needs clear space beyond the lines, and a ground may be allowed to vary within a range.",
+            "This guide puts the main sizes for 13 sports in one place, drawn to scale. Every length is shown in metres with feet and inches in brackets, so it works whether your tape measure is metric or not."
+          ]
+        },
+        {
+          "heading": "What each sport page shows",
+          "paragraphs": [
+            "Each page shows the court drawn to scale, the main measurements, the clear space around the court and the overall space needed. A marking plan lists the distances to mark the lines and the diagonal that must be equal to show the corners are square.",
+            "A short how-to-play section gives the aim, scoring and key rules in plain words, and the notes list things to watch out for. The sources and the date they were checked are shown at the bottom."
+          ]
+        },
+        {
+          "heading": "Fit my space",
+          "paragraphs": [
+            "If you already have a hall, a garden or a plot, enter its length and width. The guide adds the clear space each court needs, tries the courts both ways round and lists which of them fit, how many fit and how much room is spare or missing. You can add extra clear space if you want a bigger safety gap than the rules ask for."
+          ]
+        },
+        {
+          "heading": "Limits and risks",
+          "paragraphs": [
+            "Sizes come from the sources listed and were checked on the date shown. Some come from summaries of the rules or older editions, such as the volleyball clear space, the cricket boundary limits and the hockey figures, and the notes on each page say so.",
+            "Football has no run-off distance in the Laws, and table tennis has an official size only for competition. Cricket grounds are oval but are drawn and counted as circles. Kho kho lane positions and cricket creases are not drawn. Always confirm with your federation, and have the surface, height and safety of a venue checked by a qualified person."
+          ]
+        }
+      ]
+    }
+  }
+}
