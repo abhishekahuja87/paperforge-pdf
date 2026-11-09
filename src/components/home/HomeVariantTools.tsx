@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { ToolItem } from '../../config/tools';
-import { HOME_COLLECTION_STYLES, homeTitle, type FeaturedTool, type HomeCollection } from '../../lib/homePageVariants';
+import { DEFAULT_WORKSPACE_STYLE, HOME_COLLECTION_HOVER, HOME_COLLECTION_STYLES, WORKSPACE_STYLES, homeTitle, topicOfTool, type FeaturedTool, type HomeCollection } from '../../lib/homePageVariants';
 import { ToolIcon } from '../common/ToolIcon';
 import { useTranslation } from 'react-i18next';
 import { getToolCopy } from '../../lib/localizedTool';
@@ -40,12 +40,13 @@ export const HomeToolCard: React.FC<{
 export const HomePopularTile: React.FC<{ tool: ToolItem }> = ({ tool }) => {
   const { i18n } = useTranslation();
   const copy = getToolCopy(tool, i18n.language);
+  const topic = topicOfTool(tool.id);
   return (
     <Link
       to={tool.path}
       className="group flex min-w-0 flex-row items-center gap-3 rounded-xl border border-stone-200/80 bg-white/90 p-3 transition sm:flex-col sm:items-start sm:gap-1.5 duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
     >
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
+      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${HOME_COLLECTION_STYLES[topic] ?? HOME_COLLECTION_STYLES.other} ${HOME_COLLECTION_HOVER[topic] ?? HOME_COLLECTION_HOVER.other}`}>
         <ToolIcon name={tool.icon} className="h-4 w-4" />
       </span>
       <div lang={copy.language} className="min-w-0">
@@ -57,23 +58,26 @@ export const HomePopularTile: React.FC<{ tool: ToolItem }> = ({ tool }) => {
 };
 
 /** Card for the "Workspaces" row: name, what it is for, and a description that covers what the tool can do. */
-export const HomeWorkspaceCard: React.FC<{ tool: ToolItem; info: FeaturedTool }> = ({ tool, info }) => (
-  <Link
-    to={tool.path}
-    className="group flex min-w-0 flex-col gap-2 rounded-2xl border border-orange-200 bg-gradient-to-br from-white to-orange-50/70 p-3.5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-400 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-  >
-    <div className="flex items-center gap-2.5">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-800 transition group-hover:bg-orange-600 group-hover:text-white">
-        <ToolIcon name={tool.icon} className="h-4 w-4" />
-      </span>
-      <div className="min-w-0">
-        <p className="truncate text-[10px] font-bold uppercase tracking-[0.12em] text-orange-700">{info.useCase}</p>
-        <h3 className="text-sm font-extrabold leading-tight text-stone-900">{info.title}</h3>
+export const HomeWorkspaceCard: React.FC<{ tool: ToolItem; info: FeaturedTool }> = ({ tool, info }) => {
+  const style = WORKSPACE_STYLES[tool.id] ?? DEFAULT_WORKSPACE_STYLE;
+  return (
+    <Link
+      to={tool.path}
+      className={`group flex min-w-0 flex-col gap-2 rounded-2xl border bg-gradient-to-br p-3.5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 ${style.card} ${style.focus}`}
+    >
+      <div className="flex items-center gap-2.5">
+        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition ${style.icon}`}>
+          <ToolIcon name={tool.icon} className="h-4 w-4" />
+        </span>
+        <div className="min-w-0">
+          <p className={`truncate text-[10px] font-bold uppercase tracking-[0.12em] ${style.label}`}>{info.useCase}</p>
+          <h3 className="text-sm font-extrabold leading-tight text-stone-900">{info.title}</h3>
+        </div>
       </div>
-    </div>
-    <p className="text-xs leading-5 text-stone-600">{info.description}</p>
-  </Link>
-);
+      <p className="text-xs leading-5 text-stone-600">{info.description}</p>
+    </Link>
+  );
+};
 
 /** Heading of one topic panel: icon, name, short description and tool count. */
 export const HomeCollectionHeading: React.FC<{ collection: HomeCollection; count: number }> = ({ collection, count }) => {

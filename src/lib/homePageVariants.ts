@@ -38,6 +38,27 @@ export const HOME_COLLECTION_HOVER: Record<string, string> = {
   other: 'group-hover:bg-stone-700 group-hover:text-white',
 };
 
+/** The topic a tool is listed under, so "Most used" tiles can wear their topic's colour. Tools in no topic use "other". */
+export function topicOfTool(toolId: string): string {
+  return COLLECTIONS.find((spec) => spec.tools.includes(toolId))?.id ?? 'other';
+}
+
+export interface WorkspaceStyle {
+  card: string;
+  icon: string;
+  label: string;
+  focus: string;
+}
+
+/** Each workspace card has its own colour, different from the topic colours. Full class names so Tailwind can see them. */
+export const WORKSPACE_STYLES: Record<string, WorkspaceStyle> = {
+  'master-document-studio': { card: 'border-orange-200 from-white to-orange-50/70 hover:border-orange-400', icon: 'bg-orange-100 text-orange-800 group-hover:bg-orange-600 group-hover:text-white', label: 'text-orange-700', focus: 'focus-visible:outline-orange-600' },
+  'digitize-documents': { card: 'border-teal-200 from-white to-teal-50/70 hover:border-teal-400', icon: 'bg-teal-100 text-teal-800 group-hover:bg-teal-600 group-hover:text-white', label: 'text-teal-700', focus: 'focus-visible:outline-teal-600' },
+  'pos-invoice-studio': { card: 'border-rose-200 from-white to-rose-50/70 hover:border-rose-400', icon: 'bg-rose-100 text-rose-800 group-hover:bg-rose-600 group-hover:text-white', label: 'text-rose-700', focus: 'focus-visible:outline-rose-600' },
+  'display-studio': { card: 'border-purple-200 from-white to-purple-50/70 hover:border-purple-400', icon: 'bg-purple-100 text-purple-800 group-hover:bg-purple-600 group-hover:text-white', label: 'text-purple-700', focus: 'focus-visible:outline-purple-600' },
+};
+export const DEFAULT_WORKSPACE_STYLE = WORKSPACE_STYLES['master-document-studio'];
+
 export interface HomeCollection {
   id: string;
   icon: CollectionSpec['icon'];
