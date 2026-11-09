@@ -65,6 +65,8 @@ Document digitization uses Tesseract.js with the English model. Vite serves and 
 
 When adding or changing a tool, keep routes, catalog entries, search, guide content, metadata, accessibility, translations, and relevant privacy disclosures consistent. Keep UI composition separate from reusable processing logic. Update this document when architecture or processing boundaries change.
 
+- Stationery pack (`stationery`): Printable Paper Maker (`lib/paper`: `geometry.ts` builds one list of lines, dots and text in mm that both the SVG preview in `components/tools/paper/SheetPreview.tsx` and the pdf-lib export in `lib/paper/pdf.ts` draw; `settings.ts` validates saved settings and holds the one-click presets) plus three pages that open it on one template (dot grid, graph, Cornell notes) through `components/tools/paper/variants.tsx`.
+
 ## Extra page content (AdSense depth)
 
 Short tool pages get extra article sections and FAQs from `src/locales/depth/core.en.json` (keys `toolArticles.<tool id>` and `pageGuides.<guide key>`). `src/locales/english.ts` inserts them before the closing privacy entry, so the original text files stay untouched. To deepen another page, add its entry to that file. Aim for 800 or more words of useful, original text per tool page (steps, article, FAQs).
