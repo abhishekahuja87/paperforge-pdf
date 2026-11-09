@@ -1,0 +1,15 @@
+# Amplify Hosting response headers. Unlisted pages must not be indexed even in the first (pre-JavaScript) response.
+# These pages are not linked anywhere and are not access-protected: the header only keeps them out of search results.
+customHeaders:
+  - pattern: '/ac1'
+    headers:
+      - key: X-Robots-Tag
+        value: 'noindex, nofollow'
+  - pattern: '/ac1/**'
+    headers:
+      - key: X-Robots-Tag
+        value: 'noindex, nofollow'
+  - pattern: '/catalog-templates'
+    headers:
+      - key: X-Robots-Tag
+        value: 'noindex, nofollow'

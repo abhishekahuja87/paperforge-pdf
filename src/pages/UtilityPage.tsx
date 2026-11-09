@@ -62,8 +62,11 @@ const TOOLS = {
 
 export type UtilityKind = keyof typeof TOOLS;
 
-/** Calculators whose inputs are plain numbers, dates and choices, so a pre-filled link makes sense. */
-const SHAREABLE = new Set<UtilityKind>(['simpleCompound', 'rd', 'cagr', 'age', 'dateDifference', 'percentage', 'discount', 'unit', 'numberToWords', 'gratuity', 'lumpsum', 'inflation', 'bmi', 'billSplitter', 'epf', 'timeZone']);
+/**
+ * Calculators whose inputs are plain numbers, dates and choices, so a pre-filled link makes sense. The Bill Splitter
+ * shows its own bar, only in Equal split mode, because Group settle-up cannot be put in a link.
+ */
+const SHAREABLE = new Set<UtilityKind>(['simpleCompound', 'rd', 'cagr', 'age', 'dateDifference', 'percentage', 'discount', 'unit', 'numberToWords', 'gratuity', 'lumpsum', 'inflation', 'bmi', 'epf', 'timeZone']);
 
 export const UtilityPage: React.FC<{ kind: UtilityKind }> = ({ kind }) => {
   const { i18n } = useTranslation();

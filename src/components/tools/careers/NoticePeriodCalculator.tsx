@@ -43,7 +43,7 @@ export const NoticePeriodCalculator: React.FC = () => {
 
   const summary = 'error' in result ? '' : [
     `Resignation: ${formatDate(result.start)}`,
-    `Notice: ${noticeValue} ${unit}${buyoutDays && Number(buyoutDays) > 0 ? `, buyout ${buyoutDays} days` : ''}`,
+    `Notice: ${noticeValue} ${unit}${result.data.buyoutApplied > 0 ? `, buyout ${result.data.buyoutApplied} days` : ''}`,
     `Last working day: ${day(result.data.lastDay)}`,
     result.data.gapDays !== null ? (result.data.gapDays >= 0 ? `New job starts ${plural(result.data.gapDays, 'day')} after the last day` : `Need to cut ${plural(result.data.daysToCut, 'day')} of notice to join on time`) : '',
   ].filter(Boolean).join('\n');
@@ -72,12 +72,13 @@ export const NoticePeriodCalculator: React.FC = () => {
             <Stat tone="strong" label="Last working day" value={day(result.data.lastDay)} />
             <Stat label="Days left from today" value={result.data.daysFromNow >= 0 ? plural(result.data.daysFromNow, 'day') : `Passed ${plural(-result.data.daysFromNow, 'day')} ago`} />
             <Stat label="Notice served" value={plural(result.data.noticeDaysServed, 'calendar day')} />
-            {Number(buyoutDays) > 0 && <Stat label="Without the buyout your last day would be" value={day(result.data.fullNoticeLastDay)} />}
-            {result.data.buyoutAmount > 0 && <Stat tone="good" label={`Estimated buyout (${plural(Number(buyoutDays), 'day')})`} value={money(result.data.buyoutAmount)} />}
+            {result.data.buyoutApplied > 0 && <Stat label="Without the buyout your last day would be" value={day(result.data.fullNoticeLastDay)} />}
+            {result.data.buyoutAmount > 0 && <Stat tone="good" label={`Estimated buyout (${plural(result.data.buyoutApplied, 'day')})`} value={money(result.data.buyoutAmount)} />}
             {result.data.gapDays !== null && result.data.gapDays >= 0 && <Stat tone="good" label="Gap before the new job" value={result.data.gapDays === 0 ? 'None: you start the next day' : plural(result.data.gapDays, 'day')} />}
             {result.data.gapDays !== null && result.data.gapDays < 0 && <Stat label="Notice to cut to join on time" value={plural(result.data.daysToCut, 'day')} />}
             {result.data.gapDays !== null && result.data.gapDays < 0 && result.data.cutAmount > 0 && <Stat label="Buyout cost to cut it" value={money(result.data.cutAmount)} />}
           </StatGrid>
+          {result.data.buyoutLimited && <Note>A buyout cannot be longer than the notice itself, so it was reduced to {plural(result.data.buyoutApplied, 'day')}. Your last working day is the resignation date, which means leaving right away.</Note>}
           {result.data.weekend && <Note>This last day falls on a weekend. Companies often move it to the nearest working day, so confirm with HR.</Note>}
           {result.data.gapDays !== null && result.data.gapDays < 0 && <Note>Your new joining date is before this last day. You would need to shorten the notice by about {plural(result.data.daysToCut, 'day')}, by agreement with your manager or a buyout, or ask the new employer for a later joining date.</Note>}
           <ResultActions summary={summary} />

@@ -458,7 +458,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
     const blob = new Blob([arrayBufferFromBytes(bytes)], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
     const pageIndex = outputItems.findIndex((outputItem) => outputItem.id === item.id);
-    const filename = `outputPdfPag${Math.max(1, pageIndex + 1)}.pdf`;
+    const filename = `output-page-${Math.max(1, pageIndex + 1)}.pdf`;
     const link = document.createElement('a');
     link.href = url;
     link.download = filename;
@@ -477,7 +477,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
     const url = URL.createObjectURL(blob);
     const pageIndex = outputItems.findIndex((outputItem) => outputItem.id === item.id);
     const extension = format === 'jpeg' ? 'jpg' : format;
-    const filename = `outputPdfPag${Math.max(1, pageIndex + 1)}.${extension}`;
+    const filename = `output-page-${Math.max(1, pageIndex + 1)}.${extension}`;
     const link = document.createElement('a');
     link.href = url;
     link.download = filename;
@@ -729,7 +729,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                       }}
                       className={`group relative min-w-0 rounded-xl border bg-white p-2.5 shadow-sm transition-all duration-200 ${draggedItemId === item.id ? 'scale-[0.98] border-dashed border-slate-300 opacity-45' : dropTargetItemId === item.id ? 'translate-y-[-3px] border-2 border-indigo-500 bg-indigo-50/60 shadow-lg ring-4 ring-indigo-100' : 'border-slate-200 hover:border-indigo-300 hover:shadow-md'}`}
                     >
-                      <span className="absolute left-3 top-3 z-10 rounded-full bg-indigo-600 px-2 py-1 text-[10px] font-bold text-white">outputPdfPag{index + 1}</span>
+                      <span className="absolute left-3 top-3 z-10 rounded-full bg-indigo-600 px-2 py-1 text-[10px] font-bold text-white">Page {index + 1}</span>
                       <div className="mb-2 flex h-56 items-center justify-center overflow-hidden rounded-lg bg-slate-100 p-2">
                         <img src={item.page.thumbnailUrl} alt={`${item.page.sourceName}, page ${item.page.originalPageNumber}`} className="max-h-full max-w-full object-contain shadow" />
                       </div>
@@ -745,7 +745,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                       <div className="mt-2 flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 pt-2">
                         <span className="inline-flex items-center gap-1 text-[9px] text-slate-400"><Move className="h-3 w-3" />Drag to reorder</span>
                         <div className="flex items-center gap-1">
-                          <button type="button" aria-label={`${item.contentsTitle ? 'Edit' : 'Add'} table of contents entry for outputPdfPag${index + 1}`} aria-pressed={Boolean(item.contentsTitle)} onClick={() => setContentsEntryItemId(item.id)} className={`rounded-lg p-1.5 ${item.contentsTitle ? 'bg-amber-100 text-amber-800 hover:bg-amber-200' : 'text-slate-500 hover:bg-amber-50 hover:text-amber-700'}`} title={item.contentsTitle ? 'Edit contents entry' : 'Add to table of contents'}><Pin className={`h-4 w-4 ${item.contentsTitle ? 'fill-current' : ''}`} /></button>
+                          <button type="button" aria-label={`${item.contentsTitle ? 'Edit' : 'Add'} table of contents entry for page ${index + 1}`} aria-pressed={Boolean(item.contentsTitle)} onClick={() => setContentsEntryItemId(item.id)} className={`rounded-lg p-1.5 ${item.contentsTitle ? 'bg-amber-100 text-amber-800 hover:bg-amber-200' : 'text-slate-500 hover:bg-amber-50 hover:text-amber-700'}`} title={item.contentsTitle ? 'Edit contents entry' : 'Add to table of contents'}><Pin className={`h-4 w-4 ${item.contentsTitle ? 'fill-current' : ''}`} /></button>
                           <button type="button" onClick={() => setPageEditorItemId(item.id)} className="rounded-lg bg-indigo-50 px-2.5 py-1.5 text-[10px] font-bold text-indigo-700 hover:bg-indigo-100">Zoom &amp; edit</button>
                         </div>
                       </div>
@@ -905,7 +905,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
       {contentsEntryItem && (
         <ContentsEntryModal
           item={contentsEntryItem}
-          outputPageName={`outputPdfPag${outputItems.findIndex((item) => item.id === contentsEntryItem.id) + 1}`}
+          outputPageName={`Page ${outputItems.findIndex((item) => item.id === contentsEntryItem.id) + 1}`}
           onClose={() => setContentsEntryItemId(null)}
           onSave={(title) => {
             updateItems([contentsEntryItem.id], (item) => ({ ...item, contentsTitle: title }));

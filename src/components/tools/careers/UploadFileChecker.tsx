@@ -47,6 +47,9 @@ async function describe(file: File): Promise<Report> {
   return { id: `${file.name}-${file.size}-${file.lastModified}`, info, unreadable };
 }
 
+/** Most files checked in one go; more are reported as skipped so nothing is dropped silently. */
+const MAX_FILES = 100;
+
 export const UploadFileChecker: React.FC = () => {
   const [limit, setLimit] = useState('200');
   const [unit, setUnit] = useState('kb');
@@ -55,6 +58,7 @@ export const UploadFileChecker: React.FC = () => {
   const [cleanName, setCleanName] = useState('yes');
   const [reports, setReports] = useState<Report[]>([]);
   const [busy, setBusy] = useState(false);
+  const [skipped, setSkipped] = useState(0);
 
   const limits: FileLimits = {
     maxBytes: Math.max(0, Number(limit) || 0) * (unit === 'mb' ? 1024 * 1024 : 1024),
@@ -65,8 +69,12 @@ export const UploadFileChecker: React.FC = () => {
 
   const addFiles = async (files: File[]) => {
     setBusy(true);
-    const next = await Promise.all(files.slice(0, 20).map(describe));
+    const room = Math.max(0, MAX_FILES - reports.length);
+    const next: Report[] = [];
+    // A few at a time, so a big batch of PDFs does not load them all into memory at once.
+    for (let i = 0; i < Math.min(files.length, room); i += 10) next.push(...await Promise.all(files.slice(i, Math.min(i + 10, room)).map(describe)));
     setReports((current) => [...current, ...next]);
+    setSkipped(Math.max(0, files.length - room));
     setBusy(false);
   };
 
@@ -88,14 +96,15 @@ export const UploadFileChecker: React.FC = () => {
       </div>
 
       <div className="mt-4">
-        <FileDropZone accept=".pdf,.jpg,.jpeg,.png,.webp,.gif,.doc,.docx,application/pdf,image/*" multiple disabled={busy} onFiles={(files) => void addFiles(files)} />
+        <FileDropZone accept=".pdf,.jpg,.jpeg,.png,.webp,.gif,.doc,.docx,application/pdf,image/*" multiple disabled={busy} label="Choose or drop the files to check" hint={`PDF, JPG, PNG, WebP, GIF or Word files, up to ${MAX_FILES} at a time. Nothing is uploaded.`} onFiles={(files) => void addFiles(files)} />
+        {skipped > 0 && <p role="alert" className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">The list is limited to {MAX_FILES} files, so {skipped} file{skipped === 1 ? ' was' : 's were'} not checked. Clear the list and add them again.</p>}
       </div>
 
       {reports.length > 0 && (
         <div className="mt-4 space-y-3" aria-live="polite">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-slate-900">Results for {reports.length} file{reports.length === 1 ? '' : 's'}</h3>
-            <button type="button" onClick={() => setReports([])} className="min-h-10 rounded-lg px-3 text-xs font-semibold text-slate-600 hover:bg-slate-100">Clear list</button>
+            <button type="button" onClick={() => { setReports([]); setSkipped(0); }} className="min-h-10 rounded-lg px-3 text-xs font-semibold text-slate-600 hover:bg-slate-100">Clear list</button>
           </div>
           {reports.map((report) => {
             const checks = report.unreadable

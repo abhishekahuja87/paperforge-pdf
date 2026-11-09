@@ -3,6 +3,7 @@ import { CalcFooter, InputGrid, NumberField, ResultActions, SelectField, Stat, S
 import { parseAmount } from '../../../lib/finance/format';
 import { splitBill } from '../../../lib/utilities/more';
 import { formatMoney } from '../../../lib/settle/settle';
+import { ShareLinkBar } from '../../common/ShareLinkBar';
 
 const GroupSettle = lazy(() => import('./GroupSettle'));
 
@@ -29,6 +30,7 @@ export const BillSplitter: React.FC = () => {
   }, [total, tip, people, round]);
   const summary = result ? `Bill ${money(parseAmount(total), sign)} plus ${tip}% tip = ${money(result.grand, sign)}; ${result.n} people pay ${money(result.each, sign)} each. mydailyutils.in` : '';
   return (
+    <>
     <section className={calcCard}>
       <div role="group" aria-label="Splitting method" className="mb-4 flex flex-wrap gap-2">
         {MODES.map((item) => (
@@ -66,6 +68,8 @@ export const BillSplitter: React.FC = () => {
       )}
       <CalcFooter />
     </section>
+    {mode === 'equal' && <ShareLinkBar />}
+    </>
   );
 };
 

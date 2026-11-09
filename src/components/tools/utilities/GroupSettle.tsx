@@ -164,6 +164,7 @@ export const GroupSettle: React.FC = () => {
         {!hasData ? <p className="mt-2 text-xs text-slate-500">Add an expense with an amount to see the payments.</p> : (
           <>
             <p className="mt-2 text-xs text-slate-600">Total spent {formatMoney(result.total, label)}. {result.transfers.length === 0 ? 'Everyone is even.' : `${result.transfers.length} payment${result.transfers.length > 1 ? 's' : ''} settle everything.`}</p>
+            {!result.exact && <p className="mt-2 text-[11px] text-slate-500">With this many people these payments settle everyone correctly and are very close to the fewest possible, but one or two fewer may exist.</p>}
             <ul className="mt-3 space-y-2">
               {result.transfers.map((t) => (
                 <li key={`${t.from}-${t.to}`} className="flex items-center justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2.5 text-sm">

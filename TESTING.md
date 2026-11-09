@@ -258,3 +258,17 @@ Check after deploy: on a phone, Most used and every topic list show one tile per
 ### Jump chips and size links
 
 Check after deploy: the topic chips under the search box show on a phone and not on a tablet or computer; /image-resizer and each /resize-image-to-<n>kb page show a "Need an exact file size?" box with 20, 30, 50, 100 and 200 KB chips, the current page is highlighted, and each chip opens that page with its limit set. Passport, signature and exam photo pages do not show the box.
+
+### Fixes from an outside test report
+
+Checked in the sandbox: Notice Period with a 30-day notice and 100-day buyout now gives the resignation date, 30 days applied and a note (also with the resignation day counted as day 1, in months, and in working days); Group settle-up pairs equal and opposite balances then finds the exact fewest payments for up to 20 people (20 people in under 0.1 s; matches a brute-force minimum on 300 cases with matched pairs), and flags larger groups as close to, not proven, the fewest; Document Studio page labels and file names no longer contain `outputPdfPag`.
+
+Not reproduced in the sandbox: the Time Zone Converter's 62 px sideways scroll at 360 px (no app CSS here). I made the field grid unable to grow past the screen; check it on a 360 px phone and, if it still scrolls, tell me which element sticks out.
+
+Check after deploy:
+- Notice Period: 30-day notice and 100-day buyout shows the resignation date and the "reduced" note.
+- Bill Splitter: Equal split shows the Copy link bar; Group settle-up does not; an old link with round=5 still works.
+- Upload File Checker: pick 21 or more images and all are listed; over 100 shows the warning; the drop box no longer says PDF only.
+- Group settle-up with 18 people: no "close to the fewest" note; with 25 people the note shows.
+- Document Studio and Digitize: page badges read "Page 1", and a downloaded page is named output-page-1.pdf.
+- After deploy, load `/ac1` (curl -I) and check the `x-robots-tag: noindex, nofollow` header.

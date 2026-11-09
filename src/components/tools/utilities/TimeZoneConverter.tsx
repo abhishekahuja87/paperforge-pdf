@@ -40,7 +40,7 @@ export const TimeZoneConverter: React.FC = () => {
 
   return (
     <section className={calcCard}>
-      <div className="grid gap-4 rounded-xl bg-slate-50 p-4 sm:grid-cols-3">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-4 rounded-xl bg-slate-50 p-4 sm:grid-cols-3">
         <DateField label="Date" value={date} onChange={setDate} />
         <label className="block text-xs font-semibold text-slate-700">Time<input type="time" value={time} onChange={(event) => setTime(event.target.value)} className={fieldClass} /></label>
         <SelectField label="In this time zone" value={from} onChange={setFrom} options={options} />
