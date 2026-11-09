@@ -39,7 +39,7 @@ export interface PosterLayout {
 export function gridCells(area: Rect, n: number, gap: number): Rect[] {
   if (n <= 0) return [];
   let best = { cols: 1, score: Infinity };
-  for (let cols = 1; cols <= Math.min(n, 4); cols += 1) {
+  for (let cols = 1; cols <= Math.min(n, 5); cols += 1) {
     const rows = Math.ceil(n / cols);
     const cw = (area.w - (cols - 1) * gap) / cols;
     const ch = (area.h - (rows - 1) * gap) / rows;
@@ -94,6 +94,7 @@ export function computeLayout(format: PosterFormat, n: number, kind: LayoutKind)
   const footerContent = { x: pad, y: footer.y, w: w - pad * 2, h: format.footerH };
   const gap = Math.round(pad * 0.45);
   const area = { x: pad, y: headerBottom + pad * 0.6, w: w - pad * 2, h: footer.y - headerBottom - pad * 1.2 };
-  const cells = kind === 'feature' ? featureCells(area, n, gap) : kind === 'list' ? listCells(area, n, gap) : gridCells(area, n, gap);
+  // Feature and list designs suit a handful of products; with more, a plain grid keeps every photo large enough to see.
+  const cells = kind === 'feature' && n >= 3 && n <= 9 ? featureCells(area, n, gap) : kind === 'list' && n >= 3 && n <= 8 ? listCells(area, n, gap) : gridCells(area, n, gap);
   return { header, headerContent, footer, footerContent, cells, gap };
 }

@@ -10,12 +10,12 @@
         "Eight designs with different colours and fonts are shown with your own details, so you can compare them side by side. Tap one to use it. You can change your mind at any time."
       ],
       [
-        "Add your shop details",
-        "Type the shop name, a short line under it, a big heading such as SALE or DIWALI OFFERS, and your WhatsApp number, Facebook page and Instagram ID. Leave any contact empty to hide it. Your shop details are remembered in this browser."
+        "Fill in the top and bottom",
+        "Type the shop name, one big heading such as DIWALI SALE or NEW STOCK, a small line under it, and a corner badge such as UP TO 30% OFF, FLAT 200 OFF or just words. Add your WhatsApp number, Facebook page name and Instagram ID at the bottom. Anything you leave empty is left out. Your details are remembered in this browser."
       ],
       [
-        "Update the products",
-        "Change each product's name, old price and new price, and tap the photo to use your own picture. The discount percentage is worked out for you. Use Adjust photo to zoom or move a picture, and Add product for up to 12."
+        "Choose how many products and edit them",
+        "Pick 2, 4, 6, 9, 12 or 15 products: fewer products get bigger photos. For each, change the name, old price, new price and photo, and edit the badge on the photo (a percentage, an amount or words). Choose whether photos or text get more room. Leave a name, price or badge empty to hide it."
       ],
       [
         "Download the PNG",
@@ -45,12 +45,16 @@
           "Use the square post for the feed grid, the portrait post for the most screen space in the feed, and the story size for stories, reels covers and WhatsApp status. A4 is for printing."
         ],
         [
+          "Why do the Facebook and Instagram names not open when I tap them?",
+          "A PNG picture cannot contain a working link. The poster shows your Facebook page name and Instagram ID so people can search for you. Put the full links in the caption or comments of your post, where they can be tapped."
+        ],
+        [
           "Why is some space at the top and bottom of the story size empty?",
           "Instagram places your profile name at the top and the reply bar at the bottom of a story. The poster keeps names, prices and contact details clear of those areas so nothing is hidden."
         ],
         [
-          "How is the discount percentage worked out?",
-          "From the old and the new price you enter: the difference divided by the old price, rounded to a whole number. If the new price is not lower than the old one, no badge is shown for that product. The big badge shows the largest discount among your products."
+          "How is the discount badge decided?",
+          "Each product's badge starts as the percentage worked out from its old and new price, for example 699 to 499 gives 29% OFF. You can type anything instead, such as 200 OFF, Buy 1 Get 1 or NEW, or clear it to hide the badge. The corner badge at the top starts as UP TO and your biggest discount and can be changed or cleared in the same way."
         ],
         [
           "Can I use Hindi or other languages?",
@@ -85,7 +89,7 @@
           "heading": "Choosing a size",
           "paragraphs": [
             "The square post works everywhere in the feed. The portrait post takes up more of the screen on a phone and is a good choice when you have six to nine products. The story size is taller, and leaves clear space at the top and bottom so Instagram's own profile bar and reply field do not cover your text. The A4 size has more room for products and prints sharply on an ordinary home or shop printer.",
-            "With one to three products the designs show larger photos. With many products they pack them into a neat grid and keep the prices large enough to read on a small screen."
+            "With one to three products the photos are very large. With more, they pack into a neat grid. You can choose 2, 4, 6, 9, 12 or 15 products, and you can tell the poster to give more room to the photos, to the text, or a balance of both."
           ]
         },
         {
