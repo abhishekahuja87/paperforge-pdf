@@ -18,10 +18,10 @@ export interface PosterFormat {
 }
 
 export const POSTER_FORMATS: Record<FormatId, PosterFormat> = {
-  post: { id: 'post', label: 'Instagram post (square)', w: 1080, h: 1080, safeTop: 0, safeBottom: 0, pad: 40, headerH: 250, footerH: 108 },
-  portrait: { id: 'portrait', label: 'Instagram post (portrait)', w: 1080, h: 1350, safeTop: 0, safeBottom: 0, pad: 40, headerH: 300, footerH: 118 },
-  story: { id: 'story', label: 'Instagram or WhatsApp story', w: 1080, h: 1920, safeTop: 150, safeBottom: 190, pad: 44, headerH: 360, footerH: 150 },
-  a4: { id: 'a4', label: 'A4 pamphlet (print)', w: 1240, h: 1754, safeTop: 0, safeBottom: 0, pad: 56, headerH: 380, footerH: 150 },
+  post: { id: 'post', label: 'Instagram post (square)', w: 1080, h: 1080, safeTop: 0, safeBottom: 0, pad: 40, headerH: 205, footerH: 90 },
+  portrait: { id: 'portrait', label: 'Instagram post (portrait)', w: 1080, h: 1350, safeTop: 0, safeBottom: 0, pad: 40, headerH: 245, footerH: 98 },
+  story: { id: 'story', label: 'Instagram or WhatsApp story', w: 1080, h: 1920, safeTop: 150, safeBottom: 190, pad: 44, headerH: 295, footerH: 125 },
+  a4: { id: 'a4', label: 'A4 pamphlet (print)', w: 1240, h: 1754, safeTop: 0, safeBottom: 0, pad: 56, headerH: 310, footerH: 125 },
 };
 
 export interface PosterLayout {
@@ -86,7 +86,7 @@ function listCells(area: Rect, n: number, gap: number): Rect[] {
 }
 
 /** Footer height when it also carries QR codes. */
-export const qrFooterHeight = (format: PosterFormat) => Math.round(format.w * 0.19);
+export const qrFooterHeight = (format: PosterFormat) => Math.round(format.w * 0.165);
 
 export function computeLayout(format: PosterFormat, n: number, kind: LayoutKind, qr = false): PosterLayout {
   const { w, h, pad, safeTop, safeBottom } = format;
