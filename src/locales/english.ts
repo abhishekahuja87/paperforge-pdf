@@ -2,6 +2,7 @@ import base from './en.json';
 import careers from './packs/careers.en.json';
 import students from './packs/students.en.json';
 import freelancers from './packs/freelancers.en.json';
+import stationery from './packs/stationery.en.json';
 import coreDepth from './depth/core.en.json';
 
 /**
@@ -9,7 +10,7 @@ import coreDepth from './depth/core.en.json';
  * A pack holds only the four per-tool sections below, keyed by tool id or guide key, so adding a pack never
  * touches en.json. To add a pack: create ./packs/<name>.en.json, import it here and add it to PACKS.
  */
-const PACKS = [careers, students, freelancers];
+const PACKS = [careers, students, freelancers, stationery];
 type Pack = (typeof PACKS)[number];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;

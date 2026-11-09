@@ -1,0 +1,406 @@
+{
+  "toolCatalog": {
+    "printable-paper-maker": [
+      "Printable Paper Maker: Dot Grid, Graph, Lined, Cornell and More",
+      "Design and print dot grid, graph, lined, Cornell, isometric, music and tracker paper."
+    ],
+    "dot-grid-paper-generator": [
+      "Dot Grid Paper Generator: Free Printable Bullet Journal Paper",
+      "Print dot grid paper in your spacing, size and page format."
+    ],
+    "graph-paper-generator": [
+      "Graph Paper Generator: Free Printable Grid Paper",
+      "Print graph paper with 2.5, 5 or 10 mm squares and darker major lines."
+    ],
+    "cornell-notes-template": [
+      "Cornell Notes Template: Free Printable Note-Taking Paper",
+      "Print Cornell notes paper with cue column, notes area and summary box."
+    ]
+  },
+  "guideSteps": {
+    "printable-paper-maker": [
+      [
+        "Pick a quick start or a style",
+        "Choose a ready-made setup such as Bullet journal or Lecture notes, or pick one of the seven paper styles: dot grid, graph, lined, Cornell notes, isometric, music staff and TAB, or habit tracker."
+      ],
+      [
+        "Set the page and margins",
+        "Choose A4, A5, US Letter or Legal, portrait or landscape, and the margins. Switch on the binding margin if you will punch holes or use a spiral, and the double-sided option if you print on both sides."
+      ],
+      [
+        "Choose ink and lines",
+        "Pick a light tone to save ink and a line weight from ultra-fine to bold. Add a header bar with date, subject, project or page numbers if you want one."
+      ],
+      [
+        "Download or print",
+        "Check the live preview, set how many pages you need, and press Download PDF. Print this sheet prints the preview at 100% scale. Save the settings file to reuse your setup."
+      ]
+    ],
+    "dot-grid-paper-generator": [
+      [
+        "Choose the dot spacing",
+        "Pick Compact 3.5 mm, Standard 5 mm or Wide 7 mm, or drag the slider to any spacing between 2 and 15 mm."
+      ],
+      [
+        "Set dot size and colour",
+        "Choose fine, medium or bold dots and a light tone such as soft gray or slate blue so the dots guide you without crowding your writing."
+      ],
+      [
+        "Pick the page",
+        "Choose A5 for a journal, A4 for a planner or US Letter. Add a binding margin if you will punch holes or use a spiral."
+      ],
+      [
+        "Download and print",
+        "Set the number of pages, press Download PDF and print at Actual size so that the dots keep their exact spacing."
+      ]
+    ],
+    "graph-paper-generator": [
+      [
+        "Choose the square size",
+        "Pick 2.5 mm, 5 mm or 10 mm squares, or use the slider for any size from 1.5 to 25 mm."
+      ],
+      [
+        "Add major lines and axes",
+        "Make every fifth or tenth line darker to make counting easy, and switch on the x and y axes to plot graphs straight away."
+      ],
+      [
+        "Choose page and colour",
+        "Pick A4, A5, US Letter or Legal, portrait or landscape, and a light tone such as slate blue or blueprint cyan."
+      ],
+      [
+        "Download or print",
+        "Set how many pages you need and press Download PDF, or print the preview at 100% scale."
+      ]
+    ],
+    "cornell-notes-template": [
+      [
+        "Choose the layout",
+        "The template has a header with Topic, Date and Subject, a cue column on the left, a wide notes area and a summary box at the bottom. Set the width of the cue column and the height of the summary."
+      ],
+      [
+        "Pick the notes area style",
+        "Choose lined, dot grid or plain for the notes column, depending on how you take notes: sentences, diagrams or both."
+      ],
+      [
+        "Set the page",
+        "Pick A4, A5 or US Letter, margins and binding space, and add a page number if you take notes over many pages."
+      ],
+      [
+        "Download and print",
+        "Choose how many pages you need, download the PDF and print at Actual size. Print a few extra for revision."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "paperMakerGuide": {
+      "title": "Printable Paper Maker: Dot Grid, Graph, Lined, Cornell and More",
+      "subtitle": "Choose a paper style, set the page size, margins and binding space, and download a sharp vector PDF for printing. Up to 50 pages in one file, with no sign-up.",
+      "faq": [
+        [
+          "Is the paper maker free, and do I need an account?",
+          "It is free and needs no account. The page is built in your browser, so there is nothing to sign up for and no watermark on the result."
+        ],
+        [
+          "What paper styles are included?",
+          "Seven: dot grid, graph (square grid), lined, Cornell notes, isometric (dots or lines), music (5-line staff or 6-line guitar TAB) and a monthly habit tracker. Each has its own options, such as spacing, line colour and size."
+        ],
+        [
+          "Will the PDF print sharp?",
+          "Yes. Lines, dots and text are vector shapes, not pictures, so they stay crisp at any zoom and on any printer. Print at \"Actual size\" or 100%, and turn off \"Fit to page\", so that the spacing is exactly what you chose."
+        ],
+        [
+          "Why do my lines stop short of the edge of the paper?",
+          "The tool keeps everything inside your margins so nothing is cut off. Most home printers cannot print right to the edge, and the page warns you if a margin is below about 5 mm. Increase the margin if your printer clips the border."
+        ],
+        [
+          "What does the binding margin do?",
+          "It adds 12 mm of extra space on the binding edge, the left side in portrait or the top in landscape, so that hole punches, ring binders and spirals do not cut through the pattern. Switch on the second option to move that space to the opposite side on back pages when you print double-sided."
+        ],
+        [
+          "Can I print many pages at once?",
+          "Yes, up to 50 pages in one PDF. If you add page numbers, each page is numbered from the first number you choose. Identical pages are stored once inside the PDF, so even a long bundle stays small."
+        ],
+        [
+          "How do I save my setup for next time?",
+          "Press Save settings to download a small file, and Load settings to open it again. Nothing is stored on a server, so keep the file somewhere you can find it."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Saved settings are a small file that you download yourself."
+        ]
+      ]
+    },
+    "dotGridGuide": {
+      "title": "Dot Grid Paper Generator: Free Printable Bullet Journal Paper",
+      "subtitle": "Make printable dot grid paper for bullet journals, sketching and lettering. Choose 3.5, 5 or 7 mm spacing, the dot size, the page and the binding margin, then download a vector PDF.",
+      "faq": [
+        [
+          "What is dot grid paper used for?",
+          "It is popular for bullet journals, planners, sketching, lettering, diagrams and note taking. The dots give you structure for straight lines and equal spacing without the heavy look of a full grid."
+        ],
+        [
+          "What dot spacing should I choose?",
+          "5 mm is the usual choice for journals and notes. 3.5 mm packs more in and suits small handwriting or A5 pages. 7 mm gives room for large writing, drawing and layouts."
+        ],
+        [
+          "Which page size is best for a bullet journal?",
+          "A5 is the most common journal size and fits easily in a bag. A4 suits planners and big spreads, and US Letter is the standard in North America. All are available."
+        ],
+        [
+          "Why does the grid look centered?",
+          "The tool fits whole cells inside your margins and centers them, so the left and right edges look even and no dot is cut off at the margin."
+        ],
+        [
+          "How do I print it without scaling?",
+          "In the print window choose \"Actual size\" or 100% and turn off \"Fit to page\" or \"Scale to fit\". Otherwise the printer may shrink the page and change the spacing."
+        ],
+        [
+          "Can I make a whole notebook?",
+          "Yes. Set the number of pages up to 50, print them double-sided and bind them. Switch on the binding margin and the double-sided option so that the holes do not cut through the dots."
+        ],
+        [
+          "Does it work for left-handed writers?",
+          "Yes. You can move the binding space by choosing which margins to enlarge, and a spiral or a loose binder suits both hands. The grid itself is symmetrical."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Saved settings are a small file that you download yourself."
+        ]
+      ]
+    },
+    "graphPaperGuide": {
+      "title": "Graph Paper Generator: Free Printable Grid Paper",
+      "subtitle": "Make printable graph paper with squares of 2.5, 5 or 10 mm, darker lines every fifth or tenth line, optional x and y axes and a light colour to save ink. Download a vector PDF.",
+      "faq": [
+        [
+          "What size squares should I use?",
+          "5 mm is the standard for school maths and general notes. 10 mm is good for large graphs, early learners and posters. 2.5 mm is for detailed engineering sketches, circuit layouts and anything that needs fine resolution."
+        ],
+        [
+          "Why would I want darker lines every fifth or tenth line?",
+          "They make counting squares and reading values off a graph much faster. With 5 mm squares and a darker line every fifth line, each large square is 25 mm; with every tenth line it is 50 mm, which suits centimetre-based work."
+        ],
+        [
+          "What do the axes option do?",
+          "It draws a darker horizontal and vertical line through the middle of the grid, so you can plot points with positive and negative values straight away. Turn it off for blank squared paper."
+        ],
+        [
+          "Is this graph paper metric or imperial?",
+          "The spacing is in millimetres. For an imperial feel, use about 6.35 mm for quarter-inch squares or 2.54 mm for tenth-inch squares by moving the slider. The page sizes include US Letter and Legal."
+        ],
+        [
+          "Does the grid fit the page exactly?",
+          "The tool fits whole squares inside your margins and centers them, so the grid has even borders and no half squares at the edge. If you need the grid to reach the margins exactly, choose a square size that divides the printable width."
+        ],
+        [
+          "What colour is best for graph paper?",
+          "A light blue or gray is the traditional choice, since your pencil or pen stands out. Charcoal black prints stronger and suits photocopying or scanning. Pick the lightest tone that stays visible on your printer."
+        ],
+        [
+          "Can I use it for isometric or polar graphs?",
+          "This page makes square grids. For isometric grids open the full Printable Paper Maker, which also makes isometric dots and lines."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Saved settings are a small file that you download yourself."
+        ]
+      ]
+    },
+    "cornellGuide": {
+      "title": "Cornell Notes Template: Free Printable Note-Taking Paper",
+      "subtitle": "Make a printable Cornell notes template with topic, date and subject lines, a cue column, a notes area and a summary box. Adjust the column, the notes style and the page, then download a PDF.",
+      "faq": [
+        [
+          "What is the Cornell note-taking method?",
+          "It is a way of organising notes developed at Cornell University. You take notes in the wide right column during a lecture or meeting, write questions and key words in the left cue column afterwards, and write a short summary at the bottom. It helps you review and remember."
+        ],
+        [
+          "How do I use the cue column?",
+          "After the lecture, read your notes and write questions, keywords or prompts in the left column. When you revise, cover the right side and try to answer the cues from memory."
+        ],
+        [
+          "What goes in the summary box?",
+          "Write two or three sentences in your own words that capture the main idea of the page. Doing this soon after class helps you understand the material, and the summary lets you find a page quickly later."
+        ],
+        [
+          "What is the best width for the cue column?",
+          "About a quarter to a third of the page works for most people. The default is 28 percent. Make it wider if you write long cues or questions, and narrower if you want more room for notes."
+        ],
+        [
+          "Should the notes area be lined, dotted or plain?",
+          "Lined suits written notes, dot grid suits diagrams and mixed notes, and plain suits people who write loosely or draw a lot. You can switch between them and see the result at once."
+        ],
+        [
+          "Can I use the template for meetings and reading?",
+          "Yes. The method works for any situation where you take notes and review later, including meetings, textbooks, online courses and interviews."
+        ],
+        [
+          "Can I print it on A5 for a small notebook?",
+          "Yes. Choose A5 and add a binding margin if you will punch holes. Reduce the summary height on small pages so there is enough room for notes."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Saved settings are a small file that you download yourself."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "printable-paper-maker": {
+      "sections": [
+        {
+          "heading": "What the Printable Paper Maker does",
+          "paragraphs": [
+            "It lets you design the exact paper you need and print it at home or at a print shop. Instead of searching for a template that is almost right, you choose the style, the spacing, the page size and the margins, see the result at once and download a PDF.",
+            "The preview is drawn from the same shapes that go into the PDF, so what you see is what prints. There is no sign-up, no watermark and no upload, which makes it quick to make a single page or a whole notebook."
+          ]
+        },
+        {
+          "heading": "Seven paper styles for real uses",
+          "paragraphs": [
+            "Dot grid suits bullet journals and sketching, with spacing from 3.5 mm to 7 mm. Graph paper suits maths and engineering, with 2.5, 5 or 10 mm squares and darker lines every fifth or tenth line. Lined paper comes in narrow, college and wide spacing, with an optional margin line and a dotted midline for handwriting practice.",
+            "Cornell notes gives you a topic, date and subject block, a cue column, a notes area and a summary box. Isometric paper helps with 3D sketching, in dots or lines. Music paper offers five-line staves or six-line guitar TAB, and the habit tracker gives you a month of boxes to tick."
+          ]
+        },
+        {
+          "heading": "Margins, binding and double-sided printing",
+          "paragraphs": [
+            "Notebooks and binders need space for holes. Switch on the binding margin and the tool adds 12 mm on the binding edge so that nothing is punched through. For double-sided printing, the second option moves the space to the other edge on the back of each sheet, so the holes line up when the pages are turned.",
+            "Your margins stay inside the printable area of the page. If a margin is smaller than about 5 mm, the page warns you, because many home printers cannot print that close to the edge."
+          ]
+        },
+        {
+          "heading": "Saving ink and keeping lines readable",
+          "paragraphs": [
+            "Heavy dark grids compete with your writing and use a lot of ink. The tone presets (soft gray, slate blue, muted sepia, blueprint cyan and charcoal) and the line weight choices let you make the pattern as light as you like. Soft gray at normal weight works for most note taking.",
+            "If you print on a laser printer, thin lines in light tones may look faint, so try the Normal or Bold weight. Test one page before you print a whole bundle."
+          ]
+        },
+        {
+          "heading": "Bundles, headers and saved settings",
+          "paragraphs": [
+            "Choose how many pages you want, from one to fifty. Add a header bar with date, subject, project or page number fields, and the pages are numbered from the starting number you pick. This is how you turn a sheet into a ready-to-use notebook or a binder refill.",
+            "Save your settings to a file when you have a setup you like, and load it again next time. The file holds only your choices, such as the style and the spacing, and never your writing."
+          ]
+        }
+      ]
+    },
+    "dot-grid-paper-generator": {
+      "sections": [
+        {
+          "heading": "What is dot grid paper?",
+          "paragraphs": [
+            "Dot grid paper is a page covered in a regular pattern of small dots. Because the dots are small, they disappear behind your writing yet still give you points to line up against. You can write, draw boxes, make tables, sketch charts and lay out a page without a ruler.",
+            "It became popular with bullet journal users, who plan their weeks and months in a custom layout, and with designers, who use it for quick sketches and lettering practice."
+          ]
+        },
+        {
+          "heading": "Choosing the right spacing",
+          "paragraphs": [
+            "The spacing is the distance between dots. A 5 mm grid is the most common because it suits normal handwriting and lets you draw a neat box in a few squares. A 3.5 mm grid is denser, good for small notes, tiny checklists and A5 pages. A 7 mm grid is open, which suits bigger handwriting, drawing and children.",
+            "You can also set any spacing from 2 to 15 mm with the slider. If your pen has a thick nib, use a wider grid so the dots do not get lost under the ink."
+          ]
+        },
+        {
+          "heading": "Dot size and colour",
+          "paragraphs": [
+            "Fine dots are the lightest and best for detailed work, medium dots are a balanced default, and bold dots are easy to see when you work fast or print on a rough paper. Soft gray keeps the grid in the background. Slate blue, sepia and cyan add a little colour, and charcoal black gives the strongest dots.",
+            "Print a test page first. Every printer and every paper shows dots a little differently, and a quick test saves time and ink."
+          ]
+        },
+        {
+          "heading": "From one page to a notebook",
+          "paragraphs": [
+            "Pick your page size and margins, then set the number of pages. Switch on the binding margin to leave 12 mm for punched holes or spiral rings, and turn on the double-sided option if you print both sides, which puts the extra space on the correct edge of the back pages.",
+            "You can fold, cut and bind the sheets yourself, take the PDF to a print shop for a spiral bound book, or put the pages in a ring binder."
+          ]
+        },
+        {
+          "heading": "Printing tips",
+          "paragraphs": [
+            "Use Actual size or 100% scale. Choose the paper type that matches your sheet, and a standard or draft quality setting is enough for light dots. If dots appear at slightly different spacing than you chose, check that your printer is not scaling the page.",
+            "The PDF is made of vector shapes, so the dots stay round and sharp however you zoom in. Nothing is uploaded."
+          ]
+        }
+      ]
+    },
+    "graph-paper-generator": {
+      "sections": [
+        {
+          "heading": "What graph paper is for",
+          "paragraphs": [
+            "Graph paper is paper printed with a grid of equal squares. Students use it to plot functions and data, engineers use it for scale drawings and layouts, designers use it for pixel art, floor plans and wireframes, and knitters and cross-stitchers use it for patterns. The squares keep lines straight and proportions even.",
+            "Buying the exact size you need can be hard, and printing your own is cheap. This generator lets you choose the squares, the page and the lines to suit the job."
+          ]
+        },
+        {
+          "heading": "Choosing the square size",
+          "paragraphs": [
+            "Square size decides how much detail you can show. 2.5 mm squares give 40 squares per 100 mm, which is fine for detailed technical drawings. 5 mm squares are the school standard and suit most graphs. 10 mm squares make large, clear plots and are easy for young children to use.",
+            "Use the slider for anything in between, such as 6.35 mm for a quarter inch. The page shows the size in millimetres so there is no conversion to do."
+          ]
+        },
+        {
+          "heading": "Major lines, axes and counting",
+          "paragraphs": [
+            "Every fifth or tenth line can be made darker. This works like the heavier lines on a ruler: your eye groups the squares in fives or tens, so you can count and read values faster. Combined with the optional axes through the centre, you get paper that is ready for plotting.",
+            "Use the axes for coordinate geometry, physics graphs and data plots. Leave them off when you want a plain grid for drawing, planning or pattern design."
+          ]
+        },
+        {
+          "heading": "Page sizes, margins and colour",
+          "paragraphs": [
+            "Choose A4 for general work, A5 for a small notebook, US Letter or Legal for North American paper sizes, and landscape for wide graphs. Margins stay clear of the edge of the page, so no square is cut off when your printer cannot print to the edge.",
+            "A light slate blue or cyan is easy to read and saves ink. If you need to scan or photocopy the graph, charcoal black gives more contrast."
+          ]
+        },
+        {
+          "heading": "Printing and using the result",
+          "paragraphs": [
+            "Print at Actual size or 100% so the squares are the size you chose, then check one square against a ruler. The PDF is vector, so the lines stay sharp in print and on screen. Nothing is uploaded, and you can print as many pages as you want, up to fifty in one file.",
+            "If you plan to draw on the paper with a pencil, a light line weight keeps the grid from competing with your work. For pen drawings, use Normal."
+          ]
+        }
+      ]
+    },
+    "cornell-notes-template": {
+      "sections": [
+        {
+          "heading": "What a Cornell notes page looks like",
+          "paragraphs": [
+            "A Cornell page is divided into four areas. At the top are lines for the topic, the date and the subject. Down the left is a narrow cue column, on the right a wide notes area, and across the bottom a summary box. The layout turns note taking into a study system and not only a record.",
+            "This generator draws the page for you, with labels so that you remember what each area is for. You can change the widths and the style of the notes area to suit how you work."
+          ]
+        },
+        {
+          "heading": "How to use it in class or in a meeting",
+          "paragraphs": [
+            "During the session, write your notes in the right-hand column. Use short phrases, not full sentences, and leave space between ideas. Do not worry about the cue column yet.",
+            "Soon after, read the notes, fill the cue column with questions or keywords for each section, and write a summary at the bottom of the page. These two steps are the most important, because they make you process what you wrote."
+          ]
+        },
+        {
+          "heading": "Reviewing with the cue column",
+          "paragraphs": [
+            "To revise, cover the notes column and read the cues. Try to answer each from memory, then slide the cover back to check. This gives you active recall, which is a more effective way to learn than rereading.",
+            "Review within a day, then again after a week and before the exam. The summary lets you scan many pages quickly to find what you need."
+          ]
+        },
+        {
+          "heading": "Setting up the template",
+          "paragraphs": [
+            "Adjust the width of the cue column from 15 to 40 percent, and the height of the summary box. Choose lined, dot grid or plain for the notes. Add a binding margin for a binder or a spiral, and a page number when you take notes across many sheets.",
+            "Pick a light tone so the structure is visible but does not compete with your handwriting. Soft gray and slate blue work well."
+          ]
+        },
+        {
+          "heading": "Printing a stack of pages",
+          "paragraphs": [
+            "Set the number of pages and download the PDF. For a semester, print a few dozen and keep them in a binder with a divider for each subject. Print at Actual size, and use double-sided printing with the binding option for a tidy result.",
+            "Everything is made in your browser. Your settings are not stored on a server, and you can save them in a small file to use again next term."
+          ]
+        }
+      ]
+    }
+  }
+}
