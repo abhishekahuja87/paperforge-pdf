@@ -125,6 +125,18 @@
           "Press Save settings to download a small file, and Load settings to open it again. Nothing is stored on a server, so keep the file somewhere you can find it."
         ],
         [
+          "Does it draw a treble or bass clef?",
+          "No. The clef symbol cannot be drawn with the standard PDF fonts, so the music sheet marks a box at the start of each staff for you to draw the clef by hand. The five lines, the barlines and the six-line TAB layout are complete."
+        ],
+        [
+          "Can I use non-English names in the habit tracker?",
+          "Names with Latin letters and accents work. Letters from other scripts, such as Hindi, Arabic or Chinese, cannot be shown with the standard PDF font and appear as a question mark. You can leave the names blank and write them by hand."
+        ],
+        [
+          "How do I print a whole bundle?",
+          "Press Download PDF, open the file and print it with \"Actual size\" selected. The Print this sheet button prints only the sheet shown in the preview."
+        ],
+        [
           "Is my information uploaded or stored?",
           "No. The sheet is drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Saved settings are a small file that you download yourself."
         ]
