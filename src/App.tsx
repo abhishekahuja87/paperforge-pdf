@@ -66,7 +66,6 @@ export const App: React.FC = () => {
               <Route path="/ac1" element={<CatalogTemplatesPage />} />
               <Route path="/ac1/edit" element={<Ac1Page />} />
               <Route path="/ac1/poster" element={<Ac1PosterPage />} />
-              <Route path="/catalog-templates" element={<CatalogTemplatesPage />} />
               <Route path="/merge-pdf" element={<MergePage />} />
               <Route path="/split-pdf" element={<SplitPage />} />
               <Route path="/generate-sample-pdf" element={<GenerateSamplePage />} />
