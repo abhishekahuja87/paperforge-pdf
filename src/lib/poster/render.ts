@@ -1,5 +1,7 @@
 import type { PosterTheme } from '../../config/posterThemes';
 import { cleanHandle } from './discount';
+import { facebookLink, instagramLink, whatsappLink } from './links';
+import { encodeQr, type QrCode } from '../qr/encoder';
 import { computeLayout, type PosterFormat, type Rect } from './layout';
 
 export interface PosterProduct {
@@ -20,7 +22,7 @@ export interface PosterProduct {
   badge: string;
 }
 
-export interface PosterShop { name: string; tagline: string; headline: string; whatsapp: string; facebook: string; instagram: string }
+export interface PosterShop { name: string; tagline: string; headline: string; whatsapp: string; facebook: string; instagram: string; /** Added in front of a short WhatsApp number when building its QR link, e.g. 91. */ countryCode?: string }
 
 /** Where an editable element was drawn, in poster pixels. Ids: shop.name, shop.tagline, footer.whatsapp, footer.facebook, footer.instagram, p<N>.photo, p<N>.name, p<N>.price. */
 export interface Hit { id: string; rect: Rect }
@@ -36,6 +38,8 @@ export interface PosterInput {
   emphasis: Emphasis;
   /** Text in the big header badge, such as "UP TO 30% OFF" or "DIWALI SPECIAL". Empty hides it. */
   offerBadge: string;
+  /** Show a scannable QR code above each contact (WhatsApp, Facebook, Instagram). */
+  qr?: boolean;
   /** Set by editors that overlay pencil buttons: draws hints for empty fields and records where each element sits. */
   edit?: { hits: Hit[] };
 }
@@ -358,7 +362,7 @@ function drawPrices(ctx: CanvasRenderingContext2D, theme: PosterTheme, p: Poster
 
 function drawHeader(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: PosterFormat, input: PosterInput) {
   const c = theme.colors;
-  const layout = computeLayout(format, 1, theme.layout);
+  const layout = computeLayout(format, 1, theme.layout, input.qr);
   const { header, headerContent } = layout;
   if (theme.header === 'band') {
     ctx.fillStyle = c.headerBg; ctx.fillRect(0, 0, header.w, header.h);
@@ -416,19 +420,78 @@ function drawHeader(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: P
   if (offer) drawBadge(ctx, theme, hc.x + hc.w - badgeD / 2, hc.y + hc.h / 2, badgeD, offer, true);
 }
 
+const qrCache = new Map<string, QrCode | null>();
+function qrFor(link: string): QrCode | null {
+  if (!qrCache.has(link)) {
+    let code: QrCode | null = null;
+    try { code = encodeQr(link, 'M'); } catch { code = null; }
+    qrCache.set(link, code);
+  }
+  return qrCache.get(link) ?? null;
+}
+
+/** A QR code on a white rounded plate (dark modules on light, so every phone can scan it), pixel-aligned so edges stay sharp. */
+function drawQr(ctx: CanvasRenderingContext2D, code: QrCode, x: number, y: number, size: number) {
+  const quiet = 2;
+  const total = code.size + quiet * 2;
+  ctx.fillStyle = '#ffffff';
+  rrect(ctx, x, y, size, size, size * 0.07); ctx.fill();
+  ctx.fillStyle = '#000000';
+  const at = (i: number) => Math.round((i * size) / total);
+  for (let r = 0; r < code.size; r += 1) {
+    for (let c = 0; c < code.size; c += 1) {
+      if (!code.modules[r][c]) continue;
+      const x0 = x + at(c + quiet), x1 = x + at(c + quiet + 1);
+      const y0 = y + at(r + quiet), y1 = y + at(r + quiet + 1);
+      ctx.fillRect(x0, y0, x1 - x0, y1 - y0);
+    }
+  }
+}
+
 function drawFooter(ctx: CanvasRenderingContext2D, theme: PosterTheme, format: PosterFormat, input: PosterInput) {
   const c = theme.colors;
-  const layout = computeLayout(format, 1, theme.layout);
+  const layout = computeLayout(format, 1, theme.layout, input.qr);
   const { footer, footerContent } = layout;
   ctx.fillStyle = c.footerBg;
   ctx.fillRect(0, footer.y, footer.w, format.h - footer.y);
   const editing = !!input.edit;
   const items = [
-    { kind: 'whatsapp' as const, text: input.shop.whatsapp.trim(), hint: 'WhatsApp number' },
-    { kind: 'facebook' as const, text: cleanHandle(input.shop.facebook, 'facebook'), hint: 'Facebook page' },
-    { kind: 'instagram' as const, text: cleanHandle(input.shop.instagram, 'instagram'), hint: 'Instagram ID' },
+    { kind: 'whatsapp' as const, text: input.shop.whatsapp.trim(), hint: 'WhatsApp number', link: whatsappLink(input.shop.whatsapp, input.shop.countryCode) },
+    { kind: 'facebook' as const, text: cleanHandle(input.shop.facebook, 'facebook'), hint: 'Facebook page', link: facebookLink(input.shop.facebook) },
+    { kind: 'instagram' as const, text: cleanHandle(input.shop.instagram, 'instagram'), hint: 'Instagram ID', link: instagramLink(input.shop.instagram) },
   ].map((item) => ({ ...item, empty: !item.text, text: item.text || (editing ? item.hint : '') })).filter((item) => item.text);
   if (items.length === 0) return;
+  if (input.qr) {
+    // Each contact gets a QR code with its icon and name underneath.
+    const h = footerContent.h;
+    const slot = footerContent.w / items.length;
+    const top = h * 0.07;
+    const q = Math.min(Math.round(h * 0.6), Math.round(slot * 0.8));
+    const rest = h - top - q;
+    const d = rest * 0.62;
+    items.forEach((item, i) => {
+      const cx = footerContent.x + slot * i + slot / 2;
+      const code = item.empty ? null : qrFor(item.link);
+      if (code) drawQr(ctx, code, Math.round(cx - q / 2), Math.round(footerContent.y + top), q);
+      else if (editing) { ctx.strokeStyle = c.footerInk; ctx.globalAlpha = 0.4; ctx.setLineDash([8, 6]); ctx.lineWidth = 3; rrect(ctx, cx - q / 2, footerContent.y + top, q, q, q * 0.07); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; }
+      const cy = footerContent.y + top + q + rest / 2;
+      let size = Math.min(rest * 0.52, 34);
+      const maxText = slot * 0.92 - d - 10;
+      ctx.font = font(700, size, theme.fonts.body);
+      while (size > 10 && ctx.measureText(item.text).width > maxText) { size *= 0.94; ctx.font = font(700, size, theme.fonts.body); }
+      const tw = ctx.measureText(item.text).width;
+      const start = cx - (d + 10 + tw) / 2;
+      ctx.fillStyle = c.footerInk;
+      ctx.beginPath(); ctx.arc(start + d / 2, cy, d / 2, 0, Math.PI * 2); ctx.fill();
+      drawGlyph(ctx, item.kind, start + d / 2, cy, d * 0.56, c.footerBg);
+      ctx.fillStyle = c.footerInk; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      if (editing && item.empty) ctx.globalAlpha = 0.5;
+      ctx.fillText(item.text, start + d + 10, cy);
+      ctx.globalAlpha = 1;
+      input.edit?.hits.push({ id: `footer.${item.kind}`, rect: { x: footerContent.x + slot * i, y: footerContent.y, w: slot, h } });
+    });
+    return;
+  }
   // Icon plus text for each contact, sized to its own text and spread evenly across the footer.
   const d = footerContent.h * 0.5;
   const icon = d + 14;
@@ -459,7 +522,7 @@ export function renderPoster(ctx: CanvasRenderingContext2D, theme: PosterTheme, 
   ctx.save();
   ctx.imageSmoothingQuality = 'high';
   drawBackground(ctx, theme, format.w, format.h);
-  const layout = computeLayout(format, count, theme.layout);
+  const layout = computeLayout(format, count, theme.layout, input.qr);
   input.products.slice(0, count).forEach((product, i) => {
     const cell = layout.cells[i];
     if (cell) drawCard(ctx, theme, cell, product, input.emphasis, i, input.edit?.hits);

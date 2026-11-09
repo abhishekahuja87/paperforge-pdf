@@ -1,9 +1,10 @@
 /** Builds the text stored inside a QR code for each kind of content phones understand. */
 
-export type QrKind = 'url' | 'text' | 'wifi' | 'contact' | 'email' | 'phone' | 'sms' | 'geo' | 'event';
+export type QrKind = 'url' | 'text' | 'whatsapp' | 'wifi' | 'contact' | 'email' | 'phone' | 'sms' | 'geo' | 'event';
 
 export interface WifiFields { ssid: string; password: string; security: 'WPA' | 'WEP' | 'nopass'; hidden: boolean }
 export interface ContactFields { first: string; last: string; org: string; title: string; phone: string; email: string; website: string; address: string; note: string }
+export interface WhatsAppFields { number: string; message: string }
 export interface EmailFields { to: string; subject: string; body: string }
 export interface SmsFields { number: string; message: string }
 export interface GeoFields { lat: string; lng: string }
@@ -11,6 +12,7 @@ export interface EventFields { title: string; start: string; end: string; locati
 
 export const defaultWifi = (): WifiFields => ({ ssid: '', password: '', security: 'WPA', hidden: false });
 export const defaultContact = (): ContactFields => ({ first: '', last: '', org: '', title: '', phone: '', email: '', website: '', address: '', note: '' });
+export const defaultWhatsApp = (): WhatsAppFields => ({ number: '', message: '' });
 export const defaultEmail = (): EmailFields => ({ to: '', subject: '', body: '' });
 export const defaultSms = (): SmsFields => ({ number: '', message: '' });
 export const defaultGeo = (): GeoFields => ({ lat: '', lng: '' });
@@ -47,6 +49,13 @@ export function urlPayload(value: string): string {
   const text = value.trim();
   if (!text) return '';
   return /^[a-z][a-z0-9+.-]*:/i.test(text) ? text : `https://${text}`;
+}
+
+/** wa.me link that opens a WhatsApp chat with the number, with an optional first message filled in. The number needs its country code. */
+export function whatsappPayload({ number, message }: WhatsAppFields): string {
+  const digits = number.replace(/\D/g, '').replace(/^00/, '');
+  if (digits.length < 7) return '';
+  return `https://wa.me/${digits}${message.trim() ? `?text=${encodeURIComponent(message.trim())}` : ''}`;
 }
 
 export function emailPayload({ to, subject, body }: EmailFields): string {

@@ -23,3 +23,5 @@
 .ac1p-download button { min-height: 48px; padding: 10px 28px; border: 0; border-radius: 12px; background: #7a4d3a; color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; }
 .ac1p-download button:disabled { opacity: .6; cursor: default; }
 .ac1p-download p { margin: 10px 0 0; color: #a02020; font-size: 13px; }
+.ac1p-check { cursor: pointer; }
+.ac1p-check input { width: 18px; height: 18px; accent-color: #7a4d3a; }

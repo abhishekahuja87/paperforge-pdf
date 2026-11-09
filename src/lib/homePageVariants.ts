@@ -10,29 +10,29 @@ export interface FeaturedTool {
   highlights: string[];
 }
 
-/** Colour of each topic's icon badge on the home page. */
+/** Colour of each topic's icon badge on the home page. Every topic has its own hue, and none is orange, the colour of the Most used and Workspace tiles above. */
 export const HOME_COLLECTION_STYLES: Record<string, string> = {
-  pdf: 'bg-orange-100 text-orange-800',
-  images: 'bg-emerald-100 text-emerald-800',
-  money: 'bg-teal-100 text-teal-800',
-  everyday: 'bg-indigo-100 text-indigo-800',
-  printables: 'bg-rose-100 text-rose-800',
-  work: 'bg-amber-100 text-amber-800',
-  study: 'bg-sky-100 text-sky-800',
+  pdf: 'bg-red-100 text-red-800',
+  images: 'bg-cyan-100 text-cyan-800',
+  money: 'bg-emerald-100 text-emerald-800',
+  everyday: 'bg-blue-100 text-blue-800',
+  printables: 'bg-fuchsia-100 text-fuchsia-800',
+  work: 'bg-amber-100 text-amber-900',
+  study: 'bg-lime-100 text-lime-900',
   sharing: 'bg-violet-100 text-violet-800',
-  dev: 'bg-slate-200 text-slate-800',
-  other: 'bg-stone-200 text-stone-800',
+  dev: 'bg-slate-100 text-slate-800',
+  other: 'bg-stone-100 text-stone-800',
 };
 
 /** Hover colour of a tile's icon in each topic: a darker shade of the topic colour, with a white icon. */
 export const HOME_COLLECTION_HOVER: Record<string, string> = {
-  pdf: 'group-hover:bg-orange-700 group-hover:text-white',
-  images: 'group-hover:bg-emerald-700 group-hover:text-white',
-  money: 'group-hover:bg-teal-700 group-hover:text-white',
-  everyday: 'group-hover:bg-indigo-700 group-hover:text-white',
-  printables: 'group-hover:bg-rose-700 group-hover:text-white',
-  work: 'group-hover:bg-amber-700 group-hover:text-white',
-  study: 'group-hover:bg-sky-700 group-hover:text-white',
+  pdf: 'group-hover:bg-red-700 group-hover:text-white',
+  images: 'group-hover:bg-cyan-700 group-hover:text-white',
+  money: 'group-hover:bg-emerald-700 group-hover:text-white',
+  everyday: 'group-hover:bg-blue-700 group-hover:text-white',
+  printables: 'group-hover:bg-fuchsia-700 group-hover:text-white',
+  work: 'group-hover:bg-amber-800 group-hover:text-white',
+  study: 'group-hover:bg-lime-800 group-hover:text-white',
   sharing: 'group-hover:bg-violet-700 group-hover:text-white',
   dev: 'group-hover:bg-slate-700 group-hover:text-white',
   other: 'group-hover:bg-stone-700 group-hover:text-white',
