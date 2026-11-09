@@ -170,3 +170,7 @@ Logic checked in Node: rate build-up (tax, overhead, benefits, buffer, billable 
 ### Page depth
 
 41 core tool pages gained two extra article sections and two FAQs each (`locales/depth/core.en.json`). After deploying, open a few (for example /case-converter, /emi-calculator, /watermark-pdf) and check that the new sections show before the Privacy section, the FAQ list ends with the privacy question, and nothing is duplicated in the page or in the prerendered HTML.
+
+### Page depth, second round
+
+A further 18 PDF, image and utility pages gained extra sections and FAQs (rotate PDF gets sections only). Spot-check /rotate-pdf, /resize-image-to-50kb and /protect-pdf for the new sections before the closing Limits and privacy section.
