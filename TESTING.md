@@ -403,3 +403,14 @@ Checked in the sandbox: for 10:00 India the New York strip title reads "11:30 pm
 
 - [ ] Above each strip the title shows the time and date (for example "11:30 pm, Sun 8 Nov") and follows the orange line as you drag it.
 - [ ] When a zone's date differs from your zone's, an orange "Previous day" or "Next day" tag shows next to it. Drag the line across midnight in a zone and the date and tag change at exactly that point.
+
+### EMI Calculator: month-wise table, extra payments, ways to pay less interest
+
+Checked in the sandbox (logic and DOM at 400 px, no Tailwind so styling is not judged): the schedule matches the old calculator for 25 lakh, 8.5%, 20 years (EMI 21,696, interest 27,06,939, same yearly rows) and the principal repaid always adds up to the loan; 5,000 every 6 months from month 6 plus 2 lakh in month 12 ends the loan in 15 years 6 months and saves about 8.4 lakh interest; a 0% rate works; yearly table has 20 rows, monthly 240 (186 with those extras), with "Dec 2026" style months when a first-EMI month is chosen; a one-time payment after the loan ends shows a note and is ignored; the advice section hides at 0% rate and with no tenure. `tsc` and `vite build` were not run.
+
+Check after deploy:
+- [ ] /emi-calculator: Year-wise and Month-wise buttons switch the table; month-wise scrolls inside its box and the header stays visible; the first-EMI month adds real month names.
+- [ ] Add a repeating extra payment (for example 5,000 every 6 months from month 6) and a one-time payment (month 12, 2,00,000): new cards show the earlier end date, interest saved and extra paid; the tables get an extra-payment column; the yearly balance reaches 0 in the last year; Clear all extra payments restores the plain result. Add and remove several one-time rows on a phone.
+- [ ] Spot check by hand: with no extras the first month's interest is balance x rate / 12 / 100.
+- [ ] Ways to pay less interest appears below the tables: the suggested shorter loan card (EMI no more than 20% higher), four tables, and the caution note. Numbers look sensible (a shorter tenure has a higher EMI and less interest; a 1% lower rate saves more than 0.25%).
+- [ ] Layout at 360 px: tables scroll sideways inside their boxes, nothing makes the page itself scroll sideways.
