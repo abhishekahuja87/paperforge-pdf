@@ -6,7 +6,8 @@
  * The text mirrors what each page shows in English so crawlers that do not run
  * JavaScript see the same title, description, steps and FAQs.
  */
-import en from '../locales/en.json';
+import { PACK_GUIDE_KEYS } from '../config/packs';
+import { en } from '../locales/english';
 import { siteConfig } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
 import { GUIDES } from '../content/guides';
@@ -196,7 +197,7 @@ function copyFor(tool: ToolItem): ToolCopy {
     faqs: [],
   };
 
-  const guideKey = PAGE_GUIDE_KEYS[tool.id];
+  const guideKey = PACK_GUIDE_KEYS[tool.id] ?? PAGE_GUIDE_KEYS[tool.id];
   if (guideKey) {
     const guide = rec(rec(en.pageGuides)[guideKey]);
     const imageTitle = tool.id === 'image-converter' ? en.image.converterTitle

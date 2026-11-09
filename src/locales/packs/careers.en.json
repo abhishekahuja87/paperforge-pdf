@@ -1,0 +1,306 @@
+{
+  "toolCatalog": {
+    "resume-builder": [
+      "Free Resume Builder",
+      "Build a clean resume and save it as a PDF, free."
+    ],
+    "notice-period-calculator": [
+      "Notice Period and Last Working Day Calculator",
+      "Find your last working day, buyout cost and gap before a new job."
+    ],
+    "upload-file-checker": [
+      "Upload File Checker",
+      "Check size, type, pages and file name before you upload."
+    ]
+  },
+  "guideSteps": {
+    "resume-builder": [
+      [
+        "Add your details",
+        "Fill in your name, contact details, a short summary, your jobs, education, skills and any projects. Load the example first if you want to see how a finished resume looks."
+      ],
+      [
+        "Choose a layout",
+        "Pick the Classic or Modern layout, the text size and the paper size (A4 or US Letter). Both layouts are single column with plain headings."
+      ],
+      [
+        "Fix the checklist items",
+        "Read the resume checklist beside the preview. It points out missing contact details, weak phrases, bullets without numbers and a resume that runs too long."
+      ],
+      [
+        "Save as PDF",
+        "Press Print or save as PDF and choose \"Save as PDF\" as the destination. Save a data file too, so you can edit the resume later without starting again."
+      ]
+    ],
+    "notice-period-calculator": [
+      [
+        "Enter your resignation date",
+        "Choose the date you resign or plan to resign, then enter the notice period from your offer or appointment letter in days or months."
+      ],
+      [
+        "Set how your company counts",
+        "Choose calendar days or working days, whether the day you resign counts as day 1, and add any leave you will take or notice days you will buy out."
+      ],
+      [
+        "Add your new joining date (optional)",
+        "Enter the joining date in your new job to see the gap between the two jobs, or how many days of notice you would need to cut."
+      ],
+      [
+        "Read and share the result",
+        "See your last working day, how many days are left, the estimated buyout and any warnings. Copy the summary or share a link to the same calculation."
+      ]
+    ],
+    "upload-file-checker": [
+      [
+        "Enter what the form asks for",
+        "Type the maximum file size, and optionally the accepted file types, the maximum number of pages and whether the file name should be simple."
+      ],
+      [
+        "Add your files",
+        "Choose or drop up to twenty PDFs or images. Each file is read in your browser; nothing is uploaded."
+      ],
+      [
+        "Read the results",
+        "Each file shows Ready, Check or Needs fixing, with the size, type, pages, password, searchable-text and file-name checks listed one by one."
+      ],
+      [
+        "Fix what is flagged",
+        "Use the links beside each problem to compress a PDF, remove a password, keep only the pages you need, resize an image or make a scan searchable, then check again."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "resumeBuilder": {
+      "title": "Free Resume Builder",
+      "subtitle": "Write your resume in your browser, check it against a recruiter checklist, and save a clean PDF with real, selectable text. No account, no watermark, no payment.",
+      "faq": [
+        [
+          "Is the resume really free to download?",
+          "Yes. There is no account, no watermark and no payment step. You build the resume on this page and save it as a PDF from your browser's print window."
+        ],
+        [
+          "Will the PDF work with applicant tracking systems?",
+          "The layout is a single column with standard headings such as Experience, Education and Skills, real text rather than images, and no tables or icons. That is what resume parsers read most reliably. No tool can promise how a particular system will treat your file, so keep the wording simple and follow the instructions of each employer."
+        ],
+        [
+          "How do I get a PDF instead of printing on paper?",
+          "Press \"Print or save as PDF\". In the print window set the destination to \"Save as PDF\" (on some phones it is called \"Save as PDF\" under the printer list). Set margins to Default and turn off \"Headers and footers\" for a clean page."
+        ],
+        [
+          "What does the resume checklist check?",
+          "It checks that your name and email are present, that the summary and each job have sensible length, that bullet points start with action verbs and contain numbers, that the skills list is not empty, and that the resume is neither very thin nor very long. It is a guide to common recruiter expectations, not a real applicant tracking system, and a high number does not guarantee an interview."
+        ],
+        [
+          "Can I keep my resume and edit it later?",
+          "Yes, in two ways. Tick \"Remember my resume in this browser\" to keep it on this device only, or press \"Save data file\" to download your information and open it again later with \"Open data file\". Do not use the browser option on a shared computer."
+        ],
+        [
+          "How long should my resume be?",
+          "For most people with under ten years of experience, one page is enough. The page counter shows how long your resume will be when printed. If it runs onto a second page, try the Compact text size, shorten old roles or keep only your strongest four to six bullets per job."
+        ],
+        [
+          "Should I add a photo, date of birth or address?",
+          "Practices differ by country and employer, so follow what the job advert asks for. This builder leaves out photos on purpose, because images can confuse resume parsers and some employers prefer not to receive them. You can add a city and country instead of a full address."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is not sent to {{siteName}}. The page still loads advertising and other resources from the network. Your resume is stored on your device only if you tick \"Remember my resume\" or save a data file yourself."
+        ]
+      ]
+    },
+    "noticePeriodCalc": {
+      "title": "Notice Period and Last Working Day Calculator",
+      "subtitle": "Work out your last working day from your resignation date and notice period, see what a buyout would cost, and check how it fits with your new joining date.",
+      "faq": [
+        [
+          "How is the last working day calculated?",
+          "The tool adds your notice period to the day you resign. In days mode it adds that many calendar days, or working days if you choose to count Monday to Friday only. In months mode it adds whole months, so a notice that starts on 9 November ends on the same date two months later. You can also choose to count the day you resign as day 1."
+        ],
+        [
+          "Does the resignation day count as part of the notice?",
+          "It depends on your company. Some start counting the next day and some count the day you resign as day 1, which makes the last day one day earlier. The tool lets you choose, but your offer letter or HR policy decides."
+        ],
+        [
+          "What is a notice period buyout?",
+          "A buyout means paying your employer instead of working some or all of the notice. The tool estimates it as monthly pay divided by 30 for each day bought out. Companies use different pay bases, such as gross, basic or fixed pay, and some add other rules, so treat the figure as an estimate and ask HR for the exact amount."
+        ],
+        [
+          "What happens to leave taken during the notice?",
+          "Policies differ. Many companies extend the notice by the number of leave days you take, and the tool does the same. Others let you adjust leave against the notice or do not allow leave at all during notice. Check your policy before planning leave."
+        ],
+        [
+          "What if my new job starts before my last day?",
+          "The tool shows how many days you would need to cut from your notice and what that would cost at your buyout rate. You can reduce the notice by agreement with your manager, by a buyout, or by asking the new employer for a later joining date."
+        ],
+        [
+          "Is the last working day the same as the relieving date?",
+          "Not always. The last working day is the final day you work. Your relieving date, shown on the relieving letter, can be the same day or a little later, for example after leave encashment or clearing dues. Ask HR which date will be on your documents."
+        ],
+        [
+          "Does the calculator include public holidays?",
+          "No. It does not know your company's holiday list, so in working-days mode it skips weekends only. If a public holiday falls inside your notice, your real last day may be a day later or earlier depending on your policy."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The calculation runs in your browser and nothing you enter is sent to {{siteName}}. The page still loads advertising and other resources from the network. If you share a link, it contains only the numbers and choices on the page."
+        ]
+      ]
+    },
+    "uploadFileChecker": {
+      "title": "Upload File Checker",
+      "subtitle": "Check your PDFs and photos against the limits on an application form or recruiter email before you upload, and see exactly what to fix. Files stay on your device.",
+      "faq": [
+        [
+          "What does the Upload File Checker look at?",
+          "It checks the file size against your limit, the file type against your list, the number of pages in a PDF, whether the PDF is password-protected, whether it has selectable text or is only a scan, the pixel size of an image, and whether the file name is simple and safe for upload forms."
+        ],
+        [
+          "Are my files uploaded anywhere?",
+          "No. The files are read in your browser using your own device, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ],
+        [
+          "Why does it warn about a PDF with no searchable text?",
+          "A scan or a photo saved as a PDF has no real text, so it cannot be searched or copied, and recruiters' systems cannot read it. Many forms accept scans, so this is only a warning. The Digitize Documents tool can add a searchable text layer."
+        ],
+        [
+          "Why do file names matter?",
+          "Some portals reject names with spaces, symbols, accents or several dots, or cut off long names. A simple name using letters, numbers, underscores and hyphens avoids these problems. The checker suggests a cleaned name that you can use when you save or rename the file."
+        ],
+        [
+          "What should I do if my file is too big?",
+          "Use the link beside the problem. For a PDF, the Compress PDF tool rewrites the file to be smaller, though it does not shrink images, so a scan may stay large. For photos, the Image Resizer can reduce the size to a target in KB. If a PDF has more pages than allowed, the Split PDF tool can keep only the pages you need."
+        ],
+        [
+          "Does passing this check guarantee the upload will work?",
+          "No. The tool checks the file against the numbers you enter. It cannot know every rule of a particular website, such as pixel size, colour mode or a different way of counting kilobytes. Always follow the instructions on the form, and keep a copy of the original file."
+        ],
+        [
+          "Which files can it read?",
+          "PDFs and common images (JPG, PNG, WebP and GIF) can be fully checked. Other files, such as Word documents, are checked for size, type and name only."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Files are checked on your device and are not sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "resume-builder": {
+      "sections": [
+        {
+          "heading": "What the Resume Builder does",
+          "paragraphs": [
+            "It turns the details you type into a clean, one-column resume that you can save as a PDF. You fill in your contact details, a short summary, your work experience, education, projects, skills and certifications, and the preview on the page updates as you type. When you are happy with it, you save it as a PDF from your browser's print window.",
+            "The builder is meant for people who want a tidy, readable resume quickly without creating an account or paying at the download step. It does not use images, icons, tables or text boxes, so the saved PDF keeps real text that can be selected, searched and read by recruiters and by resume parsing software."
+          ]
+        },
+        {
+          "heading": "How to write each part well",
+          "paragraphs": [
+            "Start with a summary of two or three lines: who you are, the kind of work you do and what you are good at. Then list your jobs with the newest first. Under each job write three to six bullet points that say what you did and what came of it. Begin each bullet with a verb such as led, built, reduced, resolved or trained, and add a number where you honestly can: how many customers, how much time saved, what percentage improved.",
+            "Put your skills in a short list of real tools and abilities, not vague words. Add education, then certifications and projects if they help. If you are a fresher, move your projects, internships and coursework up in importance by adding them as work experience or projects, and keep the summary focused on what you want to learn and do."
+          ]
+        },
+        {
+          "heading": "The resume checklist",
+          "paragraphs": [
+            "Beside the preview, the checklist reviews your resume against things recruiters and parsers commonly look for. It flags missing contact details, a summary that is too short or too long, jobs without dates or bullets, bullets that begin with weak phrases such as responsible for or worked on, lines written in the first person, bullets without any numbers, and a skills list that is empty or very short.",
+            "The score is only a rough guide. It cannot read the quality of your achievements, and it is not a copy of any employer's software. Use it to find gaps, then read your resume once more as a hiring manager would, asking whether each line shows value to the employer."
+          ]
+        },
+        {
+          "heading": "Saving, editing and privacy",
+          "paragraphs": [
+            "To save, press Print or save as PDF and choose Save as PDF as the destination. To keep working later, either tick the option to remember your resume in this browser or download a data file and open it again when you need it. The data file is plain text you control. The remember option stores the resume only in this browser on this device and can be switched off at any time, which deletes the saved copy.",
+            "Your resume is built entirely in your browser. The text you type is not sent to {{siteName}}. The page still loads advertising and other resources from the network, as every page on the site does."
+          ]
+        },
+        {
+          "heading": "Tips before you apply",
+          "paragraphs": [
+            "Name the file clearly, for example your name and the word resume, and avoid spaces and special characters if the portal is strict. Check the PDF once by opening it and trying to select a line of text. Tailor the summary and the first bullets to each job by using words from the job advert where they truly describe your experience.",
+            "If an application form has a file size limit, the Upload File Checker can tell you whether your PDF fits, and the Compress PDF tool can make it smaller. Always follow the instructions of the employer, because their rules come first."
+          ]
+        }
+      ]
+    },
+    "notice-period-calculator": {
+      "sections": [
+        {
+          "heading": "What this calculator does",
+          "paragraphs": [
+            "It works out the last day you will be working at your current job once you resign, based on your notice period. You enter the date you resign, how long your notice is, and how your company counts it. The result shows the date, the weekday, how many days remain from today and how many calendar days of notice you will serve.",
+            "It also helps with the decisions that come with changing jobs: what a notice buyout might cost, how leave during notice moves your last day, and whether your new joining date leaves a gap, fits exactly or forces you to shorten your notice."
+          ]
+        },
+        {
+          "heading": "How the date is worked out",
+          "paragraphs": [
+            "With a notice in days, the tool adds that number of calendar days to your resignation date, or counts only Monday to Friday if you choose working days. With a notice in months, it adds whole months, and if the target month is shorter it uses the last day of that month. If your company counts the resignation day as day 1, the last day moves one day earlier.",
+            "Leave you plan to take during the notice is added to the end if your company extends notice for leave. A buyout then takes days off the end of the notice, so your last day moves earlier by the number of days you buy out."
+          ]
+        },
+        {
+          "heading": "Notice buyout, in plain terms",
+          "paragraphs": [
+            "A buyout is an agreement to pay your employer for notice days you will not serve. Companies usually calculate it from your monthly pay divided by thirty, multiplied by the days you skip, but the pay used, the way partial months are handled and whether an approval is needed all vary. Some employers do not allow buyouts at all, and some set a minimum number of days you must serve.",
+            "Enter the monthly pay your policy uses to get an estimate. Use it to compare options before you speak to your manager or HR. The final figure should always come from the company in writing."
+          ]
+        },
+        {
+          "heading": "Planning around your new job",
+          "paragraphs": [
+            "If you add the joining date for your new job, the calculator shows whether there is a gap between the two jobs. A gap of zero means you start the day after your last working day. A positive gap tells you how many days you have in between, which is useful for a break or for a move. A negative result shows how many days you would need to cut from your notice, and what that would cost under a buyout.",
+            "If the dates do not fit, you can discuss three things: a shorter notice with your current employer, a later joining date with the new one, or a buyout. Getting any agreement in writing protects you from misunderstandings."
+          ]
+        },
+        {
+          "heading": "Before you resign",
+          "paragraphs": [
+            "Read your offer letter or appointment letter for the notice clause, and check the employee handbook for rules on leave, buyout, handover and dues. Ask HR in writing for your expected last working day and relieving date after you resign. Keep copies of the resignation email and the reply.",
+            "This calculator is a planning aid. It cannot replace your contract or the advice of HR or a lawyer where there is a dispute."
+          ]
+        }
+      ]
+    },
+    "upload-file-checker": {
+      "sections": [
+        {
+          "heading": "What the Upload File Checker does",
+          "paragraphs": [
+            "Application forms, job portals and recruiters often reject files for small reasons: the file is a few kilobytes too large, it has a password, it has too many pages, or the name contains a character the portal does not allow. The Upload File Checker looks for these problems before you upload, so you can fix them once instead of finding out one failed attempt at a time.",
+            "You tell the tool what the form asks for, add your files, and it lists for each file what passes, what needs a look and what must be fixed."
+          ]
+        },
+        {
+          "heading": "The checks, one by one",
+          "paragraphs": [
+            "File size is compared with the limit you enter, in KB or MB, and the tool tells you how far over it you are. File type is compared with your list of accepted formats. For a PDF it also counts the pages, tells you whether the file is password-protected, and looks at the first pages for selectable text to tell a real document from a scan.",
+            "For an image it shows the width and height in pixels. File names are checked for spaces, special characters, extra dots and length, and a cleaned suggestion is given when the name could cause trouble."
+          ]
+        },
+        {
+          "heading": "How to fix common problems",
+          "paragraphs": [
+            "If a PDF is too large, compress it. The Compress PDF tool rewrites the file and removes unneeded data, but it does not reduce image quality, so scans may still be large. For a photo, use the Image Resizer, which can aim for a size in KB. If a PDF has a password, remove it with the Unlock PDF tool, using the password you know.",
+            "If you must send fewer pages, keep only the ones you need with Split PDF. If the PDF is a scan and the recruiter wants searchable text, Digitize Documents can add it. After each fix, add the new file here to confirm it now passes."
+          ]
+        },
+        {
+          "heading": "Tips for application uploads",
+          "paragraphs": [
+            "Keep the original file and save changes as new copies with clear names, such as your name and the document type. Use a simple name without spaces. Check the form for the exact size limit, whether kilobytes mean 1,000 or 1,024 bytes on that site, and the accepted types, and aim a little below the limit so small differences do not matter.",
+            "Open the final file once before uploading to make sure it looks right, that all pages are the correct way up and that nothing important is cut off."
+          ]
+        },
+        {
+          "heading": "Privacy and limits",
+          "paragraphs": [
+            "The files you add are read by your browser on your own device. Nothing is uploaded to {{siteName}}, and the list disappears when you close or reload the page. The checker works only from the numbers you give it, so it cannot replace the instructions of the site you are uploading to."
+          ]
+        }
+      ]
+    }
+  }
+}

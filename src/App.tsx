@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/common/ScrollToTop';
+import { PACK_TOOLS } from './config/packs';
 import { PageLoader } from './components/common/PageLoader';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 
@@ -33,6 +34,7 @@ const ImageConverterPage = lazy(() => import('./pages/ImageConverterPage').then(
 const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').then((m) => ({ default: m.ImageCompressorPage })));
 const UtilityPage = lazy(() => import('./pages/UtilityPage').then((m) => ({ default: m.UtilityPage })));
 const FinanceCalculatorPage = lazy(() => import('./pages/FinanceCalculatorPage').then((m) => ({ default: m.FinanceCalculatorPage })));
+const PackToolPage = lazy(() => import('./pages/PackToolPage').then((m) => ({ default: m.PackToolPage })));
 const ImageResizerPage = lazy(() => import('./pages/ImageResizerPage').then((m) => ({ default: m.ImageResizerPage })));
 const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
 const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => ({ default: m.Base64ToolPage })));
@@ -116,6 +118,7 @@ export const App: React.FC = () => {
               <Route path="/discount-calculator" element={<UtilityPage kind="discount" />} />
               <Route path="/unit-converter" element={<UtilityPage kind="unit" />} />
               <Route path="/word-counter" element={<UtilityPage kind="wordCounter" />} />
+              {PACK_TOOLS.map(({ tool, kind }) => <Route key={tool.path} path={tool.path} element={<PackToolPage kind={kind} />} />)}
               <Route path="/case-converter" element={<UtilityPage kind="caseConverter" />} />
               <Route path="/number-to-words" element={<UtilityPage kind="numberToWords" />} />
               <Route path="/password-generator" element={<UtilityPage kind="password" />} />

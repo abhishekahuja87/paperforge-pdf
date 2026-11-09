@@ -137,6 +137,10 @@ These are smoke checks with small synthetic files, not exhaustive tests of all
 settings, output fidelity, redaction cases, devices, browsers, languages, or
 accessibility. The reused digitization editor still has English-only controls.
 
+## Careers pack (manual check needed)
+
+Logic checked in Node: resume checklist findings, month and range formatting, imported-file clean-up, notice-period dates (calendar, working days, months with month-end clamping, buyout, leave, joining gap), file-name clean-up and the size, type, page and name checks. The screens were not run. After deploying: Resume Builder (load the example, change layout/paper, press Print and check that only the resume prints, the PDF text is selectable, the page count matches, Save and Open data file round-trips, the Remember box keeps and clears the saved copy); Notice Period (compare a few dates by hand, check a shared link restores the inputs); Upload File Checker (a large PDF, a protected PDF, a scanned PDF, a JPG and a file named with spaces; the fix links open the right tools).
+
 ## Shareable links (manual check needed)
 
 Not run in the sandbox. On EMI, Unit converter (change the unit type to Temperature and pick units), Time zone converter, HRA (tick metro), Date difference (Add or subtract mode) and Percentage: change the inputs, press Copy link, open the link in a new tab and confirm every input and the result match. A tampered value (letters in a number field, an unknown option) must be ignored, and the address bar should lose its query once the page loads.
