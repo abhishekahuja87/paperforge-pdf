@@ -1,17 +1,18 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
-import { Download, ImagePlus, Plus, Trash2 } from 'lucide-react';
+import { Download, ImagePlus } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { Toggle, Slider, card, heading } from '../paper/controls';
 import { fieldClass } from '../utilities/common';
 import { POSTER_THEMES, findPosterTheme } from '../../../config/posterThemes';
-import { POSTER_MAX_PRODUCTS, POSTER_SAMPLE_PRODUCTS, POSTER_SAMPLE_SHOP, POSTER_SHOP_STORAGE_KEY } from '../../../config/posterSamples';
+import { POSTER_COUNTS, POSTER_SAMPLE_PRODUCTS, POSTER_SAMPLE_SHOP, POSTER_SHOP_STORAGE_KEY } from '../../../config/posterSamples';
 import { POSTER_FORMATS, type FormatId } from '../../../lib/poster/layout';
-import { renderPoster, type PosterProduct, type PosterShop } from '../../../lib/poster/render';
+import { discountPercent, bestDiscount } from '../../../lib/poster/discount';
+import { renderPoster, type Emphasis, type PosterProduct, type PosterShop } from '../../../lib/poster/render';
 import { loadPhoto, loadPhotoFromUrl, type LoadedImage } from '../../../lib/poster/images';
 import { loadPosterFonts } from '../../../lib/poster/fonts';
 import { slugify } from '../../../lib/utilities/text';
 
-interface Row { id: number; name: string; original: string; price: string; image: LoadedImage | null; zoom: number; offsetX: number; offsetY: number; fit: 'cover' | 'contain' }
+interface Row { id: number; name: string; original: string; price: string; image: LoadedImage | null; zoom: number; offsetX: number; offsetY: number; fit: 'cover' | 'contain'; badge: string; badgeEdited: boolean }
 
 const FORMAT_ORDER: FormatId[] = ['post', 'portrait', 'story', 'a4'];
 const FORMAT_HINT: Record<FormatId, string> = { post: '1080 × 1080', portrait: '1080 × 1350', story: '1080 × 1920', a4: 'A4 print' };
@@ -25,9 +26,15 @@ function readShop(): PosterShop {
   return POSTER_SAMPLE_SHOP;
 }
 
+/** Badge text worked out from the two prices, until the owner types their own. */
+const autoBadge = (original: string, price: string) => { const pct = discountPercent(original, price); return pct > 0 ? `${pct}% OFF` : ''; };
+const autoOffer = (products: { original: string; price: string }[]) => { const top = bestDiscount(products); return top > 0 ? `UP TO ${top}% OFF` : ''; };
+
+const EMPHASIS: { value: Emphasis; label: string }[] = [{ value: 'photos', label: 'Bigger photos' }, { value: 'balanced', label: 'Balanced' }, { value: 'text', label: 'Bigger text' }];
+
 const toProduct = (row: Row): PosterProduct => ({
   name: row.name, original: row.original, price: row.price, image: row.image?.source ?? null, iw: row.image?.width ?? 0, ih: row.image?.height ?? 0,
-  zoom: row.zoom, offsetX: row.offsetX, offsetY: row.offsetY, fit: row.fit,
+  zoom: row.zoom, offsetX: row.offsetX, offsetY: row.offsetY, fit: row.fit, badge: row.badge,
 });
 
 export const OfferPosterMaker: React.FC = () => {
@@ -35,8 +42,9 @@ export const OfferPosterMaker: React.FC = () => {
   const [themeId, setThemeId] = useState(POSTER_THEMES[0].id);
   const [shop, setShop] = useState<PosterShop>(readShop);
   const [rows, setRows] = useState<Row[]>([]);
-  const [showBadges, setShowBadges] = useState(true);
-  const [showOfferBadge, setShowOfferBadge] = useState(true);
+  const [count, setCount] = useState(6);
+  const [emphasis, setEmphasis] = useState<Emphasis>('photos');
+  const [offerText, setOfferText] = useState<string | null>(null);
   const [fonts, setFonts] = useState<'loading' | 'ready' | 'failed'>('loading');
   const [message, setMessage] = useState('');
   const nextId = useRef(1);
@@ -57,7 +65,7 @@ export const OfferPosterMaker: React.FC = () => {
     Promise.all(POSTER_SAMPLE_PRODUCTS.map(async (sample) => {
       let image: LoadedImage | null = null;
       try { image = await loadPhotoFromUrl(sample.image); } catch { /* shown as an empty photo box */ }
-      return { id: nextId.current++, name: sample.name, original: sample.original, price: sample.price, image, zoom: 1, offsetX: 0, offsetY: 0, fit: 'cover' as const };
+      return { id: nextId.current++, name: sample.name, original: sample.original, price: sample.price, image, zoom: 1, offsetX: 0, offsetY: 0, fit: 'cover' as const, badge: autoBadge(sample.original, sample.price), badgeEdited: false };
     })).then((list) => { if (alive) setRows((current) => (current.length ? current : list)); });
     return () => { alive = false; };
   }, []);
@@ -66,7 +74,9 @@ export const OfferPosterMaker: React.FC = () => {
     try { localStorage.setItem(POSTER_SHOP_STORAGE_KEY, JSON.stringify(shop)); } catch { /* storage unavailable */ }
   }, [shop]);
 
-  const input = useMemo(() => ({ shop, products: rows.map(toProduct), showBadges, showOfferBadge }), [shop, rows, showBadges, showOfferBadge]);
+  const shown = useMemo(() => rows.slice(0, count), [rows, count]);
+  const offerBadge = offerText ?? autoOffer(shown);
+  const input = useMemo(() => ({ shop, products: shown.map(toProduct), emphasis, offerBadge }), [shop, shown, emphasis, offerBadge]);
   const deferred = useDeferredValue(input);
   const theme = findPosterTheme(themeId);
   const fmt = POSTER_FORMATS[format];
@@ -80,7 +90,12 @@ export const OfferPosterMaker: React.FC = () => {
     renderPoster(ctx, theme, fmt, deferred, deferred.products.length);
   }, [deferred, theme, fmt, fonts]);
 
-  const update = (id: number, patch: Partial<Row>) => setRows((list) => list.map((row) => (row.id === id ? { ...row, ...patch } : row)));
+  const update = (id: number, patch: Partial<Row>) => setRows((list) => list.map((row) => {
+    if (row.id !== id) return row;
+    const next = { ...row, ...patch };
+    if (!next.badgeEdited && ('original' in patch || 'price' in patch)) next.badge = autoBadge(next.original, next.price);
+    return next;
+  }));
   const setField = (key: keyof PosterShop) => (event: React.ChangeEvent<HTMLInputElement>) => setShop((current) => ({ ...current, [key]: event.target.value }));
 
   const choosePhoto = (id: number) => { pickFor.current = id; picker.current?.click(); };
@@ -97,9 +112,6 @@ export const OfferPosterMaker: React.FC = () => {
       setMessage('That file could not be read as an image. Try a JPG, PNG or WebP photo.');
     }
   }, []);
-
-  const addRow = () => setRows((list) => (list.length >= POSTER_MAX_PRODUCTS ? list : [...list, { id: nextId.current++, name: '', original: '', price: '', image: null, zoom: 1, offsetX: 0, offsetY: 0, fit: 'cover' }]));
-  const removeRow = (id: number) => setRows((list) => list.filter((row) => row.id !== id));
 
   const download = () => {
     const canvas = document.createElement('canvas');
@@ -155,23 +167,55 @@ export const OfferPosterMaker: React.FC = () => {
       </div>
 
       <div className={card}>
-        <h3 className={heading}>3. Shop details</h3>
+        <h3 className={heading}>3. Top of the poster</h3>
+        <p className="mt-1 text-[11px] text-slate-500">Everything is optional. Leave a box empty and that part is left out.</p>
         <div className="mt-2 grid gap-3 sm:grid-cols-2">
           <label className="block text-xs font-semibold text-slate-700">Shop name<input className={fieldClass} value={shop.name} maxLength={50} onChange={setField('name')} /></label>
-          <label className="block text-xs font-semibold text-slate-700">Big heading<input className={fieldClass} value={shop.headline} maxLength={24} onChange={setField('headline')} placeholder="BIG SALE" /></label>
-          <label className="block text-xs font-semibold text-slate-700 sm:col-span-2">Line under the name<input className={fieldClass} value={shop.tagline} maxLength={90} onChange={setField('tagline')} placeholder="Offers valid till Sunday" /></label>
-          <label className="block text-xs font-semibold text-slate-700">WhatsApp number<input className={fieldClass} value={shop.whatsapp} inputMode="tel" maxLength={20} onChange={setField('whatsapp')} /></label>
-          <label className="block text-xs font-semibold text-slate-700">Facebook page or ID<input className={fieldClass} value={shop.facebook} maxLength={60} onChange={setField('facebook')} /></label>
-          <label className="block text-xs font-semibold text-slate-700">Instagram ID<input className={fieldClass} value={shop.instagram} maxLength={40} onChange={setField('instagram')} placeholder="yourshop" /></label>
+          <label className="block text-xs font-semibold text-slate-700">Big heading<input className={fieldClass} value={shop.headline} maxLength={24} onChange={setField('headline')} placeholder="DIWALI SALE" /></label>
+          <label className="block text-xs font-semibold text-slate-700 sm:col-span-2">Small line<input className={fieldClass} value={shop.tagline} maxLength={90} onChange={setField('tagline')} placeholder="Best prices this week · New stock in" /></label>
+          <label className="block text-xs font-semibold text-slate-700 sm:col-span-2">Badge in the corner
+            <input className={fieldClass} value={offerBadge} maxLength={28} onChange={(e) => setOfferText(e.target.value)} placeholder="UP TO 30% OFF, FLAT 200 OFF, NEW" />
+            <span className="mt-1 block text-[11px] font-normal text-slate-500">
+              Type anything: a percentage, an amount or words. It follows your biggest discount until you change it.
+              {offerText !== null && <button type="button" onClick={() => setOfferText(null)} className="ml-1 font-semibold text-orange-700 underline">Use automatic</button>}
+            </span>
+          </label>
         </div>
-        <p className="mt-2 text-[11px] text-slate-500">Your shop details are remembered in this browser for next time. Leave a contact empty to hide it.</p>
       </div>
 
       <div className={card}>
-        <h3 className={heading}>4. Products ({rows.length} of {POSTER_MAX_PRODUCTS})</h3>
+        <h3 className={heading}>4. Bottom of the poster</h3>
+        <div className="mt-2 grid gap-3 sm:grid-cols-3">
+          <label className="block text-xs font-semibold text-slate-700">WhatsApp number<input className={fieldClass} value={shop.whatsapp} inputMode="tel" maxLength={20} onChange={setField('whatsapp')} /></label>
+          <label className="block text-xs font-semibold text-slate-700">Facebook page name<input className={fieldClass} value={shop.facebook} maxLength={60} onChange={setField('facebook')} /></label>
+          <label className="block text-xs font-semibold text-slate-700">Instagram ID<input className={fieldClass} value={shop.instagram} maxLength={40} onChange={setField('instagram')} /></label>
+        </div>
+        <p className="mt-2 text-[11px] text-slate-500">
+          A picture cannot hold a clickable link, so people see your name or ID and search for you. Put the full link in your post caption. Empty boxes are left out. Your details are remembered in this browser.
+        </p>
+      </div>
+
+      <div className={card}>
+        <h3 className={heading}>5. Products</h3>
+        <p className="mt-1 text-[11px] text-slate-500">Fewer products means bigger photos. Name, prices and badge are all optional; empty ones are left out.</p>
+        <div className="mt-2 grid grid-cols-6 gap-1.5" role="group" aria-label="Number of products">
+          {POSTER_COUNTS.map((n) => (
+            <button key={n} type="button" onClick={() => setCount(n)} aria-pressed={count === n}
+              className={`min-h-11 rounded-lg border text-sm font-bold ${count === n ? 'border-orange-700 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700'}`}>{n}</button>
+          ))}
+        </div>
+        <div className="mt-3">
+          <span className="text-xs font-semibold text-slate-700">What gets more room</span>
+          <div className="mt-1 grid grid-cols-3 gap-1.5">
+            {EMPHASIS.map((item) => (
+              <button key={item.value} type="button" onClick={() => setEmphasis(item.value)} aria-pressed={emphasis === item.value}
+                className={`min-h-10 rounded-lg border px-1 text-xs font-semibold ${emphasis === item.value ? 'border-orange-700 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700'}`}>{item.label}</button>
+            ))}
+          </div>
+        </div>
         <input ref={picker} type="file" accept="image/*" className="hidden" onChange={onPicked} />
-        <div className="mt-2 space-y-3">
-          {rows.map((row, index) => (
+        <div className="mt-3 space-y-3">
+          {shown.map((row, index) => (
             <div key={row.id} className="rounded-lg border border-slate-200 p-3">
               <div className="flex items-start gap-3">
                 <button type="button" onClick={() => choosePhoto(row.id)} aria-label={`Change photo for product ${index + 1}`}
@@ -179,14 +223,17 @@ export const OfferPosterMaker: React.FC = () => {
                   <PhotoThumb image={row.image} />
                 </button>
                 <div className="grid min-w-0 flex-1 grid-cols-2 gap-2">
-                  <label className="col-span-2 block text-[11px] font-semibold text-slate-600">Product name<input className={fieldClass} value={row.name} maxLength={60} onChange={(e) => update(row.id, { name: e.target.value })} /></label>
-                  <label className="block text-[11px] font-semibold text-slate-600">Old price<input className={fieldClass} value={row.original} inputMode="decimal" maxLength={12} onChange={(e) => update(row.id, { original: e.target.value })} /></label>
-                  <label className="block text-[11px] font-semibold text-slate-600">New price<input className={fieldClass} value={row.price} inputMode="decimal" maxLength={12} onChange={(e) => update(row.id, { price: e.target.value })} /></label>
+                  <label className="col-span-2 block text-[11px] font-semibold text-slate-600">Name<input className={fieldClass} value={row.name} maxLength={60} onChange={(e) => update(row.id, { name: e.target.value })} /></label>
+                  <label className="block text-[11px] font-semibold text-slate-600">Old price<input className={fieldClass} value={row.original} maxLength={14} onChange={(e) => update(row.id, { original: e.target.value })} /></label>
+                  <label className="block text-[11px] font-semibold text-slate-600">New price<input className={fieldClass} value={row.price} maxLength={14} onChange={(e) => update(row.id, { price: e.target.value })} /></label>
+                  <label className="col-span-2 block text-[11px] font-semibold text-slate-600">Badge on photo
+                    <input className={fieldClass} value={row.badge} maxLength={16} placeholder="29% OFF, 200 OFF, NEW" onChange={(e) => update(row.id, { badge: e.target.value, badgeEdited: true })} />
+                  </label>
                 </div>
               </div>
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 <button type="button" onClick={() => choosePhoto(row.id)} className={small}><ImagePlus size={14} /> {row.image ? 'Change photo' : 'Add photo'}</button>
-                <button type="button" onClick={() => removeRow(row.id)} className={small}><Trash2 size={14} /> Remove</button>
+                {row.badgeEdited && <button type="button" onClick={() => update(row.id, { badgeEdited: false, badge: autoBadge(row.original, row.price) })} className={small}>Automatic badge</button>}
               </div>
               {row.image && (
                 <details className="mt-2">
@@ -205,11 +252,6 @@ export const OfferPosterMaker: React.FC = () => {
               )}
             </div>
           ))}
-        </div>
-        <button type="button" onClick={addRow} disabled={rows.length >= POSTER_MAX_PRODUCTS} className={`${small} mt-3`}><Plus size={14} /> Add product</button>
-        <div className="mt-3 space-y-2">
-          <Toggle label="Show the discount on each photo" checked={showBadges} onChange={setShowBadges} hint="Worked out from the old and new price." />
-          <Toggle label="Show the big “up to % off” badge" checked={showOfferBadge} onChange={setShowOfferBadge} hint="Uses the largest discount among your products." />
         </div>
         {message && <p role="alert" className="mt-2 text-xs font-semibold text-red-700">{message}</p>}
       </div>
