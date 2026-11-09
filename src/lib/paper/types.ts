@@ -1,6 +1,6 @@
 /** Settings and option lists for the printable paper maker. All sizes are in millimetres. */
 
-export type PaperStyle = 'dot' | 'graph' | 'lined' | 'cornell' | 'isometric' | 'music' | 'tracker';
+export type PaperStyle = 'dot' | 'graph' | 'lined' | 'cornell' | 'isometric' | 'music' | 'tracker' | 'hex' | 'calligraphy' | 'crossstitch' | 'storyboard';
 export type PageSizeId = 'a4' | 'a5' | 'letter' | 'legal';
 export type ToneId = 'gray' | 'slate' | 'sepia' | 'cyan' | 'charcoal';
 export type Weight = 'hairline' | 'normal' | 'bold';
@@ -10,6 +10,10 @@ export type CornellBody = 'lined' | 'dot' | 'plain';
 export type IsoMode = 'dots' | 'lines';
 export type IsoAxis = 'vertical' | 'horizontal';
 export type MusicMode = 'staff' | 'tab';
+export type HexOrientation = 'pointy' | 'flat';
+export type StoryRatio = '16:9' | '9:16' | '4:3' | '1:1' | '2.39:1';
+export type HoleGuide = 'none' | '2' | '3' | '4';
+export type StampCorner = 'tl' | 'tr' | 'bl' | 'br';
 
 export interface PaperSettings {
   style: PaperStyle;
@@ -33,6 +37,16 @@ export interface PaperSettings {
   isometric: { pitch: number; mode: IsoMode; axis: IsoAxis };
   music: { mode: MusicMode; space: number; gap: number; clefSpace: boolean };
   tracker: { days: number; rows: number; habits: string };
+  hex: { radius: number; orientation: HexOrientation; centers: boolean };
+  calligraphy: { xHeight: number; ascender: number; descender: number; gap: number; slant: number; slantLines: boolean; slantSpacing: number };
+  crossstitch: { count: number; major: boolean; centerLines: boolean };
+  storyboard: { cols: number; rows: number; ratio: StoryRatio; memo: number; gutter: number; numbers: boolean };
+  /** Punch-hole guide circles along the binding edge. */
+  holes: HoleGuide;
+  /** A short label printed in a corner of every page (a name, a class, "Draft"). */
+  stamp: { text: string; corner: StampCorner };
+  /** Two A5 pages on one A4 landscape sheet with a dashed cut line. Only for A5 portrait. */
+  twoUp: boolean;
 }
 
 export const BINDING_MM = 12;
@@ -71,6 +85,10 @@ export const STYLES: { id: PaperStyle; label: string; hint: string }[] = [
   { id: 'isometric', label: 'Isometric', hint: '3D sketching' },
   { id: 'music', label: 'Music staff / TAB', hint: 'Manuscript paper' },
   { id: 'tracker', label: 'Habit tracker', hint: 'Month at a glance' },
+  { id: 'hex', label: 'Hexagon grid', hint: 'Game maps and tiling' },
+  { id: 'calligraphy', label: 'Calligraphy', hint: 'Slanted lettering guides' },
+  { id: 'crossstitch', label: 'Cross-stitch chart', hint: 'Pixel and stitch patterns' },
+  { id: 'storyboard', label: 'Storyboard', hint: 'Film and comic panels' },
 ];
 
 export const DEFAULT_SETTINGS: PaperSettings = {
@@ -93,4 +111,16 @@ export const DEFAULT_SETTINGS: PaperSettings = {
   isometric: { pitch: 8, mode: 'dots', axis: 'vertical' },
   music: { mode: 'staff', space: 1.9, gap: 14, clefSpace: true },
   tracker: { days: 31, rows: 12, habits: '' },
+  hex: { radius: 6, orientation: 'pointy', centers: false },
+  calligraphy: { xHeight: 4.5, ascender: 2, descender: 2, gap: 3, slant: 55, slantLines: true, slantSpacing: 12 },
+  crossstitch: { count: 14, major: true, centerLines: true },
+  storyboard: { cols: 2, rows: 3, ratio: '16:9', memo: 2, gutter: 6, numbers: true },
+  holes: 'none',
+  stamp: { text: '', corner: 'br' },
+  twoUp: false,
 };
+
+export const STORY_RATIOS: Record<StoryRatio, number> = { '16:9': 16 / 9, '9:16': 9 / 16, '4:3': 4 / 3, '1:1': 1, '2.39:1': 2.39 };
+
+/** True when the two-up layout can be used: it needs A5 portrait so two pages fill A4 landscape. */
+export const canTwoUp = (settings: Pick<PaperSettings, 'page' | 'landscape'>) => settings.page === 'a5' && !settings.landscape;
