@@ -272,3 +272,15 @@ Check after deploy:
 - Group settle-up with 18 people: no "close to the fewest" note; with 25 people the note shows.
 - Document Studio and Digitize: page badges read "Page 1", and a downloaded page is named output-page-1.pdf.
 - After deploy, load `/ac1` (curl -I) and check the `x-robots-tag: noindex, nofollow` header.
+
+### Offer Poster Maker
+
+Checked in the sandbox (headless Chromium, no Google Fonts because the sandbox has no network, so system fonts were used): all 8 designs drawn in post, portrait, story and A4 with 4, 5, 6 and 9 products; no errors, text fits, story safe zones clear, list design readable. Component, `tsc` and `vite build` were not run.
+
+Check after deploy:
+- Open /offer-poster-maker on a phone and a desktop. The designs should show Teko, Pacifico, Playfair, Rozha One, Baloo 2 and Poppins, not plain fonts. In DevTools Network, only fonts.googleapis.com and fonts.gstatic.com are contacted, and only on this page.
+- Change shop name, prices and a photo; thumbnails and preview update. Old price is struck through, the percentage badge is right (699 to 499 = 29%).
+- Download PNG in each size; open it and confirm the dimensions and that fonts match the preview. Story: nothing important in the top 150 px or bottom 190 px.
+- Long shop name, 12 products, a Hindi product name, an empty price, a very large photo. Block fonts.googleapis.com and reload: the page still works with plainer fonts and shows a notice.
+- Reload: shop details are remembered, photos are not.
+- /offer-poster-maker is in search on the home page, footer and sitemap; PrivacyPage section 4 mentions Google Fonts.

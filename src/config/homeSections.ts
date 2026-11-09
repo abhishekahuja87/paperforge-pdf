@@ -16,7 +16,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'screenshot-redactor', 'bill-splitter', 'vcard-to-csv-converter', 'printable-flashcard-maker', 'printable-paper-maker', 'printable-planner-maker',
+  'offer-poster-maker', 'screenshot-redactor', 'bill-splitter', 'vcard-to-csv-converter', 'printable-flashcard-maker', 'printable-paper-maker',
 ];
 
 /** Studio-style tools shown as a slim row. */
@@ -55,7 +55,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'printable-flashcard-maker', 'double-sided-flashcards-printable', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
   ] },
   { id: 'work', icon: 'receipt', tools: [
-    'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator',
+    'offer-poster-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator',
   ] },
   { id: 'study', icon: 'type', tools: [
     'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter',

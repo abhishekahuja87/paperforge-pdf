@@ -7,12 +7,13 @@ import { QR_TOOLS } from './qr';
 import { VCARD_TOOLS } from './vcard';
 import { FLASHCARD_TOOLS } from './flashcards';
 import { PRIVACY_TOOLS } from './privacy';
+import { SHOPS_TOOLS } from './shops';
 import type { PackTool } from './types';
 
 export type { PackTool } from './types';
 
 /** Every pack, in the order its tools are listed. To add a pack: create its file here and add it below. */
-export const PACK_TOOLS: PackTool[] = [...CAREERS_TOOLS, ...STUDENTS_TOOLS, ...FREELANCERS_TOOLS, ...STATIONERY_TOOLS, ...PLANNER_TOOLS, ...QR_TOOLS, ...VCARD_TOOLS, ...FLASHCARD_TOOLS, ...PRIVACY_TOOLS];
+export const PACK_TOOLS: PackTool[] = [...CAREERS_TOOLS, ...STUDENTS_TOOLS, ...FREELANCERS_TOOLS, ...STATIONERY_TOOLS, ...PLANNER_TOOLS, ...QR_TOOLS, ...VCARD_TOOLS, ...FLASHCARD_TOOLS, ...PRIVACY_TOOLS, ...SHOPS_TOOLS];
 
 export const findPackTool = (kind: string) => PACK_TOOLS.find((item) => item.kind === kind);
 
