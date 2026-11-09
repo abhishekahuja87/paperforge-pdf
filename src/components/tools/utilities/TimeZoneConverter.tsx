@@ -66,7 +66,19 @@ export const TimeZoneConverter: React.FC = () => {
           </table>
         </div>
       ) : <p className="mt-4 text-xs text-red-700" role="alert">Enter a valid date and time.</p>}
-      {instant && rows.length > 0 && <TimeZoneVisual instant={instant} zones={rows.map((row) => ({ zone: row.zone, label: zoneLabel(row.zone), time: row.time }))} />}
+      {instant && rows.length > 0 && (
+        <TimeZoneVisual
+          instant={instant}
+          dayStart={(() => { try { return zonedTimeToDate(date, '00:00', from); } catch { return instant; } })()}
+          fromLabel={zoneLabel(from)}
+          date={date}
+          time={time}
+          onDate={setDate}
+          onTime={setTime}
+          rows={rows.map((row) => ({ zone: row.zone, label: zoneLabel(row.zone), time: row.time, date: row.date }))}
+          zones={rows.map((row) => row.zone)}
+        />
+      )}
       <div className="mt-4 max-w-sm">
         <SelectField label="Add another time zone" value={extra} onChange={(value) => { setExtra(''); if (value && !targets.includes(value)) setTargets((current) => [...current, value]); }} options={[{ value: '', label: 'Choose a time zone' }, ...options]} />
       </div>
