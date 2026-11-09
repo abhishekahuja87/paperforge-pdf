@@ -566,7 +566,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                       const isSelected = sequenceNumber > 0;
                       return (
                         <article key={page.id} className={`group relative flex min-w-0 flex-col rounded-xl border p-2.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${isSelected ? 'border-indigo-500 bg-indigo-50/30 ring-2 ring-indigo-100' : 'border-slate-200 bg-slate-50'}`}>
-                          <input aria-label="Select this page" type="checkbox" checked={isSelected} onChange={() => togglePage(page.id)} className="absolute left-3 top-3 z-10 h-5 w-5 accent-indigo-600" aria-label={`Add ${page.sourceName} page ${page.originalPageNumber} to output`} />
+                          <input type="checkbox" checked={isSelected} onChange={() => togglePage(page.id)} className="absolute left-3 top-3 z-10 h-5 w-5 accent-indigo-600" aria-label={`Add ${page.sourceName} page ${page.originalPageNumber} to output`} />
                           <div className="mb-2 flex h-48 items-center justify-center overflow-hidden rounded-lg bg-white p-2">
                             <img src={page.thumbnailUrl} alt={`${page.sourceName} page ${page.originalPageNumber}`} loading="lazy" className="max-h-full max-w-full object-contain shadow-sm" />
                           </div>

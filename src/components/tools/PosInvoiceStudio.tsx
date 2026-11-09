@@ -746,7 +746,7 @@ export const PosInvoiceStudio: React.FC<PosInvoiceStudioProps> = ({ step, setSte
         </div>
 
           <div className="flex flex-col gap-2 rounded-xl border border-orange-200 bg-orange-50/50 p-3 sm:flex-row">
-            <select aria-label="Inventory item to add" className={`${fieldClass} mt-0 min-w-0 flex-1`} value={selectedItemId} onChange={(event) => setSelectedItemId(event.target.value)} aria-label="Select an item from inventory">
+            <select className={`${fieldClass} mt-0 min-w-0 flex-1`} value={selectedItemId} onChange={(event) => setSelectedItemId(event.target.value)} aria-label="Select an item from inventory">
               <option value="">Select an item from inventory...</option>
               {inventory.map((item) => <option key={item.id} value={item.id}>{item.name} · {formatMoney(item.price, store.currency)} / {item.unit}</option>)}
             </select>
