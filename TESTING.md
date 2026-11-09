@@ -384,3 +384,15 @@ Check after deploy:
 - [ ] Change the time and zone: clocks and strips move; remove a zone with the table button and its clock and strip disappear.
 - [ ] A half-hour zone (India, Nepal) shows the right hour numbers and the line is still in the middle.
 - [ ] The table is still there below, and the page does not scroll sideways at 360 px.
+
+### Time Zone Converter: half-hour strips, draggable line, day buttons
+
+Replaces the earlier checks for the strips. Checked in the sandbox (logic and DOM at 360 px width, no Tailwind so look and size are not judged): each strip has 48 half-hour boxes; the slider changes the Time field (600 minutes = 10:00; 1140 gives 19:00); dragging across the strip moved the time to 12:00 at the middle; Next day moved the date 9 to 10 Nov; Auckland is +1 day when New York is the same day for 18:30 UTC; month and leap-edge date shifts are right; "Next day / Previous day" badges and "new day" markers appear. `tsc` and `vite build` were not run.
+
+Check after deploy:
+- [ ] On a phone the clocks are one per row, stacked, each with its time, date and a "Next day" or "Previous day" tag when the date differs from your zone's.
+- [ ] Each zone has a strip for one whole day (midnight to midnight in your zone) with thin half-hour boxes and the hour written at each hour (check the numbers are readable at 360 px).
+- [ ] Touch and drag the orange line across all strips: the time field, clocks and table all update, and the line stays under your finger. Dragging sideways does not scroll the page; swiping up and down over the strips still scrolls.
+- [ ] The slider under the strips moves the line in 30-minute steps and matches the Time field; typing a time moves the line.
+- [ ] Previous day and Next day change the date and everything refreshes. Pick India, Tokyo and New York around midnight: the "new day" marker shows where each zone's date changes and the clock tags say Next day or Previous day correctly.
+- [ ] Half-hour zones (India, Nepal) look right and the overlap bar agrees with the strips.
