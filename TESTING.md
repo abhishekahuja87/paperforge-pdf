@@ -396,3 +396,10 @@ Check after deploy:
 - [ ] The slider under the strips moves the line in 30-minute steps and matches the Time field; typing a time moves the line.
 - [ ] Previous day and Next day change the date and everything refreshes. Pick India, Tokyo and New York around midnight: the "new day" marker shows where each zone's date changes and the clock tags say Next day or Previous day correctly.
 - [ ] Half-hour zones (India, Nepal) look right and the overlap bar agrees with the strips.
+
+### Time Zone Converter: date above each strip
+
+Checked in the sandbox: for 10:00 India the New York strip title reads "11:30 pm, Sun 8 Nov" with a "Previous day" tag while the others read "Mon 9 Nov"; at 20:30 all four read Mon 9 Nov with no tag. `tsc` was not run.
+
+- [ ] Above each strip the title shows the time and date (for example "11:30 pm, Sun 8 Nov") and follows the orange line as you drag it.
+- [ ] When a zone's date differs from your zone's, an orange "Previous day" or "Next day" tag shows next to it. Drag the line across midnight in a zone and the date and tag change at exactly that point.
