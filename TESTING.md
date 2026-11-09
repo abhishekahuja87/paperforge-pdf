@@ -372,3 +372,15 @@ Check after deploy:
 - [ ] /time-zone-converter at a 360 px wide phone: the page does not scroll sideways; only the results table scrolls inside its box.
 - [ ] /privacy section 2 lists the poster maker, group settle-up, resume, quotation and rent receipt storage.
 - [ ] `/ac1`, `/ac1/edit`, `/ac1/poster` return HTTP 404 with `x-robots-tag: noindex, nofollow`. This is expected: the Amplify rule is `404-200`, so unlisted addresses fall back to the app. If you would rather they return 200, change the rule (in the Amplify console, not the repository).
+
+### Time Zone Converter pictures
+
+Checked in the sandbox (logic and DOM only, no Tailwind so colours and sizes are not judged): for 10:00 India time the India strip is centred on hour 10 and runs 22 to 21; New York shows the right hours; India and London overlap 4 hours; the clock hands for 10:30 are at 315 and 180 degrees; a 360 px page renders 4 clocks, 5 strips (4 zones plus the overlap row) and 24 boxes per strip with no errors. `tsc` and `vite build` were not run.
+
+Check after deploy:
+- [ ] /time-zone-converter on a phone: a row of clocks (night zones look dark), then one strip per zone with the hour numbers readable in each box (9 px text, check at 360 px) and the orange line in the middle.
+- [ ] Green is 9 am to 6 pm, amber is 7 to 9 am and 6 to 10 pm, dark is night; the legend matches.
+- [ ] Pick India, New York and London: the "Everyone in working hours" bar and its sentence agree with what the strips show. With zones that never overlap it says there is no overlap.
+- [ ] Change the time and zone: clocks and strips move; remove a zone with the table button and its clock and strip disappear.
+- [ ] A half-hour zone (India, Nepal) shows the right hour numbers and the line is still in the middle.
+- [ ] The table is still there below, and the page does not scroll sideways at 360 px.
