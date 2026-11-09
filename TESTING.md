@@ -285,3 +285,9 @@ Check after deploy:
 - /ac1 (chooser): new designs first, count and size selectors, "Use design" opens /ac1/poster with the right design, count and size; classic designs below still open /ac1/edit.
 - /ac1/poster on a phone: tap the pencil on the shop name, a price, a product name and a footer contact; the editor panel appears under the picture; photo buttons replace, zoom and move; Download PNG matches the screen. The page is not indexed (`x-robots-tag` header).
 - /offer-poster-maker is in search on the home page, footer and sitemap.
+
+### Poster QR codes, WhatsApp QR kind, home colours
+
+Checked in the sandbox: the QR row decoded with OpenCV for all three contacts in post, story, A4 and portrait (wa.me/917804991800 from 78049-91800 with code 91, the Facebook and Instagram profile links); both pages toggle it, and the public page shows the country-code field only when QR is on. WhatsApp kind in the QR generator builds `https://wa.me/<digits>?text=<message>`. Colours not checked visually (no Tailwind in the sandbox). `tsc` and `vite build` were not run.
+
+Check after deploy: scan each poster QR with a phone camera (WhatsApp should open a chat with the number; Facebook and Instagram should open the profile); try a number with +, one with 10 digits, one starting with 0; /qr-code-generator > WhatsApp, scan; home page: PDF, Images, Money, Everyday topics should be clearly different colours from each other and from the orange tiles above.

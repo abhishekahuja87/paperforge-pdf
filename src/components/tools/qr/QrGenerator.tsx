@@ -5,13 +5,13 @@ import { CopyButton, fieldClass } from '../utilities/common';
 import { Slider, Toggle, card, heading } from '../paper/controls';
 import { encodeQr, maxBytes, type EccLevel, type QrCode } from '../../../lib/qr/encoder';
 import {
-  contactPayload, contrastRatio, defaultContact, defaultEmail, defaultEvent, defaultGeo, defaultSms, defaultWifi, emailPayload, eventPayload, geoPayload,
-  phonePayload, smsPayload, urlPayload, wifiPayload, type QrKind,
+  contactPayload, contrastRatio, defaultContact, defaultEmail, defaultEvent, defaultGeo, defaultSms, defaultWhatsApp, defaultWifi, emailPayload, eventPayload, geoPayload,
+  phonePayload, smsPayload, urlPayload, whatsappPayload, wifiPayload, type QrKind,
 } from '../../../lib/qr/payloads';
 import { MAX_LOGO, defaultStyle, qrPng, qrSvg, selfCheck, type QrStyle } from '../../../lib/qr/render';
 
 const KINDS: { id: QrKind; label: string }[] = [
-  { id: 'url', label: 'Link' }, { id: 'text', label: 'Text' }, { id: 'wifi', label: 'Wi-Fi' }, { id: 'contact', label: 'Contact' },
+  { id: 'url', label: 'Link' }, { id: 'text', label: 'Text' }, { id: 'whatsapp', label: 'WhatsApp' }, { id: 'wifi', label: 'Wi-Fi' }, { id: 'contact', label: 'Contact' },
   { id: 'email', label: 'Email' }, { id: 'phone', label: 'Phone' }, { id: 'sms', label: 'SMS' }, { id: 'geo', label: 'Location' }, { id: 'event', label: 'Event' },
 ];
 
@@ -36,6 +36,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
   const [kind, setKind] = useState<QrKind>(initialKind);
   const [text, setText] = useState('');
   const [link, setLink] = useState('');
+  const [wa, setWa] = useState(defaultWhatsApp);
   const [wifi, setWifi] = useState(defaultWifi);
   const [contact, setContact] = useState(defaultContact);
   const [mail, setMail] = useState(defaultEmail);
@@ -57,6 +58,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
     switch (kind) {
       case 'url': return urlPayload(link);
       case 'text': return text;
+      case 'whatsapp': return whatsappPayload(wa);
       case 'wifi': return wifiPayload(wifi);
       case 'contact': return contactPayload(contact);
       case 'email': return emailPayload(mail);
@@ -65,7 +67,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
       case 'geo': return geoPayload(geo);
       default: return eventPayload(event);
     }
-  }, [kind, text, link, wifi, contact, mail, phone, sms, geo, event]);
+  }, [kind, text, link, wa, wifi, contact, mail, phone, sms, geo, event]);
 
   const hasLogo = style.logo > 0 && logoHref !== '';
   const effective: QrStyle = { ...style, logo: hasLogo ? style.logo : 0 };
@@ -128,6 +130,10 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
             <div className="mt-3 space-y-3">
               {kind === 'url' && <Field label="Web address" value={link} onChange={setLink} type="url" placeholder="example.com/menu" />}
               {kind === 'text' && <Field label="Text" value={text} onChange={setText} multiline placeholder="Any text, a note, a code or a serial number" />}
+              {kind === 'whatsapp' && (<>
+                <Field label="WhatsApp number, with country code" value={wa.number} onChange={(number) => setWa({ ...wa, number })} type="tel" placeholder="+91 98765 43210" />
+                <Field label="First message (optional)" value={wa.message} onChange={(message_) => setWa({ ...wa, message: message_ })} multiline placeholder="Hi, I saw your poster and would like to know more" />
+              </>)}
               {kind === 'wifi' && (<>
                 <Field label="Network name (SSID)" value={wifi.ssid} onChange={(ssid) => setWifi({ ...wifi, ssid })} />
                 <SelectField label="Security" value={wifi.security} onChange={(security) => setWifi({ ...wifi, security: security as typeof wifi.security })} options={[{ value: 'WPA', label: 'WPA / WPA2 / WPA3' }, { value: 'WEP', label: 'WEP (old)' }, { value: 'nopass', label: 'Open, no password' }]} />

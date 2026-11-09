@@ -3,7 +3,7 @@
     "qr-code-generator": [
       [
         "Choose what the code opens",
-        "Pick Link, Text, Wi-Fi, Contact, Email, Phone, SMS, Location or Event, then fill in the fields. The code updates as you type."
+        "Pick Link, Text, WhatsApp, Wi-Fi, Contact, Email, Phone, SMS, Location or Event, then fill in the fields. The code updates as you type."
       ],
       [
         "Set the look and reliability",
@@ -70,7 +70,11 @@
         ],
         [
           "What can I put in a QR code?",
-          "A web address, plain text, Wi-Fi login details, a contact card, an email with subject and message, a phone number, a text message, a map location and a calendar event."
+          "A web address, plain text, a WhatsApp chat, Wi-Fi login details, a contact card, an email with subject and message, a phone number, a text message, a map location and a calendar event."
+        ],
+        [
+          "How do I make a WhatsApp QR code?",
+          "Choose WhatsApp, type the number with its country code (for example +91 98765 43210), and optionally a first message. The code opens a chat with that number when scanned, with your message ready to send. It uses the standard wa.me link, so it works with or without the WhatsApp Business app and does not expire."
         ],
         [
           "How much can one code hold?",

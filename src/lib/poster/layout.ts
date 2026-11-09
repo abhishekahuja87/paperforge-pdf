@@ -85,13 +85,17 @@ function listCells(area: Rect, n: number, gap: number): Rect[] {
   return Array.from({ length: n }, (_, i) => ({ x: area.x + (i % cols) * (cw + gap), y: area.y + Math.floor(i / cols) * (ch + gap), w: cw, h: ch }));
 }
 
-export function computeLayout(format: PosterFormat, n: number, kind: LayoutKind): PosterLayout {
+/** Footer height when it also carries QR codes. */
+export const qrFooterHeight = (format: PosterFormat) => Math.round(format.w * 0.19);
+
+export function computeLayout(format: PosterFormat, n: number, kind: LayoutKind, qr = false): PosterLayout {
   const { w, h, pad, safeTop, safeBottom } = format;
+  const footerH = qr ? Math.max(format.footerH, qrFooterHeight(format)) : format.footerH;
   const headerBottom = safeTop + format.headerH;
   const header = { x: 0, y: 0, w, h: headerBottom };
   const headerContent = { x: pad, y: safeTop + 14, w: w - pad * 2, h: format.headerH - 28 };
-  const footer = { x: 0, y: h - safeBottom - format.footerH, w, h: format.footerH + safeBottom };
-  const footerContent = { x: pad, y: footer.y, w: w - pad * 2, h: format.footerH };
+  const footer = { x: 0, y: h - safeBottom - footerH, w, h: footerH + safeBottom };
+  const footerContent = { x: pad, y: footer.y, w: w - pad * 2, h: footerH };
   const gap = Math.round(pad * 0.45);
   const area = { x: pad, y: headerBottom + pad * 0.6, w: w - pad * 2, h: footer.y - headerBottom - pad * 1.2 };
   // Feature and list designs suit a handful of products; with more, a plain grid keeps every photo large enough to see.

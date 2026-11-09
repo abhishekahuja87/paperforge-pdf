@@ -45,6 +45,7 @@ export function Ac1PosterPage() {
   const [rows, setRows] = useState<Row[]>([]);
   const [hits, setHits] = useState<Hit[]>([]);
   const [active, setActive] = useState<string | null>(null);
+  const [qr, setQr] = useState(false);
   const [ready, setReady] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -63,7 +64,7 @@ export function Ac1PosterPage() {
   }, []);
 
   const shown = useMemo(() => rows.slice(0, count), [rows, count]);
-  const input = useMemo<PosterInput>(() => ({ shop, products: shown.map(toProduct), emphasis: 'photos', offerBadge: '' }), [shop, shown]);
+  const input = useMemo<PosterInput>(() => ({ shop, products: shown.map(toProduct), emphasis: 'photos', offerBadge: '', qr }), [shop, shown, qr]);
 
   // Draw the editable view, and note where each element sits so the pencil buttons can be placed over it.
   useEffect(() => {
@@ -136,6 +137,7 @@ export function Ac1PosterPage() {
           <label>Products
             <select value={count} onChange={(event) => { setCount(Number(event.target.value)); setActive(null); }}>{POSTER_COUNTS.map((n) => <option key={n} value={n}>{n}</option>)}</select>
           </label>
+          <label className="ac1p-check"><input type="checkbox" checked={qr} onChange={(event) => setQr(event.target.checked)} /> QR codes for WhatsApp, Facebook and Instagram</label>
           <label>Image size
             <select value={format} onChange={(event) => { setFormat(event.target.value as FormatId); setActive(null); }} disabled={busy}>
               {FORMATS.map((id) => <option key={id} value={id}>{POSTER_FORMATS[id].label} ({POSTER_FORMATS[id].w} × {POSTER_FORMATS[id].h})</option>)}

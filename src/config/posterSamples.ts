@@ -20,7 +20,7 @@ const NAMES: [string, string, string][] = [
 export const POSTER_SAMPLE_PRODUCTS = NAMES.map(([name, original, price], i) => ({ name, original, price, image: PHOTOS[i % PHOTOS.length] }));
 
 /** Filled in so every part of the poster is visible straight away. Visitors replace these with their own details. */
-export const POSTER_SAMPLE_SHOP = { name: 'Your Shop Name', tagline: 'Best prices this week on everyday products', headline: 'BIG SALE', whatsapp: '98765 43210', facebook: 'YourShopPage', instagram: '@yourshop' };
+export const POSTER_SAMPLE_SHOP = { name: 'Your Shop Name', tagline: 'Best prices this week on everyday products', headline: 'BIG SALE', whatsapp: '98765 43210', facebook: 'YourShopPage', instagram: '@yourshop', countryCode: '91' };
 
 /** Number of products to choose from. Fewer products get bigger photos. */
 export const POSTER_COUNTS = [2, 4, 6, 9, 12, 15];

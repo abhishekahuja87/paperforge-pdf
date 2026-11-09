@@ -46,6 +46,7 @@ export const OfferPosterMaker: React.FC = () => {
   const [shop, setShop] = useState<PosterShop>(readShop);
   const [rows, setRows] = useState<Row[]>([]);
   const [count, setCount] = useState(6);
+  const [qr, setQr] = useState(false);
   const [emphasis, setEmphasis] = useState<Emphasis>('photos');
   const [offerText, setOfferText] = useState<string | null>(null);
   const [fonts, setFonts] = useState<'loading' | 'ready'>('loading');
@@ -78,7 +79,7 @@ export const OfferPosterMaker: React.FC = () => {
 
   const shown = useMemo(() => rows.slice(0, count), [rows, count]);
   const offerBadge = offerText ?? autoOffer(shown);
-  const input = useMemo(() => ({ shop, products: shown.map(toProduct), emphasis, offerBadge }), [shop, shown, emphasis, offerBadge]);
+  const input = useMemo(() => ({ shop, products: shown.map(toProduct), emphasis, offerBadge, qr }), [shop, shown, emphasis, offerBadge, qr]);
   const deferred = useDeferredValue(input);
   // Previews draw at most six products, which is enough to judge a design and keeps sixteen drawings quick.
   const thumbInput = useMemo(() => ({ ...deferred, products: deferred.products.slice(0, 6) }), [deferred]);
@@ -190,8 +191,17 @@ export const OfferPosterMaker: React.FC = () => {
           <label className="block text-xs font-semibold text-slate-700">Facebook page name<input className={fieldClass} value={shop.facebook} maxLength={60} onChange={setField('facebook')} /></label>
           <label className="block text-xs font-semibold text-slate-700">Instagram ID<input className={fieldClass} value={shop.instagram} maxLength={40} onChange={setField('instagram')} /></label>
         </div>
+        <div className="mt-3">
+          <Toggle label="Show QR codes" checked={qr} onChange={setQr} hint="A code above each contact that opens WhatsApp, your Facebook page or your Instagram profile when scanned." />
+          {qr && (
+            <label className="mt-2 block max-w-[14rem] text-xs font-semibold text-slate-700">Country code for the WhatsApp link
+              <input className={fieldClass} value={shop.countryCode ?? ''} inputMode="numeric" maxLength={4} placeholder="91" onChange={setField('countryCode')} />
+              <span className="mt-1 block text-[11px] font-normal text-slate-500">Added before your number. Leave empty if the number already starts with +.</span>
+            </label>
+          )}
+        </div>
         <p className="mt-2 text-[11px] text-slate-500">
-          A picture cannot hold a clickable link, so people see your name or ID and search for you. Put the full link in your post caption. Empty boxes are left out. Your details are remembered in this browser.
+          A picture cannot hold a clickable link, so people see your name or ID. Turn on QR codes to let them scan to open it, and put the full link in your post caption. Empty boxes are left out. Your details are remembered in this browser.
         </p>
       </div>
 
