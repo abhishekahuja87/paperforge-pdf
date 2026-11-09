@@ -1,0 +1,124 @@
+{
+  "guideSteps": {
+    "screenshot-redactor": [
+      [
+        "Add the image",
+        "Press Ctrl+V (Cmd+V on a Mac) after copying a screenshot, tap Paste from clipboard, or choose or drop an image file. On a phone, choose the screenshot from your gallery."
+      ],
+      [
+        "Draw boxes over private details",
+        "Drag across each phone number, account balance, email address, card number or face. Pick a solid box (safest) or pixelate, and a colour for solid boxes. Undo removes the last box."
+      ],
+      [
+        "Check the preview",
+        "Zoom in and make sure every private detail is covered, including small text in corners, browser tabs and notification banners."
+      ],
+      [
+        "Download or copy",
+        "Choose PNG or JPG and a size, then download, or copy the image and paste it straight into a chat or email. The saved file has no hidden layers or camera data."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "screenshotRedactorGuide": {
+      "title": "Screenshot Redactor: Blur or Black Out Sensitive Info in Images",
+      "subtitle": "Paste or open an image, draw boxes over phone numbers, balances and emails, then copy or download it. Private: the picture never leaves your device.",
+      "faq": [
+        [
+          "Is my screenshot uploaded anywhere?",
+          "No. The image is opened and edited inside your browser, and the result is created there too. Nothing is sent to MyDailyUtils or any other server, which matters because the whole point is that the private details never travel."
+        ],
+        [
+          "Can someone undo the redaction?",
+          "Not from a saved file. The boxes are drawn into the pixels and the file is created fresh, so there is no layer to remove and no original underneath. Be careful only with the original screenshot that you keep: if you share that instead of the redacted copy, the details are still visible."
+        ],
+        [
+          "Why is there no ordinary blur?",
+          "A light blur keeps a lot of information about the shape of the letters, and software can sometimes make it readable again, especially for digits. A solid box removes the information completely. Pixelate here uses very large blocks, so a line of text becomes a few flat tiles."
+        ],
+        [
+          "How do I paste a screenshot?",
+          "On Windows and Linux press Ctrl+V, on a Mac press Cmd+V, while this page is open. On a phone, use the Paste from clipboard button or pick the screenshot from your photos."
+        ],
+        [
+          "Does it remove location and camera data?",
+          "Yes. The image is redrawn onto a fresh canvas before saving, so EXIF data such as GPS position, camera model and the time a photo was taken is not copied to the result."
+        ],
+        [
+          "Can I draw on a phone?",
+          "Yes. Drag with your finger on the picture. If you need to scroll or zoom the page, turn off Draw mode, then turn it back on. Very large screenshots are easier to mark on a tablet or computer."
+        ],
+        [
+          "Does it find sensitive text automatically?",
+          "No. You choose what to cover. Automatic detection needs text recognition that is heavy to run in a browser and can miss items, and a missed item is worse than no help. A manual check is slower but you stay in control."
+        ],
+        [
+          "Is there a size or count limit?",
+          "There is no upload limit. Images up to about 80 megapixels are accepted, which covers phone screenshots and most camera photos. You can add as many boxes as you need."
+        ],
+        [
+          "Which file types work, and what do I get back?",
+          "PNG, JPG and WebP (and other formats your browser can open) go in. PNG or JPG comes out. PNG keeps text sharp and is best for screenshots; JPG is smaller for photos."
+        ],
+        [
+          "Is it free?",
+          "Yes, free with no account and no watermark."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "screenshot-redactor": {
+      "sections": [
+        {
+          "heading": "What the Screenshot Redactor does",
+          "paragraphs": [
+            "People share screenshots all day: a bank transfer that went through, an order confirmation, a chat for support, a spreadsheet for a colleague. Almost every one carries details that were never meant to travel, such as a phone number, an account balance, an email address, an order number or the name of the person in the next chat tab. This tool lets you cover those details in a few seconds and then copy or save the result.",
+            "You open the image, drag boxes over what to hide, and save. Everything happens in your browser, so the original never leaves your device, which is the reason to use a local tool for private details instead of an online editor that uploads the file."
+          ]
+        },
+        {
+          "heading": "Solid box, pixelate, and why blur is missing",
+          "paragraphs": [
+            "A solid box replaces the pixels with one colour. There is nothing left to recover, so it is the right choice for passwords, card numbers, one-time codes, account numbers and anything else where a mistake is costly.",
+            "Pixelate replaces the area with large flat tiles, which looks less harsh and is fine for faces, names or a background that you only want to obscure. Here each tile is about a third of the box height, so a line of text ends up as only a few tiles. Blur is left out on purpose. A mild blur still carries much of the shape of the original, and tools exist that sharpen blurred text, particularly short strings of digits, so it can give a false sense of safety."
+          ]
+        },
+        {
+          "heading": "What to check before you share",
+          "paragraphs": [
+            "Look beyond the obvious number. Private details hide in browser tabs, the address bar, notification banners, a profile picture, file names in a sidebar, the time and date, a barcode or QR code, and the reflection of other text in a window. Zoom in on every corner of the preview before you save.",
+            "Share the redacted file, not the original. It is easy to keep both in your downloads or photo roll and attach the wrong one. Many people delete the original once the redacted copy is saved, unless they need it."
+          ]
+        },
+        {
+          "heading": "How the redaction is kept permanent",
+          "paragraphs": [
+            "Some editors add a rectangle on a separate layer, which a recipient can sometimes move or remove in the same program. This tool draws into the picture itself and then produces a new image, so the saved PNG or JPG contains only the final pixels. No layer, no original and no thumbnail of the unedited picture stays in the file.",
+            "The new image also leaves behind metadata from the original photo, such as the GPS position, the device model and the time it was taken, because only the pixels are written to the new file."
+          ]
+        },
+        {
+          "heading": "Tips for common cases",
+          "paragraphs": [
+            "For a payment or banking screenshot, cover the account number, the reference, the balance and the names, and leave the amount and date if the other person needs them as proof. For a chat, cover other people's names and photos, and anything in the notification bar. For a spreadsheet, cover the columns that are not needed instead of trying to hide individual cells.",
+            "For identity documents, remember that a number or photo covered here is hidden only in the copy you share. Write the purpose and date next to the document in a way that cannot be reused, for example in a note on the page, if you need to protect the copy from misuse. That is a separate step from this tool."
+          ]
+        },
+        {
+          "heading": "Limits",
+          "paragraphs": [
+            "The tool only covers what you draw over. It does not recognise text, faces or barcodes for you. Very large images use a lot of memory, so on a phone a huge stitched screenshot may be slow or refused. Animated images keep only their first frame.",
+            "Hiding information in a picture does not change who already saw the original, or what was sent before. If a secret such as a password was visible in a screenshot that you already shared, change it."
+          ]
+        },
+        {
+          "heading": "Privacy",
+          "paragraphs": [
+            "The image is processed in your browser and nothing is uploaded to MyDailyUtils."
+          ]
+        }
+      ]
+    }
+  }
+}

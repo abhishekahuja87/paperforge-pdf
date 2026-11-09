@@ -226,16 +226,16 @@
     ],
     "bill-splitter": [
       [
-        "Enter the bill",
-        "Type the bill amount."
+        "Choose how to split",
+        "Use Equal split when everyone pays the same share, or Group settle-up when people paid for different things or shared things unevenly."
       ],
       [
-        "Add tip and people",
-        "Enter a tip or service charge percentage and how many people share."
+        "Enter the bill or the expenses",
+        "For an equal split, type the bill, the tip or service charge and how many people. For a group, list the people, then add each expense with its amount, who paid and who shared it."
       ],
       [
-        "Read each share",
-        "See what each person pays and the total with tip."
+        "Read who pays whom",
+        "See each share, or the shortest list of payments that makes everyone even, and copy it or save it as a picture to send to the group."
       ]
     ],
     "simple-compound-interest-calculator": [
@@ -1357,24 +1357,28 @@
       ]
     },
     "billSplitter": {
-      "title": "Bill Splitter",
-      "subtitle": "Split a restaurant or trip bill equally between any number of people, with an optional tip or service charge.",
+      "title": "Bill Splitter and Group Settle-Up Calculator",
+      "subtitle": "Split a bill equally with a tip, or settle a whole trip when people paid for different things. Free, no sign-up, any currency.",
       "faq": [
         [
           "Is the split always equal?",
-          "Yes. It divides the total with tip equally. For uneven shares, split the items yourself first."
+          "The Equal split mode is. It divides the total with tip equally. When people paid for different things or shared things unevenly, use Group settle-up, which handles who paid, who shared each expense and unequal portions."
         ],
         [
           "Is service charge included in my bill?",
-          "Many Indian restaurants already add service charge to the bill. Set the tip to 0 if so."
+          "Many restaurants already add a service charge to the bill. Set the tip to 0 if yours does."
         ],
         [
           "Can I round each share?",
-          "Yes. Round each share up to the next ₹1, ₹5 or ₹10; the tool shows how much extra that collects."
+          "Yes. In Equal split you can round each share up to the next whole number or the next multiple of 5 or 10; the tool shows how much extra that collects."
+        ],
+        [
+          "Which currency does it use?",
+          "None. It works with plain numbers, so it suits any country. If you want a sign such as $, EUR or Rs on the result, type it in the optional currency box and it is added to the results and the picture."
         ],
         [
           "Is my information sent anywhere?",
-          "No. The calculation runs in your browser and nothing you enter is uploaded to {{siteName}}."
+          "No. The calculation runs in your browser and nothing you enter is uploaded to {{siteName}}. Group settle-up keeps your list on this device only, so you can return to it during a trip, and you can clear it at any time."
         ]
       ]
     },
@@ -1658,7 +1662,7 @@
       "faq": [
         [
           "What styles are available?",
-          "Uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case and kebab-case."
+          "Uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case, kebab-case, URL slug, CONSTANT_CASE, dot.case, plus toggle and alternating case."
         ],
         [
           "Does title case follow any style guide?",
@@ -2939,25 +2943,26 @@
         {
           "heading": "What the Bill Splitter does",
           "paragraphs": [
-            "It divides a bill, plus an optional tip or service charge, equally among everyone at the table."
+            "The page has two modes. Equal split divides a bill, plus an optional tip or service charge, equally among everyone at the table. Group settle-up is for trips and shared costs where different people paid for different things and not everyone shared everything.",
+            "In Group settle-up you add the people, then each expense with an amount, who paid and who shared it. The page works out what each person paid and what their share was, and shows the smallest set of payments that makes everyone even. You can send the result as a picture or as text."
           ]
         },
         {
           "heading": "Tips for fair splitting",
           "paragraphs": [
-            "Check whether service charge is already on the bill, and settle uneven orders separately before using an equal split for the rest."
+            "Check whether service charge is already on the bill. If people ordered very different amounts or someone paid for part of it, use Group settle-up instead of forcing an equal split."
           ]
         },
         {
           "heading": "Rounding",
           "paragraphs": [
-            "Per-person amounts are shown to the paisa, so the shares may differ from the total by a paisa or two."
+            "Amounts are counted in hundredths and divided so that the shares always add up exactly to the total. When an amount cannot divide evenly, such as 100 between three people, the extra hundredth goes to a different person on each expense, so it does not fall on the same person every time."
           ]
         },
         {
           "heading": "Extras on this page",
           "paragraphs": [
-            "Rounding of each share and copy and print buttons."
+            "Rounding of each share, an optional currency sign, copy and print buttons, a shareable picture of the settle-up, unequal portions for each expense, and automatic saving on your own device."
           ]
         },
         {
@@ -3285,7 +3290,8 @@
         {
           "heading": "Writing styles and code styles",
           "paragraphs": [
-            "Title case and sentence case suit headings and prose. camelCase, PascalCase, snake_case and kebab-case suit code, file names and web addresses."
+            "Title case and sentence case suit headings and prose. camelCase, PascalCase, snake_case and kebab-case suit code, file names and web addresses.",
+            "The URL slug style makes a web address part from a title: it lowercases the text, removes accents on Latin letters (café becomes cafe), drops apostrophes and joins the words with hyphens. Letters from other scripts, such as Hindi or Cyrillic, are kept as they are. CONSTANT_CASE (upper case with underscores) is common for settings and environment variables, and dot.case for keys in configuration files."
           ]
         },
         {
