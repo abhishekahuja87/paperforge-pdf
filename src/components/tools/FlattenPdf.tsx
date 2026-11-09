@@ -8,8 +8,10 @@ import {
   AlertCircle,
 } from 'lucide-react';
 import { flattenPdf } from '../../lib/pdf/flatten';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
 export const FlattenPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
@@ -68,12 +70,13 @@ export const FlattenPdf: React.FC = () => {
 
   return (
     <div className="mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+      {passwordDialog}
 
       {/* Standard Upload Drop Zone */}
       {!file ? (
         <FileDropZone
           accept=".pdf,application/pdf"
-          onFiles={(files) => { void handleFileChange(files[0]); }}
+          onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFileChange(prepared); }); }}
         />
       ) : (
         <div className="space-y-4">

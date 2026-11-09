@@ -3,8 +3,10 @@ import { FileDropZone } from '../common/FileDropZone';
 import { FileText, AlertCircle, Scissors, Download, X, RefreshCw, Sparkles } from 'lucide-react';
 import { getPdfPageCount, parsePageRanges, extractPages } from '../../lib/pdf/split';
 import { generatePdfFilename } from '../../lib/pdf/naming';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
 export const SplitPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [rangeInput, setRangeInput] = useState<string>('');
@@ -94,12 +96,13 @@ export const SplitPdf: React.FC = () => {
 
   return (
     <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
+      {passwordDialog}
       {!file && (
         <FileDropZone
           accept=".pdf,application/pdf"
           disabled={status === 'loading'}
           readingPdf={status === 'loading'}
-          onFiles={(files) => { void handleFile(files[0]); }}
+          onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFile(prepared); }); }}
         />
       )}
       {!file && errorMessage && (

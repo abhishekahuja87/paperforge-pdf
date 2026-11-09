@@ -12,8 +12,10 @@ import {
 } from 'lucide-react';
 import { loadPdfThumbnails, exportOrganizedPdf } from '../../lib/pdf/organize';
 import type { PageThumbnailItem } from '../../lib/pdf/organize';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
 export const OrganizePdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
   const [pages, setPages] = useState<PageThumbnailItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -121,6 +123,7 @@ export const OrganizePdf: React.FC = () => {
 
   return (
     <div className="mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+      {passwordDialog}
 
       {!file && error && (
         <p role="alert" className="mb-4 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs text-rose-800">{error}</p>
@@ -129,7 +132,7 @@ export const OrganizePdf: React.FC = () => {
       {!file ? (
         <FileDropZone
           accept=".pdf,application/pdf"
-          onFiles={(files) => { void handleFileChange(files[0]); }}
+          onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFileChange(prepared); }); }}
         />
       ) : (
         <div className="space-y-5">

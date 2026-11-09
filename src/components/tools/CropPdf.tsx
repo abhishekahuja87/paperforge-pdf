@@ -14,8 +14,10 @@ import {
 import { getPdfPageCount } from '../../lib/pdf/split';
 import { cropPdf, convertToPoints, type CropUnit, type CropMargins } from '../../lib/pdf/crop';
 import { generatePdfFilename } from '../../lib/pdf/naming';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
 export const CropPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [pageSize, setPageSize] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
@@ -140,12 +142,13 @@ export const CropPdf: React.FC = () => {
 
   return (
     <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
+      {passwordDialog}
       {!file && (
         <FileDropZone
           accept=".pdf,application/pdf"
           disabled={status === 'loading'}
           readingPdf={status === 'loading'}
-          onFiles={(files) => { void handleFile(files[0]); }}
+          onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFile(prepared); }); }}
         />
       )}
       {!file && errorMessage && (

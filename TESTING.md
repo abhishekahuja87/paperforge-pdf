@@ -137,6 +137,10 @@ These are smoke checks with small synthetic files, not exhaustive tests of all
 settings, output fidelity, redaction cases, devices, browsers, languages, or
 accessibility. The reused digitization editor still has English-only controls.
 
+## Password-protected PDFs (manual check needed)
+
+Not run in the sandbox. After deploying, upload a password-protected PDF to Split, Rotate, Compress, Merge and Organize. Expect a password dialog; a wrong password shows an error and stays open; the right password continues with the pages; Skip file drops it; an owner-password-only file opens with the field left empty.
+
 ## Performance note (static review, not measured)
 
 The sandbox cannot run `pnpm build`, so the per-tool lazy loading in `UtilityPage` was checked only by reading the code and imports. After the next Amplify build, compare chunk sizes in the build log and run Lighthouse on `/` and one utility page.
