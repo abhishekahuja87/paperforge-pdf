@@ -69,7 +69,7 @@ export const TimeZoneConverter: React.FC = () => {
       {instant && rows.length > 0 && (
         <TimeZoneVisual
           instant={instant}
-          dayStart={(() => { try { return zonedTimeToDate(date, '00:00', from); } catch { return instant; } })()}
+          dayStart={(() => { try { return zonedTimeToDate(date, '00:00', from) ?? instant; } catch { return instant; } })()}
           fromLabel={zoneLabel(from)}
           date={date}
           time={time}
