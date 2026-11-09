@@ -541,6 +541,14 @@
             "Make a larger down payment so that you borrow less. Pay a little extra whenever you can, since a prepayment goes straight to the principal and shortens the loan. Compare offers on the rate, processing fee, prepayment charges and whether the rate is fixed or floating, because a small difference in the rate adds up over many years.",
             "Before you borrow, check that the EMI fits comfortably in your budget. Many lenders and advisers suggest that all your EMIs together should stay well below half of your monthly income."
           ]
+        },
+        {
+          "heading": "Extra payments and the month-wise table",
+          "paragraphs": [
+            "The month-wise table shows what each EMI does: how much goes to interest, how much reduces the loan and the balance that remains. Switching between it and the year-wise table lets you check a single month or see the whole picture. If you enter the month of your first EMI, the rows are labelled with real months.",
+            "You can also enter extra payments: one that repeats, such as 5,000 every 6 months, and one-time payments in any month, such as a bonus. This calculator keeps your EMI the same and uses the extra money to shorten the loan, because that usually saves the most interest. It then shows when the loan ends and how much interest you save compared with paying only the EMI.",
+            "Below the result, the page compares a shorter tenure, small extra payments, a smaller loan and a lower interest rate, each changing one thing from your loan. Use them to see what a change is worth, then check what your lender allows, including any prepayment fee, before acting."
+          ]
         }
       ]
     },
@@ -1486,6 +1494,18 @@
     },
     "emiCalc": {
       "faq": [
+        [
+          "Can I add extra payments to see how much interest I save?",
+          "Yes. Add a repeating extra payment, such as an amount every few months, and any one-time payments. The calculator keeps the EMI the same, shows when the loan would end and how much interest you save compared with paying only the EMI."
+        ],
+        [
+          "Can I see the schedule month by month?",
+          "Yes. Switch from the year-wise table to the month-wise table. Add the month of your first EMI to label the rows with real months."
+        ],
+        [
+          "How does the page decide which options to show for paying less interest?",
+          "It does not predict what you should do. It changes one thing at a time from your loan, such as a shorter tenure, a small extra payment, a smaller loan or a lower rate, and shows the effect on the EMI and total interest. Check your lender's terms and your budget before choosing."
+        ],
         [
           "What is the difference between a fixed and a floating rate?",
           "A fixed rate stays the same for the period you agree, so your EMI does not change. A floating rate moves with a benchmark, so your EMI or loan term changes when rates move. Floating loans are common for home loans."

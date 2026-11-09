@@ -459,7 +459,15 @@
       ],
       [
         "Check the schedule",
-        "Scroll through the year-wise table of principal, interest and balance."
+        "Switch between the year-wise and month-wise tables of principal, interest and balance. Add the month of the first EMI to see real month names."
+      ],
+      [
+        "Try extra payments (optional)",
+        "Add a payment that repeats, such as 5,000 every 6 months, or one-time payments in any month. See how much sooner the loan ends and how much interest you save."
+      ],
+      [
+        "See ways to pay less interest",
+        "Below the result, compare a shorter tenure, small extra payments, a smaller loan and a lower rate, each against your loan as entered."
       ]
     ],
     "sip-calculator": [
