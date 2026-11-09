@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { X } from 'lucide-react';
-import { EncryptedPDFError, PDFDocument } from 'pdf-lib';
+import { PDFDocument } from 'pdf-lib';
 import { useDialog } from '../../lib/useDialog';
 
 const isPdfFile = (file: File) => file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
@@ -15,7 +15,9 @@ export async function isPasswordProtectedPdf(file: File): Promise<boolean> {
     await PDFDocument.load(buffer, { updateMetadata: false });
     return false;
   } catch (error) {
-    return error instanceof EncryptedPDFError;
+    // pdf-lib is compiled for old browsers, where `instanceof EncryptedPDFError` is unreliable, so go by the message.
+    const message = error instanceof Error ? error.message : String(error);
+    return /encrypted/i.test(message);
   }
 }
 
