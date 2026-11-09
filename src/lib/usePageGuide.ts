@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../config/site';
-import en from '../locales/en.json';
+import { en } from '../locales/english';
 
 export function usePageFaqs(id: keyof typeof en.pageGuides) {
   const { t, i18n } = useTranslation();
@@ -14,7 +14,9 @@ export function usePageFaqs(id: keyof typeof en.pageGuides) {
   };
 }
 
-export function usePageGuide(id: 'compress' | 'crop' | 'delete' | 'sample' | 'imagesToPdf' | 'inspect' | 'jsonFormatter' | 'pageNumbers' | 'watermark' | 'nup' | 'pdfToImages' | 'organize' | 'flatten' | 'base64' | 'incomeTaxCalc' | 'salaryCalc' | 'hraCalc' | 'emiCalc' | 'sipCalc' | 'fdCalc' | 'ppfCalc' | 'gstCalc' | 'gstInvoiceGen' | 'epfCalc' | 'timeZoneConverter' | 'loremIpsum' | 'colorConverter' | 'uuidGenerator' | 'timestampConverter' | 'urlEncoder'  | 'gratuityCalc' | 'lumpsumCalc' | 'inflationCalc' | 'bmiCalc' | 'billSplitter'  | 'simpleCompoundCalc' | 'rdCalc' | 'cagrCalc' | 'ageCalc' | 'dateDifferenceCalc' | 'percentageCalc' | 'discountCalc' | 'unitConverter' | 'wordCounter' | 'caseConverter' | 'numberToWords' | 'passwordGenerator'  | 'imageResizer' | 'imageResizer20' | 'imageResizer50' | 'imageResizer100' | 'imageResizer200' | 'passportPhoto' | 'signatureResizer' | 'examPhoto' | 'imageResizer30' ) {
+export type PageGuideId = keyof typeof en.pageGuides;
+
+export function usePageGuide(id: PageGuideId) {
   const { t } = useTranslation();
   const guide = usePageFaqs(id);
   return {

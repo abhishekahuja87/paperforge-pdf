@@ -3,7 +3,7 @@ import { ShieldCheck, HelpCircle } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import en from '../../locales/en.json';
+import { en } from '../../locales/english';
 
 export interface GuideStep {
   title: string;

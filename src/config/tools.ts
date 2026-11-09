@@ -1,4 +1,5 @@
 import en from '../locales/en.json';
+import { PACK_TOOLS } from './packs';
 
 export type ToolCategory = 'pdf' | 'media' | 'dev' | 'text' | 'display' | 'business' | 'finance' | 'everyday';
 
@@ -44,7 +45,7 @@ export interface ToolItem {
 
 export const CATEGORIES: Record<ToolCategory, { name: string; description: string }> = en.categories;
 
-export const TOOLS: ToolItem[] = [
+const CORE_TOOLS: ToolItem[] = [
   {
     id: 'digitize-documents',
     title: 'Digitize Documents',
@@ -834,3 +835,6 @@ export const TOOLS: ToolItem[] = [
     keywords: ['url encode', 'url decode', 'percent encoding', 'encodeuricomponent', 'query string', 'urlencode', 'link encoder'],
   },
 ];
+
+/** The core tools above plus the tools of every pack (see src/config/packs). */
+export const TOOLS: ToolItem[] = [...CORE_TOOLS, ...PACK_TOOLS.map(({ tool }) => tool)];
