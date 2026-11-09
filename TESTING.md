@@ -302,3 +302,62 @@ Check after deploy:
 - /bulk-qr-code-generator: paste 3 lines, download ZIP, unzip, scan each PNG; SVG option; print the labelled sheet.
 - All three appear in search, the sitemap, and the home page (rent receipt under Money, tag maker under Work, bulk QR under Sharing).
 
+
+## Test round checklist: November 9, 2026 (everything merged since the Offer Poster Maker)
+
+Use this as one pass on a real phone (and once on a desktop). Tick each line; note the page, device and what you saw for anything that fails. Nothing here was visually verified in the sandbox (no Tailwind), and `tsc` and `vite build` were not run, so the first check is that the Amplify build is green.
+
+### A. Build and routes
+- [ ] Amplify build for the latest main succeeded with no TypeScript errors.
+- [ ] `/catalog-templates` now shows the 404 page (it was removed). `/ac1`, `/ac1/edit` and `/ac1/poster` still open, and `curl -I` on each shows `x-robots-tag: noindex, nofollow`.
+- [ ] `/sitemap.xml` lists `/offer-poster-maker`, `/rent-receipt-generator`, `/price-tag-maker`, `/bulk-qr-code-generator` and does not list `/catalog-templates` or `/ac1*`.
+- [ ] Search on the home page finds all three new tools ("rent receipt", "price tag", "bulk qr"); each appears in the footer tool list.
+
+### B. Home page colours (#55, #58)
+- [ ] Each topic heading icon and its tiles share one colour; PDF, Images, Money, Everyday, Work, Study, Sharing, Dev are clearly different from each other (especially PDF vs the orange tiles, and Money vs Images).
+- [ ] Most used tiles and the Workspace cards each have their own distinct colours.
+- [ ] New tools row shows Rent Receipt, Price Tag, Bulk QR first with the "New" tag; Rent Receipt is also under Money, Price Tag under Work, Bulk QR under Sharing.
+
+### C. Offer Poster Maker (`/offer-poster-maker`)
+- [ ] Designs show their real fonts (check Network: fonts load from your own domain, no requests to Google).
+- [ ] Sizes: square, portrait, story, A4. Product counts 2, 4, 6, 9, 12, 15; photos get most of the space. Download a PNG of each size and open it.
+- [ ] Header and footer bars are compact (#57) and nothing overlaps on 15 products or with long names.
+- [ ] Edit shop name, heading, tagline, corner badge, each product name, old price, new price and each photo badge (percentage, amount or words); empty fields are hidden.
+- [ ] Footer: WhatsApp number, Facebook name and Instagram ID appear; turn QR on, scan each QR with a phone camera (WhatsApp opens a chat; Facebook and Instagram open the profile). Try a number with +, a 10-digit number and one starting with 0.
+- [ ] Reload: shop details are remembered, photos are not.
+
+### D. Private poster pages (`/ac1`, `/ac1/poster`, `/ac1/edit`)
+- [ ] `/ac1` chooser: new designs first, count and size selectors work, "Use design" opens `/ac1/poster` with the right design, count and size; classic designs open `/ac1/edit`.
+- [ ] `/ac1/poster` on a phone: tap the pencil on the shop name, a price, a product name and a footer contact; the editor appears under the picture; photo buttons replace, zoom and move; Download PNG works. List-style designs show 3 to 6 readable rows.
+
+### E. QR code generator (`/qr-code-generator`, Wi-Fi, vCard)
+- [ ] WhatsApp kind: number plus message, scan, chat opens with the text.
+- [ ] Wi-Fi and contact codes still scan; PNG and SVG download.
+
+### F. Rent Receipt Generator (`/rent-receipt-generator`)
+- [ ] Fill tenant, landlord, address, rent 15000, April 2026 to March 2027: 12 receipts, 4 pages, amount shows "Rupees Fifteen Thousand Only", each period runs from the 1st to the last day of its month.
+- [ ] Rent 9000 a month with no PAN shows the PAN reminder (yearly rent over Rs 1 lakh); a PAN like ABCD1234F shows the format error; ABCDE1234F is accepted.
+- [ ] Last month before first month shows the error and disables printing. A 40-month range warns it is capped at 36.
+- [ ] Print or save as PDF: three receipts per A4 page, dashed cut lines, nothing split across pages, the form is not in the PDF. Check the revenue stamp box option.
+- [ ] Tick remember, reload: names, PAN and address come back; untick clears them.
+- [ ] Another currency shows the amount without words.
+
+### G. Price Tag Maker (`/price-tag-maker`)
+- [ ] "Fill with an example" shows 3 products. Switch small, medium, large: 40, 24, 10 tags per sheet; text stays readable and nothing overflows the tag.
+- [ ] Barcode: print at 100% on A4 and scan a printed barcode with a scanner or a phone barcode app. QR: scan a tag's QR.
+- [ ] Old price is struck through and "Save %" is correct; turn the saving off. Shop name bar and colour change work.
+- [ ] A code with Hindi or over 40 characters shows the warning and prints without a code.
+- [ ] Copies 3 triples the tags; 400-tag limit message appears for large lists. Print preview: all sheets print (not only the first two), one A4 page per sheet, no blank last page.
+- [ ] Paste columns from a spreadsheet (tab separated) and a comma separated list.
+
+### H. Bulk QR Code Generator (`/bulk-qr-code-generator`)
+- [ ] Paste 3 lines (label, link). Download the ZIP: files named from labels, `list.txt` matches, every PNG scans with a phone. Repeat with SVG.
+- [ ] Link containing a comma (`https://example.com/a?x=1,2`) scans correctly; a line with only a link is named from the link; a tab-separated line works.
+- [ ] Choose light colours: the contrast warning shows.
+- [ ] Print the labelled sheet with 3, 4 and 5 per row: labels under each code, all codes printed even when over 24.
+
+### I. Still on you (not testable by me)
+- [ ] AdSense Auto-ads exclusions for `/ac1`, `/ac1/edit`, `/ac1/poster`, legal pages and the 404 page.
+- [ ] EEA/UK/CH consent message, Amplify bare-domain redirect, Analytics and AdSense link, Search Console sitemap submission (add the three new URLs).
+
+When reporting: page, device and browser, what you did, what you expected and what happened; a screenshot helps most for layout problems.
