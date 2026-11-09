@@ -250,3 +250,7 @@ Check after deploy:
 - Workspace cards show the heading, the use-case label and the full description; none are cut off.
 - Topic tiles are small (two per row on a phone), names are shortened and the full description appears when you hover or long-press.
 - Topic descriptions read well and the "New" tag shows on the recently added tools.
+
+### Home page: one column on phones
+
+Check after deploy: on a phone, Most used and every topic list show one tile per row (for example Merge PDF, then Split PDF, then Compress PDF); on a tablet or computer the layout is unchanged and every tile in a topic is visible with no Show more button; on a phone the button still shows "Show N more" and toggles.

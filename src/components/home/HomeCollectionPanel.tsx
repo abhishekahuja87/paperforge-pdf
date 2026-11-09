@@ -8,9 +8,10 @@ import { getToolCopy } from '../../lib/localizedTool';
 import { HomeCollectionHeading, HomeToolCard } from './HomeVariantTools';
 
 /**
- * One topic: heading with a description, small tiles, and a Show more / Show fewer button. The tiles past the
- * preview stay in the page (hidden, not removed), and the button is below them, so opening and closing never
- * moves it above the tiles.
+ * One topic: heading with a description, small tiles (one per row on a phone), and a Show more / Show fewer
+ * button. On a phone only the first COLLECTION_PREVIEW tiles show until the button is pressed; from the small
+ * breakpoint up every tile is always visible and the button is not shown. Folded tiles stay in the page (hidden,
+ * not removed), and the button is below them, so opening and closing never moves it above the tiles.
  */
 export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds: Set<string> }> = ({ collection, newIds }) => {
   const { t, i18n } = useTranslation();
@@ -21,9 +22,9 @@ export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds:
   return (
     <section id={`topic-${collection.id}`} className="scroll-mt-20 rounded-2xl border border-stone-200 bg-[var(--theme-surface)] p-3 sm:p-4">
       <HomeCollectionHeading collection={collection} count={collection.tools.length + collection.presets.length} />
-      <div id={listId} className="grid grid-cols-2 gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
+      <div id={listId} className="grid grid-cols-1 gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
         {collection.tools.map((tool, index) => (
-          <div key={tool.id} hidden={index >= COLLECTION_PREVIEW && !expanded} className="min-w-0">
+          <div key={tool.id} className={`min-w-0 ${index >= COLLECTION_PREVIEW && !expanded ? 'hidden sm:block' : ''}`}>
             <HomeToolCard tool={tool} compact isNew={newIds.has(tool.id)} />
           </div>
         ))}
@@ -34,7 +35,7 @@ export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds:
           aria-expanded={expanded}
           aria-controls={listId}
           onClick={() => setExpanded((open) => !open)}
-          className="mt-2 flex min-h-9 w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-stone-300 px-3 py-1.5 text-xs font-semibold text-stone-600 transition hover:border-orange-300 hover:text-orange-800"
+          className="mt-2 flex min-h-9 w-full sm:hidden items-center justify-center gap-1.5 rounded-lg border border-dashed border-stone-300 px-3 py-1.5 text-xs font-semibold text-stone-600 transition hover:border-orange-300 hover:text-orange-800"
         >
           {expanded ? t('homeSections.showFewer') : t('homeSections.showMore', { count: foldedCount })}
           <ChevronDown className={`h-3.5 w-3.5 transition ${expanded ? 'rotate-180' : ''}`} aria-hidden="true" />
