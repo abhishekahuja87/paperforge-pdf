@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
 import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
 import { buildCitation, emptyCitation, toHtml, toPlainText, type CitationInput, type CitationStyle, type SourceType } from '../../../lib/students/citation';
-import { RowButton, nextRowId } from './rows';
+import { RowButton, nextRowId } from '../shared/rows';
 
 const STYLES: { value: CitationStyle; label: string }[] = [
   { value: 'apa', label: 'APA 7' }, { value: 'mla', label: 'MLA 9' }, { value: 'chicago', label: 'Chicago (author-date)' }, { value: 'harvard', label: 'Harvard' },

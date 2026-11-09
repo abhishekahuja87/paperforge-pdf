@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { CalcFooter, InputGrid, Note, NumberField, ResultActions, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { gradeStatus, neededScore } from '../../../lib/students/grades';
-import { RowButton, RowInput, nextRowId } from './rows';
+import { RowButton, RowInput, nextRowId } from '../shared/rows';
 
 interface Part { id: string; name: string; weight: string; score: string }
 const one = (value: number) => `${(Math.round(value * 10) / 10).toString()}%`;

@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { ChoiceButtons } from '../utilities/common';
 import { CONVERSIONS, GRADE_SCALES, cgpaToPercent, percentToCgpa, requiredNextTerm, weightedAverage, type ConversionMethod } from '../../../lib/students/gpa';
-import { RowButton, RowInput, nextRowId } from './rows';
+import { RowButton, RowInput, nextRowId } from '../shared/rows';
 
 interface Row { id: string; name: string; credits: string; grade: string }
 interface Term { id: string; name: string; credits: string; gpa: string }
