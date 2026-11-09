@@ -990,5 +990,9 @@
       "name": "More tools",
       "description": "Other tools on the site."
     }
+  },
+  "sizePresets": {
+    "title": "Need an exact file size?",
+    "hint": "Each page opens the resizer with that limit already set."
   }
 }

@@ -59,6 +59,14 @@ function featuredInfo(tool: ToolItem, language: string): FeaturedTool {
 /** Short name for tiles: tool titles are written for search and can be long ("Name: what it does"), so cards use the part before the colon. */
 export const homeTitle = (title: string): string => title.split(':')[0]!.trim() || title;
 
+/** The exact-size image pages (20, 30, 50, 100 and 200 KB), smallest first. */
+export function getSizePresets(): { tool: ToolItem; kb: number }[] {
+  return TOOLS.flatMap((tool) => {
+    const match = tool.isAvailable ? SIZE_PRESET_PATTERN.exec(tool.id) : null;
+    return match ? [{ tool, kb: Number(match[1]) }] : [];
+  }).sort((a, b) => a.kb - b.kb);
+}
+
 /** Tiles for the "Most used" row. */
 export const getMostUsedTools = (): ToolItem[] => orderedTools(MOST_USED);
 

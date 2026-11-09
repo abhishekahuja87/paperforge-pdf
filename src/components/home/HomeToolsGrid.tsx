@@ -44,7 +44,7 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
 
   return (
     <div className="mx-auto max-w-6xl space-y-7 px-4 pb-8">
-      <nav aria-label={t('homeSections.jumpTo')} className="-mt-2 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] sm:flex-wrap sm:justify-center sm:overflow-visible">
+      <nav aria-label={t('homeSections.jumpTo')} className="-mt-2 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] sm:hidden">
         {collections.map((group) => (
           <a key={group.id} href={`#topic-${group.id}`} className="shrink-0 whitespace-nowrap rounded-full border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-stone-700 transition hover:border-orange-300 hover:text-orange-800">
             {t(`homeCollections.${group.id}.name`)}

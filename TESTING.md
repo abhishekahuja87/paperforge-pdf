@@ -254,3 +254,7 @@ Check after deploy:
 ### Home page: one column on phones
 
 Check after deploy: on a phone, Most used and every topic list show one tile per row (for example Merge PDF, then Split PDF, then Compress PDF); on a tablet or computer the layout is unchanged and every tile in a topic is visible with no Show more button; on a phone the button still shows "Show N more" and toggles.
+
+### Jump chips and size links
+
+Check after deploy: the topic chips under the search box show on a phone and not on a tablet or computer; /image-resizer and each /resize-image-to-<n>kb page show a "Need an exact file size?" box with 20, 30, 50, 100 and 200 KB chips, the current page is highlighted, and each chip opens that page with its limit set. Passport, signature and exam photo pages do not show the box.
