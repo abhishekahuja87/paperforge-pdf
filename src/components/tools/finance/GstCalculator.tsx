@@ -19,7 +19,7 @@ export const GstCalculator: React.FC = () => {
   return (
     <section className={calcCard}>
       <InputGrid>
-        <NumberField label={mode === 'add' ? 'Price without GST' : 'Price with GST included'} prefix="₹" value={amount} onChange={setAmount} words />
+        <NumberField shareKey="amount" label={mode === 'add' ? 'Price without GST' : 'Price with GST included'} prefix="₹" value={amount} onChange={setAmount} words />
         <SelectField label="What do you want to do?" value={mode} onChange={(value) => setMode(value === 'remove' ? 'remove' : 'add')} options={[
           { value: 'add', label: 'Add GST to a price' },
           { value: 'remove', label: 'Remove GST from a price' },

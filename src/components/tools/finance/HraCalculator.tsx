@@ -1,3 +1,4 @@
+import { useShared } from '../../../lib/shareState';
 import React, { useMemo, useState } from 'react';
 import { CalcFooter, InputGrid, Note, NumberField, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { computeHra } from '../../../lib/finance/calculators';
@@ -8,6 +9,7 @@ export const HraCalculator: React.FC = () => {
   const [hra, setHra] = useState('25000');
   const [rent, setRent] = useState('22000');
   const [metro, setMetro] = useState(true);
+  useShared('Metro city', metro ? '1' : '0', (text) => setMetro(text === '1'), (text) => text === '0' || text === '1');
 
   const result = useMemo(() => computeHra({ monthlyBasic: parseAmount(basic), monthlyHra: parseAmount(hra), monthlyRent: parseAmount(rent), metro }), [basic, hra, rent, metro]);
 

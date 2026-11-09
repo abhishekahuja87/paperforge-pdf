@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ToolGuide } from '../components/common/ToolGuide';
 import { ToolLayout } from '../components/layout/ToolLayout';
+import { ShareLinkBar } from '../components/common/ShareLinkBar';
+import { ShareProvider } from '../lib/shareState';
 import { usePageGuide } from '../lib/usePageGuide';
 
 const CagrCalculator = lazy(() => import('../components/tools/finance/CagrCalculator').then((m) => ({ default: m.CagrCalculator })));
@@ -60,15 +62,21 @@ const TOOLS = {
 
 export type UtilityKind = keyof typeof TOOLS;
 
+/** Calculators whose inputs are plain numbers, dates and choices, so a pre-filled link makes sense. */
+const SHAREABLE = new Set<UtilityKind>(['simpleCompound', 'rd', 'cagr', 'age', 'dateDifference', 'percentage', 'discount', 'unit', 'numberToWords', 'gratuity', 'lumpsum', 'inflation', 'bmi', 'billSplitter', 'epf', 'timeZone']);
+
 export const UtilityPage: React.FC<{ kind: UtilityKind }> = ({ kind }) => {
   const { i18n } = useTranslation();
   const { Component, guide: guideId } = TOOLS[kind];
   const guide = usePageGuide(guideId);
   return (
     <ToolLayout title={guide.title} subtitle={guide.subtitle} contentLanguage={i18n.language} seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}>
-      <Suspense fallback={<div className="py-10 text-center text-sm text-slate-500" role="status">Loading…</div>}>
-        <Component />
-      </Suspense>
+      <ShareProvider key={kind}>
+        <Suspense fallback={<div className="py-10 text-center text-sm text-slate-500" role="status">Loading…</div>}>
+          <Component />
+        </Suspense>
+        {SHAREABLE.has(kind) && <ShareLinkBar />}
+      </ShareProvider>
     </ToolLayout>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { amountInWords, parseAmount } from '../../lib/finance/format';
 import { CopyButton } from '../tools/utilities/common';
+import { acceptNumber, useShared } from '../../lib/shareState';
 
 export const calcCard = 'mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6';
 const inputClass = 'mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900';
@@ -15,9 +16,12 @@ interface NumberFieldProps {
   /** Show "12.5 lakh" style help under rupee amounts. */
   words?: boolean;
   step?: string;
+  /** Overrides the address key when the label changes with the mode. */
+  shareKey?: string;
 }
 
-export const NumberField: React.FC<NumberFieldProps> = ({ label, value, onChange, hint, prefix, suffix, words, step }) => {
+export const NumberField: React.FC<NumberFieldProps> = ({ label, value, onChange, hint, prefix, suffix, words, step, shareKey }) => {
+  useShared(label, value, onChange, acceptNumber, shareKey);
   const spoken = words ? amountInWords(parseAmount(value)) : '';
   return (
     <label className="block text-xs font-semibold text-slate-700">
@@ -47,14 +51,17 @@ interface SelectFieldProps {
   options: { value: string; label: string }[];
 }
 
-export const SelectField: React.FC<SelectFieldProps> = ({ label, value, onChange, options }) => (
+export const SelectField: React.FC<SelectFieldProps> = ({ label, value, onChange, options }) => {
+  useShared(label, value, onChange, (text) => options.some((option) => option.value === text));
+  return (
   <label className="block text-xs font-semibold text-slate-700">
     {label}
     <select value={value} onChange={(event) => onChange(event.target.value)} className={inputClass}>
       {options.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
     </select>
   </label>
-);
+  );
+};
 
 export const InputGrid: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="grid gap-4 rounded-xl bg-slate-50 p-4 sm:grid-cols-2">{children}</div>

@@ -65,7 +65,7 @@ const AddSubtract: React.FC = () => {
   return (
     <>
       <InputGrid>
-        <DateField label="Start date" value={start} onChange={setStart} />
+        <DateField label="Start date" shareKey="add-start-date" value={start} onChange={setStart} />
         <div className="flex items-end"><ChoiceButtons label="Add or subtract" value={direction} onChange={setDirection} options={[{ value: 'add', label: 'Add' }, { value: 'sub', label: 'Subtract' }]} /></div>
         <NumberField label="Years" value={years} onChange={setYears} step="1" />
         <NumberField label="Months" value={months} onChange={setMonths} step="1" />

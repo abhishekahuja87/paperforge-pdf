@@ -316,7 +316,8 @@
       "faq": [
         ["How does PDF compression work on {{siteName}}?", "The tool rewrites the PDF using object streams and removes standard document metadata. The Strong option also removes selected XMP metadata, editing information, and embedded page thumbnails. It does not downsample images."],
         ["Will text or vector drawings lose clarity?", "The tool does not rasterize pages or downsample embedded images. It rewrites PDF objects and metadata, so the resulting size may be similar to or larger than the original."],
-        ["Are my confidential documents uploaded anywhere?", "The PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The website still makes separate network requests for resources and advertising."]
+        ["Are my confidential documents uploaded anywhere?", "The PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The website still makes separate network requests for resources and advertising."],
+        ["What size limits should I aim for?", "It depends on where the file is going, so follow the limit you were given. As a rough guide, email attachments are often capped at about 20–25 MB in total, and many government and job portals ask for roughly 100 KB to 2 MB per file. This tool does not shrink images, so a scanned PDF may stay larger than a strict limit allows."]
       ]
     },
     "crop": {

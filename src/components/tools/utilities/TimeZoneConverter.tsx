@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { CalcFooter, SelectField, calcCard } from '../../finance/ui';
 import { DateField, fieldClass } from './common';
+import { acceptTime, useShared } from '../../../lib/shareState';
 import { COMMON_ZONES, formatInZone, zonedTimeToDate } from '../../../lib/utilities/dev';
 
 function allZones(): string[] {
@@ -24,6 +25,8 @@ export const TimeZoneConverter: React.FC = () => {
   const [time, setTime] = useState(`${pad(now.getHours())}:${pad(now.getMinutes())}`);
   const [targets, setTargets] = useState<string[]>(['Asia/Kolkata', 'UTC', 'America/New_York', 'Europe/London']);
   const [extra, setExtra] = useState('');
+  useShared('Time', time, setTime, acceptTime);
+  useShared('Also show', targets.join(','), (text) => setTargets(text.split(',')), (text) => text.split(',').every((zone) => zones.includes(zone)));
 
   const instant = useMemo(() => { try { return zonedTimeToDate(date, time, from); } catch { return null; } }, [date, time, from]);
   const options = zones.map((zone) => ({ value: zone, label: zoneLabel(zone) }));
