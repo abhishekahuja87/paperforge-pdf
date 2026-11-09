@@ -51,7 +51,7 @@
         {
           "heading": "How Group settle-up reduces the number of payments",
           "paragraphs": [
-            "After every expense is counted, each person is either owed money, owes money or is even. The simplest approach, where everyone pays back the person who paid, can produce many small transfers. This page instead looks for groups of people whose balances cancel out among themselves, because each such group needs one payment fewer than its size. With up to sixteen people who still have a balance, it finds the best split into groups exactly; with more, it uses a simple method that is never worse than one payment fewer than the number of people.",
+            "After every expense is counted, each person is either owed money, owes money or is even. The simplest approach, where everyone pays back the person who paid, can produce many small transfers. This page instead pairs off people who are owed exactly what another person owes, then looks for groups of people whose balances cancel out among themselves, because each such group needs one payment fewer than its size. With up to twenty people who still have a balance, it finds the best split into groups exactly. With more, it uses a simple method that always settles everyone, is very close to the fewest payments, and says so on the page.",
             "For example, if A is owed 50, B owes 30 and C owes 20, two payments settle it. If A is owed 50 and B owes 50 while C and D are owed and owe 10 each, the page finds the two separate pairs instead of routing everything through one person."
           ]
         },

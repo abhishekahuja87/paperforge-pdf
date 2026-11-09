@@ -25,6 +25,8 @@ export interface Transfer { from: string; to: string; amount: number }
 export interface Settlement {
   balances: Balance[];
   transfers: Transfer[];
+  /** True when the payments are proven to be the fewest possible; false for very large groups, where they are close to it. */
+  exact: boolean;
   total: number;
   /** Expenses that were skipped, with the reason, so nothing disappears silently. */
   skipped: { label: string; reason: string }[];
@@ -87,24 +89,40 @@ function greedy(entries: { id: string; net: number }[]): Transfer[] {
   return out;
 }
 
-/** Largest number of people for which the exact search is used (2^16 subsets). */
-const EXACT_LIMIT = 16;
+/** Largest number of people left after matching equal amounts for which the exact search is used (2^20 subsets). */
+const EXACT_LIMIT = 20;
 
 /**
  * Fewest payments. A group of people whose balances add up to zero can settle among themselves with one payment
- * fewer than its size, so the best answer splits everyone into as many such groups as possible. For up to 16 people
- * with a balance this is found exactly; for larger sets the simple greedy method is used (never worse than n - 1).
+ * fewer than its size, so the best answer splits everyone into as many such groups as possible. First, anyone who
+ * is owed exactly what someone else owes is paired off (always part of a best answer). If 20 or fewer people still
+ * have a balance, the best grouping is found exactly; with more, the simple greedy method is used, which is
+ * correct but not always the fewest, and `exact` is false.
  */
-export function minimalTransfers(nets: { id: string; net: number }[]): Transfer[] {
+export function minimalTransfers(nets: { id: string; net: number }[]): { transfers: Transfer[]; exact: boolean } {
   const people = nets.filter((e) => e.net !== 0);
-  const n = people.length;
-  if (n === 0) return [];
-  if (n > EXACT_LIMIT) return greedy(people);
+  const transfers: Transfer[] = [];
+  // Pair off equal and opposite balances.
+  const owing = people.filter((e) => e.net < 0).sort((a, b) => a.net - b.net);
+  const owed = people.filter((e) => e.net > 0);
+  const remaining: { id: string; net: number }[] = [];
+  const unmatched = [...owed];
+  for (const debtor of owing) {
+    const at = unmatched.findIndex((c) => c.net === -debtor.net);
+    if (at >= 0) {
+      transfers.push({ from: debtor.id, to: unmatched[at]!.id, amount: -debtor.net });
+      unmatched.splice(at, 1);
+    } else remaining.push(debtor);
+  }
+  remaining.push(...unmatched);
+  const n = remaining.length;
+  if (n === 0) return { transfers, exact: true };
+  if (n > EXACT_LIMIT) return { transfers: [...transfers, ...greedy(remaining)], exact: false };
   const size = 1 << n;
   const sums = new Float64Array(size);
   for (let mask = 1; mask < size; mask += 1) {
     const low = 31 - Math.clz32(mask & -mask);
-    sums[mask] = sums[mask & (mask - 1)]! + people[low]!.net;
+    sums[mask] = sums[mask & (mask - 1)]! + remaining[low]!.net;
   }
   const best = new Int16Array(size);
   const pick = new Int8Array(size);
@@ -126,12 +144,12 @@ export function minimalTransfers(nets: { id: string; net: number }[]): Transfer[
   const groups: { id: string; net: number }[][] = [[]];
   let running = 0;
   for (const bit of order) {
-    const entry = people[bit]!;
+    const entry = remaining[bit]!;
     groups[groups.length - 1]!.push(entry);
     running += entry.net;
     if (running === 0) groups.push([]);
   }
-  return groups.filter((g) => g.length > 0).flatMap(greedy);
+  return { transfers: [...transfers, ...groups.filter((g) => g.length > 0).flatMap(greedy)], exact: true };
 }
 
 export function computeSettlement(people: Person[], expenses: Expense[]): Settlement {
@@ -156,7 +174,8 @@ export function computeSettlement(people: Person[], expenses: Expense[]): Settle
     total += amount;
   });
   const balances = people.map((p, i) => ({ id: p.id, name: p.name, paid: paid[i]!, owed: owed[i]!, net: paid[i]! - owed[i]! }));
-  return { balances, transfers: minimalTransfers(balances), total, skipped };
+  const { transfers, exact } = minimalTransfers(balances);
+  return { balances, transfers, exact, total, skipped };
 }
 
 /** Plain number with grouping; whole amounts have no decimals. Optional label such as "$", "EUR" or "Rs". */
