@@ -21,42 +21,38 @@ export async function loadPdfThumbnails(fileBuffer: ArrayBuffer): Promise<PageTh
     cMapPacked: true,
   });
 
-  const pdfDoc = await loadingTask.promise;
   const thumbnails: PageThumbnailItem[] = [];
-
-  for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
-    const page = await pdfDoc.getPage(pageNum);
-    // 0.45 scale generates fast, crisp previews while keeping memory consumption low
-    const viewport = page.getViewport({ scale: 0.45 });
-
-    const canvas = document.createElement('canvas');
-    canvas.width = Math.floor(viewport.width);
-    canvas.height = Math.floor(viewport.height);
-
-    const ctx = canvas.getContext('2d');
-    if (ctx) {
-      await page.render({
-        canvasContext: ctx,
-        canvas: canvas,
-        viewport,
-      }).promise;
+  let pdfDoc: pdfjsLib.PDFDocumentProxy | undefined;
+  try {
+    pdfDoc = await loadingTask.promise;
+    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+      const page = await pdfDoc.getPage(pageNum);
+      const canvas = document.createElement('canvas');
+      try {
+        // 0.45 scale generates fast, crisp previews while keeping memory consumption low
+        const viewport = page.getViewport({ scale: 0.45 });
+        canvas.width = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+        const ctx = canvas.getContext('2d');
+        if (!ctx) throw new Error('Canvas rendering is unavailable in this browser, so page previews cannot be made.');
+        await page.render({ canvasContext: ctx, canvas, viewport }).promise;
+        thumbnails.push({
+          id: `page-${pageNum}-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+          originalPageIndex: pageNum - 1,
+          rotation: 0,
+          thumbnailUrl: canvas.toDataURL('image/jpeg', 0.8),
+        });
+      } finally {
+        canvas.width = 0;
+        canvas.height = 0;
+        page.cleanup();
+      }
     }
-
-    thumbnails.push({
-      id: `page-${pageNum}-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
-      originalPageIndex: pageNum - 1,
-      rotation: 0,
-      thumbnailUrl: canvas.toDataURL('image/jpeg', 0.8),
-    });
-
-    canvas.width = 0;
-    canvas.height = 0;
-    page.cleanup();
+  } finally {
+    // Always release the document and its worker, including when a page fails to render.
+    pdfDoc?.cleanup();
+    void loadingTask.destroy();
   }
-
-  pdfDoc.cleanup();
-  loadingTask.destroy();
-
   return thumbnails;
 }
 

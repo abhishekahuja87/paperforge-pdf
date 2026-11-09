@@ -1,0 +1,20 @@
+{
+  "toolCatalog": {
+    "gpa-cgpa-calculator": [
+      "GPA and CGPA Calculator",
+      "Work out GPA, CGPA, percentage and the grade you need next."
+    ],
+    "final-grade-calculator": [
+      "Final Grade Calculator",
+      "See your current grade and what you need on the final exam."
+    ],
+    "citation-generator": [
+      "Citation Generator: APA, MLA, Chicago and Harvard",
+      "Create citations and a sorted reference list in four styles."
+    ],
+    "study-planner": [
+      "Study Planner and Exam Schedule Maker",
+      "Turn exam dates and hours needed into a day-by-day study plan."
+    ]
+  }
+}

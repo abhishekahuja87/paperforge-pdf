@@ -1,4 +1,4 @@
-import qr from '../../locales/packs/qr.en.json';
+import qr from '../../locales/packs/qr.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** QR codes: one generator plus pages that open it on Wi-Fi and contact cards. */

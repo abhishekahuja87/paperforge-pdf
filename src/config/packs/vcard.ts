@@ -1,4 +1,4 @@
-import vcard from '../../locales/packs/vcard.en.json';
+import vcard from '../../locales/packs/vcard.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** Contact conversion: vCard (.vcf) to CSV and Excel, in the browser, for files of any size. */

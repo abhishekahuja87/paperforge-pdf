@@ -1,4 +1,4 @@
-import careers from '../../locales/packs/careers.en.json';
+import careers from '../../locales/packs/careers.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** Tools for people looking for work: resume, notice period and a pre-upload file check. */

@@ -1,4 +1,4 @@
-import freelancers from '../../locales/packs/freelancers.en.json';
+import freelancers from '../../locales/packs/freelancers.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** Tools for freelancers and small businesses: pricing your time, quoting a client and checking margins. */

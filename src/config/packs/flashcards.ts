@@ -1,4 +1,4 @@
-import flashcards from '../../locales/packs/flashcards.en.json';
+import flashcards from '../../locales/packs/flashcards.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** Printable flashcards, with front and back lined up for two-sided printing. */

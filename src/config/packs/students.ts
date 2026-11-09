@@ -1,4 +1,4 @@
-import students from '../../locales/packs/students.en.json';
+import students from '../../locales/packs/students.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
 /** Tools for students: grades, citations and exam planning. */

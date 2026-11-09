@@ -1,10 +1,4 @@
 {
-  "toolCatalog": {
-    "vcard-to-csv-converter": [
-      "VCF to CSV and Excel Converter: Convert Large vCard Files Offline in Your Browser",
-      "Convert vCard (.vcf) contacts to CSV or Excel, even very large files, without uploading them."
-    ]
-  },
   "guideSteps": {
     "vcard-to-csv-converter": [
       [

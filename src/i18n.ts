@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { en } from './locales/english';
+import { enCore } from './locales/core';
+import type { English } from './locales/english';
 
 const allLanguages = [
   { code: 'en', label: 'English' },
@@ -28,7 +29,7 @@ try {
   console.warn('Could not read the saved language preference:', error);
 }
 
-type LocaleFile = typeof en;
+type LocaleFile = English;
 
 /**
  * Other languages are loaded only when a visitor actually switches to one, so the English-only
@@ -44,7 +45,7 @@ const lazyLocales: Record<string, () => Promise<{ default: unknown }>> = {
 
 void i18n.use(initReactI18next).init({
   resources: {
-    en: { translation: en, merge: en.merge, image: en.image, categories: en.categories },
+    en: { translation: enCore, merge: enCore.merge, image: enCore.image, categories: enCore.categories },
   },
   lng: 'en',
   fallbackLng: 'en',

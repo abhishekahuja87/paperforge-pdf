@@ -3,7 +3,7 @@ import { ShieldCheck, HelpCircle } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { en } from '../../locales/english';
+import { useContent } from '../../locales/contentLoader';
 
 export interface GuideStep {
   title: string;
@@ -34,10 +34,11 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
+  const { guideSteps } = useContent();
   const guideId = pathname.replace(/^\/|\/$/g, '');
-  const hasLocalizedSteps = Object.prototype.hasOwnProperty.call(en.guideSteps, guideId);
+  const hasLocalizedSteps = Object.prototype.hasOwnProperty.call(guideSteps, guideId);
   const displayedSteps = hasLocalizedSteps
-    ? en.guideSteps[guideId as keyof typeof en.guideSteps].map((_, index) => ({
+    ? guideSteps[guideId as keyof typeof guideSteps].map((_, index) => ({
       title: t(`guideSteps.${guideId}.${index}.0`),
       description: t(`guideSteps.${guideId}.${index}.1`),
     }))

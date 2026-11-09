@@ -1,34 +1,4 @@
 {
-  "toolCatalog": {
-    "printable-paper-maker": [
-      "Printable Paper Maker: Dot Grid, Graph, Lined, Cornell and More",
-      "Design and print dot grid, graph, lined, Cornell, isometric, music and tracker paper."
-    ],
-    "dot-grid-paper-generator": [
-      "Dot Grid Paper Generator: Free Printable Bullet Journal Paper",
-      "Print dot grid paper in your spacing, size and page format."
-    ],
-    "graph-paper-generator": [
-      "Graph Paper Generator: Free Printable Grid Paper",
-      "Print graph paper with 2.5, 5 or 10 mm squares and darker major lines."
-    ],
-    "cornell-notes-template": [
-      "Cornell Notes Template: Free Printable Note-Taking Paper",
-      "Print Cornell notes paper with cue column, notes area and summary box."
-    ],
-    "hexagon-graph-paper-generator": [
-      "Hexagon Graph Paper Generator: Printable Hex Grid for Maps, Games and Chemistry",
-      "Make printable hexagon grid paper with your own hex size, pointy or flat top."
-    ],
-    "calligraphy-practice-sheet-generator": [
-      "Calligraphy Practice Sheet Generator: Slant Guides, x-Height and Ascender Lines",
-      "Make printable calligraphy guide sheets with slant lines and adjustable x-height."
-    ],
-    "cross-stitch-pattern-grid-generator": [
-      "Cross-Stitch Pattern Grid Generator: Printable Stitch Chart and Pixel Grid",
-      "Make printable cross-stitch graph paper sized for your Aida count."
-    ]
-  },
   "guideSteps": {
     "printable-paper-maker": [
       [

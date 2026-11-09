@@ -1,0 +1,16 @@
+{
+  "toolCatalog": {
+    "printable-planner-maker": [
+      "Printable Planner Maker: Weekly, Daily, Monthly and Year Planner",
+      "Make a printable weekly, daily, monthly or yearly planner as a PDF."
+    ],
+    "printable-calendar-maker": [
+      "Printable Calendar Maker: Monthly Calendar PDF for Any Month and Year",
+      "Print a monthly calendar for any month, any year, in seven languages."
+    ],
+    "daily-planner-printable": [
+      "Daily Planner Printable: Hourly Schedule, Priorities and To-Do List",
+      "Print daily planner pages with a time schedule, top priorities and to-do list."
+    ]
+  }
+}

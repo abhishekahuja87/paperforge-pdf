@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../../config/site';
+import { useContent } from '../../locales/contentLoader';
 
 interface ArticleSection {
   heading: string;
@@ -21,6 +22,7 @@ function isSection(value: unknown): value is ArticleSection {
  */
 export const ToolArticle: React.FC<{ id: string }> = ({ id }) => {
   const { t } = useTranslation();
+  useContent();
   const raw = t(`toolArticles.${id}.sections`, { returnObjects: true, siteName: siteConfig.name, defaultValue: [] }) as unknown;
   const sections = Array.isArray(raw) ? raw.filter(isSection) : [];
   if (sections.length === 0) return null;

@@ -53,53 +53,34 @@ export async function unlockPdf(options: UnlockPdfOptions): Promise<Uint8Array> 
   }
 
   const numPages = pdfDoc.numPages;
-  if (numPages === 0) {
-    pdfDoc.cleanup();
-    loadingTask.destroy();
-    throw new Error('The uploaded PDF contains no pages.');
-  }
-
   const pageImages: { dataUrl: string; width: number; height: number }[] = [];
   const scale = 2.0;
 
-  for (let pageNum = 1; pageNum <= numPages; pageNum++) {
-    const page = await pdfDoc.getPage(pageNum);
-    const viewport = page.getViewport({ scale: safeRenderScale(page, scale) });
-
-    const canvas = document.createElement('canvas');
-    canvas.width = Math.floor(viewport.width);
-    canvas.height = Math.floor(viewport.height);
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      pdfDoc.cleanup();
-      loadingTask.destroy();
-      throw new Error('Canvas context could not be initialized.');
+  try {
+    if (numPages === 0) throw new Error('The uploaded PDF contains no pages.');
+    for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+      const page = await pdfDoc.getPage(pageNum);
+      const canvas = document.createElement('canvas');
+      try {
+        const viewport = page.getViewport({ scale: safeRenderScale(page, scale) });
+        canvas.width = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+        const ctx = canvas.getContext('2d');
+        if (!ctx) throw new Error('Canvas context could not be initialized.');
+        await page.render({ canvasContext: ctx, canvas, viewport, intent: 'print' }).promise;
+        const unscaledViewport = page.getViewport({ scale: 1.0 });
+        pageImages.push({ dataUrl: canvas.toDataURL('image/jpeg', 0.92), width: unscaledViewport.width, height: unscaledViewport.height });
+      } finally {
+        canvas.width = 0;
+        canvas.height = 0;
+        page.cleanup();
+      }
     }
-
-    await page.render({
-      canvasContext: ctx,
-      canvas: canvas,
-      viewport,
-      intent: 'print',
-    }).promise;
-
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
-    const unscaledViewport = page.getViewport({ scale: 1.0 });
-
-    pageImages.push({
-      dataUrl,
-      width: unscaledViewport.width,
-      height: unscaledViewport.height,
-    });
-
-    canvas.width = 0;
-    canvas.height = 0;
-    page.cleanup();
+  } finally {
+    // Always release the document and its worker, including when a page fails to render.
+    pdfDoc.cleanup();
+    void loadingTask.destroy();
   }
-
-  pdfDoc.cleanup();
-  loadingTask.destroy();
 
   const content = pageImages.map((img, idx) => ({
     image: img.dataUrl,

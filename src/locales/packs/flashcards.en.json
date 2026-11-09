@@ -1,14 +1,4 @@
 {
-  "toolCatalog": {
-    "printable-flashcard-maker": [
-      "Printable Flashcard Maker: Make Flashcards as a PDF in Any Language",
-      "Type or import your cards and print flashcards with the answers lined up on the back."
-    ],
-    "double-sided-flashcards-printable": [
-      "Double-Sided Flashcards Printable: Front and Back That Line Up Exactly",
-      "Print double-sided flashcards with every answer lined up behind its question."
-    ]
-  },
   "guideSteps": {
     "printable-flashcard-maker": [
       [
