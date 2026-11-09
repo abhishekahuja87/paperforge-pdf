@@ -65,8 +65,8 @@ export const getMostUsedTools = (): ToolItem[] => orderedTools(MOST_USED);
 /** A few popular tools for pages such as the 404 page. */
 export const getPopularTools = (): ToolItem[] => getMostUsedTools().slice(0, 8);
 
-/** Recently added tools, for the "New tools" row. */
-export const getNewTools = (): ToolItem[] => orderedTools(NEW_TOOLS);
+/** Ids of recently added tools, which get a "New" tag. */
+export const getNewToolIds = (): Set<string> => new Set(NEW_TOOLS);
 
 /** Larger studio-style tools shown in the slim "Workspaces" row, with their featured copy. */
 export function getWorkspaceTools(language = 'en'): Array<{ tool: ToolItem; info: FeaturedTool }> {

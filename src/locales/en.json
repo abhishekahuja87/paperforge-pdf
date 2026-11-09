@@ -765,7 +765,7 @@
     "digitize-documents": {
       "title": "Digitize Documents",
       "useCase": "Searchable archives",
-      "description": "Turn photos and scans into searchable PDFs with English OCR. Edit and arrange pages, add a linked contents page, then export one PDF or separate PDFs.",
+      "description": "Turn photos and scans of paper documents into PDFs with a searchable English text layer. Arrange pages, rotate, crop and black out details, set page size and margins, add page numbers, a watermark or a file-size goal, then download one PDF or separate PDFs in a ZIP.",
       "highlights": [
         "Image 2 searchable PDF",
         "English OCR",
@@ -777,7 +777,7 @@
     "master-document-studio": {
       "title": "Master Document Studio",
       "useCase": "For documents",
-      "description": "Combine PDFs, Word files, images and custom pages. Edit and arrange pages, create a linked table of contents, and customize your finished PDF.",
+      "description": "Build one PDF from PDFs, Word files and images. Add blank, cover and note pages, drag pages into order, rotate, crop and black out private parts, then add a linked table of contents, page numbers, a watermark and a file-size goal. Download the PDF, or export a single page as an image.",
       "highlights": [
         "PDF, Word & images",
         "Crop, rotate & blackout",
@@ -789,7 +789,7 @@
     "display-studio": {
       "title": "Display & Presentation",
       "useCase": "For screens & shops",
-      "description": "Build a fullscreen slideshow from PDFs, Word files and images. Arrange slides, set timing and transitions, and display a clock or date.",
+      "description": "Turn PDFs, Word files and images into a fullscreen slideshow for a TV, kiosk or shop screen. Reorder or skip slides, add captions, set the time for each slide, pick fade or zoom transitions, loop or shuffle, and show a clock and date while keeping the screen awake.",
       "highlights": [
         "Fullscreen playback",
         "PDF, Word & images",
@@ -801,7 +801,7 @@
     "pos-invoice-studio": {
       "title": "POS & Bill Studio",
       "useCase": "For businesses",
-      "description": "Set up your shop and product catalog, create bills with taxes and charges, and print or download them. Save profiles in your browser or back up to JSON.",
+      "description": "A bill maker for a small shop. Save your shop details and item list, add items with quantities, apply one or two taxes (included in the price or added on top) and an extra charge, then print the bill or download it as an image. Profiles stay in your browser, with a JSON backup.",
       "highlights": [
         "Shop profile & inventory",
         "Taxes & charges",
@@ -941,50 +941,50 @@
     }
   },
   "homeSections": {
-    "newTools": "New tools",
     "newBadge": "New",
     "jumpTo": "Jump to a topic",
     "showMore": "Show {{count}} more",
     "presets": "Exact file-size presets",
     "toolCount": "{{count}} tools",
-    "otherTools": "More tools"
+    "otherTools": "More tools",
+    "showFewer": "Show fewer"
   },
   "homeCollections": {
     "pdf": {
       "name": "PDF tools",
-      "description": "Merge, split, compress, protect and organise PDFs in your browser."
+      "description": "Everything for PDF files without uploading them: merge, split, compress, rotate and reorder pages, add page numbers or watermarks, protect or unlock with a password, extract text, and convert to and from images."
     },
     "images": {
       "name": "Image and photo tools",
-      "description": "Compress, resize, convert and redact images, including passport photo and exam sizes."
+      "description": "Make images smaller, the right size or another format: compress, resize, convert, passport photo, signature and exam sizes, and hide private details in screenshots. Pick an exact size such as 20 KB or 100 KB for online forms."
     },
     "money": {
       "name": "Tax, loans and investing",
-      "description": "Income tax, EMI, SIP, GST and other money calculators."
+      "description": "Plan taxes, loans and savings: income tax, salary, HRA, EPF and gratuity, EMI and GST, plus investment growth for SIP, FD, PPF, RD, lump sum and CAGR, compound interest and inflation."
     },
     "everyday": {
       "name": "Everyday calculators",
-      "description": "Age, dates, percentages, discounts, units and splitting bills."
+      "description": "Quick answers for daily life: age and date differences, percentages and discounts, unit conversion, BMI, time zones, numbers in words, and splitting a bill equally or settling a whole group trip."
     },
     "printables": {
       "name": "Printables and stationery",
-      "description": "Graph and dot paper, planners, calendars and flashcards to print at home."
+      "description": "Print at home: graph, dot grid, hexagon and lined paper, Cornell notes, calligraphy and cross-stitch grids, planners, calendars and double-sided flashcards. Choose the size, spacing and margins before you print."
     },
     "work": {
       "name": "Jobs, freelancing and business",
-      "description": "Resume, notice period, quotations, rates, margins and invoices."
+      "description": "For job seekers, freelancers and small businesses: build a resume, check a notice period, make a quotation or GST invoice, set your freelance rate, work out margin and markup, and check file sizes before uploading."
     },
     "study": {
       "name": "Students and writing",
-      "description": "GPA, grades, citations, study plans and word tools."
+      "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts and case conversion."
     },
     "sharing": {
       "name": "QR codes and contacts",
-      "description": "Make QR codes for links, Wi-Fi and contacts, and convert contact files."
+      "description": "Make QR codes for links, text, Wi-Fi and contacts, and convert contact (.vcf) files to CSV or Excel, even very large ones, without uploading them."
     },
     "dev": {
       "name": "Developer and data tools",
-      "description": "JSON, Base64, URLs, timestamps, colours, IDs and passwords."
+      "description": "Format JSON, encode Base64 and URLs, convert timestamps and colours, and generate UUIDs, passwords and placeholder text. Everything runs on your device, so keys and data stay with you."
     },
     "other": {
       "name": "More tools",
