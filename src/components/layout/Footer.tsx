@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   const { t, i18n } = useTranslation();
   const available = TOOLS.filter((tool) => tool.isAvailable);
 
-  // Every available tool appears here, including the advanced tools that are not shown on the homepage.
+  // Every available tool appears here, including the tools that are folded away on the home page.
   const toolColumns = [
     { key: 'pdfTools', tools: available.filter((tool) => tool.category === 'pdf' && tool.tier !== 'workspace') },
     { key: 'imageTools', tools: available.filter((tool) => tool.category === 'media') },

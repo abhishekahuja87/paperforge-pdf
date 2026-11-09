@@ -14,7 +14,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
 }) => {
   const { t } = useTranslation();
   return (
-  <section className="relative overflow-hidden px-4 py-8 sm:py-12" aria-label={t('findTool')}>
+  <section className="relative overflow-hidden px-4 py-6 sm:py-9" aria-label={t('findTool')}>
     <div aria-hidden="true" className="pointer-events-none absolute -left-16 top-0 h-56 w-56 rounded-full bg-amber-200/50 blur-3xl" />
     <div aria-hidden="true" className="pointer-events-none absolute -right-12 bottom-0 h-64 w-64 rounded-full bg-orange-200/50 blur-3xl" />
 
