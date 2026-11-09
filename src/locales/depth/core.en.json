@@ -122,6 +122,20 @@
             "Developers meet timestamps in server logs, API responses, databases, tokens and file information. Support teams use them to line up events across systems, and analysts use them to group records by day. Being able to read a timestamp quickly saves time when you are tracing a problem.",
             "Convert the time of an error in a log to your own time zone, or turn a date into a timestamp to use in a query."
           ]
+        },
+        {
+          "heading": "Reading a timestamp",
+          "paragraphs": [
+            "A Unix timestamp counts the seconds since 1 January 1970 at 00:00:00 UTC. The value 1,700,000,000 is 14 November 2023 at 22:13:20 UTC, and 1,800,000,000 is 15 January 2027 at 08:00:00 UTC. A value 1,000 times larger, such as 1,700,000,000,000, is the same moment in milliseconds, which is how JavaScript and many APIs count.",
+            "If a converted date looks far off, the usual cause is seconds being read as milliseconds or the other way round."
+          ]
+        },
+        {
+          "heading": "Time zones and the year 2038",
+          "paragraphs": [
+            "A timestamp is always the same moment everywhere, and only the way it is displayed changes with the time zone. When you compare logs from different systems, convert them to the same zone, usually UTC.",
+            "Systems that store the timestamp as a signed 32-bit number can only count up to 2,147,483,647, which is 19 January 2038 at 03:14:07 UTC. Modern systems use 64 bits and are not affected."
+          ]
         }
       ]
     },
@@ -147,6 +161,20 @@
             "Counting is the first step. Look at the average sentence length and the reading time, then edit. Cut filler words, split long sentences and remove repeats. Many writers find that shorter text reads better and gets read more often.",
             "Check the limit twice before you submit, once while you write and again after the final edit."
           ]
+        },
+        {
+          "heading": "Counting for a purpose",
+          "paragraphs": [
+            "Many tasks come with a limit: an essay of 500 words, a meta description of about 155 to 160 characters, a social post with a character cap. Paste your text and read the words and characters at the same time, with and without spaces, so you can match whichever the rule uses.",
+            "When a limit counts characters, check whether spaces and line breaks are included, because different sites count them differently."
+          ]
+        },
+        {
+          "heading": "Reading time and speaking time",
+          "paragraphs": [
+            "Average adults read silently at roughly 200 to 250 words per minute and speak at roughly 130 to 150 words per minute. A 1,000-word article therefore takes about four to five minutes to read and about seven minutes to say aloud. Use the figures as a guide for presentations, videos and talks.",
+            "Dense technical text and text in a second language take longer, so add time for those."
+          ]
         }
       ]
     },
@@ -164,6 +192,20 @@
           "paragraphs": [
             "Start with one main colour and make lighter and darker versions by changing the lightness in HSL. Keep text and background far enough apart in lightness to meet the contrast ratio, and do not rely on colour alone to carry meaning, since about one in twelve men has some form of colour blindness.",
             "Use the contrast checker for your real combinations, for example grey text on a white background or white text on a brand colour. Small text needs a ratio of at least 4.5 to 1 to meet the common web accessibility guidance."
+          ]
+        },
+        {
+          "heading": "Contrast in practice",
+          "paragraphs": [
+            "Contrast is measured as a ratio from 1:1 for identical colours to 21:1 for black on white. The common accessibility target for normal text is at least 4.5:1, and 3:1 for large text. A grey of #767676 on white measures about 4.54:1 and passes, while the slightly lighter #777777 measures about 4.48:1 and falls just short. Pure blue (#0000FF) on white is about 8.6:1, while pure red (#FF0000) on white is only about 4.0:1, so it passes for large text only.",
+            "Test the colours you will really use, including text on buttons and on coloured banners. Colours that look fine to you can be hard to read for people with low vision or in bright sunlight."
+          ]
+        },
+        {
+          "heading": "Moving between formats",
+          "paragraphs": [
+            "Designers often get a colour as HEX, developers need RGB, and style systems use HSL because it is easy to adjust: lowering lightness makes a darker shade and lowering saturation makes it greyer. Paste any of the three and copy the others from the same place.",
+            "Keep a record of the HEX code you finally choose and use it everywhere. Small rounding differences between formats are normal, so convert from the original value rather than converting back and forth."
           ]
         }
       ]
@@ -207,6 +249,20 @@
           "paragraphs": [
             "The rate you enter is an assumption. Fixed deposits and government schemes publish their rates, but market investments such as equity mutual funds rise and fall, and their returns in any one year can be far from the long term average. Use a range of rates, such as 8, 10 and 12 percent, to see what the result might look like in a poor, average and good case.",
             "Remember to think about inflation and tax. A return of 8 percent in a year with 6 percent inflation adds little to your buying power. Use the Inflation Calculator and the tax rules for your investment to see the picture after those effects."
+          ]
+        },
+        {
+          "heading": "The effect of the rate and the time",
+          "paragraphs": [
+            "An investment of 50,000 growing at 12% a year for 10 years becomes about 155,292, which is 3.1 times the amount invested. At 10% for the same time it becomes about 129,687. A two-point difference in the rate changes the result by about 25,600, and the gap widens each extra year.",
+            "The longer the time, the more the growth comes from earlier growth being reinvested. That is why starting early matters more than most people expect."
+          ]
+        },
+        {
+          "heading": "Treating the result as an estimate",
+          "paragraphs": [
+            "The calculator uses one steady rate. Real investments rise and fall, so the actual result can be higher or lower, and no return is guaranteed. Use it to compare scenarios, for example 8%, 10% and 12%, and to check whether a goal is realistic.",
+            "Fees, taxes and inflation reduce what you actually keep and what it can buy. For a long period, also look at the inflation calculator to see the result in today's buying power."
           ]
         }
       ]
@@ -276,6 +332,20 @@
             "Compare banks and small finance banks on rate, but also look at safety. In India, bank deposits are insured up to 5 lakh per depositor per bank, so spreading large amounts over several banks reduces risk. Check the rules about premature withdrawal, because breaking an FD early usually brings a penalty and a lower rate.",
             "Senior citizens often get a higher rate, and tax-saving FDs have a five year lock-in. Keep in mind that interest is taxed according to your slab, and banks may deduct tax at source above a threshold, so the amount you keep can be lower than the headline figure."
           ]
+        },
+        {
+          "heading": "How compounding changes the result",
+          "paragraphs": [
+            "An amount of 100,000 at 7% a year for 5 years becomes about 140,255 with yearly compounding, about 141,478 with quarterly compounding and about 141,763 with monthly compounding. More frequent compounding adds a little more each time, but the biggest driver is still the rate and the length of time.",
+            "When you compare deposits from different banks, compare them on the same compounding basis and the same period, otherwise a lower rate with more frequent compounding can look better than it is."
+          ]
+        },
+        {
+          "heading": "Using the result sensibly",
+          "paragraphs": [
+            "The calculator estimates the maturity value of a fixed deposit. Your bank's figure may differ slightly because of how it rounds, counts days and treats the last period. Penalties for withdrawing early and tax on interest are not included.",
+            "Use the tool to compare options, for example 3 years against 5 years, and to see how much of the maturity amount is interest."
+          ]
         }
       ]
     },
@@ -293,6 +363,20 @@
           "paragraphs": [
             "Use inflation when you plan big costs: education, a wedding, retirement or a house. Education costs often rise faster than general prices, so use a higher rate for them. For retirement, estimate your monthly spending today, grow it by inflation to your retirement date and then plan how long your savings must last.",
             "Also compare investment returns after inflation. A deposit paying 7 percent when inflation is 5 percent grows your buying power by about 2 percent a year, before tax."
+          ]
+        },
+        {
+          "heading": "Reading the numbers",
+          "paragraphs": [
+            "At 6% inflation for 10 years, prices multiply by about 1.79. Something that costs 100,000 today would cost about 179,085, and 100,000 kept as cash would buy only what about 55,839 buys today. The two figures describe the same effect from opposite sides: higher future prices and lower buying power.",
+            "At 3% for 20 years the multiplier is about 1.81, so even low inflation roughly halves what money can buy over a generation. Small differences in the rate matter more than they look, because the effect compounds every year."
+          ]
+        },
+        {
+          "heading": "Using it for planning",
+          "paragraphs": [
+            "For a goal that is years away, such as a course fee, a house repair or retirement spending, enter today's cost and an inflation rate to see what to aim for. Use a slightly cautious rate for items that tend to rise faster than general prices, such as education and healthcare, and keep the same assumption when you compare options.",
+            "Inflation is not the same for every person or every year. Use the tool as a way to test a few scenarios, for example 4%, 6% and 8%, and plan so that your goal still works across a range, not at a single guess."
           ]
         }
       ]
@@ -312,6 +396,20 @@
             "A rise of 50 percent followed by a fall of 50 percent does not return you to the start. Starting from 100, you go to 150 and then to 75. Percentage points are also different from percentages: moving from 10 percent to 12 percent is a rise of 2 percentage points, but a 20 percent increase.",
             "When comparing, check what the percentage is of. A 10 percent discount on a higher price can be worth more than a 15 percent discount on a lower one."
           ]
+        },
+        {
+          "heading": "Percent change is not symmetric",
+          "paragraphs": [
+            "A price that goes from 80 to 92 has risen by 15%. If it then falls back from 92 to 80, the fall is not 15% but about 13.04%, because the base is now 92. The same two numbers give different percentages depending on which one you start from.",
+            "This is why a 50% drop followed by a 50% rise does not get you back to the start: 100 becomes 50, then 75. Always say which value the percentage is measured against."
+          ]
+        },
+        {
+          "heading": "Percent and percentage points",
+          "paragraphs": [
+            "If an interest rate goes from 8% to 10%, it has risen by 2 percentage points, and by 25% in relative terms, because 2 is a quarter of 8. News and reports often mix the two. When you read a figure, check whether it is a difference in points or a change in the percentage itself.",
+            "Use the percent-change mode for the relative change, and subtract the two percentages by hand for the change in points."
+          ]
         }
       ]
     },
@@ -329,6 +427,20 @@
           "paragraphs": [
             "Crop the photo to the area you need before you resize, because a smaller picture needs fewer bytes. Plain backgrounds compress better than busy ones, and well-lit photos with little noise stay sharper at low sizes. Save as JPG for photos; PNG files are usually larger for photographs.",
             "If the result looks too soft, reduce the pixel size a little and try again, since a smaller picture can keep more detail per pixel than a large picture squeezed hard. Always check the form for the pixel size it requires as well as the file size."
+          ]
+        },
+        {
+          "heading": "Getting under 30 KB cleanly",
+          "paragraphs": [
+            "Thirty kilobytes allows a small but clear photo or a scanned signature. The file size depends on the number of pixels and on how much detail the picture holds, so a plain background compresses far better than a busy one. Cropping tightly around the subject before you resize gives more of the limited bytes to the part that matters.",
+            "If the first result looks soft, try reducing the dimensions a little more and keeping the quality higher, which often looks better than a large picture squeezed hard."
+          ]
+        },
+        {
+          "heading": "Checking the result",
+          "paragraphs": [
+            "After resizing, check the file size in your file manager, since some systems show kilobytes as 1,000 bytes and others as 1,024. Aim for a few kilobytes under the limit, for example 27 KB for a 30 KB rule.",
+            "Also check any pixel or format rules and view the picture at full size to confirm the face or signature is readable."
           ]
         }
       ]
@@ -348,6 +460,20 @@
             "Check the starting price. A discount from an inflated list price is not a real saving. Compare the final price with other shops, and include delivery, tax and any membership fee. A smaller discount on a lower base price may be cheaper than a bigger discount on a higher one.",
             "Use the reverse mode to find the original price when you know the sale price and the discount, and to confirm the saving on a bill."
           ]
+        },
+        {
+          "heading": "Stacked discounts step by step",
+          "paragraphs": [
+            "A 20% discount followed by a further 10% on 2,000 does not equal 30%. The first discount brings the price to 1,600, the second takes 10% of that, which is 160, leaving 1,440. The total saving is 560, or 28%, not 30%.",
+            "Each discount applies to the price left after the previous one, so the order does not change the final price, but the combined percentage is always a little less than the sum."
+          ]
+        },
+        {
+          "heading": "Working backwards",
+          "paragraphs": [
+            "If you know the sale price and the discount, you can find the original. A sale price of 1,440 after a total discount of 28% means the original price was 1,440 divided by 0.72, which is 2,000. Use this to check whether a store really reduced the price or inflated the old one first.",
+            "Remember that tax or delivery charges are usually added after the discount. Compare final prices including everything you will pay, not just the percentages in the advertisement."
+          ]
         }
       ]
     },
@@ -365,6 +491,20 @@
           "paragraphs": [
             "Forms reject photos that are too large or small in file size, the wrong dimensions, blurry, with a shadow behind the head, or showing more than one person. Some require the name and date on the photo, and others ban them. Always read the notice for your exam.",
             "After resizing, open the file and check that it looks sharp, that the colours look natural and that the file size is within the limit shown by your device. Keep the original photo as a backup in case you need another size."
+          ]
+        },
+        {
+          "heading": "Pixels, centimetres and kilobytes",
+          "paragraphs": [
+            "Exam forms often give the size in more than one way: for example 3.5 cm by 4.5 cm and a file size in kilobytes. Centimetres only matter when the photo is printed, and a digital form usually needs the pixel width and height. At 200 pixels per inch, 3.5 by 4.5 cm is about 276 by 354 pixels.",
+            "Read the instructions carefully for which numbers are limits and which are exact. If the form gives a minimum and maximum file size, check the final size lies inside both."
+          ]
+        },
+        {
+          "heading": "Before you upload",
+          "paragraphs": [
+            "Use a recent photo with a plain light background, your face fully visible and no heavy filters, if the rules say so. Resizing cannot fix a photo that breaks the rules, such as one with shadows or a cropped head.",
+            "Open the downloaded file and zoom in to check it is sharp, then upload it. Keep the original, since another form may ask for a different size."
           ]
         }
       ]
@@ -384,6 +524,20 @@
             "Use a different password for every account, so that a leak at one site does not open the others. Keep them in a reputable password manager rather than a note or a message. Turn on two-step verification for email, banking and social accounts, because it protects you even if a password is stolen.",
             "Change a password right away if a site tells you it was breached, and never share one by email or chat. If a site limits the symbols it accepts, turn off the ones it does not allow in the generator."
           ]
+        },
+        {
+          "heading": "Length beats complexity",
+          "paragraphs": [
+            "Strength comes mostly from length. A random 12-character password using about 94 printable symbols has about 78.7 bits of entropy. A random 16-character password using only letters and digits (62 symbols) has about 95.3 bits, which is far stronger even though it uses fewer kinds of character. Four random words from a list of 7,776 give about 51.7 bits, and six give about 77.5.",
+            "This is why long passwords are better than short ones with forced symbols. Use the length slider before you worry about which character sets to include."
+          ]
+        },
+        {
+          "heading": "Using generated passwords safely",
+          "paragraphs": [
+            "Use a different password for every account, so one leak cannot open the others, and keep them in a password manager rather than reusing or memorising them. Turn on two-step sign-in wherever it is offered, since a strong password does not help if it is phished.",
+            "Do not send passwords by email or chat. If you must share one, use a method that deletes it after reading and change it afterwards."
+          ]
         }
       ]
     },
@@ -401,6 +555,20 @@
           "paragraphs": [
             "Project managers count the days to a deadline, tenants count the days since a rent payment, and employees count the days of a notice period or leave. Students count the days to an exam and travellers count the days of a trip or a visa stay.",
             "For legal and financial dates, check how the rule counts. Some include both the start and end date, some exclude the first day, and some count only business days. Use the option that matches the rule you must follow."
+          ]
+        },
+        {
+          "heading": "Counting days between two dates",
+          "paragraphs": [
+            "Take 15 March 2026 and 15 September 2026. Counting the days between them, without including the start day, gives 184 days. If both the first and the last day are counted, the answer is 185, one more, so decide which rule applies before you compare numbers from different sources.",
+            "The calculator shows the difference as days, weeks and months together so you can use the form that suits the question: a project length in weeks, a contract in months, a deadline in days."
+          ]
+        },
+        {
+          "heading": "Mistakes to avoid with dates",
+          "paragraphs": [
+            "The most common mistake is counting the start day and the end day both when the rule counts only one. The second is mixing months of different lengths: three months from 30 November is not the same number of days as three months from 1 February. The third is assuming a year is always 365 days, when leap years have 366.",
+            "When a legal or financial agreement defines a period, follow the wording in the agreement, for example whether a notice period includes weekends and whether the day of notice counts, and use the calculator to check the arithmetic, not to replace the definition."
           ]
         }
       ]
@@ -456,6 +624,20 @@
             "BMI does not measure fat. Muscular people can have a high BMI without extra fat, and older adults can have a normal BMI with little muscle. Where fat is stored also matters, which is why waist size is a useful additional measure.",
             "If your BMI is outside the normal range, or if you are worried about your weight, speak to a doctor or a dietitian. They can look at your health history, blood tests and lifestyle, which a calculator cannot see. Children and teenagers use special growth charts, so this adult tool is not suitable for them."
           ]
+        },
+        {
+          "heading": "A worked example",
+          "paragraphs": [
+            "A person who is 175 cm tall and weighs 70 kg has a BMI of 22.9, found by dividing the weight in kilograms by the height in metres squared (1.75 squared is 3.0625). Under the common adult categories this is in the usual range of 18.5 to 24.9, which for that height covers weights from about 57 kg to 76 kg.",
+            "The same weight at a height of 160 cm gives a BMI of 27.3, so height matters a lot."
+          ]
+        },
+        {
+          "heading": "What BMI cannot tell you",
+          "paragraphs": [
+            "BMI uses only height and weight. It does not separate muscle from fat, does not show where the fat is carried and does not account for age, sex or ethnicity. An athlete with a lot of muscle can have a high BMI without extra fat, and an older person can have a normal BMI with little muscle.",
+            "Use it as a rough screening number, together with waist size, fitness, blood tests and advice from a doctor. It is not a diagnosis."
+          ]
         }
       ]
     },
@@ -473,6 +655,20 @@
           "paragraphs": [
             "Forms reject signatures that are too faint, too large in file size, the wrong dimensions or typed rather than handwritten. Some ask for black ink only, and some ban capital letters. Read the notice for exact instructions.",
             "After resizing, zoom in and check that the strokes are clear and complete. If the signature looks broken, start again from a larger, sharper scan and resize once rather than resizing a file many times."
+          ]
+        },
+        {
+          "heading": "Making a clean scan",
+          "paragraphs": [
+            "Sign with a dark pen on plain white paper and photograph or scan it in even light with no shadows. Crop close to the signature so that it fills the frame, since empty space uses up the limited pixels and bytes. A black or dark blue signature on a white background compresses very well.",
+            "Avoid a photograph taken at an angle. If the page curves, press it flat or use a scanner app that flattens the image."
+          ]
+        },
+        {
+          "heading": "Meeting form requirements",
+          "paragraphs": [
+            "Forms usually ask for a size in pixels, a maximum file size and a format such as JPEG. Resize to the pixel width and height first, then check the file size. If the signature looks too thin after resizing, retake it with a thicker pen.",
+            "Keep a copy of the original large scan so that you can resize it again if a later form asks for different dimensions."
           ]
         }
       ]
@@ -492,6 +688,20 @@
             "An RD is safer than a market investment because the rate is fixed, but it usually earns less over long periods. An FD needs a lump sum, while an RD takes small monthly amounts. A SIP in a mutual fund can earn more but may also lose value, so it suits goals that are far away.",
             "For a goal within one to three years, such as a holiday or a deposit for a rented flat, an RD is a sensible choice. For goals more than five years away, consider adding growth investments after thinking about your risk."
           ]
+        },
+        {
+          "heading": "Understanding the total deposited",
+          "paragraphs": [
+            "A recurring deposit of 5,000 a month for 3 years puts in 180,000 over 36 deposits. The maturity amount is higher than that because each deposit earns interest from the month it is made. The earlier deposits earn for longer, so they contribute more of the interest than the later ones.",
+            "The calculator shows the total deposited, the interest earned and the maturity value, so you can see how much of the final amount is your own money."
+          ]
+        },
+        {
+          "heading": "Comparing with other options",
+          "paragraphs": [
+            "Compare an RD with a fixed deposit by checking the rate, the period and the compounding that each uses. A fixed deposit needs the whole amount at the start, while a recurring deposit suits people saving from a monthly income.",
+            "Penalties for missed instalments and early closing vary by bank, so read the terms. The calculator assumes every deposit is paid on time and the account runs to maturity."
+          ]
         }
       ]
     },
@@ -509,6 +719,20 @@
           "paragraphs": [
             "Government exams, school admissions and job applications often set an age limit on a particular date. Being one day over can make you ineligible, so check the cut-off date in the notice and use that date as the as-on date in the calculator.",
             "Insurance, pensions and retirement rules also depend on exact age. Where the rule counts age at the nearest birthday instead of the last birthday, the result differs, so read the policy wording."
+          ]
+        },
+        {
+          "heading": "Reading the result",
+          "paragraphs": [
+            "Age is shown as years, months and days. Someone born on 15 August 2000 is, on 9 November 2026, 26 years, 2 months and 25 days old: 26 years takes the date to 15 August 2026, 2 months takes it to 15 October, and 25 days reach 9 November.",
+            "Months are counted from the same day of the month, so the result is always a calendar age, not an approximate number of days divided by 365."
+          ]
+        },
+        {
+          "heading": "When the exact date matters",
+          "paragraphs": [
+            "Application forms, entrance exams, insurance and sports categories often set age on a particular cut-off date, not today. Enter that date as the date to find age on, and compare the result with the rule. A person who is one day short can be ineligible.",
+            "Check how the rule counts: some use completed years on the cut-off date, others use the year of birth. The calculator gives the completed years, months and days so you can apply either rule."
           ]
         }
       ]
@@ -1050,6 +1274,20 @@
             "A rotation is saved in the file, so it looks the same in other viewers. Check landscape pages that sit inside a portrait document: when you print double-sided, the back of a rotated page can face the wrong way, so test one sheet first.",
             "If the text is still crooked after rotating by 90 degrees, the scan itself is skewed. Rotate the page and then use a scanner app to straighten the original."
           ]
+        },
+        {
+          "heading": "Fixing a mixed stack of scans",
+          "paragraphs": [
+            "A common case is a scan where some pages came through sideways, for example a bundle that mixes portrait pages with landscape ones. Rotate only the pages that are wrong rather than the whole file. Look at the preview, note the page numbers that are sideways, and enter them as a custom list such as 2, 5-7, 11.",
+            "If every other page is wrong, as happens when a double-sided scan is fed the wrong way, choose Odd pages or Even pages and rotate those by 180 degrees. That is much faster than typing a long list, and the other pages stay untouched."
+          ]
+        },
+        {
+          "heading": "Choosing the right angle",
+          "paragraphs": [
+            "Rotation is clockwise. If a page lies on its left side so that the top of the text points left, turn it 90 degrees clockwise. If the top points right, use 270 degrees, which is the same as turning it 90 degrees counter-clockwise. If the page is upside down, use 180 degrees.",
+            "If you pick the wrong angle, you can run the tool again on the result with the opposite angle, because rotating by 90 and then 270 returns the page to where it started. Check the first and last pages after saving, since page viewers sometimes cache the old orientation until you reopen the file."
+          ]
         }
       ]
     },
@@ -1204,6 +1442,14 @@
         [
           "Why does a timestamp of 0 show 1970?",
           "Zero is the starting point, called the epoch: 1 January 1970 at midnight UTC. Dates before it are negative numbers."
+        ],
+        [
+          "Why does my timestamp show a date in 1970?",
+          "A very small number, such as a few thousand, is near the start of the count. It may be a duration or an ID, not a real time."
+        ],
+        [
+          "Does the timestamp change with daylight saving time?",
+          "No. It counts elapsed seconds in UTC. Only the local time you see changes."
         ]
       ]
     },
@@ -1220,6 +1466,14 @@
         [
           "What is a good length for a blog post?",
           "It depends on the topic. Many useful posts run from 800 to 2,000 words. Cover the question fully, and do not add length for its own sake."
+        ],
+        [
+          "Why do two word counters give different counts?",
+          "They may treat hyphens, numbers and symbols differently. Check how the limit you are working to counts words."
+        ],
+        [
+          "Can I count only part of my text?",
+          "Yes. Paste or type only the part you want to measure."
         ]
       ]
     },
@@ -1232,6 +1486,14 @@
         [
           "Why does the same colour look different on another screen?",
           "Screens differ in brightness, colour accuracy and settings. The numbers are the same, but each display shows them a little differently. For print work, use a design program with colour profiles."
+        ],
+        [
+          "Why can two colours that look different have the same contrast?",
+          "Contrast is based on lightness, not hue. A red and a green of similar lightness can look different but still be hard to tell apart for some people."
+        ],
+        [
+          "Is a high contrast always better?",
+          "Very high contrast is fine for text but can be tiring for long reading on screen, so many designs use a very dark grey on white instead of pure black."
         ]
       ]
     },
@@ -1260,6 +1522,14 @@
         [
           "Does the calculator include taxes and charges?",
           "No. It shows the pre-tax value based on the rate you enter. Taxes, exit loads, expense ratios and fees can reduce your actual return, so subtract them from your assumed rate if you want a closer estimate."
+        ],
+        [
+          "What rate should I enter?",
+          "Use a rate that is realistic for the kind of investment, and test a lower rate as well. Do not rely on one optimistic number."
+        ],
+        [
+          "Is a lump sum better than monthly investing?",
+          "It depends on when the money is available and on market movements. A lump sum has more time in the market, while regular investing spreads the entry point. The SIP calculator shows the monthly alternative."
         ]
       ]
     },
@@ -1304,6 +1574,14 @@
         [
           "What is the effective yield?",
           "It is the actual annual return after compounding. A rate of 7 percent compounded quarterly gives an effective yield of about 7.19 percent, which helps you compare deposits with different compounding."
+        ],
+        [
+          "Does a higher rate always mean a better deposit?",
+          "Not by itself. Consider the term, compounding, how safe the institution is, whether interest is paid out or added, and penalties for early withdrawal."
+        ],
+        [
+          "What happens if I break a deposit early?",
+          "Banks commonly apply a lower rate or a penalty. Check the terms, since the calculator assumes you hold to maturity."
         ]
       ]
     },
@@ -1316,6 +1594,14 @@
         [
           "What inflation rate has India had historically?",
           "Consumer inflation in India has often been in the range of 4 to 7 percent in recent years, though it varies from year to year. Check current official data before you make a plan."
+        ],
+        [
+          "Why does buying power fall by less than the price rise?",
+          "Because the two are reciprocals. If prices rise 79%, money buys 1 divided by 1.79 of what it did, which is about 56%, a fall of about 44%."
+        ],
+        [
+          "Should I use a single rate for many years?",
+          "It is a simplification. Real inflation moves up and down, so treat the result as an estimate and check it with a low and a high rate."
         ]
       ]
     },
@@ -1328,6 +1614,14 @@
         [
           "What is the difference between percentage and percentage points?",
           "Percentage points describe the simple difference between two percentages. If an interest rate goes from 6 percent to 7 percent, it rises by one percentage point, which is a relative increase of about 16.7 percent."
+        ],
+        [
+          "How do I find the original number before a percentage was added?",
+          "Divide the final number by 1 plus the rate as a decimal. If a total of 115 includes a 15% increase, the original is 115 divided by 1.15, which is 100."
+        ],
+        [
+          "Why is 10% of 50 the same as 50% of 10?",
+          "Both equal 5, because multiplying works in either order. It is a quick way to work out a percentage by switching the two numbers."
         ]
       ]
     },
@@ -1340,6 +1634,14 @@
         [
           "Why is the file bigger than the target after I change the size?",
           "Compression has a floor. A very large or detailed image cannot always shrink to a very small size without reducing the pixel dimensions. Lower the width and height, then try again."
+        ],
+        [
+          "Why is the file smaller than 30 KB when I asked for 30 KB?",
+          "The tool aims at or under the limit so the form accepts it. A slightly smaller file is normal."
+        ],
+        [
+          "Can I make a scanned document 30 KB?",
+          "Small text pages may become unreadable at this size. Use a higher limit if the document has fine print."
         ]
       ]
     },
@@ -1352,6 +1654,14 @@
         [
           "Is the discount calculated before or after tax?",
           "It depends on the shop. In many places tax is added after the discount, so the tax is on the reduced price. Check your bill, and use the GST option in the calculator to compare."
+        ],
+        [
+          "Is a bigger percentage always a better deal?",
+          "Not always. A 30% discount on an inflated price may cost more than a 15% discount on a fair one. Compare the final price you pay."
+        ],
+        [
+          "How do I compare two offers like 20% off and a flat 300 off?",
+          "Work out both on the price you would pay. On 1,000, 20% saves 200 and the flat offer saves 300; on 2,000, 20% saves 400 and the flat offer still saves 300."
         ]
       ]
     },
@@ -1364,6 +1674,14 @@
         [
           "Should the photo be in colour or black and white?",
           "Follow your exam notice. Most ask for a recent colour photo, though some accept black and white. If the notice does not say, a colour photo is the safer choice."
+        ],
+        [
+          "Why is my photo still too large in kilobytes?",
+          "A large pixel size takes more bytes. Lower the width and height first, then the quality, and avoid photos with fine textures or noise."
+        ],
+        [
+          "Should I upload a JPEG or a PNG?",
+          "JPEG is smaller for photographs and is accepted by most forms. Use the format the instructions ask for."
         ]
       ]
     },
@@ -1376,6 +1694,14 @@
         [
           "How often should I change my passwords?",
           "Current advice is to change a password when you have a reason, such as a breach or sharing, rather than on a fixed schedule. Make each one unique and long, and use two-step verification."
+        ],
+        [
+          "Are symbols required?",
+          "Not for strength if the password is long enough, but some sites require them. Include symbols when the site asks and use length for the rest."
+        ],
+        [
+          "How often should I change a password?",
+          "Change it when you think it has been exposed, or when a service reports a breach. Regular changes without a reason can lead to weaker, predictable passwords."
         ]
       ]
     },
@@ -1388,6 +1714,14 @@
         [
           "Can I count only weekdays?",
           "Yes. The working days figure counts Monday to Friday. It does not know your local public holidays, so subtract those yourself if they apply."
+        ],
+        [
+          "How do I count the days until an event?",
+          "Enter today as the start date and the event date as the end date. The result is the number of days left, and you can read the same period in weeks."
+        ],
+        [
+          "Why do two calculators sometimes give different answers?",
+          "They may differ on whether the end date is counted. Check that both use the same rule, and add or subtract one day if you need to match them."
         ]
       ]
     },
@@ -1424,6 +1758,14 @@
         [
           "Can I use BMI during pregnancy or for athletes?",
           "BMI is not designed for pregnancy, and it can be misleading for athletes and people with a lot of muscle. Ask a health professional how to assess your weight in these cases."
+        ],
+        [
+          "Do the categories apply to children?",
+          "No. Children and teenagers are assessed against growth charts for their age and sex, so ask a paediatrician."
+        ],
+        [
+          "What should I do if my BMI is outside the usual range?",
+          "Talk to a doctor or dietitian, who can look at your overall health. A single number is not enough to decide."
         ]
       ]
     },
@@ -1436,6 +1778,14 @@
         [
           "What file format should I use?",
           "Use the format the form asks for, usually JPG. The tool saves a JPG that fits the pixel and size limits. Keep the original scan in case you need another size."
+        ],
+        [
+          "Can I use a signature drawn on a phone?",
+          "Yes, if the form allows it. Export it as an image with a white background, then resize it in the same way."
+        ],
+        [
+          "Why does my signature look pale after resizing?",
+          "A thin pen line can fade when the image is made smaller. Use a thicker, darker pen and scan at a higher resolution before resizing."
         ]
       ]
     },
@@ -1448,6 +1798,14 @@
         [
           "Can I close an RD early?",
           "Yes, usually, but you receive a lower interest rate and may pay a penalty. Check the premature closure terms before you open the account."
+        ],
+        [
+          "What happens if I miss an instalment?",
+          "Banks often charge a small penalty or reduce the interest. Check the rules of your bank, as the calculator assumes you pay on time."
+        ],
+        [
+          "Can I increase the monthly amount later?",
+          "Usually not in the same account. Open a second recurring deposit if you want to save more."
         ]
       ]
     },
@@ -1460,6 +1818,14 @@
         [
           "Can I calculate the age of a child in months?",
           "Yes. The result shows years, months and days, and the total in months, weeks and days, which doctors and nurseries often ask for."
+        ],
+        [
+          "How can I check eligibility for an age limit?",
+          "Enter the date of birth and the cut-off date, and compare the completed years and days with the limit in the rules."
+        ],
+        [
+          "Why is the number of days different from years multiplied by 365?",
+          "Years have 365 or 366 days and months have different lengths, so a calendar age is not a simple multiple."
         ]
       ]
     },
