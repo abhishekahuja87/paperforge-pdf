@@ -24,6 +24,11 @@ const CELL: Record<HourKind, string> = {
 const WORD: Record<HourKind, string> = { work: 'working hours', awake: 'awake, outside working hours', night: 'night' };
 const STEP = 30;
 
+/** "Mon 9 Nov" for the instant in that zone. */
+const shortDate = (instant: Date, zone: string): string => {
+  try { return instant.toLocaleDateString('en-IN', { timeZone: zone, weekday: 'short', day: 'numeric', month: 'short' }).replace(',', ''); } catch { return ''; }
+};
+
 const dayBadge = (offset: number) => (offset > 0 ? 'Next day' : offset < 0 ? 'Previous day' : '');
 
 const Clock: React.FC<{ hour: number; minute: number }> = ({ hour, minute }) => {
@@ -104,7 +109,10 @@ export const TimeZoneVisual: React.FC<Props> = ({ instant, dayStart, fromLabel, 
               <div key={row.zone}>
                 <p className="mb-0.5 flex items-baseline justify-between gap-2 text-[11px] font-semibold text-slate-700">
                   <span className="truncate">{row.label}</span>
-                  <span className="shrink-0 text-orange-800">{row.time}{badge ? ` (${badge.toLowerCase()})` : ''}</span>
+                  <span className="shrink-0 text-orange-800">
+                    {row.time}, {shortDate(instant, row.zone)}
+                    {badge && <span className="ml-1 rounded bg-orange-600 px-1 py-0.5 text-[10px] font-bold text-white">{badge}</span>}
+                  </span>
                 </p>
                 <div role="img" aria-label={`${row.label}: ${strip.filter((cell) => cell.minute === 0).map((cell) => `${cell.hour}:00 ${WORD[cell.kind]}`).join(', ')}`} className="grid overflow-hidden rounded-md" style={columns}>
                   {strip.map((cell, at) => (
