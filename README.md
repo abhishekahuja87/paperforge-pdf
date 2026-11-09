@@ -68,6 +68,7 @@ When adding or changing a tool, keep routes, catalog entries, search, guide cont
 - Stationery pack (`stationery`): Printable Paper Maker (`lib/paper`: `geometry.ts` builds one list of lines, dots and text in mm that both the SVG preview in `components/tools/paper/SheetPreview.tsx` and the pdf-lib export in `lib/paper/pdf.ts` draw; `settings.ts` validates saved settings and holds the one-click presets) plus three pages that open it on one template (dot grid, graph, Cornell notes) through `components/tools/paper/variants.tsx`.
 
 - Planners pack (`planners`): Printable Planner Maker (`lib/planner`: `layout.ts` builds each calendar or planner page as the same shape list the paper maker uses, `dates.ts` does UTC date and Intl name work) with pages for the calendar and the daily planner. Shared sliders and toggles are in `components/tools/paper/controls.tsx`; `lib/paper/pdf.ts` has `buildPdfFromSheets` for pages that all differ.
+- QR pack (`qr`): QR Code Generator with Wi-Fi and vCard pages. `lib/qr/encoder.ts` is our own byte-mode encoder (versions 1 to 40, Reed-Solomon, mask selection); `payloads.ts` builds the text for link, Wi-Fi, vCard, email, phone, SMS, geo and calendar event plus the contrast helper; `render.ts` makes the SVG, PNG and the BarcodeDetector self-check. Screens in `components/tools/qr`, text in `locales/packs/qr.en.json`, entries in `config/packs/qr.ts`.
 
 ## Extra page content (AdSense depth)
 

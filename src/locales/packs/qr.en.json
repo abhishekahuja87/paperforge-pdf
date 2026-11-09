@@ -1,0 +1,360 @@
+{
+  "toolCatalog": {
+    "qr-code-generator": [
+      "QR Code Generator: Free, No Expiry, PNG and SVG Download",
+      "Make a QR code for a link, text, contact, Wi-Fi, email, phone, location or event."
+    ],
+    "wifi-qr-code-generator": [
+      "Wi-Fi QR Code Generator: Let Guests Join Without Typing the Password",
+      "Make a QR code that connects phones to your Wi-Fi when scanned."
+    ],
+    "vcard-qr-code-generator": [
+      "vCard QR Code Generator: Business Card QR That Saves Your Contact",
+      "Make a QR code that saves your contact details to a phone address book."
+    ]
+  },
+  "guideSteps": {
+    "qr-code-generator": [
+      [
+        "Choose what the code opens",
+        "Pick Link, Text, Wi-Fi, Contact, Email, Phone, SMS, Location or Event, then fill in the fields. The code updates as you type."
+      ],
+      [
+        "Set the look and reliability",
+        "Choose colours, an error correction level, the blank border and, if you want one, a logo for the middle. The tool warns you about low contrast and inverted colours."
+      ],
+      [
+        "Check the code",
+        "The page reads the finished image back with the browser barcode reader where it exists and tells you if it matches. Scan a printed test with a phone before printing many."
+      ],
+      [
+        "Download or print",
+        "Save a PNG for documents and screens, an SVG for professional printing, or print a sheet with several copies and a caption under each one."
+      ]
+    ],
+    "wifi-qr-code-generator": [
+      [
+        "Enter the network",
+        "Type the exact network name (SSID) and choose the security type. Most home and office networks use WPA / WPA2 / WPA3."
+      ],
+      [
+        "Add the password",
+        "Type the password exactly as it is set on the router, including capital letters and symbols. Choose Hidden network only if the name is not broadcast."
+      ],
+      [
+        "Test and style",
+        "Check the code and scan it with your own phone. Keep dark on light for best results, and add a caption such as \"Scan to join\"."
+      ],
+      [
+        "Print table cards",
+        "Choose how many copies you want on a sheet, print, cut and place them where guests sit."
+      ]
+    ],
+    "vcard-qr-code-generator": [
+      [
+        "Enter your details",
+        "Fill in the name and the fields you want to share: company, job title, phone, email, website and address. Leave the rest empty."
+      ],
+      [
+        "Keep it short",
+        "The fewer the details, the simpler and easier to scan the code. Name, phone and email are usually enough."
+      ],
+      [
+        "Check and test",
+        "Scan the code with a phone and make sure the contact opens with the right fields before printing."
+      ],
+      [
+        "Download or print",
+        "Save a PNG or SVG for your business card design, or print a sheet of copies for badges and handouts."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "qrGeneratorGuide": {
+      "title": "QR Code Generator: Free, No Expiry, PNG and SVG Download",
+      "subtitle": "Type a link or choose another kind of content, style the code, check that it reads back correctly and download it as PNG or SVG. Free, no sign-up, no tracking and no expiry date.",
+      "faq": [
+        [
+          "Is the QR code generator free, and does the code expire?",
+          "It is free and needs no account. The codes are static: the content is written straight into the pattern, so there is no server in the middle and nothing that can expire, be switched off or ask for a subscription."
+        ],
+        [
+          "Do you track who scans my code?",
+          "No. A static code contains only your content. Scans cannot be counted because nothing passes through a redirect. If you need scan statistics, you need a dynamic-code service, which adds a link that can break if the service stops."
+        ],
+        [
+          "What can I put in a QR code?",
+          "A web address, plain text, Wi-Fi login details, a contact card, an email with subject and message, a phone number, a text message, a map location and a calendar event."
+        ],
+        [
+          "How much can one code hold?",
+          "At the lowest error correction up to about 2,950 bytes, at medium about 2,330, at quartile about 1,660 and at high about 1,270. A short link makes a small, easy-to-scan code; a long text makes a dense one."
+        ],
+        [
+          "Which error correction level should I choose?",
+          "Medium suits most screens and paper. Choose Quartile or High for stickers, outdoor signs and anything that may get scuffed. Higher levels make the code denser. A centre logo needs High, which the tool sets for you."
+        ],
+        [
+          "Why will my code not scan?",
+          "The usual reasons are low contrast, a coloured or patterned background, a blank border that is too small, a print that is too small for the scan distance, or a very dense code. Make it larger, use dark on light and keep the blank border."
+        ],
+        [
+          "What size should I print it?",
+          "Keep at least 2 cm across for a short link read from close by. As a rule of thumb the code should be about one tenth of the scanning distance, so a poster read from 2 metres needs about 20 cm."
+        ],
+        [
+          "Which format should I download?",
+          "PNG for slides, documents and websites. SVG for print shops, signs and anything that must stay sharp at any size."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The code is calculated and drawn in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your Wi-Fi name, passwords, contact details and links stay on your device."
+        ]
+      ]
+    },
+    "wifiQrGuide": {
+      "title": "Wi-Fi QR Code Generator: Let Guests Join Without Typing the Password",
+      "subtitle": "Enter your network name and password, and make a QR code that guests scan with their camera to join. Print table cards for a home, cafe, office or rental. Free and private.",
+      "faq": [
+        [
+          "How does a Wi-Fi QR code work?",
+          "The code holds the network name, security type and password in a standard format. Phone cameras recognise it and offer to join the network, so nobody has to type a long password."
+        ],
+        [
+          "Which phones can scan it?",
+          "Current iPhones and most Android phones join from the built-in camera. Older Android phones may need a QR scanner app. Laptops usually cannot join this way."
+        ],
+        [
+          "Is it safe to print my Wi-Fi password?",
+          "Anyone who sees the code can join the network, just as if they had the password. Print it only where guests should have access, and use a guest network rather than your main network when you can."
+        ],
+        [
+          "What if my password has symbols or quotes?",
+          "The tool escapes special characters such as semicolons, commas, colons, quotes and backslashes the way the Wi-Fi format requires, so passwords with symbols work."
+        ],
+        [
+          "Which security type should I pick?",
+          "Use WPA / WPA2 / WPA3 for nearly all modern networks. WEP is very old and weak. Choose Open only for networks with no password."
+        ],
+        [
+          "My network is hidden. Does that work?",
+          "Yes. Turn on Hidden network so the phone knows to look for a name that is not broadcast."
+        ],
+        [
+          "The code does not connect. Why?",
+          "Check the name and password are exactly right, including upper and lower case, and that the security type matches the router. Spaces at the start or end of a name or password also cause failures."
+        ],
+        [
+          "Does the code stop working if I change the password?",
+          "Yes. The password is stored inside the code, so you need to make and print a new one after any change."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The code is calculated and drawn in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your Wi-Fi name, passwords, contact details and links stay on your device."
+        ]
+      ]
+    },
+    "vcardQrGuide": {
+      "title": "vCard QR Code Generator: Business Card QR That Saves Your Contact",
+      "subtitle": "Enter your name, phone, email, company and website and make a QR code that saves your contact when scanned. For business cards, badges, email signatures and event stands.",
+      "faq": [
+        [
+          "What is a vCard QR code?",
+          "It is a QR code that contains a digital contact card in the vCard format. When scanned, the phone offers to save the person to the address book with all the fields filled in."
+        ],
+        [
+          "Which fields can I include?",
+          "First and last name, company, job title, phone, email, website, address and a note. Only fields you fill in are included."
+        ],
+        [
+          "Why is my code so dense?",
+          "Every extra character adds squares. Remove the note and address, shorten the website, or use fewer fields. A card with name, phone and email makes a clean code."
+        ],
+        [
+          "Does the contact update if I change jobs?",
+          "No. The details are written into the code. If your details change, you need a new code. If you want an updatable card, use a link to a page that you maintain."
+        ],
+        [
+          "Which phones can save it?",
+          "Current iPhone and Android cameras recognise contact codes and offer to add the contact. Some older Android phones need a scanner app."
+        ],
+        [
+          "Is it better to link to my website?",
+          "A link makes a simpler code and lets you update the page later. A vCard works offline and saves the contact immediately, so it suits events where signal is poor."
+        ],
+        [
+          "How big should it be on a business card?",
+          "About 2 to 2.5 cm across is enough for a simple contact code with a good blank border. A denser card needs more space."
+        ],
+        [
+          "Can I add a logo?",
+          "Yes, on the main QR code generator page. The tool then uses the highest error correction and keeps the logo small."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The code is calculated and drawn in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your Wi-Fi name, passwords, contact details and links stay on your device."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "qr-code-generator": {
+      "sections": [
+        {
+          "heading": "What the QR Code Generator does",
+          "paragraphs": [
+            "It turns text into a QR code that any phone camera can read. You choose what the code should do when scanned, such as opening a web page, joining a Wi-Fi network, saving a contact or starting an email, and the tool builds the right text for that purpose and draws the pattern.",
+            "The pattern is calculated in your browser by an encoder written for this site. It follows the QR Code standard, including the error correction maths and the choice of mask that makes the code easiest to read, so the result works with ordinary camera apps without any special software."
+          ]
+        },
+        {
+          "heading": "Static codes and why they matter",
+          "paragraphs": [
+            "A static code stores your content inside the pattern itself. Scanning it needs no internet connection to this website, and the code will keep working for as long as the thing it points to exists. Many online generators instead create a dynamic code, which holds a short link to their own server and forwards the visitor. That allows scan counts, but the code stops working if the service closes your account or ends a trial, and every scan passes through a third party.",
+            "If you print a code on a menu, a business card or a sign, a static code is the safer choice. The trade-off is that you cannot change the destination later. If the page address may change, point the code at an address you control and keep that address stable."
+          ]
+        },
+        {
+          "heading": "Choosing the content type",
+          "paragraphs": [
+            "Link is the most common. If you leave out the scheme, the tool adds https:// so phones treat it as a web address. Text holds any note or code. Wi-Fi and Contact have their own pages with more detail. Email can include a subject and message, so one scan opens a draft ready to send. Phone starts a call, SMS opens a message with your text filled in, Location opens a map at exact coordinates, and Event adds an appointment to the calendar.",
+            "Always include the country code in phone numbers so the code works wherever it is scanned. Keep text short: every extra character makes the pattern denser and harder to scan at a small size."
+          ]
+        },
+        {
+          "heading": "Error correction, size and density",
+          "paragraphs": [
+            "A QR code carries extra data so it can be read even when part is damaged or covered. Low restores about 7% of the data, Medium 15%, Quartile 25% and High 30%. More correction means a bigger, denser pattern for the same content, so the right choice depends on where the code will live. A clean on-screen code can use Medium; a sticker on a bottle or an outdoor sign deserves Quartile or High.",
+            "Density matters because the camera needs to resolve each small square. If a code looks like fine grain, shorten the content, lower the error correction, or print it larger. The tool shows the version and grid size so you can see how complex the result is."
+          ]
+        },
+        {
+          "heading": "Colour, contrast and logos",
+          "paragraphs": [
+            "Colour is allowed, but the camera reads brightness, not hue. Dark code on a light background is the safe combination. The tool measures the contrast ratio and warns below 4:1. It also warns when the code is lighter than the background, because that inverted style fails on some older scanners.",
+            "A logo in the middle covers part of the pattern, so the tool switches to High error correction and limits the logo to about a quarter of the width. It also clears a small border around the logo so the squares behind it are removed rather than half-covered. Keep the logo simple, and scan a test before you print."
+          ]
+        },
+        {
+          "heading": "Checking before you print",
+          "paragraphs": [
+            "After each change the page renders the final image and, in browsers that have a built-in barcode reader, reads it back and compares the result with what you typed. A green tick is a good sign but not a guarantee, because phones differ. Always scan a printed copy with at least two phones, from the distance people will actually use.",
+            "The sheet option prints several copies of the same code with a caption under each, which is useful for table cards, shelf labels and event badges. Print on plain matte paper where you can; glossy surfaces reflect light and can make scanning harder."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "One code holds at most about 2,950 bytes, and fewer for higher error correction or non-English text, because each accented or non-Latin letter takes several bytes. If your content does not fit, the tool says so instead of failing silently. The generator does not store history, so keep your own copy of codes you want to reuse.",
+            "Nothing you type is uploaded. The page is open to the network for its own files and advertising, but the content of your code is processed on your device only."
+          ]
+        }
+      ]
+    },
+    "wifi-qr-code-generator": {
+      "sections": [
+        {
+          "heading": "What the Wi-Fi QR Code Generator does",
+          "paragraphs": [
+            "It builds a QR code that contains your Wi-Fi login. When a guest points their camera at it, the phone shows a prompt to join the network, with no typing and no mistyped characters. It is useful anywhere people ask for the password again and again: homes with visitors, short-term rentals, cafes, waiting rooms, offices and event spaces.",
+            "The code follows the standard Wi-Fi format that Android and iPhone cameras understand. Everything is created in your browser, so the password never leaves your device."
+          ]
+        },
+        {
+          "heading": "What goes into the code",
+          "paragraphs": [
+            "Three things matter: the network name, the security type and the password. The name is case sensitive, so \"HomeNet\" and \"homenet\" are different networks. The security type tells the phone how to authenticate. For almost every network made in the last decade it is WPA2 or WPA3, which the first option covers. WEP is a legacy type, and Open means no password at all.",
+            "If the network name is not broadcast, switch on Hidden network. The phone then tries to connect directly instead of waiting to see the name in a list."
+          ]
+        },
+        {
+          "heading": "Special characters and long passwords",
+          "paragraphs": [
+            "The Wi-Fi format uses semicolons, commas, colons and quotes as separators, so those characters inside a name or password must be escaped with a backslash. The tool does this for you. Without it, a password such as pass;word would be cut short and the connection would fail.",
+            "Long passphrases make the code denser, but a Wi-Fi code is still small, because it holds only a few dozen characters. A normal print around 3 to 4 cm is usually enough to read from a table."
+          ]
+        },
+        {
+          "heading": "Where and how to display it",
+          "paragraphs": [
+            "Print the code with a clear caption such as \"Scan to join our Wi-Fi\", and put the network name beside it in plain text for people whose phones cannot scan. Place it at eye level or flat on a table, away from glare. The print sheet option makes a page of identical cards you can cut out and place on each table or in each room.",
+            "Keep a dark code on a light background, leave the blank border around the pattern and avoid laminating with a glossy finish that reflects ceiling lights."
+          ]
+        },
+        {
+          "heading": "Security and good practice",
+          "paragraphs": [
+            "A Wi-Fi QR code gives full access to the network to anyone who can scan it. If you run a cafe or rental, create a separate guest network with its own password and put that code on display. Guest networks keep visitors away from your computers, printers and cameras, and you can change the password without disturbing your own devices.",
+            "Change the password and replace the printed codes if you think it has been shared too widely. Do not post a picture of the code online, because a photo can be scanned as easily as the original."
+          ]
+        },
+        {
+          "heading": "Troubleshooting a code that fails",
+          "paragraphs": [
+            "Start with the basics: scan it with your own phone, and compare the name and password with your router settings. A single wrong capital letter fails. Check the security type next. If you picked Open but the network has a password, or the reverse, the phone cannot join.",
+            "If the camera does not react at all, the problem is reading, not the data. Print larger, raise the contrast, use the Quartile or High error correction setting and avoid a patterned background. Test again before printing a full sheet."
+          ]
+        },
+        {
+          "heading": "Limits and privacy",
+          "paragraphs": [
+            "The code cannot update itself, so changing the router password means making a new code. It cannot restrict time or number of users either; that is a router setting. Some laptops and older devices cannot join from a QR code and still need the password typed.",
+            "Nothing you type is uploaded. The password exists only on your screen and in the file you download or print."
+          ]
+        }
+      ]
+    },
+    "vcard-qr-code-generator": {
+      "sections": [
+        {
+          "heading": "What the vCard QR Code Generator does",
+          "paragraphs": [
+            "It creates a QR code that carries a full contact card. When someone scans it, their phone shows the name, phone, email and other details, and offers to save the contact in one tap. It replaces typing a number from a business card, which is slow and error prone.",
+            "The card is built in the vCard 3.0 format, which iPhone, Android and desktop address books all read. Everything is done in your browser, so your details are not uploaded."
+          ]
+        },
+        {
+          "heading": "What to include",
+          "paragraphs": [
+            "Include what people actually need. For most business cards that is name, company, job title, phone, email and website. An address is useful for shops and offices but adds many characters. A note can hold a line such as \"Met at the design fair\", but it makes the pattern denser.",
+            "Write the phone number with the country code, for example +1 for the United States or +44 for the United Kingdom, so the contact works from any country. The tool removes spaces and punctuation from the number automatically."
+          ]
+        },
+        {
+          "heading": "Keeping the code easy to scan",
+          "paragraphs": [
+            "A QR code is a grid of squares. The more text, the more squares and the smaller each one looks on a small card. The tool shows the code immediately so you can see the effect of each field. If the grid looks very fine, remove the least important field first.",
+            "A simple contact with name, phone and email usually makes a code that scans easily at 2 to 2.5 cm. Add a website and an address and you may want closer to 3 cm."
+          ]
+        },
+        {
+          "heading": "Placing it on cards, badges and signatures",
+          "paragraphs": [
+            "On a business card, put the code on the back or in a corner with clear space around it. On an event badge, make it large enough to be scanned across a table. In an email signature, use a PNG about 300 pixels wide. For professional printing, ask for the SVG, which stays sharp at any size.",
+            "Always print a test and scan it with more than one phone before ordering hundreds of cards. Check the name, number and email in the saved contact."
+          ]
+        },
+        {
+          "heading": "vCard or a link to a page",
+          "paragraphs": [
+            "A vCard saves the contact directly, works without a signal and cannot go out of date on a server. But it cannot change once printed. A link to your own web page produces a smaller code and lets you update the details later, but it needs the person to be online and to save the contact manually.",
+            "Many people use both: a vCard on the badge for quick saving at events, and a link on printed material that may last years."
+          ]
+        },
+        {
+          "heading": "Privacy considerations",
+          "paragraphs": [
+            "A contact code is public to anyone who can see it. Include only information you are happy to share with strangers, and use a work email and number if you can. Do not put home addresses on codes displayed in public.",
+            "Because the code is generated on your device, your details are not sent to the site. The only copy is the one you download or print."
+          ]
+        },
+        {
+          "heading": "Limits",
+          "paragraphs": [
+            "The contact has no photo and does not support several phone numbers or addresses in this version. Some phones show only the first email or number. The code cannot update later, so a new job or number means a new code. If you need a very rich card, link to a page instead."
+          ]
+        }
+      ]
+    }
+  }
+}
