@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { CalcFooter, Note, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { CHECKED_ON, SOURCES, SPORTS, findSport } from '../../../lib/sports/courtData';
 import { spaceNeeded } from '../../../lib/sports/fit';
 import { formatLength } from '../../../lib/sports/units';
 import { buildSheetPages, pagesToPdf, pagesToPng } from '../../../lib/sports/sheet';
 import type { MarkingText } from '../../../lib/sports/marking';
+import { labelNames } from '../../../lib/sports/annotate';
 import { downloadBlob } from '../../../lib/browserTools';
 import text from '../../../locales/packs/sports.courts.en.json';
 import CourtDiagram from './CourtDiagram';
@@ -13,7 +14,7 @@ import CourtSetOut from './CourtSetOut';
 
 type SportText = {
   name: string; summary: string; variants: Record<string, string>; facts: Record<string, string>; marks: Record<string, string>;
-  margins: Record<string, string>; howToPlay: string[]; notes: string[];
+  margins: Record<string, string>; parts: Record<string, string>; refs?: { net?: string }; howToPlay: string[]; notes: string[];
 };
 const sportsText = text.sports as unknown as Record<string, SportText>;
 const ui = text.ui;
@@ -36,6 +37,7 @@ const CourtGuide: React.FC = () => {
   const variant = sport.variants.find((v) => v.id === variantId) ?? sport.variants[0];
   const margin = variant.margins.find((m) => m.id === marginId) ?? variant.margins[0];
   const copy = sportsText[sport.id];
+  const annotate = useMemo(() => ({ captions: { endA: ui.fromEndA, endB: ui.fromEndB, sideA: ui.fromSideA, sideB: ui.fromSideB }, names: labelNames(copy.marks, copy.parts, ui, copy.refs) }), [copy]);
 
   const pick = (nextSport: string, nextVariant?: string) => {
     const s = findSport(nextSport);
@@ -46,7 +48,7 @@ const CourtGuide: React.FC = () => {
   const save = async (kind: 'png' | 'pdf') => {
     setSaving(kind); setFailed(false);
     try {
-      const pages = buildSheetPages(variant, margin, { title: copy.name, version: copy.variants[variant.id], ui, facts: copy.facts, marks: copy.marks, margin: copy.margins[margin.id], notes: copy.notes, marking });
+      const pages = buildSheetPages(variant, margin, { title: copy.name, version: copy.variants[variant.id], ui, facts: copy.facts, marks: copy.marks, margin: copy.margins[margin.id], notes: copy.notes, parts: copy.parts, refs: copy.refs, marking });
       const base = `${sport.id}-${variant.id}-court-size`;
       if (kind === 'png') downloadBlob(await pagesToPng(pages), `${base}.png`);
       else downloadBlob(new Blob([(await pagesToPdf(pages, `${copy.name}: ${copy.variants[variant.id]}`)).slice().buffer as ArrayBuffer], { type: 'application/pdf' }), `${base}.pdf`);
@@ -78,7 +80,7 @@ const CourtGuide: React.FC = () => {
             {variant.margins.length > 1 && <SelectField label={ui.runoff} value={margin.id} onChange={setMarginId} options={variant.margins.map((m) => ({ value: m.id, label: copy.margins[m.id] }))} />}
           </div>
           <p className="mt-3 text-xs text-slate-600">{copy.summary}</p>
-          <div className="mt-3"><CourtDiagram variant={variant} margin={margin} label={`${copy.name}: ${copy.variants[variant.id]}`} clearCaption={ui.clearCaption} /></div>
+          <div className="mt-3"><CourtDiagram variant={variant} margin={margin} label={`${copy.name}: ${copy.variants[variant.id]}`} clearCaption={ui.clearCaption} annotate={annotate} /></div>
           <p className="mt-1 text-[11px] text-slate-500">{ui.drawingNote}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             <button type="button" disabled={saving !== ''} onClick={() => save('png')} className="inline-flex min-h-11 items-center rounded-xl bg-emerald-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-emerald-800 disabled:opacity-60">{saving === 'png' ? ui.preparing : ui.saveImage}</button>
@@ -120,7 +122,7 @@ const CourtGuide: React.FC = () => {
 
           <details className="mt-5 rounded-xl border border-slate-200 p-3">
             <summary className="cursor-pointer text-sm font-semibold text-slate-900">{ui.setOutShow}</summary>
-            <div className="mt-3"><CourtSetOut variant={variant} margin={margin} marking={marking} marks={copy.marks} label={`${copy.name}: ${marking.heading}`} clearCaption={ui.clearCaption} hint={ui.setOutHint} captions={{ endA: ui.fromEndA, endB: ui.fromEndB, sideA: ui.fromSideA, sideB: ui.fromSideB }} /></div>
+            <div className="mt-3"><CourtSetOut variant={variant} margin={margin} marking={marking} marks={copy.marks} label={`${copy.name}: ${marking.heading}`} clearCaption={ui.clearCaption} hint={ui.setOutHint} annotate={annotate} /></div>
           </details>
 
           <h3 className="mt-5 text-sm font-semibold text-slate-900">{ui.howTo}</h3>

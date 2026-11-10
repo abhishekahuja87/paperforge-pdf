@@ -8,7 +8,16 @@ import { arcTo, circle, line, lineTo, move, rect } from './shapes';
 export const CHECKED_ON = '10 November 2026';
 
 export interface Fact { id: string; m: number }
-export interface Mark { id: string; m: number; from: 'end' | 'side' }
+/** What a distance on the drawing is measured from: the nearest end line, the net or centre line, or the nearest side line. */
+export type Ref = 'end' | 'net' | 'side';
+/** A named line: `m` is its distance from end A ('end') or side A ('side'); the label also gives it from `ref`. */
+export interface Mark { id: string; m: number; from: 'end' | 'side'; ref?: Ref }
+/** Something else written on the drawing by name: a circle or arc (by radius), a rectangle (by size), a spot on the middle line (by distance from the end), or a note. */
+export type Part =
+  | { id: string; kind: 'circle' | 'arc'; r: number }
+  | { id: string; kind: 'rect'; w: number; h: number }
+  | { id: string; kind: 'spot'; x: number }
+  | { id: string; kind: 'note'; at: 'net' | 'footer'; values?: number[] };
 /** Clear space the rules ask for beyond the boundary lines. */
 export interface Margin { id: string; ends: number; sides: number; source: string }
 export interface Variant {
@@ -23,6 +32,7 @@ export interface Variant {
   dashed?: string[];
   facts: Fact[];
   marks: Mark[];
+  parts?: Part[];
   margins: Margin[];
   /** Smallest overall space the rules ask for when they give a total instead of a margin: [long side, short side]. */
   minOverall?: [number, number];
@@ -69,7 +79,8 @@ function badminton(): Variant {
       { id: 'length', m: L }, { id: 'doublesWidth', m: W }, { id: 'singlesWidth', m: 5.18 }, { id: 'shortService', m: 1.98 },
       { id: 'longServiceDoubles', m: 0.76 }, { id: 'netPosts', m: 1.55 }, { id: 'netCentre', m: 1.524 }, { id: 'lineWidth', m: 0.04 },
     ],
-    marks: [{ id: 'longServiceDoubles', m: 0.76, from: 'end' }, { id: 'shortService', m: net - 1.98, from: 'end' }, { id: 'net', m: net, from: 'end' }, { id: 'singlesSideline', m: 0.46, from: 'side' }],
+    marks: [{ id: 'longServiceDoubles', m: 0.76, from: 'end', ref: 'end' }, { id: 'shortService', m: net - 1.98, from: 'end', ref: 'net' }, { id: 'net', m: net, from: 'end', ref: 'end' }, { id: 'singlesSideline', m: 0.46, from: 'side', ref: 'side' }, { id: 'centreLine', m: half(W), from: 'side', ref: 'side' }],
+    parts: [{ id: 'netHeights', kind: 'note', at: 'net', values: [1.55, 1.524] }, { id: 'singlesWidth', kind: 'note', at: 'footer', values: [5.18] }, { id: 'lineWidth', kind: 'note', at: 'footer', values: [0.04] }],
     margins: [{ id: 'bwf', ends: 2, sides: 1.5, source: 'bwfFacilities' }],
     clearHeight: 9,
     sources: ['bwfLaws', 'bwfFacilities'],
@@ -89,7 +100,8 @@ function tennis(): Variant {
       { id: 'length', m: L }, { id: 'doublesWidth', m: W }, { id: 'singlesWidth', m: 8.23 }, { id: 'serviceFromNet', m: 6.4 },
       { id: 'netPosts', m: 1.07 }, { id: 'netCentre', m: 0.914 },
     ],
-    marks: [{ id: 'serviceLine', m: net - 6.4, from: 'end' }, { id: 'net', m: net, from: 'end' }, { id: 'singlesSideline', m: side, from: 'side' }],
+    marks: [{ id: 'serviceLine', m: net - 6.4, from: 'end', ref: 'net' }, { id: 'net', m: net, from: 'end', ref: 'end' }, { id: 'singlesSideline', m: side, from: 'side', ref: 'side' }, { id: 'centreServiceLine', m: half(W), from: 'side', ref: 'side' }],
+    parts: [{ id: 'netHeights', kind: 'note', at: 'net', values: [1.07, 0.914] }, { id: 'singlesWidth', kind: 'note', at: 'footer', values: [8.23] }],
     margins: [
       { id: 'club', ends: 5.48, sides: 3.05, source: 'itf' },
       { id: 'international', ends: 6.4, sides: 3.66, source: 'itf' },
@@ -111,7 +123,8 @@ function pickleball(): Variant {
     facts: [
       { id: 'length', m: L }, { id: 'width', m: W }, { id: 'kitchen', m: kitchen }, { id: 'netSides', m: 36 * 0.0254 }, { id: 'netCentre', m: 34 * 0.0254 }, { id: 'lineWidth', m: 2 * 0.0254 },
     ],
-    marks: [{ id: 'kitchenLine', m: net - kitchen, from: 'end' }, { id: 'net', m: net, from: 'end' }],
+    marks: [{ id: 'kitchenLine', m: net - kitchen, from: 'end', ref: 'net' }, { id: 'net', m: net, from: 'end', ref: 'end' }, { id: 'centreLine', m: half(W), from: 'side', ref: 'side' }],
+    parts: [{ id: 'netHeights', kind: 'note', at: 'net', values: [36 * 0.0254, 34 * 0.0254] }, { id: 'lineWidth', kind: 'note', at: 'footer', values: [2 * 0.0254] }],
     margins: [
       { id: 'minimum', ends: 8 * FT, sides: 5 * FT, source: 'pickleball' },
       { id: 'recommended', ends: 10 * FT, sides: 7 * FT, source: 'pickleball' },
@@ -141,7 +154,8 @@ function basketballFiba(): Variant {
       { id: 'length', m: L }, { id: 'width', m: W }, { id: 'freeThrow', m: 5.8 }, { id: 'laneWidth', m: 4.9 }, { id: 'threePoint', m: 6.75 },
       { id: 'cornerFromSide', m: 0.9 }, { id: 'circleRadius', m: 1.8 }, { id: 'rimHeight', m: 3.05 },
     ],
-    marks: [{ id: 'freeThrow', m: 5.8, from: 'end' }, { id: 'halfway', m: L / 2, from: 'end' }, { id: 'cornerFromSide', m: 0.9, from: 'side' }],
+    marks: [{ id: 'freeThrow', m: 5.8, from: 'end', ref: 'end' }, { id: 'halfway', m: L / 2, from: 'end', ref: 'end' }, { id: 'cornerFromSide', m: 0.9, from: 'side', ref: 'side' }],
+    parts: [{ id: 'lane', kind: 'rect', w: 5.8, h: 4.9 }, { id: 'threePoint', kind: 'arc', r: 6.75 }, { id: 'circle', kind: 'circle', r: 1.8 }, { id: 'semicircle', kind: 'arc', r: 1.8 }, { id: 'rimHeight', kind: 'note', at: 'footer', values: [3.05] }],
     margins: [{ id: 'free', ends: 2, sides: 2, source: 'fiba' }],
     sources: ['fiba', 'waBasketball'],
   };
@@ -152,6 +166,7 @@ function basketball3x3(): Variant {
     id: 'threeByThree', length: 15, width: 11, lines: [rect(0, 0, 15, 11)],
     facts: [{ id: 'length', m: 15 }, { id: 'width', m: 11 }, { id: 'twoPoint', m: 6.75 }],
     marks: [],
+    parts: [{ id: 'twoPoint', kind: 'note', at: 'footer', values: [6.75] }],
     margins: [{ id: 'free', ends: 2, sides: 2, source: 'fiba' }],
     sources: ['waBasketball', 'fiba'],
   };
@@ -163,7 +178,8 @@ function volleyball(): Variant[] {
     lines: [rect(0, 0, 18, 9), line(6, 0, 6, 9), line(12, 0, 12, 9)],
     dashed: [line(9, -0.4, 9, 9.4)],
     facts: [{ id: 'length', m: 18 }, { id: 'width', m: 9 }, { id: 'attackLine', m: 3 }, { id: 'netMen', m: 2.43 }, { id: 'netWomen', m: 2.24 }],
-    marks: [{ id: 'attackLine', m: 6, from: 'end' }, { id: 'net', m: 9, from: 'end' }],
+    marks: [{ id: 'attackLine', m: 6, from: 'end', ref: 'net' }, { id: 'net', m: 9, from: 'end', ref: 'end' }],
+    parts: [{ id: 'netHeights', kind: 'note', at: 'net', values: [2.43, 2.24] }],
     margins: [
       { id: 'minimum', ends: 3, sides: 3, source: 'waVolleyball' },
       { id: 'official', ends: 8, sides: 5, source: 'waVolleyball' },
@@ -174,7 +190,8 @@ function volleyball(): Variant[] {
   const beach: Variant = {
     id: 'beach', length: 16, width: 8, lines: [rect(0, 0, 16, 8)], dashed: [line(8, -0.4, 8, 8.4)],
     facts: [{ id: 'length', m: 16 }, { id: 'width', m: 8 }, { id: 'netMen', m: 2.43 }, { id: 'netWomen', m: 2.24 }],
-    marks: [{ id: 'net', m: 8, from: 'end' }],
+    marks: [{ id: 'net', m: 8, from: 'end', ref: 'end' }],
+    parts: [{ id: 'netHeights', kind: 'note', at: 'net', values: [2.43, 2.24] }],
     margins: [{ id: 'minimum', ends: 3, sides: 3, source: 'waVolleyball' }],
     clearHeight: 7,
     sources: ['waVolleyball'],
@@ -204,7 +221,11 @@ function footballPitch(id: string, L: number, W: number): Variant {
       { id: 'length', m: L }, { id: 'width', m: W }, { id: 'goalWidth', m: 7.32 }, { id: 'crossbar', m: 2.44 }, { id: 'goalArea', m: 5.5 },
       { id: 'penaltyArea', m: 16.5 }, { id: 'penaltyMark', m: 11 }, { id: 'circleRadius', m: 9.15 }, { id: 'cornerArc', m: 1 },
     ],
-    marks: [{ id: 'goalArea', m: 5.5, from: 'end' }, { id: 'penaltyMark', m: 11, from: 'end' }, { id: 'penaltyArea', m: 16.5, from: 'end' }, { id: 'halfway', m: L / 2, from: 'end' }],
+    marks: [{ id: 'halfway', m: L / 2, from: 'end', ref: 'end' }],
+    parts: [
+      { id: 'goalArea', kind: 'rect', w: 5.5, h: goalW }, { id: 'penaltyArea', kind: 'rect', w: 16.5, h: penaltyW }, { id: 'penaltyMark', kind: 'spot', x: 11 }, { id: 'centreSpot', kind: 'spot', x: L / 2 },
+      { id: 'centreCircle', kind: 'circle', r: 9.15 }, { id: 'penaltyArc', kind: 'arc', r: 9.15 }, { id: 'cornerArc', kind: 'arc', r: 1 }, { id: 'goal', kind: 'note', at: 'footer', values: [7.32, 2.44] },
+    ],
     margins: [{ id: 'none', ends: 0, sides: 0, source: 'ifab' }],
     sources: ['ifab'],
   };
@@ -215,7 +236,7 @@ function cricketPitch(): Variant {
   return {
     id: 'pitch', length: L, width: W, lines: [rect(0, 0, L, W), line(0, half(W), L, half(W))],
     facts: [{ id: 'length', m: L }, { id: 'width', m: W }],
-    marks: [],
+    marks: [{ id: 'centreLine', m: half(W), from: 'side', ref: 'side' }],
     margins: [{ id: 'none', ends: 0, sides: 0, source: 'cricketPitch' }],
     sources: ['cricketPitch'],
   };
@@ -230,7 +251,8 @@ function cricketGround(id: string, boundaryYards: number): Variant {
       move(c - pitchL / 2, c - f) + lineTo(c + pitchL / 2, c - f) + arcTo(f, c + pitchL / 2, c + f, 1) + lineTo(c - pitchL / 2, c + f) + arcTo(f, c - pitchL / 2, c - f, 1),
     ],
     facts: [{ id: 'boundaryRadius', m: r }, { id: 'diameter', m: d }, { id: 'fieldingCircle', m: f }, { id: 'pitchLength', m: pitchL }],
-    marks: [],
+    marks: [{ id: 'fieldingStraight', m: c - f, from: 'side', ref: 'net' }],
+    parts: [{ id: 'boundary', kind: 'circle', r }, { id: 'pitch', kind: 'rect', w: pitchL, h: pitchW }, { id: 'fieldingArc', kind: 'arc', r: f }],
     margins: [{ id: 'fence', ends: 3 * 0.9144, sides: 3 * 0.9144, source: 'cricketField' }],
     sources: ['cricketField', 'cricketPitch'],
   };
@@ -245,12 +267,13 @@ function hockey(): Variant {
   };
   return {
     id: 'pitch', length: L, width: W,
-    lines: [rect(0, 0, L, W), line(L / 2, 0, L / 2, W), line(22.9, 0, 22.9, W), line(L - 22.9, 0, L - 22.9, W), d(true), d(false), rect(-1.2, cy - 1.83, 1.2, 3.66), rect(L, cy - 1.83, 1.2, 3.66)],
+    lines: [rect(0, 0, L, W), line(L / 2, 0, L / 2, W), line(22.9, 0, 22.9, W), line(L - 22.9, 0, L - 22.9, W), d(true), d(false), rect(-1.2, cy - 1.83, 1.2, 3.66), rect(L, cy - 1.83, 1.2, 3.66), circle(6.475, cy, 0.2), circle(L - 6.475, cy, 0.2)],
     facts: [
       { id: 'length', m: L }, { id: 'width', m: W }, { id: 'goalWidth', m: 3.66 }, { id: 'goalHeight', m: 2.14 }, { id: 'circleRadius', m: R },
       { id: 'line23', m: 22.9 }, { id: 'penaltySpot', m: 6.475 }, { id: 'lineWidth', m: 0.075 },
     ],
-    marks: [{ id: 'line23', m: 22.9, from: 'end' }, { id: 'halfway', m: L / 2, from: 'end' }, { id: 'circleFront', m: R, from: 'end' }],
+    marks: [{ id: 'line23', m: 22.9, from: 'end', ref: 'end' }, { id: 'halfway', m: L / 2, from: 'end', ref: 'end' }, { id: 'circleFront', m: R, from: 'end', ref: 'end' }],
+    parts: [{ id: 'circleArc', kind: 'arc', r: R }, { id: 'goal', kind: 'rect', w: 1.2, h: 3.66 }, { id: 'penaltySpot', kind: 'spot', x: 6.475 }, { id: 'goalHeight', kind: 'note', at: 'footer', values: [2.14] }, { id: 'lineWidth', kind: 'note', at: 'footer', values: [0.075] }],
     margins: [{ id: 'fih', ends: 3, sides: 2, source: 'fih' }],
     sources: ['fih'],
   };
@@ -265,7 +288,7 @@ function kabaddi(id: string, L: number, W: number, baulk: number): Variant {
       line(mid - baulk - 1, 0, mid - baulk - 1, W), line(mid + baulk + 1, 0, mid + baulk + 1, W), line(0, 1, L, 1), line(0, W - 1, L, W - 1),
     ],
     facts: [{ id: 'length', m: L }, { id: 'width', m: W }, { id: 'baulk', m: baulk }, { id: 'bonus', m: 1 }, { id: 'lobby', m: 1 }],
-    marks: [{ id: 'bonusLine', m: mid - baulk - 1, from: 'end' }, { id: 'baulkLine', m: mid - baulk, from: 'end' }, { id: 'midline', m: mid, from: 'end' }, { id: 'lobby', m: 1, from: 'side' }],
+    marks: [{ id: 'bonusLine', m: mid - baulk - 1, from: 'end', ref: 'net' }, { id: 'baulkLine', m: mid - baulk, from: 'end', ref: 'net' }, { id: 'midline', m: mid, from: 'end', ref: 'end' }, { id: 'lobby', m: 1, from: 'side', ref: 'side' }],
     margins: [{ id: 'none', ends: 0, sides: 0, source: 'ikf' }],
     minOverall: [18, 17],
     sources: ['ikf'],
@@ -279,7 +302,8 @@ function tableTennis(): Variant[] {
     id, length: L, width: W,
     lines: [rect(0, 0, L, W), ...table(L / 2, W / 2)], dashed: [line(L / 2, W / 2 - T.W / 2 - 0.15, L / 2, W / 2 + T.W / 2 + 0.15)],
     facts: [{ id: 'length', m: L }, { id: 'width', m: W }, { id: 'tableLength', m: T.L }, { id: 'tableWidth', m: T.W }, { id: 'tableHeight', m: 0.76 }, { id: 'netHeight', m: 0.1525 }],
-    marks: [],
+    marks: [{ id: 'tableCentre', m: W / 2, from: 'side', ref: 'side' }, { id: 'net', m: L / 2, from: 'end', ref: 'end' }],
+    parts: [{ id: 'table', kind: 'rect', w: T.L, h: T.W }, { id: 'netHeight', kind: 'note', at: 'net', values: [0.1525] }, { id: 'tableHeight', kind: 'note', at: 'footer', values: [0.76] }],
     margins: [{ id: 'none', ends: 0, sides: 0, source: 'ittfSpace' }],
     clearHeight: id === 'competition' ? 5 : undefined,
     sources: ['ittfSpace', 'ttLaws'],
@@ -287,7 +311,8 @@ function tableTennis(): Variant[] {
   const tableOnly: Variant = {
     id: 'table', length: T.L, width: T.W, lines: [rect(0, 0, T.L, T.W), line(0, T.W / 2, T.L, T.W / 2)], dashed: [line(T.L / 2, -0.15, T.L / 2, T.W + 0.15)],
     facts: [{ id: 'tableLength', m: T.L }, { id: 'tableWidth', m: T.W }, { id: 'tableHeight', m: 0.76 }, { id: 'netHeight', m: 0.1525 }],
-    marks: [],
+    marks: [{ id: 'tableCentre', m: T.W / 2, from: 'side', ref: 'side' }, { id: 'net', m: T.L / 2, from: 'end', ref: 'end' }],
+    parts: [{ id: 'netHeight', kind: 'note', at: 'net', values: [0.1525] }, { id: 'tableHeight', kind: 'note', at: 'footer', values: [0.76] }],
     margins: [{ id: 'none', ends: 0, sides: 0, source: 'ttLaws' }],
     sources: ['ttLaws'],
   };
@@ -295,10 +320,12 @@ function tableTennis(): Variant[] {
 }
 
 function squash(id: string, L: number, W: number, facts: Fact[]): Variant {
+  const heights = facts.map((fact): Part => ({ id: fact.id, kind: 'note', at: 'footer', values: [fact.m] }));
   return {
     id, length: L, width: W, lines: [rect(0, 0, L, W)],
     facts: [{ id: 'length', m: L }, { id: 'width', m: W }, ...facts],
     marks: [],
+    parts: heights,
     margins: [{ id: 'none', ends: 0, sides: 0, source: 'waSquash' }],
     sources: ['waSquash', 'squashTin'],
   };
@@ -319,7 +346,9 @@ export const SPORTS: Sport[] = [
     variants: [{
       id: 'ground', length: 27, width: 16, lines: [rect(0, 0, 27, 16)],
       facts: [{ id: 'length', m: 27 }, { id: 'width', m: 16 }, { id: 'centralLane', m: 0.3 }, { id: 'crossLane', m: 0.35 }, { id: 'poleHeight', m: 1.2 }],
-      marks: [], margins: [{ id: 'none', ends: 0, sides: 0, source: 'khoKho' }], sources: ['khoKho'],
+      marks: [],
+      parts: [{ id: 'centralLane', kind: 'note', at: 'footer', values: [0.3] }, { id: 'crossLane', kind: 'note', at: 'footer', values: [0.35] }, { id: 'poleHeight', kind: 'note', at: 'footer', values: [1.2] }],
+      margins: [{ id: 'none', ends: 0, sides: 0, source: 'khoKho' }], sources: ['khoKho'],
     }],
   },
   { id: 'tableTennis', variants: tableTennis() },
