@@ -869,11 +869,11 @@
       ],
       [
         "Choose compression",
-        "Select basic lossless optimization or strong optimization with metadata and thumbnail removal."
+        "Pick \"Reduce to a size\" and enter a limit such as 200 KB, or pick \"Clean up only\" for a lossless rewrite (basic, or strong with metadata and thumbnail removal)."
       ],
       [
         "Compress and save",
-        "Download the rewritten PDF and review its resulting size."
+        "The tool shows the new size and whether your limit was met. Download the PDF."
       ]
     ],
     "protect-pdf": [
@@ -2416,15 +2416,15 @@
     },
     "compress": {
       "title": "Compress & Optimize PDF",
-      "subtitle": "Rewrite PDF structure and remove selected metadata in your browser. Size savings depend on the document; image data is not downsampled.",
+      "subtitle": "Reduce a PDF to a size you choose, or just clean up its structure, in your browser. Size savings depend on the document.",
       "faq": [
         [
           "How does PDF compression work on {{siteName}}?",
-          "The tool rewrites the PDF using object streams and removes standard document metadata. The Strong option also removes selected XMP metadata, editing information, and embedded page thumbnails. It does not downsample images."
+          "\"Clean up only\" rewrites the PDF with object streams and removes metadata (Strong also removes XMP metadata, editing information and page thumbnails) and keeps text selectable. \"Reduce to a size\" first tries that; if the file is still above your limit, it turns each page into a picture and tries sharper-to-smaller settings until it fits."
         ],
         [
           "Will text or vector drawings lose clarity?",
-          "The tool does not rasterize pages or downsample embedded images. It rewrites PDF objects and metadata, so the resulting size may be similar to or larger than the original."
+          "Clean-up mode does not touch pages, so the size may be similar to the original. Reduce-to-size mode may turn pages into pictures: the text is then no longer selectable or searchable, and very small limits make pages blurrier. The tool tells you which method it used."
         ],
         [
           "Are my confidential documents uploaded anywhere?",
@@ -2432,7 +2432,7 @@
         ],
         [
           "What size limits should I aim for?",
-          "It depends on where the file is going, so follow the limit you were given. As a rough guide, email attachments are often capped at about 20–25 MB in total, and many government and job portals ask for roughly 100 KB to 2 MB per file. This tool does not shrink images, so a scanned PDF may stay larger than a strict limit allows."
+          "It depends on where the file is going, so follow the limit you were given. As a rough guide, email attachments are often capped at about 20–25 MB in total, and many government and job portals ask for roughly 100 KB to 2 MB per file. Use Reduce to a size for these limits; if a limit is too small for the number of pages, the tool says it could not reach it."
         ]
       ]
     },

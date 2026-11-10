@@ -98,7 +98,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
             </div>
             <p lang={contentLanguage} className="text-sm leading-6 text-stone-600">
               {subtitle}{' '}
-              <span className="inline-flex items-center gap-1 whitespace-nowrap text-xs font-bold text-orange-700">
+              <span className="inline-flex items-center gap-1 text-xs font-bold text-orange-700">
                 <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
                 {t('localProcessing')}
               </span>

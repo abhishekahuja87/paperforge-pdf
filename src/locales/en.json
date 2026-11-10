@@ -679,7 +679,7 @@
       },
       {
         "title": "Define Pages",
-        "description": "Enter specific pages or comma-separated ranges (e.g. 1-3, 5, 8)."
+        "description": "Enter pages or comma-separated ranges (e.g. 1-3, 5, 8), or tap All, Odd or Even pages. The tool shows how many pages match."
       },
       {
         "title": "Extract & Save",
@@ -693,7 +693,7 @@
       },
       {
         "question": "How do I specify multiple separate page ranges?",
-        "answer": "Use dashes for ranges and commas for separates (e.g., \"1-4, 7, 9-12\"). You can also click \"All Pages\" to select everything."
+        "answer": "Use dashes for ranges and commas for separates (e.g., \"1-4, 7, 9-12\"). Quick buttons select all, odd or even pages. Each page is used once, in page order, even if you list it twice."
       },
       {
         "question": "Can I split password-protected PDFs?",
@@ -863,13 +863,13 @@
     "step1Title": "Add your PDFs",
     "step1Description": "Choose two or more files, or drop them into the box.",
     "step2Title": "Set the order",
-    "step2Description": "Move files up or down. The first file becomes page 1.",
+    "step2Description": "Move files up or down. The first file becomes page 1. To use only some pages of a file, type a range such as 1-3, 5 in its page box.",
     "step3Title": "Merge and save",
     "step3Description": "Combine them and download the finished PDF.",
     "faq1Question": "Is there a limit on file size or quantity?",
     "faq1Answer": "The tool does not set a fixed file-size limit, but browser memory and device performance limit what can be processed. Very large files may fail or take longer.",
     "faq2Question": "Can I reorder individual pages?",
-    "faq2Answer": "You can arrange whole files in sequence. To extract or reorganize individual pages, use the Split PDF utility.",
+    "faq2Answer": "You can arrange whole files in sequence and choose which pages of each file to include, for example 1-3, 5. To reorder pages inside a single file, use Organize PDF.",
     "faq3Question": "Do I need to create an account or sign up?",
     "faq3Answer": "No registration, subscriptions, or personal details are required. All utilities run freely in your browser.",
     "choose": "Choose PDFs or drop them here",
