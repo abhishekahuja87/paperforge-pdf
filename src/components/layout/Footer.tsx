@@ -56,6 +56,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-1.5">
               <li><Link to="/guides" className={linkClass}>{t('guides')}</Link></li>
               <li><Link to="/about" className={linkClass}>{t('about')}</Link></li>
+              <li><Link to="/editorial-policy" className={linkClass}>{t('editorialPolicy')}</Link></li>
               <li><Link to="/contact" className={linkClass}>{t('contact')}</Link></li>
               <li><Link to="/privacy" className={linkClass}>{t('privacyPolicy')}</Link></li>
               <li><Link to="/terms" className={linkClass}>{t('terms')}</Link></li>

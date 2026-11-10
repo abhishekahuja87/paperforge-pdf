@@ -113,6 +113,7 @@ function shellBody(page, groups, text, site) {
   parts.push(`<h3>${escapeHtml(text.company)}</h3>`);
   parts.push(linkList([
     { path: '/about', title: text.about, description: '' },
+    { path: '/editorial-policy', title: text.editorialPolicy, description: '' },
     { path: '/contact', title: text.contact, description: '' },
     { path: '/privacy', title: text.privacyPolicy, description: '' },
     { path: '/terms', title: text.terms, description: '' },

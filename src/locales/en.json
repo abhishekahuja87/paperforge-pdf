@@ -851,6 +851,7 @@
   "contact": "Contact",
   "privacyPolicy": "Privacy Policy",
   "terms": "Terms of Service",
+  "editorialPolicy": "How we check our tools",
   "merge": {
     "title": "Merge PDF",
     "subtitle": "Combine multiple PDFs into one document, in the order you choose.",
