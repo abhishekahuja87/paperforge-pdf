@@ -110,8 +110,8 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 ### What's new (improvement notices)
 
 `config/updates.ts` is the dated list of improvements. `ToolUpdateNote` (in `ToolLayout`) shows the newest one above a tool for 45 days (`RECENT_DAYS`); the home page shows the latest three recent ones; `/whats-new` lists all and is pre-rendered and in the sitemap; the footer links to it. Add an entry with every improvement (see AGENTS.md).
-
 ### Tool extras, batch 2 (Nov 2026)
 
 - Age calculator: eligibility check (`lib/utilities/ageEligibility.ts`): minimum and maximum age, relaxation years and two wordings of the upper limit ("up to 30" means until the day before turning 31; "below 30" means not yet turned 30). Shows first and last eligible dates; 29 February birthdays complete a year on 1 March.
 - GST calculator: Find the GST rate from two prices (`impliedGstRate`), nearest standard slab from the quick-rate list, and CGST+SGST or IGST by supply type.
+
