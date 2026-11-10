@@ -436,3 +436,12 @@ Check after deploy:
 - [ ] Notes and risks, how to play, sources (links open) and the checked date appear for every sport. At 360 px nothing makes the page scroll sideways.
 - [ ] The drawing itself shows the length and width (metres with feet and inches) along the top and right, numbered points under or beside the court that match the numbered marking plan, and the dotted clear-space box with its caption.
 - [ ] Save as image (PNG) and Save as PDF download one A4 page for the chosen sport and version: drawing with all measurements, marking plan, notes, sources and the checked date. Open the PDF on the phone; nothing is cut off. Try a small court (table tennis), a long one (football) and a ground (cricket).
+
+### Sports Court Size Guide: full marking guide
+
+Checked in the sandbox: all 27 versions produce 2 to 4 valid A4 pages; the set-out numbers on the drawing match the step list (football: outer shape, penalty and goal areas, centre circle, spots, penalty and corner arcs; hockey: goals outside the end lines, circles, 23 m lines); a four-page sheet stacks into one 1573 x 8900 px PNG in Chromium. The PDF step (pdf-lib) and `tsc` were not run here.
+
+- [ ] Open a sport and expand "Full set-out": numbered drawing with corners A to D and both diagonals, a "Before you start" list, one numbered step per line/circle/arc/spot with its position from end A and end B (or side A and side B), and "Check before you finish".
+- [ ] Save as image (PNG): one tall image containing every page; zoom in on a phone and the text is readable. Save as PDF: 3 or 4 A4 pages (football 4), nothing cut off, page numbers "n / total".
+- [ ] Hand check against a tape or a map: badminton (13.4 x 6.1 m; singles line 0.46 m from side A and from side B; short service line 1.98 m from the net), football common (105 x 68 m; penalty mark 11 m; penalty area 16.5 m x 40.32 m; centre circle 9.15 m), hockey (23 m lines 22.9 m from each end; shooting circle radius 14.63 m).
+- [ ] The page says that line width inside or outside the sizes depends on the sport's rules, and tells you to confirm with the rulebook.

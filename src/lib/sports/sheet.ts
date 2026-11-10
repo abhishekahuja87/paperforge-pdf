@@ -2,6 +2,7 @@ import type { Margin, Variant } from './courtData';
 import { CHECKED_ON, SOURCES } from './courtData';
 import { buildDiagram, xml } from './diagram';
 import { spaceNeeded } from './fit';
+import { markingSteps, netPositions, type MarkingText } from './marking';
 import { formatLength } from './units';
 
 /** Words for one court's sheet, taken from the locale file by the page. */
@@ -9,6 +10,7 @@ export interface SheetText {
   title: string; version: string;
   ui: Record<string, string>;
   facts: Record<string, string>; marks: Record<string, string>; margin: string; notes: string[];
+  marking: MarkingText;
 }
 
 const PAGE_W = 210;
@@ -30,7 +32,7 @@ export function wrap(text: string, chars: number): string[] {
 const t = (x: number, y: number, size: number, content: string, extra = '') => `<text x="${x}" y="${y}" font-size="${size}" font-family="${FONT}" ${extra.includes('fill=') ? '' : 'fill="#0f172a"'} ${extra}>${xml(content)}</text>`;
 
 /** One A4 page (an SVG in millimetres) with the court drawn to scale, every measurement, the marking plan, notes, sources and date. */
-export function buildSheet(variant: Variant, margin: Margin, text: SheetText): string {
+export function buildOverviewPage(variant: Variant, margin: Margin, text: SheetText): string {
   const { ui } = text;
   const [needLong, needShort] = spaceNeeded(variant, margin, 0);
   const diagonal = Math.hypot(variant.length, variant.width);
@@ -98,10 +100,89 @@ export function buildSheet(variant: Variant, margin: Margin, text: SheetText): s
   return out;
 }
 
-/** Draws the sheet on a canvas (A4 at 200 dpi) and returns it as a PNG. */
-export async function sheetToPng(svg: string): Promise<Blob> {
-  const width = 1654;
-  const height = 2339;
+/** Puts markup just before the closing tag of the page (the last </svg>, since pages hold a nested drawing). */
+const withEnd = (svg: string, markup: string): string => { const at = svg.lastIndexOf('</svg>'); return svg.slice(0, at) + markup + svg.slice(at); };
+
+/** Page footer shown on every page. */
+const footer = (page: number, pages: number, title: string) => t(MX, PAGE_H - 6, 2.6, `${title} - ${page} / ${pages}`, 'fill="#64748b"');
+
+/** The set-out guide: a numbered drawing with both diagonals, then every line, circle, arc and spot with its exact position. Flows over as many A4 pages as it needs. */
+export function buildSetOutPages(variant: Variant, margin: Margin, text: SheetText): string[] {
+  const { ui, marking } = text;
+  const [needLong, needShort] = spaceNeeded(variant, margin, 0);
+  const steps = markingSteps(variant, marking, (id) => text.marks[id] ?? id, netPositions(variant));
+  const diagram = buildDiagram(variant, margin, ui.clearCaption, { steps, diagonals: true, hideKeyPoints: true });
+  const { x, y, w, h } = diagram.box;
+  const pages: string[][] = [];
+  let cur: string[] = [];
+  let cy = 0;
+  const startPage = (first: boolean) => {
+    cur = [];
+    pages.push(cur);
+    cur.push(t(MX, 12, first ? 7 : 4.5, first ? marking.heading : `${text.title}: ${marking.heading}`, 'font-weight="700"'));
+    if (first) cur.push(t(MX, 18, 3.6, `${text.title} - ${text.version}`, 'fill="#475569"'));
+    cur.push(`<path d="M${MX} ${first ? 21 : 15}H${PAGE_W - MX}" stroke="#cbd5e1" stroke-width="0.3"/>`);
+    cy = first ? 27 : 21;
+  };
+  const room = (height: number) => { if (cy + height > PAGE_H - 12) startPage(false); };
+  const paragraph = (lines: string[], size: number, extra = '', indent = 0) => lines.forEach((line) => {
+    room(pitch);
+    cur.push(t(MX + indent, cy, size, line, extra));
+    cy += pitch;
+  });
+  const pitch = 4.3;
+  const body = 3.1;
+
+  startPage(true);
+  paragraph(wrap(marking.intro, 140), body);
+  cy += 2;
+  const diagH = Math.min(105, 140 * (h / w));
+  room(diagH + 6);
+  cur.push(`<svg x="${MX}" y="${cy}" width="${PAGE_W - 2 * MX}" height="${diagH}" viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid meet">${diagram.body}</svg>`);
+  cy += diagH + 2;
+  paragraph(wrap(marking.setOutDiagram, 150), 2.7, 'fill="#475569"');
+  cy += 3;
+
+  room(pitch * 3);
+  cur.push(t(MX, cy, 3.6, marking.prepTitle, 'font-weight="700" fill="#065f46"'));
+  cy += pitch + 1;
+  marking.prep.forEach((item) => paragraph(wrap(item, 134).map((line, i) => (i === 0 ? `- ${line}` : `  ${line}`)), body));
+  cy += 3;
+
+  for (const step of steps) {
+    const wrapped = step.lines.map((line) => wrap(line, 130));
+    const height = pitch * (1 + wrapped.reduce((n, lines) => n + lines.length, 0)) + 2.5;
+    room(height);
+    cur.push(`<circle cx="${MX + 2.4}" cy="${cy - 1}" r="2.4" fill="${step.prim ? '#b45309' : '#065f46'}"/>` + t(MX + 2.4, cy - 0.1, 2.9, String(step.n), 'font-weight="700" fill="#ffffff" text-anchor="middle"'));
+    cur.push(t(MX + 7, cy, body, step.title, 'font-weight="700"'));
+    cy += pitch;
+    wrapped.forEach((lines) => lines.forEach((line) => { cur.push(t(MX + 7, cy, 2.9, line)); cy += pitch; }));
+    cy += 2.5;
+  }
+
+  room(pitch * 4);
+  cur.push(t(MX, cy, 3.6, marking.checkTitle, 'font-weight="700" fill="#065f46"'));
+  cy += pitch + 1;
+  marking.check.forEach((item) => paragraph(wrap(item.replace('{need}', `${formatLength(needLong)} x ${formatLength(needShort)}`).replace('{diag}', formatLength(Math.hypot(variant.length, variant.width))), 134).map((line, i) => (i === 0 ? `- ${line}` : `  ${line}`)), body));
+  cy += 3;
+  paragraph(wrap(ui.disclaimer, 140), 2.6, 'fill="#64748b"');
+
+  return pages.map((items, i) => `<svg xmlns="http://www.w3.org/2000/svg" width="${PAGE_W}mm" height="${PAGE_H}mm" viewBox="0 0 ${PAGE_W} ${PAGE_H}"><rect width="${PAGE_W}" height="${PAGE_H}" fill="#ffffff"/>${items.join('')}${footer(i + 2, pages.length + 1, text.title)}</svg>`);
+}
+
+/** Every page of the sheet: the overview, then the set-out guide. */
+export function buildSheetPages(variant: Variant, margin: Margin, text: SheetText): string[] {
+  const overview = buildOverviewPage(variant, margin, text);
+  const setOut = buildSetOutPages(variant, margin, text);
+  const total = setOut.length + 1;
+  return [withEnd(overview, footer(1, total, text.title)), ...setOut];
+}
+
+const A4_RATIO = PAGE_H / PAGE_W;
+
+/** Draws one page on a canvas of the given pixel width. */
+async function drawPage(svg: string, width: number): Promise<HTMLCanvasElement> {
+  const height = Math.round(width * A4_RATIO);
   const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }));
   try {
     const image = new Image();
@@ -116,21 +197,40 @@ export async function sheetToPng(svg: string): Promise<Blob> {
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, width, height);
     ctx.drawImage(image, 0, 0, width, height);
-    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/png'));
-    if (!blob) throw new Error('Could not encode the picture.');
-    return blob;
+    return canvas;
   } finally {
     URL.revokeObjectURL(url);
   }
 }
 
-/** The PNG page placed on one A4 page of a PDF. */
-export async function pngToPdf(png: Blob, title: string): Promise<Uint8Array> {
+const toBlob = (canvas: HTMLCanvasElement): Promise<Blob> => new Promise((resolve, reject) => canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error('Could not encode the picture.'))), 'image/png'));
+
+/** Largest canvas area phones allow is about 16 million pixels; stay under it. */
+const MAX_PIXELS = 14_000_000;
+
+/** All pages stacked into one tall PNG, so a single saved image holds the whole sheet. */
+export async function pagesToPng(svgs: string[]): Promise<Blob> {
+  const width = Math.min(1654, Math.floor(Math.sqrt(MAX_PIXELS / (svgs.length * A4_RATIO))));
+  const pageHeight = Math.round(width * A4_RATIO);
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = pageHeight * svgs.length;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('Canvas is not available.');
+  for (let i = 0; i < svgs.length; i += 1) ctx.drawImage(await drawPage(svgs[i], width), 0, i * pageHeight);
+  return toBlob(canvas);
+}
+
+/** One A4 page per sheet page. */
+export async function pagesToPdf(svgs: string[], title: string): Promise<Uint8Array> {
   const { PDFDocument } = await import('pdf-lib');
   const doc = await PDFDocument.create();
-  const image = await doc.embedPng(new Uint8Array(await png.arrayBuffer()));
   const pt = 72 / 25.4;
-  doc.addPage([PAGE_W * pt, PAGE_H * pt]).drawImage(image, { x: 0, y: 0, width: PAGE_W * pt, height: PAGE_H * pt });
+  for (const svg of svgs) {
+    const png = await toBlob(await drawPage(svg, 1654));
+    const image = await doc.embedPng(new Uint8Array(await png.arrayBuffer()));
+    doc.addPage([PAGE_W * pt, PAGE_H * pt]).drawImage(image, { x: 0, y: 0, width: PAGE_W * pt, height: PAGE_H * pt });
+  }
   doc.setTitle(title);
   doc.setCreator('MyDailyUtils');
   return doc.save();

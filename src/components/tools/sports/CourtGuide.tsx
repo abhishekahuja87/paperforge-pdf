@@ -3,11 +3,13 @@ import { CalcFooter, Note, SelectField, Stat, StatGrid, calcCard } from '../../f
 import { CHECKED_ON, SOURCES, SPORTS, findSport } from '../../../lib/sports/courtData';
 import { spaceNeeded } from '../../../lib/sports/fit';
 import { formatLength } from '../../../lib/sports/units';
-import { buildSheet, pngToPdf, sheetToPng } from '../../../lib/sports/sheet';
+import { buildSheetPages, pagesToPdf, pagesToPng } from '../../../lib/sports/sheet';
+import type { MarkingText } from '../../../lib/sports/marking';
 import { downloadBlob } from '../../../lib/browserTools';
 import text from '../../../locales/packs/sports.courts.en.json';
 import CourtDiagram from './CourtDiagram';
 import CourtFit from './CourtFit';
+import CourtSetOut from './CourtSetOut';
 
 type SportText = {
   name: string; summary: string; variants: Record<string, string>; facts: Record<string, string>; marks: Record<string, string>;
@@ -15,6 +17,7 @@ type SportText = {
 };
 const sportsText = text.sports as unknown as Record<string, SportText>;
 const ui = text.ui;
+const marking = text.marking as unknown as MarkingText;
 
 type Saving = '' | 'png' | 'pdf';
 
@@ -43,11 +46,10 @@ const CourtGuide: React.FC = () => {
   const save = async (kind: 'png' | 'pdf') => {
     setSaving(kind); setFailed(false);
     try {
-      const svg = buildSheet(variant, margin, { title: copy.name, version: copy.variants[variant.id], ui, facts: copy.facts, marks: copy.marks, margin: copy.margins[margin.id], notes: copy.notes });
-      const png = await sheetToPng(svg);
+      const pages = buildSheetPages(variant, margin, { title: copy.name, version: copy.variants[variant.id], ui, facts: copy.facts, marks: copy.marks, margin: copy.margins[margin.id], notes: copy.notes, marking });
       const base = `${sport.id}-${variant.id}-court-size`;
-      if (kind === 'png') downloadBlob(png, `${base}.png`);
-      else downloadBlob(new Blob([(await pngToPdf(png, `${copy.name}: ${copy.variants[variant.id]}`)).slice().buffer as ArrayBuffer], { type: 'application/pdf' }), `${base}.pdf`);
+      if (kind === 'png') downloadBlob(await pagesToPng(pages), `${base}.png`);
+      else downloadBlob(new Blob([(await pagesToPdf(pages, `${copy.name}: ${copy.variants[variant.id]}`)).slice().buffer as ArrayBuffer], { type: 'application/pdf' }), `${base}.pdf`);
     } catch {
       setFailed(true);
     } finally {
@@ -115,6 +117,11 @@ const CourtGuide: React.FC = () => {
               </dl>
             </>
           )}
+
+          <details className="mt-5 rounded-xl border border-slate-200 p-3">
+            <summary className="cursor-pointer text-sm font-semibold text-slate-900">{ui.setOutShow}</summary>
+            <div className="mt-3"><CourtSetOut variant={variant} margin={margin} marking={marking} marks={copy.marks} label={`${copy.name}: ${marking.heading}`} clearCaption={ui.clearCaption} hint={ui.setOutHint} /></div>
+          </details>
 
           <h3 className="mt-5 text-sm font-semibold text-slate-900">{ui.howTo}</h3>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-700">{copy.howToPlay.map((line) => <li key={line}>{line}</li>)}</ul>
