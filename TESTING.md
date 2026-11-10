@@ -490,3 +490,11 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Open Compress PDF, SIP, Income Tax, Image Resizer, EMI, Sports Court Guide: an orange "New (date)" note sits above the tool with a link to all updates. A tool without an entry shows no note.
 - [ ] Home page shows a "What's new" strip with 3 cards before Workspaces; tapping one opens the tool. Searching hides it.
 - [ ] Footer has the What's new link; view-source of /whats-new shows the list without JavaScript.
+### Tool extras, batch 2
+
+Checked in the sandbox: eligibility dates for a 15 Aug 1995 birth (min 21, max 30: eligible from 15 Aug 2016, until 14 Aug 2026; "below 30" ends 14 Aug 2025) and a 29 Feb 2000 birth (turns 21 on 1 Mar 2021). `tsc`, `vite build` and the browser were not run.
+
+- [ ] Age: open "Check age eligibility", min 21, max 30, born 15-08-1995, age on 01-01-2026: within the limit, eligible until 14 Aug 2026. Switch to "Below 30": not eligible, says over the limit. Add 5 relaxation years: eligible again.
+- [ ] GST: "Find the GST rate": 1000 and 1180 gives 18% and closest slab 18%; 1000 and 1050 gives 5%; 1000 and 1075 shows no standard slab. Add mode with "Between states" shows IGST.
+- [ ] What is each tool still missing? Note it here.
+
