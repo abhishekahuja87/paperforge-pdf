@@ -703,3 +703,10 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Any tool: the top row shows "← All tools" on the left and the badge on the right; the description below has no extra sentence; the header is one line shorter.
 - [ ] Phone: the badge does not push the row sideways (no horizontal scroll).
 - [ ] Switch to Hindi or Spanish: the badge text is translated.
+
+### Privacy badge position
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Any tool: "← All tools" and the badge sit together on the left; nothing is above the Focus mode button on the right.
+- [ ] Very narrow phone: the badge wraps below the link instead of overflowing.
