@@ -136,6 +136,27 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Tool header lines up with the tool',
     summary: 'The title, description and Focus button now share the same left and right edges as the tool and the guide below, so the page reads as one clean column.',
   },
+  {
+    date: '2026-11-10',
+    path: '/merge-pdf',
+    tool: 'Merge PDF',
+    title: 'Guide now covers page ranges',
+    summary: 'The steps and questions explain how to use only some pages of each file, such as 1-3, 5, and point to Organize PDF for reordering pages inside one file.',
+  },
+  {
+    date: '2026-11-10',
+    path: '/compress-pdf',
+    tool: 'Compress PDF',
+    title: 'Guide updated for reduce-to-a-size',
+    summary: 'The steps and questions now describe the two modes, when pages become pictures, and how the size limit works.',
+  },
+  {
+    date: '2026-11-10',
+    path: '/split-pdf',
+    tool: 'Split PDF',
+    title: 'Guide mentions odd, even and the live page count',
+    summary: 'The steps and questions cover the All, Odd and Even buttons and the count of matching pages.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

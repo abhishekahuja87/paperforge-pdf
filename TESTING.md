@@ -627,3 +627,12 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Desktop: the title, description, tool card and guide all start at the same left edge and end at the same right edge; the Focus button ends flush with the tool card on the right. No text floats at the far page edges.
 - [ ] Wide tools (for example the Sudoku or image tools) use the wider column for the header too.
 - [ ] Phone: left-aligned, title wraps beside the Focus button without overlap.
+
+### Guide text audit, batch 1
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Phone: no sideways scroll on any tool page; "runs in your browser" wraps under the description.
+- [ ] /merge-pdf step 2 and the second question mention page ranges and Organize PDF.
+- [ ] /compress-pdf steps and questions mention Reduce to a size and Clean up only, matching the two buttons.
+- [ ] /split-pdf steps and questions mention All, Odd and Even pages.

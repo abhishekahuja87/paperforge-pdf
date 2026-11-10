@@ -173,3 +173,5 @@ Tool pages no longer show the update note (`ToolUpdateNote` deleted). Every chan
 Tool header is now compact: back link left and a filled Focus mode button right; on md+ the title sits left and the description plus "runs in your browser" right. "Collapse all / Expand all" is `FoldToggle`, rendered above the accordion (state shared via `GuideRegistryContext.folds`).
 
 Tool header is now one left-aligned block in the same column width as the tool (`max-w-3xl`, or `max-w-6xl` for wide tools): back link, then title with the Focus button on the right, then description with the "runs in your browser" note inline. This replaces the split layout that spread to both page edges.
+
+Guide text audit (steps and questions) started: Merge (page ranges), Compress (reduce to a size), Split (odd/even, live count) updated to match the tools. The "runs in your browser" note wraps on phones (the no-wrap was removed, which caused sideways scrolling). Remaining tools are still to be checked one by one against their components.
