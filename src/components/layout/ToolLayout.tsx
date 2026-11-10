@@ -71,7 +71,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
   return (
     <div className={isWorkshop ? 'min-h-full bg-[var(--theme-background)] text-stone-900' : ''}>
-      <div className={`mx-auto px-4 py-8 ${isWorkshop ? 'max-w-6xl space-y-7 sm:py-10' : 'max-w-5xl space-y-8'}`}>
+      <div className={`mx-auto px-4 py-8 ${isWorkshop ? 'max-w-6xl space-y-6 sm:py-8' : 'max-w-5xl space-y-8'}`}>
         <PageMetadata
           title={`${title} ${siteConfig.toolTitleSuffix}`}
           description={subtitle}
@@ -80,17 +80,31 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         {focusOn ? (
           <h1 lang={contentLanguage} className="text-center text-lg font-black tracking-tight text-stone-900 sm:text-xl">{title}</h1>
         ) : isWorkshop ? (
-          <header className="mx-auto max-w-2xl text-center">
-            <Link to="/" className="mb-4 inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800">
-              <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-              {t('allTools')}
-            </Link>
-            <h1 lang={contentLanguage} className="text-3xl font-black leading-[1.08] tracking-[-0.04em] text-stone-900 sm:text-4xl">{title}</h1>
-            <p lang={contentLanguage} className="mx-auto mt-3 max-w-lg text-sm leading-6 text-stone-600">{subtitle}</p>
-            <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-orange-700">
-              <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-              {t('localProcessing')}
-            </p>
+          <header className="space-y-3">
+            <div className="flex items-center justify-between gap-3 print:hidden">
+              <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800">
+                <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
+                {t('allTools')}
+              </Link>
+              <button
+                type="button"
+                onClick={() => setFocus(true)}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-orange-600 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700"
+              >
+                <Maximize2 className="h-3.5 w-3.5" aria-hidden="true" />
+                {t('focusMode', { defaultValue: 'Focus mode' })}
+              </button>
+            </div>
+            <div className="text-center md:flex md:items-end md:justify-between md:gap-8 md:text-left">
+              <h1 lang={contentLanguage} className="text-3xl font-black leading-[1.08] tracking-[-0.04em] text-stone-900 sm:text-4xl">{title}</h1>
+              <div className="mt-2 md:mt-0 md:max-w-md md:shrink-0">
+                <p lang={contentLanguage} className="text-sm leading-6 text-stone-600">{subtitle}</p>
+                <p className="mt-1.5 inline-flex items-center gap-1.5 text-xs font-bold text-orange-700">
+                  <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                  {t('localProcessing')}
+                </p>
+              </div>
+            </div>
           </header>
         ) : (
           <div className="space-y-2 text-center">
@@ -103,32 +117,10 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         {/* Main Tool Functional Area */}
         <div lang={controlsLanguage} className={isWorkshop ? `tool-workshop-controls mx-auto w-full ${wide ? 'max-w-6xl' : 'max-w-3xl'}` : 'w-full'}>{children}</div>
 
-        {!focusOn && (
-          <div className="flex flex-wrap items-center justify-end gap-2 print:hidden">
-            <button
-              type="button"
-              onClick={() => setFocus(true)}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 transition hover:border-orange-300 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-orange-600"
-            >
-              <Maximize2 className="h-3.5 w-3.5" aria-hidden="true" />
-              {t('focusMode', { defaultValue: 'Focus mode' })}
-            </button>
-            {folds.total > 0 && (
-              <button
-                type="button"
-                onClick={toggleAll}
-                className="rounded-lg px-2 py-1.5 text-xs font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-900 focus-visible:outline-2 focus-visible:outline-orange-600"
-              >
-                {allOpen ? t('collapseAll', { defaultValue: 'Collapse all' }) : t('expandAll', { defaultValue: 'Expand all' })}
-              </button>
-            )}
-          </div>
-        )}
-
         {/* Everything foldable sits in one accordion. A guide lists the written sections together with its
             questions; with no guide, the article shows on its own. */}
         {!focusOn && (
-          <GuideRegistryContext.Provider value={{ guideShowsArticle, setGuideShowsArticle }}>
+          <GuideRegistryContext.Provider value={{ guideShowsArticle, setGuideShowsArticle, folds: { total: folds.total, allOpen, toggleAll } }}>
             <div ref={foldRef} className="space-y-6">
               <ToolArticle id={pathname.replace(/^\/+|\/+$/g, '')} />
               {seoContent && (

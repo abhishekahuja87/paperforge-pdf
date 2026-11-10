@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../../config/site';
 import { useContent } from '../../locales/contentLoader';
 import { AccordionList } from './AccordionList';
+import { FoldToggle } from './FoldToggle';
 import { GuideRegistryContext } from './guideRegistry';
 
 export interface ArticleSection {
@@ -38,6 +39,7 @@ export const ToolArticle: React.FC<{ id: string }> = ({ id }) => {
 
   return (
     <article className="print:hidden mx-auto w-full max-w-3xl">
+      <div className="mb-1 flex justify-end"><FoldToggle /></div>
       <AccordionList
         items={sections.map((section) => ({
           key: section.heading,
