@@ -11,6 +11,7 @@ import { en } from '../locales/english';
 import { siteConfig } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
 import { GUIDES } from '../content/guides';
+import { EDITORIAL } from '../content/editorial';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
 type Json = Record<string, unknown>;
@@ -70,6 +71,7 @@ export const SHELL_TEXT = {
   contact: en.contact,
   privacyPolicy: en.privacyPolicy,
   terms: en.terms,
+  editorialPolicy: en.editorialPolicy,
 };
 
 function rec(value: unknown): Json {
@@ -367,6 +369,7 @@ export function getShellPages(): ShellPage[] {
         { heading: 'Runs on your device', paragraphs: ['Selected files and the numbers you enter are processed in your browser and are not sent to MyDailyUtils for processing. The site itself still loads pages, advertising and other resources over the network.'] },
         { heading: 'Support', paragraphs: ['Use the contact form to report a problem or request a tool.'] },
       ]),
+    info('/editorial-policy', EDITORIAL.title, EDITORIAL.subtitle, EDITORIAL.description, EDITORIAL.sections),
     info('/contact', en.contactPage.title, en.contactPage.subtitle, en.contactPage.description),
     info('/privacy', 'Privacy Policy', 'Last updated: November 8, 2026',
       'Read how MyDailyUtils handles in-browser processing, local preferences, contact form submissions, advertising, analytics and third-party resources.', [

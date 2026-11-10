@@ -92,3 +92,9 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 
 - Document Studio text (contents titles, watermark, page-number format) is drawn by `lib/documentStudio/text.ts`: normal PDF text when the characters fit the standard font, otherwise a canvas-rendered image so Hindi, Cyrillic, Arabic, CJK and emoji export correctly. Such text is not selectable in the PDF.
 - `loadPdfThumbnails` (organize) and `lib/pdf/unlock.ts` release pages, canvases and the loading task in `finally`, so errors no longer leak pdf.js memory.
+
+### AdSense readiness (Nov 2026)
+
+- `index.html` carries `<meta name="google-adsense-account">` (site ownership check) next to the AdSense script; `public/ads.txt` lists the publisher.
+- `/editorial-policy` ("How we check our tools") is written in `src/content/editorial.ts` and is used by the page, the pre-rendered HTML and the sitemap; linked in the footer and About.
+- The resize-image-to-20/50/100/200kb pages no longer repeat the shared sections of Image Resizer (they were about 85 percent identical). Each keeps only size-specific text; the general how-to lives on `/image-resizer`. Do not add shared paragraphs back to size pages.

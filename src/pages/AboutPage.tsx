@@ -64,6 +64,13 @@ export const AboutPage: React.FC = () => {
       </section>
 
       <section className="space-y-3">
+        <h2 className="text-xl font-bold text-slate-900">How we keep the tools accurate</h2>
+        <p>
+          Each tool states the rules it follows and where they come from, and finance tools name the tax year they cover. Results are estimates, not professional advice. Read our <Link to="/editorial-policy" className="font-semibold text-indigo-700 underline">editorial policy</Link> for how tools are tested, how corrections are handled and how the site earns money.
+        </p>
+      </section>
+
+      <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">Questions or feedback?</h2>
         <p>
           If you find a problem or have a suggestion, please use the <Link to="/contact" className="font-semibold text-indigo-700 underline">contact form</Link>.{siteConfig.contactEmail && (<> You can also email <a href={`mailto:${siteConfig.contactEmail}`} className="font-semibold text-indigo-700 underline">{siteConfig.contactEmail}</a>.</>)} Contact form submissions are handled by Web3Forms, a third-party service; file processing remains separate.

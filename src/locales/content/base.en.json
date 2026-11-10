@@ -4240,22 +4240,9 @@
           ]
         },
         {
-          "heading": "Exact pixels, cropping and fit",
-          "paragraphs": [
-            "If the form also asks for a specific width and height, tick the exact size option. You can crop the picture to fill the size from the centre, fit it inside the size with white borders, or stretch it. Cropping and fitting keep the proportions of the people and objects in the photo; stretching does not. When an exact size is set, only the quality is lowered to reach the limit."
-          ]
-        },
-        {
           "heading": "If the limit cannot be reached",
           "paragraphs": [
-            "At 20 KB a detailed photo has little room. Scanned signatures and plain backgrounds compress far better than busy photos, so crop closely and avoid shadows.",
-            "Every result shows its pixel size, its final file size and the quality used, so you can see what happened before you download."
-          ]
-        },
-        {
-          "heading": "Limits and privacy",
-          "paragraphs": [
-            "The output is always a JPG, and transparent areas become white. Some portals check the format or the exact pixel size as well as the file size, so read the instructions on the form. Camera and location data are not carried over. Your images are processed in your browser and are not uploaded to MyDailyUtils for processing."
+            "At 20 KB a detailed photo has little room. Scanned signatures and plain backgrounds compress far better than busy photos, so crop closely and avoid shadows."
           ]
         }
       ]
@@ -4269,22 +4256,9 @@
           ]
         },
         {
-          "heading": "Exact pixels, cropping and fit",
-          "paragraphs": [
-            "If the form also asks for a specific width and height, tick the exact size option. You can crop the picture to fill the size from the centre, fit it inside the size with white borders, or stretch it. Cropping and fitting keep the proportions of the people and objects in the photo; stretching does not. When an exact size is set, only the quality is lowered to reach the limit."
-          ]
-        },
-        {
           "heading": "If the limit cannot be reached",
           "paragraphs": [
-            "At 50 KB a passport-style photo at around 200 by 230 pixels usually fits comfortably; a full phone photo will be scaled down a lot, so crop first if you can.",
-            "Every result shows its pixel size, its final file size and the quality used, so you can see what happened before you download."
-          ]
-        },
-        {
-          "heading": "Limits and privacy",
-          "paragraphs": [
-            "The output is always a JPG, and transparent areas become white. Some portals check the format or the exact pixel size as well as the file size, so read the instructions on the form. Camera and location data are not carried over. Your images are processed in your browser and are not uploaded to MyDailyUtils for processing."
+            "At 50 KB a passport-style photo at around 200 by 230 pixels usually fits comfortably; a full phone photo will be scaled down a lot, so crop first if you can."
           ]
         }
       ]
@@ -4298,22 +4272,9 @@
           ]
         },
         {
-          "heading": "Exact pixels, cropping and fit",
-          "paragraphs": [
-            "If the form also asks for a specific width and height, tick the exact size option. You can crop the picture to fill the size from the centre, fit it inside the size with white borders, or stretch it. Cropping and fitting keep the proportions of the people and objects in the photo; stretching does not. When an exact size is set, only the quality is lowered to reach the limit."
-          ]
-        },
-        {
           "heading": "If the limit cannot be reached",
           "paragraphs": [
-            "At 100 KB most phone photos fit after being scaled down moderately. If a result looks too soft, raise the limit slightly or reduce the pixel size yourself.",
-            "Every result shows its pixel size, its final file size and the quality used, so you can see what happened before you download."
-          ]
-        },
-        {
-          "heading": "Limits and privacy",
-          "paragraphs": [
-            "The output is always a JPG, and transparent areas become white. Some portals check the format or the exact pixel size as well as the file size, so read the instructions on the form. Camera and location data are not carried over. Your images are processed in your browser and are not uploaded to MyDailyUtils for processing."
+            "At 100 KB most phone photos fit after being scaled down moderately. If a result looks too soft, raise the limit slightly or reduce the pixel size yourself."
           ]
         }
       ]
@@ -4327,22 +4288,9 @@
           ]
         },
         {
-          "heading": "Exact pixels, cropping and fit",
-          "paragraphs": [
-            "If the form also asks for a specific width and height, tick the exact size option. You can crop the picture to fill the size from the centre, fit it inside the size with white borders, or stretch it. Cropping and fitting keep the proportions of the people and objects in the photo; stretching does not. When an exact size is set, only the quality is lowered to reach the limit."
-          ]
-        },
-        {
           "heading": "If the limit cannot be reached",
           "paragraphs": [
-            "At 200 KB most photos and single-page scans fit with little visible loss. Text in scans stays readable better if you do not force a much smaller limit.",
-            "Every result shows its pixel size, its final file size and the quality used, so you can see what happened before you download."
-          ]
-        },
-        {
-          "heading": "Limits and privacy",
-          "paragraphs": [
-            "The output is always a JPG, and transparent areas become white. Some portals check the format or the exact pixel size as well as the file size, so read the instructions on the form. Camera and location data are not carried over. Your images are processed in your browser and are not uploaded to MyDailyUtils for processing."
+            "At 200 KB most photos and single-page scans fit with little visible loss. Text in scans stays readable better if you do not force a much smaller limit."
           ]
         }
       ]

@@ -461,3 +461,12 @@ Checked in the sandbox: all 27 versions have no unnamed lines or shapes; pages r
 - [ ] Volleyball: the drawing itself says "Attack line - 3 m (9'10.1") from the net", "Net", net heights; no need to read any list.
 - [ ] Every sport: each line, circle, arc, box and spot has its name and size on or beside it (grey figures for distances). Any numbered badge has its line under the drawing.
 - [ ] Saved PNG/PDF: page 1 is the labelled drawing, page 2 notes and sources, then the set-out pages. Note anything overlapping or unreadable (sport, version).
+
+### AdSense readiness
+
+Not run: `tsc`, `vite build`, prerender, live site (sandbox cannot reach it).
+
+- [ ] Build passes on Amplify; /editorial-policy opens, is in the footer, About and sitemap.xml, and view-source of /editorial-policy shows the text without JavaScript.
+- [ ] View source on any page: `google-adsense-account` meta is present in the head.
+- [ ] /resize-image-to-20kb, 50kb, 100kb, 200kb each read differently, no leftover empty headings; the tool still works.
+- [ ] https://mydailyutils.in (no www) redirects to https://www.mydailyutils.in and https://www.mydailyutils.in/ads.txt opens.

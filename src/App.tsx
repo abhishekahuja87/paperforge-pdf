@@ -41,6 +41,7 @@ const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => (
 const DisplayStudioPage = lazy(() => import('./pages/DisplayStudioPage').then((m) => ({ default: m.DisplayStudioPage })));
 const PosInvoiceStudioPage = lazy(() => import('./pages/PosInvoiceStudioPage').then((m) => ({ default: m.PosInvoiceStudioPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
+const EditorialPolicyPage = lazy(() => import('./pages/EditorialPolicyPage').then((m) => ({ default: m.EditorialPolicyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
@@ -140,6 +141,7 @@ export const App: React.FC = () => {
               <Route path="/guides/:slug" element={<GuidePage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
+              <Route path="/editorial-policy" element={<EditorialPolicyPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<NotFoundPage />} />
