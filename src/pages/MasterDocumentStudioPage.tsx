@@ -29,7 +29,7 @@ export const MasterDocumentStudioPage: React.FC = () => {
 
   return (
     <ToolLayout
-      wide
+      wide={hasSources}
       title={t('featuredTools.master-document-studio.title')}
       subtitle={t('master.subtitle')}
       contentLanguage={i18n.language}

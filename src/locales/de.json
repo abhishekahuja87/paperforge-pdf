@@ -288,6 +288,13 @@
       ]
     }
   },
+  "dropZone": {
+    "chooseOne": "Datei wählen oder hier ablegen",
+    "chooseMany": "Dateien wählen oder hier ablegen",
+    "reading": "Datei wird gelesen…",
+    "hint": "{{formats}} · Bleibt auf Ihrem Gerät",
+    "hintPlain": "Bleibt auf Ihrem Gerät"
+  },
   "rotateControls": {
     "invalid": "Bitte wählen Sie eine gültige PDF-Datei.", "readError": "Das PDF konnte nicht gelesen werden. Es ist möglicherweise passwortgeschützt oder beschädigt.", "rotateError": "Beim Drehen ist ein Fehler aufgetreten. Prüfen Sie den ausgewählten Seitenbereich.",
     "reading": "PDF wird gelesen...", "choose": "PDF auswählen oder hier ablegen", "pdfOnly": "Nur PDF", "pages": "Seiten insgesamt:", "remove": "Datei entfernen",

@@ -16,10 +16,8 @@ import {
   type ImageFileEntry 
 } from '../../lib/pdf/imagesToPdf';
 import { generatePdfFilename } from '../../lib/pdf/naming';
-import { useTranslation } from 'react-i18next';
 
 export const ImagesToPdf: React.FC = () => {
-  const { t, i18n } = useTranslation('image');
   const [images, setImages] = useState<ImageFileEntry[]>([]);
   const [pageLayout, setPageLayout] = useState<PageLayoutOption>('a4-portrait');
   const [marginSize, setMarginSize] = useState<number>(20);
@@ -149,9 +147,6 @@ export const ImagesToPdf: React.FC = () => {
         accept="image/png,image/jpeg,image/webp"
         multiple
         disabled={status === 'processing'}
-        label={t('choose')}
-        hint={t('hint')}
-        labelLanguage={i18n.language}
         onFiles={handleFiles}
       />
       {images.length === 0 && errorMessage && (

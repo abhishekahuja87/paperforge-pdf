@@ -116,8 +116,7 @@ export const RotatePdf: React.FC = () => {
         <FileDropZone
           accept=".pdf,application/pdf"
           disabled={status === 'loading'}
-          label={t(status === 'loading' ? 'rotateControls.reading' : 'rotateControls.choose')}
-          hint={t('rotateControls.pdfOnly')}
+          readingPdf={status === 'loading'}
           onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFile(prepared); }); }}
         />
       )}

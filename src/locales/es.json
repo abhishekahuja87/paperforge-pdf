@@ -288,6 +288,13 @@
       ]
     }
   },
+  "dropZone": {
+    "chooseOne": "Elige un archivo o suéltalo aquí",
+    "chooseMany": "Elige archivos o suéltalos aquí",
+    "reading": "Leyendo tu archivo…",
+    "hint": "{{formats}} · Se queda en tu dispositivo",
+    "hintPlain": "Se queda en tu dispositivo"
+  },
   "rotateControls": {
     "invalid": "Selecciona un archivo PDF válido.", "readError": "No se pudo leer el PDF. Puede estar protegido por contraseña o dañado.", "rotateError": "Se produjo un error al girar. Comprueba el intervalo de páginas seleccionado.",
     "reading": "Leyendo PDF...", "choose": "Elige un PDF o arrástralo aquí", "pdfOnly": "Solo PDF", "pages": "Total de páginas:", "remove": "Eliminar archivo",

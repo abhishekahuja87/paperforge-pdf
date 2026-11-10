@@ -391,9 +391,7 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
               accept={FILE_ACCEPT}
               multiple
               disabled={processing}
-              label={t(processing ? 'displayPage.preparing' : 'displayPage.choose')}
-              hint={t('displayPage.hint')}
-              labelLanguage={i18n.language}
+              readingPdf={processing}
               onFiles={(files) => { void addFiles(files); }}
             />
           </div>

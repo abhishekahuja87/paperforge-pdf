@@ -288,6 +288,13 @@
       ]
     }
   },
+  "dropZone": {
+    "chooseOne": "选择文件或拖放到此处",
+    "chooseMany": "选择多个文件或拖放到此处",
+    "reading": "正在读取文件…",
+    "hint": "{{formats}} · 保留在你的设备上",
+    "hintPlain": "保留在你的设备上"
+  },
   "rotateControls": {
     "invalid": "请选择有效的 PDF 文件。", "readError": "无法读取 PDF。文档可能受密码保护或已损坏。", "rotateError": "旋转时出错，请检查所选页面范围。",
     "reading": "正在读取 PDF...", "choose": "选择 PDF 或拖放到此处", "pdfOnly": "仅限 PDF", "pages": "总页数：", "remove": "移除文件",

@@ -84,7 +84,7 @@ export const VcardConverter: React.FC = () => {
         <h2 className={heading}>1. Choose your vCard files</h2>
         <p className="mt-1 text-[11px] text-slate-500">One or several .vcf files, from a phone, Google, iCloud or Outlook. Large files are read in pieces, so a file of hundreds of megabytes will not freeze the page. Nothing is uploaded.</p>
         <div className="mt-3">
-          <FileDropZone accept=".vcf,.vcard,text/vcard,text/x-vcard" multiple onFiles={(picked) => void addFiles(picked)} disabled={busy} label="Choose .vcf files" hint="or drop them here" />
+          <FileDropZone accept=".vcf,.vcard,text/vcard,text/x-vcard" multiple onFiles={(picked) => void addFiles(picked)} disabled={busy} />
         </div>
         {progress && (
           <div className="mt-3" role="status">

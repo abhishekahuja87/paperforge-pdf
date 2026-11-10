@@ -77,9 +77,6 @@ export const ImageConverter: React.FC = () => {
           accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"
           multiple
           disabled={isProcessing}
-          label={t('choose')}
-          hint={t('hint')}
-          labelLanguage={i18n.language}
           onFiles={addFiles}
         />
         {error && <p role="alert" className="flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800"><AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />{error}</p>}

@@ -636,3 +636,12 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] /merge-pdf step 2 and the second question mention page ranges and Organize PDF.
 - [ ] /compress-pdf steps and questions mention Reduce to a size and Clean up only, matching the two buttons.
 - [ ] /split-pdf steps and questions mention All, Odd and Even pages.
+
+### Upload box and workspace headers
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Compare the upload box on Merge PDF, Split PDF, Compress PDF, Image Resizer, Image to PDF, JSON Formatter and Base64: same height, same title style, one grey hint line listing types (for example "PDF · Stays on your device"). Multi-file tools say "Choose files or drop them here".
+- [ ] Choosing a file shows "Reading your file…" while it loads.
+- [ ] Master Document Studio, Digitize and Display Studio: before adding files the header lines up with the centred card; after adding files it lines up with the wide workspace. POS invoice stays wide.
+- [ ] Switch the site to Hindi or Spanish: the upload box text is translated.
