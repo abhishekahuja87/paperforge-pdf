@@ -1,5 +1,6 @@
 import type { Margin, Variant } from './courtData';
 import { spaceNeeded } from './fit';
+import { anchor, type Step } from './marking';
 import { formatLength } from './units';
 
 export const xml = (value: string): string => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -17,7 +18,16 @@ export interface Diagram {
  * points for the key lines (listed in the marking plan under the same numbers) and the clear space as a dotted box.
  * All lengths are in metres; text sizes follow the width of the drawing so it reads the same for a table and a football pitch.
  */
-export function buildDiagram(variant: Variant, margin: Margin, clearCaption: string): Diagram {
+export interface DiagramOptions {
+  /** Number each item of the set-out guide on the drawing. */
+  steps?: Step[];
+  /** Draw both diagonals, for checking that the corners are square. */
+  diagonals?: boolean;
+  /** Hide the green key-line points (the set-out drawing has its own numbers). */
+  hideKeyPoints?: boolean;
+}
+
+export function buildDiagram(variant: Variant, margin: Margin, clearCaption: string, options: DiagramOptions = {}): Diagram {
   const [needLong, needShort] = spaceNeeded(variant, margin, 0);
   const L = variant.length;
   const W = variant.width;
@@ -60,11 +70,21 @@ export function buildDiagram(variant: Variant, margin: Margin, clearCaption: str
 
   // Numbered key lines.
   const marker = (cx: number, cy: number, n: number) => `<circle cx="${num(cx)}" cy="${num(cy)}" r="${num(r)}" fill="#065f46"/><text x="${num(cx)}" y="${num(cy + f * 0.27)}" text-anchor="middle" font-size="${num(f * 0.8)}" font-weight="700" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">${n}</text>`;
-  variant.marks.forEach((mark, i) => {
+  (options.hideKeyPoints ? [] : variant.marks).forEach((mark, i) => {
     if (mark.from === 'end') body += `<path d="M${num(mark.m)} ${num(W)}V${num(markY - r)}" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.3)}" fill="none"/>${marker(mark.m, markY, i + 1)}`;
     else body += `<path d="M0 ${num(mark.m)}H${num(markX + r)}" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.3)}" fill="none"/>${marker(markX, mark.m, i + 1)}`;
   });
 
+  const label = (x: number, y: number, text: string, fill: string) => `<text x="${num(x)}" y="${num(y)}" text-anchor="middle" font-size="${num(f * 0.95)}" font-weight="700" fill="${fill}" font-family="Arial, Helvetica, sans-serif">${xml(text)}</text>`;
+  if (!variant.round) {
+    if (options.diagonals) body += `<path d="M0 0L${num(L)} ${num(W)}M${num(L)} 0L0 ${num(W)}" fill="none" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.45)}"/>`;
+    body += label(-f * 0.7, -f * 0.35, 'A', '#0f172a') + label(L + f * 0.7, -f * 0.35, 'B', '#0f172a') + label(L + f * 0.7, W + f * 0.95, 'C', '#0f172a') + label(-f * 0.7, W + f * 0.95, 'D', '#0f172a');
+  }
+  for (const step of options.steps ?? []) {
+    if (!step.prim) continue;
+    const [ax, ay] = anchor(step.prim);
+    body += `<circle cx="${num(ax)}" cy="${num(ay)}" r="${num(r * 0.95)}" fill="#b45309" stroke="#ffffff" stroke-width="${thin}"/><text x="${num(ax)}" y="${num(ay + f * 0.25)}" text-anchor="middle" font-size="${num(f * 0.7)}" font-weight="700" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">${step.n}</text>`;
+  }
   body += `<text x="${num(L / 2)}" y="${num(markY + f * 2.5)}" text-anchor="middle" font-size="${num(f * 0.8)}" fill="#475569" font-family="Arial, Helvetica, sans-serif">${xml(clearCaption)}</text>`;
   return { box, body };
 }
