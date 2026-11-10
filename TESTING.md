@@ -587,3 +587,14 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Close the tab and open the tool again: normal view.
 - [ ] Collapse all folds the article sections and the questions together; the label changes to Expand all; opening one section by hand while all are closed keeps the label right (Expand all until every section is open).
 - [ ] Tools without an article or without questions still show the buttons correctly (Collapse all hidden when nothing can fold).
+
+### One accordion for article and questions
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] On /merge-pdf, the article sections and the questions appear as ONE list with the same look (same row style, title size, plus icon, text size). No second set of differently styled questions.
+- [ ] Wide screen: the list is on the left; "How to use" steps and the privacy note are on the right. Phone: steps first, then the list.
+- [ ] Every row is open on load, no text is hidden; the article text appears only once on the page.
+- [ ] Collapse all / Expand all folds and opens every row; the label follows manual changes.
+- [ ] A tool with an article but no guide still shows the article in the same look.
+- [ ] Focus mode still hides all of this. Report any tool that looks uneven.

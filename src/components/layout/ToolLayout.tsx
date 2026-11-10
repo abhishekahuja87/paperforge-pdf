@@ -10,6 +10,7 @@ import { siteConfig } from '../../config/site';
 import { buildToolJsonLd } from '../../lib/structuredData';
 import { useTranslation } from 'react-i18next';
 import { useFocusMode } from '../../lib/focusMode';
+import { GuideRegistryContext } from '../common/guideRegistry';
 
 interface ToolLayoutProps {
   title: string;
@@ -36,6 +37,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   const { pathname } = useLocation();
   const isWorkshop = appearance === 'workshop';
   const { active: focusOn, setFocus, registerToolPage } = useFocusMode();
+  const [guideShowsArticle, setGuideShowsArticle] = useState(false);
 
   // Tell the focus mode this is a tool page, so only tool pages are ever put into focus.
   useEffect(() => {
@@ -125,18 +127,19 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           </div>
         )}
 
-        {/* Written explanation (left) and steps with questions (right): side by side from tablet width up,
-            stacked on phones with the short steps first. With no article, the guide stays centred. */}
+        {/* Everything foldable sits in one accordion. A guide lists the written sections together with its
+            questions; with no guide, the article shows on its own. */}
         {!focusOn && (
-        <div ref={foldRef} className="flex flex-col gap-6 md:grid md:items-start md:has-[article]:grid-cols-2">
-          <ToolArticle id={pathname.replace(/^\/+|\/+$/g, '')} />
-
-          {seoContent && (
-            <div className={`w-full max-md:order-first print:hidden ${isWorkshop ? '' : 'border-t border-slate-200 pt-4'}`}>
-              {seoContent}
+          <GuideRegistryContext.Provider value={{ guideShowsArticle, setGuideShowsArticle }}>
+            <div ref={foldRef} className="space-y-6">
+              <ToolArticle id={pathname.replace(/^\/+|\/+$/g, '')} />
+              {seoContent && (
+                <div className={`w-full print:hidden ${isWorkshop ? '' : 'border-t border-slate-200 pt-4'}`}>
+                  {seoContent}
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </GuideRegistryContext.Provider>
         )}
 
         {!focusOn && (

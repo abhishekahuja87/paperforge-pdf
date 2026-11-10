@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import { ShieldCheck, HelpCircle } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { useContent } from '../../locales/contentLoader';
+import { AccordionList } from './AccordionList';
+import { GuideRegistryContext } from './guideRegistry';
+import { useArticleSections } from './ToolArticle';
 
 export interface GuideStep {
   title: string;
@@ -45,47 +48,62 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
     : steps;
   const stepsLanguage = hasLocalizedSteps ? i18n.language : contentLanguage;
   const isWorkshop = appearance === 'workshop';
+  const articleSections = useArticleSections(guideId);
+  const { setGuideShowsArticle } = useContext(GuideRegistryContext);
+  const showsArticle = isWorkshop && articleSections.length > 0;
+  // Tell the layout this guide lists the written sections, so they are not shown a second time.
+  useLayoutEffect(() => {
+    setGuideShowsArticle(showsArticle);
+    return () => setGuideShowsArticle(false);
+  }, [showsArticle, setGuideShowsArticle]);
   if (isWorkshop) {
+    const items = [
+      ...articleSections.map((section) => ({
+        key: `article-${section.heading}`,
+        title: section.heading,
+        level: 2 as const,
+        children: <>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</>,
+      })),
+      ...faqs.map((faq) => ({
+        key: `faq-${faq.question}`,
+        title: faq.question,
+        level: 3 as const,
+        children: <p>{faq.answer}</p>,
+      })),
+    ];
+    // Wide: the accordion on the left, the steps and privacy note in a side column. Narrow: steps first, then the accordion.
     return (
-      <div className="@container mx-auto max-w-3xl space-y-5">
-        {displayedSteps.length > 0 && (
-          <section aria-label={t('howToUse')} className="space-y-2">
-            <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('howToUse')}</h2>
-            <ol lang={stepsLanguage} className="grid gap-3 @2xl:grid-cols-3">
-              {displayedSteps.map((step, index) => (
-                <li key={step.title} className="flex items-start gap-3 rounded-lg border-l-4 border-orange-500 bg-white px-3 py-3 shadow-sm">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-800">{index + 1}</span>
-                  <div>
-                    <p className="text-sm font-extrabold text-stone-900">{step.title}</p>
-                    <p className="mt-0.5 text-xs leading-relaxed text-stone-600">{step.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </section>
-        )}
-        {faqs.length > 0 && (
-          <section aria-label={t('questions')} className="space-y-2">
-            <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('questions')}</h2>
-            <div lang={contentLanguage} className="divide-y divide-stone-200 rounded-xl border border-stone-200 bg-white">
-              {faqs.map((faq) => (
-                <details key={faq.question} open className="group px-4 py-3">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-stone-900 [&::-webkit-details-marker]:hidden">
-                    {faq.question}
-                    <span aria-hidden="true" className="text-lg leading-none text-orange-600 transition group-open:rotate-45">+</span>
-                  </summary>
-                  <p className="mt-2 text-xs leading-relaxed text-stone-600">{faq.answer}</p>
-                </details>
-              ))}
-            </div>
-          </section>
-        )}
-        {privacyNote && (
-          <section aria-label={t('privacy')} className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
-            <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-900">{t('privacy')}</h2>
-            <p lang={contentLanguage} className="mt-1 text-xs leading-relaxed text-emerald-900">{privacyNote}</p>
-          </section>
-        )}
+      <div className="@container mx-auto w-full max-w-6xl">
+        <div className="space-y-5 @2xl:grid @2xl:grid-cols-[minmax(0,1fr)_18rem] @2xl:items-start @2xl:gap-x-6 @2xl:space-y-0 @4xl:grid-cols-[minmax(0,1fr)_22rem]">
+          {displayedSteps.length > 0 && (
+            <section aria-label={t('howToUse')} className="space-y-2 @2xl:col-start-2 @2xl:row-start-1">
+              <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('howToUse')}</h2>
+              <ol lang={stepsLanguage} className="grid gap-3">
+                {displayedSteps.map((step, index) => (
+                  <li key={step.title} className="flex items-start gap-3 rounded-lg border-l-4 border-orange-500 bg-white px-3 py-3 shadow-sm">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-800">{index + 1}</span>
+                    <div>
+                      <p className="text-sm font-extrabold text-stone-900">{step.title}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-stone-600">{step.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+          {items.length > 0 && (
+            <section aria-label={t('guideAndQuestions', { defaultValue: 'About this tool and questions' })} className="space-y-2 @2xl:col-start-1 @2xl:row-span-2 @2xl:row-start-1">
+              <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('guideAndQuestions', { defaultValue: 'About this tool and questions' })}</h2>
+              <AccordionList items={items} lang={contentLanguage} />
+            </section>
+          )}
+          {privacyNote && (
+            <section aria-label={t('privacy')} className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 @2xl:col-start-2">
+              <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-900">{t('privacy')}</h2>
+              <p lang={contentLanguage} className="mt-1 text-xs leading-relaxed text-emerald-900">{privacyNote}</p>
+            </section>
+          )}
+        </div>
       </div>
     );
   }
