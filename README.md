@@ -165,3 +165,5 @@ Most used, Workspaces, the topic lists, then What's new and Guides as compact bl
 ### One accordion on tool pages
 
 The written article sections and the questions now share one list and one look (`AccordionList`: a single card of `<details open>` rows with a `+` icon). `ToolGuide` (workshop mode) renders the article sections first, then the questions, in the left column; "How to use" steps and the privacy note sit in a side column (container query `@2xl`), and on phones the steps come first. `ToolGuide` tells `ToolLayout` through `GuideRegistryContext` that it shows the article, so `ToolArticle` renders nothing there and the text appears once. A tool with no guide still shows the article in the same accordion look. All rows start open; "Collapse all / Expand all" folds them together.
+
+The guide column is now a single stack (steps, then the one accordion, then the privacy note) at `max-w-3xl`; steps sit three across from `@xl`. The earlier side-by-side column was dropped because it wasted space.
