@@ -98,3 +98,11 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 - `index.html` carries `<meta name="google-adsense-account">` (site ownership check) next to the AdSense script; `public/ads.txt` lists the publisher.
 - `/editorial-policy` ("How we check our tools") is written in `src/content/editorial.ts` and is used by the page, the pre-rendered HTML and the sitemap; linked in the footer and About.
 - The resize-image-to-20/50/100/200kb pages no longer repeat the shared sections of Image Resizer (they were about 85 percent identical). Each keeps only size-specific text; the general how-to lives on `/image-resizer`. Do not add shared paragraphs back to size pages.
+
+### Tool extras, batch 1 (Nov 2026)
+
+- Compress PDF: "Reduce to a size" mode (`lib/pdf/compressToTarget.ts`). Lossless clean-up first; if still over the limit, pages are rendered with pdf.js, encoded as JPEG at the sharpest resolution/quality combination that fits (`TARGET_SCALES`, `TARGET_QUALITIES`), and rebuilt with pdf-lib. If the limit cannot be met, the smallest result is returned with `met: false`. Pages become pictures, so text is not selectable (stated on the page).
+- SIP calculator: value in today's money (`inflationAdjusted`) and goal mode (`sipForTarget`, exact because value is proportional to the first instalment).
+- Income tax: `breakEvenDeductions` in `lib/finance/tax.ts` finds by bisection the deductions at which old and new regime cost the same.
+- Image resizer: per-result checklist (size, exact pixels, JPG), tap-to-enlarge preview, Download all.
+- Article text for each is in `locales/content/base.en.json`.

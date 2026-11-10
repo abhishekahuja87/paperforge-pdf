@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { CalcFooter, InputGrid, Note, NumberField, SelectField, Stat, calcCard } from '../../finance/ui';
-import { computeTax, OLD_LIMITS, type AgeGroup, type TaxInput, type TaxResult } from '../../../lib/finance/tax';
+import { breakEvenDeductions, computeTax, OLD_LIMITS, type AgeGroup, type TaxInput, type TaxResult } from '../../../lib/finance/tax';
 import { formatInr, formatPercent, parseAmount } from '../../../lib/finance/format';
 
 const Row: React.FC<{ label: string; value: string; strong?: boolean }> = ({ label, value, strong }) => (
@@ -45,7 +45,7 @@ export const IncomeTaxCalculator: React.FC = () => {
   const [hra, setHra] = useState('0');
   const [otherDed, setOtherDed] = useState('0');
 
-  const { oldResult, newResult } = useMemo(() => {
+  const { oldResult, newResult, breakEven } = useMemo(() => {
     const base: TaxInput = {
       regime: 'new',
       age,
@@ -59,7 +59,7 @@ export const IncomeTaxCalculator: React.FC = () => {
       hraExemption: parseAmount(hra),
       otherDeductions: parseAmount(otherDed),
     };
-    return { newResult: computeTax(base), oldResult: computeTax({ ...base, regime: 'old' }) };
+    return { newResult: computeTax(base), oldResult: computeTax({ ...base, regime: 'old' }), breakEven: breakEvenDeductions(base) };
   }, [salary, other, age, employerNps, c80, nps, d80, home, hra, otherDed]);
 
   const hasIncome = parseAmount(salary) + parseAmount(other) > 0;
@@ -98,6 +98,18 @@ export const IncomeTaxCalculator: React.FC = () => {
             <Stat label="You save" value={formatInr(saving)} tone="good" />
             <Stat label="Monthly tax (better option)" value={formatInr(Math.min(oldResult.totalTax, newResult.totalTax) / 12)} />
           </div>
+          {breakEven && (
+            <p className="rounded-xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-xs leading-relaxed text-slate-700">
+              {breakEven.amount > 0
+                ? <>The old regime costs less only if your deductions and exemptions (80C, 80D, HRA, home loan interest and similar) add up to more than <strong>{formatInr(breakEven.amount)}</strong>. You entered {formatInr(breakEven.entered)}, so {breakEven.entered >= breakEven.amount ? 'the old regime wins for you' : `you are ${formatInr(breakEven.amount - breakEven.entered)} short and the new regime wins`}. The standard deduction and employer NPS are already counted in both regimes.</>
+                : <>The old regime costs the same or less even with no deductions, so you do not need to claim anything to prefer it.</>}
+            </p>
+          )}
+          {!breakEven && (
+            <p className="rounded-xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-xs leading-relaxed text-slate-700">
+              At this income the new regime costs less than the old regime at any level of deductions.
+            </p>
+          )}
           <div className="grid gap-4 md:grid-cols-2">
             <RegimeTable title="New tax regime" result={newResult} best={newBetter} />
             <RegimeTable title="Old tax regime" result={oldResult} best={!newBetter} />
