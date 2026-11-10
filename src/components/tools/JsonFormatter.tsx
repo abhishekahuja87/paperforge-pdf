@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AlertCircle, Check, Clipboard, Download, RotateCcw, Sparkles } from 'lucide-react';
 import { copyText, downloadBlob } from '../../lib/browserTools';
 import { generateFileName } from '../../lib/pdf/naming';
-import { generateFileName } from '../../lib/pdf/naming';
 import { FileDropZone } from '../common/FileDropZone';
 
 type JsonAction = 'format' | 'minify' | 'validate';
