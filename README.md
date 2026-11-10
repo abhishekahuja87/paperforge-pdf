@@ -125,3 +125,8 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 
 - FD calculator: optional tax rate on interest (`afterTaxInterest`), maturity and yield after tax, and a TDS note when yearly interest exceeds `TDS_LIMIT` (50,000 regular, 1,00,000 senior; Section 194A as changed from 1 April 2025; update when the rule changes). RD calculator: interest and maturity after tax.
 - Audit result: Lumpsum, CAGR, BMI, Discount, Word counter, Gratuity and Date difference already had their main extras (inflation, doubling time, healthy range, stacked discounts and GST, length limits, tax-free limit, working days), so no change was made there.
+
+### Home guides strip and Split PDF extras (Nov 2026)
+
+- Home page: a "Guides" section (four fixed picks in `FEATURED_GUIDE_SLUGS` in `HomeToolsGrid.tsx`) gives the home page real written content with links to /guides. Change the slugs when guides are added.
+- Split PDF: Odd pages / Even pages buttons and a live "N of M pages selected" message with a red note when nothing matches.
