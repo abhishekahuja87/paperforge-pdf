@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getCollections, getMostUsedTools, getNewToolIds, getSearchResults, getWorkspaceTools } from '../../lib/homePageVariants';
+import { Link } from 'react-router-dom';
+import { UPDATES, formatUpdateDate, isRecent } from '../../config/updates';
 import { HomeCollectionPanel } from './HomeCollectionPanel';
 import { HomePopularTile, HomeToolCard, HomeWorkspaceCard } from './HomeVariantTools';
 
@@ -18,6 +20,7 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
   const newIds = useMemo(() => getNewToolIds(), []);
   const workspaces = useMemo(() => getWorkspaceTools(i18n.language), [i18n.language]);
   const collections = useMemo(() => getCollections(), []);
+  const recentUpdates = useMemo(() => UPDATES.filter((update) => isRecent(update)).slice(0, 3), []);
   const results = useMemo(
     () => (isSearching ? getSearchResults(query, i18n.language) : []),
     [isSearching, query, i18n.language],
@@ -58,6 +61,25 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
           {mostUsed.map((tool) => <HomePopularTile key={tool.id} tool={tool} />)}
         </div>
       </section>
+
+      {recentUpdates.length > 0 && (
+        <section aria-label={t('whatsNew')} className="space-y-3">
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 className={sectionTitle}>{t('whatsNew')}</h2>
+            <Link to="/whats-new" className="text-xs font-semibold text-orange-800 underline">{t('whatsNew')} &rarr;</Link>
+          </div>
+          <ul className="grid gap-2 sm:grid-cols-3">
+            {recentUpdates.map((update) => (
+              <li key={`${update.path}-${update.title}`}>
+                <Link to={update.path} className="block h-full rounded-xl border border-stone-200 bg-white p-3 transition hover:border-orange-300">
+                  <span className="text-[10px] font-bold uppercase tracking-wide text-orange-700">{update.tool} &middot; {formatUpdateDate(update.date)}</span>
+                  <span className="mt-1 block text-sm font-semibold text-stone-900">{update.title}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section aria-label={t('workspaces')} className="space-y-2.5">
         <h2 className={sectionTitle}>{t('workspaces')}</h2>

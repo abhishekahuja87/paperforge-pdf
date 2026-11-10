@@ -481,3 +481,12 @@ Checked in the sandbox: `sipForTarget` reproduces the target exactly; `inflation
 - [ ] Income tax: salary 15 lakh, 80C 1.5 lakh: the note says the old regime needs about 5.44 lakh in deductions. Salary 9 lakh shows 3.5 lakh. A very high income shows "new regime costs less at any level".
 - [ ] Image resizer: each result lists size, exact pixels and JPG ticks; tapping the small picture shows it larger; with two images "Download all" saves both (phones may ask to allow multiple downloads).
 - [ ] What is each tool still missing? Note it here.
+
+### What's new notices
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /whats-new lists the entries by date and each tool link opens the right tool.
+- [ ] Open Compress PDF, SIP, Income Tax, Image Resizer, EMI, Sports Court Guide: an orange "New (date)" note sits above the tool with a link to all updates. A tool without an entry shows no note.
+- [ ] Home page shows a "What's new" strip with 3 cards before Workspaces; tapping one opens the tool. Searching hides it.
+- [ ] Footer has the What's new link; view-source of /whats-new shows the list without JavaScript.

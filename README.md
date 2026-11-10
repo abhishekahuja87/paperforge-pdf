@@ -106,3 +106,7 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 - Income tax: `breakEvenDeductions` in `lib/finance/tax.ts` finds by bisection the deductions at which old and new regime cost the same.
 - Image resizer: per-result checklist (size, exact pixels, JPG), tap-to-enlarge preview, Download all.
 - Article text for each is in `locales/content/base.en.json`.
+
+### What's new (improvement notices)
+
+`config/updates.ts` is the dated list of improvements. `ToolUpdateNote` (in `ToolLayout`) shows the newest one above a tool for 45 days (`RECENT_DAYS`); the home page shows the latest three recent ones; `/whats-new` lists all and is pre-rendered and in the sitemap; the footer links to it. Add an entry with every improvement (see AGENTS.md).
