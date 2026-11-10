@@ -72,25 +72,6 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
         </div>
       </section>
 
-      {recentUpdates.length > 0 && (
-        <section aria-label={t('whatsNew')} className="space-y-3">
-          <div className="flex items-baseline justify-between gap-3">
-            <h2 className={sectionTitle}>{t('whatsNew')}</h2>
-            <Link to="/whats-new" className="text-xs font-semibold text-orange-800 underline">{t('whatsNew')} &rarr;</Link>
-          </div>
-          <ul className="grid gap-2 sm:grid-cols-3">
-            {recentUpdates.map((update) => (
-              <li key={`${update.path}-${update.title}`}>
-                <Link to={update.path} className="block h-full rounded-xl border border-stone-200 bg-white p-3 transition hover:border-orange-300">
-                  <span className="text-[10px] font-bold uppercase tracking-wide text-orange-700">{update.tool} &middot; {formatUpdateDate(update.date)}</span>
-                  <span className="mt-1 block text-sm font-semibold text-stone-900">{update.title}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
       <section aria-label={t('workspaces')} className="space-y-2.5">
         <h2 className={sectionTitle}>{t('workspaces')}</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -98,28 +79,43 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
         </div>
       </section>
 
-      <section aria-label="Guides" className="space-y-3">
-        <div className="flex items-baseline justify-between gap-3">
-          <h2 className={sectionTitle}>Guides</h2>
-          <Link to="/guides" className="text-xs font-semibold text-orange-800 underline">All {GUIDES.length} guides &rarr;</Link>
-        </div>
-        <ul lang="en" className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredGuides.map((guide) => (
-            <li key={guide.slug}>
-              <Link to={`/guides/${guide.slug}`} className="block h-full rounded-xl border border-stone-200 bg-white p-3 transition hover:border-orange-300">
-                <span className="block text-sm font-semibold text-stone-900">{guide.title}</span>
-                <span className="mt-1 block text-xs leading-relaxed text-stone-600">{guide.description}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section aria-label={t('moreTools')} className="space-y-3">
         <h2 className={sectionTitle}>{t('moreTools')}</h2>
         <div className="space-y-3">
           {collections.map((group) => <HomeCollectionPanel key={group.id} collection={group} newIds={newIds} />)}
         </div>
+      </section>
+
+      {recentUpdates.length > 0 && (
+        <section aria-label={t('whatsNew')} className="space-y-2">
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 className="text-sm font-bold text-stone-900">{t('whatsNew')}</h2>
+            <Link to="/whats-new" className="text-xs font-semibold text-orange-800 underline">{t('whatsNew')} &rarr;</Link>
+          </div>
+          <ul lang="en" className="space-y-1 text-xs text-stone-700">
+            {recentUpdates.map((update) => (
+              <li key={`${update.path}-${update.title}`}>
+                <Link to={update.path} className="hover:text-orange-800">
+                  <strong className="font-semibold text-stone-900">{update.tool}</strong>: {update.title} <span className="text-stone-500">({formatUpdateDate(update.date)})</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section aria-label="Guides" className="space-y-2">
+        <div className="flex items-baseline justify-between gap-3">
+          <h2 className="text-sm font-bold text-stone-900">Guides</h2>
+          <Link to="/guides" className="text-xs font-semibold text-orange-800 underline">All {GUIDES.length} guides &rarr;</Link>
+        </div>
+        <ul lang="en" className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs">
+          {featuredGuides.map((guide) => (
+            <li key={guide.slug}>
+              <Link to={`/guides/${guide.slug}`} className="font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-900">{guide.title}</Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );
