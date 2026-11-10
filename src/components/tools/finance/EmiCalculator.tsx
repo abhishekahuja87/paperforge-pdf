@@ -84,7 +84,7 @@ export const EmiCalculator: React.FC = () => {
                 : [monthLabel(startMonth, row.month), formatInr(row.emi), formatInr(row.principal), formatInr(row.interest), formatInr(row.balance)]))}
             />
           )}
-          {advice && <EmiAdvice advice={advice} tenureMonths={months} principal={principal} annualRate={annualRate} startMonth={startMonth} />}
+          {advice && <EmiAdvice advice={advice} tenureMonths={months} principal={principal} />}
         </>
       ) : <p className="mt-4 text-xs text-slate-500">Enter a loan amount and tenure to see the EMI.</p>}
       <CalcFooter />

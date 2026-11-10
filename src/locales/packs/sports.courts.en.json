@@ -459,7 +459,7 @@
     "notesLead": "Read before you build or mark a court. Recreational, school and club courts often differ from the federation size.",
     "sources": "Where these sizes come from",
     "checked": "Checked on",
-    "drawingNote": "Drawn to scale. Solid lines are the court, dashed lines are nets and the dotted box is the clear space.",
+    "drawingNote": "Drawn to scale with the sizes written on it. Solid lines are the court, the dashed line is the net, numbered points match the marking plan and the dotted box is the clear space.",
     "spaceLength": "Your space, length",
     "spaceWidth": "Your space, width",
     "unit": "Unit",
@@ -477,6 +477,14 @@
     "enterSpace": "Enter the length and width of your space to see what fits.",
     "fitNote": "Each court keeps its own clear space, so rows of courts are counted with a gap between them. The result is a planning guide, not a design.",
     "disclaimer": "Sizes are from the sources listed and were checked on the date shown. Rules change, and local and school courts differ. Confirm with the governing body for your event before you build or mark a court. This guide is not a safety or engineering approval.",
-    "high": "above the court"
+    "high": "above the court",
+    "clearCaption": "Dotted box: clear space the rules ask for",
+    "saveImage": "Save as image (PNG)",
+    "savePdf": "Save as PDF",
+    "preparing": "Preparing the file...",
+    "saveFailed": "The file could not be created in this browser. Try again, or take a screenshot instead.",
+    "madeBy": "Made with the Sports Court and Ground Size Guide, www.mydailyutils.in",
+    "number": "No.",
+    "saveHint": "The saved page has the drawing with every measurement, the marking plan, notes, sources and the date checked."
   }
 }
