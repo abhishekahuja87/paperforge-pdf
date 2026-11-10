@@ -23,7 +23,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
   ];
 
   return (
-    <section className="relative overflow-hidden px-4 py-6 sm:py-8" aria-label={t('findTool')}>
+    <section className="relative overflow-hidden px-4 py-5 sm:py-6" aria-label={t('findTool')}>
       <div aria-hidden="true" className="pointer-events-none absolute -left-16 top-0 h-56 w-56 rounded-full bg-amber-200/50 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-12 bottom-0 h-64 w-64 rounded-full bg-orange-200/50 blur-3xl" />
 
@@ -31,11 +31,11 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
         {/* Wide: the heading on the left, the search on the right, so the top is one short band. Narrow: stacked and centred. */}
         <div className="text-center md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center md:gap-10 md:text-left">
           <div className="min-w-0">
-            <h1 className="text-3xl font-black leading-[1.08] tracking-[-0.04em] text-stone-900 sm:text-4xl lg:text-5xl">
+            <h1 className="text-2xl font-black leading-[1.1] tracking-[-0.03em] text-stone-900 sm:text-3xl lg:text-4xl">
               {t('homeHeading')}
               <span className="block text-orange-600">{t('homeHeadingAccent')}</span>
             </h1>
-            <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-stone-600 md:mx-0 lg:text-base lg:leading-7">
+            <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-stone-600 md:mx-0">
               {t('homeDescription')}
             </p>
           </div>
@@ -49,7 +49,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
                 value={query}
                 onChange={(event) => onQueryChange(event.target.value)}
                 placeholder={t('searchPlaceholder')}
-                className="w-full rounded-xl border-2 border-orange-200 bg-white py-3 pl-11 pr-4 text-sm text-stone-900 shadow-sm outline-none transition placeholder:text-stone-400 focus:border-orange-500 focus:ring-4 focus:ring-orange-100 md:py-4 md:text-base"
+                className="w-full rounded-xl border-2 border-orange-200 bg-white py-3 pl-11 pr-4 text-sm text-stone-900 shadow-sm outline-none transition placeholder:text-stone-400 focus:border-orange-500 focus:ring-4 focus:ring-orange-100 md:py-3.5 md:text-base"
               />
             </label>
 
@@ -66,7 +66,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
           </div>
         </div>
 
-        <ul className="mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
+        <ul className="mt-4 flex flex-wrap justify-center gap-2 md:justify-start">
           {trust.map(({ icon: Icon, text }) => (
             <li key={text} className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-white/80 px-3 py-1.5 text-xs font-bold text-stone-700">
               <Icon className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
