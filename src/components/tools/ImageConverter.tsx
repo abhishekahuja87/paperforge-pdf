@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import { AlertCircle, Check, Download, Image, LoaderCircle, RotateCcw } from 'lucide-react';
-import { downloadBlob, formatBytes, safeFileBaseName } from '../../lib/browserTools';
+import { downloadBlob, formatBytes } from '../../lib/browserTools';
+import { generateFileName } from '../../lib/pdf/naming';
 import { processBrowserImage, type BrowserImageFormat } from '../../lib/media/imageProcessing';
 import { useTranslation } from 'react-i18next';
 
@@ -123,7 +124,7 @@ export const ImageConverter: React.FC = () => {
             <div className="space-y-2">
               <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Converted files</h3>
               {results.map((result, index) => {
-                const outputName = `${safeFileBaseName(result.file.name)}.${FORMAT_EXTENSIONS[result.format]}`;
+                const outputName = generateFileName('converted', FORMAT_EXTENSIONS[result.format], { base: result.file.name });
                 const difference = result.blob.size - result.file.size;
                 return (
                   <div key={`${result.file.name}-${index}`} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-emerald-100 bg-emerald-50/50 p-3">

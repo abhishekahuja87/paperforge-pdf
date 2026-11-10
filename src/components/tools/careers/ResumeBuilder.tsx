@@ -8,6 +8,7 @@ import {
   type ResumeData, type ResumeEducation, type ResumeExperience, type ResumeProject,
 } from '../../../lib/careers/resume';
 import { PAPER, ResumePreview, type ResumeStyle } from './ResumePreview';
+import { generateFileName } from '../../../lib/pdf/naming';
 
 const STORAGE_KEY = 'mdu.resume.v1';
 const inputClass = 'mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900';
@@ -107,7 +108,7 @@ export const ResumeBuilder: React.FC = () => {
   const shift = (key: 'experience' | 'education' | 'projects', index: number, by: number) => setResume((current) => ({ ...current, [key]: move(current[key] as unknown[], index, by) }));
   const remove = (key: 'experience' | 'education' | 'projects', id: string) => setResume((current) => ({ ...current, [key]: (current[key] as { id: string }[]).filter((item) => item.id !== id) }));
 
-  const exportJson = () => downloadBlob(new Blob([JSON.stringify({ resume, style }, null, 2)], { type: 'application/json' }), 'resume-data.json');
+  const exportJson = () => downloadBlob(new Blob([JSON.stringify({ resume, style }, null, 2)], { type: 'application/json' }), generateFileName('resume-data', 'json'));
   const importJson = async (file: File | undefined) => {
     if (!file) return;
     try {

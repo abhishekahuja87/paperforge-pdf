@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
+import { generatePdfFilename } from '../../lib/pdf/naming';
 import {
   FileText,
   Download,
@@ -57,7 +58,7 @@ export const FlattenPdf: React.FC = () => {
       const url = URL.createObjectURL(blob);
 
       setDownloadUrl(url);
-      setDownloadName(`flattened_${file.name}`);
+      setDownloadName(generatePdfFilename(file.name, 'flattened'));
       setFlattenedCount(fieldCount);
     } catch (err) {
       setError(err instanceof Error && err.message.includes('password-protected')
@@ -143,7 +144,7 @@ export const FlattenPdf: React.FC = () => {
           ) : (
             <a
               href={downloadUrl}
-              download={downloadName || `flattened_${file.name}`}
+              download={downloadName || generatePdfFilename(file.name, 'flattened')}
               className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
             >
               <Download className="w-5 h-5" />

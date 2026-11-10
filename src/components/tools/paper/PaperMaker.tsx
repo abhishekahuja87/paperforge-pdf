@@ -9,6 +9,7 @@ import { encodeShare, decodeShare } from '../../../lib/paper/share';
 import { DEFAULT_SETTINGS, HEADER_LABELS, PAGE_SIZES, STORY_RATIOS, STYLES, TONES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings, type PaperStyle, type ToneId, type Weight } from '../../../lib/paper/types';
 import { SheetPreview } from './SheetPreview';
 import { Slider, Toggle, card, heading } from './controls';
+import { generateFileName } from '../../../lib/pdf/naming';
 
 const presetButtons = (spacings: { label: string; value: number }[], current: number, onPick: (value: number) => void) => (
   <div className="flex flex-wrap gap-2">
@@ -47,7 +48,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${settings.style}-paper-${settings.page}${settings.pages > 1 ? `-${settings.pages}pages` : ''}.pdf`;
+      link.download = generateFileName('paper', 'pdf', { details: `${settings.style}-${settings.page}${settings.pages > 1 ? `-${settings.pages}pages` : ''}` });
       link.click();
       window.setTimeout(() => URL.revokeObjectURL(url), 4000);
     } catch {
@@ -61,7 +62,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
     const url = URL.createObjectURL(new Blob([serializeSettings(settings)], { type: 'application/json' }));
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'paper-settings.json';
+    link.download = generateFileName('paper-settings', 'json');
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 4000);
   };

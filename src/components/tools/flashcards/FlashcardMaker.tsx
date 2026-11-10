@@ -9,6 +9,7 @@ import { parseCards, parseTable } from '../../../lib/flashcards/parse';
 import { buildFlashPdf } from '../../../lib/flashcards/pdf';
 import { drawPage } from '../../../lib/flashcards/render';
 import { DEFAULT_FLASH, FONT_STACKS, LAYOUTS, MAX_CARDS, SAMPLE_DECK, SWATCHES, pageDims, type FlashSettings, type FontFamily } from '../../../lib/flashcards/types';
+import { generateFileName } from '../../../lib/pdf/naming';
 
 const PREVIEW_PX_PER_MM = 3;
 
@@ -53,7 +54,7 @@ export const FlashcardMaker: React.FC<{ focus?: 'general' | 'duplex' }> = ({ foc
     drawPage(ctx, current, settings, PREVIEW_PX_PER_MM);
   }, [current, settings, dims.w, dims.h]);
 
-  const download = async (cards = parsed.cards, name = 'flashcards.pdf') => {
+  const download = async (cards = parsed.cards, name = generateFileName('flashcards', 'pdf')) => {
     setMessage('');
     setBusy(0);
     try {

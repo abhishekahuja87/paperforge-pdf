@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
+import { generateFileName } from '../../lib/pdf/naming';
 import {
   FileText,
   Download,
@@ -69,7 +70,7 @@ export const ExtractText: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `${file.name.replace(/\.pdf$/i, '')}_text.txt`;
+    link.download = generateFileName('extracted-text', 'txt', { base: file.name });
     link.click();
     URL.revokeObjectURL(url);
   };

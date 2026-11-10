@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { generateFileName } from '../../../lib/pdf/naming';
 import { Download, Printer, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
 import { CopyButton, fieldClass } from '../utilities/common';
@@ -108,10 +109,10 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
     reader.readAsDataURL(file);
   };
 
-  const saveSvg = () => qr && download(new Blob([svg], { type: 'image/svg+xml' }), 'qr-code.svg');
+  const saveSvg = () => qr && download(new Blob([svg], { type: 'image/svg+xml' }), generateFileName('qr-code', 'svg'));
   const savePng = async () => {
     if (!qr) return;
-    try { download(await qrPng(qr, effective, size, logoImage.current), 'qr-code.png'); setMessage(''); } catch { setMessage('Could not make the PNG. Try a smaller size.'); }
+    try { download(await qrPng(qr, effective, size, logoImage.current), generateFileName('qr-code', 'png')); setMessage(''); } catch { setMessage('Could not make the PNG. Try a smaller size.'); }
   };
 
   const set = <K extends keyof QrStyle>(key: K, value: QrStyle[K]) => setStyle((s) => ({ ...s, [key]: value }));

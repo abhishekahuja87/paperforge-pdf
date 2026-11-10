@@ -3,6 +3,7 @@ import { Download, Printer } from 'lucide-react';
 import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
 import { fieldClass } from '../utilities/common';
 import { downloadBlob } from '../../../lib/browserTools';
+import { generateFileName } from '../../../lib/pdf/naming';
 import { encodeQr, type QrCode } from '../../../lib/qr/encoder';
 import { contrastRatio } from '../../../lib/qr/payloads';
 import { defaultStyle, qrPng, qrSvg, type QrStyle } from '../../../lib/qr/render';
@@ -47,7 +48,7 @@ export const BulkQrGenerator: React.FC = () => {
       }
       const list = good.map((item, i) => `${names[i]}.${format}\t${item.label}\t${item.content}`).join('\n');
       zip.file('list.txt', list);
-      downloadBlob(await zip.generateAsync({ type: 'blob' }), 'qr-codes.zip');
+      downloadBlob(await zip.generateAsync({ type: 'blob' }), generateFileName('qr-codes', 'zip'));
       setMessage(`Downloaded ${good.length} codes in qr-codes.zip.`);
     } catch {
       setMessage('Could not build the ZIP file. Try fewer codes or a smaller size.');
