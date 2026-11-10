@@ -695,3 +695,11 @@ Not run: `tsc`, `vite build`, browser.
 
 - [ ] Phone and desktop mode: everything centred in one column; heading smaller than before; pills under the request link.
 - [ ] Search still switches to results.
+
+### Privacy badge on tools
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Any tool: the top row shows "← All tools" on the left and the badge on the right; the description below has no extra sentence; the header is one line shorter.
+- [ ] Phone: the badge does not push the row sideways (no horizontal scroll).
+- [ ] Switch to Hindi or Spanish: the badge text is translated.
