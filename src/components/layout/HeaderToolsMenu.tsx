@@ -2,7 +2,8 @@ import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Search } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { CATEGORIES, TOOLS, type ToolCategory } from '../../config/tools';
+import { TOOLS } from '../../config/tools';
+import { getTopics, topicNameKey } from '../../config/topics';
 import { getToolCopy } from '../../lib/localizedTool';
 import { recordToolClick } from '../../lib/storage';
 
@@ -17,10 +18,10 @@ interface HeaderToolsMenuProps {
 export const HeaderToolsMenu: React.FC<HeaderToolsMenuProps> = ({ onNavigate }) => {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState('');
-  const [openCategory, setOpenCategory] = useState<ToolCategory | null>(null);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const available = useMemo(() => TOOLS.filter((tool) => tool.isAvailable), []);
-  const categoryKeys = Object.keys(CATEGORIES) as ToolCategory[];
+  const topics = useMemo(() => getTopics(), []);
 
   const entries = useMemo(
     () => available.map((tool) => ({ tool, copy: getToolCopy(tool, i18n.language) })),
@@ -84,9 +85,9 @@ export const HeaderToolsMenu: React.FC<HeaderToolsMenuProps> = ({ onNavigate }) 
         </div>
       ) : (
         <div className="mt-2 space-y-1">
-          {categoryKeys.map((categoryKey) => {
-            const tools = entries.filter(({ tool }) => tool.category === categoryKey);
-            if (tools.length === 0) return null;
+          {topics.map((topic) => {
+            const categoryKey = topic.id;
+            const tools = topic.tools.map((tool) => ({ tool, copy: getToolCopy(tool, i18n.language) }));
             const open = openCategory === categoryKey;
             return (
               <div key={categoryKey} className="rounded-lg border border-stone-200/80">
@@ -96,7 +97,7 @@ export const HeaderToolsMenu: React.FC<HeaderToolsMenuProps> = ({ onNavigate }) 
                   onClick={() => setOpenCategory(open ? null : categoryKey)}
                   className="flex min-h-10 w-full items-center justify-between gap-2 px-2.5 py-2 text-left text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-orange-700"
                 >
-                  <span>{t(`${categoryKey}.name`, { ns: 'categories' })} <span className="font-normal normal-case tracking-normal text-stone-400">({tools.length})</span></span>
+                  <span>{t(topicNameKey(categoryKey))} <span className="font-normal normal-case tracking-normal text-stone-400">({tools.length})</span></span>
                   <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
                 </button>
                 {/* Always rendered and only hidden with CSS, so every tool link is in the page for search engines. */}
