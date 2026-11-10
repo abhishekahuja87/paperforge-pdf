@@ -688,3 +688,10 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] The heading is visibly smaller and the top takes less height on phone and desktop mode.
 - [ ] The description is one short line; the pills still show underneath.
 - [ ] Home page still has readable text for Google: heading, description, pills, topic panels.
+
+### Home top centred
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Phone and desktop mode: everything centred in one column; heading smaller than before; pills under the request link.
+- [ ] Search still switches to results.
