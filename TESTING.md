@@ -506,3 +506,12 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Merge PDF: add two PDFs; each shows its page count and the total is correct. Type 1-2 in the first file: the total drops accordingly; the merged file has only those pages from that file. Type 99: red "no pages match" and merging shows a clear error. Sort A to Z orders scan 2 before scan 10. Password-protected PDFs still ask for the password.
 - [ ] Percentage: each of the five boxes shows a "Working:" line that matches the answer; blank input hides it.
 - [ ] What is each tool still missing? Note it here.
+
+### Tool extras, batch 4
+
+Not run: `tsc` on components, `vite build`, browser.
+
+- [ ] FD 5 lakh at 7 percent for 5 years with tax rate 30: tax, interest after tax, maturity after tax and after-tax yield appear and the after-tax yield is below the pre-tax yield. Tax rate 0 hides them.
+- [ ] FD 20 lakh at 7 percent for 1 year: the amber TDS note appears for Below 60 and also for Senior citizen above 1 lakh; 5 lakh at 7 percent for 5 years (about 2.1 lakh over 5 years, about 42,000 a year) shows no note for either.
+- [ ] RD with tax rate 20: two extra stats appear.
+- [ ] Check the TDS limits against the bank or Income Tax Department before relying on them.
