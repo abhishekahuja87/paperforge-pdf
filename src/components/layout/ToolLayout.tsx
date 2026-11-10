@@ -68,15 +68,17 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         {/* Main Tool Functional Area */}
         <div lang={controlsLanguage} className={isWorkshop ? `tool-workshop-controls mx-auto w-full ${wide ? 'max-w-6xl' : 'max-w-3xl'}` : 'w-full'}>{children}</div>
 
-        {/* Written explanation for this tool, when one exists (keyed by route path) */}
-        <ToolArticle id={pathname.replace(/^\/+|\/+$/g, '')} />
+        {/* Written explanation (left) and steps with questions (right): side by side from tablet width up,
+            stacked on phones with the short steps first. With no article, the guide stays centred. */}
+        <div className="flex flex-col gap-6 md:grid md:items-start md:has-[article]:grid-cols-2">
+          <ToolArticle id={pathname.replace(/^\/+|\/+$/g, '')} />
 
-        {/* SEO / Questionnaire Guide (Steps & FAQs) */}
-        {seoContent && (
-          <div className={`w-full print:hidden ${isWorkshop ? 'pt-3' : 'border-t border-slate-200 pt-4'}`}>
-            {seoContent}
-          </div>
-        )}
+          {seoContent && (
+            <div className={`w-full max-md:order-first print:hidden ${isWorkshop ? '' : 'border-t border-slate-200 pt-4'}`}>
+              {seoContent}
+            </div>
+          )}
+        </div>
 
         <section
           aria-label={t('advertisements')}

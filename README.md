@@ -151,3 +151,7 @@ Footer is now: one compact row of always-visible company/trust links, one "All t
 ### Home page order (Nov 2026)
 
 Most used, Workspaces, the topic lists, then What's new and Guides as compact blocks just above the footer (What's new as short lines, Guides as four linked titles plus "All N guides"). Both stay visible text with real links; they are not folded away.
+
+### Tool page columns and Collapse all (Nov 2026)
+
+`ToolLayout` puts the written article (`ToolArticle`) and the guide (`ToolGuide`: steps and questions) side by side from 768px up (`md:has-[article]:grid-cols-2`); on phones they stack with the guide first (`max-md:order-first`), while the DOM order stays article first. A tool with no article keeps a centred single column. Steps use a container query (`@2xl:grid-cols-3`) so they stack inside a narrow column and sit in three columns when the guide is alone. Every FAQ item starts open (all text visible); a "Collapse all / Expand all" button (`collapseAll`, `expandAll` keys) folds or opens them. Folding the article sections themselves is deliberately not done yet, until AdSense has reviewed the site.

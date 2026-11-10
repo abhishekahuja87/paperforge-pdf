@@ -566,3 +566,13 @@ Not run: `tsc`, `vite build`, browser.
 
 - [ ] Home page order is: search, Most used, Workspaces, topic lists, What's new (short lines), Guides (four linked titles). Together the last two take only a few lines.
 - [ ] Each What's new line and guide title opens the right page; "All N guides" opens /guides. While searching, they are hidden.
+
+### Tool page columns and Collapse all
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Desktop and tablet (768px and up) on /merge-pdf: the article is on the left and "How to use" (steps stacked) with the questions on the right; the page is clearly shorter than before.
+- [ ] Phone: the steps and questions come first, then the article, then the ad. Nothing overflows sideways.
+- [ ] All questions are open on first load. "Collapse all" folds them all and the label becomes "Expand all"; opening a single question by hand updates the label correctly.
+- [ ] A tool with no article (for example one without a written article) shows the guide centred, with three steps in a row on a wide screen.
+- [ ] Check three more tools: EMI calculator, Compress PDF, QR code generator. Report any that look uneven or broken.
