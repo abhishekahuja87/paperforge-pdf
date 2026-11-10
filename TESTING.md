@@ -550,3 +550,12 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Typing in the search box on iPhone does not zoom the page. Escape and tapping outside still close the menu.
 - [ ] Desktop: the panel is the same width and works the same way.
 - [ ] View-source/DOM check: the tool links exist in the page even when the menu is closed (inspect `#explore-tools-menu`).
+
+### Same groups in header, footer and home
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] The names and order of groups are identical in the header menu, the footer's All tools row and the home page: PDF tools, Image and photo tools, Tax loans and investing, Everyday calculators, Printables and stationery, Jobs freelancing and business, Students and writing, QR codes and contacts, Developer and data tools, Workspaces.
+- [ ] Every tool appears in exactly one group in the header and footer (spot-check 5 tools: resize-image-to-20kb, sports-court-size-guide, gst-invoice-generator, word-counter, display-studio).
+- [ ] No group called "More tools" appears. If it does, a tool is missing from `COLLECTIONS`; tell me which.
+- [ ] View-source of any page: the no-JavaScript link lists use the same group names.

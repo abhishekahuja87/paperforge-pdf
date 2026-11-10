@@ -11,6 +11,7 @@ import { en } from '../locales/english';
 import { siteConfig } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
 import { GUIDES } from '../content/guides';
+import { getTopics } from '../config/topics';
 import { EDITORIAL } from '../content/editorial';
 import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
@@ -280,15 +281,11 @@ function toLink(tool: ToolItem): ShellLink {
 
 /** Same grouping as the site footer, so every tool is linked from every static page. */
 export function getShellGroups(): ShellGroup[] {
-  return [
-    { name: en.pdfTools, tools: availableTools.filter((tool) => tool.category === 'pdf' && tool.tier !== 'workspace') },
-    { name: en.imageTools, tools: availableTools.filter((tool) => tool.category === 'media') },
-    { name: en.financeTools, tools: availableTools.filter((tool) => tool.category === 'finance') },
-    { name: en.everydayTools, tools: availableTools.filter((tool) => tool.category === 'everyday') },
-    { name: en.textTools, tools: availableTools.filter((tool) => tool.category === 'text') },
-    { name: en.developerTools, tools: availableTools.filter((tool) => tool.category === 'dev') },
-    { name: en.workspaces, tools: availableTools.filter((tool) => tool.tier === 'workspace') },
-  ]
+  return getTopics()
+    .map((topic) => ({
+      name: topic.id === 'workspaces' ? en.workspaces : (en.homeCollections as Record<string, { name: string }>)[topic.id]?.name ?? topic.id,
+      tools: topic.tools,
+    }))
     .filter((group) => group.tools.length > 0)
     .map((group) => ({ name: group.name, links: group.tools.map(toLink) }))
     .concat([{

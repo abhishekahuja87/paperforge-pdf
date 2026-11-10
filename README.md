@@ -143,3 +143,7 @@ Footer is now: one compact row of always-visible company/trust links, one "All t
 ### Header tools menu (Nov 2026)
 
 `HeaderToolsMenu.tsx` is the content of the "Explore tools" panel: a search box (matches title, description and id; Enter opens the first match) and every category folded to one line with a count (one open at a time). It lists all available tools, including the footer-only ones. The panel and the category lists are always rendered and hidden with CSS (`hidden`), not unmounted, so every tool link is in the page for search engines. Search text and wording reuse the home page keys (`searchTools`, `searchPlaceholder`, `noResults`).
+
+### One set of groups everywhere (Nov 2026)
+
+`config/topics.ts` (`getTopics`, `topicNameKey`) is the single list of tool groups, built from `COLLECTIONS` in `config/homeSections.ts`. The header menu, the footer, the pre-rendered shell pages (`getShellGroups`) and the home page all use the same ids and names (`homeCollections.<id>.name`, plus "Workspaces" for the studios). To move a tool, edit `COLLECTIONS` only. The old `category` field on tools is no longer used for navigation (it still exists for tool data). Tools missing from every group land in "More tools".

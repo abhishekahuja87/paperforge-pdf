@@ -2,25 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { siteConfig } from '../../config/site';
-import { TOOLS } from '../../config/tools';
+import { getTopics, topicNameKey } from '../../config/topics';
 import { useTranslation } from 'react-i18next';
 import { getToolCopy } from '../../lib/localizedTool';
 import { FooterToolGroup } from './FooterToolGroup';
 
 export const Footer: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const available = TOOLS.filter((tool) => tool.isAvailable);
-
-  // Every available tool appears here, including the tools that are folded away on the home page.
-  const toolColumns = [
-    { key: 'pdfTools', tools: available.filter((tool) => tool.category === 'pdf' && tool.tier !== 'workspace') },
-    { key: 'imageTools', tools: available.filter((tool) => tool.category === 'media') },
-    { key: 'financeTools', tools: available.filter((tool) => tool.category === 'finance') },
-    { key: 'everydayTools', tools: available.filter((tool) => tool.category === 'everyday') },
-    { key: 'textTools', tools: available.filter((tool) => tool.category === 'text') },
-    { key: 'developerTools', tools: available.filter((tool) => tool.category === 'dev') },
-    { key: 'workspaces', tools: available.filter((tool) => tool.tier === 'workspace') },
-  ].filter((column) => column.tools.length > 0);
+  const topics = getTopics();
+  const toolCount = topics.reduce((sum, topic) => sum + topic.tools.length, 0);
 
   const linkClass = 'transition hover:text-white';
 
@@ -42,14 +32,14 @@ export const Footer: React.FC = () => {
         {/* All tools: one line until opened. The links stay in the page either way. */}
         <details className="group rounded-lg border border-stone-700/70">
           <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-2 px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-stone-200 marker:content-none [&::-webkit-details-marker]:hidden">
-            <span>{t('allTools')} <span className="font-normal normal-case tracking-normal text-stone-500">({available.length})</span></span>
+            <span>{t('allTools')} <span className="font-normal normal-case tracking-normal text-stone-500">({toolCount})</span></span>
             <ChevronDown className="h-3.5 w-3.5 shrink-0 text-stone-400 transition group-open:rotate-180" aria-hidden="true" />
           </summary>
           <nav aria-label={t('footerNav')} className="grid grid-cols-2 gap-2 border-t border-stone-700/70 p-2 sm:grid-cols-3 lg:grid-cols-7 lg:gap-x-6 lg:gap-y-6 lg:p-4">
-            {toolColumns.map((column) => (
-              <FooterToolGroup key={column.key} title={t(column.key)} count={column.tools.length}>
+            {topics.map((topic) => (
+              <FooterToolGroup key={topic.id} title={t(topicNameKey(topic.id))} count={topic.tools.length}>
                 <ul className="space-y-1.5 sm:columns-2 lg:columns-1">
-                  {column.tools.map((tool) => {
+                  {topic.tools.map((tool) => {
                     const copy = getToolCopy(tool, i18n.language);
                     return (
                       <li key={tool.id} className="break-inside-avoid">
