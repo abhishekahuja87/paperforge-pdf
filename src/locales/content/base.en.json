@@ -3185,6 +3185,12 @@
           ]
         },
         {
+          "heading": "Reading the working",
+          "paragraphs": [
+            "Under every answer you will see the sum that produced it, such as 15 ÷ 100 × 2,400. That makes it easy to check the result, or to repeat the same calculation by hand in an exam or on an invoice."
+          ]
+        },
+        {
           "heading": "Privacy",
           "paragraphs": [
             "The calculation runs in your browser and nothing you enter is uploaded to MyDailyUtils."
@@ -4348,6 +4354,13 @@
           "heading": "Tips for good results",
           "paragraphs": [
             "Name your files so they sort sensibly before you add them, for example 01-cover.pdf and 02-form.pdf, so the list starts close to the right order. Very large PDFs, or many files at once, use a lot of memory on your device. If the page slows down or the merge fails, merge in smaller batches and then merge the results."
+          ]
+        },
+        {
+          "heading": "Using only some pages of a file",
+          "paragraphs": [
+            "Each file shows its page count, and the merged file shows the total. In the Pages to use box under a file, type page numbers such as 1-3, 5 to take only those pages; leave it empty to take them all. The count under the box updates as you type, and a red note appears if nothing matches.",
+            "Use Sort A to Z when file names carry numbers, such as scan 2 and scan 10: they are ordered by number, not letter by letter. You can still move any file up or down afterwards."
           ]
         },
         {

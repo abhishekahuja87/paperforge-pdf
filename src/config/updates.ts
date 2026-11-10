@@ -18,6 +18,20 @@ export interface SiteUpdate {
 
 export const UPDATES: SiteUpdate[] = [
   {
+    date: '2026-11-12',
+    path: '/merge-pdf',
+    tool: 'Merge PDF',
+    title: 'Page counts, pick pages per file, sort A to Z',
+    summary: 'See how many pages each file has and the total, take only some pages from a file (for example 1-3, 5), and sort the files by name.',
+  },
+  {
+    date: '2026-11-12',
+    path: '/percentage-calculator',
+    tool: 'Percentage Calculator',
+    title: 'The working shown under every answer',
+    summary: 'Each result now shows the sum behind it, so you can check it or copy the method.',
+  },
+  {
     date: '2026-11-11',
     path: '/age-calculator',
     tool: 'Age Calculator',

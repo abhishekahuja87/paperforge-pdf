@@ -498,3 +498,11 @@ Checked in the sandbox: eligibility dates for a 15 Aug 1995 birth (min 21, max 3
 - [ ] GST: "Find the GST rate": 1000 and 1180 gives 18% and closest slab 18%; 1000 and 1050 gives 5%; 1000 and 1075 shows no standard slab. Add mode with "Between states" shows IGST.
 - [ ] What is each tool still missing? Note it here.
 
+
+### Tool extras, batch 3
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Merge PDF: add two PDFs; each shows its page count and the total is correct. Type 1-2 in the first file: the total drops accordingly; the merged file has only those pages from that file. Type 99: red "no pages match" and merging shows a clear error. Sort A to Z orders scan 2 before scan 10. Password-protected PDFs still ask for the password.
+- [ ] Percentage: each of the five boxes shows a "Working:" line that matches the answer; blank input hides it.
+- [ ] What is each tool still missing? Note it here.
