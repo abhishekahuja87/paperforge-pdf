@@ -91,6 +91,12 @@ export function computeGst(amount: number, ratePercent: number, mode: 'add' | 'r
   return { base, gst, total: base + gst, half: gst / 2 };
 }
 
+/** GST rate implied by a price without GST and the same price with GST. Null when the two do not make sense. */
+export function impliedGstRate(withoutGst: number, withGst: number): number | null {
+  if (!(withoutGst > 0) || !(withGst >= withoutGst)) return null;
+  return ((withGst - withoutGst) / withoutGst) * 100;
+}
+
 export function computeHra(input: { monthlyBasic: number; monthlyHra: number; monthlyRent: number; metro: boolean }) {
   const { monthlyBasic, monthlyHra, monthlyRent, metro } = input;
   const rentOverTenPercent = Math.max(0, monthlyRent - 0.1 * monthlyBasic);

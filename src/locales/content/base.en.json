@@ -3110,6 +3110,13 @@
           ]
         },
         {
+          "heading": "Checking age eligibility for a form or exam",
+          "paragraphs": [
+            "Open the eligibility box, enter the minimum and maximum age from the notice, and set the Age on date to the cut-off date. The calculator says whether you are within the limit on that date and shows the first day you are old enough and the last day you are still within the upper limit.",
+            "Notices word the upper limit in two common ways. \"Maximum 30 years\" is usually read as allowed up to the day before you turn 31, while \"below 30 years\" means you must not have turned 30. Pick the option that matches your notice, and add any relaxation years for your category. The notice itself is always the final word."
+          ]
+        },
+        {
           "heading": "Privacy",
           "paragraphs": [
             "The calculation runs in your browser and nothing you enter is uploaded to MyDailyUtils."
@@ -4206,6 +4213,13 @@
           "heading": "CGST, SGST and IGST",
           "paragraphs": [
             "In a sale within one state the GST amount is shared equally between CGST and SGST. In a sale to another state the whole amount is IGST. The calculator shows the half share so you can fill an invoice."
+          ]
+        },
+        {
+          "heading": "Finding a rate and splitting the tax",
+          "paragraphs": [
+            "If you have a price without GST and the price with GST, choose Find the GST rate from two prices. The calculator shows the rate and the closest standard slab, which helps you check an invoice. If the result is not close to a standard rate, the prices may be rounded or the invoice may mix items.",
+            "Choose whether the sale is within one state or between states. Within a state the tax is split into equal CGST and SGST; between states the whole amount is IGST. The total is the same either way."
           ]
         },
         {

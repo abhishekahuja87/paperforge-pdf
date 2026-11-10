@@ -18,6 +18,20 @@ export interface SiteUpdate {
 
 export const UPDATES: SiteUpdate[] = [
   {
+    date: '2026-11-11',
+    path: '/age-calculator',
+    tool: 'Age Calculator',
+    title: 'Age eligibility check for forms and exams',
+    summary: 'Enter the minimum and maximum age, relaxation years and the cut-off date to see if you are within the limit, with the first and last eligible dates.',
+  },
+  {
+    date: '2026-11-11',
+    path: '/gst-calculator',
+    tool: 'GST Calculator',
+    title: 'Find the GST rate, and IGST for sales between states',
+    summary: 'Work out the rate from a price with and without GST, and see IGST instead of CGST and SGST for interstate sales.',
+  },
+  {
     date: '2026-11-10',
     path: '/compress-pdf',
     tool: 'Compress PDF',
