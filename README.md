@@ -139,3 +139,7 @@ AdSense safety: privacy, terms, contact, about, editorial policy and guides link
 ### Slim footer (Nov 2026)
 
 Footer is now: one compact row of always-visible company/trust links, one "All tools (N)" row that opens the category groups (links stay in the DOM), and one line with brand, copyright and location (the network note shows from 640px up). Wide screens still open every category once "All tools" is opened.
+
+### Header tools menu (Nov 2026)
+
+`HeaderToolsMenu.tsx` is the content of the "Explore tools" panel: a search box (matches title, description and id; Enter opens the first match) and every category folded to one line with a count (one open at a time). It lists all available tools, including the footer-only ones. The panel and the category lists are always rendered and hidden with CSS (`hidden`), not unmounted, so every tool link is in the page for search engines. Search text and wording reuse the home page keys (`searchTools`, `searchPlaceholder`, `noResults`).
