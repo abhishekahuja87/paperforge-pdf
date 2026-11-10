@@ -135,3 +135,7 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 
 `Footer.tsx` shows the company links as one wrapped row and the tool links by category through `FooterToolGroup.tsx`: folded to one line per category below 1024px (tap to open, an opened one spans the full width), always open on wide screens. Links stay in the DOM so crawlers and screen readers still reach every tool. `desktop` uses seven columns, one per category.
 AdSense safety: privacy, terms, contact, about, editorial policy and guides links are always visible (never folded); only the long tool lists fold, and they stay in the DOM and on every pre-rendered page.
+
+### Slim footer (Nov 2026)
+
+Footer is now: one compact row of always-visible company/trust links, one "All tools (N)" row that opens the category groups (links stay in the DOM), and one line with brand, copyright and location (the network note shows from 640px up). Wide screens still open every category once "All tools" is opened.
