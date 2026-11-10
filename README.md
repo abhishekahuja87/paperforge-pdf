@@ -183,3 +183,5 @@ Guide text audit (steps and questions) started: Merge (page ranges), Compress (r
 `src/lib/pdf/naming.ts` is the one place for download names: `generateFileName(feature, ext, { base, details })` gives `feature_YYYY-MM-DD_HH-mm_original_details.ext` (local time, no colons). `generatePdfFilename` uses it. New tools must name every download with it. Home topic panels use `HOME_COLLECTION_BORDER` (light border, same hue as the topic icon).
 
 `HomeTopBanner` is now two columns from `lg`: heading, description, search and request link on the left; on the right a panel with three trust points (`homeHero.*` keys; the tool total is rounded down to ten) and a grid of every topic (icon, name, count) linking to `#topic-<id>`. Below `lg` it is the unchanged centred single column. This is a trial.
+
+Home top: the two-column layout and topic panel now start at `md` (768px) instead of `lg`, because a phone in "desktop site" mode is about 980px wide. Below `md` a one-line trust row sits under the search.

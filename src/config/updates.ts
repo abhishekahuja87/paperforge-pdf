@@ -192,6 +192,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Wider home page top with topics one click away',
     summary: 'On wide screens the top of the home page now shows the search beside a panel of every topic with its tool count, plus a quick note that files stay in your browser and everything is free.',
   },
+  {
+    date: '2026-11-10',
+    path: '/',
+    tool: 'Home page',
+    title: 'Home top works on tablets and phones too',
+    summary: 'The topic panel now appears from tablet width, including a phone in desktop mode, and phones get a one-line note: files stay in your browser, free, no sign-up.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
