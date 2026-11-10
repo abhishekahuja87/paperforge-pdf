@@ -6,13 +6,17 @@ import { getTopics, topicNameKey } from '../../config/topics';
 import { useTranslation } from 'react-i18next';
 import { getToolCopy } from '../../lib/localizedTool';
 import { FooterToolGroup } from './FooterToolGroup';
+import { useFocusMode } from '../../lib/focusMode';
 
 export const Footer: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const { active: focusActive } = useFocusMode();
   const topics = getTopics();
   const toolCount = topics.reduce((sum, topic) => sum + topic.tools.length, 0);
 
   const linkClass = 'transition hover:text-white';
+
+  if (focusActive) return null;
 
   return (
     <footer className="print:hidden bg-stone-900 text-stone-300 text-xs border-t border-stone-800 mt-auto">

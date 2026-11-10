@@ -30,10 +30,16 @@ export const ToolArticle: React.FC<{ id: string }> = ({ id }) => {
   return (
     <article lang="en" className="print:hidden mx-auto w-full max-w-3xl space-y-6 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-5 text-sm leading-7 text-stone-700 sm:p-8">
       {sections.map((section) => (
-        <section key={section.heading} className="space-y-2">
-          <h2 className="text-lg font-bold tracking-tight text-stone-900">{section.heading}</h2>
-          {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-        </section>
+        // Open by default so all the text is visible; the page's "Collapse all" button folds them.
+        <details key={section.heading} open className="group space-y-2">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
+            <h2 className="text-lg font-bold tracking-tight text-stone-900">{section.heading}</h2>
+            <span aria-hidden="true" className="text-lg leading-none text-orange-600 transition group-open:rotate-45">+</span>
+          </summary>
+          <div className="space-y-2 pt-2">
+            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
+        </details>
       ))}
     </article>
   );

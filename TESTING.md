@@ -576,3 +576,14 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] All questions are open on first load. "Collapse all" folds them all and the label becomes "Expand all"; opening a single question by hand updates the label correctly.
 - [ ] A tool with no article (for example one without a written article) shows the guide centred, with three steps in a row on a wide screen.
 - [ ] Check three more tools: EMI calculator, Compress PDF, QR code generator. Report any that look uneven or broken.
+
+### Focus mode and Collapse all
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] On /merge-pdf, a "Focus mode" button and a "Collapse all" button sit above the article and guide. Tapping Focus mode hides the header (a slim bar with "Exit focus (Esc)" remains), footer, article, steps, questions and the ad; only a one-line title and the tool stay. The address now ends with ?focus=1.
+- [ ] Escape and the Exit focus button return to the normal page and the ?focus=1 is removed.
+- [ ] Open the copied link with ?focus=1 in a new tab: it opens in focus mode. Open the home page in that tab after turning focus on: the home page is normal. Open another tool: it opens in focus mode (same visit) and the address shows ?focus=1.
+- [ ] Close the tab and open the tool again: normal view.
+- [ ] Collapse all folds the article sections and the questions together; the label changes to Expand all; opening one section by hand while all are closed keeps the label right (Expand all until every section is open).
+- [ ] Tools without an article or without questions still show the buttons correctly (Collapse all hidden when nothing can fold).
