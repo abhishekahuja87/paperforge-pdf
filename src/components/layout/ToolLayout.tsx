@@ -81,10 +81,16 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           <h1 lang={contentLanguage} className="text-center text-lg font-black tracking-tight text-stone-900 sm:text-xl">{title}</h1>
         ) : isWorkshop ? (
           <header className={`mx-auto w-full space-y-2 ${wide ? 'max-w-6xl' : 'max-w-3xl'}`}>
-            <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800 print:hidden">
-              <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-              {t('allTools')}
-            </Link>
+            <div className="flex items-center justify-between gap-3">
+              <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800 print:hidden">
+                <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
+                {t('allTools')}
+              </Link>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-white/80 px-2.5 py-1 text-[11px] font-bold text-stone-700">
+                <ShieldCheck className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
+                {t('privacyPill')}
+              </span>
+            </div>
             <div className="flex items-start justify-between gap-3">
               <h1 lang={contentLanguage} className="text-2xl font-black leading-tight tracking-[-0.03em] text-stone-900 sm:text-3xl">{title}</h1>
               <button
@@ -96,13 +102,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                 {t('focusMode', { defaultValue: 'Focus mode' })}
               </button>
             </div>
-            <p lang={contentLanguage} className="text-sm leading-6 text-stone-600">
-              {subtitle}{' '}
-              <span className="inline-flex items-center gap-1 text-xs font-bold text-orange-700">
-                <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                {t('localProcessing')}
-              </span>
-            </p>
+            <p lang={contentLanguage} className="text-sm leading-6 text-stone-600">{subtitle}</p>
           </header>
         ) : (
           <div className="space-y-2 text-center">

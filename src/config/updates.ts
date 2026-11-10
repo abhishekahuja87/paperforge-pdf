@@ -220,6 +220,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Centred home top again',
     summary: 'The home page top is back to the centred layout on every screen size, keeping the smaller heading, the one-line description and the three badges.',
   },
+  {
+    date: '2026-11-11',
+    path: '/merge-pdf',
+    tool: 'All tools',
+    title: 'Shorter privacy badge on every tool',
+    summary: 'The long privacy sentence under each tool description is now a small "Your data stays in your browser" badge on the top row, saving a line of space. The full explanation remains in the privacy note further down.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
