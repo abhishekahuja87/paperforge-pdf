@@ -206,6 +206,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Simpler home top',
     summary: 'The heading and the search now sit side by side on wide screens, with three short reassurances underneath: files stay in your browser, free with no sign-up, and the number of tools.',
   },
+  {
+    date: '2026-11-11',
+    path: '/',
+    tool: 'Home page',
+    title: 'Smaller, tighter home top',
+    summary: 'The home page heading is smaller and the description is now one short line, since the badges underneath already say the tools are free and private.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

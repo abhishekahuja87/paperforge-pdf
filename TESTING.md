@@ -680,3 +680,11 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Desktop mode and tablet: heading left, large search right, three pills underneath; the band is short and tools start sooner.
 - [ ] Normal phone: centred heading, description, search, request link, then the pills.
 - [ ] Search still switches to results.
+
+### Smaller home top
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] The heading is visibly smaller and the top takes less height on phone and desktop mode.
+- [ ] The description is one short line; the pills still show underneath.
+- [ ] Home page still has readable text for Google: heading, description, pills, topic panels.
