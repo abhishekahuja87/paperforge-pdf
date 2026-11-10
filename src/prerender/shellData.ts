@@ -12,6 +12,7 @@ import { siteConfig } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
 import { GUIDES } from '../content/guides';
 import { EDITORIAL } from '../content/editorial';
+import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
 type Json = Record<string, unknown>;
@@ -72,6 +73,7 @@ export const SHELL_TEXT = {
   privacyPolicy: en.privacyPolicy,
   terms: en.terms,
   editorialPolicy: en.editorialPolicy,
+  whatsNew: en.whatsNew,
 };
 
 function rec(value: unknown): Json {
@@ -370,6 +372,9 @@ export function getShellPages(): ShellPage[] {
         { heading: 'Support', paragraphs: ['Use the contact form to report a problem or request a tool.'] },
       ]),
     info('/editorial-policy', EDITORIAL.title, EDITORIAL.subtitle, EDITORIAL.description, EDITORIAL.sections),
+    info('/whats-new', "What's new", 'Improvements to the tools, newest first.',
+      'A dated list of what has been added or improved on MyDailyUtils tools and calculators.',
+      UPDATES.map((update) => ({ heading: `${formatUpdateDate(update.date)}: ${update.tool} - ${update.title}`, paragraphs: [update.summary] }))),
     info('/contact', en.contactPage.title, en.contactPage.subtitle, en.contactPage.description),
     info('/privacy', 'Privacy Policy', 'Last updated: November 8, 2026',
       'Read how MyDailyUtils handles in-browser processing, local preferences, contact form submissions, advertising, analytics and third-party resources.', [
