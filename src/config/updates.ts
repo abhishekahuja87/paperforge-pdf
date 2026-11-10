@@ -185,6 +185,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Topic sections have a light coloured border',
     summary: 'Each topic panel has a soft border in the same colour as its icons, so sections are easy to tell apart while scrolling.',
   },
+  {
+    date: '2026-11-10',
+    path: '/',
+    tool: 'Home page',
+    title: 'Wider home page top with topics one click away',
+    summary: 'On wide screens the top of the home page now shows the search beside a panel of every topic with its tool count, plus a quick note that files stay in your browser and everything is free.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

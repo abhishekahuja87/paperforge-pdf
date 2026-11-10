@@ -654,3 +654,13 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Spot-check Split, Compress, Rotate, Protect, Unlock, Organize, Flatten, Extract text (.txt), PDF to images (each page), Image resizer / compressor / converter, JSON formatter, QR code (PNG, SVG, ZIP), Settle up, Planner, Paper maker, Offer poster, Screenshot redactor, Flashcards, vCard converter, Resume data: each file name starts with the feature, then the date and time.
 - [ ] Downloading twice a minute apart gives two different names; the newest sorts last in the folder.
 - [ ] Home page: each topic panel has a light border in its own colour; it is subtle, not heavy, in light and dark themes.
+
+### Home top trial
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Desktop (1024px and wider): search and heading on the left, a topic panel on the right filling the space; no big empty areas at the top.
+- [ ] Each topic chip scrolls to its panel; counts match the panel headings.
+- [ ] Phone and tablet: top looks exactly as before; the mobile jump bar still shows.
+- [ ] Typing in search still switches the page to results.
+- [ ] Tell me what you like or dislike; this is a trial and easy to revert.
