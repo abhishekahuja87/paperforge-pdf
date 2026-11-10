@@ -28,17 +28,17 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
     <div aria-hidden="true" className="pointer-events-none absolute -left-16 top-0 h-56 w-56 rounded-full bg-amber-200/50 blur-3xl" />
     <div aria-hidden="true" className="pointer-events-none absolute -right-12 bottom-0 h-64 w-64 rounded-full bg-orange-200/50 blur-3xl" />
 
-    <div className="relative mx-auto max-w-6xl lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
-      <div className="min-w-0 text-center lg:text-left">
+    <div className="relative mx-auto max-w-6xl md:grid md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-center md:gap-8 lg:gap-10">
+      <div className="min-w-0 text-center md:text-left">
         <h1 className="text-3xl font-black leading-[1.08] tracking-[-0.04em] text-stone-900 sm:text-4xl lg:text-5xl">
           {t('homeHeading')}
           <span className="block text-orange-600">{t('homeHeadingAccent')}</span>
         </h1>
-        <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-stone-600 lg:mx-0 lg:text-base lg:leading-7">
+        <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-stone-600 md:mx-0 lg:text-base lg:leading-7">
           {t('homeDescription')}
         </p>
 
-        <label className="relative mx-auto mt-5 block max-w-lg text-left text-stone-800 lg:mx-0">
+        <label className="relative mx-auto mt-5 block max-w-lg text-left text-stone-800 md:mx-0">
           <span className="sr-only">{t('searchTools')}</span>
           <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-orange-500" aria-hidden="true" />
           <input
@@ -60,10 +60,19 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
             <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" aria-hidden="true" />
           </Link>
         </p>
+
+        <ul className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 md:hidden">
+          {trust.map(({ icon: Icon, text }) => (
+            <li key={text} className="inline-flex items-center gap-1.5 text-[11px] font-bold text-stone-700">
+              <Icon className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
+              {text}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      {/* Wide screens only: the space beside the search holds what the site offers, with every topic one click away. */}
-      <aside aria-label={t('homeHero.topics', { defaultValue: 'Browse by topic' })} className="mt-0 hidden rounded-2xl border border-stone-200 bg-white/80 p-4 shadow-sm backdrop-blur lg:block">
+      {/* From tablet width up: the space beside the search holds what the site offers, with every topic one click away. */}
+      <aside aria-label={t('homeHero.topics', { defaultValue: 'Browse by topic' })} className="mt-0 hidden rounded-2xl border border-stone-200 bg-white/80 p-3 shadow-sm backdrop-blur md:block lg:p-4">
         <ul className="mb-3 flex flex-wrap gap-x-4 gap-y-1.5 border-b border-stone-100 pb-3">
           {trust.map(({ icon: Icon, text }) => (
             <li key={text} className="inline-flex items-center gap-1.5 text-xs font-bold text-stone-700">

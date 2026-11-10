@@ -664,3 +664,11 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Phone and tablet: top looks exactly as before; the mobile jump bar still shows.
 - [ ] Typing in search still switches the page to results.
 - [ ] Tell me what you like or dislike; this is a trial and easy to revert.
+
+### Home top at md
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Phone in desktop-site mode (about 980px): search on the left, topic panel on the right.
+- [ ] Normal phone: centred top as before plus one line "Files stay in your browser · Free, no sign-up · N+ tools" under the request link.
+- [ ] Topic chips are not cut off at 768px (names truncate with an ellipsis).
