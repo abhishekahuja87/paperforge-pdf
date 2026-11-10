@@ -605,3 +605,9 @@ Not run: `tsc`, `vite build`, browser.
 
 - [ ] /merge-pdf: "How to use" steps (three across on a wide screen), then the single accordion, then the privacy note, all in one centred column with no empty side space.
 - [ ] Phone: same order, nothing overflows.
+
+### Update note removed from tool pages
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] No "what changed" note appears above any tool. /whats-new still lists everything, including today's two entries, and the home strip and footer link still work.

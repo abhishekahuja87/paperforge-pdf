@@ -108,6 +108,20 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Ways to pay less interest as clear cards',
     summary: 'Each way to save shows the extra payment, the interest saved and the new loan length, with month-wise detail.',
   },
+  {
+    date: '2026-11-10',
+    path: '/merge-pdf',
+    tool: 'All tools',
+    title: 'One list for the guide and the questions',
+    summary: 'The written guide and the common questions now sit in a single list with one look, with the steps above it. Fold everything with one button.',
+  },
+  {
+    date: '2026-11-10',
+    path: '/merge-pdf',
+    tool: 'All tools',
+    title: 'Focus mode',
+    summary: 'Hide the header, footer and guide to work on just the tool. Press Escape to come back, and share the link with ?focus=1.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
