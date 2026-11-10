@@ -81,7 +81,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           <h1 lang={contentLanguage} className="text-center text-lg font-black tracking-tight text-stone-900 sm:text-xl">{title}</h1>
         ) : isWorkshop ? (
           <header className={`mx-auto w-full space-y-2 ${wide ? 'max-w-6xl' : 'max-w-3xl'}`}>
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
               <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800 print:hidden">
                 <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
                 {t('allTools')}

@@ -227,6 +227,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Shorter privacy badge on every tool',
     summary: 'The long privacy sentence under each tool description is now a small "Your data stays in your browser" badge on the top row, saving a line of space. The full explanation remains in the privacy note further down.',
   },
+  {
+    date: '2026-11-11',
+    path: '/merge-pdf',
+    tool: 'All tools',
+    title: 'Privacy badge moved beside the back link',
+    summary: 'The "Your data stays in your browser" badge now sits next to "All tools" on the left, leaving the right side clear for the Focus mode button.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
