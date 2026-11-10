@@ -847,6 +847,12 @@
   "privacy": "Privacy",
   "localProcessing": "Runs in your browser. Files and numbers you enter are not uploaded to MyDailyUtils.",
   "advertisements": "Advertisements",
+  "homeHero": {
+    "private": "Files stay in your browser",
+    "free": "Free, no sign-up",
+    "count": "{{count}}+ tools",
+    "topics": "Browse by topic"
+  },
   "homeHeading": "Simple tools that work",
   "homeHeadingAccent": "right in your browser.",
   "homeDescription": "A growing collection of free everyday tools: calculators, converters, text, image and PDF tools that run on your own device.",
