@@ -4,7 +4,6 @@ import { PageMetadata } from '../common/PageMetadata';
 import { ArrowLeft, Maximize2, ShieldCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ToolArticle } from '../common/ToolArticle';
-import { ToolUpdateNote } from '../common/ToolUpdateNote';
 import { ADS_CONFIG } from '../../config/ads';
 import { siteConfig } from '../../config/site';
 import { buildToolJsonLd } from '../../lib/structuredData';
@@ -100,7 +99,6 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           </div>
         )}
 
-        {!focusOn && <ToolUpdateNote path={pathname} />}
 
         {/* Main Tool Functional Area */}
         <div lang={controlsLanguage} className={isWorkshop ? `tool-workshop-controls mx-auto w-full ${wide ? 'max-w-6xl' : 'max-w-3xl'}` : 'w-full'}>{children}</div>

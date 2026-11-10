@@ -109,7 +109,7 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 
 ### What's new (improvement notices)
 
-`config/updates.ts` is the dated list of improvements. `ToolUpdateNote` (in `ToolLayout`) shows the newest one above a tool for 45 days (`RECENT_DAYS`); the home page shows the latest three recent ones; `/whats-new` lists all and is pre-rendered and in the sitemap; the footer links to it. Add an entry with every improvement (see AGENTS.md).
+`config/updates.ts` is the dated list of improvements. the per-tool note above each tool was removed (it only pushed the tool down); the home page shows the latest three recent ones; `/whats-new` lists all and is pre-rendered and in the sitemap; the footer links to it. Add an entry with every improvement (see AGENTS.md).
 ### Tool extras, batch 2 (Nov 2026)
 
 - Age calculator: eligibility check (`lib/utilities/ageEligibility.ts`): minimum and maximum age, relaxation years and two wordings of the upper limit ("up to 30" means until the day before turning 31; "below 30" means not yet turned 30). Shows first and last eligible dates; 29 February birthdays complete a year on 1 March.
@@ -167,3 +167,5 @@ Most used, Workspaces, the topic lists, then What's new and Guides as compact bl
 The written article sections and the questions now share one list and one look (`AccordionList`: a single card of `<details open>` rows with a `+` icon). `ToolGuide` (workshop mode) renders the article sections first, then the questions, in the left column; "How to use" steps and the privacy note sit in a side column (container query `@2xl`), and on phones the steps come first. `ToolGuide` tells `ToolLayout` through `GuideRegistryContext` that it shows the article, so `ToolArticle` renders nothing there and the text appears once. A tool with no guide still shows the article in the same accordion look. All rows start open; "Collapse all / Expand all" folds them together.
 
 The guide column is now a single stack (steps, then the one accordion, then the privacy note) at `max-w-3xl`; steps sit three across from `@xl`. The earlier side-by-side column was dropped because it wasted space.
+
+Tool pages no longer show the update note (`ToolUpdateNote` deleted). Every change is logged day by day in `config/updates.ts` and shown on `/whats-new`.
