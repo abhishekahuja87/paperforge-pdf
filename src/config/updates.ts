@@ -129,6 +129,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Compact tool header and an easier Focus button',
     summary: 'On wide screens the title and the description now sit side by side, and the Focus mode button is at the top right. Collapse all moved right above the list it controls.',
   },
+  {
+    date: '2026-11-10',
+    path: '/merge-pdf',
+    tool: 'All tools',
+    title: 'Tool header lines up with the tool',
+    summary: 'The title, description and Focus button now share the same left and right edges as the tool and the guide below, so the page reads as one clean column.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

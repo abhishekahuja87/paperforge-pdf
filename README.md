@@ -171,3 +171,5 @@ The guide column is now a single stack (steps, then the one accordion, then the 
 Tool pages no longer show the update note (`ToolUpdateNote` deleted). Every change is logged day by day in `config/updates.ts` and shown on `/whats-new`.
 
 Tool header is now compact: back link left and a filled Focus mode button right; on md+ the title sits left and the description plus "runs in your browser" right. "Collapse all / Expand all" is `FoldToggle`, rendered above the accordion (state shared via `GuideRegistryContext.folds`).
+
+Tool header is now one left-aligned block in the same column width as the tool (`max-w-3xl`, or `max-w-6xl` for wide tools): back link, then title with the Focus button on the right, then description with the "runs in your browser" note inline. This replaces the split layout that spread to both page edges.

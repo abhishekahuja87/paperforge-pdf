@@ -80,31 +80,29 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         {focusOn ? (
           <h1 lang={contentLanguage} className="text-center text-lg font-black tracking-tight text-stone-900 sm:text-xl">{title}</h1>
         ) : isWorkshop ? (
-          <header className="space-y-3">
-            <div className="flex items-center justify-between gap-3 print:hidden">
-              <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800">
-                <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-                {t('allTools')}
-              </Link>
+          <header className={`mx-auto w-full space-y-2 ${wide ? 'max-w-6xl' : 'max-w-3xl'}`}>
+            <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800 print:hidden">
+              <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
+              {t('allTools')}
+            </Link>
+            <div className="flex items-start justify-between gap-3">
+              <h1 lang={contentLanguage} className="text-2xl font-black leading-tight tracking-[-0.03em] text-stone-900 sm:text-3xl">{title}</h1>
               <button
                 type="button"
                 onClick={() => setFocus(true)}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-orange-600 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700"
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-orange-600 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 print:hidden"
               >
                 <Maximize2 className="h-3.5 w-3.5" aria-hidden="true" />
                 {t('focusMode', { defaultValue: 'Focus mode' })}
               </button>
             </div>
-            <div className="text-center md:flex md:items-end md:justify-between md:gap-8 md:text-left">
-              <h1 lang={contentLanguage} className="text-3xl font-black leading-[1.08] tracking-[-0.04em] text-stone-900 sm:text-4xl">{title}</h1>
-              <div className="mt-2 md:mt-0 md:max-w-md md:shrink-0">
-                <p lang={contentLanguage} className="text-sm leading-6 text-stone-600">{subtitle}</p>
-                <p className="mt-1.5 inline-flex items-center gap-1.5 text-xs font-bold text-orange-700">
-                  <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                  {t('localProcessing')}
-                </p>
-              </div>
-            </div>
+            <p lang={contentLanguage} className="text-sm leading-6 text-stone-600">
+              {subtitle}{' '}
+              <span className="inline-flex items-center gap-1 whitespace-nowrap text-xs font-bold text-orange-700">
+                <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                {t('localProcessing')}
+              </span>
+            </p>
           </header>
         ) : (
           <div className="space-y-2 text-center">
