@@ -619,3 +619,11 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Desktop: title on the left, description and "runs in your browser" on the right of the same row; Focus mode is an orange button at the top right and the first thing the eye lands on. Phone: stacked and centred, Focus button on the same row as "All tools".
 - [ ] Collapse all / Expand all sits at the top right of the list heading and works; label follows manual changes. A tool with only an article shows it above the article.
 - [ ] Focus mode still works (Esc exits).
+
+### Header alignment
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Desktop: the title, description, tool card and guide all start at the same left edge and end at the same right edge; the Focus button ends flush with the tool card on the right. No text floats at the far page edges.
+- [ ] Wide tools (for example the Sudoku or image tools) use the wider column for the header too.
+- [ ] Phone: left-aligned, title wraps beside the Focus button without overlap.
