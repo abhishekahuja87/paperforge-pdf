@@ -415,15 +415,13 @@ Check after deploy:
 - [ ] Ways to pay less interest appears below the tables: the suggested shorter loan card (EMI no more than 20% higher), four tables, and the caution note. Numbers look sensible (a shorter tenure has a higher EMI and less interest; a 1% lower rate saves more than 0.25%).
 - [ ] Layout at 360 px: tables scroll sideways inside their boxes, nothing makes the page itself scroll sideways.
 
-### EMI Calculator: longer loan, keep paying your current EMI
+### EMI Calculator: ways to pay less interest as big numbers
 
-Checked in the sandbox (logic and DOM, no Tailwind): for 25 lakh, 8.5%, 20 years, choosing 25 years gives a required EMI of 20,131 (1,565 less than 21,696); keeping the 21,696 payment ends the loan in 20 years with identical interest to the entered loan (the comparison table rows match for years 1 and 20 and the balance is 0 from year 20), while paying only the required EMI leaves ₹9.8 lakh at the end of year 20. At 9% on the longer loan it ends in 22 years 4 months with about 5.9 lakh more interest; at 12% the EMI is higher and a message replaces the comparison. A 29-year loan offers only +1 year and a 30-year loan hides the section. `tsc` was not run.
+The "longer loan, keep paying your current EMI" comparison was removed. "Ways to pay less interest" now shows each variation (shorter tenure, small extra payments, borrow less, lower rate) as a card with three big numbers: loan amount, total interest and years, plus the EMI and what you save. No tables there.
 
-Check after deploy:
-- [ ] /emi-calculator: under "Ways to pay less interest", item 1 explains the longer loan in plain words with your own numbers, and the three cards and the table agree with them.
-- [ ] The comparison table has the first two columns (as entered) equal to the next two (longer loan, your EMI) at the same rate, and the last column stays above zero for the extra years. Year-wise and Month-wise both work and scroll inside their box on a phone.
-- [ ] Change "Take the loan for" (+1, +2, +3, +5, +7, +10 years where allowed up to 30 years) and the rate on the longer loan: the sentence, cards and tables update; a high rate shows the "nothing to compare" message.
-- [ ] Hand check one number: required EMI for the longer term = standard EMI formula at that tenure; interest with your EMI = total paid minus the loan.
+- [ ] /emi-calculator: under "Ways to pay less interest" the first card is your loan as entered; the others show Loan amount, Interest and Years in large type. No longer-loan section remains.
+- [ ] Spot check: a shorter tenure has a higher EMI and less interest; "5% less" borrowed shows the smaller loan amount; 1% lower rate saves more than 0.25%.
+- [ ] At 360 px the cards stack and nothing scrolls sideways.
 
 ### Sports Court and Ground Size Guide (`/sports-court-size-guide`)
 
@@ -436,3 +434,5 @@ Check after deploy:
 - [ ] Fit my space: enter 20 x 10 m: badminton fits; enter 10 x 6 m: tennis does not and shows how short. Switch to feet and the result is the same space. Extra clear space of 1 m removes some courts.
 - [ ] Show this court jumps to the sizes tab for that court.
 - [ ] Notes and risks, how to play, sources (links open) and the checked date appear for every sport. At 360 px nothing makes the page scroll sideways.
+- [ ] The drawing itself shows the length and width (metres with feet and inches) along the top and right, numbered points under or beside the court that match the numbered marking plan, and the dotted clear-space box with its caption.
+- [ ] Save as image (PNG) and Save as PDF download one A4 page for the chosen sport and version: drawing with all measurements, marking plan, notes, sources and the checked date. Open the PDF on the phone; nothing is cut off. Try a small court (table tennis), a long one (football) and a ground (cricket).

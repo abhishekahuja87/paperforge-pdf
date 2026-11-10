@@ -547,7 +547,7 @@
           "paragraphs": [
             "The month-wise table shows what each EMI does: how much goes to interest, how much reduces the loan and the balance that remains. Switching between it and the year-wise table lets you check a single month or see the whole picture. If you enter the month of your first EMI, the rows are labelled with real months.",
             "You can also enter extra payments: one that repeats, such as 5,000 every 6 months, and one-time payments in any month, such as a bonus. This calculator keeps your EMI the same and uses the extra money to shorten the loan, because that usually saves the most interest. It then shows when the loan ends and how much interest you save compared with paying only the EMI.",
-            "Below the result, the page compares a shorter tenure, small extra payments, a smaller loan and a lower interest rate, each changing one thing from your loan. Use them to see what a change is worth, then check what your lender allows, including any prepayment fee, before acting. The first option shows a longer loan where you keep paying the EMI of the shorter one, so you can compare the loan as entered with the longer loan year by year or month by month."
+            "Below the result, the page shows a few variations as big numbers (loan amount, interest and years): a shorter tenure, small extra payments, a smaller loan and a lower interest rate, each changing one thing from your loan. Use them to see what a change is worth, then check what your lender allows, including any prepayment fee, before acting."
           ]
         }
       ]
@@ -1497,10 +1497,6 @@
         [
           "Can I add extra payments to see how much interest I save?",
           "Yes. Add a repeating extra payment, such as an amount every few months, and any one-time payments. The calculator keeps the EMI the same, shows when the loan would end and how much interest you save compared with paying only the EMI."
-        ],
-        [
-          "If I take a longer loan but keep paying my current EMI, do I save anything?",
-          "At the same interest rate the loan ends exactly when the shorter loan would, with the same interest, so you do not pay more. What you gain is a lower required EMI to fall back on in a month when money is tight, and a lower EMI can also help you qualify for the loan. Lenders sometimes charge a higher rate or a fee for a longer term, and paying only the lower EMI every month costs more interest, so the page shows both."
         ],
         [
           "Can I see the schedule month by month?",
