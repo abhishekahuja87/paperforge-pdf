@@ -10,6 +10,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import { mergePdfFiles } from '../../lib/pdf/merge';
+import { getPdfPageCount, parsePageRanges } from '../../lib/pdf/split';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { FileDropZone } from '../common/FileDropZone';
 import { useTranslation } from 'react-i18next';
@@ -19,6 +20,9 @@ export const MergePdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const { t } = useTranslation('merge');
   const [files, setFiles] = useState<File[]>([]);
+  // Page count and optional page selection for each file, keyed by the File object.
+  const [pageCounts, setPageCounts] = useState<Map<File, number>>(new Map());
+  const [ranges, setRanges] = useState<Map<File, string>>(new Map());
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [downloadName, setDownloadName] = useState('');
@@ -39,6 +43,12 @@ export const MergePdf: React.FC = () => {
       setFiles((currentFiles) => [...currentFiles, ...pdfFiles]);
       setDownloadUrl(null);
       setDownloadName('');
+      for (const file of pdfFiles) {
+        void file.arrayBuffer()
+          .then((buffer) => getPdfPageCount(buffer))
+          .then((count) => setPageCounts((current) => new Map(current).set(file, count)))
+          .catch(() => undefined);
+      }
     }
 
     setError(rejectedCount > 0 ? { key: 'invalid' } : null);
@@ -63,6 +73,28 @@ export const MergePdf: React.FC = () => {
     setDownloadName('');
   };
 
+  const sortByName = () => {
+    setFiles((current) => [...current].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' })));
+    setDownloadUrl(null);
+    setDownloadName('');
+  };
+
+  const setRange = (file: File, value: string) => {
+    setRanges((current) => new Map(current).set(file, value));
+    setDownloadUrl(null);
+    setDownloadName('');
+  };
+
+  /** Pages a file will contribute: all of them, or the ones named in its range box. */
+  const pagesFrom = (file: File): number | null => {
+    const total = pageCounts.get(file);
+    if (total === undefined) return null;
+    const range = (ranges.get(file) ?? '').trim();
+    return range ? parsePageRanges(range, total).length : total;
+  };
+  const totalPages = files.reduce((sum, file) => sum + (pagesFrom(file) ?? 0), 0);
+  const allCounted = files.every((file) => pageCounts.has(file));
+
   const handleMerge = async () => {
     if (files.length < 2) return;
 
@@ -70,7 +102,7 @@ export const MergePdf: React.FC = () => {
       setIsProcessing(true);
       setError(null);
 
-      const mergedBlob = await mergePdfFiles(files);
+      const mergedBlob = await mergePdfFiles(files, files.map((file) => ranges.get(file) ?? ''));
       setDownloadUrl(URL.createObjectURL(mergedBlob));
       setDownloadName(generatePdfFilename('documents', 'merged', `${files.length}files`));
     } catch (mergeError) {
@@ -109,6 +141,12 @@ export const MergePdf: React.FC = () => {
                 </h3>
                 <span className="text-[10px] text-stone-400">{t('firstPage')}</span>
               </div>
+              <div className="flex flex-wrap items-center justify-between gap-2 px-1 text-[11px] text-stone-600">
+                <span aria-live="polite">{allCounted ? t('totalPages', { count: totalPages, defaultValue: '{{count}} pages in the merged file' }) : ''}</span>
+                {files.length > 1 && (
+                  <button type="button" onClick={sortByName} className="rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 font-semibold text-stone-700 hover:bg-orange-50">{t('sortByName', { defaultValue: 'Sort A to Z' })}</button>
+                )}
+              </div>
               <ol className="space-y-2">
                 {files.map((file, index) => (
                   <li
@@ -122,7 +160,24 @@ export const MergePdf: React.FC = () => {
                       <FileText className="h-4 w-4 shrink-0 text-orange-700" aria-hidden="true" />
                       <span className="min-w-0">
                         <span className="block truncate text-xs font-semibold text-stone-800" title={file.name}>{file.name}</span>
-                        <span className="mt-0.5 block text-[10px] text-stone-400">{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
+                        <span className="mt-0.5 block text-[10px] text-stone-400">
+                          {(file.size / (1024 * 1024)).toFixed(2)} MB
+                          {pageCounts.has(file) ? ` · ${pageCounts.get(file)} ${pageCounts.get(file) === 1 ? 'page' : 'pages'}` : ''}
+                        </span>
+                        <label className="mt-1 flex items-center gap-1.5 text-[10px] text-stone-500">
+                          {t('pagesToUse', { defaultValue: 'Pages to use' })}
+                          <input
+                            type="text"
+                            inputMode="numeric"
+                            value={ranges.get(file) ?? ''}
+                            onChange={(event) => setRange(file, event.target.value)}
+                            placeholder={t('allPages', { defaultValue: 'all, or e.g. 1-3, 5' })}
+                            className="w-32 rounded-md border border-stone-200 px-2 py-1 text-[11px] text-stone-800"
+                          />
+                          {(ranges.get(file) ?? '').trim() && pagesFrom(file) !== null && (
+                            <span className={pagesFrom(file) === 0 ? 'font-semibold text-rose-700' : ''}>{pagesFrom(file) === 0 ? 'no pages match' : `${pagesFrom(file)} selected`}</span>
+                          )}
+                        </label>
                       </span>
                     </span>
                     <span className="flex items-center gap-0.5">

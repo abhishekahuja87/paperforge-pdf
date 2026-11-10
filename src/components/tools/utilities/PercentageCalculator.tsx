@@ -6,11 +6,12 @@ import { acceptNumber, useShared } from '../../../lib/shareState';
 const fmt = (value: number) => (Number.isFinite(value) ? Number(value.toFixed(4)).toLocaleString('en-IN', { maximumFractionDigits: 4 }) : '—');
 const num = (text: string) => (text.trim() === '' ? NaN : Number(text));
 
-const Row: React.FC<{ title: string; children: React.ReactNode; result: string }> = ({ title, children, result }) => (
+const Row: React.FC<{ title: string; children: React.ReactNode; result: string; working?: string }> = ({ title, children, result, working }) => (
   <div className="rounded-xl border border-slate-200 bg-white p-4">
     <h2 className="text-sm font-bold text-slate-900">{title}</h2>
     <div className="mt-2 grid grid-cols-2 gap-3">{children}</div>
     <p className="mt-3 text-lg font-black text-orange-800" aria-live="polite">{result}</p>
+    {working && result !== '—' && <p className="mt-1 text-[11px] text-slate-500">Working: {working}</p>}
   </div>
 );
 
@@ -46,23 +47,23 @@ export const PercentageCalculator: React.FC = () => {
 
   return (
     <section className={`${calcCard} space-y-4`}>
-      <Row title="What is X% of Y?" result={Number.isFinite(r1) ? `${fmt(num(a1))}% of ${fmt(num(b1))} = ${fmt(r1)}` : '—'}>
+      <Row title="What is X% of Y?" result={Number.isFinite(r1) ? `${fmt(num(a1))}% of ${fmt(num(b1))} = ${fmt(r1)}` : '—'} working={`${fmt(num(a1))} ÷ 100 × ${fmt(num(b1))}`}>
         <Field label="Percentage (X)" value={a1} onChange={setA1} share="a1" />
         <Field label="Of the number (Y)" value={b1} onChange={setB1} share="b1" />
       </Row>
-      <Row title="X is what percent of Y?" result={Number.isFinite(r2) ? `${fmt(num(a2))} is ${fmt(r2)}% of ${fmt(num(b2))}` : '—'}>
+      <Row title="X is what percent of Y?" result={Number.isFinite(r2) ? `${fmt(num(a2))} is ${fmt(r2)}% of ${fmt(num(b2))}` : '—'} working={`${fmt(num(a2))} ÷ ${fmt(num(b2))} × 100`}>
         <Field label="Number (X)" value={a2} onChange={setA2} share="a2" />
         <Field label="Out of (Y)" value={b2} onChange={setB2} share="b2" />
       </Row>
-      <Row title="Percentage change from X to Y" result={r3}>
+      <Row title="Percentage change from X to Y" result={r3} working={`(${fmt(num(b3))} − ${fmt(num(a3))}) ÷ ${fmt(Math.abs(num(a3)))} × 100`}>
         <Field label="From (X)" value={a3} onChange={setA3} share="a3" />
         <Field label="To (Y)" value={b3} onChange={setB3} share="b3" />
       </Row>
-      <Row title="Increase or decrease Y by X%" result={Number.isFinite(up) ? `Increased: ${fmt(up)} · Decreased: ${fmt(down)}` : '—'}>
+      <Row title="Increase or decrease Y by X%" result={Number.isFinite(up) ? `Increased: ${fmt(up)} · Decreased: ${fmt(down)}` : '—'} working={`${fmt(num(b4))} × (1 ± ${fmt(num(a4))} ÷ 100)`}>
         <Field label="Percentage (X)" value={a4} onChange={setA4} share="a4" />
         <Field label="Number (Y)" value={b4} onChange={setB4} share="b4" />
       </Row>
-      <Row title="Reverse: Y is X% of what number?" result={Number.isFinite(whole) ? `${fmt(num(b5))} is ${fmt(num(a5))}% of ${fmt(whole)}` : '—'}>
+      <Row title="Reverse: Y is X% of what number?" result={Number.isFinite(whole) ? `${fmt(num(b5))} is ${fmt(num(a5))}% of ${fmt(whole)}` : '—'} working={`${fmt(num(b5))} ÷ ${fmt(num(a5))} × 100`}>
         <Field label="Percentage (X)" value={a5} onChange={setA5} share="a5" />
         <Field label="Known part (Y)" value={b5} onChange={setB5} share="b5" />
       </Row>

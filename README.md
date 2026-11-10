@@ -115,3 +115,8 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 - Age calculator: eligibility check (`lib/utilities/ageEligibility.ts`): minimum and maximum age, relaxation years and two wordings of the upper limit ("up to 30" means until the day before turning 31; "below 30" means not yet turned 30). Shows first and last eligible dates; 29 February birthdays complete a year on 1 March.
 - GST calculator: Find the GST rate from two prices (`impliedGstRate`), nearest standard slab from the quick-rate list, and CGST+SGST or IGST by supply type.
 
+
+### Tool extras, batch 3 (Nov 2026)
+
+- Merge PDF: page count per file and total, optional page selection per file (`mergePdfFiles(files, ranges)` using `parsePageRanges`), Sort A to Z (natural number order). New strings use `t(key, { defaultValue })` and fall back to English in other languages.
+- Percentage calculator: the working is shown under each answer.
