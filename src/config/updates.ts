@@ -213,6 +213,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Smaller, tighter home top',
     summary: 'The home page heading is smaller and the description is now one short line, since the badges underneath already say the tools are free and private.',
   },
+  {
+    date: '2026-11-11',
+    path: '/',
+    tool: 'Home page',
+    title: 'Centred home top again',
+    summary: 'The home page top is back to the centred layout on every screen size, keeping the smaller heading, the one-line description and the three badges.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

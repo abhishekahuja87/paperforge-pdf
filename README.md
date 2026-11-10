@@ -189,3 +189,5 @@ Home top: the two-column layout and topic panel now start at `md` (768px) instea
 Home top, second trial: the topic panel was dropped. From `md` the heading and description sit left and the search plus request link right; under both a row of three pills (`homeHero.*`: private, free, tool count rounded down to ten). Below `md` everything stacks centred.
 
 Home top is smaller: heading `text-2xl sm:text-3xl lg:text-4xl`, `homeDescription` (English) cut to "Calculators, converters, and text, image and PDF tools." because the pills already say free and private. It is also the home subtitle in `shellData.ts`, so the pre-rendered home page uses the same line. Other languages still use their longer translations.
+
+Home top is centred again at every width (`max-w-3xl`): heading, one-line description, search, request link, then the three pills. The side-by-side layout was dropped after review.
