@@ -672,3 +672,11 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Phone in desktop-site mode (about 980px): search on the left, topic panel on the right.
 - [ ] Normal phone: centred top as before plus one line "Files stay in your browser · Free, no sign-up · N+ tools" under the request link.
 - [ ] Topic chips are not cut off at 768px (names truncate with an ellipsis).
+
+### Home top v2
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Desktop mode and tablet: heading left, large search right, three pills underneath; the band is short and tools start sooner.
+- [ ] Normal phone: centred heading, description, search, request link, then the pills.
+- [ ] Search still switches to results.

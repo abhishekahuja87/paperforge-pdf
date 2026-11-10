@@ -199,6 +199,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Home top works on tablets and phones too',
     summary: 'The topic panel now appears from tablet width, including a phone in desktop mode, and phones get a one-line note: files stay in your browser, free, no sign-up.',
   },
+  {
+    date: '2026-11-10',
+    path: '/',
+    tool: 'Home page',
+    title: 'Simpler home top',
+    summary: 'The heading and the search now sit side by side on wide screens, with three short reassurances underneath: files stay in your browser, free with no sign-up, and the number of tools.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
