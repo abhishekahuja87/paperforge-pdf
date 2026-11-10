@@ -37,10 +37,11 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
   const [fit, setFit] = useState<ResizeFit>('crop');
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState('');
+  const [enlarged, setEnlarged] = useState<number | null>(null);
 
   useEffect(() => () => results.forEach((result) => URL.revokeObjectURL(result.previewUrl)), [results]);
 
-  const clearResults = () => setResults([]);
+  const clearResults = () => { setResults([]); setEnlarged(null); };
 
   const addFiles = (selected: FileList | File[]) => {
     const added = Array.from(selected);
@@ -219,22 +220,40 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
 
             {results.length > 0 && (
               <div className="space-y-2">
-                <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Results</h3>
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Results</h3>
+                  {results.length > 1 && (
+                    <button type="button" onClick={() => results.forEach((item) => downloadBlob(item.blob, `${safeFileBaseName(item.file.name)}-resized.jpg`))} className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"><Download className="h-3.5 w-3.5" />Download all</button>
+                  )}
+                </div>
                 {results.map((result, index) => {
                   const outputName = `${safeFileBaseName(result.file.name)}-resized.jpg`;
                   return (
                     <div key={`${result.file.name}-${index}`} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 p-3">
                       <div className="flex min-w-0 items-center gap-3">
-                        <img src={result.previewUrl} alt="" className="h-14 w-14 shrink-0 rounded-lg border border-slate-200 bg-white object-contain" />
+                        <button type="button" onClick={() => setEnlarged(enlarged === index ? null : index)} aria-expanded={enlarged === index} aria-label={`${enlarged === index ? 'Hide' : 'Show'} full-size preview of ${outputName}`} className="shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200">
+                          <img src={result.previewUrl} alt="" className="h-14 w-14 rounded-lg border border-slate-200 bg-white object-contain" />
+                        </button>
                         <div className="min-w-0">
                           <p className="truncate text-xs font-semibold text-slate-800">{outputName}</p>
                           <p className="mt-1 text-[10px] text-slate-500">{result.width} × {result.height} px · {formatBytes(result.file.size)} → {formatBytes(result.blob.size)} · quality {Math.round(result.quality * 100)}%</p>
                           <p className={`mt-1 text-[10px] font-semibold ${result.reachedTarget ? 'text-emerald-700' : 'text-amber-700'}`}>
                             {result.reachedTarget ? `Under ${maxKb} KB` : `Could not reach ${maxKb} KB. Raise the limit${useExact ? ' or use a smaller width and height' : ''}.`}
                           </p>
+                          <ul className="mt-1 flex flex-wrap gap-x-3 text-[10px] text-slate-600" aria-label="Checks against your settings">
+                            <li>{result.reachedTarget ? '✓' : '✗'} Size {formatBytes(result.blob.size)} of {maxKb} KB</li>
+                            {useExact && <li>{result.width === pixelsW && result.height === pixelsH ? '✓' : '✗'} Exactly {pixelsW} × {pixelsH} px</li>}
+                            <li>✓ JPG</li>
+                          </ul>
                         </div>
                       </div>
                       <button type="button" onClick={() => downloadBlob(result.blob, outputName)} className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"><Download className="h-3.5 w-3.5" />Download</button>
+                      {enlarged === index && (
+                        <div className="w-full rounded-lg border border-slate-200 bg-slate-50 p-2">
+                          <img src={result.previewUrl} alt={`Full-size preview of ${outputName}`} className="mx-auto max-h-96 max-w-full object-contain" />
+                          <p className="mt-1 text-center text-[10px] text-slate-500">Shown at {result.width} × {result.height} px. Check that the face or signature is clear before you upload.</p>
+                        </div>
+                      )}
                     </div>
                   );
                 })}

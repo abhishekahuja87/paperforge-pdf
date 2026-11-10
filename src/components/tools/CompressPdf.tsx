@@ -13,6 +13,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { compressPdf, type CompressionLevel, type CompressPdfResult } from '../../lib/pdf/compress';
+import { compressToTarget, type TargetCompressResult } from '../../lib/pdf/compressToTarget';
 import { getPdfPageCount } from '../../lib/pdf/split';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
@@ -22,6 +23,12 @@ export const CompressPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [level, setLevel] = useState<CompressionLevel>('basic');
+  // "clean" keeps text and only tidies the file; "target" shrinks the pages to fit a size you give.
+  const [mode, setMode] = useState<'clean' | 'target'>('clean');
+  const [targetValue, setTargetValue] = useState('200');
+  const [targetUnit, setTargetUnit] = useState<'KB' | 'MB'>('KB');
+  const [progress, setProgress] = useState('');
+  const [targetResult, setTargetResult] = useState<TargetCompressResult | null>(null);
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -37,6 +44,9 @@ export const CompressPdf: React.FC = () => {
     fileName: file?.name,
     fileSize: file?.size,
     level,
+    mode,
+    targetValue,
+    targetUnit,
   });
 
   const isOutOfSync = downloadUrl !== null && currentSettingsKey !== lastGeneratedKey;
@@ -74,6 +84,30 @@ export const CompressPdf: React.FC = () => {
       setErrorMessage('');
 
       const buffer = await file.arrayBuffer();
+      setTargetResult(null);
+      if (mode === 'target') {
+        const amount = Number(targetValue);
+        if (!(amount > 0)) throw new Error('Enter the size you need, for example 200 KB.');
+        const targetBytes = Math.floor(amount * (targetUnit === 'MB' ? 1024 * 1024 : 1024));
+        const reached = await compressToTarget({ fileBuffer: buffer, targetBytes, onProgress: setProgress });
+        const blob = new Blob([reached.pdfBytes.slice().buffer as ArrayBuffer], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const saved = Math.max(0, reached.originalSize - reached.compressedSize);
+        setDownloadUrl(url);
+        setDownloadName(generatePdfFilename(file.name, 'compressed', `${targetValue}${targetUnit.toLowerCase()}`));
+        setTargetResult(reached);
+        setResult({
+          pdfBytes: reached.pdfBytes,
+          originalSize: reached.originalSize,
+          compressedSize: reached.compressedSize,
+          savedBytes: saved,
+          reductionPercentage: reached.originalSize > 0 ? Math.round((saved / reached.originalSize) * 100) : 0,
+        });
+        setLastGeneratedKey(currentSettingsKey);
+        setProgress('');
+        setStatus('done');
+        return;
+      }
       const compressResult = await compressPdf({
         fileBuffer: buffer,
         level,
@@ -91,6 +125,7 @@ export const CompressPdf: React.FC = () => {
       setStatus('done');
     } catch (err: any) {
       setErrorMessage(err.message || 'An error occurred during compression.');
+      setProgress('');
       setStatus('error');
     }
   };
@@ -100,6 +135,7 @@ export const CompressPdf: React.FC = () => {
     setFile(null);
     setPageCount(0);
     setResult(null);
+    setTargetResult(null);
     setDownloadUrl(null);
     setDownloadName('');
     setStatus('idle');
@@ -128,7 +164,7 @@ export const CompressPdf: React.FC = () => {
       )}
       {!file && (
         <p className="rounded-xl bg-amber-50 px-3 py-2.5 text-xs leading-relaxed text-amber-900">
-          Typical limits, for orientation only: email attachments are often capped at about 20–25 MB in total, and many government and job portals ask for roughly 100 KB to 2 MB per file. Always follow the limit given by whoever you are sending to. This tool rewrites the PDF but does not shrink images, so a scan may not get as small as a strict limit needs.
+          Typical limits, for orientation only: email attachments are often capped at about 20–25 MB in total, and many government and job portals ask for roughly 100 KB to 2 MB per file. Always follow the limit given by whoever you are sending to. Clean up only rewrites the PDF without touching images; choose Reduce to a size when a scan must fit a strict limit.
         </p>
       )}
       {!file && errorMessage && (
@@ -159,7 +195,65 @@ export const CompressPdf: React.FC = () => {
             </button>
           </div>
 
+          <div role="group" aria-label="Compression goal" className="grid grid-cols-2 gap-2">
+            {([['clean', 'Clean up only', 'Keeps text selectable'], ['target', 'Reduce to a size', 'Fit a limit like 200 KB']] as const).map(([value, title, hint]) => (
+              <button
+                key={value}
+                type="button"
+                aria-pressed={mode === value}
+                onClick={() => setMode(value)}
+                className={`rounded-xl border p-3 text-left text-xs transition ${mode === value ? 'border-indigo-600 bg-indigo-50/60 ring-1 ring-indigo-600' : 'border-slate-200 bg-white hover:border-slate-300'}`}
+              >
+                <span className="block font-semibold text-slate-800">{title}</span>
+                <span className="block text-[11px] text-slate-500">{hint}</span>
+              </button>
+            ))}
+          </div>
+
+          {mode === 'target' && (
+            <div className="space-y-3 rounded-xl border border-slate-200 bg-white p-3">
+              <div className="flex flex-wrap items-end gap-2">
+                <label className="block text-xs font-semibold text-slate-700">
+                  Largest size allowed
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    min="1"
+                    value={targetValue}
+                    onChange={(event) => setTargetValue(event.target.value)}
+                    className="mt-1 block w-28 rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  />
+                </label>
+                <select
+                  aria-label="Unit"
+                  value={targetUnit}
+                  onChange={(event) => setTargetUnit(event.target.value as 'KB' | 'MB')}
+                  className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                >
+                  <option value="KB">KB</option>
+                  <option value="MB">MB</option>
+                </select>
+              </div>
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Common size limits">
+                {([['100', 'KB'], ['200', 'KB'], ['500', 'KB'], ['1', 'MB'], ['2', 'MB']] as const).map(([value, unit]) => (
+                  <button
+                    key={`${value}${unit}`}
+                    type="button"
+                    onClick={() => { setTargetValue(value); setTargetUnit(unit); }}
+                    className={`min-h-9 rounded-lg border px-3 text-xs font-semibold ${targetValue === value && targetUnit === unit ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}
+                  >
+                    {value} {unit}
+                  </button>
+                ))}
+              </div>
+              <p className="text-[11px] leading-relaxed text-slate-500">
+                The tool first tries a lossless clean-up. If the file is still too big, it turns each page into a picture and picks the sharpest quality that fits. Pictures cannot be selected or searched as text, so keep the original if you need the text. Everything stays in your browser.
+              </p>
+            </div>
+          )}
+
           {/* Compression Level Selector */}
+          {mode === 'clean' && (
           <div className="space-y-1.5">
             <label className="block text-xs font-semibold text-slate-700">Select Optimization Level</label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -200,6 +294,18 @@ export const CompressPdf: React.FC = () => {
               </button>
             </div>
           </div>
+          )}
+
+          {targetResult && (
+            <p role="status" className={`rounded-xl border px-3 py-2.5 text-xs leading-relaxed ${targetResult.met ? 'border-emerald-200 bg-emerald-50 text-emerald-900' : 'border-amber-200 bg-amber-50 text-amber-900'}`}>
+              {targetResult.met
+                ? `Under your limit: ${formatBytes(targetResult.compressedSize)} (limit ${formatBytes(targetResult.targetSize)}). `
+                : `Could not reach ${formatBytes(targetResult.targetSize)}. This is the smallest result: ${formatBytes(targetResult.compressedSize)}. Try a larger limit, or split the PDF into parts. `}
+              {targetResult.method === 'text'
+                ? 'Text is still selectable.'
+                : `Pages were turned into pictures at about ${targetResult.dpi} dpi and quality ${targetResult.quality}; text is no longer selectable. Check that small print is still readable.`}
+            </p>
+          )}
 
           {/* Results Summary Metrics */}
           {result && (
@@ -264,10 +370,10 @@ export const CompressPdf: React.FC = () => {
               )}
               <span>
                 {status === 'processing'
-                  ? 'Optimizing PDF...'
+                  ? (progress || 'Optimizing PDF...')
                   : isOutOfSync
                   ? 'Re-Compress with New Settings'
-                  : 'Compress & Optimize PDF'}
+                  : mode === 'target' ? 'Reduce to this size' : 'Compress & Optimize PDF'}
               </span>
             </button>
 

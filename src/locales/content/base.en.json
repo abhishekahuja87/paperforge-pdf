@@ -3999,6 +3999,13 @@
           ]
         },
         {
+          "heading": "The break-even point between the regimes",
+          "paragraphs": [
+            "The comparison also shows how much in deductions and exemptions the old regime needs before it costs less than the new regime. That covers 80C, 80D, HRA, home loan interest and similar items. The standard deduction and employer NPS are already counted in both regimes, so they are not part of the figure.",
+            "Compare the break-even amount with what you can really claim. If you are above it, the old regime wins; if you are below it, the new regime does, and adding a small deduction rarely changes that. At some incomes the new regime wins at any level of deductions, and the calculator says so."
+          ]
+        },
+        {
           "heading": "Limits of this estimate",
           "paragraphs": [
             "Rules change every Budget, and this tool is a planning aid, not tax advice. It covers a resident individual with salary and slab-rate income only. Capital gains, business income, TDS already deducted, advance tax and special cases are not included. Check incometax.gov.in or consult a tax professional before you file."
@@ -4108,6 +4115,13 @@
           "heading": "Using the result sensibly",
           "paragraphs": [
             "Real returns fluctuate, so try several rates rather than relying on one. Compare the gain with the amount invested and see how much a modest step-up or a few extra years changes the outcome. Tax on gains and fund costs are not included."
+          ]
+        },
+        {
+          "heading": "Value in today's money and goal mode",
+          "paragraphs": [
+            "A big future number can mislead, because prices rise every year. Enter an expected yearly inflation rate and the calculator also shows what the final value is worth in today's money. The inflation figure is your own assumption, not a forecast, so try a few values.",
+            "If you already have a target, type it in the goal field. The calculator works backwards and shows the monthly SIP needed to reach it with the same return, years and yearly step-up. A step-up lowers the starting instalment you need, which is why it is worth trying."
           ]
         },
         {
@@ -4221,6 +4235,13 @@
           "paragraphs": [
             "Very small limits on large or detailed pictures may be impossible to reach at that size. Without an exact size the tool scales the picture down in steps; with an exact size, try a larger limit or smaller pixel dimensions.",
             "Every result shows its pixel size, its final file size and the quality used, so you can see what happened before you download."
+          ]
+        },
+        {
+          "heading": "Checking the result before you upload",
+          "paragraphs": [
+            "Each result lists what it was checked against: the size against your limit, the exact width and height if you set them, and the JPG format. Tap the small picture to see it larger and check that the face or signature is clear. When you resize several images, Download all saves them one after another.",
+            "Portals often reject a photo for being too soft or cropped badly, even when the size is right, so the preview is worth a look."
           ]
         },
         {
@@ -4368,7 +4389,14 @@
         {
           "heading": "If the file is still too large",
           "paragraphs": [
-            "After compressing, the tool shows the original size, the new size and how much was saved. If the saving is small, the file size is probably dominated by images. In that case reduce the images before you build the PDF: shrink them with Image Compressor and combine them with Image to PDF, or scan at a lower resolution. If a form or portal asks for a file under a specific size, check the result before you upload it, because this tool cannot target an exact size."
+            "After compressing, the tool shows the original size, the new size and how much was saved. If the saving is small, the file size is probably dominated by images. In that case reduce the images before you build the PDF: shrink them with Image Compressor and combine them with Image to PDF, or scan at a lower resolution. If a form or portal asks for a file under a specific size, check the result before you upload it, or use Reduce to a size to fit a limit such as 200 KB."
+          ]
+        },
+        {
+          "heading": "Reduce to a size",
+          "paragraphs": [
+            "Choose Reduce to a size when a portal or email limit gives a number, such as 100 KB, 200 KB or 1 MB. Type the size or tap a common limit. The tool first tries the lossless clean-up, which keeps text selectable. If the file is still too big, it turns each page into a picture and picks the sharpest combination of resolution and JPEG quality that fits.",
+            "The result says which method was used. When pages become pictures, text can no longer be selected, searched or copied, so keep the original for that. If even the smallest picture version is over your limit, the tool tells you how close it got and keeps the smallest result. A larger limit, or splitting the PDF into parts, is then the way forward."
           ]
         },
         {

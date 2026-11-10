@@ -44,6 +44,20 @@ export function computeSip(monthly: number, annualRate: number, years: number, s
   return { invested, value, gains: value - invested, years: rows };
 }
 
+/** Today's-money value of an amount received after some years of yearly inflation. */
+export function inflationAdjusted(amount: number, inflationPercent: number, years: number): number {
+  return amount / (1 + inflationPercent / 100) ** years;
+}
+
+/**
+ * Monthly SIP that reaches a target value. The final value grows in direct proportion to the first
+ * instalment, so one run with a Rs 1 instalment gives the answer without searching.
+ */
+export function sipForTarget(target: number, annualRate: number, years: number, stepUpPercent: number): number {
+  const perRupee = computeSip(1, annualRate, years, stepUpPercent).value;
+  return perRupee > 0 ? target / perRupee : 0;
+}
+
 export type Compounding = 'monthly' | 'quarterly' | 'halfYearly' | 'yearly';
 const PERIODS_PER_YEAR: Record<Compounding, number> = { monthly: 12, quarterly: 4, halfYearly: 2, yearly: 1 };
 

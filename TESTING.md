@@ -470,3 +470,14 @@ Not run: `tsc`, `vite build`, prerender, live site (sandbox cannot reach it).
 - [ ] View source on any page: `google-adsense-account` meta is present in the head.
 - [ ] /resize-image-to-20kb, 50kb, 100kb, 200kb each read differently, no leftover empty headings; the tool still works.
 - [ ] https://mydailyutils.in (no www) redirects to https://www.mydailyutils.in and https://www.mydailyutils.in/ads.txt opens.
+
+### Tool extras, batch 1
+
+Checked in the sandbox: `sipForTarget` reproduces the target exactly; `inflationAdjusted(1000, 6, 10)` = 558.39; tax break-even for 15 lakh salary is 544000 and old tax at that amount equals the new regime. `tsc`, `vite build` and a browser test of the PDF rendering were not run.
+
+- [ ] Compress PDF > Reduce to a size: a text PDF of a few pages at 1 MB stays selectable ("Text is still selectable"). A scanned PDF of 5 MB or more at 200 KB becomes pictures, shows dpi and quality, and is at or under 200 KB. An impossible limit (10 KB on a 20-page scan) shows "Could not reach" with the smallest size. Open the downloaded PDF on the phone: pages are in the right order and sizes.
+- [ ] Clean up only still works as before.
+- [ ] SIP: 10000 a month, 12 percent, 15 years, 6 percent inflation shows value in today's money. Goal 1 crore gives about 19,819 a month with no step-up (about 11,516 with 10 percent step-up).
+- [ ] Income tax: salary 15 lakh, 80C 1.5 lakh: the note says the old regime needs about 5.44 lakh in deductions. Salary 9 lakh shows 3.5 lakh. A very high income shows "new regime costs less at any level".
+- [ ] Image resizer: each result lists size, exact pixels and JPG ticks; tapping the small picture shows it larger; with two images "Download all" saves both (phones may ask to allow multiple downloads).
+- [ ] What is each tool still missing? Note it here.

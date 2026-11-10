@@ -152,3 +152,37 @@ export function computeTax(input: TaxInput): TaxResult {
     effectiveRate: grossIncome > 0 ? (totalTax / grossIncome) * 100 : 0,
   };
 }
+
+export interface BreakEven {
+  /** Deductions and exemptions (80C, 80D, HRA, home loan interest and so on) at which both regimes cost the same. */
+  amount: number;
+  /** What the person has entered, after each limit is applied. */
+  entered: number;
+}
+
+/**
+ * The old regime only wins when deductions and exemptions beyond the standard deduction and employer NPS
+ * are big enough. Finds that amount by bisection on a single "other deductions" figure, with every other
+ * old-regime deduction set to zero. Returns null when the old regime cannot catch up at any amount.
+ */
+export function breakEvenDeductions(input: TaxInput): BreakEven | null {
+  const newTax = computeTax({ ...input, regime: 'new' }).totalTax;
+  const flat: TaxInput = { ...input, regime: 'old', section80C: 0, nps80CCD1B: 0, section80D: 0, homeLoanInterest: 0, hraExemption: 0, otherDeductions: 0 };
+  const entered = Math.min(input.section80C, OLD_LIMITS.section80C)
+    + Math.min(input.nps80CCD1B, OLD_LIMITS.nps80CCD1B)
+    + Math.min(input.section80D, OLD_LIMITS.section80D)
+    + Math.min(input.homeLoanInterest, OLD_LIMITS.homeLoanInterest)
+    + input.hraExemption + input.otherDeductions;
+  const taxWith = (extra: number) => computeTax({ ...flat, otherDeductions: extra }).totalTax;
+  const top = input.salary + input.otherIncome;
+  if (top <= 0) return null;
+  if (taxWith(0) <= newTax) return { amount: 0, entered };
+  if (taxWith(top) > newTax) return null;
+  let low = 0;
+  let high = top;
+  for (let step = 0; step < 50; step += 1) {
+    const mid = (low + high) / 2;
+    if (taxWith(mid) <= newTax) high = mid; else low = mid;
+  }
+  return { amount: Math.ceil(high / 1000) * 1000, entered };
+}
