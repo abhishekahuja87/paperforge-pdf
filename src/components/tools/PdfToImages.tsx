@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
+import { generateFileName } from '../../lib/pdf/naming';
 import {
   FileText,
   Download,
@@ -132,7 +133,7 @@ export const PdfToImages: React.FC = () => {
                       <span className="font-medium text-slate-700">Page {p.pageNumber}</span>
                       <a
                         href={p.dataUrl}
-                        download={`${file.name.replace(/\.pdf$/i, '')}_page_${p.pageNumber}.png`}
+                        download={generateFileName('pdf-page', 'png', { base: file.name, details: `page-${p.pageNumber}` })}
                         className="text-indigo-600 hover:text-indigo-800 font-semibold inline-flex items-center space-x-1 cursor-pointer"
                       >
                         <Download className="w-3.5 h-3.5" />

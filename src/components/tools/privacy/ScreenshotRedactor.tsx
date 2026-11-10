@@ -4,7 +4,8 @@ import { FileDropZone } from '../../common/FileDropZone';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Toggle, card, heading } from '../paper/controls';
-import { MAX_PIXELS, exportSize, paintRegions, rectFromPoints, redactedName, type RedactStyle, type Region } from '../../../lib/privacy/redact';
+import { MAX_PIXELS, exportSize, paintRegions, rectFromPoints, type RedactStyle, type Region } from '../../../lib/privacy/redact';
+import { generateFileName } from '../../../lib/pdf/naming';
 
 type Source = { bitmap: ImageBitmap | HTMLImageElement; width: number; height: number; name: string };
 
@@ -156,7 +157,7 @@ export const ScreenshotRedactor: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = redactedName(source.name, format);
+    link.download = generateFileName('redacted', format, { base: source.name });
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 10000);
     setMessage('');

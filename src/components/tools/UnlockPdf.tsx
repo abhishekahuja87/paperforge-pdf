@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
+import { generatePdfFilename } from '../../lib/pdf/naming';
 import { FileText, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import { unlockPdf } from '../../lib/pdf/unlock';
 
@@ -54,7 +55,7 @@ export const UnlockPdf: React.FC = () => {
       const url = URL.createObjectURL(blob);
 
       setDownloadUrl(url);
-      setDownloadName(`unlocked_${file.name}`);
+      setDownloadName(generatePdfFilename(file.name, 'unlocked'));
       setIsUnlocked(true);
     } catch (err: any) {
       const msg = err?.message || String(err);
@@ -155,7 +156,7 @@ export const UnlockPdf: React.FC = () => {
           ) : (
             <a
               href={downloadUrl}
-              download={downloadName || `unlocked_${file.name}`}
+              download={downloadName || generatePdfFilename(file.name, 'unlocked')}
               className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
             >
               <Download className="w-5 h-5" />

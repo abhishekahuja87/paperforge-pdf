@@ -171,6 +171,20 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Workspace headers line up with their content',
     summary: 'The title and Focus button in the document and display studios now follow the width of the workspace instead of sitting at the page edges.',
   },
+  {
+    date: '2026-11-10',
+    path: '/merge-pdf',
+    tool: 'All tools',
+    title: 'Downloaded files are named by tool, date and time',
+    summary: 'Every file you download now starts with what made it and the date and time, for example merged_2026-11-10_22-56_documents_2files.pdf, so the newest one is easy to find.',
+  },
+  {
+    date: '2026-11-10',
+    path: '/',
+    tool: 'Home page',
+    title: 'Topic sections have a light coloured border',
+    summary: 'Each topic panel has a soft border in the same colour as its icons, so sections are easy to tell apart while scrolling.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

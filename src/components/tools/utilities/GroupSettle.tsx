@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { generateFileName } from '../../../lib/pdf/naming';
 import { Download, Plus, Trash2 } from 'lucide-react';
 import { CopyButton, fieldClass } from './common';
 import { Note } from '../../finance/ui';
@@ -71,7 +72,7 @@ export const GroupSettle: React.FC = () => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'settle-up.png';
+      link.download = generateFileName('settle-up', 'png');
       link.click();
       window.setTimeout(() => URL.revokeObjectURL(url), 10000);
       setCardMessage('');

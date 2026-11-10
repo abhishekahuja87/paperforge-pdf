@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { AlertCircle, Download, LoaderCircle, Maximize2, RotateCcw } from 'lucide-react';
 import { FileDropZone } from '../common/FileDropZone';
-import { downloadBlob, formatBytes, safeFileBaseName } from '../../lib/browserTools';
+import { downloadBlob, formatBytes } from '../../lib/browserTools';
+import { generateFileName } from '../../lib/pdf/naming';
 import { PHOTO_PRESETS, toPixels, type PhotoPreset, type SizeUnit } from '../../lib/media/photoPresets';
 import { resizeImageToTarget, type ResizeFit, type ResizeToTargetResult } from '../../lib/media/resizeToTarget';
 
@@ -218,11 +219,11 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Results</h3>
                   {results.length > 1 && (
-                    <button type="button" onClick={() => results.forEach((item) => downloadBlob(item.blob, `${safeFileBaseName(item.file.name)}-resized.jpg`))} className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"><Download className="h-3.5 w-3.5" />Download all</button>
+                    <button type="button" onClick={() => results.forEach((item) => downloadBlob(item.blob, generateFileName('resized', 'jpg', { base: item.file.name })))} className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"><Download className="h-3.5 w-3.5" />Download all</button>
                   )}
                 </div>
                 {results.map((result, index) => {
-                  const outputName = `${safeFileBaseName(result.file.name)}-resized.jpg`;
+                  const outputName = generateFileName('resized', 'jpg', { base: result.file.name });
                   return (
                     <div key={`${result.file.name}-${index}`} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 p-3">
                       <div className="flex min-w-0 items-center gap-3">

@@ -24,6 +24,20 @@ export const HOME_COLLECTION_STYLES: Record<string, string> = {
   other: 'bg-stone-100 text-stone-800',
 };
 
+/** Light border of each topic's panel, the same hue as its icon, so panels stay distinct while scrolling fast. */
+export const HOME_COLLECTION_BORDER: Record<string, string> = {
+  pdf: 'border-red-200',
+  images: 'border-cyan-200',
+  money: 'border-emerald-200',
+  everyday: 'border-blue-200',
+  printables: 'border-fuchsia-200',
+  work: 'border-amber-200',
+  study: 'border-lime-300',
+  sharing: 'border-violet-200',
+  dev: 'border-slate-300',
+  other: 'border-stone-200',
+};
+
 /** Hover colour of a tile's icon in each topic: a darker shade of the topic colour, with a white icon. */
 export const HOME_COLLECTION_HOVER: Record<string, string> = {
   pdf: 'group-hover:bg-red-700 group-hover:text-white',

@@ -13,7 +13,7 @@ import { loadPhoto, type LoadedImage } from '../../../lib/poster/images';
 import { PosterThumb } from './PosterThumb';
 import { loadPosterFonts } from '../../../lib/poster/fonts';
 import './posterFonts.css';
-import { slugify } from '../../../lib/utilities/text';
+import { generateFileName } from '../../../lib/pdf/naming';
 
 interface Row { id: number; name: string; original: string; price: string; image: LoadedImage | null; zoom: number; offsetX: number; offsetY: number; fit: 'cover' | 'contain'; badge: string; badgeEdited: boolean }
 
@@ -130,7 +130,7 @@ export const OfferPosterMaker: React.FC = () => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${slugify(shop.name) || 'offer'}-${theme.id}-${format}.png`;
+      link.download = generateFileName('offer-poster', 'png', { base: shop.name || 'offer', details: `${theme.id}-${format}` });
       link.click();
       window.setTimeout(() => URL.revokeObjectURL(url), 4000);
     }, 'image/png');

@@ -645,3 +645,12 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Choosing a file shows "Reading your file…" while it loads.
 - [ ] Master Document Studio, Digitize and Display Studio: before adding files the header lines up with the centred card; after adding files it lines up with the wide workspace. POS invoice stays wide.
 - [ ] Switch the site to Hindi or Spanish: the upload box text is translated.
+
+### Download names and topic borders
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Merge two PDFs and download: the name looks like `merged_2026-11-10_22-56_documents_2files.pdf` (your local time).
+- [ ] Spot-check Split, Compress, Rotate, Protect, Unlock, Organize, Flatten, Extract text (.txt), PDF to images (each page), Image resizer / compressor / converter, JSON formatter, QR code (PNG, SVG, ZIP), Settle up, Planner, Paper maker, Offer poster, Screenshot redactor, Flashcards, vCard converter, Resume data: each file name starts with the feature, then the date and time.
+- [ ] Downloading twice a minute apart gives two different names; the newest sorts last in the folder.
+- [ ] Home page: each topic panel has a light border in its own colour; it is subtle, not heavy, in light and dark themes.

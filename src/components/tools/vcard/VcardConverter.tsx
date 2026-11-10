@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
+import { generateFileName } from '../../../lib/pdf/naming';
 import { Download, Trash2 } from 'lucide-react';
 import { FileDropZone } from '../../common/FileDropZone';
 import { Note } from '../../finance/ui';
@@ -68,7 +69,7 @@ export const VcardConverter: React.FC = () => {
     try {
       await new Promise((resolve) => { window.setTimeout(resolve, 0); });
       const blob = kind === 'csv' ? toCsvBlob(table, options.protectPhones) : await toXlsxBlob(table);
-      save(blob, `contacts.${kind}`);
+      save(blob, generateFileName('contacts', kind));
     } catch {
       setMessage('Could not build the file. Try turning off some columns, or use CSV for very large lists.');
     } finally {

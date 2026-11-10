@@ -9,6 +9,7 @@ import { monthName } from '../../../lib/planner/dates';
 import { KINDS, LOCALES, MAX_COUNT, defaultPlanner, type PlannerKind, type PlannerSettings } from '../../../lib/planner/types';
 import { Slider, Toggle, card, heading } from '../paper/controls';
 import { SheetPreview } from '../paper/SheetPreview';
+import { generateFileName } from '../../../lib/pdf/naming';
 
 const clampInt = (value: number, min: number, max: number) => Math.min(max, Math.max(min, Math.round(Number.isFinite(value) ? value : min)));
 
@@ -33,7 +34,7 @@ export const PlannerMaker: React.FC<{ initialKind?: PlannerKind }> = ({ initialK
       const url = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/pdf' }));
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${settings.kind}-planner-${settings.kind === 'month' ? `${settings.year}-${String(settings.month).padStart(2, '0')}` : settings.kind === 'year' ? settings.year : settings.startDate}.pdf`;
+      link.download = generateFileName('planner', 'pdf', { details: `${settings.kind}-${settings.kind === 'month' ? `${settings.year}-${String(settings.month).padStart(2, '0')}` : settings.kind === 'year' ? settings.year : settings.startDate}` });
       link.click();
       window.setTimeout(() => URL.revokeObjectURL(url), 4000);
     } catch {

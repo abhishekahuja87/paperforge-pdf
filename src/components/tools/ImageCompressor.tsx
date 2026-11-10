@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import { AlertCircle, Check, Download, ImageDown, LoaderCircle, RotateCcw } from 'lucide-react';
-import { downloadBlob, formatBytes, safeFileBaseName } from '../../lib/browserTools';
+import { downloadBlob, formatBytes } from '../../lib/browserTools';
+import { generateFileName } from '../../lib/pdf/naming';
 import { processBrowserImage, type BrowserImageFormat } from '../../lib/media/imageProcessing';
 import { useTranslation } from 'react-i18next';
 
@@ -137,7 +138,7 @@ export const ImageCompressor: React.FC = () => {
             <div className="space-y-2">
               <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Compression results</h3>
               {results.map((result, index) => {
-                const outputName = `${safeFileBaseName(result.file.name)}.${extensionFor[result.format]}`;
+                const outputName = generateFileName('compressed', extensionFor[result.format], { base: result.file.name });
                 const saved = result.file.size - result.blob.size;
                 const percent = result.file.size ? (saved / result.file.size) * 100 : 0;
                 return (

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { AlertCircle, Check, Clipboard, Download, RotateCcw, Sparkles } from 'lucide-react';
 import { copyText, downloadBlob } from '../../lib/browserTools';
+import { generateFileName } from '../../lib/pdf/naming';
+import { generateFileName } from '../../lib/pdf/naming';
 import { FileDropZone } from '../common/FileDropZone';
 
 type JsonAction = 'format' | 'minify' | 'validate';
@@ -134,7 +136,7 @@ export const JsonFormatter: React.FC = () => {
           <pre className="mt-1.5 min-h-[452px] max-h-[560px] overflow-auto whitespace-pre-wrap break-words rounded-xl border border-slate-200 bg-slate-50 p-4 font-mono text-xs leading-relaxed text-slate-800">{output || <span className="font-sans text-slate-400">Formatted JSON will appear here.</span>}</pre>
           {output && <div className="mt-2 flex flex-wrap justify-end gap-2">
             <button type="button" onClick={() => void copyOutput()} className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">{isCopied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Clipboard className="h-3.5 w-3.5" />}{isCopied ? 'Copied' : 'Copy output'}</button>
-            <button type="button" onClick={() => downloadBlob(new Blob([output], { type: 'application/json;charset=utf-8' }), 'formatted.json')} className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-semibold text-white hover:bg-indigo-700"><Download className="h-3.5 w-3.5" />Download .json</button>
+            <button type="button" onClick={() => downloadBlob(new Blob([output], { type: 'application/json;charset=utf-8' }), generateFileName('formatted-json', 'json'))} className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-semibold text-white hover:bg-indigo-700"><Download className="h-3.5 w-3.5" />Download .json</button>
           </div>}
         </div>
       </div>
