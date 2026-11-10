@@ -2,11 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { siteConfig } from '../../config/site';
-import { TOOLS, CATEGORIES, type ToolCategory } from '../../config/tools';
-import { recordToolClick } from '../../lib/storage';
+import { HeaderToolsMenu } from './HeaderToolsMenu';
 import { useTranslation } from 'react-i18next';
 import { changeAppLanguage, languages } from '../../i18n';
-import { getToolCopy } from '../../lib/localizedTool';
 
 export const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -29,10 +27,6 @@ export const Header: React.FC = () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
-
-  // Footer-only (advanced) pages stay out of this menu so it remains short; the footer lists every tool.
-  const activeTools = TOOLS.filter((tool) => tool.isAvailable && tool.tier !== 'advanced');
-  const categoryKeys = Object.keys(CATEGORIES) as ToolCategory[];
 
   return (
     <header className="print:hidden sticky top-0 z-50 bg-[var(--theme-surface)]/95 backdrop-blur-md border-b border-stone-200">
@@ -59,42 +53,16 @@ export const Header: React.FC = () => {
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               aria-expanded={isDropdownOpen}
-              aria-controls={isDropdownOpen ? 'explore-tools-menu' : undefined}
+              aria-controls="explore-tools-menu"
               className="flex items-center space-x-1 hover:text-orange-700 transition py-1 text-xs font-semibold"
             >
               <span className="max-w-32 truncate sm:max-w-none">{t('exploreTools')}</span>
               <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
-            {isDropdownOpen && (
-              <div id="explore-tools-menu" className="absolute inset-x-4 top-full z-50 max-h-[60vh] overflow-y-auto overscroll-contain rounded-xl border border-stone-200 bg-[var(--theme-surface)] p-2 shadow-xl sm:inset-x-auto sm:right-0 sm:mt-2 sm:max-h-[calc(100vh-5rem)] sm:w-72">
-                {categoryKeys.map((catKey) => {
-                  const catTools = activeTools.filter((t) => t.category === catKey);
-                  if (catTools.length === 0) return null;
-
-                  return (
-                    <div key={catKey} className="mb-2 last:mb-0">
-                      <div className="bg-[var(--theme-surface)]/95 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-500 backdrop-blur sm:sticky sm:top-0 sm:z-10">
-                        {t(`${catKey}.name`, { ns: 'categories' })}
-                      </div>
-                      <div className="space-y-0.5">
-                        {catTools.map((tool) => (
-                          <Link
-                            key={tool.id}
-                            to={tool.path}
-                            onClick={() => {
-                              recordToolClick(tool.id);
-                              setIsDropdownOpen(false);
-                            }}
-                            className="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium text-stone-700 hover:bg-orange-50 hover:text-orange-700 transition"
-                          >
-                            <span lang={getToolCopy(tool, i18n.language).language}>{getToolCopy(tool, i18n.language).title}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
+            {(
+              <div id="explore-tools-menu" hidden={!isDropdownOpen} className="absolute inset-x-4 top-full z-50 max-h-[75vh] overflow-y-auto overscroll-contain rounded-xl border border-stone-200 bg-[var(--theme-surface)] p-2 shadow-xl sm:inset-x-auto sm:right-0 sm:mt-2 sm:max-h-[calc(100vh-5rem)] sm:w-72">
+                <HeaderToolsMenu onNavigate={() => setIsDropdownOpen(false)} />
               </div>
             )}
           </div>

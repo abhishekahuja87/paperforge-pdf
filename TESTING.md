@@ -540,3 +540,13 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Phone: footer is about three lines: links (two lines at most), a closed "All tools (N)" row, and a brand/copyright line. Tap All tools: category rows appear; open one and its tools list; all links work. Tap again to close.
 - [ ] Desktop: the same closed row; opening it shows seven open columns.
 - [ ] Privacy, Terms, Contact, About, Guides, What's new and the editorial policy links are visible without opening anything.
+
+### Header tools menu
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Phone: tap Explore tools: a search box and about 7 folded category rows (with counts) appear, no long scrolling. Tap a category: only its tools show; tapping another closes the first. Tapping a tool opens it and closes the menu.
+- [ ] Type "pdf", "emi" or "photo": a flat list of matching tools replaces the categories; a nonsense word shows "No tools match". Enter opens the first match.
+- [ ] Typing in the search box on iPhone does not zoom the page. Escape and tapping outside still close the menu.
+- [ ] Desktop: the panel is the same width and works the same way.
+- [ ] View-source/DOM check: the tool links exist in the page even when the menu is closed (inspect `#explore-tools-menu`).
