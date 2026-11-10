@@ -169,3 +169,5 @@ The written article sections and the questions now share one list and one look (
 The guide column is now a single stack (steps, then the one accordion, then the privacy note) at `max-w-3xl`; steps sit three across from `@xl`. The earlier side-by-side column was dropped because it wasted space.
 
 Tool pages no longer show the update note (`ToolUpdateNote` deleted). Every change is logged day by day in `config/updates.ts` and shown on `/whats-new`.
+
+Tool header is now compact: back link left and a filled Focus mode button right; on md+ the title sits left and the description plus "runs in your browser" right. "Collapse all / Expand all" is `FoldToggle`, rendered above the accordion (state shared via `GuideRegistryContext.folds`).

@@ -122,6 +122,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Focus mode',
     summary: 'Hide the header, footer and guide to work on just the tool. Press Escape to come back, and share the link with ?focus=1.',
   },
+  {
+    date: '2026-11-10',
+    path: '/merge-pdf',
+    tool: 'All tools',
+    title: 'Compact tool header and an easier Focus button',
+    summary: 'On wide screens the title and the description now sit side by side, and the Focus mode button is at the top right. Collapse all moved right above the list it controls.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

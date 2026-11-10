@@ -611,3 +611,11 @@ Not run: `tsc`, `vite build`, browser.
 Not run: `tsc`, `vite build`, browser.
 
 - [ ] No "what changed" note appears above any tool. /whats-new still lists everything, including today's two entries, and the home strip and footer link still work.
+
+### Tool header bar and fold toggle
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Desktop: title on the left, description and "runs in your browser" on the right of the same row; Focus mode is an orange button at the top right and the first thing the eye lands on. Phone: stacked and centred, Focus button on the same row as "All tools".
+- [ ] Collapse all / Expand all sits at the top right of the list heading and works; label follows manual changes. A tool with only an article shows it above the article.
+- [ ] Focus mode still works (Esc exits).

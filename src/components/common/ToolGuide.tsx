@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { useContent } from '../../locales/contentLoader';
 import { AccordionList } from './AccordionList';
+import { FoldToggle } from './FoldToggle';
 import { GuideRegistryContext } from './guideRegistry';
 import { useArticleSections } from './ToolArticle';
 
@@ -93,7 +94,10 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
           )}
           {items.length > 0 && (
             <section aria-label={t('guideAndQuestions', { defaultValue: 'About this tool and questions' })} className="space-y-2">
-              <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('guideAndQuestions', { defaultValue: 'About this tool and questions' })}</h2>
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('guideAndQuestions', { defaultValue: 'About this tool and questions' })}</h2>
+                <FoldToggle />
+              </div>
               <AccordionList items={items} lang={contentLanguage} />
             </section>
           )}
