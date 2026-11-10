@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { FocusModeProvider } from './lib/focusMode';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/common/ScrollToTop';
@@ -56,6 +57,7 @@ const CatalogTemplatesPage = lazy(() => import('./pages/CatalogTemplatesPage').t
 export const App: React.FC = () => {
   return (
     <Router>
+      <FocusModeProvider>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-[var(--theme-background)] text-stone-900">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-stone-900 focus:shadow-lg">Skip to main content</a>
@@ -153,6 +155,7 @@ export const App: React.FC = () => {
         </main>
         <Footer />
       </div>
+      </FocusModeProvider>
     </Router>
   );
 };

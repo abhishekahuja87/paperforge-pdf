@@ -5,11 +5,13 @@ import { siteConfig } from '../../config/site';
 import { HeaderToolsMenu } from './HeaderToolsMenu';
 import { useTranslation } from 'react-i18next';
 import { changeAppLanguage, languages } from '../../i18n';
+import { useFocusMode } from '../../lib/focusMode';
 
 export const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { active: focusActive, setFocus } = useFocusMode();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -27,6 +29,22 @@ export const Header: React.FC = () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  if (focusActive) {
+    return (
+      <header className="print:hidden sticky top-0 z-50 border-b border-stone-200 bg-[var(--theme-surface)]/95 backdrop-blur-md">
+        <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4">
+          <Link to="/" aria-label={siteConfig.name} className="flex items-center gap-2">
+            <img src="/favicon.svg" alt="" className="h-6 w-6 rounded-md" />
+            <span className="text-xs font-bold text-stone-700">{siteConfig.shortName}</span>
+          </Link>
+          <button type="button" onClick={() => setFocus(false)} className="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-900 focus-visible:outline-2 focus-visible:outline-orange-600">
+            {t('exitFocus', { defaultValue: 'Exit focus' })} (Esc)
+          </button>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="print:hidden sticky top-0 z-50 bg-[var(--theme-surface)]/95 backdrop-blur-md border-b border-stone-200">

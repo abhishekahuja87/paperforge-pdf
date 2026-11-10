@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { ShieldCheck, HelpCircle } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useTranslation } from 'react-i18next';
@@ -45,16 +45,6 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
     : steps;
   const stepsLanguage = hasLocalizedSteps ? i18n.language : contentLanguage;
   const isWorkshop = appearance === 'workshop';
-  const faqListRef = useRef<HTMLDivElement>(null);
-  // Every question starts open so all the text is visible; the button below folds them all away.
-  const [openCount, setOpenCount] = useState(faqs.length);
-  const allOpen = openCount >= faqs.length;
-  const countOpen = () => setOpenCount(faqListRef.current?.querySelectorAll('details[open]').length ?? 0);
-  const setAll = (open: boolean) => {
-    faqListRef.current?.querySelectorAll('details').forEach((item) => { item.open = open; });
-    countOpen();
-  };
-
   if (isWorkshop) {
     return (
       <div className="@container mx-auto max-w-3xl space-y-5">
@@ -76,21 +66,10 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
         )}
         {faqs.length > 0 && (
           <section aria-label={t('questions')} className="space-y-2">
-            <div className="flex items-center justify-between gap-3 px-1">
-              <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('questions')}</h2>
-              {faqs.length > 1 && (
-                <button
-                  type="button"
-                  onClick={() => setAll(!allOpen)}
-                  className="rounded-lg px-2 py-1.5 text-xs font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-900 focus-visible:outline-2 focus-visible:outline-orange-600"
-                >
-                  {allOpen ? t('collapseAll', { defaultValue: 'Collapse all' }) : t('expandAll', { defaultValue: 'Expand all' })}
-                </button>
-              )}
-            </div>
-            <div ref={faqListRef} lang={contentLanguage} className="divide-y divide-stone-200 rounded-xl border border-stone-200 bg-white">
+            <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('questions')}</h2>
+            <div lang={contentLanguage} className="divide-y divide-stone-200 rounded-xl border border-stone-200 bg-white">
               {faqs.map((faq) => (
-                <details key={faq.question} open onToggle={countOpen} className="group px-4 py-3">
+                <details key={faq.question} open className="group px-4 py-3">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-stone-900 [&::-webkit-details-marker]:hidden">
                     {faq.question}
                     <span aria-hidden="true" className="text-lg leading-none text-orange-600 transition group-open:rotate-45">+</span>
