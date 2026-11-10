@@ -850,8 +850,7 @@
   "homeHero": {
     "private": "Files stay in your browser",
     "free": "Free, no sign-up",
-    "count": "{{count}}+ tools",
-    "topics": "Browse by topic"
+    "count": "{{count}}+ tools"
   },
   "homeHeading": "Simple tools that work",
   "homeHeadingAccent": "right in your browser.",
