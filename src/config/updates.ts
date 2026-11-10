@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 export const UPDATES: SiteUpdate[] = [
   {
+    date: '2026-11-14',
+    path: '/split-pdf',
+    tool: 'Split PDF',
+    title: 'Odd and even pages, and a live page count',
+    summary: 'Pick odd or even pages in one tap, and see how many pages your selection matches before you split.',
+  },
+  {
     date: '2026-11-13',
     path: '/fd-calculator',
     tool: 'FD Calculator',

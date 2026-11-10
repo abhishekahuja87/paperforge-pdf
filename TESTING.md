@@ -515,3 +515,11 @@ Not run: `tsc` on components, `vite build`, browser.
 - [ ] FD 20 lakh at 7 percent for 1 year: the amber TDS note appears for Below 60 and also for Senior citizen above 1 lakh; 5 lakh at 7 percent for 5 years (about 2.1 lakh over 5 years, about 42,000 a year) shows no note for either.
 - [ ] RD with tax rate 20: two extra stats appear.
 - [ ] Check the TDS limits against the bank or Income Tax Department before relying on them.
+
+### Home guides strip and Split PDF
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Home page: a Guides section with four cards sits between What's new and More tools; each card opens its guide; "All N guides" opens /guides; hidden while searching.
+- [ ] Split PDF: on a 10-page PDF, Odd pages fills 1, 3, 5, 7, 9 and says 5 of 10 selected; Even pages the other five; typing 99 shows the red message; the split file has exactly the selected pages.
+- [ ] Anything else you notice missing from any tool: note it here.

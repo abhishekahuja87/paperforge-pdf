@@ -5,11 +5,19 @@ import { getPdfPageCount, parsePageRanges, extractPages } from '../../lib/pdf/sp
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
 
+/** "1, 3, 5, ..." (start 1) or "2, 4, 6, ..." (start 2) as a page list. */
+const oddEven = (pageCount: number, start: 1 | 2): string => {
+  const pages: number[] = [];
+  for (let page = start; page <= pageCount; page += 2) pages.push(page);
+  return pages.join(', ');
+};
+
 export const SplitPdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [rangeInput, setRangeInput] = useState<string>('');
+  const selectedCount = parsePageRanges(rangeInput, pageCount).length;
   const [status, setStatus] = useState<'idle' | 'loading' | 'processing' | 'done' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
@@ -151,7 +159,14 @@ export const SplitPdf: React.FC = () => {
               >
                 All Pages
               </button>
+              <button type="button" onClick={() => setRangeInput(oddEven(pageCount, 1))} className="px-3 py-2 text-xs font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition cursor-pointer">Odd pages</button>
+              <button type="button" onClick={() => setRangeInput(oddEven(pageCount, 2))} className="px-3 py-2 text-xs font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition cursor-pointer">Even pages</button>
             </div>
+            {rangeInput.trim() && (
+              <p role="status" className={`text-[11px] ${selectedCount === 0 ? 'font-semibold text-rose-700' : 'text-slate-600'}`}>
+                {selectedCount === 0 ? `No pages match. Use numbers from 1 to ${pageCount}.` : `${selectedCount} of ${pageCount} pages selected, in page order. Each page is used once even if listed twice.`}
+              </p>
+            )}
             <p className="text-[11px] text-slate-500">
               Enter individual pages (e.g. <code className="text-slate-700 font-mono">1, 4, 7</code>) or ranges (e.g. <code className="text-slate-700 font-mono">2-5</code>). Max: {pageCount}.
             </p>
