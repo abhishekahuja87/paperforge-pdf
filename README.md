@@ -147,3 +147,7 @@ Footer is now: one compact row of always-visible company/trust links, one "All t
 ### One set of groups everywhere (Nov 2026)
 
 `config/topics.ts` (`getTopics`, `topicNameKey`) is the single list of tool groups, built from `COLLECTIONS` in `config/homeSections.ts`. The header menu, the footer, the pre-rendered shell pages (`getShellGroups`) and the home page all use the same ids and names (`homeCollections.<id>.name`, plus "Workspaces" for the studios). To move a tool, edit `COLLECTIONS` only. The old `category` field on tools is no longer used for navigation (it still exists for tool data). Tools missing from every group land in "More tools".
+
+### Home page order (Nov 2026)
+
+Most used, Workspaces, the topic lists, then What's new and Guides as compact blocks just above the footer (What's new as short lines, Guides as four linked titles plus "All N guides"). Both stay visible text with real links; they are not folded away.

@@ -559,3 +559,10 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Every tool appears in exactly one group in the header and footer (spot-check 5 tools: resize-image-to-20kb, sports-court-size-guide, gst-invoice-generator, word-counter, display-studio).
 - [ ] No group called "More tools" appears. If it does, a tool is missing from `COLLECTIONS`; tell me which.
 - [ ] View-source of any page: the no-JavaScript link lists use the same group names.
+
+### Home page order
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Home page order is: search, Most used, Workspaces, topic lists, What's new (short lines), Guides (four linked titles). Together the last two take only a few lines.
+- [ ] Each What's new line and guide title opens the right page; "All N guides" opens /guides. While searching, they are hidden.
