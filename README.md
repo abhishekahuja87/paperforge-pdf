@@ -130,3 +130,8 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 
 - Home page: a "Guides" section (four fixed picks in `FEATURED_GUIDE_SLUGS` in `HomeToolsGrid.tsx`) gives the home page real written content with links to /guides. Change the slugs when guides are added.
 - Split PDF: Odd pages / Even pages buttons and a live "N of M pages selected" message with a red note when nothing matches.
+
+### Compact footer (Nov 2026)
+
+`Footer.tsx` shows the company links as one wrapped row and the tool links by category through `FooterToolGroup.tsx`: folded to one line per category below 1024px (tap to open, an opened one spans the full width), always open on wide screens. Links stay in the DOM so crawlers and screen readers still reach every tool. `desktop` uses seven columns, one per category.
+AdSense safety: privacy, terms, contact, about, editorial policy and guides links are always visible (never folded); only the long tool lists fold, and they stay in the DOM and on every pre-rendered page.

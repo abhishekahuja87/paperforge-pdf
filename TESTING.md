@@ -523,3 +523,12 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Home page: a Guides section with four cards sits between What's new and More tools; each card opens its guide; "All N guides" opens /guides; hidden while searching.
 - [ ] Split PDF: on a 10-page PDF, Odd pages fills 1, 3, 5, 7, 9 and says 5 of 10 selected; Even pages the other five; typing 99 shows the red message; the split file has exactly the selected pages.
 - [ ] Anything else you notice missing from any tool: note it here.
+
+### Compact footer
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Phone: the footer shows the brand line, one row of company links, and 2 columns of category rows with counts, folded. Tap one: it opens full width with the tool list in the sentence; tap again to close. The whole footer is about one screen.
+- [ ] Tablet width: three columns of rows; opening a category lists tools in two columns.
+- [ ] Desktop (1024px and wider): every category is open as a column; tapping the heading does nothing.
+- [ ] Every tool link in the footer still opens the right tool. Resize from phone to desktop and back: no broken state.
