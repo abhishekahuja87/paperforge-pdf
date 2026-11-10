@@ -5,25 +5,41 @@ import { useTranslation } from 'react-i18next';
 interface FileDropZoneProps {
   accept?: string;
   multiple?: boolean;
-  label?: string;
-  hint?: string;
+  /** True while a chosen file is being read; shows the same "Reading…" text in every tool. */
   readingPdf?: boolean;
   onFiles: (files: File[]) => void;
   disabled?: boolean;
-  labelLanguage?: string;
+}
+
+const FORMAT_NAMES: Array<[RegExp, string]> = [
+  [/pdf/, 'PDF'],
+  [/png/, 'PNG'],
+  [/jpe?g/, 'JPG'],
+  [/webp/, 'WebP'],
+  [/gif/, 'GIF'],
+  [/json/, 'JSON'],
+  [/docx?|wordprocessingml/, 'Word'],
+  [/vcf|vcard/, 'VCF'],
+];
+
+/** Readable list of the accepted file types, for example "PDF, PNG, JPG". Empty when it cannot tell. */
+export function describeAccept(accept?: string): string {
+  if (!accept) return '';
+  const lower = accept.toLowerCase();
+  const names = FORMAT_NAMES.filter(([pattern]) => pattern.test(lower)).map(([, name]) => name);
+  if (lower.includes('image/*') && !names.includes('PNG')) names.push('Images');
+  return names.join(', ');
 }
 
 export const FileDropZone: React.FC<FileDropZoneProps> = ({
   accept,
   multiple = false,
-  label,
-  hint,
   readingPdf = false,
   onFiles,
   disabled = false,
-  labelLanguage,
 }) => {
   const { t, i18n } = useTranslation();
+  const formats = describeAccept(accept);
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
   const [showNotice, setShowNotice] = useState(false);
@@ -78,8 +94,8 @@ export const FileDropZone: React.FC<FileDropZoneProps> = ({
         <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-orange-800 shadow-sm transition group-hover:-translate-y-0.5 group-hover:shadow">
           <FilePlus2 className="h-5 w-5" aria-hidden="true" />
         </span>
-        <span lang={label === undefined ? i18n.language : labelLanguage} className="text-sm font-bold text-stone-900">{label ?? t(readingPdf ? 'rotateControls.reading' : 'rotateControls.choose')}</span>
-        <span lang={hint === undefined ? i18n.language : labelLanguage} className="mt-1 text-xs text-stone-500">{hint ?? t('rotateControls.pdfOnly')}</span>
+        <span lang={i18n.language} className="text-sm font-bold text-stone-900">{readingPdf ? t('dropZone.reading') : t(multiple ? 'dropZone.chooseMany' : 'dropZone.chooseOne')}</span>
+        <span lang={i18n.language} className="mt-1 text-xs text-stone-500">{formats ? t('dropZone.hint', { formats }) : t('dropZone.hintPlain')}</span>
       </button>
       {showNotice && <p lang={i18n.language} role="alert" className="mt-2 text-xs text-rose-800">{t('chooseOneFile')}</p>}
     </>

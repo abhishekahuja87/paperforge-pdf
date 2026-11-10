@@ -157,6 +157,20 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Guide mentions odd, even and the live page count',
     summary: 'The steps and questions cover the All, Odd and Even buttons and the count of matching pages.',
   },
+  {
+    date: '2026-11-10',
+    path: '/image-resizer',
+    tool: 'All tools',
+    title: 'Same upload box in every tool',
+    summary: 'Every tool now has the same upload box: the same size, the same "Choose a file or drop it here" line and one line listing the accepted file types.',
+  },
+  {
+    date: '2026-11-10',
+    path: '/master-document-studio',
+    tool: 'Document studios',
+    title: 'Workspace headers line up with their content',
+    summary: 'The title and Focus button in the document and display studios now follow the width of the workspace instead of sitting at the page edges.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

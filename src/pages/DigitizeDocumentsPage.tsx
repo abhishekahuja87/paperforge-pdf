@@ -17,7 +17,7 @@ export const DigitizeDocumentsPage: React.FC = () => {
   }));
 
   return (
-    <ToolLayout wide title={t('digitize.title')} subtitle={t('digitize.subtitle')} contentLanguage={i18n.language}
+    <ToolLayout wide={hasSources} title={t('digitize.title')} subtitle={t('digitize.subtitle')} contentLanguage={i18n.language}
       seoContent={!hasSources ? <ToolGuide toolName={t('digitize.title')} steps={steps} faqs={faqs} contentLanguage={i18n.language} /> : undefined}>
       <div className="space-y-4">
         <p lang={i18n.language} className="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">{t('digitize.note')} {t('digitize.editorLanguage')}</p>

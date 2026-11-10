@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AlertCircle, Check, Clipboard, Download, RotateCcw, Sparkles } from 'lucide-react';
 import { copyText, downloadBlob } from '../../lib/browserTools';
 import { FileDropZone } from '../common/FileDropZone';
-import { useTranslation } from 'react-i18next';
 
 type JsonAction = 'format' | 'minify' | 'validate';
 
@@ -28,7 +27,6 @@ const SAMPLE_JSON = `{
 }`;
 
 export const JsonFormatter: React.FC = () => {
-  const { t, i18n } = useTranslation();
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [indent, setIndent] = useState(2);
@@ -103,9 +101,6 @@ export const JsonFormatter: React.FC = () => {
       <div className="mb-4">
         <FileDropZone
           accept=".json,application/json,text/plain"
-          label={t('jsonUpload.choose')}
-          hint={t('jsonUpload.hint')}
-          labelLanguage={i18n.language}
           onFiles={(files) => { void loadFile(files[0]); }}
         />
       </div>

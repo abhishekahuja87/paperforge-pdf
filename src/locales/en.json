@@ -369,6 +369,13 @@
       "Remove selected PDF metadata and document structures in your browser. Review the output before sharing."
     ]
   },
+  "dropZone": {
+    "chooseOne": "Choose a file or drop it here",
+    "chooseMany": "Choose files or drop them here",
+    "reading": "Reading your file…",
+    "hint": "{{formats}} · Stays on your device",
+    "hintPlain": "Stays on your device"
+  },
   "rotateControls": {
     "invalid": "Please select a valid PDF file.",
     "readError": "Failed to read PDF. The document might be password protected or corrupted.",

@@ -492,9 +492,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
           accept={digitize ? '.png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp' : '.pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp'}
           multiple
           disabled={isLoading}
-          label={isLoading ? t('master.reading') : digitize ? t('digitize.choose') : t('master.choose')}
-          hint={digitize ? t('digitize.hint') : t('master.hint')}
-          labelLanguage={i18n.language}
+          readingPdf={isLoading}
           onFiles={(files) => { void addFiles(files); }}
         />
         {!digitize && <div className="mt-4 flex flex-wrap justify-center gap-2">

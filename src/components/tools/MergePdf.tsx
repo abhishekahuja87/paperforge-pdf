@@ -122,8 +122,6 @@ export const MergePdf: React.FC = () => {
             accept=".pdf,application/pdf"
             multiple
             disabled={isProcessing}
-            label={t('choose')}
-            hint={t('hint')}
             onFiles={(selected) => { void (async () => { const ready: File[] = []; for (const file of selected) { const prepared = await prepare(file); if (prepared) ready.push(prepared); } if (ready.length > 0) addPreparedFiles(ready); })(); }}
           />
 

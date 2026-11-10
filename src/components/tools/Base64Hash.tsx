@@ -174,9 +174,6 @@ export const Base64Hash: React.FC = () => {
             <div className="sm:col-span-2">
               <FileDropZone
                 disabled={isWorking}
-                label={file ? t('base64Upload.change', { name: file.name }) : t('base64Upload.choose')}
-                hint={t('base64Upload.hint')}
-                labelLanguage={i18n.language}
                 onFiles={(files) => { setFile(files[0]); setOutput(''); setError(''); setStatus(''); }}
               />
             </div>

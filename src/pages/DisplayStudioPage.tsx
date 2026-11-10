@@ -16,7 +16,7 @@ export const DisplayStudioPage: React.FC = () => {
 
   return (
     <ToolLayout
-      wide
+      wide={hasSlides}
       title={t('displayPage.title')}
       subtitle={t('displayPage.subtitle')}
       contentLanguage={i18n.language}

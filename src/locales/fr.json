@@ -288,6 +288,13 @@
       ]
     }
   },
+  "dropZone": {
+    "chooseOne": "Choisissez un fichier ou déposez-le ici",
+    "chooseMany": "Choisissez des fichiers ou déposez-les ici",
+    "reading": "Lecture de votre fichier…",
+    "hint": "{{formats}} · Reste sur votre appareil",
+    "hintPlain": "Reste sur votre appareil"
+  },
   "rotateControls": {
     "invalid": "Sélectionnez un fichier PDF valide.", "readError": "Impossible de lire le PDF. Il est peut-être protégé par mot de passe ou endommagé.", "rotateError": "Une erreur s’est produite pendant la rotation. Vérifiez la plage de pages sélectionnée.",
     "reading": "Lecture du PDF...", "choose": "Choisissez un PDF ou déposez-le ici", "pdfOnly": "PDF uniquement", "pages": "Nombre de pages :", "remove": "Retirer le fichier",

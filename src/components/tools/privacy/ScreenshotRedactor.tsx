@@ -181,7 +181,7 @@ export const ScreenshotRedactor: React.FC = () => {
         <div className={card}>
           <h2 className={heading}>Add a screenshot or photo</h2>
           <div className="mt-3">
-            <FileDropZone accept="image/*" label="Choose or drop an image" hint="PNG, JPG or WebP. It stays on this device." onFiles={(files) => void load(files[0]!, files[0]!.name)} />
+            <FileDropZone accept="image/*" onFiles={(files) => void load(files[0]!, files[0]!.name)} />
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <button type="button" onClick={() => void pasteButton()} className={small}><ClipboardPaste className="h-4 w-4" aria-hidden="true" />Paste from clipboard</button>

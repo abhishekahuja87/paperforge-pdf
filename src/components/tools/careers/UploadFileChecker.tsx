@@ -96,7 +96,7 @@ export const UploadFileChecker: React.FC = () => {
       </div>
 
       <div className="mt-4">
-        <FileDropZone accept=".pdf,.jpg,.jpeg,.png,.webp,.gif,.doc,.docx,application/pdf,image/*" multiple disabled={busy} label="Choose or drop the files to check" hint={`PDF, JPG, PNG, WebP, GIF or Word files, up to ${MAX_FILES} at a time. Nothing is uploaded.`} onFiles={(files) => void addFiles(files)} />
+        <FileDropZone accept=".pdf,.jpg,.jpeg,.png,.webp,.gif,.doc,.docx,application/pdf,image/*" multiple disabled={busy} onFiles={(files) => void addFiles(files)} />
         {skipped > 0 && <p role="alert" className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">The list is limited to {MAX_FILES} files, so {skipped} file{skipped === 1 ? ' was' : 's were'} not checked. Clear the list and add them again.</p>}
       </div>
 

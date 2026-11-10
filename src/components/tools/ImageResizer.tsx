@@ -4,7 +4,6 @@ import { FileDropZone } from '../common/FileDropZone';
 import { downloadBlob, formatBytes, safeFileBaseName } from '../../lib/browserTools';
 import { PHOTO_PRESETS, toPixels, type PhotoPreset, type SizeUnit } from '../../lib/media/photoPresets';
 import { resizeImageToTarget, type ResizeFit, type ResizeToTargetResult } from '../../lib/media/resizeToTarget';
-import { useTranslation } from 'react-i18next';
 
 const IMAGE_TYPES = ['image/png', 'image/jpeg', 'image/webp'];
 const MAX_EXACT_SIDE = 8000;
@@ -23,7 +22,6 @@ interface ImageResizerProps {
 
 export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, defaultPreset }) => {
   const initial = PHOTO_PRESETS.find((item) => item.id === defaultPreset);
-  const { i18n } = useTranslation();
   const [files, setFiles] = useState<File[]>([]);
   const [results, setResults] = useState<ResizedImage[]>([]);
   const [maxKb, setMaxKb] = useState(String(initial?.maxKb ?? defaultMaxKb));
@@ -123,9 +121,6 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
           accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"
           multiple
           disabled={isProcessing}
-          label="Choose images"
-          hint="PNG, JPG or WebP. Processed in your browser."
-          labelLanguage={i18n.language}
           onFiles={addFiles}
         />
         {error && <p role="alert" className="flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800"><AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />{error}</p>}
