@@ -47,7 +47,7 @@ const CourtGuide: React.FC = () => {
       const png = await sheetToPng(svg);
       const base = `${sport.id}-${variant.id}-court-size`;
       if (kind === 'png') downloadBlob(png, `${base}.png`);
-      else downloadBlob(new Blob([await pngToPdf(png, `${copy.name}: ${copy.variants[variant.id]}`)], { type: 'application/pdf' }), `${base}.pdf`);
+      else downloadBlob(new Blob([(await pngToPdf(png, `${copy.name}: ${copy.variants[variant.id]}`)).slice().buffer as ArrayBuffer], { type: 'application/pdf' }), `${base}.pdf`);
     } catch {
       setFailed(true);
     } finally {
