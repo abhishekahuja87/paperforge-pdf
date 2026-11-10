@@ -71,14 +71,14 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
         children: <p>{faq.answer}</p>,
       })),
     ];
-    // Wide: the accordion on the left, the steps and privacy note in a side column. Narrow: steps first, then the accordion.
+    // One column: steps (three across when wide), then the accordion, then the privacy note.
     return (
-      <div className="@container mx-auto w-full max-w-6xl">
-        <div className="space-y-5 @2xl:grid @2xl:grid-cols-[minmax(0,1fr)_18rem] @2xl:items-start @2xl:gap-x-6 @2xl:space-y-0 @4xl:grid-cols-[minmax(0,1fr)_22rem]">
+      <div className="@container mx-auto w-full max-w-3xl">
+        <div className="space-y-5">
           {displayedSteps.length > 0 && (
-            <section aria-label={t('howToUse')} className="space-y-2 @2xl:col-start-2 @2xl:row-start-1">
+            <section aria-label={t('howToUse')} className="space-y-2">
               <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('howToUse')}</h2>
-              <ol lang={stepsLanguage} className="grid gap-3">
+              <ol lang={stepsLanguage} className="grid gap-3 @xl:grid-cols-3">
                 {displayedSteps.map((step, index) => (
                   <li key={step.title} className="flex items-start gap-3 rounded-lg border-l-4 border-orange-500 bg-white px-3 py-3 shadow-sm">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-800">{index + 1}</span>
@@ -92,13 +92,13 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
             </section>
           )}
           {items.length > 0 && (
-            <section aria-label={t('guideAndQuestions', { defaultValue: 'About this tool and questions' })} className="space-y-2 @2xl:col-start-1 @2xl:row-span-2 @2xl:row-start-1">
+            <section aria-label={t('guideAndQuestions', { defaultValue: 'About this tool and questions' })} className="space-y-2">
               <h2 className="px-1 text-xs font-bold uppercase tracking-[0.14em] text-stone-500">{t('guideAndQuestions', { defaultValue: 'About this tool and questions' })}</h2>
               <AccordionList items={items} lang={contentLanguage} />
             </section>
           )}
           {privacyNote && (
-            <section aria-label={t('privacy')} className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 @2xl:col-start-2">
+            <section aria-label={t('privacy')} className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
               <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-900">{t('privacy')}</h2>
               <p lang={contentLanguage} className="mt-1 text-xs leading-relaxed text-emerald-900">{privacyNote}</p>
             </section>

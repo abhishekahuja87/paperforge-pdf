@@ -598,3 +598,10 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Collapse all / Expand all folds and opens every row; the label follows manual changes.
 - [ ] A tool with an article but no guide still shows the article in the same look.
 - [ ] Focus mode still hides all of this. Report any tool that looks uneven.
+
+### Stacked guide
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /merge-pdf: "How to use" steps (three across on a wide screen), then the single accordion, then the privacy note, all in one centred column with no empty side space.
+- [ ] Phone: same order, nothing overflows.
