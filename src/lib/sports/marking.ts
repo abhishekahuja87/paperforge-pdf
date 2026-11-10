@@ -1,4 +1,4 @@
-import type { Variant } from './courtData';
+import type { Mark, Part, Variant } from './courtData';
 import { formatLength } from './units';
 
 /** One thing to mark on the ground, in metres from corner A (x along the length, y across the width). */
@@ -91,6 +91,41 @@ export function anchor(prim: Prim): [number, number] {
   }
 }
 
+/** The named line this item is, if it is one: it matches a mark at that distance from either end or side. */
+export function markFor(prim: Prim, variant: Variant): Mark | null {
+  if (prim.kind !== 'line') return null;
+  const { length: L, width: W } = variant;
+  const vertical = near(prim.x1, prim.x2);
+  const horizontal = near(prim.y1, prim.y2);
+  for (const mark of variant.marks) {
+    if (mark.from === 'end' && vertical && (near(prim.x1, mark.m) || near(prim.x1, L - mark.m))) return mark;
+    if (mark.from === 'side' && horizontal && (near(prim.y1, mark.m) || near(prim.y1, W - mark.m))) return mark;
+  }
+  return null;
+}
+
+/** The named circle, arc, rectangle or spot this item is, if any. */
+export function partFor(prim: Prim, variant: Variant): Part | null {
+  const { length: L } = variant;
+  for (const part of variant.parts ?? []) {
+    if ((part.kind === 'circle' || part.kind === 'arc') && (prim.kind === part.kind) && !isSpot(prim) && near(prim.r, part.r)) return part;
+    if (part.kind === 'rect' && prim.kind === 'rect') {
+      const w = Math.abs(prim.x1 - prim.x0);
+      const h = Math.abs(prim.y1 - prim.y0);
+      if ((near(w, part.w) && near(h, part.h)) || (near(w, part.h) && near(h, part.w))) return part;
+    }
+    if (part.kind === 'spot' && prim.kind === 'circle' && isSpot(prim) && (near(prim.cx, part.x) || near(prim.cx, L - part.x))) return part;
+  }
+  return null;
+}
+
+/** How far a named line is from what it is measured from. */
+export function markDistance(mark: Mark, prim: Extract<Prim, { kind: 'line' }>, variant: Variant): number {
+  const { length: L, width: W } = variant;
+  if (near(prim.x1, prim.x2)) return mark.ref === 'net' ? Math.abs(prim.x1 - L / 2) : Math.min(prim.x1, L - prim.x1);
+  return mark.ref === 'net' ? Math.abs(prim.y1 - W / 2) : Math.min(prim.y1, W - prim.y1);
+}
+
 /** Words for the set-out guide, from the locale file. {name} placeholders are filled in here. */
 export interface MarkingText {
   heading: string; intro: string; prepTitle: string; prep: string[]; outerTitle: string; outerRect: string; outerRound: string;
@@ -123,14 +158,10 @@ export function markingSteps(variant: Variant, text: MarkingText, markName: (id:
   const along = (v: number) => (v < -EPS ? fill(text.outsideA, { v: f(-v) }) : v > L + EPS ? fill(text.outsideB, { v: f(v - L) }) : f(v));
   const across = (v: number) => (v < -EPS ? fill(text.outsideA, { v: f(-v) }) : v > W + EPS ? fill(text.outsideB, { v: f(v - W) }) : f(v));
   const named = (prim: Prim): string | null => {
-    if (prim.kind !== 'line') return null;
-    const vertical = near(prim.x1, prim.x2);
-    const horizontal = near(prim.y1, prim.y2);
-    for (const mark of variant.marks) {
-      if (mark.from === 'end' && vertical && (near(prim.x1, mark.m) || near(prim.x1, L - mark.m))) return markName(mark.id);
-      if (mark.from === 'side' && horizontal && (near(prim.y1, mark.m) || near(prim.y1, W - mark.m))) return markName(mark.id);
-    }
-    return null;
+    const mark = markFor(prim, variant);
+    if (mark) return markName(mark.id);
+    const part = partFor(prim, variant);
+    return part ? markName(part.id) : null;
   };
 
   const steps: Step[] = [];
@@ -155,12 +186,15 @@ export function markingSteps(variant: Variant, text: MarkingText, markName: (id:
     } else if (prim.kind === 'rect') {
       const w = prim.x1 - prim.x0;
       const h = prim.y1 - prim.y0;
-      steps.push({ n, prim, title: text.titleRect, lines: [fill(text.rectBody1, { x0: along(prim.x0), x1: along(prim.x1), y0: across(prim.y0), y1: across(prim.y1) }), fill(text.rectBody2, { w: f(w), h: f(h), diag: f(Math.hypot(w, h)) })] });
+      const rectName = named(prim);
+      steps.push({ n, prim, title: rectName ? `${rectName} (${text.titleRect.toLowerCase()})` : text.titleRect, lines: [fill(text.rectBody1, { x0: along(prim.x0), x1: along(prim.x1), y0: across(prim.y0), y1: across(prim.y1) }), fill(text.rectBody2, { w: f(w), h: f(h), diag: f(Math.hypot(w, h)) })] });
     } else if (prim.kind === 'circle') {
-      if (isSpot(prim)) steps.push({ n, prim, title: text.titleSpot, lines: [fill(text.spotBody, { x: f(prim.cx), y: f(prim.cy) })] });
-      else steps.push({ n, prim, title: text.titleCircle, lines: [fill(text.circleBody1, { x: f(prim.cx), y: f(prim.cy) }), fill(text.circleBody2, { r: f(prim.r) })] });
+      const circleName = named(prim);
+      if (isSpot(prim)) steps.push({ n, prim, title: circleName ? `${circleName} (${text.titleSpot.toLowerCase()})` : text.titleSpot, lines: [fill(text.spotBody, { x: f(prim.cx), y: f(prim.cy) })] });
+      else steps.push({ n, prim, title: circleName ? `${circleName} (${text.titleCircle.toLowerCase()})` : text.titleCircle, lines: [fill(text.circleBody1, { x: f(prim.cx), y: f(prim.cy) }), fill(text.circleBody2, { r: f(prim.r) })] });
     } else {
-      steps.push({ n, prim, title: text.titleArc, lines: [fill(text.arcBody1, { cx: f(prim.cx), cy: f(prim.cy), r: f(prim.r) }), fill(text.arcBody2, { x1: f(prim.x1), y1: f(prim.y1), x2: f(prim.x2), y2: f(prim.y2) })] });
+      const arcName = named(prim);
+      steps.push({ n, prim, title: arcName ? `${arcName} (${text.titleArc.toLowerCase()})` : text.titleArc, lines: [fill(text.arcBody1, { cx: f(prim.cx), cy: f(prim.cy), r: f(prim.r) }), fill(text.arcBody2, { x1: f(prim.x1), y1: f(prim.y1), x2: f(prim.x2), y2: f(prim.y2) })] });
     }
   }
   for (const x of netPositions) {

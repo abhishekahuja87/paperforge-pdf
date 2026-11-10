@@ -1,6 +1,7 @@
 import type { Margin, Variant } from './courtData';
 import { spaceNeeded } from './fit';
-import { annotation, type ChainCaptions } from './annotate';
+import { annotation, chainPositions, noteLines, type AnnotateOptions } from './annotate';
+import { setOutPrims } from './marking';
 import { xml } from './xml';
 import { anchor, type Step } from './marking';
 import { formatLength } from './units';
@@ -28,7 +29,7 @@ export interface DiagramOptions {
   /** Hide the green key-line points (the set-out drawing has its own numbers). */
   hideKeyPoints?: boolean;
   /** Write the distance of every line, centre and spot from both ends and both sides on the drawing, in light grey. */
-  annotate?: ChainCaptions;
+  annotate?: AnnotateOptions;
 }
 
 export function buildDiagram(variant: Variant, margin: Margin, clearCaption: string, options: DiagramOptions = {}): Diagram {
@@ -45,13 +46,18 @@ export function buildDiagram(variant: Variant, margin: Margin, clearCaption: str
   const gap = f * 1.7;
   const r = f * 0.62;
   // With measurements written on the drawing, every side gets a zone for the labels.
-  const zone = options.annotate ? f * 6.8 : 0;
-  const dimY = by0 - gap - zone;
-  const dimX = bx1 + gap + zone;
-  const markY = by1 + f * 1.1 + zone;
+  const chains = options.annotate ? chainPositions(variant, setOutPrims(variant)) : null;
+  const zoneY = chains && chains.xs.length > 0 ? f * 6.8 : 0;
+  const zoneX = chains && chains.ys.length > 0 ? f * 6.8 : 0;
+  const dimY = by0 - gap - zoneY;
+  const dimX = bx1 + gap + zoneX;
+  const markY = by1 + f * 1.1 + zoneY;
   const markX = bx0 - f * 1.1;
 
-  const box = { x: bx0 - f * 2.2 - zone, y: dimY - f * 1.8, w: dimX + f * 2.8 - (bx0 - f * 2.2 - zone), h: markY + f * 3.4 - (dimY - f * 1.8) };
+  const layer = options.annotate ? annotation(variant, f, { bx0, by0, bx1, by1 }, options.annotate) : null;
+  const footer = options.annotate?.names ? noteLines(variant, options.annotate.names, 'footer') : [];
+  const legend = layer?.legend ?? [];
+  const box = { x: bx0 - f * 2.2 - zoneX, y: dimY - f * 1.8, w: dimX + f * 2.8 - (bx0 - f * 2.2 - zoneX), h: markY + f * 3.4 + footer.length * f * 1.1 + (legend.length > 0 ? legend.length * f * 1.0 + f * 1.4 : 0) - (dimY - f * 1.8) };
 
   const line = num(f * 0.13);
   const thin = num(f * 0.07);
@@ -76,12 +82,12 @@ export function buildDiagram(variant: Variant, margin: Margin, clearCaption: str
 
   // Numbered key lines.
   const marker = (cx: number, cy: number, n: number) => `<circle cx="${num(cx)}" cy="${num(cy)}" r="${num(r)}" fill="#065f46"/><text x="${num(cx)}" y="${num(cy + f * 0.27)}" text-anchor="middle" font-size="${num(f * 0.8)}" font-weight="700" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">${n}</text>`;
-  (options.hideKeyPoints ? [] : variant.marks).forEach((mark, i) => {
+  (options.hideKeyPoints || options.annotate ? [] : variant.marks).forEach((mark, i) => {
     if (mark.from === 'end') body += `<path d="M${num(mark.m)} ${num(W)}V${num(markY - r)}" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.3)}" fill="none"/>${marker(mark.m, markY, i + 1)}`;
     else body += `<path d="M0 ${num(mark.m)}H${num(markX + r)}" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.3)}" fill="none"/>${marker(markX, mark.m, i + 1)}`;
   });
 
-  if (options.annotate) body += annotation(variant, f, { bx0, by0, bx1, by1 }, options.annotate);
+  if (layer) body += layer.markup;
   const label = (x: number, y: number, text: string, fill: string) => `<text x="${num(x)}" y="${num(y)}" text-anchor="middle" font-size="${num(f * 0.95)}" font-weight="700" fill="${fill}" font-family="Arial, Helvetica, sans-serif">${xml(text)}</text>`;
   if (!variant.round) {
     if (options.diagonals) body += `<path d="M0 0L${num(L)} ${num(W)}M${num(L)} 0L0 ${num(W)}" fill="none" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.45)}"/>`;
@@ -93,6 +99,12 @@ export function buildDiagram(variant: Variant, margin: Margin, clearCaption: str
     body += `<circle cx="${num(ax)}" cy="${num(ay)}" r="${num(r * 0.95)}" fill="#b45309" stroke="#ffffff" stroke-width="${thin}"/><text x="${num(ax)}" y="${num(ay + f * 0.25)}" text-anchor="middle" font-size="${num(f * 0.7)}" font-weight="700" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">${step.n}</text>`;
   }
   body += `<text x="${num(L / 2)}" y="${num(markY + f * 2.5)}" text-anchor="middle" font-size="${num(f * 0.8)}" fill="#475569" font-family="Arial, Helvetica, sans-serif">${xml(clearCaption)}</text>`;
+  footer.forEach((note, i) => {
+    body += `<text x="${num(L / 2)}" y="${num(markY + f * 4 + i * f * 1.1)}" text-anchor="middle" font-size="${num(f * 0.8)}" fill="#334155" font-family="Arial, Helvetica, sans-serif">${xml(note)}</text>`;
+  });
+  legend.forEach((entry, i) => {
+    body += `<text x="${num(box.x + f * 1.5)}" y="${num(markY + f * 4 + footer.length * f * 1.1 + f * 1.6 + i * f * 1.0)}" font-size="${num(f * 0.82)}" fill="#334155" font-family="Arial, Helvetica, sans-serif">${xml(entry)}</text>`;
+  });
   return { box, body };
 }
 

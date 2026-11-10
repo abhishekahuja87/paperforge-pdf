@@ -19,8 +19,9 @@
       "marks": {
         "longServiceDoubles": "Long service line for doubles",
         "shortService": "Short service line",
-        "net": "Net, in the middle of the court",
-        "singlesSideline": "Singles side line"
+        "net": "Net",
+        "singlesSideline": "Singles side line",
+        "centreLine": "Centre line"
       },
       "margins": {
         "bwf": "Clear space BWF asks for in competition halls: 2 m behind the back lines and 1.5 m at the sides"
@@ -37,7 +38,15 @@
         "For doubles the long service line is the line 0.76 m in from the back line. In singles the back line itself is the long service line.",
         "Two courts marked side by side need at least 1.5 m between them (BWF competition halls ask for 4 m for the biggest events).",
         "A hall needs at least 9 m of clear height over the court for BWF practice halls, and 12 m for the top tournaments."
-      ]
+      ],
+      "parts": {
+        "netHeights": "Net height: {v1} at the posts, {v2} at the centre",
+        "singlesWidth": "Singles court is {v1} wide (the inner side lines)",
+        "lineWidth": "Lines are {v1} wide"
+      },
+      "refs": {
+        "net": "from the net"
+      }
     },
     "tennis": {
       "name": "Tennis",
@@ -55,8 +64,9 @@
       },
       "marks": {
         "serviceLine": "Service line",
-        "net": "Net, in the middle of the court",
-        "singlesSideline": "Singles side line"
+        "net": "Net",
+        "singlesSideline": "Singles side line",
+        "centreServiceLine": "Centre service line"
       },
       "margins": {
         "club": "Clear space the ITF recommends for club and recreational play: 5.48 m behind the baselines and 3.05 m at the sides",
@@ -73,7 +83,14 @@
         "The ITF says the recommended space behind the baselines and at the sides is a minimum, and that the recommended roof height is at least 9 m over the court at the net.",
         "Most courts are built with doubles lines. The net posts stand 0.914 m outside the doubles side lines.",
         "Courts in a row usually share the side space in club layouts; this guide keeps each court's own clear space, so it may count fewer courts than a club would fit."
-      ]
+      ],
+      "parts": {
+        "netHeights": "Net height: {v1} at the posts, {v2} at the centre",
+        "singlesWidth": "Singles court is {v1} wide (the inner side lines)"
+      },
+      "refs": {
+        "net": "from the net"
+      }
     },
     "pickleball": {
       "name": "Pickleball",
@@ -91,7 +108,8 @@
       },
       "marks": {
         "kitchenLine": "Kitchen line",
-        "net": "Net, in the middle of the court"
+        "net": "Net",
+        "centreLine": "Centre line"
       },
       "margins": {
         "minimum": "Smallest playing area USA Pickleball describes: 30 ft x 60 ft (9.14 m x 18.29 m)",
@@ -108,7 +126,14 @@
         "The kitchen is 7 ft (2.13 m) deep from the net on each side across the full width of the court. A serve that lands on the kitchen line is short and a fault.",
         "The net is 36 in (91.44 cm) high at the sidelines and 34 in (86.36 cm) in the middle.",
         "The extra space listed is the total playing area; we split it equally on each side. Check how your venue measures it."
-      ]
+      ],
+      "parts": {
+        "netHeights": "Net height: {v1} at the sidelines, {v2} at the centre",
+        "lineWidth": "Lines are {v1} wide"
+      },
+      "refs": {
+        "net": "from the net"
+      }
     },
     "basketball": {
       "name": "Basketball",
@@ -148,7 +173,15 @@
         "The three-point arc is drawn from a point 1.575 m in from the end line, with straight lines 0.9 m from each side line running to the arc.",
         "NBA and school courts differ from the FIBA size, so this guide shows FIBA only.",
         "For the 3x3 court the 2 m clear space is applied for planning; check the 3x3 rules for competition requirements."
-      ]
+      ],
+      "parts": {
+        "lane": "Restricted area (lane)",
+        "threePoint": "Three-point arc",
+        "circle": "Centre circle",
+        "semicircle": "Free-throw semicircle",
+        "rimHeight": "Rim height: {v1} above the floor",
+        "twoPoint": "Two-point arc radius: {v1} (not drawn)"
+      }
     },
     "volleyball": {
       "name": "Volleyball",
@@ -166,7 +199,7 @@
       },
       "marks": {
         "attackLine": "Attack line",
-        "net": "Net, in the middle of the court"
+        "net": "Net"
       },
       "margins": {
         "minimum": "Smallest clear space (free zone): 3 m on all sides",
@@ -183,7 +216,13 @@
         "The clear-space figures come from the Western Australia guide, which cites the 2013-2016 Volleyball Australia rules. Check the current FIVB or national rules before you build a court.",
         "A free zone of at least 7 m of clear height above the court is listed.",
         "The attack line is measured to the back edge of the line from the centre line, so the front zone is 3 m deep on each side."
-      ]
+      ],
+      "parts": {
+        "netHeights": "Net height: {v1} (men), {v2} (women)"
+      },
+      "refs": {
+        "net": "from the net"
+      }
     },
     "football": {
       "name": "Football (soccer)",
@@ -226,7 +265,17 @@
         "Upright advertising must be at least 1 m from the touchlines and the goal net.",
         "Smaller games (5-a-side, 7-a-side, 9-a-side, futsal) use different sizes set by the league or federation, so they are not listed here. Follow your league's rules for those.",
         "Goals must be firmly secured to the ground. The line width may be at most 12 cm."
-      ]
+      ],
+      "parts": {
+        "goalArea": "Goal area",
+        "penaltyArea": "Penalty area",
+        "penaltyMark": "Penalty mark",
+        "centreSpot": "Centre spot",
+        "centreCircle": "Centre circle",
+        "penaltyArc": "Penalty arc",
+        "cornerArc": "Corner arc",
+        "goal": "Goal: {v1} wide inside the posts, crossbar {v2} high"
+      }
     },
     "cricket": {
       "name": "Cricket",
@@ -246,7 +295,10 @@
         "fieldingCircle": "Fielding circle radius from each wicket (limited-overs)",
         "pitchLength": "Pitch length"
       },
-      "marks": {},
+      "marks": {
+        "centreLine": "Centre line of the pitch",
+        "fieldingStraight": "Fielding circle (straight part)"
+      },
       "margins": {
         "none": "No clear space listed for a pitch alone",
         "fence": "A gap of at least 3 yards between the boundary rope and fencing or advertising boards"
@@ -263,7 +315,12 @@
         "Boundary limits are those for men's Tests and ODIs (no more than 90 yards and no less than 65 yards from the centre of the pitch) and for women's international matches (60 to 70 yards). Local grounds, schools and club cricket use their own limits.",
         "The 30-yard fielding circle applies in limited-overs matches.",
         "Creases are not drawn in this guide because we could not confirm their measurements from a primary source."
-      ]
+      ],
+      "parts": {
+        "boundary": "Boundary",
+        "pitch": "Pitch",
+        "fieldingArc": "Fielding circle (30 yards)"
+      }
     },
     "hockey": {
       "name": "Hockey (field)",
@@ -300,7 +357,14 @@
         "The 23 m line is 22.90 m from the back line. The shooting circle is drawn from two quadrant arcs of 14.63 m radius centred on the goalposts, joined by a 3.66 m straight line.",
         "The FIH run-off is a minimum. The last metre can be a different surface.",
         "These sizes come from a summary of the FIH rules (see sources). Check the current FIH Rules of Hockey for competitions."
-      ]
+      ],
+      "parts": {
+        "circleArc": "Shooting circle",
+        "goal": "Goal",
+        "penaltySpot": "Penalty spot",
+        "goalHeight": "Goal height: {v1}",
+        "lineWidth": "Lines are {v1} wide"
+      }
     },
     "kabaddi": {
       "name": "Kabaddi",
@@ -338,7 +402,11 @@
         "The IKF rules (version 2.1.0) are the source for these sizes. The 30-second raid limit is from the standard rules and is not stated in the document we checked.",
         "Check the current rules of the Amateur Kabaddi Federation of India or your state association for national competitions.",
         "The 1 m lobbies on both sides become part of the court after a touch or struggle starts."
-      ]
+      ],
+      "parts": {},
+      "refs": {
+        "net": "from the midline"
+      }
     },
     "khoKho": {
       "name": "Kho Kho",
@@ -368,7 +436,12 @@
         "Only the outer size is drawn. The positions of the cross lanes and poles are not shown because the source we checked gave the number and width, not the spacing.",
         "This guide has not confirmed whether the 9-a-side or 7-a-side format applies in your league; the World Cup uses 7-a-side.",
         "Check the Kho Kho Federation of India rulebook for competitions."
-      ]
+      ],
+      "parts": {
+        "centralLane": "Central lane is {v1} wide",
+        "crossLane": "Each of the 8 cross lanes is {v1} wide",
+        "poleHeight": "Poles are {v1} high (lower value of 120-125 cm)"
+      }
     },
     "tableTennis": {
       "name": "Table tennis",
@@ -387,7 +460,10 @@
         "tableHeight": "Table height above the floor",
         "netHeight": "Net height above the playing surface"
       },
-      "marks": {},
+      "marks": {
+        "tableCentre": "Centre line of the table",
+        "net": "Net"
+      },
       "margins": {
         "none": "Competition space shown; no extra clear space listed"
       },
@@ -401,7 +477,15 @@
         "The 14 m x 7 m x 5 m space is the competition minimum. Home and club tables need much less; the rules do not set a recreational size, so leave enough room to step back from the table.",
         "The reduced sizes are those allowed for masters and wheelchair events.",
         "The table is drawn at the centre of the space."
-      ]
+      ],
+      "parts": {
+        "table": "Table",
+        "netHeight": "Net height: {v1} above the playing surface",
+        "tableHeight": "Table height: {v1} above the floor"
+      },
+      "refs": {
+        "net": "from the net"
+      }
     },
     "squash": {
       "name": "Squash",
@@ -433,7 +517,13 @@
         "The short line and half-court line are not drawn because the two sources we checked differed slightly on the short line position (4.26 m from the back wall in one, 5.44 m from the front wall in the other).",
         "Heights are measured on the walls and are not floor distances.",
         "A squash court needs a ceiling above the front wall and the proper wall and floor finish; ask the Squash Rackets Association or WSF for the full specification before you build."
-      ]
+      ],
+      "parts": {
+        "frontWall": "Front wall: top line {v1} high",
+        "backWall": "Back wall: top line {v1} high",
+        "tin": "Tin: {v1} high",
+        "serviceLine": "Service line on the front wall: {v1} high"
+      }
     }
   },
   "ui": {
@@ -491,7 +581,11 @@
     "fromEndA": "from end A",
     "fromEndB": "from end B",
     "fromSideA": "from side A",
-    "fromSideB": "from side B"
+    "fromSideB": "from side B",
+    "refEnd": "from the end line",
+    "refNet": "from the centre line",
+    "refSide": "from the side line",
+    "radiusWord": "Radius"
   },
   "marking": {
     "heading": "How to mark this court",

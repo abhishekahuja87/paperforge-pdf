@@ -453,3 +453,11 @@ Checked in the sandbox: the set-out drawing (page 2 of the saved file and under 
 - [ ] Full set-out drawing: light grey figures along the top (from end A), bottom (from end B), left (from side A) and right (from side B) for every line, rectangle edge, circle centre and spot; "R ..." radius on every circle and arc; rectangle sizes inside penalty and goal areas. Corner captions say which side is which.
 - [ ] Saved PNG and PDF show the same grey figures. Zoom into the football image: every figure is readable; nothing is hidden behind the orange numbers.
 - [ ] Spot check football (105 x 68 m): top chain reads 5.5, 11, 16.5, 52.5, 88.5, 94, 99.5 m; left chain reads 13.84, 24.84, 34, 43.16, 54.16 m. Badminton: 0.76, 4.72, 8.68, 12.64 m along; 0.46, 3.05, 5.64 m across.
+
+### Sports Court Size Guide: names and details written on the drawing
+
+Checked in the sandbox: all 27 versions have no unnamed lines or shapes; pages render as valid SVG. `tsc` on components, `vite build`, the PDF step and styled layout were not run. Football and badminton are crowded and use numbered badges.
+
+- [ ] Volleyball: the drawing itself says "Attack line - 3 m (9'10.1") from the net", "Net", net heights; no need to read any list.
+- [ ] Every sport: each line, circle, arc, box and spot has its name and size on or beside it (grey figures for distances). Any numbered badge has its line under the drawing.
+- [ ] Saved PNG/PDF: page 1 is the labelled drawing, page 2 notes and sources, then the set-out pages. Note anything overlapping or unreadable (sport, version).
