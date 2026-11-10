@@ -532,3 +532,11 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Tablet width: three columns of rows; opening a category lists tools in two columns.
 - [ ] Desktop (1024px and wider): every category is open as a column; tapping the heading does nothing.
 - [ ] Every tool link in the footer still opens the right tool. Resize from phone to desktop and back: no broken state.
+
+### Slim footer
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] Phone: footer is about three lines: links (two lines at most), a closed "All tools (N)" row, and a brand/copyright line. Tap All tools: category rows appear; open one and its tools list; all links work. Tap again to close.
+- [ ] Desktop: the same closed row; opening it shows seven open columns.
+- [ ] Privacy, Terms, Contact, About, Guides, What's new and the editorial policy links are visible without opening anything.
