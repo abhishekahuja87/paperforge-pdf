@@ -71,19 +71,23 @@ const isOuter = (prim: Prim, variant: Variant): boolean => {
   return prim.kind === 'rect' && near(prim.x0, 0) && near(prim.y0, 0) && near(prim.x1, L) && near(prim.y1, W);
 };
 
+/** A point on an arc, t = 0 at its start and 1 at its end. */
+export function arcPoint(prim: Extract<Prim, { kind: 'arc' }>, t: number): [number, number] {
+  const tau = 2 * Math.PI;
+  const a1 = Math.atan2(prim.y1 - prim.cy, prim.x1 - prim.cx);
+  const a2 = Math.atan2(prim.y2 - prim.cy, prim.x2 - prim.cx);
+  const turn = prim.sweep === 1 ? (((a2 - a1) % tau) + tau) % tau : -((((a1 - a2) % tau) + tau) % tau);
+  const angle = a1 + turn * t;
+  return [prim.cx + prim.r * Math.cos(angle), prim.cy + prim.r * Math.sin(angle)];
+}
+
 /** Where a number can sit on the drawing so it points at this item. */
 export function anchor(prim: Prim): [number, number] {
   switch (prim.kind) {
     case 'rect': return [(prim.x0 + prim.x1) / 2, prim.y0];
     case 'line': return [(prim.x1 + prim.x2) / 2, (prim.y1 + prim.y2) / 2];
     case 'circle': return prim.r <= 0.3 ? [prim.cx + 0.9, prim.cy - 0.9] : [prim.cx, prim.cy - prim.r];
-    case 'arc': {
-      const a1 = Math.atan2(prim.y1 - prim.cy, prim.x1 - prim.cx);
-      const a2 = Math.atan2(prim.y2 - prim.cy, prim.x2 - prim.cx);
-      const turn = prim.sweep === 1 ? (((a2 - a1) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI) : -((((a1 - a2) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI));
-      const mid = a1 + turn / 2;
-      return [prim.cx + prim.r * Math.cos(mid), prim.cy + prim.r * Math.sin(mid)];
-    }
+    case 'arc': return arcPoint(prim, 0.5);
   }
 }
 

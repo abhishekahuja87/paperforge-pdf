@@ -487,12 +487,16 @@
     "number": "No.",
     "saveHint": "The saved file has the drawing with every measurement, the key lines, notes, sources and date, followed by pages that tell you how to mark the whole court: a numbered drawing and every line, circle, arc and spot with its exact position.",
     "setOutShow": "Full set-out: every line with its position",
-    "setOutHint": "Orange numbers on the second drawing match these steps. All positions are measured from corner A."
+    "setOutHint": "Light grey figures on the drawing are the distance of every line, centre and spot from end A (top), end B (bottom), side A (left) and side B (right), with the radius of every circle and arc.",
+    "fromEndA": "from end A",
+    "fromEndB": "from end B",
+    "fromSideA": "from side A",
+    "fromSideB": "from side B"
   },
   "marking": {
     "heading": "How to mark this court",
     "intro": "Follow these steps to mark this court on the ground. Every position is measured in metres from corner A, with feet and inches in brackets. Corners A, B, C and D are shown on the drawing: A is the top-left corner, B the top-right, C the bottom-right and D the bottom-left. 'Along' means along the long side from end A towards end B. 'Across' means from side A (the top) towards side B (the bottom).",
-    "setOutDiagram": "Set-out drawing: orange numbers match the steps below, the dashed grey lines are the two diagonals used to check the corners, and the dotted box is the clear space.",
+    "setOutDiagram": "Set-out drawing: the light grey figures give the distance of every line, centre and spot from end A (top), end B (bottom), side A (left) and side B (right), and the radius of every circle and arc. Orange numbers match the steps below, the dashed grey lines are the two diagonals used to check the corners, and the dotted box is the clear space.",
     "prepTitle": "Before you start",
     "prep": [
       "You need: a long measuring tape (30 m or more, or two tapes), pegs or nails, string line, chalk or line-marking paint or tape for the surface, a notebook, and a helper to hold the other end of the tape.",

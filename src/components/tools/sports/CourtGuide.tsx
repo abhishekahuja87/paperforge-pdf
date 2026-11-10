@@ -120,7 +120,7 @@ const CourtGuide: React.FC = () => {
 
           <details className="mt-5 rounded-xl border border-slate-200 p-3">
             <summary className="cursor-pointer text-sm font-semibold text-slate-900">{ui.setOutShow}</summary>
-            <div className="mt-3"><CourtSetOut variant={variant} margin={margin} marking={marking} marks={copy.marks} label={`${copy.name}: ${marking.heading}`} clearCaption={ui.clearCaption} hint={ui.setOutHint} /></div>
+            <div className="mt-3"><CourtSetOut variant={variant} margin={margin} marking={marking} marks={copy.marks} label={`${copy.name}: ${marking.heading}`} clearCaption={ui.clearCaption} hint={ui.setOutHint} captions={{ endA: ui.fromEndA, endB: ui.fromEndB, sideA: ui.fromSideA, sideB: ui.fromSideB }} /></div>
           </details>
 
           <h3 className="mt-5 text-sm font-semibold text-slate-900">{ui.howTo}</h3>
