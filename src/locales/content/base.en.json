@@ -3042,6 +3042,12 @@
           ]
         },
         {
+          "heading": "Interest after tax",
+          "paragraphs": [
+            "Recurring deposit interest is taxable like FD interest. Enter your tax rate to see the interest and the maturity amount you keep after tax. The figure is an estimate: your bank may deduct TDS on the way, and the final tax depends on your total income."
+          ]
+        },
+        {
           "heading": "Privacy",
           "paragraphs": [
             "The calculation runs in your browser and nothing you enter is uploaded to MyDailyUtils."
@@ -4163,6 +4169,13 @@
           "heading": "Before you rely on it",
           "paragraphs": [
             "Banks may round interest, use day-count rules, or pay interest out rather than reinvest it. Interest is taxable and TDS may apply. Check your bank's terms for the exact figure."
+          ]
+        },
+        {
+          "heading": "Tax and TDS on FD interest",
+          "paragraphs": [
+            "FD interest is added to your income and taxed at your slab rate. Enter that rate and the calculator shows the tax, the maturity amount after tax and the yearly yield after tax, which is often what you should compare with other savings options.",
+            "Banks usually deduct TDS when the interest in a year is above a limit: ₹50,000 for most people and ₹1,00,000 for senior citizens, at the time of writing. The calculator warns you when your yearly interest is above the limit for the depositor type you choose. TDS is not an extra tax: it is credited against your final tax when you file your return. Limits and rules change, so confirm them with your bank."
           ]
         },
         {

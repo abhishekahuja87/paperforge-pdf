@@ -1,12 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SimpleTable, SplitBar, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { formatInr, parseAmount } from '../../../lib/finance/format';
+import { afterTaxInterest } from '../../../lib/finance/calculators';
 import { recurringDeposit } from '../../../lib/utilities/interest';
 
 export const RdCalculator: React.FC = () => {
   const [monthly, setMonthly] = useState('5000');
   const [rate, setRate] = useState('6.5');
   const [months, setMonths] = useState('60');
+  const [taxRate, setTaxRate] = useState('0');
 
   const result = useMemo(() => {
     const m = parseAmount(monthly);
@@ -28,6 +30,7 @@ export const RdCalculator: React.FC = () => {
       <InputGrid>
         <NumberField label="Monthly deposit" prefix="₹" value={monthly} onChange={setMonthly} words />
         <NumberField label="Interest rate (per year)" suffix="%" value={rate} onChange={setRate} />
+        <NumberField label="Your tax rate on interest (optional)" suffix="%" value={taxRate} onChange={setTaxRate} hint="Your slab rate, such as 5, 20 or 30. Leave 0 to ignore tax" />
         <NumberField label="Period in months" value={months} onChange={setMonths} step="1" hint="Banks usually offer 6 to 120 months" />
       </InputGrid>
       {result ? (
@@ -37,6 +40,8 @@ export const RdCalculator: React.FC = () => {
             <Stat label="Interest earned" value={formatInr(result.interest)} tone="good" />
             <Stat label="Total deposited" value={formatInr(result.deposited)} />
             <Stat label="Interest as share of maturity" value={`${((result.interest / result.total) * 100).toFixed(1)}%`} />
+            {parseAmount(taxRate) > 0 && <Stat label="Interest after tax" value={formatInr(afterTaxInterest(result.interest, parseAmount(taxRate)).net)} tone="good" />}
+            {parseAmount(taxRate) > 0 && <Stat label="Maturity after tax" value={formatInr(result.deposited + afterTaxInterest(result.interest, parseAmount(taxRate)).net)} tone="strong" />}
           </StatGrid>
           <SplitBar title="Maturity: your deposits and interest" format={formatInr} parts={[
             { label: 'Deposited', value: result.deposited, className: 'bg-slate-400' },

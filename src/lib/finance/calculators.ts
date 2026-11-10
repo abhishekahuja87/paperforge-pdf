@@ -58,6 +58,15 @@ export function sipForTarget(target: number, annualRate: number, years: number, 
   return perRupee > 0 ? target / perRupee : 0;
 }
 
+/** Yearly bank interest above which banks normally deduct TDS (Section 194A, from 1 April 2025). Banks may differ; check yours. */
+export const TDS_LIMIT = { regular: 50000, senior: 100000 } as const;
+
+/** Interest left after tax at a flat rate, and the tax paid. */
+export function afterTaxInterest(interest: number, taxPercent: number) {
+  const tax = Math.max(0, interest) * (Math.min(Math.max(taxPercent, 0), 100) / 100);
+  return { tax, net: interest - tax };
+}
+
 export type Compounding = 'monthly' | 'quarterly' | 'halfYearly' | 'yearly';
 const PERIODS_PER_YEAR: Record<Compounding, number> = { monthly: 12, quarterly: 4, halfYearly: 2, yearly: 1 };
 

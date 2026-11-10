@@ -18,6 +18,20 @@ export interface SiteUpdate {
 
 export const UPDATES: SiteUpdate[] = [
   {
+    date: '2026-11-13',
+    path: '/fd-calculator',
+    tool: 'FD Calculator',
+    title: 'Interest after tax and a TDS warning',
+    summary: 'Enter your tax rate to see the tax on the interest, the maturity after tax and the real yield. A note appears when yearly interest is above the usual TDS limit.',
+  },
+  {
+    date: '2026-11-13',
+    path: '/rd-calculator',
+    tool: 'RD Calculator',
+    title: 'Interest and maturity after tax',
+    summary: 'Enter your tax rate on interest to see what you keep after tax.',
+  },
+  {
     date: '2026-11-12',
     path: '/merge-pdf',
     tool: 'Merge PDF',
