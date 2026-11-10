@@ -1,9 +1,11 @@
 import type { Margin, Variant } from './courtData';
 import { spaceNeeded } from './fit';
+import { annotation, type ChainCaptions } from './annotate';
+import { xml } from './xml';
 import { anchor, type Step } from './marking';
 import { formatLength } from './units';
 
-export const xml = (value: string): string => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+export { xml };
 const num = (value: number): string => Number(value.toFixed(3)).toString();
 
 export interface Diagram {
@@ -25,6 +27,8 @@ export interface DiagramOptions {
   diagonals?: boolean;
   /** Hide the green key-line points (the set-out drawing has its own numbers). */
   hideKeyPoints?: boolean;
+  /** Write the distance of every line, centre and spot from both ends and both sides on the drawing, in light grey. */
+  annotate?: ChainCaptions;
 }
 
 export function buildDiagram(variant: Variant, margin: Margin, clearCaption: string, options: DiagramOptions = {}): Diagram {
@@ -40,12 +44,14 @@ export function buildDiagram(variant: Variant, margin: Margin, clearCaption: str
   const f = Math.max(needLong, L) / 34;
   const gap = f * 1.7;
   const r = f * 0.62;
-  const dimY = by0 - gap;
-  const dimX = bx1 + gap;
-  const markY = by1 + f * 1.1;
+  // With measurements written on the drawing, every side gets a zone for the labels.
+  const zone = options.annotate ? f * 6.8 : 0;
+  const dimY = by0 - gap - zone;
+  const dimX = bx1 + gap + zone;
+  const markY = by1 + f * 1.1 + zone;
   const markX = bx0 - f * 1.1;
 
-  const box = { x: bx0 - f * 2.2, y: dimY - f * 1.8, w: dimX + f * 2.8 - (bx0 - f * 2.2), h: markY + f * 3.4 - (dimY - f * 1.8) };
+  const box = { x: bx0 - f * 2.2 - zone, y: dimY - f * 1.8, w: dimX + f * 2.8 - (bx0 - f * 2.2 - zone), h: markY + f * 3.4 - (dimY - f * 1.8) };
 
   const line = num(f * 0.13);
   const thin = num(f * 0.07);
@@ -75,6 +81,7 @@ export function buildDiagram(variant: Variant, margin: Margin, clearCaption: str
     else body += `<path d="M0 ${num(mark.m)}H${num(markX + r)}" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.3)}" fill="none"/>${marker(markX, mark.m, i + 1)}`;
   });
 
+  if (options.annotate) body += annotation(variant, f, { bx0, by0, bx1, by1 }, options.annotate);
   const label = (x: number, y: number, text: string, fill: string) => `<text x="${num(x)}" y="${num(y)}" text-anchor="middle" font-size="${num(f * 0.95)}" font-weight="700" fill="${fill}" font-family="Arial, Helvetica, sans-serif">${xml(text)}</text>`;
   if (!variant.round) {
     if (options.diagonals) body += `<path d="M0 0L${num(L)} ${num(W)}M${num(L)} 0L0 ${num(W)}" fill="none" stroke="#94a3b8" stroke-width="${thin}" stroke-dasharray="${dash(0.3, 0.45)}"/>`;

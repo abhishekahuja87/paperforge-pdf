@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import type { Margin, Variant } from '../../../lib/sports/courtData';
 import { buildDiagram, diagramSvg } from '../../../lib/sports/diagram';
+import type { ChainCaptions } from '../../../lib/sports/annotate';
 import { markingSteps, netPositions, type MarkingText } from '../../../lib/sports/marking';
 
 /** The full set-out guide on the page: a numbered drawing and every line, circle, arc and spot with its exact position. */
-const CourtSetOut: React.FC<{ variant: Variant; margin: Margin; marking: MarkingText; marks: Record<string, string>; label: string; clearCaption: string; hint: string }> = ({ variant, margin, marking, marks, label, clearCaption, hint }) => {
+const CourtSetOut: React.FC<{ variant: Variant; margin: Margin; marking: MarkingText; marks: Record<string, string>; label: string; clearCaption: string; hint: string; captions: ChainCaptions }> = ({ variant, margin, marking, marks, label, clearCaption, hint, captions }) => {
   const steps = useMemo(() => markingSteps(variant, marking, (id) => marks[id] ?? id, netPositions(variant)), [variant, marking, marks]);
-  const svg = useMemo(() => diagramSvg(buildDiagram(variant, margin, clearCaption, { steps, diagonals: true, hideKeyPoints: true }), label, 'class="mx-auto block h-auto max-h-[26rem] w-full rounded-xl border border-slate-200"'), [variant, margin, steps, label, clearCaption]);
+  const svg = useMemo(() => diagramSvg(buildDiagram(variant, margin, clearCaption, { steps, diagonals: true, hideKeyPoints: true, annotate: captions }), label, 'class="mx-auto block h-auto max-h-[26rem] w-full rounded-xl border border-slate-200"'), [variant, margin, steps, label, clearCaption, captions]);
   return (
     <div>
       <p className="text-xs text-slate-600">{marking.intro}</p>

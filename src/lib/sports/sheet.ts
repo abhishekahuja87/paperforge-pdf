@@ -111,7 +111,7 @@ export function buildSetOutPages(variant: Variant, margin: Margin, text: SheetTe
   const { ui, marking } = text;
   const [needLong, needShort] = spaceNeeded(variant, margin, 0);
   const steps = markingSteps(variant, marking, (id) => text.marks[id] ?? id, netPositions(variant));
-  const diagram = buildDiagram(variant, margin, ui.clearCaption, { steps, diagonals: true, hideKeyPoints: true });
+  const diagram = buildDiagram(variant, margin, ui.clearCaption, { steps, diagonals: true, hideKeyPoints: true, annotate: { endA: ui.fromEndA, endB: ui.fromEndB, sideA: ui.fromSideA, sideB: ui.fromSideB } });
   const { x, y, w, h } = diagram.box;
   const pages: string[][] = [];
   let cur: string[] = [];
@@ -136,7 +136,7 @@ export function buildSetOutPages(variant: Variant, margin: Margin, text: SheetTe
   startPage(true);
   paragraph(wrap(marking.intro, 140), body);
   cy += 2;
-  const diagH = Math.min(105, 140 * (h / w));
+  const diagH = Math.min(150, (PAGE_W - 2 * MX) * (h / w));
   room(diagH + 6);
   cur.push(`<svg x="${MX}" y="${cy}" width="${PAGE_W - 2 * MX}" height="${diagH}" viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid meet">${diagram.body}</svg>`);
   cy += diagH + 2;

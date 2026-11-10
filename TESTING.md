@@ -445,3 +445,11 @@ Checked in the sandbox: all 27 versions produce 2 to 4 valid A4 pages; the set-o
 - [ ] Save as image (PNG): one tall image containing every page; zoom in on a phone and the text is readable. Save as PDF: 3 or 4 A4 pages (football 4), nothing cut off, page numbers "n / total".
 - [ ] Hand check against a tape or a map: badminton (13.4 x 6.1 m; singles line 0.46 m from side A and from side B; short service line 1.98 m from the net), football common (105 x 68 m; penalty mark 11 m; penalty area 16.5 m x 40.32 m; centre circle 9.15 m), hockey (23 m lines 22.9 m from each end; shooting circle radius 14.63 m).
 - [ ] The page says that line width inside or outside the sizes depends on the sport's rules, and tells you to confirm with the rulebook.
+
+### Sports Court Size Guide: measurements on the drawing
+
+Checked in the sandbox: the set-out drawing (page 2 of the saved file and under Full set-out) carries the distances itself; for football, hockey, badminton, basketball and kabaddi the grey figures are readable and the chains do not collide. `tsc` and the PDF step were not run.
+
+- [ ] Full set-out drawing: light grey figures along the top (from end A), bottom (from end B), left (from side A) and right (from side B) for every line, rectangle edge, circle centre and spot; "R ..." radius on every circle and arc; rectangle sizes inside penalty and goal areas. Corner captions say which side is which.
+- [ ] Saved PNG and PDF show the same grey figures. Zoom into the football image: every figure is readable; nothing is hidden behind the orange numbers.
+- [ ] Spot check football (105 x 68 m): top chain reads 5.5, 11, 16.5, 52.5, 88.5, 94, 99.5 m; left chain reads 13.84, 24.84, 34, 43.16, 54.16 m. Badminton: 0.76, 4.72, 8.68, 12.64 m along; 0.46, 3.05, 5.64 m across.
