@@ -12,6 +12,7 @@ import { SHOPS_COMPONENTS } from './shops/registry';
 import { HOUSEHOLD_COMPONENTS } from './household/registry';
 import { SPORTS_COMPONENTS } from './sports/registry';
 import { FITNESS_COMPONENTS } from './fitness/registry';
+import { EXPLAINER_COMPONENTS } from './explainers/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -31,4 +32,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...HOUSEHOLD_COMPONENTS,
   ...SPORTS_COMPONENTS,
   ...FITNESS_COMPONENTS,
+  ...EXPLAINER_COMPONENTS,
 };

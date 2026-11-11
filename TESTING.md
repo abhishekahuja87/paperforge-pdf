@@ -742,3 +742,12 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Pictures load on the live site (the host must not rewrite /exercises/*.webp to the home page).
 - [ ] Find it from the home page under Everyday, in the footer list and by searching "gym exercises".
 - [ ] Report: do the pictures look good enough, is the fade too fast or too slow, which exercises are missing?
+### Solar System Explorer (trial)
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /solar-system-explorer: enter a birth date and weight; each planet row shows age, next birthday date and weight. Check: Mercury age is about 4.15 times your Earth age; 60 kg on Mars is about 22.6 kg; a future date shows the warning.
+- [ ] kg / lb buttons relabel the result (the number you typed is taken as that unit).
+- [ ] Compare two worlds: pick Jupiter and Earth: the sentence says about 11.2 times wider and about 1,410 Earths by volume; picking the same world twice shows a friendly message.
+- [ ] The planets-to-scale picture fits the phone width with no sideways scroll; labels do not overlap. The fact table scrolls sideways inside its own box only.
+- [ ] Found from the home page under Everyday and by searching "age on mars".

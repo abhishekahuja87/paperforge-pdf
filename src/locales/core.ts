@@ -12,13 +12,14 @@ import shops from './packs/shops.catalog.en.json';
 import household from './packs/household.catalog.en.json';
 import sports from './packs/sports.catalog.en.json';
 import fitness from './packs/fitness.catalog.en.json';
+import explainers from './packs/explainers.catalog.en.json';
 
 /**
  * The English text every page needs: the main file (en.json) plus each pack's tool catalog (title and short
  * description). The long per-tool text (guide steps, FAQs, articles) is in ./content and loads on demand.
  * To add a pack: create ./packs/<name>.catalog.en.json and add it to CATALOGS here.
  */
-const CATALOGS = [careers, students, freelancers, stationery, planners, qr, vcard, flashcards, privacy, shops, household, sports, fitness];
+const CATALOGS = [careers, students, freelancers, stationery, planners, qr, vcard, flashcards, privacy, shops, household, sports, fitness, explainers];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
 type Catalog = (typeof base)['toolCatalog'] & UnionToIntersection<(typeof CATALOGS)[number]['toolCatalog']>;

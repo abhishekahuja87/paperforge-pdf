@@ -254,6 +254,10 @@ export const UPDATES: SiteUpdate[] = [
     tool: 'Exercise Library',
     title: 'New: Exercise Library with moving pictures',
     summary: 'Browse about 140 gym and home exercises by chest, back, shoulders, arms, legs, core, cardio and stretching, with pictures that fade between the start and end position, steps, and filters for equipment and level.',
+    path: '/solar-system-explorer',
+    tool: 'Solar System Explorer',
+    title: 'New: Solar System Explorer',
+    summary: 'Find your age and weight on every planet, compare the size of any two worlds, and see the planets drawn to scale with key facts like day length, year length and gravity.',
   },
 ];
 
