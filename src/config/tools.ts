@@ -25,7 +25,11 @@ export type ToolIconName =
   | 'presentation'
   | 'git-merge'
   | 'receipt'
-  | 'calculator';
+  | 'calculator'
+  | 'dumbbell'
+  | 'contact'
+  | 'briefcase'
+  | 'globe';
 
 export type ToolTier = 'popular' | 'workspace' | 'more' | 'advanced';
 

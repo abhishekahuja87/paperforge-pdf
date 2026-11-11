@@ -248,6 +248,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Random sentences, words and characters',
     summary: 'The text generator now makes random readable sentences, random words and random characters as well as lorem ipsum, and is easier to find when you search for a random text generator.',
   },
+  {
+    date: '2026-11-11',
+    path: '/exercise-library',
+    tool: 'Exercise Library',
+    title: 'New: Exercise Library with moving pictures',
+    summary: 'Browse about 140 gym and home exercises by chest, back, shoulders, arms, legs, core, cardio and stretching, with pictures that fade between the start and end position, steps, and filters for equipment and level.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
