@@ -722,3 +722,11 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Print or save as PDF with "Background graphics" on: colours and gradients appear and the text is selectable. Turn it off to see what plain printing looks like.
 - [ ] "Remember my resume": reload the page and the chosen template returns. An old saved resume (Classic or Modern) still opens.
 - [ ] The page has one h1 (the tool title); the gallery pictures add no extra headings.
+### Random text generator
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /lorem-ipsum-generator: four buttons (Lorem ipsum, Random sentences, Random words, Random characters); each shows the right options and the output changes with them.
+- [ ] Random sentences read as English, with capital letters and full stops; HTML mode wraps each paragraph in p tags.
+- [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
+- [ ] Search the home page for "random text generator" and "random word generator": the tool is found.

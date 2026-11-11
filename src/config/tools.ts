@@ -781,14 +781,14 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'lorem-ipsum-generator',
-    title: "Lorem Ipsum Generator",
-    description: "Generate placeholder text for designs and mock-ups.",
+    title: "Lorem Ipsum and Random Text Generator",
+    description: "Generate lorem ipsum, random sentences, random words or random characters.",
     category: 'text',
     path: '/lorem-ipsum-generator',
     icon: 'type',
     isAvailable: true,
     tier: 'advanced',
-    keywords: ['lorem ipsum', 'dummy text', 'placeholder text', 'filler text', 'random text', 'text generator', 'mockup'],
+    keywords: ['lorem ipsum', 'dummy text', 'placeholder text', 'filler text', 'random text generator', 'text generator', 'random word generator', 'random sentence generator', 'random string generator', 'random characters', 'mockup'],
   },
   {
     id: 'color-converter',

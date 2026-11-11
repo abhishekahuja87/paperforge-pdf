@@ -241,6 +241,13 @@ export const UPDATES: SiteUpdate[] = [
     title: '13 resume templates',
     summary: 'Choose from 13 templates in a picture gallery: plain and black-and-white, colour, horizontal and vertical gradients, banners, a timeline and two side-column designs. Colours follow an accent you can change.',
   },
+  {
+    date: '2026-11-11',
+    path: '/lorem-ipsum-generator',
+    tool: 'Lorem Ipsum and Random Text Generator',
+    title: 'Random sentences, words and characters',
+    summary: 'The text generator now makes random readable sentences, random words and random characters as well as lorem ipsum, and is easier to find when you search for a random text generator.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
