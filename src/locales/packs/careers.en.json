@@ -6,8 +6,8 @@
         "Fill in your name, contact details, a short summary, your jobs, education, skills and any projects. Load the example first if you want to see how a finished resume looks."
       ],
       [
-        "Choose a layout",
-        "Pick the Classic or Modern layout, the text size and the paper size (A4 or US Letter). Both layouts are single column with plain headings."
+        "Choose a template",
+        "Pick one of the 13 templates from the gallery: plain, colour, gradient banners or a side column. Then set the accent colour, text size and paper size (A4 or US Letter). The preview below updates as you choose."
       ],
       [
         "Fix the checklist items",
@@ -66,7 +66,7 @@
         ],
         [
           "Will the PDF work with applicant tracking systems?",
-          "The layout is a single column with standard headings such as Experience, Education and Skills, real text rather than images, and no tables or icons. That is what resume parsers read most reliably. No tool can promise how a particular system will treat your file, so keep the wording simple and follow the instructions of each employer."
+          "Every template uses real text rather than images, standard headings such as Experience, Education and Skills, and no tables or icons. The single-column templates (all except Ocean column and Mist column) are what resume parsers read most reliably. The two-column templates look striking for people to read, but some systems read columns in the wrong order, so use a single-column template for online portals. No tool can promise how a particular system will treat your file, so keep the wording simple and follow the instructions of each employer."
         ],
         [
           "How do I get a PDF instead of printing on paper?",
@@ -79,6 +79,14 @@
         [
           "Can I keep my resume and edit it later?",
           "Yes, in two ways. Tick \"Remember my resume in this browser\" to keep it on this device only, or press \"Save data file\" to download your information and open it again later with \"Open data file\". Do not use the browser option on a shared computer."
+        ],
+        [
+          "Which template should I choose?",
+          "For online job portals and large companies, pick Classic, Minimal, Modern, Executive or Developer, which are plain single-column designs. For a recruiter or a person reading your PDF directly, the colour templates such as Banner, Sunrise, Timeline or Violet wave add personality, and the two column templates (Ocean column, Mist column) work best for one-page resumes. Colour templates let you change the accent colour; gradients are built from it."
+        ],
+        [
+          "Why does my coloured PDF print without colour?",
+          "Some browsers leave out background colours when printing. In the print window turn on \"Background graphics\" (Chrome and Edge) or choose \"Print backgrounds\" (Firefox and Safari). The builder asks the browser to keep colours, but the setting in the print window has the final say."
         ],
         [
           "How long should my resume be?",

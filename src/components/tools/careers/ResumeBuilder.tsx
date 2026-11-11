@@ -8,6 +8,8 @@ import {
   type ResumeData, type ResumeEducation, type ResumeExperience, type ResumeProject,
 } from '../../../lib/careers/resume';
 import { PAPER, ResumePreview, type ResumeStyle } from './ResumePreview';
+import { ResumeTemplatePicker } from './ResumeTemplatePicker';
+import { DEFAULT_TEMPLATE, getTemplate, isTemplateId } from '../../../lib/careers/resumeTemplates';
 import { generateFileName } from '../../../lib/pdf/naming';
 
 const STORAGE_KEY = 'mdu.resume.v1';
@@ -55,7 +57,8 @@ function readSaved(): { resume: ResumeData; style: ResumeStyle } | null {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as { resume?: unknown; style?: Partial<ResumeStyle> };
-    const style: ResumeStyle = { template: parsed.style?.template === 'modern' ? 'modern' : 'classic', accent: /^#[0-9a-f]{6}$/i.test(parsed.style?.accent ?? '') ? (parsed.style?.accent as string) : '#1d4ed8', size: parsed.style?.size === 'compact' || parsed.style?.size === 'large' ? parsed.style.size : 'normal', paper: parsed.style?.paper === 'letter' ? 'letter' : 'a4' };
+    const savedTemplate = parsed.style?.template;
+    const style: ResumeStyle = { template: isTemplateId(savedTemplate) ? savedTemplate : DEFAULT_TEMPLATE, accent: /^#[0-9a-f]{6}$/i.test(parsed.style?.accent ?? '') ? (parsed.style?.accent as string) : '#1d4ed8', size: parsed.style?.size === 'compact' || parsed.style?.size === 'large' ? parsed.style.size : 'normal', paper: parsed.style?.paper === 'letter' ? 'letter' : 'a4' };
     return { resume: coerceResume(parsed.resume), style };
   } catch {
     return null;
@@ -64,7 +67,7 @@ function readSaved(): { resume: ResumeData; style: ResumeStyle } | null {
 
 export const ResumeBuilder: React.FC = () => {
   const [resume, setResume] = useState<ResumeData>(emptyResume);
-  const [style, setStyle] = useState<ResumeStyle>({ template: 'classic', accent: '#1d4ed8', size: 'normal', paper: 'a4' });
+  const [style, setStyle] = useState<ResumeStyle>({ template: DEFAULT_TEMPLATE, accent: '#1d4ed8', size: 'normal', paper: 'a4' });
   const [remember, setRemember] = useState(false);
   const [message, setMessage] = useState('');
   const [pages, setPages] = useState(1);
@@ -74,6 +77,7 @@ export const ResumeBuilder: React.FC = () => {
   const importRef = useRef<HTMLInputElement>(null);
   const paper = PAPER[style.paper];
   const check = analyseResume(resume);
+  const template = getTemplate(style.template);
 
   useEffect(() => {
     const saved = readSaved();
@@ -125,7 +129,7 @@ export const ResumeBuilder: React.FC = () => {
   const experience = resume.experience;
   return (
     <section className={calcCard}>
-      <style>{`@media print { body * { visibility: hidden !important; } #resume-print, #resume-print * { visibility: visible !important; } #resume-scale { transform: none !important; height: auto !important; width: auto !important; } #resume-print { position: absolute; left: 0; top: 0; width: 100% !important; min-height: 0 !important; border: 0 !important; box-shadow: none !important; } #resume-print > div { padding: 0 !important; } @page { size: ${style.paper === 'letter' ? 'letter' : 'A4'}; margin: 14mm 16mm; } }`}</style>
+      <style>{`@media print { body * { visibility: hidden !important; } #resume-print, #resume-print * { -webkit-print-color-adjust: exact; print-color-adjust: exact; } #resume-print, #resume-print * { visibility: visible !important; } #resume-scale { transform: none !important; height: auto !important; width: auto !important; } #resume-print { position: absolute; left: 0; top: 0; width: 100% !important; min-height: 0 !important; border: 0 !important; box-shadow: none !important; } #resume-print > div { padding: 0 !important; } @page { size: ${style.paper === 'letter' ? 'letter' : 'A4'}; margin: 14mm 16mm; } }`}</style>
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] print:hidden">
         <div className="space-y-4">
           <div className="flex flex-wrap gap-2">
@@ -219,10 +223,27 @@ export const ResumeBuilder: React.FC = () => {
 
         <div className="space-y-4">
           <div className="space-y-3 rounded-xl bg-slate-50 p-4">
-            <ChoiceButtons label="Layout" value={style.template} onChange={(value) => setStyle((current) => ({ ...current, template: value === 'modern' ? 'modern' : 'classic' }))} options={[{ value: 'classic', label: 'Classic (serif, centred)' }, { value: 'modern', label: 'Modern (sans-serif, colour)' }]} />
+            <div>
+              <h3 className="mb-2 text-xs font-semibold text-slate-700">Template</h3>
+              <ResumeTemplatePicker
+                value={style.template}
+                accent={style.accent}
+                onChange={(next) => setStyle((current) => ({
+                  ...current,
+                  template: next.id,
+                  // Keep a colour the person chose; otherwise take the new template's own colour.
+                  accent: current.accent === getTemplate(current.template).accent ? next.accent : current.accent,
+                }))}
+              />
+              <p className="mt-2 text-[11px] text-slate-500">
+                {template.sidebar
+                  ? 'Two-column designs look striking, but some online application systems read columns in the wrong order. For job portals, pick a Plain or Colour single-column template.'
+                  : 'Single-column templates are the safest for online application systems. All templates keep real, selectable text.'}
+              </p>
+            </div>
             <ChoiceButtons label="Text size" value={style.size} onChange={(value) => setStyle((current) => ({ ...current, size: value === 'compact' || value === 'large' ? value : 'normal' }))} options={[{ value: 'compact', label: 'Compact' }, { value: 'normal', label: 'Normal' }, { value: 'large', label: 'Large' }]} />
             <ChoiceButtons label="Paper" value={style.paper} onChange={(value) => setStyle((current) => ({ ...current, paper: value === 'letter' ? 'letter' : 'a4' }))} options={[{ value: 'a4', label: 'A4' }, { value: 'letter', label: 'US Letter' }]} />
-            {style.template === 'modern' && (
+            {template.colour && (
               <label className="flex items-center gap-3 text-xs font-semibold text-slate-700">Accent colour
                 <input type="color" value={style.accent} onChange={(event) => setStyle((current) => ({ ...current, accent: event.target.value }))} className="h-9 w-12 cursor-pointer rounded border border-slate-200 bg-white p-0.5" />
               </label>
