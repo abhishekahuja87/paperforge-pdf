@@ -1,0 +1,81 @@
+{
+  "guideSteps": {
+    "solar-system-explorer": [
+      [
+        "Enter your details",
+        "Choose your date of birth and type your weight on Earth in kilograms or pounds. The table fills in straight away."
+      ],
+      [
+        "Read your age and weight",
+        "See how old you are in each planet's years, the date of your next birthday there, and what the scales would show on each planet."
+      ],
+      [
+        "Compare two worlds",
+        "Pick any two bodies, from the Sun to the Moon, to see them drawn to the same scale and how many times wider one is."
+      ],
+      [
+        "Look at the whole family",
+        "Scroll to the planets drawn side by side and the fact table for day length, year length, gravity, distance and moons."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "explainersSolarSystem": {
+      "title": "Solar System Explorer",
+      "subtitle": "See your age and weight on every planet, compare any two worlds in size, and view the planets to scale with their key facts. Free, no sign-up.",
+      "faq": [
+        [
+          "How is my age on another planet worked out?",
+          "A planet's year is the time it takes to go once round the Sun. The tool counts the days since you were born and divides them by that planet's year in Earth days, for example 88 days for Mercury and about 687 for Mars. Mercury's short year makes you look much older there, and Neptune's year of about 165 Earth years means most people have not yet had a first birthday."
+        ],
+        [
+          "Why does my weight change but not my mass?",
+          "Mass is the amount of matter in your body and it never changes. Weight is the pull of gravity on that mass. Mars pulls about 38 percent as hard as Earth, so a person who weighs 60 kg on Earth would read about 23 kg on a scale there, while Jupiter's pull is more than twice Earth's. The tool multiplies your Earth weight by the planet's surface gravity and divides by Earth's."
+        ],
+        [
+          "Jupiter and Saturn have no ground. What does surface gravity mean there?",
+          "For the gas giants, the surface is taken as the level in the atmosphere where the pressure equals Earth's sea-level pressure, roughly the cloud tops. You could not stand on it, so the weight shown is what a scale would read if you could float at that level."
+        ],
+        [
+          "Is a day on Venus really longer than its year?",
+          "Yes. Venus turns very slowly, taking about 243 Earth days to spin once on its axis, and it goes round the Sun in about 225 Earth days. It also spins backwards compared with most planets, so the Sun would rise in the west."
+        ],
+        [
+          "Where do the numbers come from, and how accurate are they?",
+          "The figures are rounded from the NASA planetary fact sheets, which are public. Sizes, distances and gravity are averages, because planets are not perfect spheres and orbits are not perfect circles. The number of moons keeps growing as astronomers find new ones, so those entries are shown with a plus sign."
+        ],
+        [
+          "Is my date of birth or weight uploaded?",
+          "No. Everything is worked out in your browser and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "solar-system-explorer": {
+      "sections": [
+        {
+          "heading": "Why a planet's year changes your age",
+          "paragraphs": [
+            "We measure age in Earth years because Earth takes about 365 days to circle the Sun. A planet closer to the Sun has less distance to travel and moves faster, so its year is shorter. Mercury finishes an orbit in 88 days, which means a 30-year-old has lived through about 124 Mercury years.",
+            "Far from the Sun the opposite happens. Jupiter takes almost 12 Earth years to go round once, Saturn about 29 and Neptune about 165. Nobody has lived long enough to see a full Neptune year, so the tool shows your age there as a small decimal."
+          ]
+        },
+        {
+          "heading": "Mass, weight and gravity",
+          "paragraphs": [
+            "Gravity grows with the mass of a planet and falls as you move away from its centre, so a big planet with a wide body can still pull less than you would expect. Saturn is nearly ten times heavier than Earth in mass but spreads that mass over a huge, light body, so its cloud tops pull only slightly less than Earth's surface.",
+            "On the Moon, gravity is about one sixth of Earth's, which is why astronauts could take long, slow bounding steps. On the Sun, a surface pull of 274 m/s squared would make a 60 kg person weigh as much as a small truck."
+          ]
+        },
+        {
+          "heading": "Reading the size comparison",
+          "paragraphs": [
+            "Both circles in the comparison use the same scale, so you can judge the real difference in width. Jupiter is about eleven times wider than Earth, yet more than a thousand Earths would fit inside it by volume, because volume grows with the cube of the width.",
+            "The planet line-up shows how small the rocky planets are next to the gas and ice giants. Mercury is barely a dot beside Jupiter."
+          ]
+        }
+      ]
+    }
+  }
+}

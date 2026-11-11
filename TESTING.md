@@ -742,3 +742,37 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Pictures load on the live site (the host must not rewrite /exercises/*.webp to the home page).
 - [ ] Find it from the home page under Everyday, in the footer list and by searching "gym exercises".
 - [ ] Report: do the pictures look good enough, is the fade too fast or too slow, which exercises are missing?
+### Solar System Explorer (trial)
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /solar-system-explorer: enter a birth date and weight; each planet row shows age, next birthday date and weight. Check: Mercury age is about 4.15 times your Earth age; 60 kg on Mars is about 22.6 kg; a future date shows the warning.
+- [ ] kg / lb buttons relabel the result (the number you typed is taken as that unit).
+- [ ] Compare two worlds: pick Jupiter and Earth: the sentence says about 11.2 times wider and about 1,410 Earths by volume; picking the same world twice shows a friendly message.
+- [ ] The planets-to-scale picture fits the phone width with no sideways scroll; labels do not overlap. The fact table scrolls sideways inside its own box only.
+- [ ] Found from the home page under Everyday and by searching "age on mars".
+### Visiting Card Maker
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /visiting-card-maker opens with an example card already drawn (Banner design) and every field filled in.
+- [ ] Editing any field updates the big preview and all 17 thumbnails; empty fields disappear from the card without leaving gaps that look broken.
+- [ ] Try a very long name, title and address on a few designs: text shrinks to fit and never runs off the card or into the QR code.
+- [ ] Walk through all 17 designs on a phone: none has unreadable text (check Noir, Gala, Violet wave, Lagoon). The colour box changes coloured designs only and Reset restores the design colour.
+- [ ] Add a QR code with "Saves my contact details", scan the preview with a phone: the contact opens with name, phone, email, company. Switch to "Opens my website": the link opens.
+- [ ] Download the PNG: file name starts with visiting-card_ and the date/time; it is 1050 x 600.
+- [ ] Download "PDF, one card": a 89 x 51 mm page with the card filling it. Download "A4 sheet of 10": two columns by five rows, centred, cutting marks in the margins; printing at 100% makes each card 3.5 x 2 in.
+- [ ] Reload: the last card and design return.
+- [ ] Search the home page for "business card maker" and "visiting card": the tool is found.
+### Job Description Builder
+
+Not run: `tsc` on the page, `vite build`, browser.
+
+- [ ] /job-description-builder opens with an example (Marketing Executive, Corporate style) fully filled in, and a preview below the controls.
+- [ ] Change the job title and company: every {title} and {company} in the preview updates. Clear the company: the text says "our company".
+- [ ] Try all 8 templates: look and wording change; edit one section, switch template, and that section keeps your text while the others change.
+- [ ] Empty a section: it disappears from the preview, PDF and text.
+- [ ] Print or save as PDF: only the job description prints (no controls), colours and the band header show with background graphics on, A4, the file suggests a job-description_ name.
+- [ ] Plain text (.txt) downloads with headings in capitals and dashes for bullets; Copy for job portals pastes the same text.
+- [ ] Reload: last description and template come back. On a phone the preview wraps without sideways scrolling.
+- [ ] Search the home page for "job description" and "jd maker": the tool is found.

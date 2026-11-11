@@ -255,6 +255,27 @@ export const UPDATES: SiteUpdate[] = [
     title: 'New: Exercise Library with moving pictures',
     summary: 'Browse about 140 gym and home exercises by chest, back, shoulders, arms, legs, core, cardio and stretching, with pictures that fade between the start and end position, steps, and filters for equipment and level.',
   },
+  {
+    date: '2026-11-11',
+    path: '/solar-system-explorer',
+    tool: 'Solar System Explorer',
+    title: 'New: Solar System Explorer',
+    summary: 'Find your age and weight on every planet, compare the size of any two worlds, and see the planets drawn to scale with key facts like day length, year length and gravity.',
+  },
+  {
+    date: '2026-11-11',
+    path: '/visiting-card-maker',
+    tool: 'Visiting Card Maker',
+    title: 'New: Visiting Card Maker',
+    summary: 'Make a business card from 17 plain, coloured and gradient designs with an optional QR code. Download a PNG, a PDF, or an A4 sheet of ten cards with cutting marks.',
+  },
+  {
+    date: '2026-11-11',
+    path: '/job-description-builder',
+    tool: 'Job Description Builder',
+    title: 'New: Job Description Builder',
+    summary: 'Write a job description from 8 templates (corporate, startup, technical, sales, support, internship, operations, creative) with ready wording. Download a PDF or copy plain text for job portals.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
