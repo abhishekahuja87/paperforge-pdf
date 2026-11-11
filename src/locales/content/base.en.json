@@ -973,8 +973,8 @@
       ]
     },
     "loremIpsum": {
-      "title": "Lorem Ipsum Generator",
-      "subtitle": "Generate placeholder paragraphs for layouts and mock-ups, as plain text or HTML paragraphs.",
+      "title": "Lorem Ipsum and Random Text Generator",
+      "subtitle": "Generate lorem ipsum, random readable sentences, random words or random characters for layouts, mock-ups and test data.",
       "faq": [
         [
           "What is lorem ipsum?",
