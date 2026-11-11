@@ -26,8 +26,6 @@ import {
   Contact,
   Briefcase,
   Globe,
-  Contact,
-  Briefcase,
 } from 'lucide-react';
 import type { ToolIconName } from '../../config/tools';
 
@@ -58,8 +56,6 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   contact: Contact,
   briefcase: Briefcase,
   globe: Globe,
-  contact: Contact,
-  briefcase: Briefcase,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {

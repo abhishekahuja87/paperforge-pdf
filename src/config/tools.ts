@@ -30,8 +30,6 @@ export type ToolIconName =
   | 'contact'
   | 'briefcase'
   | 'globe';
-  | 'contact';
-  | 'briefcase';
 
 export type ToolTier = 'popular' | 'workspace' | 'more' | 'advanced';
 
