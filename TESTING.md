@@ -730,3 +730,13 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Random sentences read as English, with capital letters and full stops; HTML mode wraps each paragraph in p tags.
 - [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
 - [ ] Search the home page for "random text generator" and "random word generator": the tool is found.
+
+### Solar System Explorer (trial)
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /solar-system-explorer: enter a birth date and weight; each planet row shows age, next birthday date and weight. Check: Mercury age is about 4.15 times your Earth age; 60 kg on Mars is about 22.6 kg; a future date shows the warning.
+- [ ] kg / lb buttons relabel the result (the number you typed is taken as that unit).
+- [ ] Compare two worlds: pick Jupiter and Earth: the sentence says about 11.2 times wider and about 1,410 Earths by volume; picking the same world twice shows a friendly message.
+- [ ] The planets-to-scale picture fits the phone width with no sideways scroll; labels do not overlap. The fact table scrolls sideways inside its own box only.
+- [ ] Found from the home page under Everyday and by searching "age on mars".
