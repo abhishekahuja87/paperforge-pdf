@@ -711,6 +711,17 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Any tool: "← All tools" and the badge sit together on the left; nothing is above the Focus mode button on the right.
 - [ ] Very narrow phone: the badge wraps below the link instead of overflowing.
 
+### Resume templates
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /resume-builder: a gallery of 13 template pictures; tapping one changes the preview. The selected one is highlighted. Click "Load an example" to see a full resume in each.
+- [ ] Check each template at A4 and US Letter, with Compact, Normal and Large text: nothing overflows, text stays readable on the gradient and banner colours (try a very light accent such as yellow and a very dark one).
+- [ ] Colour templates show the accent colour picker; Classic, Minimal and Developer do not. Changing the accent recolours gradients and banners. Switching templates keeps a colour you chose.
+- [ ] Ocean column and Mist column: the column background reaches the bottom of the content; with a long resume it continues on page 2 without cutting text.
+- [ ] Print or save as PDF with "Background graphics" on: colours and gradients appear and the text is selectable. Turn it off to see what plain printing looks like.
+- [ ] "Remember my resume": reload the page and the chosen template returns. An old saved resume (Classic or Modern) still opens.
+- [ ] The page has one h1 (the tool title); the gallery pictures add no extra headings.
 ### Random text generator
 
 Not run: `tsc`, `vite build`, browser.

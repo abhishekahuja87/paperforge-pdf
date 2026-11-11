@@ -196,4 +196,7 @@ Tool header: the privacy line is now the `privacyPill` badge (shield + "Your dat
 
 Tool header: the privacy badge sits left, right after the "All tools" link (it wraps under it on very narrow screens), so the area above the Focus mode button stays clear.
 
+### Resume templates
+
+`src/lib/careers/resumeTemplates.ts` lists the 13 resume templates (font, header style, heading style, optional side column, tags, timeline, default accent) plus colour helpers (`shade`, `tint`, `readableOn`). `ResumePreview` draws any template from the same data; `ResumeTemplatePicker` is the picture gallery (each picture is the real layout with the example resume, drawn with `decorative` so it adds no extra headings to the page). To add a template, add one entry to `RESUME_TEMPLATES`. Backgrounds and gradients sit inside the page margins so print matches the preview, and print CSS asks the browser to keep colours. Saved resumes with the old `classic`/`modern` ids still load.
 The lorem tool (path unchanged, `/lorem-ipsum-generator`) is now "Lorem Ipsum and Random Text Generator" with four modes: lorem ipsum, random sentences (readable English from small word lists), random words (space/line/comma separated) and random characters (choose sets). New generators live in `src/lib/utilities/randomText.ts`. They use Math.random and say so; they are not for secrets.
