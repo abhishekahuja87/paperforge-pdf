@@ -730,3 +730,17 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Random sentences read as English, with capital letters and full stops; HTML mode wraps each paragraph in p tags.
 - [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
 - [ ] Search the home page for "random text generator" and "random word generator": the tool is found.
+
+### Visiting Card Maker
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /visiting-card-maker opens with an example card already drawn (Banner design) and every field filled in.
+- [ ] Editing any field updates the big preview and all 17 thumbnails; empty fields disappear from the card without leaving gaps that look broken.
+- [ ] Try a very long name, title and address on a few designs: text shrinks to fit and never runs off the card or into the QR code.
+- [ ] Walk through all 17 designs on a phone: none has unreadable text (check Noir, Gala, Violet wave, Lagoon). The colour box changes coloured designs only and Reset restores the design colour.
+- [ ] Add a QR code with "Saves my contact details", scan the preview with a phone: the contact opens with name, phone, email, company. Switch to "Opens my website": the link opens.
+- [ ] Download the PNG: file name starts with visiting-card_ and the date/time; it is 1050 x 600.
+- [ ] Download "PDF, one card": a 89 x 51 mm page with the card filling it. Download "A4 sheet of 10": two columns by five rows, centred, cutting marks in the margins; printing at 100% makes each card 3.5 x 2 in.
+- [ ] Reload: the last card and design return.
+- [ ] Search the home page for "business card maker" and "visiting card": the tool is found.
