@@ -122,7 +122,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] print:hidden">
         <div className="order-2 space-y-4 lg:order-1">
           <div className={card}>
-            <h2 className={heading}>1. What should the code open?</h2>
+            <h2 className={heading}>What should the code open?</h2>
             <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Content type">
               {KINDS.map((item) => (
                 <button key={item.id} type="button" aria-pressed={kind === item.id} onClick={() => setKind(item.id)} className={`min-h-9 rounded-lg border px-3 py-1.5 text-xs font-bold ${kind === item.id ? 'border-orange-300 bg-orange-50 text-slate-900' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}>{item.label}</button>
@@ -186,7 +186,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
           </div>
 
           <div className={card}>
-            <h2 className={heading}>2. Look and reliability</h2>
+            <h2 className={heading}>Look and reliability</h2>
             <div className="mt-3 space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <label className="block text-xs font-semibold text-slate-700">Code colour<input type="color" value={style.fg} onChange={(e) => set('fg', e.target.value)} className="mt-1.5 block h-10 w-full rounded-lg border border-slate-200" /></label>
@@ -214,7 +214,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
 
         <div className="order-1 space-y-4 lg:order-2">
           <div className={card}>
-            <h2 className={heading}>3. Your code</h2>
+            <h2 className={heading}>Your code</h2>
             <div className="mt-3 flex min-h-64 items-center justify-center rounded-lg bg-slate-50 p-4">
               {svg ? <div className="w-full max-w-xs [&>svg]:h-auto [&>svg]:w-full" role="img" aria-label="Generated QR code" dangerouslySetInnerHTML={{ __html: svg }} />
                 : <p className="text-center text-sm text-slate-500">{error || 'Fill in the details and your code appears here.'}</p>}
@@ -240,7 +240,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
           </div>
 
           <div className={card}>
-            <h2 className={heading}>4. Print a sheet of copies</h2>
+            <h2 className={heading}>Print a sheet of copies</h2>
             <p className="mt-1 text-xs text-slate-600">Table cards, shelf labels or stickers: print the same code several times on one page, each with a caption.</p>
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
               <Field label="Caption under each code" value={caption} onChange={setCaption} placeholder="Scan to join the Wi-Fi" />

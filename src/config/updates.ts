@@ -276,6 +276,13 @@ const ENTRIES: SiteUpdate[] = [
     title: 'New: Job Description Builder',
     summary: 'Write a job description from 8 templates (corporate, startup, technical, sales, support, internship, operations, creative) with ready wording. Download a PDF or copy plain text for job portals.',
   },
+  {
+    date: '2026-11-11',
+    path: '/qr-code-generator',
+    tool: 'QR Code Generator',
+    title: 'Section order fixed',
+    summary: 'On phones the code preview appears first, so the section headings no longer carry numbers that looked out of order.',
+  },
 ];
 
 /** Newest day first (sorted here, so the order they are written in does not matter). Dates must never be later than today. */
