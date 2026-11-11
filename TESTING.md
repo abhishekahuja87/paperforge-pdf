@@ -764,3 +764,15 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Download "PDF, one card": a 89 x 51 mm page with the card filling it. Download "A4 sheet of 10": two columns by five rows, centred, cutting marks in the margins; printing at 100% makes each card 3.5 x 2 in.
 - [ ] Reload: the last card and design return.
 - [ ] Search the home page for "business card maker" and "visiting card": the tool is found.
+### Job Description Builder
+
+Not run: `tsc` on the page, `vite build`, browser.
+
+- [ ] /job-description-builder opens with an example (Marketing Executive, Corporate style) fully filled in, and a preview below the controls.
+- [ ] Change the job title and company: every {title} and {company} in the preview updates. Clear the company: the text says "our company".
+- [ ] Try all 8 templates: look and wording change; edit one section, switch template, and that section keeps your text while the others change.
+- [ ] Empty a section: it disappears from the preview, PDF and text.
+- [ ] Print or save as PDF: only the job description prints (no controls), colours and the band header show with background graphics on, A4, the file suggests a job-description_ name.
+- [ ] Plain text (.txt) downloads with headings in capitals and dashes for bullets; Copy for job portals pastes the same text.
+- [ ] Reload: last description and template come back. On a phone the preview wraps without sideways scrolling.
+- [ ] Search the home page for "job description" and "jd maker": the tool is found.
