@@ -240,6 +240,9 @@ export const UPDATES: SiteUpdate[] = [
     tool: 'Resume Builder',
     title: '13 resume templates',
     summary: 'Choose from 13 templates in a picture gallery: plain and black-and-white, colour, horizontal and vertical gradients, banners, a timeline and two side-column designs. Colours follow an accent you can change.',
+  },
+  {
+    date: '2026-11-11',
     path: '/lorem-ipsum-generator',
     tool: 'Lorem Ipsum and Random Text Generator',
     title: 'Random sentences, words and characters',
