@@ -234,6 +234,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Privacy badge moved beside the back link',
     summary: 'The "Your data stays in your browser" badge now sits next to "All tools" on the left, leaving the right side clear for the Focus mode button.',
   },
+  {
+    date: '2026-11-11',
+    path: '/resume-builder',
+    tool: 'Resume Builder',
+    title: '13 resume templates',
+    summary: 'Choose from 13 templates in a picture gallery: plain and black-and-white, colour, horizontal and vertical gradients, banners, a timeline and two side-column designs. Colours follow an accent you can change.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

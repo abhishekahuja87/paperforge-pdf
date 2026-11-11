@@ -195,3 +195,7 @@ Home top is centred again at every width (`max-w-3xl`): heading, one-line descri
 Tool header: the privacy line is now the `privacyPill` badge (shield + "Your data stays in your browser") on the same row as the "All tools" link, saving a text line. `localProcessing` is still used by the pre-rendered shell; the full privacy note stays in the guide.
 
 Tool header: the privacy badge sits left, right after the "All tools" link (it wraps under it on very narrow screens), so the area above the Focus mode button stays clear.
+
+### Resume templates
+
+`src/lib/careers/resumeTemplates.ts` lists the 13 resume templates (font, header style, heading style, optional side column, tags, timeline, default accent) plus colour helpers (`shade`, `tint`, `readableOn`). `ResumePreview` draws any template from the same data; `ResumeTemplatePicker` is the picture gallery (each picture is the real layout with the example resume, drawn with `decorative` so it adds no extra headings to the page). To add a template, add one entry to `RESUME_TEMPLATES`. Backgrounds and gradients sit inside the page margins so print matches the preview, and print CSS asks the browser to keep colours. Saved resumes with the old `classic`/`modern` ids still load.
