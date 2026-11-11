@@ -1,0 +1,95 @@
+{
+  "guideSteps": {
+    "visiting-card-maker": [
+      [
+        "Type your details",
+        "The card is already filled with an example. Replace the name, job title, company, phone, email, website and address. Anything you leave empty is not drawn."
+      ],
+      [
+        "Pick a design",
+        "Choose from 17 designs: plain black and white, dark, side panels, bands, full gradients and more. For coloured designs, change the colour with the colour box."
+      ],
+      [
+        "Add a QR code if you like",
+        "Switch on the QR code to let people save your contact details or open your website by scanning the card."
+      ],
+      [
+        "Download",
+        "Take a PNG picture, a PDF of one card, or an A4 sheet of ten cards with cutting marks. Print the sheet at 100% (actual size) on thick paper and trim."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "bizcardVisitingCard": {
+      "title": "Visiting Card Maker",
+      "subtitle": "Design a business card in a minute. 17 plain, coloured and gradient designs, optional QR code, PNG and PDF download and an A4 sheet of ten to print. Free, private, no sign-up.",
+      "faq": [
+        [
+          "What size is the card?",
+          "3.5 × 2 inches (89 × 51 mm), the most common business card size, drawn at 300 dpi so it prints sharply. Many print shops in India cut 90 × 55 mm or 90 × 50 mm cards; this design leaves a comfortable margin, so a small difference in trimming does not cut into the text."
+        ],
+        [
+          "How do I print the cards at home?",
+          "Download the A4 sheet of ten, print it at 100% or actual size (not fit to page) on thick paper or card, and cut along the small marks in the margins with a ruler and a craft knife or a guillotine. For a large order, send the single-card PDF to a print shop."
+        ],
+        [
+          "Is there a bleed for professional printing?",
+          "The download is the finished card size with no bleed area. If your printer asks for bleed, ask them whether they can extend the background, or choose a plain design with a white or paper-coloured background, which does not need bleed."
+        ],
+        [
+          "What does the QR code do?",
+          "You choose: it either saves your name, job title, company, phone, email, website and address to the phone's contacts when scanned, or it opens your website. The code is made in your browser and works for as long as the card exists. It never expires."
+        ],
+        [
+          "Can I change the colours and fonts?",
+          "Coloured designs have a colour box that changes the main colour, and the text colour adjusts to stay readable. Each design comes with its own font style (serif, sans-serif, rounded or monospace). The fonts are the ones already on your device, so the printed card looks the same in the PNG and the PDF."
+        ],
+        [
+          "Can I add my logo or a photo?",
+          "Not yet. The designs are text based so that they stay clean and print well. If you need a logo, download the PNG and add it in any image editor, or tell us you want logo upload."
+        ],
+        [
+          "Are my details uploaded or stored?",
+          "No. The card is drawn in your browser and nothing you type is sent to {{siteName}}. Your last card is remembered only on your own device so you can come back to it; clear your browser data to remove it."
+        ],
+        [
+          "Why do some characters show as boxes or question marks?",
+          "The card uses the fonts on your device. Most Latin letters and numbers work everywhere. Text in some other scripts may look different depending on the fonts installed on your phone or computer."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "visiting-card-maker": {
+      "sections": [
+        {
+          "heading": "What makes a good visiting card",
+          "paragraphs": [
+            "A visiting card has one job: to make it easy for someone to remember you and reach you. Put your name and what you do first, add the contact details people will actually use, and leave empty space. A crowded card is hard to read and looks less professional than a simple one.",
+            "Four to five lines of contact information is plenty. A phone number, an email address and a website cover most needs, and an address is useful if customers visit you. Leave out any line you would not like to be contacted on."
+          ]
+        },
+        {
+          "heading": "Choosing a design",
+          "paragraphs": [
+            "Plain designs such as Classic, Minimal and Developer cost the least to print because they use little or no ink, and they work well in black and white copies. Coloured bands, side panels and full gradients stand out in a stack of cards and suit creative work, shops and young businesses.",
+            "Dark designs look striking but show scratches and fingerprints more, and light text on a dark background can be harder to read in dim light. If the card will be handed over in a shop or on the move, a light background is the safer choice."
+          ]
+        },
+        {
+          "heading": "Printing at home or at a shop",
+          "paragraphs": [
+            "For a small batch, print the A4 sheet of ten on thick paper (200 to 300 gsm) at actual size and trim along the marks. A steel ruler and a craft knife give cleaner edges than scissors.",
+            "For hundreds of cards, a print shop will give a better finish and a more even colour. Send the single-card PDF; the picture inside is 1050 × 600 pixels, which is 300 dpi at the card size."
+          ]
+        },
+        {
+          "heading": "Using the QR code",
+          "paragraphs": [
+            "A QR code that saves your contact lets people add you to their phone without typing, which is handy at events. One that opens your website or profile suits cards for shops, portfolios and services. Print the code at least 2 cm wide on a plain background, and test the printed card with your own phone before you order many copies."
+          ]
+        }
+      ]
+    }
+  }
+}

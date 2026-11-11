@@ -258,6 +258,10 @@ export const UPDATES: SiteUpdate[] = [
     tool: 'Solar System Explorer',
     title: 'New: Solar System Explorer',
     summary: 'Find your age and weight on every planet, compare the size of any two worlds, and see the planets drawn to scale with key facts like day length, year length and gravity.',
+    path: '/visiting-card-maker',
+    tool: 'Visiting Card Maker',
+    title: 'New: Visiting Card Maker',
+    summary: 'Make a business card from 17 plain, coloured and gradient designs with an optional QR code. Download a PNG, a PDF, or an A4 sheet of ten cards with cutting marks.',
   },
 ];
 
