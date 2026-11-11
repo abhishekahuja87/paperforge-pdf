@@ -16,37 +16,37 @@ export interface SiteUpdate {
   summary: string;
 }
 
-export const UPDATES: SiteUpdate[] = [
+const ENTRIES: SiteUpdate[] = [
   {
-    date: '2026-11-14',
+    date: '2026-11-10',
     path: '/split-pdf',
     tool: 'Split PDF',
     title: 'Odd and even pages, and a live page count',
     summary: 'Pick odd or even pages in one tap, and see how many pages your selection matches before you split.',
   },
   {
-    date: '2026-11-13',
+    date: '2026-11-10',
     path: '/fd-calculator',
     tool: 'FD Calculator',
     title: 'Interest after tax and a TDS warning',
     summary: 'Enter your tax rate to see the tax on the interest, the maturity after tax and the real yield. A note appears when yearly interest is above the usual TDS limit.',
   },
   {
-    date: '2026-11-13',
+    date: '2026-11-10',
     path: '/rd-calculator',
     tool: 'RD Calculator',
     title: 'Interest and maturity after tax',
     summary: 'Enter your tax rate on interest to see what you keep after tax.',
   },
   {
-    date: '2026-11-12',
+    date: '2026-11-10',
     path: '/merge-pdf',
     tool: 'Merge PDF',
     title: 'Page counts, pick pages per file, sort A to Z',
     summary: 'See how many pages each file has and the total, take only some pages from a file (for example 1-3, 5), and sort the files by name.',
   },
   {
-    date: '2026-11-12',
+    date: '2026-11-10',
     path: '/percentage-calculator',
     tool: 'Percentage Calculator',
     title: 'The working shown under every answer',
@@ -277,6 +277,11 @@ export const UPDATES: SiteUpdate[] = [
     summary: 'Write a job description from 8 templates (corporate, startup, technical, sales, support, internship, operations, creative) with ready wording. Download a PDF or copy plain text for job portals.',
   },
 ];
+
+/** Newest day first (sorted here, so the order they are written in does not matter). Dates must never be later than today. */
+export const UPDATES: SiteUpdate[] = ENTRIES.map((entry, index) => ({ entry, index }))
+  .sort((a, b) => (a.entry.date === b.entry.date ? a.index - b.index : a.entry.date < b.entry.date ? 1 : -1))
+  .map(({ entry }) => entry);
 
 export const RECENT_DAYS = 45;
 
