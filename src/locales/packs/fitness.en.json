@@ -1,0 +1,92 @@
+{
+  "guideSteps": {
+    "exercise-library": [
+      [
+        "Pick a body area",
+        "Tap Chest, Back, Shoulders, Arms, Legs and glutes, Core, Cardio or Stretching, or leave it on All to scroll through every group on one page."
+      ],
+      [
+        "Narrow it down",
+        "Filter by equipment (none, dumbbell, barbell, machine or cable) and by level, or search for an exercise or a muscle such as squat or biceps."
+      ],
+      [
+        "Watch and read",
+        "Each picture fades between the start and the end position so you can see the movement. Open \"How to do it\" for the steps."
+      ],
+      [
+        "Plan your session",
+        "Choose one or two exercises per area, warm up first and finish with a stretch. Start light and stop if anything hurts."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "fitnessExerciseLibrary": {
+      "title": "Exercise Library",
+      "subtitle": "Browse gym and home exercises by body area, with moving pictures and step-by-step instructions. Filter by equipment and level. Free, no sign-up.",
+      "faq": [
+        [
+          "Where do the pictures and instructions come from?",
+          "They come from the free-exercise-db project, an open dataset released into the public domain. Each exercise has a photo of the start position and a photo of the end position. This page fades between the two so the movement is easy to follow. We chose about 140 common exercises from the larger dataset."
+        ],
+        [
+          "Is this medical advice? Are these exercises right for me?",
+          "No. This is general information and not medical advice. If you are injured, pregnant, recovering from surgery, have a heart, joint or blood-pressure condition, or have not exercised for a long time, talk to a doctor or a qualified trainer before you start. Begin with a light weight, keep good form and stop if you feel sharp pain, dizziness or chest discomfort."
+        ],
+        [
+          "How many sets and reps should I do?",
+          "It depends on your goal and level. Many beginners start with two or three sets of eight to twelve repetitions, using a weight that makes the last few repetitions hard while keeping good form. Lower repetitions with heavier weights build strength, and higher repetitions with lighter weights build muscular endurance. A trainer can set numbers for your body and goals."
+        ],
+        [
+          "How often should I train each muscle?",
+          "A common guideline is to train each major muscle group about two times a week and to leave a day or two of rest before working the same muscles hard again. Spread your sessions across the week, for example upper body, lower body and core on different days, or a full body session on alternate days."
+        ],
+        [
+          "Can I use this at home without a gym?",
+          "Yes. Set the equipment filter to No equipment for bodyweight exercises such as push-ups, squats, lunges, planks and bridges, or to Dumbbell if you own a pair. The Stretching group needs no equipment either."
+        ],
+        [
+          "What is the difference between the Cardio and the strength groups?",
+          "Cardio exercises keep your heart rate raised for a longer time, for example cycling, rowing, jogging, skipping or jumping moves. Strength exercises work muscles against resistance, in short sets with rests in between. A balanced week usually includes both, plus stretching."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Searching and filtering happen in your browser and nothing you type is sent to {{siteName}}. The page still loads the exercise pictures, advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "exercise-library": {
+      "sections": [
+        {
+          "heading": "What the library covers",
+          "paragraphs": [
+            "The library lists about 140 common exercises in eight groups: chest, back, shoulders, arms, legs and glutes, core, cardio and stretching. For every exercise you see the muscles it mainly works, the muscles that help, the equipment it needs, a level from beginner to advanced and numbered steps.",
+            "Each picture shows two positions and fades between them in a loop, so you can see the start, the movement and the finish without playing a video. If your device is set to reduce motion, the pictures stay still and show the start position."
+          ]
+        },
+        {
+          "heading": "Putting a balanced session together",
+          "paragraphs": [
+            "A simple full body session picks one exercise from each of a few areas: a press for the chest or shoulders, a pull for the back, a squat or lunge for the legs, and one core exercise. Pairing pushing and pulling movements keeps the shoulders balanced, and finishing with core work and a short stretch rounds off the session.",
+            "If you train at home, filter by No equipment first and add a pair of dumbbells later. If you use a gym, machines and cables are a gentle way to learn a movement before you move to free weights."
+          ]
+        },
+        {
+          "heading": "Warming up and cooling down",
+          "paragraphs": [
+            "Spend five to ten minutes before lifting on easy cardio such as cycling or brisk walking, and on a few mobility moves from the Stretching group, such as arm circles and hip circles. After training, slower stretches for the muscles you used help you wind down.",
+            "Stretching does not replace rest. Sleep, enough food and a day or two between hard sessions for the same muscles matter as much as the exercises themselves."
+          ]
+        },
+        {
+          "heading": "Staying safe",
+          "paragraphs": [
+            "Good form matters more than heavy weight. Learn each movement with a light weight or none at all, control the weight on the way down, and breathe steadily instead of holding your breath. Ask a trainer to check your form on the big lifts such as squats and deadlifts.",
+            "Stop and rest if you feel sharp pain, dizziness or chest discomfort, and speak to a doctor about it. The photos and steps come from an open dataset, so they are a starting point and not a replacement for personal coaching."
+          ]
+        }
+      ]
+    }
+  }
+}

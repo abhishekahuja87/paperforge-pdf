@@ -730,3 +730,15 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Random sentences read as English, with capital letters and full stops; HTML mode wraps each paragraph in p tags.
 - [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
 - [ ] Search the home page for "random text generator" and "random word generator": the tool is found.
+
+### Exercise library (trial)
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /exercise-library opens; with All selected you see eight sections (Chest to Stretching) on one page, 141 exercises in total.
+- [ ] Each card shows a picture that fades between two positions; images load as you scroll (check the Network tab: not all 280 at once). With "reduce motion" on in your phone settings the picture stays still.
+- [ ] Body area chips, Equipment, Level and the search box combine; the count updates; "Clear filters" resets; an empty result shows the message.
+- [ ] "How to do it" opens the steps on every card.
+- [ ] Pictures load on the live site (the host must not rewrite /exercises/*.webp to the home page).
+- [ ] Find it from the home page under Everyday, in the footer list and by searching "gym exercises".
+- [ ] Report: do the pictures look good enough, is the fade too fast or too slow, which exercises are missing?
