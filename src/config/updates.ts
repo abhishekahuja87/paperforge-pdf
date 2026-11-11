@@ -234,6 +234,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Privacy badge moved beside the back link',
     summary: 'The "Your data stays in your browser" badge now sits next to "All tools" on the left, leaving the right side clear for the Focus mode button.',
   },
+  {
+    date: '2026-11-11',
+    path: '/lorem-ipsum-generator',
+    tool: 'Lorem Ipsum and Random Text Generator',
+    title: 'Random sentences, words and characters',
+    summary: 'The text generator now makes random readable sentences, random words and random characters as well as lorem ipsum, and is easier to find when you search for a random text generator.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

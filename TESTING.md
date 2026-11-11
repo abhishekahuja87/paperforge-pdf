@@ -710,3 +710,12 @@ Not run: `tsc`, `vite build`, browser.
 
 - [ ] Any tool: "← All tools" and the badge sit together on the left; nothing is above the Focus mode button on the right.
 - [ ] Very narrow phone: the badge wraps below the link instead of overflowing.
+
+### Random text generator
+
+Not run: `tsc`, `vite build`, browser.
+
+- [ ] /lorem-ipsum-generator: four buttons (Lorem ipsum, Random sentences, Random words, Random characters); each shows the right options and the output changes with them.
+- [ ] Random sentences read as English, with capital letters and full stops; HTML mode wraps each paragraph in p tags.
+- [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
+- [ ] Search the home page for "random text generator" and "random word generator": the tool is found.

@@ -195,3 +195,5 @@ Home top is centred again at every width (`max-w-3xl`): heading, one-line descri
 Tool header: the privacy line is now the `privacyPill` badge (shield + "Your data stays in your browser") on the same row as the "All tools" link, saving a text line. `localProcessing` is still used by the pre-rendered shell; the full privacy note stays in the guide.
 
 Tool header: the privacy badge sits left, right after the "All tools" link (it wraps under it on very narrow screens), so the area above the Focus mode button stays clear.
+
+The lorem tool (path unchanged, `/lorem-ipsum-generator`) is now "Lorem Ipsum and Random Text Generator" with four modes: lorem ipsum, random sentences (readable English from small word lists), random words (space/line/comma separated) and random characters (choose sets). New generators live in `src/lib/utilities/randomText.ts`. They use Math.random and say so; they are not for secrets.

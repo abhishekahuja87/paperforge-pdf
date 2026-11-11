@@ -30,12 +30,12 @@
     ],
     "lorem-ipsum-generator": [
       [
-        "Choose the amount",
-        "Set the number of paragraphs and sentences per paragraph."
+        "Choose the type",
+        "Pick Lorem ipsum, Random sentences (readable English), Random words or Random characters."
       ],
       [
-        "Pick options",
-        "Start with the classic opening line if you like, and choose plain text or HTML."
+        "Set the amount",
+        "Choose paragraphs and sentences, a number of words with a separator, or a length and the sets of characters to use. Lorem ipsum and sentences can also be HTML paragraphs."
       ],
       [
         "Copy it",
@@ -982,7 +982,15 @@
         ],
         [
           "Does the text mean anything?",
-          "No. It is shuffled from a small list of Latin-like words."
+          "No. Lorem ipsum is shuffled from a small list of Latin-like words, and the random sentences are built from small word lists, so they read naturally but say nothing real."
+        ],
+        [
+          "What is the difference between lorem ipsum and random sentences?",
+          "Lorem ipsum is the traditional Latin-like filler that designers expect. Random sentences are plain English, which is handy when you want mock-ups to look like real copy or when your reviewers dislike Latin."
+        ],
+        [
+          "Can I generate random words or random characters?",
+          "Yes. Random words gives you a list separated by spaces, new lines or commas. Random characters gives you a string of letters, digits and symbols of the length you choose, which is useful for test data. It is not secure, so use the password generator for passwords."
         ],
         [
           "Can I get HTML?",
