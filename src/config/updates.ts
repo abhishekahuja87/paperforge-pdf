@@ -248,6 +248,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Random sentences, words and characters',
     summary: 'The text generator now makes random readable sentences, random words and random characters as well as lorem ipsum, and is easier to find when you search for a random text generator.',
   },
+  {
+    date: '2026-11-11',
+    path: '/visiting-card-maker',
+    tool: 'Visiting Card Maker',
+    title: 'New: Visiting Card Maker',
+    summary: 'Make a business card from 17 plain, coloured and gradient designs with an optional QR code. Download a PNG, a PDF, or an A4 sheet of ten cards with cutting marks.',
+  },
 ];
 
 export const RECENT_DAYS = 45;
