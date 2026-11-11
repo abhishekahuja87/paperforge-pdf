@@ -248,6 +248,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Random sentences, words and characters',
     summary: 'The text generator now makes random readable sentences, random words and random characters as well as lorem ipsum, and is easier to find when you search for a random text generator.',
   },
+  {
+    date: '2026-11-11',
+    path: '/job-description-builder',
+    tool: 'Job Description Builder',
+    title: 'New: Job Description Builder',
+    summary: 'Write a job description from 8 templates (corporate, startup, technical, sales, support, internship, operations, creative) with ready wording. Download a PDF or copy plain text for job portals.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

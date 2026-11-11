@@ -730,3 +730,16 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Random sentences read as English, with capital letters and full stops; HTML mode wraps each paragraph in p tags.
 - [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
 - [ ] Search the home page for "random text generator" and "random word generator": the tool is found.
+
+### Job Description Builder
+
+Not run: `tsc` on the page, `vite build`, browser.
+
+- [ ] /job-description-builder opens with an example (Marketing Executive, Corporate style) fully filled in, and a preview below the controls.
+- [ ] Change the job title and company: every {title} and {company} in the preview updates. Clear the company: the text says "our company".
+- [ ] Try all 8 templates: look and wording change; edit one section, switch template, and that section keeps your text while the others change.
+- [ ] Empty a section: it disappears from the preview, PDF and text.
+- [ ] Print or save as PDF: only the job description prints (no controls), colours and the band header show with background graphics on, A4, the file suggests a job-description_ name.
+- [ ] Plain text (.txt) downloads with headings in capitals and dashes for bullets; Copy for job portals pastes the same text.
+- [ ] Reload: last description and template come back. On a phone the preview wraps without sideways scrolling.
+- [ ] Search the home page for "job description" and "jd maker": the tool is found.

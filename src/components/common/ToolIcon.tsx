@@ -22,6 +22,7 @@ import {
   GitMerge,
   ReceiptText,
   Calculator,
+  Briefcase,
 } from 'lucide-react';
 import type { ToolIconName } from '../../config/tools';
 
@@ -48,6 +49,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   'git-merge': GitMerge,
   calculator: Calculator,
   receipt: ReceiptText,
+  briefcase: Briefcase,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {

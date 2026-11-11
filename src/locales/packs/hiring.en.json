@@ -1,0 +1,94 @@
+{
+  "guideSteps": {
+    "job-description-builder": [
+      [
+        "Fill in the role",
+        "Type the job title, company, location, job type, experience and, if you want, the salary and contact. An example is already filled in."
+      ],
+      [
+        "Pick a style",
+        "Choose from 8 templates. Each one has its own look and its own starter wording for the role type. Change the colour if you like."
+      ],
+      [
+        "Edit the sections",
+        "Adjust the role summary, responsibilities, requirements, nice-to-haves, benefits, how to apply and the equal opportunity line. One point per line. Empty sections are left out."
+      ],
+      [
+        "Download or copy",
+        "Print or save as a PDF, download plain text, or copy the text to paste into Naukri, LinkedIn, WhatsApp or an email."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "hiringJobDescription": {
+      "title": "Job Description Builder",
+      "subtitle": "Write a clear job description in minutes. 8 templates with ready wording for corporate, startup, technical, sales, support, internship, operations and creative roles. PDF and plain text download. Free, private, no sign-up.",
+      "faq": [
+        [
+          "What should a good job description include?",
+          "A clear title, a short summary of the role, the main responsibilities, the skills and experience needed, any nice-to-have extras, what you offer, how to apply and a line about equal opportunity. Keep points short and specific. Listing too many must-haves puts off good candidates, so separate what is essential from what is a bonus."
+        ],
+        [
+          "Should I put the salary in the job description?",
+          "Many candidates prefer to see a salary or a range, and listing it can save time on both sides, but it is your choice. If you leave the salary box empty the line is simply not shown."
+        ],
+        [
+          "Can I use this for Naukri, LinkedIn or WhatsApp?",
+          "Yes. Use the Copy for job portals button or download the plain text file. It uses simple headings and dashes instead of formatting, so it pastes cleanly into portals, emails and chat messages."
+        ],
+        [
+          "Will changing the template overwrite my edits?",
+          "No. Picking a new style loads its starter wording only for the sections you have not touched. Any section you have edited keeps your own text."
+        ],
+        [
+          "What are {title} and {company} in the text?",
+          "They are placeholders. Wherever they appear, the page and the downloads fill in the job title and company from the boxes at the top, so you can change the role name once and everything updates."
+        ],
+        [
+          "Can I write a job description for an internship or a shop-floor role?",
+          "Yes. The Internship template is written for students and freshers, and the Operations and field template for shop, warehouse, delivery and similar roles. Edit the starter wording to match your own requirements."
+        ],
+        [
+          "Is this legal advice?",
+          "No. The wording is a general starting point. Check it against labour laws and your company policy, especially statements about pay, working hours, benefits and who may apply."
+        ],
+        [
+          "Is my text uploaded or stored?",
+          "No. The document is built in your browser and nothing is sent to {{siteName}}. Your last description is kept only on your own device so you can come back to it; clear your browser data to remove it."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "job-description-builder": {
+      "sections": [
+        {
+          "heading": "Why a clear job description matters",
+          "paragraphs": [
+            "A job description is often the first thing a candidate reads about your company. A clear one attracts people who can actually do the work, saves time on unsuitable applications and sets honest expectations from the start.",
+            "Write for the person you want to hire. Use plain words, say what the person will do in a normal week, and avoid long lists of every skill you can think of. Four to six responsibilities and four to six requirements are enough for most roles."
+          ]
+        },
+        {
+          "heading": "Must-have and nice-to-have",
+          "paragraphs": [
+            "Keep the requirements section to what the person really needs to start the job, and move the rest to Nice to have. Candidates, especially women and people early in their careers, are less likely to apply when they do not tick every box, so a long list of must-haves can shrink your pool of good applicants."
+          ]
+        },
+        {
+          "heading": "Choosing a template",
+          "paragraphs": [
+            "Corporate suits established companies and formal roles. Startup is friendly and direct. Technical covers engineering and IT. Sales and Customer support focus on targets and people skills. Internship is written for students. Operations and field covers hands-on jobs in shops, warehouses and delivery. Creative suits design, content and media roles.",
+            "Each template changes the look and the starting words. Treat the wording as a draft and change it to describe your real job."
+          ]
+        },
+        {
+          "heading": "Posting it",
+          "paragraphs": [
+            "Send the PDF to candidates, print it for a notice board, or copy the plain text into a job portal, a LinkedIn post or a WhatsApp message. Include one way to apply and say what happens next, for example that shortlisted candidates will hear back within two weeks."
+          ]
+        }
+      ]
+    }
+  }
+}
