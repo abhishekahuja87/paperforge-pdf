@@ -248,6 +248,13 @@ export const UPDATES: SiteUpdate[] = [
     title: 'Random sentences, words and characters',
     summary: 'The text generator now makes random readable sentences, random words and random characters as well as lorem ipsum, and is easier to find when you search for a random text generator.',
   },
+  {
+    date: '2026-11-11',
+    path: '/solar-system-explorer',
+    tool: 'Solar System Explorer',
+    title: 'New: Solar System Explorer',
+    summary: 'Find your age and weight on every planet, compare the size of any two worlds, and see the planets drawn to scale with key facts like day length, year length and gravity.',
+  },
 ];
 
 export const RECENT_DAYS = 45;

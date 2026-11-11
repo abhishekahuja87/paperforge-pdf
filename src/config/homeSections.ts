@@ -16,7 +16,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide',
+  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'solar-system-explorer',
 ];
 
 /** Studio-style tools shown as a slim row. */
@@ -48,7 +48,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'rent-receipt-generator', 'lumpsum-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator', 'gratuity-calculator', 'epf-calculator',
   ] },
   { id: 'everyday', icon: 'hash', tools: [
-    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bmi-calculator', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'sports-court-size-guide',
+    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bmi-calculator', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'sports-court-size-guide', 'solar-system-explorer',
   ] },
   { id: 'printables', icon: 'layers', tools: [
     'printable-paper-maker', 'dot-grid-paper-generator', 'graph-paper-generator', 'printable-planner-maker', 'printable-calendar-maker', 'daily-planner-printable',
