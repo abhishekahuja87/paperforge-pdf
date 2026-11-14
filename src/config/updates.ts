@@ -283,6 +283,13 @@ const ENTRIES: SiteUpdate[] = [
     title: 'Section order fixed',
     summary: 'On phones the code preview appears first, so the section headings no longer carry numbers that looked out of order.',
   },
+  {
+    date: '2026-11-14',
+    path: '/learn-the-clock',
+    tool: 'Learn the Clock',
+    title: 'New: Learn the Clock for kids',
+    summary: 'A big analog clock to move by touch, a hidden time to tap and check, a quiz with levels from o\'clock to every minute, and printable clock worksheets.',
+  },
 ];
 
 /** Newest day first (sorted here, so the order they are written in does not matter). Dates must never be later than today. */

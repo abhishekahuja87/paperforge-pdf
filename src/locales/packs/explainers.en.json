@@ -17,6 +17,24 @@
         "Look at the whole family",
         "Scroll to the planets drawn side by side and the fact table for day length, year length, gravity, distance and moons."
       ]
+    ],
+    "learn-the-clock": [
+      [
+        "Learn: move the hands",
+        "Drag the short red hand to change the hour and the long blue hand to change the minutes. When the long hand goes past 12, the short hand moves on, just like a real clock."
+      ],
+      [
+        "Guess, then check",
+        "Look at the clock and say the time out loud. Then tap \"Tap to see the time\" to check the numbers and the words, such as \"half past three\"."
+      ],
+      [
+        "Quiz",
+        "Pick a level, from o'clock up to every minute. Read the clock and choose the time, or set the hands to the time you are given. A round has 10 questions."
+      ],
+      [
+        "Worksheet",
+        "Make a printable sheet of 12 clocks. Draw the hands for each time, or write the time shown. Print it without answers for the child and with answers to mark it."
+      ]
     ]
   },
   "pageGuides": {
@@ -49,6 +67,44 @@
           "No. Everything is worked out in your browser and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
         ]
       ]
+    },
+    "explainersLearnClock": {
+      "title": "Learn the Clock",
+      "subtitle": "A friendly analog clock for kids. Move the hands by touch, check the time in words, take a quiz with levels, and print clock worksheets. Free, private, no sign-up.",
+      "faq": [
+        [
+          "At what age can children learn to tell time?",
+          "Most children begin to read o'clock times around age 5 or 6 and can usually read to the quarter hour and five minutes by age 7 or 8. Every child is different, so go at the pace that feels comfortable. The levels here start with whole hours and move up to every minute."
+        ],
+        [
+          "In what order should a child learn the clock?",
+          "A common order is: hour hand and the numbers, o'clock, half past, quarter past and quarter to, then five-minute steps, then single minutes. The quiz levels follow this order, so you can start at the first level and move on when the answers come easily."
+        ],
+        [
+          "Why are the two hands different colours and lengths?",
+          "The short red hand shows the hour and the long blue hand shows the minutes. Mixing them up is the most common mistake, so the colours and the lengths give two clues. In the quiz, one of the wrong answers is the time you would get if the two hands were swapped."
+        ],
+        [
+          "Why does the short hand move when I move the long hand?",
+          "On a real clock the hour hand creeps forward as the minutes pass, so at half past three it sits halfway between the 3 and the 4. The clock here does the same, which shows children why the hour hand is not always exactly on a number."
+        ],
+        [
+          "What do \"half past\", \"quarter past\" and \"quarter to\" mean?",
+          "\"Half past\" means 30 minutes after the hour, with the long hand on the 6. \"Quarter past\" means 15 minutes after, with the long hand on the 3. \"Quarter to\" means 15 minutes before the next hour, with the long hand on the 9."
+        ],
+        [
+          "Can I print the worksheets?",
+          "Yes. Choose a level and a kind of worksheet, press New worksheet for a different set, and print or save as a PDF. You can show the answers to mark the sheet, then hide them and print a clean copy for the child."
+        ],
+        [
+          "Does it work on a phone or tablet?",
+          "Yes. The hands can be moved with a finger, a mouse or a pen. If dragging is hard, there are buttons under the clock that move the hour and the minutes one step at a time."
+        ],
+        [
+          "Is anything stored or uploaded?",
+          "No. The clock, the quiz and the worksheets all run in your browser, and nothing is sent to {{siteName}}. Scores are not saved."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -73,6 +129,36 @@
           "paragraphs": [
             "Both circles in the comparison use the same scale, so you can judge the real difference in width. Jupiter is about eleven times wider than Earth, yet more than a thousand Earths would fit inside it by volume, because volume grows with the cube of the width.",
             "The planet line-up shows how small the rocky planets are next to the gas and ice giants. Mercury is barely a dot beside Jupiter."
+          ]
+        }
+      ]
+    },
+    "learn-the-clock": {
+      "sections": [
+        {
+          "heading": "Why the clock is hard to learn",
+          "paragraphs": [
+            "An analog clock asks a child to read two hands at once, count in fives, and understand that the same face is used for hours and minutes. It is no surprise that this takes practice. Moving the hands themselves, not just looking at them, helps children see how the hour hand and the minute hand are connected.",
+            "Try to keep sessions short, five or ten minutes, and finish on a question the child got right."
+          ]
+        },
+        {
+          "heading": "A simple way to teach it",
+          "paragraphs": [
+            "Start with the short hand and the numbers. Ask the child to set the clock to 3 o'clock, then 7 o'clock, and notice that the long hand always points straight up. Move on to half past, where the long hand points down to the 6, then to quarter past and quarter to.",
+            "When those feel easy, count in fives round the clock face, which links each number to its minute count: the 1 means 5 minutes, the 2 means 10 minutes, and so on. Only then move to single minutes."
+          ]
+        },
+        {
+          "heading": "Common mistakes",
+          "paragraphs": [
+            "Reading the two hands the wrong way round is the most frequent mistake, so name them out loud: short hand for hours, long hand for minutes. Another is saying the wrong hour for times after half past. At 3:45 the short hand is almost at the 4, and we say \"quarter to four\". Moving the minute hand slowly past the top of the clock here shows how the hour hand moves on."
+          ]
+        },
+        {
+          "heading": "Using the quiz and worksheets",
+          "paragraphs": [
+            "The Read the clock quiz shows a clock and four times to choose from, and the wrong answers are the ones children really pick, such as the hour one too high or the hands swapped. Set the clock turns it round: a time is given and the child moves the hands. The worksheets give offline practice, and the answer key lets a parent or teacher mark them quickly."
           ]
         }
       ]

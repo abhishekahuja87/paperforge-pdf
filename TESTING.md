@@ -776,3 +776,16 @@ Not run: `tsc` on the page, `vite build`, browser.
 - [ ] Plain text (.txt) downloads with headings in capitals and dashes for bullets; Copy for job portals pastes the same text.
 - [ ] Reload: last description and template come back. On a phone the preview wraps without sideways scrolling.
 - [ ] Search the home page for "job description" and "jd maker": the tool is found.
+
+### Learn the Clock
+
+Not run: `tsc` on the components, `vite build`, browser (the time-wording and answer-option logic was run in Node).
+
+- [ ] /learn-the-clock opens on the Learn tab with Learn, Quiz and Worksheet as large buttons at the top.
+- [ ] Learn: dragging near the edge moves the long blue hand, near the middle moves the short red hand; both work with a finger on a phone and the page does not scroll while dragging.
+- [ ] Moving the long hand past 12 moves the short hand on to the next hour (and back when going the other way); at 3:30 the short hand sits halfway between 3 and 4.
+- [ ] "Tap to see the time" shows e.g. 3:30 and "Half past three"; tapping again hides it. Quick buttons set the long hand; Random time works; the step menu snaps to 1, 5 or 15 minutes; numbers toggle hides the 1-12; the button fallback works.
+- [ ] Quiz, Read the clock: four answers, one right; right turns green with "Well done!", a wrong one says the correct time and in words; after 10 questions "You scored X out of 10. Play again". Changing level or type restarts.
+- [ ] Quiz, Set the clock: time and words shown, hands can be moved, Check judges it; hands are locked after checking.
+- [ ] Worksheet: both kinds, all levels, New worksheet makes a different set; Show the answers fills in hands or times; Print gives a clean A4 sheet with only the worksheet.
+- [ ] Search the home page for "clock", "learn the clock" and "telling time": the tool is found.
