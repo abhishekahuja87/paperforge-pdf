@@ -789,3 +789,15 @@ Not run: `tsc` on the components, `vite build`, browser (the time-wording and an
 - [ ] Quiz, Set the clock: time and words shown, hands can be moved, Check judges it; hands are locked after checking.
 - [ ] Worksheet: both kinds, all levels, New worksheet makes a different set; Show the answers fills in hands or times; Print gives a clean A4 sheet with only the worksheet.
 - [ ] Search the home page for "clock", "learn the clock" and "telling time": the tool is found.
+
+### Money Shop, Tambola, Solar System sharing, Kids group
+
+Not run: full `tsc`, `vite build`. Checked: the Tambola book maker (2,000 books, all valid), the PDF, and the three screens in a Chromium smoke test (unstyled, no Tailwind): money paying, change and shop flows, 90 unique calls, undo, saved game, Solar System link filling the fields.
+
+- [ ] Home page: a "Kids and learning" group with Learn the Clock, Money Shop and Tambola; Learn the Clock is no longer under Students and writing.
+- [ ] Money Shop, Pay: tap notes and coins, the total grows; tap one in the tray to take it back; Pay with the exact amount shows "Thank you"; too little says how much more; too much says how much too much; "Show me" explains a way to pay. After 5 questions the score line and Play again appear. Levels change the prices.
+- [ ] Money Shop, Give change: the customer's note is shown; right change turns green, wrong shows the working and an easy way to make it.
+- [ ] Money Shop, My shop: + and - on items; the basket total updates; paying more than the total shows the change; Parents section changes names and prices and they are still there after a reload; "Put the original prices back" works.
+- [ ] Tambola, Tickets: preview shows 6 tickets; each has 15 numbers, 5 per row, numbers rise down each column; "New tickets" changes them; 3 sheets gives a 3-page PDF with every page using 1-90 once; title, footer and colour appear; a title with Hindi letters shows the warning.
+- [ ] Tambola, Number caller: the big button calls a new number each time, never repeating, until 90; the board fills; Undo last works; New game needs a second tap; closing and reopening the page keeps the game; Voice on reads the number (and stays quiet when off).
+- [ ] Solar System: type a name, the heading and the table header use it and a Mars line appears; Copy link and open the link in a new tab: name, birth date, weight, unit and compared worlds are filled in.

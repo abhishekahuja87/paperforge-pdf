@@ -290,6 +290,34 @@ const ENTRIES: SiteUpdate[] = [
     title: 'New: Learn the Clock for kids',
     summary: 'A big analog clock to move by touch, a hidden time to tap and check, a quiz with levels from o\'clock to every minute, and printable clock worksheets.',
   },
+  {
+    date: '2026-11-14',
+    path: '/kids-money-shop',
+    tool: 'Money Shop for Kids',
+    title: 'New: Money Shop for Kids',
+    summary: 'Play shop with rupee notes and coins: pay exact prices, give change as the shopkeeper, or fill a basket in your own shop with prices you set. Three levels.',
+  },
+  {
+    date: '2026-11-14',
+    path: '/tambola-ticket-generator',
+    tool: 'Tambola Ticket Generator',
+    title: 'New: Tambola tickets and number caller',
+    summary: 'Print tambola (housie) tickets, six per sheet using every number from 1 to 90, as a PDF. A number caller with a board, traditional calls and optional voice keeps the game going.',
+  },
+  {
+    date: '2026-11-14',
+    path: '/solar-system-explorer',
+    tool: 'Solar System Explorer',
+    title: 'Add a name and share your result',
+    summary: 'Type a name to personalise the page, and use Copy link to share it with the name, birth date, weight and your choices already filled in.',
+  },
+  {
+    date: '2026-11-14',
+    path: '/',
+    tool: 'Home page',
+    title: 'New group: Kids and learning',
+    summary: 'Learn the Clock, Money Shop and Tambola now sit together in their own group on the home page.',
+  },
 ];
 
 /** Newest day first (sorted here, so the order they are written in does not matter). Dates must never be later than today. */
