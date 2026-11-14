@@ -1,4 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { downloadBlob } from '../../../lib/browserTools';
+import { drawShareCard, shareCardFileName } from '../../../lib/space/shareCard';
 import { acceptDate, acceptNumber, useShared } from '../../../lib/shareState';
 import { calcCard } from '../../finance/ui';
 import {
@@ -58,6 +60,23 @@ export const SolarSystemExplorer: React.FC = () => {
   const futureBirth = birthDate !== null && birthDate.getTime() > Date.now();
   const who = name.trim();
   const whose = who ? `${who}'s` : 'Your';
+  const [showWeight, setShowWeight] = useState(false);
+  const [canShare, setCanShare] = useState(false);
+  const cardRef = useRef<HTMLCanvasElement>(null);
+  const cardReady = birthDate !== null && !futureBirth;
+  useEffect(() => {
+    if (!cardReady || !birthDate || !cardRef.current) return;
+    drawShareCard(cardRef.current, { name, birth: birthDate, weight: showWeight && Number.isFinite(amount) && amount > 0 ? amount : null, unit });
+  }, [cardReady, birthDate, name, showWeight, amount, unit]);
+  useEffect(() => { setCanShare(typeof navigator !== 'undefined' && typeof navigator.share === 'function' && typeof navigator.canShare === 'function'); }, []);
+  const cardBlob = () => new Promise<Blob | null>((resolve) => cardRef.current ? cardRef.current.toBlob(resolve, 'image/png') : resolve(null));
+  const saveCard = async () => { const blob = await cardBlob(); if (blob) downloadBlob(blob, shareCardFileName(name)); };
+  const shareCard = async () => {
+    const blob = await cardBlob();
+    if (!blob) return;
+    const file = new File([blob], shareCardFileName(name), { type: 'image/png' });
+    try { if (navigator.canShare({ files: [file] })) await navigator.share({ files: [file], title: 'My age on every planet' }); else downloadBlob(blob, file.name); } catch { /* the person closed the share sheet */ }
+  };
   const first = getWorld(firstId);
   const second = getWorld(secondId);
   const [big, small] = first.diameterKm >= second.diameterKm ? [first, second] : [second, first];
@@ -99,6 +118,19 @@ export const SolarSystemExplorer: React.FC = () => {
         ) : null;
       })()}
       <p className="mt-2 text-[11px] text-slate-500">"Copy link" below shares this page with the name, birth date, weight and choices filled in. They are in the link itself, so only send it to people you are happy to know them.</p>
+      <div className="mt-3 rounded-xl border border-slate-200 p-3">
+        <h3 className="text-sm font-bold text-slate-900">Save a picture to share</h3>
+        {cardReady ? (
+          <>
+            <canvas ref={cardRef} className="mx-auto mt-2 w-full max-w-xs rounded-xl border border-slate-200" aria-label={`Picture of ${who || 'your'} age on every planet`} />
+            <label className="mt-2 flex min-h-9 items-center gap-2 text-xs font-semibold text-slate-700"><input type="checkbox" checked={showWeight} onChange={(event) => setShowWeight(event.target.checked)} />Show weight on the picture too</label>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <button type="button" onClick={saveCard} className="min-h-11 rounded-xl bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-700">Download picture</button>
+              {canShare && <button type="button" onClick={shareCard} className="min-h-11 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50">Share picture</button>}
+            </div>
+          </>
+        ) : <p className="mt-1 text-xs text-slate-600">Enter a date of birth above (and a name if you like) to make a picture with your age on every planet.</p>}
+      </div>
       {futureBirth && <p role="status" className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">That date is in the future. Choose the day you were born.</p>}
 
       <div className="mt-3 overflow-x-auto rounded-xl border border-slate-200">

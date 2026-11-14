@@ -812,3 +812,12 @@ Not run: full `tsc`, `vite build`, styled browser check.
 - [ ] Quiz: Easy asks left or right, Medium adds long or short and "right under the feet", Hard adds "move the sun" questions with a Check button. After answering, the shadow appears and a plain explanation shows. Ten questions, then a score.
 - [ ] The page does not scroll while dragging the sun on a phone, but scrolls normally elsewhere.
 - [ ] Home: the tool appears in "Kids and learning" and in New tools.
+
+### Solar System picture (/solar-system-explorer)
+
+Not run: full `tsc`, `vite build`, styled browser check, phone share sheet.
+
+- [ ] Enter a name and date of birth: a "Save a picture to share" preview appears with the age on all eight planets and a small light "Made at www.mydailyutils.in" at the bottom.
+- [ ] "Show weight on the picture too" adds a weight column; it is off by default.
+- [ ] "Download picture" saves a PNG named after the person. On a phone, "Share picture" opens the share sheet with the image.
+- [ ] A long name shrinks to fit; a name in Hindi or another script shows correctly.

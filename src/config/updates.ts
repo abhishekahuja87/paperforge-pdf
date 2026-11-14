@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-14',
+    path: '/solar-system-explorer',
+    tool: 'Solar System Explorer',
+    title: 'Download a picture of your age on every planet',
+    summary: 'Add a name and date of birth, then download or share a picture with the age on all eight planets, and weight if you choose.',
+  },
+  {
+    date: '2026-11-14',
     path: '/shadow-explorer-for-kids',
     tool: 'Shadow and Sun Explorer',
     title: 'New: move the sun and see where the shadow falls',
