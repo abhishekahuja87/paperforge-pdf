@@ -11,4 +11,8 @@ export const KIDS_TOOLS: PackTool[] = [
     id: 'tambola-ticket-generator', kind: 'tambola', guideKey: 'kidsTambola', category: 'everyday', icon: 'grid', tier: 'popular',
     keywords: ['tambola ticket generator', 'housie tickets printable', 'tambola number caller', 'housie number generator', 'tambola tickets pdf', 'print tambola tickets', 'tambola game online', 'housie game for kitty party', 'tambola for family party', 'random number caller 1 to 90'],
   }, kids.toolCatalog),
+  definePackTool({
+    id: 'shadow-explorer-for-kids', kind: 'shadow', guideKey: 'kidsShadow', category: 'everyday', icon: 'sun', tier: 'popular',
+    keywords: ['shadow game for kids', 'how shadows are made', 'sun and shadow for kids', 'why shadow changes during the day', 'shadow length and sun position', 'move the sun shadow activity', 'science for kids shadows', 'shadow quiz for kids', 'sun position shadow simulator', 'class 3 shadows'],
+  }, kids.toolCatalog),
 ];

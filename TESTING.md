@@ -801,3 +801,14 @@ Not run: full `tsc`, `vite build`. Checked: the Tambola book maker (2,000 books,
 - [ ] Tambola, Tickets: preview shows 6 tickets; each has 15 numbers, 5 per row, numbers rise down each column; "New tickets" changes them; 3 sheets gives a 3-page PDF with every page using 1-90 once; title, footer and colour appear; a title with Hindi letters shows the warning.
 - [ ] Tambola, Number caller: the big button calls a new number each time, never repeating, until 90; the board fills; Undo last works; New game needs a second tap; closing and reopening the page keeps the game; Voice on reads the number (and stays quiet when off).
 - [ ] Solar System: type a name, the heading and the table header use it and a Mars line appears; Copy link and open the link in a new tab: name, birth date, weight, unit and compared worlds are filled in.
+
+### Shadow and Sun Explorer (/shadow-explorer-for-kids)
+
+Not run: full `tsc`, `vite build`, styled browser check.
+
+- [ ] Explore: drag the sun along its dashed path (finger or mouse). Sun on the left throws the shadow right, sun on the right throws it left; low sun gives a long shadow, the top gives a small patch under the feet.
+- [ ] Drag the person, then switch to Tree and Flagpole; the shadow starts at the feet and the dashed ray from the head ends at the shadow tip.
+- [ ] "Hide the shadow so I can guess" shows a ? box; "Show the shadow" reveals it. The sliders do the same as dragging.
+- [ ] Quiz: Easy asks left or right, Medium adds long or short and "right under the feet", Hard adds "move the sun" questions with a Check button. After answering, the shadow appears and a plain explanation shows. Ten questions, then a score.
+- [ ] The page does not scroll while dragging the sun on a phone, but scrolls normally elsewhere.
+- [ ] Home: the tool appears in "Kids and learning" and in New tools.
