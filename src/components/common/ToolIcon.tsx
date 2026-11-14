@@ -27,6 +27,7 @@ import {
   Briefcase,
   Globe,
   Clock,
+  Sun,
 } from 'lucide-react';
 import type { ToolIconName } from '../../config/tools';
 
@@ -58,6 +59,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   briefcase: Briefcase,
   globe: Globe,
   clock: Clock,
+  sun: Sun,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {

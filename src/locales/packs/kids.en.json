@@ -35,6 +35,24 @@
         "Check the board",
         "The board shows every number called so far, so anyone can check a claim for Early Five, a line or a Full House."
       ]
+    ],
+    "shadow-explorer-for-kids": [
+      [
+        "Drag the sun",
+        "Hold the sun and slide it along its path, or use the slider. Low on the left is early morning, the top is noon, and low on the right is evening."
+      ],
+      [
+        "Move the person",
+        "Drag the person, tree or flagpole left or right, or pick a different one. The shadow always starts at the feet."
+      ],
+      [
+        "Guess first",
+        "Press Hide the shadow so I can guess, decide where it will fall, then press Show the shadow to check."
+      ],
+      [
+        "Take the quiz",
+        "Open Quiz and choose a level. Say which side the shadow falls on, whether it is long or short, or move the sun to make a shadow you are asked for."
+      ]
     ]
   },
   "pageGuides": {
@@ -109,6 +127,36 @@
           "No. The tickets and the numbers are made in your browser and nothing is sent to {{siteName}}."
         ]
       ]
+    },
+    "kidsShadow": {
+      "title": "Shadow and Sun Explorer for Kids",
+      "subtitle": "Drag the sun and see where the shadow falls and how long it is. Hide it to guess first, then take the quiz. Free, private, works on phones.",
+      "faq": [
+        [
+          "Why does the shadow fall on the side away from the sun?",
+          "A shadow is the place the sun's light cannot reach because something is in the way. The light travels in straight lines from the sun, so the dark patch is always on the opposite side of the object."
+        ],
+        [
+          "Why are shadows long in the morning and evening?",
+          "When the sun is low, its rays come in at a slant and the object blocks a long strip of ground. When the sun is high, the rays come almost straight down, so the shadow is short."
+        ],
+        [
+          "Why is there almost no shadow at noon?",
+          "At noon the sun is at its highest and shines nearly straight down, so the shadow is only a small patch under the feet. The tool shows noon as a small patch."
+        ],
+        [
+          "What age is it for?",
+          "It suits children of about 6 to 10, from class 1 to class 5, when shadows and the sun are taught. Easy asks only which side. Medium adds long or short. Hard asks the child to move the sun."
+        ],
+        [
+          "Is this exactly how the real sun moves?",
+          "It is a simple model for learning. It shows the sun rising in the east and setting in the west, and the shadow length from the sun's height. The real path changes with the place and the season."
+        ],
+        [
+          "Is anything uploaded?",
+          "No. It all runs in your browser and nothing is saved or sent."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -168,6 +216,30 @@
           "heading": "Planning a party",
           "paragraphs": [
             "For a family party, print 2 or 3 sheets. For a kitty party or a society gathering, print about one ticket per person and cut the sheets with scissors. Small prizes keep it fun, and a few spare tickets help latecomers. Put the host's name in the line at the bottom so the tickets look personal."
+          ]
+        }
+      ]
+    },
+    "shadow-explorer-for-kids": {
+      "sections": [
+        {
+          "heading": "What children learn from it",
+          "paragraphs": [
+            "A shadow depends on three things: where the light is, where the object is, and how high the light is. Moving the sun and the person themselves lets a child see each one separately, which a textbook picture cannot.",
+            "The dashed line is the sun ray that just touches the top of the head. It ends exactly where the shadow ends, so children can see that the shadow is the part of the ground that the ray cannot reach."
+          ]
+        },
+        {
+          "heading": "A good way to use it",
+          "paragraphs": [
+            "First let the child play freely for a few minutes. Then use Hide the shadow so I can guess, ask them to say the answer aloud, and show it. Finish with the Easy quiz, and move to Medium when most answers are right.",
+            "Afterwards, go outside in the morning and afternoon and look at a real shadow. Ask the child to point to where the sun is and where the shadow falls."
+          ]
+        },
+        {
+          "heading": "Ideas to try",
+          "paragraphs": [
+            "Ask when the shadow would be shortest and when longest. Compare the person, the tree and the flagpole at the same sun position. Ask which way the shadow points at sunrise and at sunset, and why."
           ]
         }
       ]

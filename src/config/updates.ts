@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-14',
+    path: '/shadow-explorer-for-kids',
+    tool: 'Shadow and Sun Explorer',
+    title: 'New: move the sun and see where the shadow falls',
+    summary: 'Drag the sun and a person, tree or flagpole, hide the shadow to guess first, then take a ten-question quiz.',
+  },
+  {
     date: '2026-11-10',
     path: '/split-pdf',
     tool: 'Split PDF',
