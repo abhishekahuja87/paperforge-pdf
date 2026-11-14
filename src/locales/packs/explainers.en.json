@@ -35,6 +35,24 @@
         "Worksheet",
         "Make a printable sheet of 12 clocks. Draw the hands for each time, or write the time shown. Print it without answers for the child and with answers to mark it."
       ]
+    ],
+    "kids-maths-practice": [
+      [
+        "Choose what to practise",
+        "Pick adding, taking away, times tables, sharing (dividing), money in rupees, or a bit of everything. Then choose Easy, Medium or Hard."
+      ],
+      [
+        "Take the quiz",
+        "Answer 10 questions one at a time. Type the answer and press Check. You see right away whether it is correct, with the answer, and a score at the end."
+      ],
+      [
+        "Print a worksheet",
+        "Open the Worksheet tab for a sheet of 20 different problems (10 for money word problems). Press New worksheet for another set."
+      ],
+      [
+        "Mark it",
+        "Switch on Show the answers to mark the sheet. Switch it off again before you print the copy for the child."
+      ]
     ]
   },
   "pageGuides": {
@@ -105,6 +123,40 @@
           "No. The clock, the quiz and the worksheets all run in your browser, and nothing is sent to {{siteName}}. Scores are not saved."
         ]
       ]
+    },
+    "explainersKidsMaths": {
+      "title": "Kids Maths Practice",
+      "subtitle": "Maths practice for young children: adding, taking away, times tables, dividing and rupee word problems. A 10-question quiz and printable worksheets with answers. Free, private, no sign-up.",
+      "faq": [
+        [
+          "Which classes is this for?",
+          "The Easy level suits children in classes 1 and 2: adding and taking away within 20, and the tables of 2, 5 and 10. Medium suits classes 2 and 3 with numbers to 100 and tables to 10. Hard goes to numbers to 1000 and tables to 12, for classes 3 and 4. Use the level that feels a little challenging but not stressful."
+        ],
+        [
+          "What kind of money problems are there?",
+          "Word problems in rupees like the ones in school books: finding the price of one thing from another, the total of two things, how much two children have together, how much is left after buying several items, and how much change to get back. The prices are round numbers, so the sums are about the maths and not the coins."
+        ],
+        [
+          "Do the questions repeat?",
+          "Each quiz and worksheet is made fresh from random numbers, so there is always something new to practise. The 20 problems on a worksheet are all different from each other."
+        ],
+        [
+          "Why type the answer instead of choosing from options?",
+          "Typing makes children work the answer out instead of guessing, which is better practice. The keyboard shown on a phone or tablet is the number pad."
+        ],
+        [
+          "How do I print a worksheet for my child?",
+          "Open the Worksheet tab, choose the topic and level, press New worksheet if you like, make sure Show the answers is off, and press Print or save as PDF. For your own marking copy, switch the answers on and print again."
+        ],
+        [
+          "Can this replace schoolwork?",
+          "No. It is for extra practice at home or in class. If a child finds a level very hard or too easy, move up or down a level and come back to it later."
+        ],
+        [
+          "Is my child's score saved?",
+          "No. Everything runs in your browser and nothing is sent to {{siteName}} or stored. The score only shows during the round."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -159,6 +211,36 @@
           "heading": "Using the quiz and worksheets",
           "paragraphs": [
             "The Read the clock quiz shows a clock and four times to choose from, and the wrong answers are the ones children really pick, such as the hour one too high or the hands swapped. Set the clock turns it round: a time is given and the child moves the hands. The worksheets give offline practice, and the answer key lets a parent or teacher mark them quickly."
+          ]
+        }
+      ]
+    },
+    "kids-maths-practice": {
+      "sections": [
+        {
+          "heading": "Little and often works best",
+          "paragraphs": [
+            "Five to ten minutes of maths a day does more than one long session a week. A 10-question round takes about that long. Stop on a correct answer so that the child ends feeling successful.",
+            "If your child gets most answers right, move up a level. If they get fewer than half right, move down and come back later. The goal is steady, relaxed progress."
+          ]
+        },
+        {
+          "heading": "Learning the tables",
+          "paragraphs": [
+            "Start with the tables of 2, 5 and 10, which have clear patterns, then 3 and 4, then the harder ones. Practise a single table until it is easy before mixing them. The Sharing option works the same facts backwards: 35 divided by 5 is 7 because 5 times 7 is 35. Seeing both together makes the tables stick."
+          ]
+        },
+        {
+          "heading": "Money word problems",
+          "paragraphs": [
+            "Word problems are where children learn to decide what to do with the numbers. Ask them to read the question twice and say in their own words what is being asked: do we add, take away, or share? Underlining the numbers and the key words, such as \"more than\", \"in all\" and \"left\", helps.",
+            "Counting real coins and notes while solving a problem, or playing shop at home, brings the same idea to life."
+          ]
+        },
+        {
+          "heading": "Using the worksheets",
+          "paragraphs": [
+            "Printed sheets give children a break from the screen and let them show their working. Ask them to write the working in the margin for the harder sums. Use the answer key to mark the sheet together, and talk about the mistakes, not only the score."
           ]
         }
       ]

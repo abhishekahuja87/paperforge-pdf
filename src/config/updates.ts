@@ -290,6 +290,13 @@ const ENTRIES: SiteUpdate[] = [
     title: 'New: Learn the Clock for kids',
     summary: 'A big analog clock to move by touch, a hidden time to tap and check, a quiz with levels from o\'clock to every minute, and printable clock worksheets.',
   },
+  {
+    date: '2026-11-14',
+    path: '/kids-maths-practice',
+    tool: 'Kids Maths Practice',
+    title: 'New: Kids Maths Practice',
+    summary: 'A 10-question quiz and printable worksheets for adding, taking away, times tables, dividing and rupee word problems, with three levels and an answer key.',
+  },
 ];
 
 /** Newest day first (sorted here, so the order they are written in does not matter). Dates must never be later than today. */

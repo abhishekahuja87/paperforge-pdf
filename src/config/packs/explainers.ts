@@ -11,4 +11,8 @@ export const EXPLAINER_TOOLS: PackTool[] = [
     id: 'learn-the-clock', kind: 'learnClock', guideKey: 'explainersLearnClock', category: 'everyday', icon: 'clock', tier: 'popular',
     keywords: ['learn the clock', 'learn to tell time', 'clock for kids', 'analog clock for kids', 'teach kids time', 'telling time worksheet', 'clock worksheet printable', 'read the clock quiz', 'set the clock game', 'half past quarter past', 'o clock for kids', 'interactive clock'],
   }, explainers.toolCatalog),
+  definePackTool({
+    id: 'kids-maths-practice', kind: 'kidsMaths', guideKey: 'explainersKidsMaths', category: 'everyday', icon: 'calculator', tier: 'popular',
+    keywords: ['kids maths practice', 'maths worksheet for kids', 'addition worksheet', 'subtraction worksheet', 'multiplication tables practice', 'times tables quiz', 'money word problems class 2', 'rupees word problems', 'maths quiz for class 1 2 3', 'printable maths worksheet', 'division practice for kids', 'maths practice online free'],
+  }, explainers.toolCatalog),
 ];

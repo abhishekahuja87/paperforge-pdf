@@ -789,3 +789,13 @@ Not run: `tsc` on the components, `vite build`, browser (the time-wording and an
 - [ ] Quiz, Set the clock: time and words shown, hands can be moved, Check judges it; hands are locked after checking.
 - [ ] Worksheet: both kinds, all levels, New worksheet makes a different set; Show the answers fills in hands or times; Print gives a clean A4 sheet with only the worksheet.
 - [ ] Search the home page for "clock", "learn the clock" and "telling time": the tool is found.
+
+### Kids Maths Practice
+
+Not run: `tsc` on the component, `vite build`, browser (the generators were run in Node: 3000 problems, all whole numbers, none negative).
+
+- [ ] /kids-maths-practice opens on the Quiz tab; changing the topic or level restarts the round.
+- [ ] Type an answer and press Check (or Enter): right shows "Well done!", wrong shows the correct answer; 10 questions then "You scored X out of 10. Play again". The number pad shows on a phone.
+- [ ] Money problems show the ₹ sign beside the answer box and read naturally (names, items, prices make sense; nothing negative).
+- [ ] Worksheet: 20 different problems (10 for Money), New worksheet changes them, Show the answers fills them in, Print gives a clean A4 sheet with only the worksheet.
+- [ ] Search the home page for "maths worksheet" and "times tables": the tool is found.

@@ -16,7 +16,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'visiting-card-maker', 'job-description-builder',
+  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-maths-practice', 'visiting-card-maker', 'job-description-builder',
 ];
 
 /** Studio-style tools shown as a slim row. */
@@ -58,7 +58,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'job-description-builder',
   ] },
   { id: 'study', icon: 'type', tools: [
-    'gpa-cgpa-calculator', 'learn-the-clock', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter',
+    'gpa-cgpa-calculator', 'learn-the-clock', 'kids-maths-practice', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter',
   ] },
   { id: 'sharing', icon: 'grid', tools: [
     'qr-code-generator', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
