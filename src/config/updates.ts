@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-14',
+    path: '/shadow-explorer-for-kids',
+    tool: 'Shadow and Sun Explorer',
+    title: 'Fixed: moving the sun in the Hard quiz',
+    summary: 'In the "move the sun" questions the sun now follows both the slider and your finger.',
+  },
+  {
+    date: '2026-11-14',
     path: '/solar-system-explorer',
     tool: 'Solar System Explorer',
     title: 'Download a picture of your age on every planet',
