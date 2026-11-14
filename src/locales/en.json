@@ -997,6 +997,10 @@
       "name": "Students and writing",
       "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts and case conversion."
     },
+    "kids": {
+      "name": "Kids and learning",
+      "description": "Games and practice for children and family fun: learn to tell the time on a clock you can move, play shop with rupee notes and coins, and print tambola tickets with a number caller."
+    },
     "sharing": {
       "name": "QR codes and contacts",
       "description": "Make QR codes for links, text, Wi-Fi and contacts, and convert contact (.vcf) files to CSV or Excel, even very large ones, without uploading them."

@@ -1,0 +1,176 @@
+{
+  "guideSteps": {
+    "kids-money-shop": [
+      [
+        "Pick Pay, Give change or My shop",
+        "Pay: pay the exact price of an item. Give change: you are the shopkeeper and give back the right change. My shop: fill a basket from the shelf and pay."
+      ],
+      [
+        "Tap notes and coins",
+        "Tap a note or coin to put it in the tray. Tap one in the tray to take it back. The total is shown in big numbers, so children can watch the amount grow."
+      ],
+      [
+        "Check",
+        "Press Pay or Give change. The shop says whether it is right, how much more is needed, and shows an easy way to make the amount."
+      ],
+      [
+        "Set your own prices",
+        "In My shop, parents and teachers can change the names and prices of the six items, such as to match a real shop at home or a classroom shop day."
+      ]
+    ],
+    "tambola-ticket-generator": [
+      [
+        "Make the tickets",
+        "Type a title, choose a colour and the number of sheets. Each sheet has 6 tickets that together use every number from 1 to 90 once. Press New tickets for a different set."
+      ],
+      [
+        "Download and print",
+        "Download the PDF and print it on A4. Each page is one sheet of six tickets with the title and the prize line."
+      ],
+      [
+        "Call the numbers",
+        "Open Number caller and press the big button. Each number is shown large, with a traditional call for many numbers, and added to the board. Switch on Voice to hear it read out."
+      ],
+      [
+        "Check the board",
+        "The board shows every number called so far, so anyone can check a claim for Early Five, a line or a Full House."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "kidsMoneyShop": {
+      "title": "Money Shop for Kids",
+      "subtitle": "Learn rupee notes and coins by playing shop. Pay the exact price, give change as the shopkeeper, or fill a basket in your own shop with prices you set. Free, private, no sign-up.",
+      "faq": [
+        [
+          "What age is the Money Shop for?",
+          "It suits children of about 5 to 9, in classes 1 to 4. Easy has prices up to ₹50 in round numbers. Medium goes to ₹200 and Hard goes to ₹500 with odd amounts like ₹37. Start with the level where your child can pay exactly most of the time."
+        ],
+        [
+          "Why do the notes look like plain coloured blocks?",
+          "They are play money. Each one is a coloured block with the amount and the words play money, so children learn to tell the amounts by number and colour. They are not copies of real notes."
+        ],
+        [
+          "What is the difference between Pay, Give change and My shop?",
+          "In Pay, the child makes an exact amount for an item. In Give change, the customer hands over a note and the child works out and gives back the change, which is the harder skill. In My shop, the child chooses several items, sees the total and pays, and the shop shows the change if they overpay."
+        ],
+        [
+          "Can I set my own prices?",
+          "Yes. Open the Parents and teachers section in My shop and change the names and prices of the six items. The changes are saved on your own device. You can put the original prices back at any time."
+        ],
+        [
+          "How should a child work out change?",
+          "Count up from the price to the note that was paid. For a ₹35 item paid with ₹50, count ₹5 to make ₹40, then ₹10 to make ₹50, so the change is ₹15. The shop shows an easy way to make the right amount after each answer."
+        ],
+        [
+          "Is it better to use real coins as well?",
+          "Yes, if you can. Playing shop with real or toy coins and notes at home helps a lot, and this page is a good way to practise the sums in between. You could use My shop with the prices of your real shelf."
+        ],
+        [
+          "Is anything stored or uploaded?",
+          "Nothing is sent to {{siteName}}. Your child's scores are not saved. Only the shop prices you change are remembered, and only on your own device."
+        ]
+      ]
+    },
+    "kidsTambola": {
+      "title": "Tambola Ticket Generator and Number Caller",
+      "subtitle": "Print tambola (housie) tickets, six per sheet using every number from 1 to 90, and call the numbers on screen with a board and optional voice. Free, private, no sign-up.",
+      "faq": [
+        [
+          "How are the tickets made?",
+          "Each sheet is a book of 6 tickets. Together they use every number from 1 to 90 exactly once. Each ticket has 3 rows and 9 columns with 15 numbers, 5 in each row, and every column holds numbers from its own band (1 to 9, 10 to 19, and so on up to 80 to 90) in rising order. Every ticket has at least one number in each column, like printed tambola tickets."
+        ],
+        [
+          "Are all the tickets different?",
+          "Yes. Every time you press New tickets or change the number of sheets, the tickets are made fresh at random. All the sheets in one download are different from each other."
+        ],
+        [
+          "How many tickets should I print?",
+          "One sheet has 6 tickets. For a family party, 2 or 3 sheets is plenty. For a kitty party or a society event, print one ticket per person plus a few spare, and cut the sheets into tickets."
+        ],
+        [
+          "What are the usual prizes?",
+          "Common prizes are Early Five (the first person to cross off any five numbers), Top Line, Middle Line, Bottom Line and Full House (all 15 numbers). The prize line is printed at the foot of each page, and you can agree your own rules before you start."
+        ],
+        [
+          "How does the number caller work?",
+          "Press Call next number. A random number from 1 to 90 that has not been called is shown large, with a traditional call for many numbers such as Two little ducks for 22. The board shows everything called so far. You can undo the last number if you called one by mistake."
+        ],
+        [
+          "Can the caller read the numbers aloud?",
+          "Yes, if your browser supports it. Switch on Voice and each new number is spoken. It is off to begin with so that it does not make a noise unexpectedly."
+        ],
+        [
+          "What if the page is closed in the middle of a game?",
+          "The numbers called so far are kept on your own device, so you can reopen the page and carry on. Press New game, and then tap again to confirm, to start afresh."
+        ],
+        [
+          "Is anything uploaded?",
+          "No. The tickets and the numbers are made in your browser and nothing is sent to {{siteName}}."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "kids-money-shop": {
+      "sections": [
+        {
+          "heading": "Why playing shop works",
+          "paragraphs": [
+            "Money is hard to learn from a book, because the answer depends on handling it: which note, which coin, how many. Children learn it quickly when they pay, count and give change themselves. A play shop makes the sums feel real, and being the shopkeeper makes children think about change in the right direction.",
+            "Five to ten minutes at a time is enough. Stop on a success."
+          ]
+        },
+        {
+          "heading": "A good order to learn",
+          "paragraphs": [
+            "Start with paying exact amounts using whole tens, then use fives and ones. Next, practise reading prices and adding two items together in My shop. Then move to change, starting with small differences such as paying ₹20 for a ₹15 item, and building up to ₹100 and ₹500 notes.",
+            "The Easy level keeps to round prices, so children focus on the idea. Hard adds amounts like ₹37 that need coins."
+          ]
+        },
+        {
+          "heading": "Counting up to make change",
+          "paragraphs": [
+            "Shopkeepers rarely subtract. They count up from the price to the amount paid. If something costs ₹65 and a ₹100 note is paid, you say 65, then add ₹5 to reach 70, ₹10 to reach 80, and ₹20 to reach 100. The change is ₹5 + ₹10 + ₹20 = ₹35. Practise saying it aloud."
+          ]
+        },
+        {
+          "heading": "Use it with real life",
+          "paragraphs": [
+            "Let your child look at real prices in a shop, then put them into My shop and play at home. Give a small amount of pocket money and let them plan what to buy. Real choices make the maths matter."
+          ]
+        }
+      ]
+    },
+    "tambola-ticket-generator": {
+      "sections": [
+        {
+          "heading": "How tambola is played",
+          "paragraphs": [
+            "Tambola, also called housie, is a number game for any number of players. Each player gets a ticket. A caller draws numbers from 1 to 90 one at a time, and players cross off the numbers they have. The first to complete a prize pattern shouts and claims it.",
+            "The usual prizes are Early Five, Top Line, Middle Line, Bottom Line and Full House. You can agree extra prizes before you start, such as the four corners."
+          ]
+        },
+        {
+          "heading": "Why a proper ticket set matters",
+          "paragraphs": [
+            "Tickets made by picking random numbers can contain a lot of duplicates between players, and some can be much luckier than others. A printed book of 6 tickets uses every number from 1 to 90 exactly once, so every number called is on exactly one ticket in the book. That makes the game fair and gives a clear winner."
+          ]
+        },
+        {
+          "heading": "Running the game",
+          "paragraphs": [
+            "Give each player a ticket and something to mark it, such as a pen or counters. Use the Number caller on a phone, a tablet or a laptop connected to a screen so that everyone can see the numbers, or read them out loud. The board lets you check a claim by looking at which numbers have been called.",
+            "For young children, call the numbers slowly and show the number on the screen. Tambola is a good way to practise recognising numbers up to 90."
+          ]
+        },
+        {
+          "heading": "Planning a party",
+          "paragraphs": [
+            "For a family party, print 2 or 3 sheets. For a kitty party or a society gathering, print about one ticket per person and cut the sheets with scissors. Small prizes keep it fun, and a few spare tickets help latecomers. Put the host's name in the line at the bottom so the tickets look personal."
+          ]
+        }
+      ]
+    }
+  }
+}

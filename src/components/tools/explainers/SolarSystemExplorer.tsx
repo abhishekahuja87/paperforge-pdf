@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { acceptDate, acceptNumber, useShared } from '../../../lib/shareState';
 import { calcCard } from '../../finance/ui';
 import {
   PLANETS, WORLDS, ageOn, describeDay, describeYear, formatNumber, getWorld, lightMinutes, volumeRatio, weightOn, widthRatio,
@@ -32,16 +33,31 @@ const LineUp: React.FC = () => {
   );
 };
 
+/** A first name (letters in any language, spaces, dots, hyphens, apostrophes), short enough to fit a link. */
+const acceptName = (text: string) => text.length <= 30 && /^[\p{L}\p{M}][\p{L}\p{M} .'’-]*$/u.test(text);
+
 export const SolarSystemExplorer: React.FC = () => {
+  const [name, setName] = useState('');
   const [birth, setBirth] = useState('');
   const [weight, setWeight] = useState('60');
   const [unit, setUnit] = useState<'kg' | 'lb'>('kg');
   const [firstId, setFirstId] = useState('jupiter');
   const [secondId, setSecondId] = useState('earth');
 
+  // Everything typed here travels in the "Copy link" address, so a link opens with the same name, birthday and choices.
+  const isWorld = (text: string) => WORLDS.some((world) => world.id === text);
+  useShared('Name', name, setName, acceptName);
+  useShared('Date of birth', birth, setBirth, acceptDate);
+  useShared('Weight', weight, setWeight, acceptNumber);
+  useShared('Unit', unit, (value) => setUnit(value === 'lb' ? 'lb' : 'kg'), (text) => text === 'kg' || text === 'lb');
+  useShared('Compare first', firstId, setFirstId, isWorld);
+  useShared('Compare second', secondId, setSecondId, isWorld);
+
   const birthDate = useMemo(() => (birth ? new Date(`${birth}T00:00:00`) : null), [birth]);
   const amount = Number(weight);
   const futureBirth = birthDate !== null && birthDate.getTime() > Date.now();
+  const who = name.trim();
+  const whose = who ? `${who}'s` : 'Your';
   const first = getWorld(firstId);
   const second = getWorld(secondId);
   const [big, small] = first.diameterKm >= second.diameterKm ? [first, second] : [second, first];
@@ -50,9 +66,13 @@ export const SolarSystemExplorer: React.FC = () => {
 
   return (
     <section className={calcCard}>
-      <h2 className="text-base font-bold text-slate-900">Your age and weight on each planet</h2>
+      <h2 className="text-base font-bold text-slate-900">{who ? `${whose} age and weight on each planet` : 'Your age and weight on each planet'}</h2>
       <p className="mt-1 text-xs text-slate-600">A year on a planet is the time it takes to go once round the Sun, so your age in planet years depends on how fast it travels. Your weight depends on the pull of gravity at the surface; your mass stays the same.</p>
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
+        <div className="sm:col-span-2">
+          <label htmlFor="space-name" className="block text-xs font-semibold text-slate-700">Name (optional)</label>
+          <input id="space-name" type="text" autoComplete="given-name" maxLength={30} value={name} placeholder="For example, Aarav" onChange={(event) => setName(event.target.value)} className={inputClass} />
+        </div>
         <div>
           <label htmlFor="space-birth" className="block text-xs font-semibold text-slate-700">Your date of birth</label>
           <input id="space-birth" type="date" value={birth} max={new Date().toISOString().slice(0, 10)} onChange={(event) => setBirth(event.target.value)} className={inputClass} />
@@ -68,13 +88,24 @@ export const SolarSystemExplorer: React.FC = () => {
           </div>
         </div>
       </div>
+      {who && birthDate && !futureBirth && (() => {
+        const mars = PLANETS.find((planet) => planet.id === 'mars');
+        const age = mars ? ageOn(mars, birthDate) : null;
+        const pull = mars && Number.isFinite(amount) && amount > 0 ? weightOn(mars, amount) : null;
+        return age ? (
+          <p className="mt-3 rounded-xl bg-orange-50 px-3 py-2 text-sm font-semibold text-orange-900">
+            {who} on Mars: {formatNumber(age.years)} years old{pull !== null ? `, weighs ${formatNumber(pull)} ${unit}` : ''}.
+          </p>
+        ) : null;
+      })()}
+      <p className="mt-2 text-[11px] text-slate-500">"Copy link" below shares this page with the name, birth date, weight and choices filled in. They are in the link itself, so only send it to people you are happy to know them.</p>
       {futureBirth && <p role="status" className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">That date is in the future. Choose the day you were born.</p>}
 
       <div className="mt-3 overflow-x-auto rounded-xl border border-slate-200">
         <table className="w-full min-w-[34rem] text-left text-xs">
-          <caption className="sr-only">Your age, next birthday and weight on each planet</caption>
+          <caption className="sr-only">{whose} age, next birthday and weight on each planet</caption>
           <thead className="bg-slate-50 text-slate-700">
-            <tr><th scope="col" className="px-3 py-2">Planet</th><th scope="col" className="px-3 py-2">Your age</th><th scope="col" className="px-3 py-2">Next birthday</th><th scope="col" className="px-3 py-2">Your weight</th></tr>
+            <tr><th scope="col" className="px-3 py-2">Planet</th><th scope="col" className="px-3 py-2">{who ? `${who}'s age` : 'Your age'}</th><th scope="col" className="px-3 py-2">Next birthday</th><th scope="col" className="px-3 py-2">Your weight</th></tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
             {PLANETS.map((planet) => {
