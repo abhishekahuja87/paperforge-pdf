@@ -29,7 +29,8 @@ export type ToolIconName =
   | 'dumbbell'
   | 'contact'
   | 'briefcase'
-  | 'globe';
+  | 'globe'
+  | 'clock';
 
 export type ToolTier = 'popular' | 'workspace' | 'more' | 'advanced';
 
