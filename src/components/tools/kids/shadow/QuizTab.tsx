@@ -23,7 +23,6 @@ export const QuizTab: React.FC = () => {
   const next = () => { setNumber((n) => n + 1); load(makeShadowQuestion(level)); };
   const done = number > ROUND;
   const isSet = question.kind === 'set';
-  const shown = isSet && result === null ? 90 : alpha;
 
   if (done) {
     return (
@@ -46,10 +45,11 @@ export const QuizTab: React.FC = () => {
         <p className="mt-2 text-xs text-slate-600">{SHADOW_LEVELS.find((i) => i.id === level)?.hint}. Question {number} of {ROUND}. Score {score}.</p>
       </div>
       <div className={card}>
-        <ShadowScene alpha={shown} personX={question.personX} subject={question.subject} hideShadow={result === null} onSun={isSet && result === null ? setAlpha : undefined} />
+        <ShadowScene alpha={alpha} personX={question.personX} subject={question.subject} hideShadow={result === null} onSun={isSet && result === null ? setAlpha : undefined} />
         <p className="mt-3 text-lg font-black text-slate-900">{question.prompt}</p>
         {isSet ? (
           <div className="mt-2 space-y-3">
+            <p className="text-xs text-slate-600">Drag the sun in the picture, or use the slider.</p>
             <label className="block text-sm font-bold text-slate-800">Move the sun
               <input type="range" min={SCENE.minAlpha} max={SCENE.maxAlpha} value={alpha} disabled={result !== null} onChange={(e) => setAlpha(Number(e.target.value))} className="mt-2 block w-full" />
             </label>
