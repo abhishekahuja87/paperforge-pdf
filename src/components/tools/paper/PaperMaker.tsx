@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Download, FolderOpen, Printer, RotateCcw, Save } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
@@ -19,13 +20,29 @@ const presetButtons = (spacings: { label: string; value: number }[], current: nu
   </div>
 );
 
-export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialStyle }) => {
+/** The page that opens on each paper type, so a focused page can point to the others. */
+const STYLE_PAGES: Partial<Record<PaperStyle, string>> = {
+  dot: 'dot-grid-paper-generator', graph: 'graph-paper-generator', cornell: 'cornell-notes-template',
+  hex: 'hexagon-graph-paper-generator', calligraphy: 'calligraphy-practice-sheet-generator', crossstitch: 'cross-stitch-pattern-grid-generator',
+};
+
+/** With `focused`, the page is about one paper type: no style picker, only the quick starts for that type, and links to the other types. */
+export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean }> = ({ initialStyle, focused = false }) => {
   const [settings, setSettings] = useState<PaperSettings>(() => (typeof window !== 'undefined' ? decodeShare(window.location.hash) : null) ?? { ...DEFAULT_SETTINGS, style: initialStyle ?? DEFAULT_SETTINGS.style });
   const [side, setSide] = useState<'front' | 'back'>('front');
   const [busy, setBusy] = useState(false);
+  const [applied, setApplied] = useState<{ id: string; label: string; settings: PaperSettings } | null>(null);
   const [message, setMessage] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
 
+  const presets = useMemo(() => (focused && initialStyle ? PRESETS.filter((preset) => preset.patch(DEFAULT_SETTINGS).style === initialStyle) : PRESETS), [focused, initialStyle]);
+  // A quick start shows as chosen only while the settings are exactly what it produced, so touching any control clears it.
+  const appliedPreset = applied && applied.settings === settings ? applied : null;
+  const applyPreset = (preset: (typeof PRESETS)[number]) => {
+    const next = preset.patch(settings);
+    setSettings(next);
+    setApplied({ id: preset.id, label: preset.label, settings: next });
+  };
   const update = (patch: Partial<PaperSettings>) => setSettings((current) => ({ ...current, ...patch }));
   const sheet = useMemo(() => buildSheet(settings, hasBackSide(settings) ? side : 'front'), [settings, side]);
   const margins = settings.margins;
@@ -81,26 +98,38 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] print:hidden">
         <div className="order-2 space-y-4 lg:order-1">
-          <div className={card}>
-            <h2 className={heading}>Quick start</h2>
-            <p className="mt-1 text-[11px] text-slate-500">One click sets a template, size and options for a common use. You can change anything afterwards.</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {PRESETS.map((preset) => (
-                <button key={preset.id} type="button" title={preset.hint} onClick={() => setSettings((current) => preset.patch(current))} className="min-h-9 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">{preset.label}</button>
-              ))}
+          {presets.length > 0 && (
+            <div className={card}>
+              <h2 className={heading}>Quick start</h2>
+              <p className="mt-1 text-[11px] text-slate-500">One click sets {focused ? 'the size and options' : 'a template, size and options'} for a common use. You can change anything afterwards.</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {presets.map((preset) => {
+                  const on = appliedPreset?.id === preset.id;
+                  return (
+                    <button key={preset.id} type="button" title={preset.hint} aria-pressed={on} onClick={() => applyPreset(preset)} className={`min-h-9 rounded-lg border px-3 py-1.5 text-xs font-semibold ${on ? 'border-orange-300 bg-orange-50 text-orange-900 ring-1 ring-orange-300' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>{preset.label}</button>
+                  );
+                })}
+              </div>
+              {appliedPreset && <p role="status" className="mt-2 rounded-lg bg-orange-50 px-3 py-2 text-xs font-semibold text-orange-900">Applied: {appliedPreset.label}. The preview shows it, and the settings below can still be changed.</p>}
             </div>
-          </div>
+          )}
 
           <div className={card}>
-            <h2 className={heading}>1. Paper style</h2>
-            <div className="mt-3 grid grid-cols-2 gap-2">
-              {STYLES.map((item) => (
-                <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => update({ style: item.id })} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
-                  <span className="block text-xs font-bold text-slate-900">{item.label}</span>
-                  <span className="block text-[11px] text-slate-500">{item.hint}</span>
-                </button>
-              ))}
-            </div>
+            {focused ? (
+              <h2 className={heading}>1. {STYLES.find((item) => item.id === settings.style)?.label} settings</h2>
+            ) : (
+              <>
+                <h2 className={heading}>1. Paper style</h2>
+                <div className="mt-3 grid grid-cols-2 gap-2">
+                  {STYLES.map((item) => (
+                    <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => update({ style: item.id })} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
+                      <span className="block text-xs font-bold text-slate-900">{item.label}</span>
+                      <span className="block text-[11px] text-slate-500">{item.hint}</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
             <div className="mt-4 space-y-3">
               {settings.style === 'dot' && (<>
                 {presetButtons([{ label: 'Compact 3.5 mm', value: 3.5 }, { label: 'Standard 5 mm', value: 5 }, { label: 'Wide 7 mm', value: 7 }], settings.dot.spacing, (spacing) => update({ dot: { ...settings.dot, spacing } }))}
@@ -247,6 +276,18 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
               <p className="mt-2 text-[11px] text-slate-500">Make a ready-to-print notebook or binder refill in one file. Identical pages are stored once, so the file stays small.</p>
             </div>
           </div>
+
+          {focused && (
+            <div className={card}>
+              <h2 className={heading}>Other paper types</h2>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {(Object.entries(STYLE_PAGES) as [PaperStyle, string][]).filter(([style]) => style !== initialStyle).map(([style, page]) => (
+                  <Link key={style} to={`/${page}`} className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">{STYLES.find((item) => item.id === style)?.label}</Link>
+                ))}
+                <Link to="/printable-paper-maker" className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">Lined, music, isometric, tracker and more</Link>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="order-1 lg:order-2">

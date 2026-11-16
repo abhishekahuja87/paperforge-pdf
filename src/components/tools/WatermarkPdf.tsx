@@ -182,21 +182,25 @@ export const WatermarkPdf: React.FC = () => {
           <div className="space-y-1.5">
             <label className="block text-xs font-semibold text-slate-700">Quick Presets</label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {presets.map((preset) => (
-                <button
-                  key={preset.label}
-                  type="button"
-                  onClick={() => {
-                    setText(preset.text);
-                    setColorHex(preset.color);
-                    setRotationAngle(preset.angle);
-                  }}
-                  className="p-2 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-left transition cursor-pointer text-xs"
-                >
-                  <span className="font-semibold block text-slate-800">{preset.label}</span>
-                  <span className="text-[10px] text-slate-400">{preset.text}</span>
-                </button>
-              ))}
+              {presets.map((preset) => {
+                const on = text === preset.text && colorHex === preset.color && rotationAngle === preset.angle;
+                return (
+                  <button
+                    key={preset.label}
+                    type="button"
+                    aria-pressed={on}
+                    onClick={() => {
+                      setText(preset.text);
+                      setColorHex(preset.color);
+                      setRotationAngle(preset.angle);
+                    }}
+                    className={`p-2 rounded-lg border text-left transition cursor-pointer text-xs ${on ? 'border-indigo-600 bg-white ring-1 ring-indigo-600' : 'border-slate-200 bg-slate-50 hover:bg-slate-100'}`}
+                  >
+                    <span className="font-semibold block text-slate-800">{preset.label}</span>
+                    <span className="text-[10px] text-slate-500">{preset.text}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 

@@ -51,7 +51,7 @@ export const AgeCalculator: React.FC = () => {
       </InputGrid>
       <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Quick dates for the Age on field">
         {presets.map((preset) => (
-          <button key={preset.label} type="button" onClick={() => setAsOf(preset.value)} className="min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">{preset.label}</button>
+          <button key={preset.label} type="button" aria-pressed={asOf === preset.value} onClick={() => setAsOf(preset.value)} className={`min-h-10 rounded-lg border px-3 py-2 text-xs font-semibold ${asOf === preset.value ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>{preset.label}</button>
         ))}
       </div>
       <details className="mt-4 rounded-xl border border-slate-200 bg-white p-3" open={minAge !== '' || maxAge !== ''}>

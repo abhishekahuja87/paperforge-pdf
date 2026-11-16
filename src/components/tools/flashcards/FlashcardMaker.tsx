@@ -24,7 +24,7 @@ const Swatches: React.FC<{ label: string; value: string; onChange: (value: strin
   </div>
 );
 
-export const FlashcardMaker: React.FC<{ focus?: 'general' | 'duplex' }> = ({ focus = 'general' }) => {
+export const FlashcardMaker: React.FC = () => {
   const [text, setText] = useState(SAMPLE_DECK);
   const [settings, setSettings] = useState<FlashSettings>(DEFAULT_FLASH);
   const [hasHeader, setHasHeader] = useState(false);
@@ -112,8 +112,6 @@ export const FlashcardMaker: React.FC<{ focus?: 'general' | 'duplex' }> = ({ foc
             <p className="mt-2 text-[11px] text-slate-500">Exports from Anki, Quizlet, Google Sheets and Excel work: take the first two columns.</p>
           </div>
 
-          {focus === 'duplex' && alignmentTest}
-
           <div className={card}>
             <h2 className={heading}>2. Page and card size</h2>
             <div className="mt-3 space-y-3">
@@ -162,7 +160,7 @@ export const FlashcardMaker: React.FC<{ focus?: 'general' | 'duplex' }> = ({ foc
             </div>
           </div>
 
-          {focus !== 'duplex' && alignmentTest}
+          {alignmentTest}
         </div>
 
         <div className="order-1 lg:order-2">

@@ -821,3 +821,13 @@ Not run: full `tsc`, `vite build`, styled browser check, phone share sheet.
 - [ ] "Show weight on the picture too" adds a weight column; it is off by default.
 - [ ] "Download picture" saves a PNG named after the person. On a phone, "Share picture" opens the share sheet with the image.
 - [ ] A long name shrinks to fit; a name in Hindi or another script shows correctly.
+
+### Duplicates and click feedback (16 Nov)
+
+Not run: full `tsc`, `vite build`, styled browser check.
+
+- [ ] `/double-sided-flashcards-printable` opens the Printable Flashcard Maker; the home page and the Printable group list only one flashcard tool. The FAQ covers long edge, short edge, landscape and printers without duplex.
+- [ ] Calligraphy, dot grid, graph, hexagon, Cornell and cross-stitch pages: no paper-type grid, a heading like "Calligraphy settings", quick starts only for that type, and an "Other paper types" row of links that open the other pages.
+- [ ] Printable Paper Maker (lined page): clicking a quick start highlights it, shows "Applied: ..." and the preview changes; changing any control clears the highlight.
+- [ ] Watermark PDF presets, Age calculator quick dates and Learn the Clock "Try these" buttons highlight the chosen one.
+
