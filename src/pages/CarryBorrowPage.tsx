@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play, RotateCcw, Shuffle } from 'lucide-react';
 import { PageMetadata } from '../components/common/PageMetadata';
-import { PlaceBoard } from '../components/tools/kids/carry/PlaceBoard';
+import { DigitBoard } from '../components/tools/kids/carry/DigitBoard';
 import { EXAMPLES, isValid, makeFrames, randomExample, type Example, type Op } from '../lib/kids/placeValue';
 
 const STEP_MS = 1700;
@@ -10,7 +10,7 @@ const round = 'flex h-14 w-14 items-center justify-center rounded-full border-2 
 
 /**
  * A hidden page (no link anywhere, not in the sitemap, noindex): column addition with carrying and column
- * subtraction with borrowing, shown only as pictures of blocks. Digits and signs are the only text.
+ * subtraction with borrowing, written as numbers in columns with the working shown step by step.
  */
 export const CarryBorrowPage: React.FC = () => {
   const [example, setExample] = useState<Example>(EXAMPLES[1]);
@@ -21,6 +21,12 @@ export const CarryBorrowPage: React.FC = () => {
   const frames = useMemo(() => makeFrames(example.op, example.x, example.y), [example]);
   const frame = frames[Math.min(step, frames.length - 1)];
   const last = frames.length - 1;
+  // For taking away: every value each top digit has had up to this step, so old ones show crossed out.
+  const history = useMemo(() => {
+    const out: number[][] = Array.from({ length: frame.cols }, () => []);
+    frames.slice(0, Math.min(step, frames.length - 1) + 1).forEach((item) => item.a.forEach((value, c) => { if (out[c][out[c].length - 1] !== value) out[c].push(value); }));
+    return out;
+  }, [frames, frame.cols, step]);
 
   useEffect(() => {
     if (!playing) return undefined;
@@ -58,13 +64,14 @@ export const CarryBorrowPage: React.FC = () => {
         <button type="button" aria-label="A new example" onClick={() => choose(randomExample(example.op))} className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-800 hover:bg-slate-50"><Shuffle className="h-5 w-5" aria-hidden="true" /></button>
       </div>
 
-      <p className="mt-4 text-center text-4xl font-black tracking-tight text-slate-900" aria-live="polite">
+      <p className="mt-4 text-center text-4xl font-black tracking-tight text-slate-900">
         {example.x} {sign(example.op)} {example.y}{frame.done ? <span className="text-emerald-700"> = {result}</span> : null}
       </p>
 
       <button type="button" className="mt-3 block w-full text-left" onClick={() => setStep((current) => Math.min(last, current + 1))} aria-label="Next picture">
-        <PlaceBoard frame={frame} />
+        <DigitBoard frame={frame} x={example.x} y={example.y} history={history} />
       </button>
+      <p className="mt-3 min-h-[3.5rem] rounded-2xl bg-orange-50 px-4 py-3 text-center text-2xl font-black text-orange-900" aria-live="polite">{frame.line}</p>
 
       <div className="mt-3 flex items-center justify-center gap-3">
         <button type="button" aria-label="Back one picture" className={round} disabled={step === 0} onClick={() => { setPlaying(false); setStep((current) => Math.max(0, current - 1)); }}><ChevronLeft className="h-7 w-7" aria-hidden="true" /></button>
