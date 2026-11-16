@@ -18,7 +18,7 @@ interface Props<F extends LessonFrame> {
   makeFrames: (x: number, y: number) => F[];
   isValid: (x: number, y: number) => boolean;
   random: () => Pair;
-  result: (x: number, y: number) => number;
+  result: (x: number, y: number) => number | string;
   /** Shown under My own numbers when the numbers are not allowed. */
   ownHint: string;
   /** The most digits to allow in each own-number box. */

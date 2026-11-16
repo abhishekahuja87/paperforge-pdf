@@ -27,4 +27,8 @@ export const KIDS_TOOLS: PackTool[] = [
     id: 'long-multiplication-for-kids', kind: 'multiplication', guideKey: 'kidsMultiplication', category: 'everyday', icon: 'times', tier: 'popular',
     keywords: ['long multiplication', 'column multiplication for kids', 'how to multiply two digit numbers', 'multiplication with carrying', 'multiply by 2 digit number', 'multiplication step by step', 'multiplication practice for kids', 'class 3 multiplication', 'class 4 multiplication', 'learn multiplication online'],
   }, kids.toolCatalog),
+  definePackTool({
+    id: 'long-division-for-kids', kind: 'division', guideKey: 'kidsDivision', category: 'everyday', icon: 'divide', tier: 'popular',
+    keywords: ['long division', 'long division for kids', 'bus stop method division', 'how to do long division', 'division with remainder', 'division step by step', 'division practice for kids', 'class 4 division', 'class 5 division', 'learn division online'],
+  }, kids.toolCatalog),
 ];

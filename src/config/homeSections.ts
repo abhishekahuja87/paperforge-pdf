@@ -16,7 +16,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'visiting-card-maker', 'job-description-builder',
+  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'visiting-card-maker', 'job-description-builder',
 ];
 
 /** Studio-style tools shown as a slim row. */
@@ -61,7 +61,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter',
   ] },
   { id: 'kids', icon: 'clock', tools: [
-    'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids',
+    'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids',
   ] },
   { id: 'sharing', icon: 'grid', tools: [
     'qr-code-generator', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
