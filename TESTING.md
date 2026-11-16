@@ -841,3 +841,14 @@ Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: for ab
 - [ ] You try: the sum shows one step behind and asks for the next number. A wrong answer says "Try again", after two tries "Show me" appears, and the end shows a star or "x of y right". "Another sum" gives a new one.
 - [ ] Examples, the shuffle button and My own numbers (up to 999; sums under 1000; first number bigger for taking away) work. The page is simple on a phone: two big buttons, five sums, the sum, and the controls.
 
+### Long multiplication page (17 Nov)
+
+Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: for about 24,000 products (3 digits by up to 2 digits) the rows and the final answer are right. Checked in Chromium (unstyled): Watch and You try on 47 × 6 and 46 × 23 run to the end, no errors. Addition and subtraction were re-run after the shared StepLesson change and still work.
+
+- [ ] `/long-multiplication-for-kids` opens, is in "Kids and learning" and New tools, with a guide, FAQ and article.
+- [ ] Watch 47 × 6: `7 × 6 = 42`, `Write 2, carry 4` with a small 4 above the 4, then `4 × 6 + 4 = 28`, `Write 28`.
+- [ ] Watch 46 × 23: row 138, then `Start with a 0`, row 920, then `138 + 920 = 1058`, with the answer in green.
+- [ ] You try: multi-digit answers (like 1058) fit in the box; wrong says Try again; Show me after two tries; a score at the end.
+- [ ] My own numbers: up to 3 digits times 2 to 99; otherwise the = button stays off.
+- [ ] Addition with carrying and Subtraction with borrowing still behave the same.
+
