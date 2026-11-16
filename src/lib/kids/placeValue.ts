@@ -32,7 +32,9 @@ export interface Frame {
   crossed: number[];
   /** The last picture. */
   done: boolean;
-  /** For screen readers only. */
+  /** The working for this step, in numbers: for example "7 + 5 = 12" or "Write 2, carry 1". */
+  line: string;
+  /** For screen readers. */
   caption: string;
 }
 
@@ -53,29 +55,30 @@ export function addFrames(x: number, y: number): Frame[] {
   const carry = zeros(cols);
   const ansDigits: (number | null)[] = Array.from({ length: cols }, () => null);
   const frames: Frame[] = [];
-  const push = (patch: Partial<Frame>, caption: string) =>
-    frames.push({ op: 'add', cols, a: A, b: B, carry: [...carry], ans: [...ans], ansDigits: [...ansDigits], col: -1, group: false, carryArrow: false, fresh: zeros(cols), breaking: -1, crossed: zeros(cols), done: false, caption, ...patch });
+  const push = (patch: Partial<Frame>, caption: string, line = '') =>
+    frames.push({ op: 'add', cols, a: A, b: B, carry: [...carry], ans: [...ans], ansDigits: [...ansDigits], col: -1, group: false, carryArrow: false, fresh: zeros(cols), breaking: -1, crossed: zeros(cols), done: false, caption, line, ...patch });
 
-  push({}, `${x} plus ${y}.`);
+  push({}, `${x} plus ${y}.`, `Add the ${COLUMN_NAMES[0]} first`);
   let carryIn = 0;
   for (let c = 0; c < cols; c += 1) {
     const total = A[c] + B[c] + carryIn;
     ans[c] = total;
+    const sum = `${carryIn ? '1 + ' : ''}${A[c]} + ${B[c]} = ${total}`;
     if (total < 10) {
       ansDigits[c] = total;
-      push({ col: c }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`);
+      push({ col: c }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`, sum);
       carryIn = 0;
       continue;
     }
-    push({ col: c }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`);
-    push({ col: c, group: true }, `Ten of them make a group.`);
+    push({ col: c }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`, sum);
+    push({ col: c, group: true }, `Ten of them make a group.`, `${total} = 10 + ${total - 10}`);
     ans[c] = total - 10;
     ansDigits[c] = total - 10;
     if (c + 1 < cols) carry[c + 1] = 1;
-    push({ col: c, carryArrow: true }, `The group of ten becomes one ${COLUMN_NAMES[c + 1] ?? 'next'} block, carried to the next column.`);
+    push({ col: c, carryArrow: true }, `The group of ten becomes one ${COLUMN_NAMES[c + 1] ?? 'next'} block, carried to the next column.`, `Write ${total - 10}, carry 1`);
     carryIn = 1;
   }
-  push({ done: true }, `${x} plus ${y} is ${x + y}.`);
+  push({ done: true }, `${x} plus ${y} is ${x + y}.`, `${x} + ${y} = ${x + y}`);
   return frames;
 }
 
@@ -87,32 +90,33 @@ export function subFrames(x: number, y: number): Frame[] {
   const crossed = zeros(cols);
   const ansDigits: (number | null)[] = Array.from({ length: cols }, () => null);
   const frames: Frame[] = [];
-  const push = (patch: Partial<Frame>, caption: string) =>
-    frames.push({ op: 'sub', cols, a: [...d], b: B, carry: zeros(cols), ans: [...ans], ansDigits: [...ansDigits], col: -1, group: false, carryArrow: false, fresh: zeros(cols), breaking: -1, crossed: [...crossed], done: false, caption, ...patch });
+  const push = (patch: Partial<Frame>, caption: string, line = '') =>
+    frames.push({ op: 'sub', cols, a: [...d], b: B, carry: zeros(cols), ans: [...ans], ansDigits: [...ansDigits], col: -1, group: false, carryArrow: false, fresh: zeros(cols), breaking: -1, crossed: [...crossed], done: false, caption, line, ...patch });
 
-  push({}, `${x} minus ${y}.`);
+  push({}, `${x} minus ${y}.`, `Take away the ${COLUMN_NAMES[0]} first`);
   for (let c = 0; c < cols; c += 1) {
     if (d[c] < B[c]) {
       let j = c + 1;
       while (j < cols && d[j] === 0) j += 1;
       for (let k = j; k > c; k -= 1) {
-        push({ col: c, breaking: k }, `Not enough ${COLUMN_NAMES[c]}. Break one ${COLUMN_NAMES[k]} block.`);
+        push({ col: c, breaking: k }, `Not enough ${COLUMN_NAMES[c]}. Break one ${COLUMN_NAMES[k]} block.`, `${d[c]} is too small for ${B[c]}. Borrow from the ${d[k]}`);
+        const before = [d[k], d[k - 1]];
         d[k] -= 1;
         d[k - 1] += 10;
         const fresh = zeros(cols);
         fresh[k - 1] = 10;
-        push({ col: c, fresh }, `It becomes ten ${COLUMN_NAMES[k - 1]} blocks.`);
+        push({ col: c, fresh }, `It becomes ten ${COLUMN_NAMES[k - 1]} blocks.`, `${before[0]} \u2192 ${d[k]}   and   ${before[1]} \u2192 ${d[k - 1]}`);
       }
     }
     if (B[c] > 0) {
       crossed[c] = B[c];
-      push({ col: c }, `Take away ${B[c]} ${COLUMN_NAMES[c]}.`);
+      push({ col: c }, `Take away ${B[c]} ${COLUMN_NAMES[c]}.`, `${d[c]} \u2212 ${B[c]} = ?`);
     }
     ans[c] = d[c] - B[c];
     ansDigits[c] = d[c] - B[c];
-    push({ col: c }, `${d[c] - B[c]} ${COLUMN_NAMES[c]} left.`);
+    push({ col: c }, `${d[c] - B[c]} ${COLUMN_NAMES[c]} left.`, `${d[c]} \u2212 ${B[c]} = ${d[c] - B[c]}`);
   }
-  push({ done: true }, `${x} minus ${y} is ${x - y}.`);
+  push({ done: true }, `${x} minus ${y} is ${x - y}.`, `${x} \u2212 ${y} = ${x - y}`);
   return frames;
 }
 
