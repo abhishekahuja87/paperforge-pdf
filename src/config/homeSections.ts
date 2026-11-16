@@ -70,3 +70,12 @@ export const COLLECTIONS: CollectionSpec[] = [
     'json-formatter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',
   ] },
 ];
+
+/**
+ * Pages that open the same maker on one kind of paper. They stay real pages (menu, footer, search and sitemap),
+ * but the home page shows them as small links under their group instead of one tile each, so the group is not
+ * a wall of near-identical tiles.
+ */
+export const HOME_VARIANT_TOOLS: string[] = [
+  'dot-grid-paper-generator', 'graph-paper-generator', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
+];

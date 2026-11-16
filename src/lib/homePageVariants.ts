@@ -1,5 +1,5 @@
 import { TOOLS, type ToolItem } from '../config/tools';
-import { COLLECTIONS, MOST_USED, NEW_TOOLS, SIZE_PRESET_PATTERN, WORKSPACES, type CollectionSpec } from '../config/homeSections';
+import { COLLECTIONS, HOME_VARIANT_TOOLS, MOST_USED, NEW_TOOLS, SIZE_PRESET_PATTERN, WORKSPACES, type CollectionSpec } from '../config/homeSections';
 import { getFeaturedCopy, getToolCopy, isFeaturedId } from './localizedTool';
 
 export interface FeaturedTool {
@@ -83,6 +83,8 @@ export interface HomeCollection {
   tools: ToolItem[];
   /** Exact-size image presets, shown as chips with their size in KB. */
   presets: { tool: ToolItem; kb: number }[];
+  /** Pages for one kind of a shared tool, shown as small links under the cards. */
+  variants: ToolItem[];
 }
 
 function matchesQuery(tool: ToolItem, query: string, language: string): boolean {
@@ -142,7 +144,8 @@ export function getCollections(): HomeCollection[] {
   const build = (id: string, icon: CollectionSpec['icon'], tools: ToolItem[]): HomeCollection => ({
     id,
     icon,
-    tools: tools.filter((tool) => !SIZE_PRESET_PATTERN.test(tool.id)),
+    tools: tools.filter((tool) => !SIZE_PRESET_PATTERN.test(tool.id) && !HOME_VARIANT_TOOLS.includes(tool.id)),
+    variants: tools.filter((tool) => HOME_VARIANT_TOOLS.includes(tool.id)),
     presets: tools.flatMap((tool) => {
       const match = SIZE_PRESET_PATTERN.exec(tool.id);
       return match ? [{ tool, kb: Number(match[1]) }] : [];
@@ -155,7 +158,7 @@ export function getCollections(): HomeCollection[] {
   });
   const rest = TOOLS.filter((tool) => tool.isAvailable && !placed.has(tool.id));
   const all = rest.length > 0 ? [...groups, build('other', 'layers', rest)] : groups;
-  return all.filter((group) => group.tools.length + group.presets.length > 0);
+  return all.filter((group) => group.tools.length + group.presets.length + group.variants.length > 0);
 }
 
 /**

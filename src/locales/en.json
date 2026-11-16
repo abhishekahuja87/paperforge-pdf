@@ -964,6 +964,7 @@
     "jumpTo": "Jump to a topic",
     "showMore": "Show {{count}} more",
     "presets": "Exact file-size presets",
+    "variants": "Paper for one use:",
     "toolCount": "{{count}} tools",
     "otherTools": "More tools",
     "showFewer": "Show fewer"
