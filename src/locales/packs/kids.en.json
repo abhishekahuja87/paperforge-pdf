@@ -107,6 +107,24 @@
         "Try two digits",
         "Choose a sum like 46 × 23. Each digit of the bottom number gets its own row, the second row starts with a 0, and the two rows are added at the end."
       ]
+    ],
+    "long-division-for-kids": [
+      [
+        "Pick a sum",
+        "Choose an example, press the shuffle button for a new one, or open My own numbers and type a number up to 999 and a number from 2 to 9 to divide it by."
+      ],
+      [
+        "Watch it",
+        "Press Play, or tap the sum to move one step at a time. The orange line shows the working, such as 6 × 4 = 24 and Bring down the 5."
+      ],
+      [
+        "Now you try",
+        "Press You try. For each round, type how many times the number goes in, then the multiplication, then the subtraction. After two wrong tries, Show me reveals the step."
+      ],
+      [
+        "Look for a remainder",
+        "Choose a sum like 85 ÷ 4. The last number left over is the remainder, and it is shown as r after the answer."
+      ]
     ]
   },
   "pageGuides": {
@@ -301,6 +319,36 @@
           "No. Everything runs in the browser. Nothing is uploaded or saved."
         ]
       ]
+    },
+    "kidsDivision": {
+      "title": "Long Division for Kids",
+      "subtitle": "Watch long division step by step with the bus stop method, including remainders, then try it yourself with your own numbers. Free and private.",
+      "faq": [
+        [
+          "How does long division work?",
+          "You work through the number one digit at a time. Each round has four small steps: divide, multiply, subtract, and bring down the next digit. The digits you find along the way make up the answer."
+        ],
+        [
+          "What is the bus stop method?",
+          "It is the way of writing long division with the number being divided inside a bracket, like a bus stop shelter, the divisor on the left, and the answer written on top."
+        ],
+        [
+          "What is a remainder?",
+          "A remainder is what is left over when the number does not divide exactly. In 85 ÷ 4 the answer is 21 with 1 left over, written 21 r 1. The remainder is always smaller than the number you divide by."
+        ],
+        [
+          "What should my child know first?",
+          "Children should know their times tables up to 9 and be happy with subtraction with borrowing. If a times table is slow, You try is a good place to practise the one that is hard."
+        ],
+        [
+          "What age is this for?",
+          "It suits children of about 8 to 11, from class 4 to class 5. Start with an exact sum such as 84 ÷ 4, then try a remainder and a three-digit number such as 487 ÷ 5."
+        ],
+        [
+          "Is my child's work saved or sent anywhere?",
+          "No. Everything runs in the browser. Nothing is uploaded or saved."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -457,6 +505,38 @@
           "paragraphs": [
             "Start with a one-digit multiplier and no carrying, such as 23 × 4. Then try a carry, such as 47 × 6, and a three-digit number, such as 156 × 7. When those feel easy, move to two digits, such as 34 × 12 and 46 × 23.",
             "Use Watch first, then You try. Slow times tables are the most common reason for mistakes, so if the same small multiplication keeps going wrong, practise that table on its own."
+          ]
+        }
+      ]
+    },
+    "long-division-for-kids": {
+      "sections": [
+        {
+          "heading": "What long division really does",
+          "paragraphs": [
+            "Long division shares a big number into equal groups a little at a time. In 156 ÷ 6, 6 does not go into 1, so we start with 15. Six goes into 15 two times, which uses up 12 and leaves 3. Then we bring down the 6 to make 36, and 6 goes into 36 exactly six times, so the answer is 26.",
+            "The orange line on the page shows each small step as it happens, and the orange number at the bottom is the digit that has just been brought down."
+          ]
+        },
+        {
+          "heading": "Divide, multiply, subtract, bring down",
+          "paragraphs": [
+            "Every round of long division is the same four steps. Divide to find how many times the number goes in, multiply to see how much that uses up, subtract to see what is left, and bring down the next digit. Then the steps start again.",
+            "Children often find it easier to remember the steps as a short rhythm. The page asks for the first three of these in You try mode and does the bring down for them, so they can focus on the tables."
+          ]
+        },
+        {
+          "heading": "When there is a remainder",
+          "paragraphs": [
+            "If the last subtraction leaves something that is not zero, that is the remainder. In 85 ÷ 4, four goes into 8 two times, leaving 0, then we bring down the 5 and four goes into 5 once, leaving 1. The answer is 21 with 1 left over.",
+            "A good check is to multiply the answer by the number you divided by and add the remainder. Here 21 × 4 + 1 = 85, which is where we started."
+          ]
+        },
+        {
+          "heading": "A good order to practise in",
+          "paragraphs": [
+            "Start with exact sums such as 84 ÷ 4 and 96 ÷ 3. Then try a remainder, such as 85 ÷ 4, and a three-digit number, such as 612 ÷ 6, where a zero appears in the answer. Last, mix them with the shuffle button.",
+            "Use Watch first, then You try. Slow times tables are the most common cause of mistakes, so if the same step keeps going wrong, practise that table on its own."
           ]
         }
       ]

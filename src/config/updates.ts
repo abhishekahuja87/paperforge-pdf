@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/long-division-for-kids',
+    tool: 'Long division',
+    title: 'New: long division, step by step',
+    summary: 'Watch long division with the bus stop method: divide, multiply, subtract and bring down, with any remainder. Then try it yourself.',
+  },
+  {
+    date: '2026-11-17',
     path: '/long-multiplication-for-kids',
     tool: 'Long multiplication',
     title: 'New: long multiplication, step by step',

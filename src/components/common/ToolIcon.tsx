@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Divide,
   Layers,
   Scissors,
   Minimize2,
@@ -66,6 +67,7 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   plus: Plus,
   minus: Minus,
   times: X,
+  divide: Divide,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {

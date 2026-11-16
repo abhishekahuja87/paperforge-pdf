@@ -34,7 +34,8 @@ export type ToolIconName =
   | 'sun'
   | 'plus'
   | 'minus'
-  | 'times';
+  | 'times'
+  | 'divide';
 
 export type ToolTier = 'popular' | 'workspace' | 'more' | 'advanced';
 

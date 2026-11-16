@@ -852,3 +852,16 @@ Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: for ab
 - [ ] My own numbers: up to 3 digits times 2 to 99; otherwise the = button stays off.
 - [ ] Addition with carrying and Subtraction with borrowing still behave the same.
 
+
+### Long division page (17 Nov)
+
+Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: all 7,920 sums (10 to 999 divided by 2 to 9) give the right answer digits and remainder. Checked in Chromium (unstyled): Watch and You try on 85 ÷ 4, 612 ÷ 6 and 487 ÷ 5 run to the end with "All right", no errors.
+
+- [ ] `/long-division-for-kids` opens, is in "Kids and learning" and New tools, with a guide, FAQ and article.
+- [ ] Watch 85 ÷ 4: `4 goes into 8, 2 times`, `2 × 4 = 8`, `8 - 8 = 0`, `Bring down the 5` (orange), `5 - 4 = 1`, and the answer `21 r 1` in green.
+- [ ] Watch 612 ÷ 6: the middle digit of the answer is 0 (`6 goes into 1, 0 times`).
+- [ ] Watch 487 ÷ 5: starts with `4 is too small, so start with 48`.
+- [ ] You try: three questions per round (how many times, the multiplication, the subtraction); the bring down is shown for you. Wrong says Try again, Show me after two tries, a score at the end.
+- [ ] My own numbers: 10 to 999 divided by 2 to 9; otherwise the = button stays off.
+- [ ] Addition, subtraction and multiplication pages still behave the same.
+
