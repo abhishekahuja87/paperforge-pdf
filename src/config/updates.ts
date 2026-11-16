@@ -18,6 +18,27 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-16',
+    path: '/printable-flashcard-maker',
+    tool: 'Printable flashcard maker',
+    title: 'One flashcard maker instead of two',
+    summary: 'The double-sided flashcards page was the same tool, so it is now part of the Printable Flashcard Maker, which prints double-sided with the alignment test. The old link still opens it.',
+  },
+  {
+    date: '2026-11-16',
+    path: '/calligraphy-practice-sheet-generator',
+    tool: 'Printable paper',
+    title: 'Each paper page now focuses on its own paper',
+    summary: 'The dot grid, graph, hexagon, Cornell, calligraphy and cross-stitch pages no longer repeat the full paper-type picker. They show only their own settings and quick starts, with links to the other paper types.',
+  },
+  {
+    date: '2026-11-16',
+    path: '/printable-paper-maker',
+    tool: 'Printable paper',
+    title: 'Quick start buttons now show they were clicked',
+    summary: 'The chosen quick start is highlighted and a line says what was applied. The same highlight was added to the watermark presets, the age calculator quick dates and the clock quick buttons.',
+  },
+  {
     date: '2026-11-14',
     path: '/shadow-explorer-for-kids',
     tool: 'Shadow and Sun Explorer',

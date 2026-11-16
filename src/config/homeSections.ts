@@ -52,7 +52,7 @@ export const COLLECTIONS: CollectionSpec[] = [
   ] },
   { id: 'printables', icon: 'layers', tools: [
     'printable-paper-maker', 'dot-grid-paper-generator', 'graph-paper-generator', 'printable-planner-maker', 'printable-calendar-maker', 'daily-planner-printable',
-    'printable-flashcard-maker', 'double-sided-flashcards-printable', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
+    'printable-flashcard-maker', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'job-description-builder',

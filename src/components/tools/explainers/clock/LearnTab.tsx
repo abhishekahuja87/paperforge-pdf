@@ -54,7 +54,7 @@ export const LearnTab: React.FC = () => {
         <div className={card}>
           <p className="text-xs font-bold uppercase tracking-wide text-slate-600">Try these</p>
           <div className="mt-2 flex flex-wrap gap-2">
-            {QUICK.map((item) => <button key={item.label} type="button" className={chip} onClick={() => setTime((current) => ({ h: current.h, m: item.m }))}>{item.label}</button>)}
+            {QUICK.map((item) => <button key={item.label} type="button" aria-pressed={time.m === item.m} className={time.m === item.m ? 'min-h-11 rounded-full border border-orange-600 bg-orange-50 px-4 py-2 text-sm font-bold text-orange-900' : chip} onClick={() => setTime((current) => ({ h: current.h, m: item.m }))}>{item.label}</button>)}
             <button type="button" className={`${chip} inline-flex items-center gap-2`} onClick={() => { setTime((current) => randomTime('any', current)); setShown(false); }}><Shuffle className="h-4 w-4" aria-hidden="true" />Random time</button>
           </div>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
