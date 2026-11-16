@@ -4,4 +4,6 @@ export const KIDS_COMPONENTS: Record<string, LazyExoticComponent<ComponentType>>
   moneyShop: lazy(() => import('./money/MoneyShop')),
   tambola: lazy(() => import('./tambola/TambolaTool')),
   shadow: lazy(() => import('./shadow/ShadowExplorer')),
+  addition: lazy(() => import('./carry/CarryBorrow').then((m) => ({ default: m.Addition }))),
+  subtraction: lazy(() => import('./carry/CarryBorrow').then((m) => ({ default: m.Subtraction }))),
 };

@@ -15,4 +15,12 @@ export const KIDS_TOOLS: PackTool[] = [
     id: 'shadow-explorer-for-kids', kind: 'shadow', guideKey: 'kidsShadow', category: 'everyday', icon: 'sun', tier: 'popular',
     keywords: ['shadow game for kids', 'how shadows are made', 'sun and shadow for kids', 'why shadow changes during the day', 'shadow length and sun position', 'move the sun shadow activity', 'science for kids shadows', 'shadow quiz for kids', 'sun position shadow simulator', 'class 3 shadows'],
   }, kids.toolCatalog),
+  definePackTool({
+    id: 'addition-with-carrying-for-kids', kind: 'addition', guideKey: 'kidsAddition', category: 'everyday', icon: 'plus', tier: 'popular',
+    keywords: ['addition with carrying', 'column addition for kids', 'carry over addition', 'how to carry in addition', 'addition with regrouping', 'two digit addition with carry', 'three digit addition with carry', 'addition practice for kids', 'class 2 addition carry', 'learn addition step by step'],
+  }, kids.toolCatalog),
+  definePackTool({
+    id: 'subtraction-with-borrowing-for-kids', kind: 'subtraction', guideKey: 'kidsSubtraction', category: 'everyday', icon: 'minus', tier: 'popular',
+    keywords: ['subtraction with borrowing', 'column subtraction for kids', 'how to borrow in subtraction', 'subtraction with regrouping', 'borrowing across zero', 'two digit subtraction with borrowing', 'three digit subtraction with borrowing', 'subtraction practice for kids', 'class 2 subtraction borrow', 'learn subtraction step by step'],
+  }, kids.toolCatalog),
 ];

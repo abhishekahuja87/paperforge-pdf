@@ -5,6 +5,16 @@
  */
 export type Op = 'add' | 'sub';
 
+/** A question the child answers in "You try" before this step is shown. */
+export interface Ask {
+  /** For example "8 + 7 = ?". */
+  prompt: string;
+  /** One label per box when there is more than one, for example "write" and "carry". */
+  labels?: string[];
+  /** The right number for each box. */
+  answers: number[];
+}
+
 export interface Frame {
   op: Op;
   cols: number;
@@ -32,6 +42,8 @@ export interface Frame {
   crossed: number[];
   /** The last picture. */
   done: boolean;
+  /** In "You try" the child answers this before the step appears. */
+  ask?: Ask;
   /** The working for this step, in numbers: for example "7 + 5 = 12" or "Write 2, carry 1". */
   line: string;
   /** For screen readers. */
@@ -66,16 +78,17 @@ export function addFrames(x: number, y: number): Frame[] {
     const sum = `${carryIn ? '1 + ' : ''}${A[c]} + ${B[c]} = ${total}`;
     if (total < 10) {
       ansDigits[c] = total;
-      push({ col: c }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`, sum);
+      push({ col: c, ask: { prompt: sum.replace(/= \d+$/, '= ?'), answers: [total] } }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`, sum);
       carryIn = 0;
       continue;
     }
-    push({ col: c }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`, sum);
+    push({ col: c, ask: { prompt: sum.replace(/= \d+$/, '= ?'), answers: [total] } }, `${COLUMN_NAMES[c]}: ${A[c]} and ${B[c]}${carryIn ? ' and the carried one' : ''} make ${total}.`, sum);
+    const carried = total - 10;
     push({ col: c, group: true }, `Ten of them make a group.`, `${total} = 10 + ${total - 10}`);
     ans[c] = total - 10;
     ansDigits[c] = total - 10;
     if (c + 1 < cols) carry[c + 1] = 1;
-    push({ col: c, carryArrow: true }, `The group of ten becomes one ${COLUMN_NAMES[c + 1] ?? 'next'} block, carried to the next column.`, `Write ${total - 10}, carry 1`);
+    push({ col: c, carryArrow: true, ask: { prompt: `${total}`, labels: ['write', 'carry'], answers: [carried, 1] } }, `The group of ten becomes one ${COLUMN_NAMES[c + 1] ?? 'next'} block, carried to the next column.`, `Write ${total - 10}, carry 1`);
     carryIn = 1;
   }
   push({ done: true }, `${x} plus ${y} is ${x + y}.`, `${x} + ${y} = ${x + y}`);
@@ -105,12 +118,12 @@ export function subFrames(x: number, y: number): Frame[] {
         d[k - 1] += 10;
         const fresh = zeros(cols);
         fresh[k - 1] = 10;
-        push({ col: c, fresh }, `It becomes ten ${COLUMN_NAMES[k - 1]} blocks.`, `${before[0]} \u2192 ${d[k]}   and   ${before[1]} \u2192 ${d[k - 1]}`);
+        push({ col: c, fresh, ask: { prompt: 'Borrow', labels: [`${before[0]} becomes`, `${before[1]} becomes`], answers: [d[k], d[k - 1]] } }, `It becomes ten ${COLUMN_NAMES[k - 1]} blocks.`, `${before[0]} \u2192 ${d[k]}   and   ${before[1]} \u2192 ${d[k - 1]}`);
       }
     }
     if (B[c] > 0) {
       crossed[c] = B[c];
-      push({ col: c }, `Take away ${B[c]} ${COLUMN_NAMES[c]}.`, `${d[c]} \u2212 ${B[c]} = ?`);
+      push({ col: c, ask: { prompt: `${d[c]} \u2212 ${B[c]} = ?`, answers: [d[c] - B[c]] } }, `Take away ${B[c]} ${COLUMN_NAMES[c]}.`, `${d[c]} \u2212 ${B[c]} = ?`);
     }
     ans[c] = d[c] - B[c];
     ansDigits[c] = d[c] - B[c];

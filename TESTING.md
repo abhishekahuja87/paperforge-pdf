@@ -832,12 +832,12 @@ Not run: full `tsc`, `vite build`, styled browser check.
 - [ ] Watermark PDF presets, Age calculator quick dates and Learn the Clock "Try these" buttons highlight the chosen one.
 
 
-### Hidden page /learn-carry-and-borrow (16 Nov, numbers)
+### Addition and subtraction pages (16 Nov)
 
-Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: for about 95,000 sums and differences (up to 999) the last step's answer digits are right. Checked in Chromium (unstyled): 58+67 and 304-158 step through with the right working lines and no errors.
+Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: for about 95,000 sums and differences (up to 999) the last step's answer digits are right. Checked in Chromium (unstyled): Watch and You try on 58+67 and 304-158 run to the end, wrong answers show "Try again", Show me works, no errors.
 
-- [ ] Open `/learn-carry-and-borrow` directly. It is not on the home page, menus, footer or sitemap, and the page source has `noindex`.
-- [ ] Plus and minus buttons switch examples. Tapping the sum, the arrows or Play steps through; the dots show progress. The orange line under the sum shows the working in numbers.
-- [ ] 27 + 15: `7 + 5 = 12`, `12 = 10 + 5`... then `Write 2, carry 1` and a small orange 1 appears above the tens. 58 + 67 carries twice.
-- [ ] 52 − 27: the 5 is crossed out and becomes 4, the 2 becomes 12, then `12 − 7 = 5`. 304 − 158: the 3 becomes 2, the 0 becomes 10 then 9, the 4 becomes 14.
-- [ ] Own numbers: 3 digits max, a sum must stay under 1000, and the first number must be bigger for taking away; otherwise the = button stays off.
+- [ ] `/addition-with-carrying-for-kids` and `/subtraction-with-borrowing-for-kids` open, are in "Kids and learning" and New tools, and have a guide, FAQ and article. `/learn-carry-and-borrow` redirects to the addition page.
+- [ ] Watch: Play and the arrows step through; the orange line shows the working; the small 1 appears above the next column when carrying; borrowed digits are crossed out and rewritten.
+- [ ] You try: the sum shows one step behind and asks for the next number. A wrong answer says "Try again", after two tries "Show me" appears, and the end shows a star or "x of y right". "Another sum" gives a new one.
+- [ ] Examples, the shuffle button and My own numbers (up to 999; sums under 1000; first number bigger for taking away) work. The page is simple on a phone: two big buttons, five sums, the sum, and the controls.
+

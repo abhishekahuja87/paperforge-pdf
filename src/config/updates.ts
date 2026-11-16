@@ -19,6 +19,20 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-16',
+    path: '/addition-with-carrying-for-kids',
+    tool: 'Addition with carrying',
+    title: 'New: addition with carrying, step by step',
+    summary: 'Watch every carry in column addition, then try it yourself. Examples or your own numbers up to 999.',
+  },
+  {
+    date: '2026-11-16',
+    path: '/subtraction-with-borrowing-for-kids',
+    tool: 'Subtraction with borrowing',
+    title: 'New: subtraction with borrowing, step by step',
+    summary: 'Watch how borrowing works, even across a zero, then try it yourself. Examples or your own numbers up to 999.',
+  },
+  {
+    date: '2026-11-16',
     path: '/printable-flashcard-maker',
     tool: 'Printable flashcard maker',
     title: 'One flashcard maker instead of two',

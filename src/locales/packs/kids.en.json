@@ -53,6 +53,42 @@
         "Take the quiz",
         "Open Quiz and choose a level. Say which side the shadow falls on, whether it is long or short, or move the sun to make a shadow you are asked for."
       ]
+    ],
+    "addition-with-carrying-for-kids": [
+      [
+        "Pick a sum",
+        "Choose one of the examples, press the shuffle button for a new one, or open My own numbers and type your own, up to 999."
+      ],
+      [
+        "Watch it",
+        "Press Play, or tap the sum to move one step at a time. The orange line shows the working in numbers, and a small 1 appears above the next column when you carry."
+      ],
+      [
+        "Now you try",
+        "Press You try. Type the answer for each step and press Check. If you get stuck twice, Show me reveals the step."
+      ],
+      [
+        "Go again",
+        "Press Another sum for a new one. Start with sums that have no carrying, then try carrying once, then twice."
+      ]
+    ],
+    "subtraction-with-borrowing-for-kids": [
+      [
+        "Pick a sum",
+        "Choose one of the examples, press the shuffle button for a new one, or open My own numbers and type your own. The first number must be the bigger one."
+      ],
+      [
+        "Watch it",
+        "Press Play, or tap the sum to move one step at a time. When a column cannot be taken away, the digit next door is crossed out and a new one written, and the orange line shows the working."
+      ],
+      [
+        "Now you try",
+        "Press You try. Type the new numbers after borrowing and then the answer for each column. If you get stuck twice, Show me reveals the step."
+      ],
+      [
+        "Go again",
+        "Press Another sum. Try sums with no borrowing first, then borrowing once, then 304 − 158 where you must borrow across a zero."
+      ]
     ]
   },
   "pageGuides": {
@@ -157,6 +193,66 @@
           "No. It all runs in your browser and nothing is saved or sent."
         ]
       ]
+    },
+    "kidsAddition": {
+      "title": "Addition with Carrying for Kids",
+      "subtitle": "Watch every carry happen in column addition, then try it yourself with your own numbers. Free, private, works on phones.",
+      "faq": [
+        [
+          "What does carrying mean in addition?",
+          "When the digits in one column add up to 10 or more, we cannot write the whole number in that column. We write the ones digit and carry the ten to the next column, where it is added with the other digits there."
+        ],
+        [
+          "Why do we carry a 1 and not the whole number?",
+          "Because the carried amount is one group of ten. A column holds a single digit. Ten ones make one ten, so we move one group of ten into the tens column and keep the ones that are left."
+        ],
+        [
+          "What is another name for carrying?",
+          "Schools also call it regrouping, and some books say \"carry over\". They all mean the same thing: making a group of ten and moving it to the next column."
+        ],
+        [
+          "What age is this for?",
+          "It suits children of about 6 to 9, from class 1 to class 4, when two-digit and three-digit addition is taught. Start with sums with no carrying, then carry once, then carry twice."
+        ],
+        [
+          "How does the You try mode work?",
+          "The sum starts hidden. For each step you type the answer, like 8 + 7, and then the digit to write and the number to carry. The page tells you if it is right. After two tries a Show me button reveals the step."
+        ],
+        [
+          "Is my child's work saved or sent anywhere?",
+          "No. Everything runs in the browser. Nothing is uploaded or saved."
+        ]
+      ]
+    },
+    "kidsSubtraction": {
+      "title": "Subtraction with Borrowing for Kids",
+      "subtitle": "Watch how borrowing works in column subtraction, even across a zero, then try it yourself with your own numbers. Free, private, works on phones.",
+      "faq": [
+        [
+          "What does borrowing mean in subtraction?",
+          "When the top digit in a column is smaller than the digit to take away, we borrow one group from the column on its left. That group is worth ten of this column, so the top digit gets ten more and the digit on the left goes down by one."
+        ],
+        [
+          "Why does the top digit get 10 more?",
+          "One ten is the same as ten ones, and one hundred is the same as ten tens. Borrowing swaps one bigger block for ten smaller ones, so the amount stays exactly the same."
+        ],
+        [
+          "What do we do when the next digit is zero, like 304 − 158?",
+          "The zero has nothing to lend, so we go one column further. The hundreds give one hundred, which becomes ten tens. Then one of those tens is lent to the ones. The tens digit ends up as 9."
+        ],
+        [
+          "Is borrowing the same as regrouping?",
+          "Yes. Some schools say regrouping or exchanging. They all mean swapping one bigger block for ten smaller ones so the column can be taken away."
+        ],
+        [
+          "What age is this for?",
+          "It suits children of about 6 to 9, from class 1 to class 4. Start with sums with no borrowing, then borrow once, then try borrowing across a zero."
+        ],
+        [
+          "Is my child's work saved or sent anywhere?",
+          "No. Everything runs in the browser. Nothing is uploaded or saved."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -240,6 +336,54 @@
           "heading": "Ideas to try",
           "paragraphs": [
             "Ask when the shadow would be shortest and when longest. Compare the person, the tree and the flagpole at the same sun position. Ask which way the shadow points at sunrise and at sunset, and why."
+          ]
+        }
+      ]
+    },
+    "addition-with-carrying-for-kids": {
+      "sections": [
+        {
+          "heading": "What carrying really is",
+          "paragraphs": [
+            "Column addition adds one place at a time, starting with the ones. A column can only hold one digit, so when 8 and 7 make 15, the 15 has to be split. Ten of the ones are bundled into one ten, and that ten is moved to the tens column. What is left, 5, stays in the ones column.",
+            "Children often learn this as a rule: write the 5, carry the 1. This page shows why the rule works. The orange line shows each step in numbers, and the small 1 that appears above the next column is the bundle of ten that moved."
+          ]
+        },
+        {
+          "heading": "A good order to practise in",
+          "paragraphs": [
+            "Begin with sums that need no carrying, like 23 + 14, so the idea of adding column by column is clear. Then try a sum that carries once, like 27 + 15. After that, carry twice, like 58 + 67, where a carry from the ones makes the tens carry again. Finish with three-digit sums such as 146 + 278.",
+            "Use Watch first, then You try. If your child is stuck twice, Show me reveals the step so they can keep going."
+          ]
+        },
+        {
+          "heading": "Common mistakes to look for",
+          "paragraphs": [
+            "Forgetting to add the carried 1 is the most common mistake. In the You try mode the carried 1 is shown in the sum, such as 1 + 5 + 6, so it is not forgotten. Another is writing both digits of a two-digit column total. Remind your child that each column keeps one digit."
+          ]
+        }
+      ]
+    },
+    "subtraction-with-borrowing-for-kids": {
+      "sections": [
+        {
+          "heading": "What borrowing really is",
+          "paragraphs": [
+            "In 52 − 27, the ones column has 2 and we need to take away 7. We cannot, so one ten is taken from the 5 and swapped for ten ones. The 5 becomes 4 and the 2 becomes 12. Now 12 − 7 = 5, and 4 − 2 = 2, so the answer is 25.",
+            "The total amount has not changed. One ten and ten ones are the same amount, so the borrowing only changes how the number is written. The crossed-out digits on the page show exactly that."
+          ]
+        },
+        {
+          "heading": "Borrowing across a zero",
+          "paragraphs": [
+            "The hardest case is a zero in the middle, like 304 − 158. The tens digit is 0, so it has nothing to give. Borrow from the hundreds first: 3 becomes 2 and the 0 becomes 10. Then borrow one ten from that 10 to give the ones: the 10 becomes 9 and the 4 becomes 14. The page shows each of these changes one after the other."
+          ]
+        },
+        {
+          "heading": "A good order to practise in",
+          "paragraphs": [
+            "Start with sums that need no borrowing, like 48 − 23. Then borrow once, like 52 − 27. Then try 91 − 58 and three-digit sums such as 421 − 186. Leave borrowing across a zero until the rest feels easy.",
+            "Use Watch first, then You try. If your child is stuck twice, Show me reveals the step so they can keep going."
           ]
         }
       ]
