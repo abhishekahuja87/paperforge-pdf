@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-16',
+    path: '/printable-paper-maker',
+    tool: 'Printable paper',
+    title: 'A shorter Printables group on the home page',
+    summary: 'Dot grid, graph, Cornell, hexagon, calligraphy and cross-stitch paper now show as small links under the Printables group instead of six more tiles. Their pages and search results are unchanged.',
+  },
+  {
+    date: '2026-11-16',
     path: '/printable-flashcard-maker',
     tool: 'Printable flashcard maker',
     title: 'One flashcard maker instead of two',

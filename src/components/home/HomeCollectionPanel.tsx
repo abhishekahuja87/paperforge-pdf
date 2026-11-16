@@ -22,7 +22,7 @@ export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds:
 
   return (
     <section id={`topic-${collection.id}`} className={`scroll-mt-20 rounded-2xl border ${HOME_COLLECTION_BORDER[collection.id] ?? HOME_COLLECTION_BORDER.other} bg-[var(--theme-surface)] p-3 sm:p-4`}>
-      <HomeCollectionHeading collection={collection} count={collection.tools.length + collection.presets.length} />
+      <HomeCollectionHeading collection={collection} count={collection.tools.length + collection.presets.length + collection.variants.length} />
       <div id={listId} className="grid grid-cols-1 gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
         {collection.tools.map((tool, index) => (
           <div key={tool.id} className={`min-w-0 ${index >= COLLECTION_PREVIEW && !expanded ? 'hidden sm:block' : ''}`}>
@@ -41,6 +41,16 @@ export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds:
           {expanded ? t('homeSections.showFewer') : t('homeSections.showMore', { count: foldedCount })}
           <ChevronDown className={`h-3.5 w-3.5 transition ${expanded ? 'rotate-180' : ''}`} aria-hidden="true" />
         </button>
+      )}
+      {collection.variants.length > 0 && (
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          <span className="text-[11px] font-semibold text-stone-500">{t('homeSections.variants')}</span>
+          {collection.variants.map((tool) => (
+            <Link key={tool.id} to={tool.path} className="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-bold text-stone-700 hover:bg-stone-50">
+              {getToolCopy(tool, i18n.language).title.split(':')[0]}
+            </Link>
+          ))}
+        </div>
       )}
       {collection.presets.length > 0 && (
         <div className="mt-3 flex flex-wrap items-center gap-1.5">

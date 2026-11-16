@@ -831,3 +831,10 @@ Not run: full `tsc`, `vite build`, styled browser check.
 - [ ] Printable Paper Maker (lined page): clicking a quick start highlights it, shows "Applied: ..." and the preview changes; changing any control clears the highlight.
 - [ ] Watermark PDF presets, Age calculator quick dates and Learn the Clock "Try these" buttons highlight the chosen one.
 
+
+### Home: Printables group (16 Nov)
+
+Not run: full `tsc`, `vite build`, styled browser check. `getCollections()` checked in Node: Printables has 5 tiles and 6 variant links.
+
+- [ ] Home, Printables group: tiles for paper maker, planner, calendar, daily planner and flashcards; under them a row "Paper for one use:" with Dot grid, Graph, Cornell, Hexagon, Calligraphy and Cross-stitch links that open the right pages.
+- [ ] The group count in its heading still counts every tool. Searching "calligraphy" on the home page still finds the calligraphy page; the footer and tools menu still list all six.

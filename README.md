@@ -217,3 +217,5 @@ New `explainers` pack: `src/config/packs/explainers.ts`, text in `src/locales/pa
 ### Printable paper pages
 
 `PaperMaker` has a `focused` mode used by the dot grid, graph, hexagon, Cornell, calligraphy and cross-stitch pages (`paper/variants.tsx`): no paper-type picker, quick starts filtered to that type, and an "Other paper types" link row. The lined page (`printable-paper-maker`) is the full maker with every type. Quick starts show a pressed state and an "Applied" line; the pressed state is the settings object reference, so touching any control clears it. Choice buttons that apply a value should always use `aria-pressed` with a visible highlight.
+
+`HOME_VARIANT_TOOLS` (`config/homeSections.ts`) lists pages that are one kind of a shared tool (the six paper-type pages). `getCollections()` moves them from `tools` to `variants`, and `HomeCollectionPanel` shows them as small links under the group's tiles. They remain in the menu, footer, search and sitemap. Add a tool id there when a new page is just a preset of an existing maker.
