@@ -51,6 +51,7 @@ const GuidesPage = lazy(() => import('./pages/GuidesPage').then((m) => ({ defaul
 const GuidePage = lazy(() => import('./pages/GuidePage').then((m) => ({ default: m.GuidePage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 const Ac1Page = lazy(() => import('./pages/Ac1Page').then((m) => ({ default: m.Ac1Page })));
+const CarryBorrowPage = lazy(() => import('./pages/CarryBorrowPage').then((m) => ({ default: m.CarryBorrowPage })));
 const Ac1PosterPage = lazy(() => import('./pages/Ac1PosterPage').then((m) => ({ default: m.Ac1PosterPage })));
 const CatalogTemplatesPage = lazy(() => import('./pages/CatalogTemplatesPage').then((m) => ({ default: m.CatalogTemplatesPage })));
 
@@ -70,6 +71,8 @@ export const App: React.FC = () => {
               <Route path="/ac1" element={<CatalogTemplatesPage />} />
               <Route path="/ac1/edit" element={<Ac1Page />} />
               <Route path="/ac1/poster" element={<Ac1PosterPage />} />
+              {/* Hidden: not linked, not in the sitemap, noindex. */}
+              <Route path="/learn-carry-and-borrow" element={<CarryBorrowPage />} />
               {/* Merged into the one flashcard maker, which already prints double-sided. Old links keep working. */}
               <Route path="/double-sided-flashcards-printable" element={<Navigate to="/printable-flashcard-maker" replace />} />
               <Route path="/merge-pdf" element={<MergePage />} />

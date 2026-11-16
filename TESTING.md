@@ -831,3 +831,13 @@ Not run: full `tsc`, `vite build`, styled browser check.
 - [ ] Printable Paper Maker (lined page): clicking a quick start highlights it, shows "Applied: ..." and the preview changes; changing any control clears the highlight.
 - [ ] Watermark PDF presets, Age calculator quick dates and Learn the Clock "Try these" buttons highlight the chosen one.
 
+
+### Hidden page /learn-carry-and-borrow (16 Nov)
+
+Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: for about 95,000 sums and differences (up to 999) the last picture's answer digits are right and no cell holds more than 19 blocks. Checked in Chromium (unstyled): 27+15, 58+67 and 304-158 step through with no errors.
+
+- [ ] Open `/learn-carry-and-borrow` directly. It is not on the home page, menus, footer or sitemap, and the page source has `noindex`.
+- [ ] Plus and minus buttons switch examples. Tapping the picture, the arrows or Play steps through; the dots show progress.
+- [ ] Adding 27 + 15: ten dots are ringed, become one rod and travel up to the tens column. 58 + 67 carries twice, into a flat of a hundred.
+- [ ] Taking away 52 − 27: a tens rod breaks into ten dots (ringed) before the crossing out. 304 − 158 breaks a hundred into ten rods, then a rod into ten dots.
+- [ ] Own numbers: 3 digits max, a sum must stay under 1000, and the first number must be bigger for taking away; otherwise the = button stays off.
