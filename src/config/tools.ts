@@ -33,7 +33,8 @@ export type ToolIconName =
   | 'clock'
   | 'sun'
   | 'plus'
-  | 'minus';
+  | 'minus'
+  | 'times';
 
 export type ToolTier = 'popular' | 'workspace' | 'more' | 'advanced';
 

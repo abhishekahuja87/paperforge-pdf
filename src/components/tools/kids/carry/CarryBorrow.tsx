@@ -1,160 +1,32 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Pause, Play, RotateCcw, Shuffle } from 'lucide-react';
-import { EXAMPLES, isValid, makeFrames, randomExample, type Example, type Op } from '../../../../lib/kids/placeValue';
+import React, { useCallback, useMemo } from 'react';
+import { EXAMPLES, isValid, makeFrames, randomExample, type Frame, type Op } from '../../../../lib/kids/placeValue';
 import { DigitBoard } from './DigitBoard';
+import { StepLesson, type Pair } from './StepLesson';
 
-const STEP_MS = 1700;
 const sign = (op: Op) => (op === 'add' ? '+' : '−');
-const round = 'flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-300 bg-white text-slate-800 hover:bg-slate-50 disabled:opacity-40';
-const primary = 'min-h-14 rounded-2xl bg-orange-600 px-6 py-3 text-xl font-black text-white hover:bg-orange-700 disabled:opacity-40';
 
-type Mode = 'watch' | 'try';
-
-/** One sum at a time: watch every carry or borrow, or try it yourself and get told if each number is right. */
+/** Addition with carrying or subtraction with borrowing, written as numbers in columns. */
 export const CarryBorrow: React.FC<{ op: Op }> = ({ op }) => {
-  const examples = useMemo(() => EXAMPLES.filter((item) => item.op === op), [op]);
-  const [example, setExample] = useState<Example>(examples[1]);
-  const [mode, setMode] = useState<Mode>('watch');
-  const [step, setStep] = useState(0);
-  const [playing, setPlaying] = useState(false);
-  const [own, setOwn] = useState({ x: '', y: '' });
-  const [entries, setEntries] = useState<string[]>([]);
-  const [tries, setTries] = useState(0);
-  const [wrong, setWrong] = useState(false);
-  const [misses, setMisses] = useState(0);
-  const firstBox = useRef<HTMLInputElement>(null);
+  const examples = useMemo<Pair[]>(() => EXAMPLES.filter((item) => item.op === op).map(({ x, y }) => ({ x, y })), [op]);
+  const frames = useCallback((x: number, y: number) => makeFrames(op, x, y), [op]);
+  const valid = useCallback((x: number, y: number) => isValid(op, x, y), [op]);
+  const random = useCallback(() => { const { x, y } = randomExample(op); return { x, y }; }, [op]);
+  const result = useCallback((x: number, y: number) => (op === 'add' ? x + y : x - y), [op]);
 
-  const frames = useMemo(() => makeFrames(op, example.x, example.y), [op, example]);
-  const last = frames.length - 1;
-  const frame = frames[Math.min(step, last)];
-  const asks = useMemo(() => frames.filter((item) => item.ask).length, [frames]);
-  const upcoming = mode === 'try' ? frames[step + 1] : undefined;
-  const ask = upcoming?.ask;
-  const history = useMemo(() => {
-    const out: number[][] = Array.from({ length: frame.cols }, () => []);
-    frames.slice(0, Math.min(step, last) + 1).forEach((item) => item.a.forEach((value, c) => { if (out[c][out[c].length - 1] !== value) out[c].push(value); }));
-    return out;
-  }, [frames, frame.cols, step, last]);
-
-  useEffect(() => {
-    if (mode !== 'watch' || !playing) return undefined;
-    if (step >= last) { setPlaying(false); return undefined; }
-    const timer = window.setTimeout(() => setStep((current) => Math.min(last, current + 1)), STEP_MS);
-    return () => window.clearTimeout(timer);
-  }, [mode, playing, step, last]);
-
-  useEffect(() => { setEntries(ask ? ask.answers.map(() => '') : []); setTries(0); setWrong(false); }, [ask, step]);
-  useEffect(() => { if (ask) firstBox.current?.focus(); }, [ask, step]);
-
-  const choose = (next: Example) => { setExample(next); setStep(0); setPlaying(false); setMisses(0); };
-  const switchMode = (next: Mode) => { setMode(next); setStep(0); setPlaying(false); setMisses(0); };
-  const result = op === 'add' ? example.x + example.y : example.x - example.y;
-  const ownX = Number(own.x);
-  const ownY = Number(own.y);
-  const ownValid = own.x !== '' && own.y !== '' && isValid(op, ownX, ownY);
-
-  const check = () => {
-    if (!ask) return;
-    const right = ask.answers.every((answer, i) => entries[i] !== '' && Number(entries[i]) === answer);
-    if (right) { setStep((current) => current + 1); return; }
-    setWrong(true);
-    setTries((count) => count + 1);
+  // For taking away: every value each top digit has had up to this step, so old ones show crossed out.
+  const board = (frame: Frame, all: Frame[], step: number, pair: Pair) => {
+    const history: number[][] = Array.from({ length: frame.cols }, () => []);
+    all.slice(0, step + 1).forEach((item) => item.a.forEach((value, c) => { if (history[c][history[c].length - 1] !== value) history[c].push(value); }));
+    return <DigitBoard frame={frame} x={pair.x} y={pair.y} history={history} />;
   };
-  const showMe = () => { setMisses((count) => count + 1); setStep((current) => current + 1); };
 
   return (
-    <div className="mx-auto max-w-xl space-y-3">
-      <div className="grid grid-cols-2 gap-2" role="group" aria-label="Watch or try">
-        {([['watch', 'Watch'], ['try', 'You try']] as const).map(([id, label]) => (
-          <button key={id} type="button" aria-pressed={mode === id} onClick={() => switchMode(id)}
-            className={`min-h-14 rounded-2xl border-2 text-lg font-black ${mode === id ? 'border-orange-600 bg-orange-600 text-white' : 'border-slate-300 bg-white text-slate-800 hover:bg-slate-50'}`}>{label}</button>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap gap-2" role="group" aria-label="Examples">
-        {examples.map((item) => {
-          const on = item.x === example.x && item.y === example.y;
-          return (
-            <button key={`${item.x}${item.y}`} type="button" aria-pressed={on} onClick={() => choose(item)}
-              className={`min-h-11 rounded-full border px-4 py-2 text-base font-bold ${on ? 'border-orange-600 bg-orange-50 text-orange-900 ring-1 ring-orange-600' : 'border-slate-300 bg-white text-slate-800 hover:bg-slate-50'}`}>{item.x} {sign(op)} {item.y}</button>
-          );
-        })}
-        <button type="button" aria-label="A new sum" onClick={() => choose(randomExample(op))} className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-800 hover:bg-slate-50"><Shuffle className="h-5 w-5" aria-hidden="true" /></button>
-      </div>
-
-      <p className="text-center text-4xl font-black tracking-tight text-slate-900">
-        {example.x} {sign(op)} {example.y}{frame.done ? <span className="text-emerald-700"> = {result}</span> : null}
-      </p>
-
-      <button type="button" className="block w-full text-left" onClick={() => { if (mode === 'watch') setStep((current) => Math.min(last, current + 1)); }} aria-label={mode === 'watch' ? 'Next step' : 'The sum'}>
-        <DigitBoard frame={frame} x={example.x} y={example.y} history={history} />
-      </button>
-
-      {mode === 'watch' && (
-        <>
-          <p className="min-h-[3.5rem] rounded-2xl bg-orange-50 px-4 py-3 text-center text-2xl font-black text-orange-900" aria-live="polite">{frame.line}</p>
-          <div className="flex items-center justify-center gap-3">
-            <button type="button" aria-label="Back one step" className={round} disabled={step === 0} onClick={() => { setPlaying(false); setStep((current) => Math.max(0, current - 1)); }}><ChevronLeft className="h-7 w-7" aria-hidden="true" /></button>
-            <button type="button" aria-label={playing ? 'Pause' : 'Play'} className={`${round} !h-16 !w-16 !border-orange-600 !bg-orange-600 !text-white hover:!bg-orange-700`} onClick={() => { if (step >= last) setStep(0); setPlaying((on) => !on); }}>
-              {playing ? <Pause className="h-8 w-8" aria-hidden="true" /> : <Play className="h-8 w-8" aria-hidden="true" />}
-            </button>
-            <button type="button" aria-label="Next step" className={round} disabled={step >= last} onClick={() => { setPlaying(false); setStep((current) => Math.min(last, current + 1)); }}><ChevronRight className="h-7 w-7" aria-hidden="true" /></button>
-            <button type="button" aria-label="Start again" className={round} onClick={() => { setPlaying(false); setStep(0); }}><RotateCcw className="h-6 w-6" aria-hidden="true" /></button>
-          </div>
-        </>
-      )}
-
-      {mode === 'try' && (
-        <div className="rounded-2xl bg-orange-50 px-4 py-4 text-center" aria-live="polite">
-          {ask ? (
-            <form onSubmit={(event) => { event.preventDefault(); check(); }} className="space-y-3">
-              <p className="text-2xl font-black text-orange-900">{ask.labels ? (op === 'add' ? 'Write the ones, carry the ten' : 'Borrow') : ask.prompt}</p>
-              <div className="flex flex-wrap items-end justify-center gap-3">
-                {ask.answers.map((_, i) => (
-                  <label key={i} className="flex flex-col items-center text-sm font-bold text-slate-700">
-                    {ask.labels?.[i] ?? ''}
-                    <input ref={i === 0 ? firstBox : undefined} inputMode="numeric" value={entries[i] ?? ''} aria-label={ask.labels?.[i] ?? 'Your answer'}
-                      onChange={(event) => { const value = event.target.value.replace(/\D/g, '').slice(0, 2); setEntries((list) => list.map((old, j) => (j === i ? value : old))); setWrong(false); }}
-                      className={`mt-1 h-16 w-20 rounded-xl border-2 bg-white text-center text-3xl font-black ${wrong ? 'border-red-500' : 'border-slate-300'}`} />
-                  </label>
-                ))}
-                <button type="submit" disabled={entries.some((value) => value === '')} className={primary}>Check</button>
-              </div>
-              {wrong && <p className="text-lg font-black text-red-700">Try again</p>}
-              {tries >= 2 && <button type="button" onClick={showMe} className="min-h-11 rounded-xl border border-slate-300 bg-white px-4 py-2 text-base font-bold text-slate-800 hover:bg-slate-50">Show me</button>}
-            </form>
-          ) : step >= last ? (
-            <div className="space-y-3">
-              <p className="text-3xl font-black text-emerald-800">{misses === 0 ? '★ All right! ★' : `${asks - misses} of ${asks} right`}</p>
-              <div className="flex flex-wrap justify-center gap-2">
-                <button type="button" className={primary} onClick={() => choose(randomExample(op))}>Another sum</button>
-                <button type="button" className="min-h-14 rounded-2xl border-2 border-slate-300 bg-white px-5 py-3 text-lg font-black text-slate-800 hover:bg-slate-50" onClick={() => choose(example)}>Same sum again</button>
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-3">
-              <p className="text-2xl font-black text-orange-900">{frame.line}</p>
-              <button type="button" className={primary} onClick={() => setStep((current) => current + 1)}>Next</button>
-            </div>
-          )}
-        </div>
-      )}
-
-      <div className="flex justify-center gap-1.5" aria-hidden="true">
-        {frames.map((_, index) => <span key={index} className={`h-2.5 w-2.5 rounded-full ${index === step ? 'bg-orange-600' : index < step ? 'bg-orange-300' : 'bg-slate-300'}`} />)}
-      </div>
-
-      <details className="rounded-2xl border border-slate-200 bg-white p-3">
-        <summary className="min-h-10 cursor-pointer text-sm font-bold text-slate-700">My own numbers</summary>
-        <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-          <input inputMode="numeric" aria-label="First number" value={own.x} onChange={(event) => setOwn((c) => ({ ...c, x: event.target.value.replace(/\D/g, '').slice(0, 3) }))} className="h-12 w-24 rounded-xl border border-slate-300 text-center text-xl font-bold" />
-          <span className="text-2xl font-black text-slate-700">{sign(op)}</span>
-          <input inputMode="numeric" aria-label="Second number" value={own.y} onChange={(event) => setOwn((c) => ({ ...c, y: event.target.value.replace(/\D/g, '').slice(0, 3) }))} className="h-12 w-24 rounded-xl border border-slate-300 text-center text-xl font-bold" />
-          <button type="button" disabled={!ownValid} onClick={() => choose({ op, x: ownX, y: ownY })} className="h-12 rounded-xl bg-slate-900 px-5 text-xl font-black text-white disabled:opacity-30" aria-label="Use my numbers">=</button>
-        </div>
-        {own.x !== '' && own.y !== '' && !ownValid && <p role="status" className="mt-2 text-center text-xs text-slate-500">{op === 'add' ? 'Use numbers that add up to less than 1000.' : 'The first number must be the bigger one, up to 999.'}</p>}
-      </details>
-    </div>
+    <StepLesson<Frame>
+      sign={sign(op)} examples={examples} makeFrames={frames} isValid={valid} random={random} result={result}
+      ownHint={op === 'add' ? 'Use numbers that add up to less than 1000.' : 'The first number must be the bigger one, up to 999.'}
+      askTitle={(ask) => (ask.labels ? (op === 'add' ? 'Write the ones, carry the ten' : 'Borrow') : ask.prompt)}
+      renderBoard={board}
+    />
   );
 };
 

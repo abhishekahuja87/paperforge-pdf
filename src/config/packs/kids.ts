@@ -23,4 +23,8 @@ export const KIDS_TOOLS: PackTool[] = [
     id: 'subtraction-with-borrowing-for-kids', kind: 'subtraction', guideKey: 'kidsSubtraction', category: 'everyday', icon: 'minus', tier: 'popular',
     keywords: ['subtraction with borrowing', 'column subtraction for kids', 'how to borrow in subtraction', 'subtraction with regrouping', 'borrowing across zero', 'two digit subtraction with borrowing', 'three digit subtraction with borrowing', 'subtraction practice for kids', 'class 2 subtraction borrow', 'learn subtraction step by step'],
   }, kids.toolCatalog),
+  definePackTool({
+    id: 'long-multiplication-for-kids', kind: 'multiplication', guideKey: 'kidsMultiplication', category: 'everyday', icon: 'times', tier: 'popular',
+    keywords: ['long multiplication', 'column multiplication for kids', 'how to multiply two digit numbers', 'multiplication with carrying', 'multiply by 2 digit number', 'multiplication step by step', 'multiplication practice for kids', 'class 3 multiplication', 'class 4 multiplication', 'learn multiplication online'],
+  }, kids.toolCatalog),
 ];

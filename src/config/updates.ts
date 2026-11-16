@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-17',
+    path: '/long-multiplication-for-kids',
+    tool: 'Long multiplication',
+    title: 'New: long multiplication, step by step',
+    summary: 'Watch long multiplication one digit at a time with every carry, including two-digit multipliers, then try it yourself.',
+  },
+  {
     date: '2026-11-16',
     path: '/addition-with-carrying-for-kids',
     tool: 'Addition with carrying',

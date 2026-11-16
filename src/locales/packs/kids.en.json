@@ -89,6 +89,24 @@
         "Go again",
         "Press Another sum. Try sums with no borrowing first, then borrowing once, then 304 − 158 where you must borrow across a zero."
       ]
+    ],
+    "long-multiplication-for-kids": [
+      [
+        "Pick a sum",
+        "Choose an example, press the shuffle button for a new one, or open My own numbers and type a number up to 999 times a number from 2 to 99."
+      ],
+      [
+        "Watch it",
+        "Press Play, or tap the sum to move one step at a time. The orange line shows the working, such as 7 × 6 = 42 and Write 2, carry 4."
+      ],
+      [
+        "Now you try",
+        "Press You try. Type the answer to each little multiplication, then the digit to write and the number to carry. After two wrong tries, Show me reveals the step."
+      ],
+      [
+        "Try two digits",
+        "Choose a sum like 46 × 23. Each digit of the bottom number gets its own row, the second row starts with a 0, and the two rows are added at the end."
+      ]
     ]
   },
   "pageGuides": {
@@ -253,6 +271,36 @@
           "No. Everything runs in the browser. Nothing is uploaded or saved."
         ]
       ]
+    },
+    "kidsMultiplication": {
+      "title": "Long Multiplication for Kids",
+      "subtitle": "Watch long multiplication one digit at a time, with every carry, then try it yourself with your own numbers. Free, private, works on phones.",
+      "faq": [
+        [
+          "How does long multiplication work?",
+          "You multiply the top number by one digit of the bottom number at a time, starting with the ones. Each little multiplication gives a digit to write and sometimes a number to carry. With a two-digit bottom number you get two rows, which are added together at the end."
+        ],
+        [
+          "Why do we put a 0 at the start of the second row?",
+          "The second digit of the bottom number is in the tens place, so it really means ten times that digit. Starting the row with a 0 moves every digit one place to the left, which is the same as multiplying by ten."
+        ],
+        [
+          "What do we carry in multiplication?",
+          "When one little multiplication makes a number of 10 or more, we write the ones digit and carry the tens digit. We add the carried number to the next multiplication in the row, for example 4 × 3 + 1."
+        ],
+        [
+          "What should my child know first?",
+          "Children should know their times tables up to 9 and be happy with addition with carrying. If a times table is slow, the You try mode is a good place to practise the one that is hard."
+        ],
+        [
+          "What age is this for?",
+          "It suits children of about 8 to 11, from class 3 to class 5. Start with a one-digit multiplier such as 47 × 6, then try two digits such as 46 × 23."
+        ],
+        [
+          "Is my child's work saved or sent anywhere?",
+          "No. Everything runs in the browser. Nothing is uploaded or saved."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -384,6 +432,31 @@
           "paragraphs": [
             "Start with sums that need no borrowing, like 48 − 23. Then borrow once, like 52 − 27. Then try 91 − 58 and three-digit sums such as 421 − 186. Leave borrowing across a zero until the rest feels easy.",
             "Use Watch first, then You try. If your child is stuck twice, Show me reveals the step so they can keep going."
+          ]
+        }
+      ]
+    },
+    "long-multiplication-for-kids": {
+      "sections": [
+        {
+          "heading": "What long multiplication really does",
+          "paragraphs": [
+            "Long multiplication breaks a big multiplication into small ones that fit a times table. In 47 × 6, the 7 ones times 6 make 42, so 2 is written in the ones place and 4 tens are carried. The 4 tens times 6 make 24, plus the carried 4 makes 28, and the answer is 282.",
+            "The orange line on the page shows each small multiplication as it happens, and the small orange number above a digit is the carry waiting to be added."
+          ]
+        },
+        {
+          "heading": "Multiplying by a two-digit number",
+          "paragraphs": [
+            "For 46 × 23, you multiply 46 by 3 first, which gives 138. Then you multiply 46 by the 2 tens, which really means 20, so the row starts with a 0 and reads 920. Adding 138 and 920 gives 1058.",
+            "Children often forget the 0 at the start of the second row. The page writes it first and says so, so the pattern becomes familiar."
+          ]
+        },
+        {
+          "heading": "A good order to practise in",
+          "paragraphs": [
+            "Start with a one-digit multiplier and no carrying, such as 23 × 4. Then try a carry, such as 47 × 6, and a three-digit number, such as 156 × 7. When those feel easy, move to two digits, such as 34 × 12 and 46 × 23.",
+            "Use Watch first, then You try. Slow times tables are the most common reason for mistakes, so if the same small multiplication keeps going wrong, practise that table on its own."
           ]
         }
       ]
