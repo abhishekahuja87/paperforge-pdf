@@ -217,3 +217,7 @@ New `explainers` pack: `src/config/packs/explainers.ts`, text in `src/locales/pa
 ### Printable paper pages
 
 `PaperMaker` has a `focused` mode used by the dot grid, graph, hexagon, Cornell, calligraphy and cross-stitch pages (`paper/variants.tsx`): no paper-type picker, quick starts filtered to that type, and an "Other paper types" link row. The lined page (`printable-paper-maker`) is the full maker with every type. Quick starts show a pressed state and an "Applied" line; the pressed state is the settings object reference, so touching any control clears it. Choice buttons that apply a value should always use `aria-pressed` with a visible highlight.
+
+### Hidden page: carry and borrow in pictures
+
+`/learn-carry-and-borrow` (`pages/CarryBorrowPage.tsx`) is not linked anywhere, not in the sitemap, not in the tool lists, and is `noindex`. `lib/kids/placeValue.ts` builds the picture steps (`addFrames`, `subFrames`; frames of block counts, with carry, break, cross-out and ring markers), and `components/tools/kids/carry/PlaceBoard.tsx` draws one frame as SVG: a dot for ones, a rod of ten for tens, a flat of a hundred for hundreds. Only digits and signs are shown as text; words are for screen readers (`aria-label`). It handles up to three digits, carrying through two columns and borrowing across a zero. Because it has no listing and is `noindex`, it has no What's new entry. To publish it later, add it as a tool in `config/packs/kids.ts` and remove the `noindex`.
