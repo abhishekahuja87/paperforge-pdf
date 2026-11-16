@@ -28,6 +28,8 @@ import {
   Globe,
   Clock,
   Sun,
+  Plus,
+  Minus,
 } from 'lucide-react';
 import type { ToolIconName } from '../../config/tools';
 
@@ -60,6 +62,8 @@ const ICON_MAP: Record<ToolIconName, React.ComponentType<{ className?: string }>
   globe: Globe,
   clock: Clock,
   sun: Sun,
+  plus: Plus,
+  minus: Minus,
 };
 
 export const ToolIcon: React.FC<{ name: ToolIconName; className?: string }> = ({ name, className }) => {
