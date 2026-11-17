@@ -917,3 +917,4 @@ Checked with a router stand-in in an unstyled browser: address and highlighted k
 - [ ] Rent receipt is under Jobs and business; BMI under Sports and fitness; solar system explorer under Kids; the header menu and footer show the same groups.
 - [ ] Search: "reduce pdf size" finds Compress PDF; "scan to searchable pdf" finds Digitize; "badminton court size" finds the court guide; "slideshow from pdf" finds Display; "hex to rgb" finds the colour converter.
 Checked with a Node script against the real config (groups, workspaces, eight searches). The styled home page was not run; check the three new topic colours (teal, sky, indigo).
+- [ ] Search ranking: "jpg to png" lists Image Converter first; "qr" lists the QR code tools before others. Checked with a Node script; styled page not run.

@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-17',
     path: '/',
     tool: 'Home page',
+    title: 'Best match first in search',
+    summary: 'Search results now list tools whose name matches first, then tools with a matching phrase, so "jpg to png" shows the Image Converter at the top.',
+  },
+  {
+    date: '2026-11-17',
+    path: '/',
+    tool: 'Home page',
     title: 'Clearer topics and smarter search',
     summary: 'Scan and digitize, Display and presentation, and Sports and fitness are now topics of their own, and tools such as the rent receipt and the solar system explorer sit with related ones. Search now understands phrases like "reduce pdf size" or "badminton court size".',
   },

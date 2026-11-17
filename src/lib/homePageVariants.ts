@@ -164,7 +164,14 @@ export function getCollections(): HomeCollection[] {
  */
 export function getSearchResults(query: string, language = 'en'): ToolItem[] {
   const normalized = query.trim().toLowerCase();
-  return TOOLS.filter((tool) => {
+  /** Lower is better: the title, then a listed phrase or keyword, then a match found anywhere else. */
+  const rank = (tool: ToolItem): number => {
+    if (!normalized) return 0;
+    if (tool.title.toLowerCase().includes(normalized)) return 0;
+    if (searchTermsFor(tool.id, tool.keywords).some((term) => term.toLowerCase().includes(normalized))) return 1;
+    return 2;
+  };
+  const found = TOOLS.filter((tool) => {
     if (!tool.isAvailable) return false;
     if (matchesQuery(tool, query, language)) return true;
     if (!WORKSPACES.includes(tool.id) || !isFeaturedId(tool.id)) return false;
@@ -173,4 +180,5 @@ export function getSearchResults(query: string, language = 'en'): ToolItem[] {
     return [localized.title, localized.useCase, localized.description, ...localized.highlights, english.title, english.useCase, english.description, ...english.highlights]
       .some((text) => text.toLowerCase().includes(normalized));
   });
+  return found.map((tool, index) => ({ tool, index, score: rank(tool) })).sort((a, b) => a.score - b.score || a.index - b.index).map((entry) => entry.tool);
 }
