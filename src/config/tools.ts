@@ -428,8 +428,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'emi-calculator',
-    title: 'EMI Calculator',
-    description: 'Monthly EMI, total interest and repayment schedule.',
+    title: "EMI Calculator: Loan EMI, Interest and Schedule",
+    description: "Monthly EMI, total interest, repayment schedule and ways to pay less interest.",
     category: 'finance',
     path: '/emi-calculator',
     icon: 'calculator',
@@ -439,8 +439,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'sip-calculator',
-    title: 'SIP Calculator',
-    description: 'Estimate SIP returns with optional yearly step-up.',
+    title: "SIP Calculator: Mutual Fund Returns",
+    description: "Estimate SIP returns with optional yearly step-up.",
     category: 'finance',
     path: '/sip-calculator',
     icon: 'calculator',
@@ -450,8 +450,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'fd-calculator',
-    title: 'FD Calculator',
-    description: 'Fixed deposit maturity amount and interest.',
+    title: "FD Calculator: Fixed Deposit Maturity",
+    description: "Fixed deposit maturity amount and interest.",
     category: 'finance',
     path: '/fd-calculator',
     icon: 'calculator',
@@ -461,8 +461,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'ppf-calculator',
-    title: 'PPF Calculator',
-    description: 'Project PPF balance and maturity value.',
+    title: "PPF Calculator: Maturity and Interest",
+    description: "Project PPF balance and maturity value.",
     category: 'finance',
     path: '/ppf-calculator',
     icon: 'calculator',
@@ -472,8 +472,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'gst-calculator',
-    title: 'GST Calculator',
-    description: 'Add or remove GST and see CGST and SGST.',
+    title: "GST Calculator: Add or Remove GST",
+    description: "Add or remove GST and see CGST and SGST.",
     category: 'finance',
     path: '/gst-calculator',
     icon: 'calculator',
@@ -494,7 +494,7 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'rd-calculator',
-    title: "RD Calculator",
+    title: "RD Calculator: Recurring Deposit Maturity",
     description: "Recurring deposit maturity value and interest.",
     category: 'finance',
     path: '/rd-calculator',
@@ -505,7 +505,7 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'cagr-calculator',
-    title: "CAGR Calculator",
+    title: "CAGR Calculator: Annual Growth Rate",
     description: "Compound annual growth rate of an investment.",
     category: 'finance',
     path: '/cagr-calculator',
@@ -626,7 +626,7 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'lumpsum-calculator',
-    title: "Lumpsum Calculator",
+    title: "Lumpsum Calculator: One-Time Investment Returns",
     description: "Future value of a one-time investment.",
     category: 'finance',
     path: '/lumpsum-calculator',
@@ -637,7 +637,7 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'inflation-calculator',
-    title: "Inflation Calculator",
+    title: "Inflation Calculator: Future Cost of Money",
     description: "What today's money will cost or be worth later.",
     category: 'finance',
     path: '/inflation-calculator',
@@ -681,7 +681,7 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'epf-calculator',
-    title: "EPF Calculator",
+    title: "EPF Calculator: Provident Fund Balance",
     description: "Project your EPF balance at retirement.",
     category: 'finance',
     path: '/epf-calculator',

@@ -17,7 +17,8 @@ export const HOME_COLLECTION_STYLES: Record<string, string> = {
   present: 'bg-indigo-100 text-indigo-800',
   pdf: 'bg-red-100 text-red-800',
   images: 'bg-cyan-100 text-cyan-800',
-  money: 'bg-emerald-100 text-emerald-800',
+  tax: 'bg-emerald-100 text-emerald-800',
+  invest: 'bg-teal-100 text-teal-800',
   everyday: 'bg-blue-100 text-blue-800',
   printables: 'bg-fuchsia-100 text-fuchsia-800',
   work: 'bg-amber-100 text-amber-900',
@@ -34,7 +35,8 @@ export const HOME_COLLECTION_BORDER: Record<string, string> = {
   present: 'border-indigo-200',
   pdf: 'border-red-200',
   images: 'border-cyan-200',
-  money: 'border-emerald-200',
+  tax: 'border-emerald-200',
+  invest: 'border-teal-200',
   everyday: 'border-blue-200',
   printables: 'border-fuchsia-200',
   work: 'border-amber-200',
@@ -51,7 +53,8 @@ export const HOME_COLLECTION_HOVER: Record<string, string> = {
   present: 'group-hover:bg-indigo-700 group-hover:text-white',
   pdf: 'group-hover:bg-red-700 group-hover:text-white',
   images: 'group-hover:bg-cyan-700 group-hover:text-white',
-  money: 'group-hover:bg-emerald-700 group-hover:text-white',
+  tax: 'group-hover:bg-emerald-700 group-hover:text-white',
+  invest: 'group-hover:bg-teal-700 group-hover:text-white',
   everyday: 'group-hover:bg-blue-700 group-hover:text-white',
   printables: 'group-hover:bg-fuchsia-700 group-hover:text-white',
   work: 'group-hover:bg-amber-800 group-hover:text-white',
@@ -95,6 +98,8 @@ function matchesQuery(tool: ToolItem, query: string, language: string): boolean 
   if (!normalized) return true;
   const localized = getToolCopy(tool, language);
   const haystack = [tool.title, tool.description, localized.title, localized.description, ...searchTermsFor(tool.id, tool.keywords)].join(' | ').toLowerCase();
+  // A very short query ("emi", "qr") must start a word, so it does not match the middle of "semi" or "hexagon".
+  if (normalized.length <= 3) return new RegExp(`(^|[^\\p{L}\\p{N}])${normalized.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'u').test(haystack);
   if (haystack.includes(normalized)) return true;
   // Every word of the query must appear somewhere, so "reduce pdf size" finds a tool that lists "reduce", "pdf" and "size".
   const words = normalized.split(/\s+/).filter((word) => word.length > 2);

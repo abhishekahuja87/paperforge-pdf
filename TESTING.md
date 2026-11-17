@@ -923,3 +923,7 @@ Checked with a Node script against the real config (groups, workspaces, eight se
 - [ ] /digitize-documents still opens (same address) with the title Scan to Searchable PDF (OCR); it is the fifth tile in the PDF topic; there is no Scan topic and the Workspaces row has two tiles.
 - [ ] Renamed tiles and page titles: Add Page Numbers to PDF, Extract Text from PDF, Multiple Pages Per Sheet (N-Up PDF), Remove PDF Metadata (Sanitize PDF), Inspect PDF: Page Size, Metadata and Security, Word and Character Counter. Search "ocr" and "page numbers" still find them. The pre-built page titles in dist match.
 Checked: JSON parses and the config was read in Node; the styled home page and a build were not run.
+
+### Money topics (18 Nov)
+- [ ] Home has Tax, salary and GST (6 tools) and Loans and investing (9 tools) in place of one money topic; colours emerald and teal; tiles show EMI Calculator, SIP Calculator and so on (text before the colon); page titles show the longer names.
+- [ ] Search "emi", "fixed deposit maturity", "provident fund" find the right tools. Checked in Node; the styled page and a build were not run.
