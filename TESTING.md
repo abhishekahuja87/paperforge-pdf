@@ -185,6 +185,11 @@ Geometry checked in Node: for all seven styles in portrait and landscape (and is
 
 ### Planners pack
 
+Merge (17 Nov): `/printable-calendar-maker` and `/daily-planner-printable` now redirect to `/printable-planner-maker`.
+
+- [ ] Both old addresses open the planner maker (no blank page, no 404); the maker opens on Month and the Month, Week, Day and Year buttons work.
+- [ ] The Printable group and the home page list one planner tile; the sitemap has no calendar or daily planner line; the page FAQ and article now cover calendars for any year and the daily schedule.
+
 Layout checked in Node for all four kinds in portrait and landscape: nothing falls outside the page area; November 2026 with a Monday start puts day 1 in the last column; weekly headings; month rollover from December to January; Spanish, French and German names. Screens and the PDF were not run. After deploying: /printable-planner-maker, /printable-calendar-maker and /daily-planner-printable each open on the right kind; change month, year, week start and language and watch the preview; count 12 gives 12 pages and the previous/next buttons work; Download PDF opens with the same pages; Print this page prints one page; paper-maker FAQs now mention the clef, non-Latin names and printing bundles.
 
 ### QR pack
