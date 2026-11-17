@@ -181,17 +181,12 @@ Seven guides were added (GPA and CGPA, citations, freelance rate, margin vs mark
 
 ### Stationery pack (paper maker)
 
-Paper flow (17 Nov), not run in a browser: the order is "Choose the paper" (style grid), then "Ready-made setup (optional)" (shows only the setup for the chosen paper), then "Adjust everything".
+Paper flow (17 Nov), not run in a browser (full tsc, vite build, styled check). Checked in Node: for all 11 styles, `forStyle` keeps the page size, page count and binding and never throws when the sheet is built.
 
-- [ ] Picking a paper style swaps the ready-made setup shown below it (dot grid: Bullet journal; graph: Maths and engineering; and so on); no setup is shown for plain lined except Handwriting practice.
-- [ ] Pressing a ready-made setup never changes the chosen paper; it highlights as applied until you touch any control.
-- [ ] Focused pages (dot grid, graph and so on) show the setup for their paper only and no style grid.
-
-One-tile change (17 Nov), not run in a browser (full tsc, vite build and styled check not run):
-
-- [ ] The home Printable list shows Printable Paper Maker, planner and flashcards only; `/dot-grid-paper-generator`, `/graph-paper-generator`, `/cornell-notes-template`, `/hexagon-graph-paper-generator`, `/calligraphy-practice-sheet-generator` and `/cross-stitch-pattern-grid-generator` still open.
-- [ ] In the paper maker the quick starts and the paper style grid are open; "Adjust everything" is closed; opening it shows the style settings, page and margins, ink, header and extras, and changing one updates the preview and clears the highlighted quick start.
-- [ ] "How many pages" is below it; "Paper for one use" links to the focused pages; a focused page shows "Other paper types" and no style grid.
+- [ ] The home Printable list shows Printable Paper Maker, planner and flashcards only; the dot grid, graph, Cornell, hexagon, calligraphy and cross-stitch addresses still open.
+- [ ] In the paper maker only "Choose the paper" (style grid) is open; there is no quick start or "Paper for one use" row. "Adjust everything" is closed; opening it shows the style settings, page and margins, ink, header and extras, and "How many pages" is below it.
+- [ ] Picking a style gives that paper's sensible start (dot: 5 mm dots; graph: 5 mm squares with axes; habit tracker: landscape) and keeps your page size and orientation. Plain lined keeps the plain defaults.
+- [ ] A focused page opens on its paper with no style grid and a "See all paper types" link to the maker. Reset returns to that paper's start.
 
 Geometry checked in Node: for all seven styles in portrait and landscape (and isometric in all four modes) no line, dot or text lies outside the printable area; binding margins on the front, back and landscape; segment clipping; settings validation and file round trip; presets. The screens and the PDF export were not run. After deploying: on /printable-paper-maker try each style and preset and check the preview changes at once; Download PDF for 1 page and for 50 pages (file stays small, opens, lines are sharp when zoomed); Print this sheet (only the sheet prints, at the page size); with Binding and Switch edge on, 2+ pages, compare Front and Back preview and the PDF; page numbers with a start number; Save and Load settings round trip; a margin below 5 mm shows the warning; habit names with non-Latin letters show as ? in the PDF. Also open /dot-grid-paper-generator, /graph-paper-generator and /cornell-notes-template and check each opens on its template.
 

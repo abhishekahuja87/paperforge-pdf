@@ -21,8 +21,8 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-17',
     path: '/printable-paper-maker',
     tool: 'Printable paper maker',
-    title: 'Paper maker: choose the paper first, then a ready-made setup',
-    summary: 'Quick starts used to change the paper style as well, which was confusing. Now you choose the paper first, and the ready-made setup below it only sets size and options for that paper.',
+    title: 'Paper maker: pick the paper, change settings only if needed',
+    summary: 'Quick starts and the paper style both changed the paper, which was confusing. Now you just pick the paper. Each starts with sensible settings, and everything else is under Adjust everything.',
   },
   {
     date: '2026-11-17',
