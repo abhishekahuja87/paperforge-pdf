@@ -17,6 +17,24 @@
         "Download or print",
         "Flip through the pages in the preview, then download one PDF with all of them, or print the page shown."
       ]
+    ],
+    "printable-meal-planner": [
+      [
+        "Choose the menu",
+        "Pick Weekly menu, Daily menu or Monthly menu, then tap the meals you want, such as breakfast, lunch, snack, dinner and dessert."
+      ],
+      [
+        "Type the dishes, or leave it blank",
+        "Open Adjust everything and type the dishes for each day if you want them printed. Leave them empty to print boxes you write in by hand."
+      ],
+      [
+        "Set the dates and paper",
+        "Choose the first date, how many weeks, days or months to make, the page size and landscape or portrait. Add a heading such as Our family menu."
+      ],
+      [
+        "Download or print",
+        "Check the preview, then download one PDF with every page or print the page shown. Stick it on the fridge."
+      ]
     ]
   },
   "pageGuides": {
@@ -63,6 +81,48 @@
         [
           "Is my information uploaded or stored?",
           "No. The pages are drawn and the PDF is built in your browser, and nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network. Your heading text and dates stay on your device."
+        ]
+      ]
+    },
+    "mealPlannerGuide": {
+      "title": "Printable Meal Planner: Weekly, Daily and Monthly Menu",
+      "subtitle": "Make a printable weekly meal planner, daily menu or monthly menu with a shopping list. Type the dishes or write them in. Free, private, a PDF.",
+      "faq": [
+        [
+          "Is the meal planner free, and is there a watermark?",
+          "It is free, needs no account and adds no watermark. Everything is made in your browser and nothing is uploaded."
+        ],
+        [
+          "How do I make a weekly meal plan I can print?",
+          "Choose Weekly menu, tap the meals you want, set the first date and download the PDF. You get seven days down the page with a box for each meal, and an optional shopping list beside it. Write in the dishes, or type them first and they are printed for you."
+        ],
+        [
+          "Can I type the dishes before printing?",
+          "Yes. Open Adjust everything, then Type the dishes, and fill in what you cook each day. The same menu repeats on every week you make, which suits a family that eats on a regular rotation. Leave the boxes empty for a blank planner."
+        ],
+        [
+          "Can I add a grocery or shopping list?",
+          "Yes. The weekly menu has a shopping list column beside the week. Switch it off if you want the week to use the full width."
+        ],
+        [
+          "Can I make a monthly menu or a whole month of meals?",
+          "Yes. Choose Monthly menu for a calendar with room to write the meals under each date. You can make up to 12 months in one PDF."
+        ],
+        [
+          "Can I use it for a school lunch or tiffin plan?",
+          "Yes. Keep only Lunch (and Snack if you pack one), choose the weekly menu, and print it for the term. It works the same way for a packed lunch plan, a hostel mess menu or a lunch box rotation."
+        ],
+        [
+          "Can I plan a diet, fasting days or a special diet with it?",
+          "You can write any plan you like in it, for example fasting days, vegetarian days or a diet your doctor gave you. The planner only prints your own plan: it does not suggest meals or work out calories or nutrition."
+        ],
+        [
+          "What paper size should I print on?",
+          "A4 or Letter in landscape is the best for the weekly menu, because there are seven rows and several meal columns. The daily menu suits portrait. You can also choose A5 or other sizes under Adjust everything."
+        ],
+        [
+          "Does it suggest recipes or what to cook?",
+          "No. It is a planner, so you decide the dishes. That keeps it fast and means nothing you type leaves your device."
         ]
       ]
     }
@@ -117,6 +177,38 @@
           "paragraphs": [
             "The planner does not print public holidays, moon phases or religious dates, since these differ by place and year. You can write them in by hand. Month and day names are available in languages that use the Latin alphabet.",
             "Your settings are used only in your browser, and nothing is uploaded to {{siteName}}. If you need the same setup next time, note your choices or use the same links."
+          ]
+        }
+      ]
+    },
+    "printable-meal-planner": {
+      "sections": [
+        {
+          "heading": "What the Printable Meal Planner does",
+          "paragraphs": [
+            "The meal planner makes a weekly, daily or monthly menu as a PDF you can print and stick on the fridge. Choose the meals you want, set the dates, and either write the dishes in by hand or type them first so they print on the sheet.",
+            "It runs in your browser, so nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why plan meals on paper",
+          "paragraphs": [
+            "A written weekly menu answers the daily “what should we cook?” question once, and turns shopping into a single list instead of several small trips. A plan that the whole family can see also helps when different people cook on different days.",
+            "Many people find it easier to keep a plan on the fridge than in a phone app, because everyone sees it without asking."
+          ]
+        },
+        {
+          "heading": "Weekly, daily and monthly menus",
+          "paragraphs": [
+            "The weekly menu has the seven days down the left, the meals across the top and an optional shopping list on the right. It is the one most families use. The daily menu gives each meal its own block with lines, which suits a detailed day or a busy kitchen. The monthly menu is a calendar with room under each date, useful for a school term, a hostel mess menu or a festival month with special dishes.",
+            "Choose a landscape page for the weekly menu and a portrait page for the daily menu."
+          ]
+        },
+        {
+          "heading": "Tips for a plan you will actually follow",
+          "paragraphs": [
+            "Start with the dinners, because they are the meal people argue about most, and add the other meals once the habit is there. Plan one or two leftover or easy nights each week, and leave a spare box for eating out.",
+            "Write the shopping list at the same time as the menu, check it against what is already in the kitchen, and keep the sheet where you can see it. The planner prints only your own plan: it does not give dietary advice, so follow your doctor or dietitian for any special diet."
           ]
         }
       ]
