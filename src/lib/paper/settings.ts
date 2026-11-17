@@ -85,6 +85,19 @@ export const PRESETS: PaperPreset[] = [
   { id: 'habits', label: 'Monthly habit tracker', hint: 'Landscape, 31 days, 12 habits', patch: withBase((s) => ({ ...s, style: 'tracker', landscape: true, tracker: { days: 31, rows: 12, habits: '' } })) },
 ];
 
+/** The preset whose settings each paper style starts from when it is picked. Plain lined paper uses the plain defaults. */
+const STYLE_START: Partial<Record<PaperStyle, string>> = {
+  dot: 'bujo', graph: 'math', cornell: 'lecture', isometric: 'sketch', music: 'guitar', calligraphy: 'copperplate', hex: 'hexmap', crossstitch: 'stitch', storyboard: 'story', tracker: 'habits',
+};
+
+/** Settings for a paper style with its own sensible start, keeping the page size, orientation and binding the person already chose (a habit tracker starts in landscape). */
+export function forStyle(base: PaperSettings, style: PaperStyle): PaperSettings {
+  const preset = PRESETS.find((item) => item.id === STYLE_START[style]);
+  if (!preset) return { ...base, style };
+  const next = preset.patch(base);
+  return { ...next, style, page: base.page, landscape: style === 'tracker' ? true : base.landscape, binding: base.binding, bindingAlternate: base.bindingAlternate };
+}
+
 export const serializeSettings = (settings: PaperSettings): string => JSON.stringify({ app: 'mydailyutils-paper-maker', version: 1, settings }, null, 2);
 
 /** Reads a saved settings file. Returns null when the text is not a settings file. */

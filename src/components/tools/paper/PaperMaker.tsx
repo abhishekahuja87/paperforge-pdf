@@ -5,7 +5,7 @@ import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
 import { buildSheet, hasBackSide } from '../../../lib/paper/geometry';
 import { buildPaperPdf } from '../../../lib/paper/pdf';
-import { PRESETS, parseSettingsFile, serializeSettings } from '../../../lib/paper/settings';
+import { forStyle, parseSettingsFile, serializeSettings } from '../../../lib/paper/settings';
 import { encodeShare, decodeShare } from '../../../lib/paper/share';
 import { DEFAULT_SETTINGS, HEADER_LABELS, PAGE_SIZES, STORY_RATIOS, STYLES, TONES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings, type PaperStyle, type ToneId, type Weight } from '../../../lib/paper/types';
 import { SheetPreview } from './SheetPreview';
@@ -20,30 +20,15 @@ const presetButtons = (spacings: { label: string; value: number }[], current: nu
   </div>
 );
 
-/** The page that opens on each paper type, so a focused page can point to the others. */
-const STYLE_PAGES: Partial<Record<PaperStyle, string>> = {
-  dot: 'dot-grid-paper-generator', graph: 'graph-paper-generator', cornell: 'cornell-notes-template',
-  hex: 'hexagon-graph-paper-generator', calligraphy: 'calligraphy-practice-sheet-generator', crossstitch: 'cross-stitch-pattern-grid-generator',
-};
-
 /** With `focused`, the page is about one paper type: no style picker, only the quick starts for that type, and links to the other types. */
 export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean }> = ({ initialStyle, focused = false }) => {
-  const [settings, setSettings] = useState<PaperSettings>(() => (typeof window !== 'undefined' ? decodeShare(window.location.hash) : null) ?? { ...DEFAULT_SETTINGS, style: initialStyle ?? DEFAULT_SETTINGS.style });
+  const [settings, setSettings] = useState<PaperSettings>(() => (typeof window !== 'undefined' ? decodeShare(window.location.hash) : null) ?? forStyle(DEFAULT_SETTINGS, initialStyle ?? DEFAULT_SETTINGS.style));
   const [side, setSide] = useState<'front' | 'back'>('front');
   const [busy, setBusy] = useState(false);
-  const [applied, setApplied] = useState<{ id: string; label: string; settings: PaperSettings } | null>(null);
   const [message, setMessage] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
 
   // Quick starts belong to the paper style that is chosen, so picking one never changes the style.
-  const presets = useMemo(() => PRESETS.filter((preset) => preset.patch(DEFAULT_SETTINGS).style === settings.style), [settings.style]);
-  // A quick start shows as chosen only while the settings are exactly what it produced, so touching any control clears it.
-  const appliedPreset = applied && applied.settings === settings ? applied : null;
-  const applyPreset = (preset: (typeof PRESETS)[number]) => {
-    const next = preset.patch(settings);
-    setSettings(next);
-    setApplied({ id: preset.id, label: preset.label, settings: next });
-  };
   const update = (patch: Partial<PaperSettings>) => setSettings((current) => ({ ...current, ...patch }));
   const sheet = useMemo(() => buildSheet(settings, hasBackSide(settings) ? side : 'front'), [settings, side]);
   const margins = settings.margins;
@@ -104,28 +89,12 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
               <h2 className={heading}>Choose the paper</h2>
               <div className="mt-3 grid grid-cols-2 gap-2">
                 {STYLES.map((item) => (
-                  <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => update({ style: item.id })} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
+                  <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => setSettings((current) => forStyle(current, item.id))} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
                     <span className="block text-xs font-bold text-slate-900">{item.label}</span>
                     <span className="block text-[11px] text-slate-500">{item.hint}</span>
                   </button>
                 ))}
               </div>
-            </div>
-          )}
-
-          {presets.length > 0 && (
-            <div className={card}>
-              <h2 className={heading}>Ready-made setup <span className="font-normal text-slate-500">(optional)</span></h2>
-              <p className="mt-1 text-[11px] text-slate-500">For the paper chosen {focused ? 'on this page' : 'above'}. One click sets the size and options for a common use and never changes the paper. You can change anything afterwards.</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {presets.map((preset) => {
-                  const on = appliedPreset?.id === preset.id;
-                  return (
-                    <button key={preset.id} type="button" title={preset.hint} aria-pressed={on} onClick={() => applyPreset(preset)} className={`min-h-9 rounded-lg border px-3 py-1.5 text-xs font-semibold ${on ? 'border-orange-300 bg-orange-50 text-orange-900 ring-1 ring-orange-300' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>{preset.label}</button>
-                  );
-                })}
-              </div>
-              {appliedPreset && <p role="status" className="mt-2 rounded-lg bg-orange-50 px-3 py-2 text-xs font-semibold text-orange-900">Applied: {appliedPreset.label}. The preview shows it, and the settings below can still be changed.</p>}
             </div>
           )}
 
@@ -284,15 +253,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           </div>
 
-          <div className={card}>
-            <h2 className={heading}>{focused ? 'Other paper types' : 'Paper for one use'}</h2>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {(Object.entries(STYLE_PAGES) as [PaperStyle, string][]).filter(([style]) => style !== initialStyle).map(([style, page]) => (
-                <Link key={style} to={`/${page}`} className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">{STYLES.find((item) => item.id === style)?.label}</Link>
-              ))}
-              {focused && <Link to="/printable-paper-maker" className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">Lined, music, isometric, tracker and more</Link>}
-            </div>
-          </div>
+          {focused && <p className="text-xs text-slate-600"><Link to="/printable-paper-maker" className="font-semibold text-orange-800 underline">See all paper types</Link></p>}
         </div>
 
         <div className="order-1 lg:order-2">
@@ -310,7 +271,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
               <CopyButton text={shareLink} label="Copy link to these settings" />
               <button type="button" onClick={saveSettings} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><Save className="h-4 w-4" aria-hidden="true" />Save settings</button>
               <button type="button" onClick={() => fileRef.current?.click()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><FolderOpen className="h-4 w-4" aria-hidden="true" />Load settings</button>
-              <button type="button" onClick={() => { setSettings({ ...DEFAULT_SETTINGS, style: initialStyle ?? DEFAULT_SETTINGS.style }); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>
+              <button type="button" onClick={() => { setSettings(forStyle(DEFAULT_SETTINGS, initialStyle ?? DEFAULT_SETTINGS.style)); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>
               <input ref={fileRef} type="file" accept="application/json,.json" className="hidden" aria-label="Load settings file" onChange={(event) => void loadSettings(event.target.files?.[0])} />
             </div>
             {message && <p role="status" className="text-xs text-slate-700">{message}</p>}
