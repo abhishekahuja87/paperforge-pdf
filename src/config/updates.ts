@@ -22,7 +22,7 @@ const ENTRIES: SiteUpdate[] = [
     path: '/printable-planner-maker',
     tool: 'Printable planner maker',
     title: 'Calendar and daily planner are now in one place',
-    summary: 'The calendar and daily planner pages were the same tool, so they are now in the planner maker. Pick Month, Week, Day or Year at the top. Old links still work.',
+    summary: 'The calendar and daily planner pages were the same tool, so they are now in the planner maker. Pick Month, Week, Day or Year at the top.',
   },
   {
     date: '2026-11-17',

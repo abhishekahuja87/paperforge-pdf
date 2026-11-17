@@ -73,9 +73,6 @@ export const App: React.FC = () => {
               <Route path="/learn-carry-and-borrow" element={<Navigate to="/addition-with-carrying-for-kids" replace />} />
               {/* Merged into the one flashcard maker, which already prints double-sided. Old links keep working. */}
               <Route path="/double-sided-flashcards-printable" element={<Navigate to="/printable-flashcard-maker" replace />} />
-              {/* Calendar and daily planner pages were the same tool as the planner maker. Old links keep working. */}
-              <Route path="/printable-calendar-maker" element={<Navigate to="/printable-planner-maker" replace />} />
-              <Route path="/daily-planner-printable" element={<Navigate to="/printable-planner-maker" replace />} />
               <Route path="/merge-pdf" element={<MergePage />} />
               <Route path="/split-pdf" element={<SplitPage />} />
               <Route path="/generate-sample-pdf" element={<GenerateSamplePage />} />

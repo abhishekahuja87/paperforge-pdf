@@ -1,7 +1,7 @@
 import planners from '../../locales/packs/planners.catalog.en.json';
 import { definePackTool, type PackTool } from './types';
 
-/** Printable calendars and planners: one maker for calendars, weekly and daily planners and the year page (the separate calendar and daily pages were the same tool, so they redirect in `App.tsx`). */
+/** Printable calendars and planners: one maker for calendars, weekly and daily planners and the year page (the separate calendar and daily pages were the same tool and were removed). */
 export const PLANNER_TOOLS: PackTool[] = [
   definePackTool({
     id: 'printable-planner-maker', kind: 'plannerMaker', guideKey: 'plannerMakerGuide', category: 'everyday', icon: 'grid', tier: 'popular',
