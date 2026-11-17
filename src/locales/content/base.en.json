@@ -1795,6 +1795,10 @@
         [
           "Can flattened form fields be edited again?",
           "Flattened form fields cannot normally be edited as form fields again. Keep the original file if you may need to edit them later."
+        ],
+        [
+          "How do I stop people changing a filled-in form?",
+          "Flatten it: the typed values are drawn onto the page as ordinary content and the fields can no longer be edited. The tool reports how many form fields were flattened."
         ]
       ]
     },
@@ -1841,6 +1845,10 @@
         [
           "Is there a limit on how long the document can be?",
           "There is no fixed page limit in the interface, but large PDFs may take longer or exceed available browser memory. Scanned pages are not OCR-processed."
+        ],
+        [
+          "How do I copy all the text from a PDF into a document?",
+          "Add the PDF and copy or download the text. It works for PDFs that contain real text; a scanned page is only a picture and gives no text."
         ]
       ]
     },
@@ -1885,6 +1893,10 @@
         [
           "Is there a limit on how many pages I can organize?",
           "There is no fixed page limit in the interface, but rendering and reorganizing large PDFs may take longer or exceed available browser memory."
+        ],
+        [
+          "How do I put pages in a different order and turn one sideways?",
+          "Use Move Left and Move Right on a page, Rotate 90° for a sideways scan and Delete Page to drop one. Then download the new file."
         ]
       ]
     },
@@ -1903,6 +1915,18 @@
         [
           "Are my confidential documents uploaded to a server?",
           "The selected PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The website may make separate requests for advertising and supporting resources."
+        ],
+        [
+          "How do I number a PDF as \"Page 3 of 10\" in the bottom corner?",
+          "Pick Bottom Right (or any of the six positions) under Placement Position and Page X of Y under Numbering Format. The other formats are 1 / 5, a plain number and - 1 -. Font, size and margin are set below."
+        ],
+        [
+          "How do I make page numbering start at 1 on the second page?",
+          "Tick Skip first page (Cover page). If your first numbered page should show a different number, change Start count from, for example 0 or 5, and the rest follow on from there."
+        ],
+        [
+          "How do I number only pages 2 to 5 and page 8?",
+          "Choose Selected pages only and type 2-5, 8. Only those pages get a number; the others are left as they are."
         ]
       ]
     },
@@ -1921,6 +1945,14 @@
         [
           "Can I watermark only specific pages?",
           "Yes. Select all, odd or even pages, or enter a custom page range (for example 1-5, 8)."
+        ],
+        [
+          "How do I put DRAFT or CONFIDENTIAL diagonally across every page?",
+          "Type the word, set a rotation (for example 45) and an opacity so the page text stays readable, then choose All Pages. Font size, colour (a hex code) and the Helvetica, Helvetica Bold or Courier font are set in the same panel."
+        ],
+        [
+          "How do I watermark only the odd or even pages?",
+          "The page choice has Odd Pages Only, Even Pages Only and Custom Page Range, for example 1-3, 7. This is useful for a mark on every front side of a double-sided print."
         ]
       ]
     },
@@ -1939,6 +1971,14 @@
         [
           "Are my files uploaded anywhere during layout composition?",
           "The selected PDF is arranged in your browser and is not uploaded to {{siteName}} for processing. The website may make separate requests for resources and advertising."
+        ],
+        [
+          "How do I print two pages on one sheet to save paper?",
+          "Choose 2-Up, then A4 Landscape (recommended for two pages side by side). A 10-page PDF becomes 5 sheets; the tool shows the sheet count before you download."
+        ],
+        [
+          "How do I fit four slides on one A4 page for handouts?",
+          "Choose 4-Up with A4 Portrait. Use the spacing slider (up to 30 points) to leave a gap between the pages. US Letter portrait and landscape are also offered."
         ]
       ]
     },
@@ -1955,6 +1995,14 @@
         [
           "Are my confidential files uploaded to any server?",
           "The selected PDF is processed in your browser and is not uploaded to {{siteName}} for processing. The tool removes the metadata types described on this page; it cannot guarantee removal of every kind of hidden information."
+        ],
+        [
+          "How do I remove the author name and other hidden details before emailing a PDF?",
+          "Use this tool before sending. It clears document information such as author and creator, which many PDF programs show under document properties. The visible pages are not changed, so check the result before you send it."
+        ],
+        [
+          "Does sanitizing a PDF black out text I can see?",
+          "No. It cleans hidden information, not visible content. To hide a name or number that is printed on a page, use the screenshot and image redaction tools or edit the source before you make the PDF."
         ]
       ]
     },
@@ -1991,6 +2039,10 @@
         [
           "Can I re-encrypt the file later?",
           "Yes. Once unlocked, you can open the Protect PDF tool at any time to assign new passwords or custom permissions."
+        ],
+        [
+          "How do I open a PDF that asks for a password every time?",
+          "Type the password you were given and unlock it. You get a copy that opens without a prompt. If the password is wrong the tool says it could not unlock the file."
         ]
       ]
     },
@@ -2009,6 +2061,14 @@
         [
           "Does validation check a schema?",
           "No. Validation checks whether the input is syntactically valid JSON. It does not validate application-specific fields or a JSON Schema."
+        ],
+        [
+          "How do I make a one-line JSON response readable?",
+          "Paste it, pick 1, 2 or 4 spaces of indent and press Format. If it cannot be parsed, the error is shown so you can find the missing comma or quote."
+        ],
+        [
+          "How do I shrink JSON before putting it in a config or URL?",
+          "Use Minify to remove all spaces and line breaks. Validate checks the text without changing it."
         ]
       ]
     },
@@ -2031,6 +2091,10 @@
         [
           "How does the file size simulation work?",
           "When you select 1 MB, 5 MB, or 10 MB, the generator injects padded binary data streams into the document, allowing you to test file-upload limits without hunting for arbitrary large files."
+        ],
+        [
+          "How do I make a test PDF to try an upload form?",
+          "Generate a sample and download it. It is made for testing, so nothing in it is a real person's document."
         ]
       ]
     },
@@ -2063,6 +2127,14 @@
         [
           "Are my confidential documents uploaded to a remote server?",
           "The selected PDF is analyzed in your browser and is not uploaded to {{siteName}} for processing. The website makes separate requests for resources and advertising."
+        ],
+        [
+          "How do I check how many pages and what paper size a PDF has?",
+          "Open the file in the PDF inspector: it lists the page count and the size of each page without changing the file. This is handy before you print, merge or send a file to an office that asks for A4."
+        ],
+        [
+          "How can I tell if a PDF is protected or has hidden details?",
+          "The report shows the document properties and whether the file is encrypted, so you can decide whether to unlock or sanitize it first."
         ]
       ]
     },
@@ -2163,6 +2235,14 @@
         [
           "Can I crop only odd or even pages?",
           "Yes. You can select all pages, odd pages, even pages, or specify a custom page range."
+        ],
+        [
+          "How do I trim white margins off a scanned page?",
+          "Set top, bottom, left and right values, choose pt, mm or in, and check the preview. A 20 point margin is the starting value; the same value can be applied to all four sides."
+        ],
+        [
+          "How do I crop only the even pages?",
+          "Choose Even Pages Only, Odd Pages Only or a Custom Page Range such as 2-6. This helps when a double-sided scan has a wider binding margin on alternate pages."
         ]
       ]
     },
@@ -2181,6 +2261,14 @@
         [
           "Will deleting pages affect document links or quality?",
           "The tool removes selected pages without rasterizing the remaining page content. Check forms, links, or other document features in the saved copy."
+        ],
+        [
+          "How do I delete pages 3 and 5 to 7 from a PDF?",
+          "Enter 3, 5-7 as the pages to remove. The remaining pages keep their order and a new file is made; your original is not changed."
+        ],
+        [
+          "How do I remove just the last page?",
+          "Type the last page number, which is the page count shown after you add the file. Check that the result has one page less before you replace the original."
         ]
       ]
     }
