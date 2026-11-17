@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/compress-pdf',
+    tool: 'Tool help',
+    title: 'More answers on popular tools',
+    summary: 'Compress PDF, image tools, Images to PDF, PDF to Images, Protect PDF, percentage, EMI, SIP and word count now answer common real-life questions, such as getting a PDF under 100 KB. Duplicate questions were removed.',
+  },
+  {
+    date: '2026-11-17',
     path: '/printable-meal-planner',
     tool: 'Printable meal planner',
     title: 'New: printable weekly, daily and monthly menu planner',
