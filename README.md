@@ -216,7 +216,7 @@ New `explainers` pack: `src/config/packs/explainers.ts`, text in `src/locales/pa
 
 ### Printable paper pages
 
-`PaperMaker` has a `focused` mode used by the dot grid, graph, hexagon, Cornell, calligraphy and cross-stitch pages (`paper/variants.tsx`): no paper-type picker, quick starts filtered to that type, and an "Other paper types" link row. The lined page (`printable-paper-maker`) is the full maker with every type. Quick starts show a pressed state and an "Applied" line; the pressed state is the settings object reference, so touching any control clears it. Choice buttons that apply a value should always use `aria-pressed` with a visible highlight.
+`PaperMaker` has a `focused` mode used by the dot grid, graph, hexagon, Cornell, calligraphy and cross-stitch pages (`paper/variants.tsx`): no paper-type picker, quick starts filtered to that type, and an "Other paper types" link row. The lined page (`printable-paper-maker`) is the full maker with every type and is the only paper tile in the home Printable list; the focused pages stay as their own addresses (and in the sitemap) and are linked from the maker under "Paper for one use". Only the quick starts and the paper style picker are open by default; the style settings, page and margins, ink, header and extras sit in a collapsed "Adjust everything" section, with "How many pages" below it. Quick starts show a pressed state and an "Applied" line; the pressed state is the settings object reference, so touching any control clears it. Choice buttons that apply a value should always use `aria-pressed` with a visible highlight.
 
 ### Addition with carrying and subtraction with borrowing
 
