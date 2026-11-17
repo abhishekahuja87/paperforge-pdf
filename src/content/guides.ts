@@ -25,7 +25,7 @@ const CORE_GUIDES: Guide[] = [
     slug: 'reduce-image-size-for-online-forms',
     title: 'How to reduce a photo to 20 KB, 50 KB or 100 KB for online forms',
     description: 'Why upload forms reject photos, what size and format to aim for, and how to shrink a picture without it turning blurry.',
-    tools: ['resize-image-to-20kb', 'resize-image-to-50kb', 'resize-image-to-100kb', 'image-resizer'],
+    tools: ['image-resizer'],
     sections: [
       { heading: 'Why forms reject your photo', paragraphs: [
         'Exam, job and government portals often accept only small files, commonly somewhere between 20 KB and 200 KB, and sometimes only a particular width and height. A phone photo is usually several megabytes, so it has to be shrunk first. The exact limit is printed on the form page, so read it before you start; this guide cannot know what your portal asks for.',
@@ -460,7 +460,7 @@ const CORE_GUIDES: Guide[] = [
     slug: "how-to-resize-a-passport-photo-and-signature-for-forms",
     title: "How to resize a passport photo and signature for online forms",
     description: "Getting a photo or signature to the exact pixel size and file size a form asks for, step by step.",
-    tools: ["passport-photo-resizer", "signature-resizer", "exam-photo-resizer", "image-resizer"],
+    tools: ["image-resizer"],
     sections: [
       { heading: "Read the form first", paragraphs: [
         "Look for the required width and height (in pixels, millimetres or inches), the maximum file size in KB, and the format. Requirements differ between forms and change from year to year, so always follow yours; any preset in a tool is only a starting point.",

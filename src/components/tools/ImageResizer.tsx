@@ -157,6 +157,13 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
                 <input type="number" inputMode="numeric" min={5} max={20000} value={maxKb} disabled={isProcessing} onChange={(event) => { setMaxKb(event.target.value); clearResults(); }} className={field} />
                 <span className="mt-1 block font-normal text-slate-500">The output is a JPG at or under this size whenever that is possible.</span>
               </label>
+              <div className="flex flex-wrap gap-2 sm:col-span-2" role="group" aria-label="Common file size limits">
+                {[20, 30, 50, 100, 200].map((kb) => (
+                  <button key={kb} type="button" aria-pressed={maxKb === String(kb)} disabled={isProcessing} onClick={() => { setMaxKb(String(kb)); clearResults(); }} className={`min-h-9 rounded-lg border px-3 py-1.5 text-xs font-semibold ${maxKb === String(kb) ? 'border-indigo-400 bg-indigo-50 text-indigo-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
+                    {kb} KB
+                  </button>
+                ))}
+              </div>
               <label className="flex items-center gap-2 text-xs font-semibold text-slate-700 sm:col-span-2">
                 <input type="checkbox" checked={useExact} disabled={isProcessing} onChange={(event) => { setUseExact(event.target.checked); clearResults(); }} className="h-4 w-4 accent-indigo-600" />
                 Set an exact width and height

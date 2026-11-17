@@ -10,7 +10,7 @@ import type { ToolIconName } from './tools';
 
 /** "Most used" tiles. Reorder with real traffic (Search Console or Analytics) when you have it. */
 export const MOST_USED = [
-  'merge-pdf', 'compress-pdf', 'split-pdf', 'image-compressor', 'image-to-pdf', 'passport-photo-resizer',
+  'merge-pdf', 'compress-pdf', 'split-pdf', 'image-compressor', 'image-to-pdf',
   'income-tax-calculator', 'emi-calculator', 'sip-calculator', 'age-calculator', 'qr-code-generator', 'resume-builder',
 ];
 
@@ -40,8 +40,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf',
   ] },
   { id: 'images', icon: 'image', tools: [
-    'image-compressor', 'image-converter', 'image-resizer', 'passport-photo-resizer', 'signature-resizer', 'exam-photo-resizer', 'screenshot-redactor',
-    'resize-image-to-20kb', 'resize-image-to-30kb', 'resize-image-to-50kb', 'resize-image-to-100kb', 'resize-image-to-200kb',
+    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor',
   ] },
   { id: 'money', icon: 'calculator', tools: [
     'income-tax-calculator', 'salary-calculator', 'emi-calculator', 'sip-calculator', 'gst-calculator', 'hra-calculator', 'fd-calculator', 'ppf-calculator', 'rd-calculator',

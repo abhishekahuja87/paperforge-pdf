@@ -141,6 +141,15 @@ accessibility. The reused digitization editor still has English-only controls.
 
 Logic checked in Node: resume checklist findings, month and range formatting, imported-file clean-up, notice-period dates (calendar, working days, months with month-end clamping, buyout, leave, joining gap), file-name clean-up and the size, type, page and name checks. The screens were not run. After deploying: Resume Builder (load the example, change layout/paper, press Print and check that only the resume prints, the PDF text is selectable, the page count matches, Save and Open data file round-trips, the Remember box keeps and clears the saved copy); Notice Period (compare a few dates by hand, check a shared link restores the inputs); Upload File Checker (a large PDF, a protected PDF, a scanned PDF, a JPG and a file named with spaces; the fix links open the right tools).
 
+### Image resizer merge (17 Nov)
+
+Not run: full tsc, vite build, browser check. Parse-checked only.
+
+- [ ] `/image-resizer` shows KB buttons (20, 30, 50, 100, 200) that fill the Maximum file size box and show a pressed state; the quick presets for forms still work.
+- [ ] The page FAQ has the signature 20 KB, exam photo 50 KB, passport photo and "20, 30, 50, 100, 200 KB" questions, and the article has "Common sizes for forms".
+- [ ] `/resize-image-to-20kb`, `/30kb`, `/50kb`, `/100kb`, `/200kb`, `/passport-photo-resizer`, `/signature-resizer` and `/exam-photo-resizer` show the not-found page; the sitemap has none of them; home Images group shows Image Compressor, Image Converter, Image Resizer and Screenshot Redactor; no "Need an exact file size?" box.
+- [ ] The two guide articles (reduce image size for online forms; passport photo and signature) still open and list Image Resizer.
+
 ### Students pack
 
 Logic checked in Node: credit-weighted GPA, CGPA conversions and the next-term target, weighted final grade and the score needed, citation text for APA, MLA, Chicago and Harvard (with and without authors) and the study plan allocation. The screens were not run. After deploying: GPA calculator (all four modes; the 10-point and 4.0 scales; custom points; the target result when it is above the scale); Final Grade (the sample, an empty score, weights not adding to 100); Citation Generator (each style and source type, Copy with italics pasted into a document, the reference list sorting and removal); Study Planner (two subjects, a subject that cannot fit shows the warning, weekday buttons, copy and print).

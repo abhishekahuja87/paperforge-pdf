@@ -6,7 +6,6 @@ import { COLLECTIONS, WORKSPACES } from './homeSections';
  * pages, so a visitor sees the same group names and the same tools in each place.
  * Groups come from COLLECTIONS in homeSections.ts. A tool in no group is collected under "other", and the
  * studio tools form a final "workspaces" group (the home page shows them as a separate row).
- * Size presets such as resize-image-to-20kb are included here: they are real pages that need a link.
  */
 export interface Topic {
   /** A COLLECTIONS id, "other" or "workspaces". The group name is `homeCollections.<id>.name`, or `workspaces`. */

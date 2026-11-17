@@ -163,14 +163,6 @@ const PAGE_GUIDE_KEYS: Record<string, string> = {
   'number-to-words': 'numberToWords',
   'password-generator': 'passwordGenerator',
   'image-resizer': 'imageResizer',
-  'resize-image-to-20kb': 'imageResizer20',
-  'resize-image-to-50kb': 'imageResizer50',
-  'resize-image-to-100kb': 'imageResizer100',
-  'resize-image-to-200kb': 'imageResizer200',
-  'passport-photo-resizer': 'passportPhoto',
-  'signature-resizer': 'signatureResizer',
-  'exam-photo-resizer': 'examPhoto',
-  'resize-image-to-30kb': 'imageResizer30',
 };
 
 interface ToolCopy {

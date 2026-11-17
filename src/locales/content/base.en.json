@@ -112,62 +112,6 @@
         "Check the preview, then choose Print or save as PDF and pick \"Save as PDF\" in the print window."
       ]
     ],
-    "passport-photo-resizer": [
-      [
-        "Choose your photo",
-        "Select a clear, front-facing photo in PNG, JPG or WebP."
-      ],
-      [
-        "Check the size",
-        "The page starts at 35 × 45 mm at 300 DPI and 100 KB. Change the size, DPI or limit if your form asks for something different."
-      ],
-      [
-        "Resize and download",
-        "Check the pixel size and file size shown for each result and download the JPG."
-      ]
-    ],
-    "signature-resizer": [
-      [
-        "Choose your signature image",
-        "Photograph or scan your signature on white paper and select the image."
-      ],
-      [
-        "Check the size",
-        "The page starts at 140 × 60 pixels and 20 KB. Change them to match your form."
-      ],
-      [
-        "Resize and download",
-        "Check the result and download the JPG."
-      ]
-    ],
-    "exam-photo-resizer": [
-      [
-        "Choose your photo",
-        "Select a recent, clear photo in PNG, JPG or WebP."
-      ],
-      [
-        "Check the size",
-        "The page starts at 200 × 230 pixels and 50 KB. Change them to match your form."
-      ],
-      [
-        "Resize and download",
-        "Check the result and download the JPG."
-      ]
-    ],
-    "resize-image-to-30kb": [
-      [
-        "Choose images",
-        "Select one or more PNG, JPG or WebP images."
-      ],
-      [
-        "Check the 30 KB limit",
-        "The limit starts at 30 KB. Change it, or add an exact size if the form asks for one."
-      ],
-      [
-        "Resize and download",
-        "Check the size shown for each result and download the JPG."
-      ]
-    ],
     "gratuity-calculator": [
       [
         "Enter your pay",
@@ -534,62 +478,6 @@
       [
         "Set the limit",
         "Enter the maximum file size in KB and, if the form needs it, an exact width and height."
-      ],
-      [
-        "Resize and download",
-        "Check the size shown for each result and download the JPG."
-      ]
-    ],
-    "resize-image-to-20kb": [
-      [
-        "Choose images",
-        "Select one or more PNG, JPG or WebP images."
-      ],
-      [
-        "Check the 20 KB limit",
-        "The limit starts at 20 KB. Change it, or add an exact width and height if the form asks for one."
-      ],
-      [
-        "Resize and download",
-        "Check the size shown for each result and download the JPG."
-      ]
-    ],
-    "resize-image-to-50kb": [
-      [
-        "Choose images",
-        "Select one or more PNG, JPG or WebP images."
-      ],
-      [
-        "Check the 50 KB limit",
-        "The limit starts at 50 KB. Change it, or add an exact width and height if the form asks for one."
-      ],
-      [
-        "Resize and download",
-        "Check the size shown for each result and download the JPG."
-      ]
-    ],
-    "resize-image-to-100kb": [
-      [
-        "Choose images",
-        "Select one or more PNG, JPG or WebP images."
-      ],
-      [
-        "Check the 100 KB limit",
-        "The limit starts at 100 KB. Change it, or add an exact width and height if the form asks for one."
-      ],
-      [
-        "Resize and download",
-        "Check the size shown for each result and download the JPG."
-      ]
-    ],
-    "resize-image-to-200kb": [
-      [
-        "Choose images",
-        "Select one or more PNG, JPG or WebP images."
-      ],
-      [
-        "Check the 200 KB limit",
-        "The limit starts at 200 KB. Change it, or add an exact width and height if the form asks for one."
       ],
       [
         "Resize and download",
@@ -1137,122 +1025,6 @@
         [
           "Is my information sent anywhere?",
           "No. The invoice is built in your browser. Nothing you enter is uploaded to {{siteName}}; the page still loads advertising and other resources from the network."
-        ]
-      ]
-    },
-    "passportPhoto": {
-      "title": "Passport Size Photo Resizer",
-      "subtitle": "Crop and resize a photo to passport size (35 × 45 mm) and keep the file small enough for an online form. Processed in your browser.",
-      "faq": [
-        [
-          "What size is a passport photo?",
-          "35 × 45 mm is a common passport and ID photo size in India and many other countries, but some forms ask for other sizes such as 2 × 2 inch. Use the size on your form."
-        ],
-        [
-          "What does DPI do?",
-          "DPI turns a printed size into pixels: 35 × 45 mm at 300 DPI is about 413 × 531 pixels. Online forms usually care about pixels and KB, printers care about DPI."
-        ],
-        [
-          "Does it remove the background or fix the face position?",
-          "No. It only crops from the centre, resizes and compresses. Use a plain, evenly lit photo with the face centred before you start."
-        ],
-        [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
-        ],
-        [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed. If it still cannot reach the limit, it says so instead of pretending it worked."
-        ],
-        [
-          "What format is the result?",
-          "JPG. Transparent areas are filled with the background colour you choose (white by default)."
-        ]
-      ]
-    },
-    "signatureResizer": {
-      "title": "Signature Resizer",
-      "subtitle": "Resize a scanned or photographed signature to a small size and file size for online forms. Processed in your browser.",
-      "faq": [
-        [
-          "What size should a signature be?",
-          "It depends on the form. 140 × 60 pixels and 20 KB is a commonly requested size, but check your form."
-        ],
-        [
-          "How do I get a clean signature?",
-          "Sign with a dark pen on plain white paper, photograph it in even light and crop close to the signature before resizing. Plain white backgrounds compress very well."
-        ],
-        [
-          "Will it keep the signature in proportion?",
-          "The preset crops from the centre to fill the size. If your signature is a different shape, switch the fit option to 'Fit inside with white borders' so nothing is cut off."
-        ],
-        [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
-        ],
-        [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed. If it still cannot reach the limit, it says so instead of pretending it worked."
-        ],
-        [
-          "What format is the result?",
-          "JPG. Transparent areas are filled with the background colour you choose (white by default)."
-        ]
-      ]
-    },
-    "examPhoto": {
-      "title": "Exam Form Photo Resizer",
-      "subtitle": "Resize a photo to a common exam-form size (200 × 230 pixels) under 50 KB. Processed in your browser.",
-      "faq": [
-        [
-          "Does this meet every exam's rules?",
-          "No. Exams set their own sizes, file sizes and photo rules and change them between years. 200 × 230 pixels and 50 KB is a commonly seen combination, so treat the preset as a starting point and match your notification."
-        ],
-        [
-          "Can I get a bigger or smaller size?",
-          "Yes. Edit the width, height and KB limit, or pick another preset."
-        ],
-        [
-          "Which format will I get?",
-          "JPG, which is the format most forms accept."
-        ],
-        [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
-        ],
-        [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed. If it still cannot reach the limit, it says so instead of pretending it worked."
-        ],
-        [
-          "What format is the result?",
-          "JPG. Transparent areas are filled with the background colour you choose (white by default)."
-        ]
-      ]
-    },
-    "imageResizer30": {
-      "title": "Resize Image to 30 KB",
-      "subtitle": "Get a photo or signature under 30 KB for an online form. Processed in your browser, never uploaded.",
-      "faq": [
-        [
-          "How do I get an image under 30 KB?",
-          "Add the image, keep the limit at 30 KB and press Resize. The tool finds the highest JPG quality that fits and scales the picture down only if it has to."
-        ],
-        [
-          "Can I set an exact size?",
-          "Yes. Tick the exact size option, or use a preset, and choose pixels, millimetres, centimetres or inches."
-        ],
-        [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
-        ],
-        [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed. If it still cannot reach the limit, it says so instead of pretending it worked."
-        ],
-        [
-          "What format is the result?",
-          "JPG. Transparent areas are filled with the background colour you choose (white by default)."
         ]
       ]
     },
@@ -1968,7 +1740,7 @@
     },
     "imageResizer": {
       "title": "Image Resizer (KB and Pixels)",
-      "subtitle": "Reduce a photo to a maximum size in KB and, if needed, an exact width and height. Everything happens in your browser.",
+      "subtitle": "Resize a photo, signature or passport picture to 20, 50 or 100 KB, or to an exact width and height. Free, and it all happens in your browser.",
       "faq": [
         [
           "Are my images uploaded to {{siteName}}?",
@@ -1985,110 +1757,22 @@
         [
           "Can I set an exact width and height?",
           "Yes. Tick the exact size option and enter pixels, millimetres, centimetres or inches (with a DPI for printed sizes), or tap a quick preset such as passport photo or signature. You can crop to fill, fit inside white borders, or stretch. With an exact size only quality is lowered, so a very small limit on a large size may not be reachable."
-        ]
-      ]
-    },
-    "imageResizer20": {
-      "title": "Resize Image to 20 KB",
-      "subtitle": "Get a photo or signature under 20 KB for an online form. Processed in your browser, never uploaded.",
-      "faq": [
-        [
-          "How do I get an image under 20 KB?",
-          "Add the image, keep the limit at 20 KB, and press Resize. The tool finds the highest JPG quality that fits and scales the picture down only if it has to."
         ],
         [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
+          "How do I resize a signature to 20 KB?",
+          "Add the signature picture, tap the 20 KB button, and under Quick presets for forms choose Signature 140 × 60 px. The result is a JPG at or under 20 KB. Check the size and the picture before you upload, because forms differ."
         ],
         [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed and, if you have not set an exact size, also scales the picture down in small steps. If it still cannot reach the limit, for example with a tiny limit on a very detailed picture, it says so instead of pretending it worked."
+          "How do I resize an exam form photo to 50 KB?",
+          "Add the photo, tap the 50 KB button, and choose Exam photo 200 × 230 px under quick presets. Crop to fill keeps the face in proportion. Always follow the size and format written on your own form."
         ],
         [
-          "What format is the result?",
-          "JPG. It is the format that can be tuned to a size limit. JPG has no transparency, so transparent areas are filled with white."
+          "How do I make a passport size photo 35 × 45 mm under 100 KB?",
+          "Choose Passport photo 35 × 45 mm under quick presets. It sets the size at 300 DPI and a 100 KB limit, which you can change. The tool resizes your picture; it does not replace a photo taken to the official rules."
         ],
         [
-          "Can I set an exact width and height?",
-          "Yes. Tick the exact size option and enter pixels, millimetres, centimetres or inches (with a DPI for printed sizes), or tap a quick preset such as passport photo or signature. You can crop to fill, fit inside white borders, or stretch. With an exact size only quality is lowered, so a very small limit on a large size may not be reachable."
-        ]
-      ]
-    },
-    "imageResizer50": {
-      "title": "Resize Image to 50 KB",
-      "subtitle": "Get a photo or signature under 50 KB for an online form. Processed in your browser, never uploaded.",
-      "faq": [
-        [
-          "How do I get an image under 50 KB?",
-          "Add the image, keep the limit at 50 KB, and press Resize. The tool finds the highest JPG quality that fits and scales the picture down only if it has to."
-        ],
-        [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
-        ],
-        [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed and, if you have not set an exact size, also scales the picture down in small steps. If it still cannot reach the limit, for example with a tiny limit on a very detailed picture, it says so instead of pretending it worked."
-        ],
-        [
-          "What format is the result?",
-          "JPG. It is the format that can be tuned to a size limit. JPG has no transparency, so transparent areas are filled with white."
-        ],
-        [
-          "Can I set an exact width and height?",
-          "Yes. Tick the exact size option and enter pixels, millimetres, centimetres or inches (with a DPI for printed sizes), or tap a quick preset such as passport photo or signature. You can crop to fill, fit inside white borders, or stretch. With an exact size only quality is lowered, so a very small limit on a large size may not be reachable."
-        ]
-      ]
-    },
-    "imageResizer100": {
-      "title": "Resize Image to 100 KB",
-      "subtitle": "Get a photo or signature under 100 KB for an online form. Processed in your browser, never uploaded.",
-      "faq": [
-        [
-          "How do I get an image under 100 KB?",
-          "Add the image, keep the limit at 100 KB, and press Resize. The tool finds the highest JPG quality that fits and scales the picture down only if it has to."
-        ],
-        [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
-        ],
-        [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed and, if you have not set an exact size, also scales the picture down in small steps. If it still cannot reach the limit, for example with a tiny limit on a very detailed picture, it says so instead of pretending it worked."
-        ],
-        [
-          "What format is the result?",
-          "JPG. It is the format that can be tuned to a size limit. JPG has no transparency, so transparent areas are filled with white."
-        ],
-        [
-          "Can I set an exact width and height?",
-          "Yes. Tick the exact size option and enter pixels, millimetres, centimetres or inches (with a DPI for printed sizes), or tap a quick preset such as passport photo or signature. You can crop to fill, fit inside white borders, or stretch. With an exact size only quality is lowered, so a very small limit on a large size may not be reachable."
-        ]
-      ]
-    },
-    "imageResizer200": {
-      "title": "Resize Image to 200 KB",
-      "subtitle": "Get a photo or signature under 200 KB for an online form. Processed in your browser, never uploaded.",
-      "faq": [
-        [
-          "How do I get an image under 200 KB?",
-          "Add the image, keep the limit at 200 KB, and press Resize. The tool finds the highest JPG quality that fits and scales the picture down only if it has to."
-        ],
-        [
-          "Are my images uploaded to {{siteName}}?",
-          "No. The image is decoded and re-encoded in your browser with HTML Canvas. It is not sent to our servers."
-        ],
-        [
-          "Will the result always be under the size I enter?",
-          "Almost always. The tool lowers JPG quality as far as needed and, if you have not set an exact size, also scales the picture down in small steps. If it still cannot reach the limit, for example with a tiny limit on a very detailed picture, it says so instead of pretending it worked."
-        ],
-        [
-          "What format is the result?",
-          "JPG. It is the format that can be tuned to a size limit. JPG has no transparency, so transparent areas are filled with white."
-        ],
-        [
-          "Can I set an exact width and height?",
-          "Yes. Tick the exact size option and enter pixels, millimetres, centimetres or inches (with a DPI for printed sizes), or tap a quick preset such as passport photo or signature. You can crop to fill, fit inside white borders, or stretch. With an exact size only quality is lowered, so a very small limit on a large size may not be reachable."
+          "Can I resize an image to 20 KB, 30 KB, 50 KB, 100 KB or 200 KB?",
+          "Yes. Tap one of the KB buttons under Maximum file size, or type any limit from 5 KB up. Very small limits on large, detailed pictures may not be reachable, and the tool tells you when that happens."
         ]
       ]
     },
@@ -2702,118 +2386,6 @@
           "heading": "Privacy",
           "paragraphs": [
             "The invoice is built in your browser and is not uploaded to MyDailyUtils. Your business details are stored only if you choose to remember them, and only in this browser."
-          ]
-        }
-      ]
-    },
-    "passport-photo-resizer": {
-      "sections": [
-        {
-          "heading": "What this tool does",
-          "paragraphs": [
-            "It crops a photo from the centre to a passport-style size (35 × 45 mm by default), converts that size to pixels at the DPI you set, and compresses the JPG to stay under your size limit."
-          ]
-        },
-        {
-          "heading": "Choosing the right values",
-          "paragraphs": [
-            "Change the unit to millimetres, centimetres, inches or pixels, set the DPI for printed sizes and set the maximum KB. A quick preset button fills these in for common cases."
-          ]
-        },
-        {
-          "heading": "What it does not do",
-          "paragraphs": [
-            "It does not change the background, retouch or check that your photo meets passport rules such as face position, expression or lighting. Forms and exams change their rules, so always check the size, file size and format written on your own form before uploading."
-          ]
-        },
-        {
-          "heading": "Privacy",
-          "paragraphs": [
-            "Your photo is processed in your browser and is not uploaded to MyDailyUtils for processing."
-          ]
-        }
-      ]
-    },
-    "signature-resizer": {
-      "sections": [
-        {
-          "heading": "What this tool does",
-          "paragraphs": [
-            "It scales a signature image to an exact pixel size and compresses it under a small file-size limit, such as 20 KB."
-          ]
-        },
-        {
-          "heading": "Getting a good result",
-          "paragraphs": [
-            "Use dark ink on white paper, even lighting and a close crop. For a different shape than the target size, choose 'Fit inside with white borders' rather than cropping."
-          ]
-        },
-        {
-          "heading": "Limits",
-          "paragraphs": [
-            "The output is a JPG with a white background. Forms and exams change their rules, so always check the size, file size and format written on your own form before uploading."
-          ]
-        },
-        {
-          "heading": "Privacy",
-          "paragraphs": [
-            "Your image is processed in your browser and is not uploaded to MyDailyUtils for processing."
-          ]
-        }
-      ]
-    },
-    "exam-photo-resizer": {
-      "sections": [
-        {
-          "heading": "What this tool does",
-          "paragraphs": [
-            "It crops a photo to an exact pixel size and compresses it under a KB limit, which is what many application forms ask for."
-          ]
-        },
-        {
-          "heading": "Before you upload",
-          "paragraphs": [
-            "Match the size, KB limit and format to your exam notification. Some forms also want a plain background and specific face position, which this tool does not check."
-          ]
-        },
-        {
-          "heading": "Related tools",
-          "paragraphs": [
-            "Use the signature resizer for signatures and the image compressor if you only need a smaller file without a fixed size."
-          ]
-        },
-        {
-          "heading": "Privacy",
-          "paragraphs": [
-            "Your photo is processed in your browser and is not uploaded to MyDailyUtils for processing."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-30kb": {
-      "sections": [
-        {
-          "heading": "What this tool does",
-          "paragraphs": [
-            "It re-encodes your picture as a JPG and searches for the highest quality that fits under 30 KB, scaling down in small steps only when quality alone is not enough."
-          ]
-        },
-        {
-          "heading": "Tips for small files",
-          "paragraphs": [
-            "Crop closely, avoid busy backgrounds and use a plain well-lit picture; these compress far better than detailed photos."
-          ]
-        },
-        {
-          "heading": "Limits",
-          "paragraphs": [
-            "The output is always a JPG. Forms and exams change their rules, so always check the size, file size and format written on your own form before uploading."
-          ]
-        },
-        {
-          "heading": "Privacy",
-          "paragraphs": [
-            "Your image is processed in your browser and is not uploaded to MyDailyUtils for processing."
           ]
         }
       ]
@@ -4272,6 +3844,13 @@
           ]
         },
         {
+          "heading": "Common sizes for forms",
+          "paragraphs": [
+            "Exam, job and government forms usually ask for a photo or signature in a set size and a small file size. Typical limits are 20 KB for a signature, 30 to 50 KB for an application photo, and 100 to 200 KB for a passport photo or an ID scan. The size buttons and the quick presets set these in one tap, and you can change every value.",
+            "Forms differ and change from year to year, so always follow the width, height, KB limit and format written on the form you are filling in. If a file is rejected, check the size shown for the result against what the form says."
+          ]
+        },
+        {
           "heading": "If the limit cannot be reached",
           "paragraphs": [
             "Very small limits on large or detailed pictures may be impossible to reach at that size. Without an exact size the tool scales the picture down in steps; with an exact size, try a larger limit or smaller pixel dimensions.",
@@ -4289,70 +3868,6 @@
           "heading": "Limits and privacy",
           "paragraphs": [
             "The output is always a JPG, and transparent areas become white. Some portals check the format or the exact pixel size as well as the file size, so read the instructions on the form. Camera and location data are not carried over. Your images are processed in your browser and are not uploaded to MyDailyUtils for processing."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-20kb": {
-      "sections": [
-        {
-          "heading": "What Resize Image to 20 KB does",
-          "paragraphs": [
-            "Many online forms, exam portals and application sites cap a photo or signature at about 20 KB. This tool re-encodes your picture as a JPG and searches for the highest quality that still fits under the size you choose, so the picture keeps as much detail as the limit allows."
-          ]
-        },
-        {
-          "heading": "If the limit cannot be reached",
-          "paragraphs": [
-            "At 20 KB a detailed photo has little room. Scanned signatures and plain backgrounds compress far better than busy photos, so crop closely and avoid shadows."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-50kb": {
-      "sections": [
-        {
-          "heading": "What Resize Image to 50 KB does",
-          "paragraphs": [
-            "A 50 KB limit is common for passport-style photos and ID uploads on government and job application portals. This tool re-encodes your picture as a JPG and searches for the highest quality that still fits under the size you choose, so the picture keeps as much detail as the limit allows."
-          ]
-        },
-        {
-          "heading": "If the limit cannot be reached",
-          "paragraphs": [
-            "At 50 KB a passport-style photo at around 200 by 230 pixels usually fits comfortably; a full phone photo will be scaled down a lot, so crop first if you can."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-100kb": {
-      "sections": [
-        {
-          "heading": "What Resize Image to 100 KB does",
-          "paragraphs": [
-            "Limits of 100 KB show up on application forms, profile pictures and document uploads. This tool re-encodes your picture as a JPG and searches for the highest quality that still fits under the size you choose, so the picture keeps as much detail as the limit allows."
-          ]
-        },
-        {
-          "heading": "If the limit cannot be reached",
-          "paragraphs": [
-            "At 100 KB most phone photos fit after being scaled down moderately. If a result looks too soft, raise the limit slightly or reduce the pixel size yourself."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-200kb": {
-      "sections": [
-        {
-          "heading": "What Resize Image to 200 KB does",
-          "paragraphs": [
-            "A 200 KB limit is a common ceiling for scanned documents, certificates and larger photos on upload forms. This tool re-encodes your picture as a JPG and searches for the highest quality that still fits under the size you choose, so the picture keeps as much detail as the limit allows."
-          ]
-        },
-        {
-          "heading": "If the limit cannot be reached",
-          "paragraphs": [
-            "At 200 KB most photos and single-page scans fit with little visible loss. Text in scans stays readable better if you do not force a much smaller limit."
           ]
         }
       ]
