@@ -19,8 +19,8 @@ export const NEW_TOOLS = [
   'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'visiting-card-maker', 'job-description-builder',
 ];
 
-/** Studio-style tools shown as a slim row. */
-export const WORKSPACES = ['master-document-studio', 'digitize-documents', 'pos-invoice-studio', 'display-studio'];
+/** Studio-style tools shown as a slim row. Scanning and display have their own topics below. */
+export const WORKSPACES = ['master-document-studio', 'pos-invoice-studio'];
 
 /** How many tools each topic shows on a phone before "Show more". Larger screens show every tool. */
 export const COLLECTION_PREVIEW = 6;
@@ -49,27 +49,33 @@ export const COLLECTIONS: CollectionSpec[] = [
     'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'pdf-to-images', 'extract-text', 'add-page-numbers',
     'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf',
   ] },
+  { id: 'scan', icon: 'crop', tools: ['digitize-documents'] },
   { id: 'images', icon: 'image', tools: [
     'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor',
   ] },
   { id: 'money', icon: 'calculator', tools: [
     'income-tax-calculator', 'salary-calculator', 'emi-calculator', 'sip-calculator', 'gst-calculator', 'hra-calculator', 'fd-calculator', 'ppf-calculator', 'rd-calculator',
-    'rent-receipt-generator', 'lumpsum-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator', 'gratuity-calculator', 'epf-calculator',
+    'lumpsum-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator', 'gratuity-calculator', 'epf-calculator',
   ] },
   { id: 'everyday', icon: 'hash', tools: [
-    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bmi-calculator', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer',
+    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words',
+  ] },
+  { id: 'sports', icon: 'dumbbell', tools: [
+    'sports-court-size-guide', 'exercise-library', 'bmi-calculator',
   ] },
   { id: 'printables', icon: 'layers', tools: [
     'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker',
   ] },
   { id: 'work', icon: 'receipt', tools: [
-    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'job-description-builder',
+    'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',
+    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker',
   ] },
+  { id: 'present', icon: 'presentation', tools: ['display-studio'] },
   { id: 'study', icon: 'type', tools: [
     'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter',
   ] },
   { id: 'kids', icon: 'clock', tools: [
-    'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids',
+    'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'solar-system-explorer',
   ] },
   { id: 'sharing', icon: 'grid', tools: [
     'qr-code-generator', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
