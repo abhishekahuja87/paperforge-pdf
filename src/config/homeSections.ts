@@ -46,10 +46,9 @@ export interface CollectionSpec {
 
 export const COLLECTIONS: CollectionSpec[] = [
   { id: 'pdf', icon: 'file-text', tools: [
-    'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'pdf-to-images', 'extract-text', 'add-page-numbers',
+    'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'digitize-documents', 'pdf-to-images', 'extract-text', 'add-page-numbers',
     'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf',
   ] },
-  { id: 'scan', icon: 'crop', tools: ['digitize-documents'] },
   { id: 'images', icon: 'image', tools: [
     'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor',
   ] },

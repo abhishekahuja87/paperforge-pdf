@@ -781,7 +781,7 @@
           "heading": "When the result looks wrong",
           "paragraphs": [
             "Text in a PDF is stored in pieces, and the order of those pieces may not match the reading order, especially in columns, tables and forms. If words come out jumbled or a table becomes a stream of numbers, copy the passage from the original, or use the table as an image.",
-            "If no text appears at all, the PDF is probably a scan, which is a picture of a page. In that case use the Digitize Documents tool to read the text from the image, then review it for mistakes."
+            "If no text appears at all, the PDF is probably a scan, which is a picture of a page. In that case use the Scan to Searchable PDF tool to read the text from the image, then review it for mistakes."
           ]
         }
       ]
@@ -1472,7 +1472,7 @@
         ],
         [
           "Will the PDF be searchable?",
-          "No. The pages are pictures, so the text cannot be selected or searched. Use the Digitize Documents tool if you need a searchable text layer."
+          "No. The pages are pictures, so the text cannot be selected or searched. Use the Scan to Searchable PDF tool if you need a searchable text layer."
         ],
         [
           "How do I combine several photos or scanned pages into one PDF?",

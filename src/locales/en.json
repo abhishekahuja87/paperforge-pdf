@@ -2,7 +2,7 @@
   "digitize": {
     "targetExceeded": "At least one PDF exceeds the requested size goal.",
     "editorLanguage": "Some editing controls are currently in English.",
-    "title": "Digitize Documents",
+    "title": "Scan to Searchable PDF (OCR)",
     "subtitle": "Turn old document images into searchable PDFs. Arrange and edit pages before exporting.",
     "choose": "Choose images or drop them here",
     "hint": "PNG, JPG or WebP · multiple images",
@@ -516,7 +516,7 @@
       "Length, weight, area, volume, speed, data and temperature."
     ],
     "word-counter": [
-      "Word Counter",
+      "Word and Character Counter",
       "Count words, characters, sentences and reading time."
     ],
     "case-converter": [
@@ -588,8 +588,8 @@
       "Convert JPG, PNG, and WebP images into a PDF."
     ],
     "add-page-numbers": [
-      "Page Numbers",
-      "Add page numbers, headers, and footers."
+      "Add Page Numbers to PDF",
+      "Number the pages of a PDF at the top or bottom, from any page."
     ],
     "watermark-pdf": [
       "Watermark PDF",
@@ -600,16 +600,16 @@
       "Trim page margins and adjust visible borders."
     ],
     "sanitize-pdf": [
-      "Sanitize PDF",
+      "Remove PDF Metadata (Sanitize PDF)",
       "Remove supported metadata and hidden information."
     ],
     "n-up-pdf": [
-      "N-Up (Pages Per Sheet)",
+      "Multiple Pages Per Sheet (N-Up PDF)",
       "Combine 2 or 4 pages per sheet for handouts and print savings."
     ],
     "inspect-pdf": [
-      "Inspect PDF",
-      "Analyze PDF structures, versions, metadata, and security flags."
+      "Inspect PDF: Page Size, Metadata and Security",
+      "Check page count, page sizes, metadata and security flags."
     ],
     "protect-pdf": [
       "Protect PDF",
@@ -628,8 +628,8 @@
       "Render PDF pages as PNG images."
     ],
     "extract-text": [
-      "Extract Text",
-      "Extract embedded text page by page."
+      "Extract Text from PDF",
+      "Copy or download the embedded text, page by page."
     ],
     "organize-pdf": [
       "Organize PDF",
@@ -738,7 +738,7 @@
   },
   "featuredTools": {
     "digitize-documents": {
-      "title": "Digitize Documents",
+      "title": "Scan to Searchable PDF (OCR)",
       "useCase": "Searchable archives",
       "description": "Turn photos and scans of paper documents into PDFs with a searchable English text layer. Arrange pages, rotate, crop and black out details, set page size and margins, add page numbers, a watermark or a file-size goal, then download one PDF or separate PDFs in a ZIP.",
       "highlights": [
@@ -939,11 +939,7 @@
   "homeCollections": {
     "pdf": {
       "name": "PDF tools",
-      "description": "Everything for PDF files without uploading them: merge, split, compress, rotate and reorder pages, add page numbers or watermarks, protect or unlock with a password, extract text, and convert to and from images."
-    },
-    "scan": {
-      "name": "Scan and digitize",
-      "description": "Turn scanned pages and photos of documents into clean, searchable PDFs: straighten and crop each page, black out private details, run text recognition and download one file. Everything stays on your device."
+      "description": "Everything for PDF files without uploading them: merge, split, compress, rotate and reorder pages, add page numbers or watermarks, protect or unlock with a password, extract text, scan paper into searchable PDFs (OCR), and convert to and from images."
     },
     "images": {
       "name": "Image and photo tools",

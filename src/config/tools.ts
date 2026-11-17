@@ -58,7 +58,7 @@ export const CATEGORIES: Record<ToolCategory, { name: string; description: strin
 const CORE_TOOLS: ToolItem[] = [
   {
     id: 'digitize-documents',
-    title: 'Digitize Documents',
+    title: 'Scan to Searchable PDF (OCR)',
     description: 'Turn scans and photos into searchable PDFs.',
     category: 'pdf',
     path: '/digitize-documents',
@@ -153,8 +153,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'add-page-numbers',
-    title: 'Page Numbers',
-    description: 'Stamp page numbers, headers, and footers.',
+    title: 'Add Page Numbers to PDF',
+    description: 'Number the pages of a PDF at the top or bottom, from any page.',
     category: 'pdf',
     path: '/add-page-numbers',
     icon: 'hash',
@@ -189,8 +189,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'sanitize-pdf',
-    title: 'Sanitize PDF',
-    description: 'Purge hidden author info, revision history, and metadata.',
+    title: 'Remove PDF Metadata (Sanitize PDF)',
+    description: 'Remove supported metadata and hidden information.',
     category: 'pdf',
     path: '/sanitize-pdf',
     icon: 'shield-check',
@@ -201,7 +201,7 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'n-up-pdf',
-    title: 'N-Up (Pages Per Sheet)',
+    title: 'Multiple Pages Per Sheet (N-Up PDF)',
     description: 'Combine 2 or 4 pages per sheet for handouts and print savings.',
     category: 'pdf',
     path: '/n-up-pdf',
@@ -213,8 +213,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'inspect-pdf',
-    title: 'Inspect PDF',
-    description: 'Analyze PDF structures, versions, metadata, and security flags.',
+    title: 'Inspect PDF: Page Size, Metadata and Security',
+    description: 'Check page count, page sizes, metadata and security flags.',
     category: 'pdf',
     path: '/inspect-pdf',
     icon: 'binary',
@@ -273,8 +273,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'extract-text',
-    title: 'Extract Text',
-    description: 'Extract textual content page-by-page into plain text.',
+    title: 'Extract Text from PDF',
+    description: 'Copy or download the embedded text, page by page.',
     category: 'pdf',
     path: '/extract-text',
     icon: 'file-text',
@@ -571,8 +571,8 @@ const CORE_TOOLS: ToolItem[] = [
   },
   {
     id: 'word-counter',
-    title: "Word Counter",
-    description: "Count words, characters, sentences and reading time.",
+    title: 'Word and Character Counter',
+    description: 'Count words, characters, sentences and reading time.',
     category: 'text',
     path: '/word-counter',
     icon: 'type',

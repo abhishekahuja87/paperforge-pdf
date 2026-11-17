@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-18',
+    path: '/digitize-documents',
+    tool: 'Scan to Searchable PDF (OCR)',
+    title: 'Clearer tool names, and the scanner joins the PDF tools',
+    summary: 'Digitize Documents is now Scan to Searchable PDF (OCR) and sits with the PDF tools. Page numbers, extract text, N-up, sanitize, inspect and word counter have names that say what they do.',
+  },
+  {
     date: '2026-11-17',
     path: '/',
     tool: 'Home page',

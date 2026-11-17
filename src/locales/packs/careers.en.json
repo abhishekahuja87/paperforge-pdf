@@ -154,7 +154,7 @@
         ],
         [
           "Why does it warn about a PDF with no searchable text?",
-          "A scan or a photo saved as a PDF has no real text, so it cannot be searched or copied, and recruiters' systems cannot read it. Many forms accept scans, so this is only a warning. The Digitize Documents tool can add a searchable text layer."
+          "A scan or a photo saved as a PDF has no real text, so it cannot be searched or copied, and recruiters' systems cannot read it. Many forms accept scans, so this is only a warning. The Scan to Searchable PDF tool can add a searchable text layer."
         ],
         [
           "Why do file names matter?",
@@ -274,7 +274,7 @@
           "heading": "How to fix common problems",
           "paragraphs": [
             "If a PDF is too large, compress it. The Compress PDF tool rewrites the file and removes unneeded data, but it does not reduce image quality, so scans may still be large. For a photo, use the Image Resizer, which can aim for a size in KB. If a PDF has a password, remove it with the Unlock PDF tool, using the password you know.",
-            "If you must send fewer pages, keep only the ones you need with Split PDF. If the PDF is a scan and the recruiter wants searchable text, Digitize Documents can add it. After each fix, add the new file here to confirm it now passes."
+            "If you must send fewer pages, keep only the ones you need with Split PDF. If the PDF is a scan and the recruiter wants searchable text, Scan to Searchable PDF can add it. After each fix, add the new file here to confirm it now passes."
           ]
         },
         {
