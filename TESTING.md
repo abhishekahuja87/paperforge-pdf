@@ -181,6 +181,12 @@ Seven guides were added (GPA and CGPA, citations, freelance rate, margin vs mark
 
 ### Stationery pack (paper maker)
 
+Paper flow (17 Nov), not run in a browser: the order is "Choose the paper" (style grid), then "Ready-made setup (optional)" (shows only the setup for the chosen paper), then "Adjust everything".
+
+- [ ] Picking a paper style swaps the ready-made setup shown below it (dot grid: Bullet journal; graph: Maths and engineering; and so on); no setup is shown for plain lined except Handwriting practice.
+- [ ] Pressing a ready-made setup never changes the chosen paper; it highlights as applied until you touch any control.
+- [ ] Focused pages (dot grid, graph and so on) show the setup for their paper only and no style grid.
+
 One-tile change (17 Nov), not run in a browser (full tsc, vite build and styled check not run):
 
 - [ ] The home Printable list shows Printable Paper Maker, planner and flashcards only; `/dot-grid-paper-generator`, `/graph-paper-generator`, `/cornell-notes-template`, `/hexagon-graph-paper-generator`, `/calligraphy-practice-sheet-generator` and `/cross-stitch-pattern-grid-generator` still open.
