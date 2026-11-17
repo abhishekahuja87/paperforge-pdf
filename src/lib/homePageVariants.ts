@@ -98,6 +98,8 @@ function matchesQuery(tool: ToolItem, query: string, language: string): boolean 
   if (!normalized) return true;
   const localized = getToolCopy(tool, language);
   const haystack = [tool.title, tool.description, localized.title, localized.description, ...searchTermsFor(tool.id, tool.keywords)].join(' | ').toLowerCase();
+  // A very short query ("emi", "qr") must start a word, so it does not match the middle of "semi" or "hexagon".
+  if (normalized.length <= 3) return new RegExp(`(^|[^\\p{L}\\p{N}])${normalized.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'u').test(haystack);
   if (haystack.includes(normalized)) return true;
   // Every word of the query must appear somewhere, so "reduce pdf size" finds a tool that lists "reduce", "pdf" and "size".
   const words = normalized.split(/\s+/).filter((word) => word.length > 2);
