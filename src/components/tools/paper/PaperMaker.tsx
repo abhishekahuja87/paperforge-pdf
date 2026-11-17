@@ -35,7 +35,8 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
   const [message, setMessage] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const presets = useMemo(() => (focused && initialStyle ? PRESETS.filter((preset) => preset.patch(DEFAULT_SETTINGS).style === initialStyle) : PRESETS), [focused, initialStyle]);
+  // Quick starts belong to the paper style that is chosen, so picking one never changes the style.
+  const presets = useMemo(() => PRESETS.filter((preset) => preset.patch(DEFAULT_SETTINGS).style === settings.style), [settings.style]);
   // A quick start shows as chosen only while the settings are exactly what it produced, so touching any control clears it.
   const appliedPreset = applied && applied.settings === settings ? applied : null;
   const applyPreset = (preset: (typeof PRESETS)[number]) => {
@@ -98,10 +99,24 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] print:hidden">
         <div className="order-2 space-y-4 lg:order-1">
+          {!focused && (
+            <div className={card}>
+              <h2 className={heading}>Choose the paper</h2>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                {STYLES.map((item) => (
+                  <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => update({ style: item.id })} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
+                    <span className="block text-xs font-bold text-slate-900">{item.label}</span>
+                    <span className="block text-[11px] text-slate-500">{item.hint}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {presets.length > 0 && (
             <div className={card}>
-              <h2 className={heading}>Quick start</h2>
-              <p className="mt-1 text-[11px] text-slate-500">One click sets {focused ? 'the size and options' : 'a template, size and options'} for a common use. You can change anything afterwards.</p>
+              <h2 className={heading}>Ready-made setup <span className="font-normal text-slate-500">(optional)</span></h2>
+              <p className="mt-1 text-[11px] text-slate-500">For the paper chosen {focused ? 'on this page' : 'above'}. One click sets the size and options for a common use and never changes the paper. You can change anything afterwards.</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {presets.map((preset) => {
                   const on = appliedPreset?.id === preset.id;
@@ -111,20 +126,6 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
                 })}
               </div>
               {appliedPreset && <p role="status" className="mt-2 rounded-lg bg-orange-50 px-3 py-2 text-xs font-semibold text-orange-900">Applied: {appliedPreset.label}. The preview shows it, and the settings below can still be changed.</p>}
-            </div>
-          )}
-
-          {!focused && (
-            <div className={card}>
-              <h2 className={heading}>Paper style</h2>
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                {STYLES.map((item) => (
-                  <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => update({ style: item.id })} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
-                    <span className="block text-xs font-bold text-slate-900">{item.label}</span>
-                    <span className="block text-[11px] text-slate-500">{item.hint}</span>
-                  </button>
-                ))}
-              </div>
             </div>
           )}
 
