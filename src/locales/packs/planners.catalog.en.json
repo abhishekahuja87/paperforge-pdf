@@ -3,6 +3,10 @@
     "printable-planner-maker": [
       "Printable Calendar and Planner Maker: Monthly, Weekly, Daily PDF",
       "Make a printable monthly calendar, weekly or daily planner, or year page as a PDF."
+    ],
+    "printable-meal-planner": [
+      "Printable Meal Planner: Weekly, Daily and Monthly Menu",
+      "Make a printable weekly meal plan, daily menu or monthly menu with a shopping list, as a PDF."
     ]
   }
 }

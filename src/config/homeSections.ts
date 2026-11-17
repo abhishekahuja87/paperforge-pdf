@@ -16,7 +16,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'visiting-card-maker', 'job-description-builder',
+  'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'visiting-card-maker', 'job-description-builder',
 ];
 
 /** Studio-style tools shown as a slim row. */
@@ -50,7 +50,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bmi-calculator', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer',
   ] },
   { id: 'printables', icon: 'layers', tools: [
-    'printable-paper-maker', 'printable-planner-maker', 'printable-flashcard-maker',
+    'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'job-description-builder',

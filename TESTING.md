@@ -199,9 +199,18 @@ Paper flow (17 Nov), not run in a browser (full tsc, vite build, styled check). 
 
 Geometry checked in Node: for all seven styles in portrait and landscape (and isometric in all four modes) no line, dot or text lies outside the printable area; binding margins on the front, back and landscape; segment clipping; settings validation and file round trip; presets. The screens and the PDF export were not run. After deploying: on /printable-paper-maker try each style and preset and check the preview changes at once; Download PDF for 1 page and for 50 pages (file stays small, opens, lines are sharp when zoomed); Print this sheet (only the sheet prints, at the page size); with Binding and Switch edge on, 2+ pages, compare Front and Back preview and the PDF; page numbers with a start number; Save and Load settings round trip; a margin below 5 mm shows the warning; habit names with non-Latin letters show as ? in the PDF. Also open /dot-grid-paper-generator, /graph-paper-generator and /cornell-notes-template and check each opens on its template.
 
+### Printable meal planner (17 Nov)
+
+Not run: full tsc, vite build, styled browser check. Checked in Node: 2,304 pages (week, day and month in both orientations on every paper size, one and five meals, shopping and notes on and off, a very long typed dish) keep every line and text origin inside the margins. Checked in Chromium (unstyled): the three kinds render, typed dishes appear in the preview, meal chips toggle, no errors.
+
+- [ ] `/printable-meal-planner` opens, is in the Printable group and New tools, with a guide, FAQ (nine questions) and article.
+- [ ] Weekly: seven days down, chosen meals across, shopping list on the right; switching it off widens the grid. Daily: one block per meal. Monthly: calendar with lines under each date.
+- [ ] Meal chips: at least one stays on. Adjust everything opens dates, extras, typed dishes (not for monthly), paper and ink.
+- [ ] Typing dishes prints them in the cells (long ones wrap to two lines, then end in ...); Clear all dishes empties them; the PDF download and print show the same sheet.
+
 ### Planners pack
 
-Merge (17 Nov): `/printable-calendar-maker` and `/daily-planner-printable` now redirect to `/printable-planner-maker`.
+Merge (17 Nov): `/printable-calendar-maker` and `/daily-planner-printable` were removed (no redirect; they show the not-found page).
 
 - [ ] Both old addresses open the planner maker (no blank page, no 404); the maker opens on Month and the Month, Week, Day and Year buttons work.
 - [ ] The Printable group and the home page list one planner tile; the sitemap has no calendar or daily planner line; the page FAQ and article now cover calendars for any year and the daily schedule.
@@ -847,7 +856,7 @@ Not run: full `tsc`, `vite build`, styled browser check, phone share sheet.
 
 Not run: full `tsc`, `vite build`, styled browser check.
 
-- [ ] `/double-sided-flashcards-printable` opens the Printable Flashcard Maker; the home page and the Printable group list only one flashcard tool. The FAQ covers long edge, short edge, landscape and printers without duplex.
+- [ ] `/double-sided-flashcards-printable` shows the not-found page (removed); the home page and the Printable group list only one flashcard tool. The FAQ covers long edge, short edge, landscape and printers without duplex.
 - [ ] Calligraphy, dot grid, graph, hexagon, Cornell and cross-stitch pages: no paper-type grid, a heading like "Calligraphy settings", quick starts only for that type, and an "Other paper types" row of links that open the other pages.
 - [ ] Printable Paper Maker (lined page): clicking a quick start highlights it, shows "Applied: ..." and the preview changes; changing any control clears the highlight.
 - [ ] Watermark PDF presets, Age calculator quick dates and Learn the Clock "Try these" buttons highlight the chosen one.
@@ -857,7 +866,7 @@ Not run: full `tsc`, `vite build`, styled browser check.
 
 Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: for about 95,000 sums and differences (up to 999) the last step's answer digits are right. Checked in Chromium (unstyled): Watch and You try on 58+67 and 304-158 run to the end, wrong answers show "Try again", Show me works, no errors.
 
-- [ ] `/addition-with-carrying-for-kids` and `/subtraction-with-borrowing-for-kids` open, are in "Kids and learning" and New tools, and have a guide, FAQ and article. `/learn-carry-and-borrow` redirects to the addition page.
+- [ ] `/addition-with-carrying-for-kids` and `/subtraction-with-borrowing-for-kids` open, are in "Kids and learning" and New tools, and have a guide, FAQ and article. `/learn-carry-and-borrow` was removed.
 - [ ] Watch: Play and the arrows step through; the orange line shows the working; the small 1 appears above the next column when carrying; borrowed digits are crossed out and rewritten.
 - [ ] You try: the sum shows one step behind and asks for the next number. A wrong answer says "Try again", after two tries "Show me" appears, and the end shows a star or "x of y right". "Another sum" gives a new one.
 - [ ] Examples, the shuffle button and My own numbers (up to 999; sums under 1000; first number bigger for taking away) work. The page is simple on a phone: two big buttons, five sums, the sum, and the controls.
