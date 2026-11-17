@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/printable-planner-maker',
+    tool: 'Printable planner maker',
+    title: 'Calendar and daily planner are now in one place',
+    summary: 'The calendar and daily planner pages were the same tool, so they are now in the planner maker. Pick Month, Week, Day or Year at the top. Old links still work.',
+  },
+  {
+    date: '2026-11-17',
     path: '/long-division-for-kids',
     tool: 'Long division',
     title: 'New: long division, step by step',
