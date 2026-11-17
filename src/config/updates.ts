@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/printable-paper-maker',
+    tool: 'Printable paper maker',
+    title: 'Paper maker: quick starts first, settings tucked away',
+    summary: 'Pick a paper style and a quick start, then open "Adjust everything" only if you want to change spacing, size, margins or ink. Dot grid, graph and other pages are linked below the maker.',
+  },
+  {
+    date: '2026-11-17',
     path: '/printable-planner-maker',
     tool: 'Printable planner maker',
     title: 'Calendar and daily planner are now in one place',

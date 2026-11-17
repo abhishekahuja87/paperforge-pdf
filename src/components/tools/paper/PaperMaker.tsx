@@ -114,22 +114,25 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           )}
 
-          <div className={card}>
-            {focused ? (
-              <h2 className={heading}>1. {STYLES.find((item) => item.id === settings.style)?.label} settings</h2>
-            ) : (
-              <>
-                <h2 className={heading}>1. Paper style</h2>
-                <div className="mt-3 grid grid-cols-2 gap-2">
-                  {STYLES.map((item) => (
-                    <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => update({ style: item.id })} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
-                      <span className="block text-xs font-bold text-slate-900">{item.label}</span>
-                      <span className="block text-[11px] text-slate-500">{item.hint}</span>
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
+          {!focused && (
+            <div className={card}>
+              <h2 className={heading}>Paper style</h2>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                {STYLES.map((item) => (
+                  <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => update({ style: item.id })} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
+                    <span className="block text-xs font-bold text-slate-900">{item.label}</span>
+                    <span className="block text-[11px] text-slate-500">{item.hint}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <details className={card}>
+            <summary className="cursor-pointer text-sm font-bold text-slate-900">Adjust everything <span className="font-normal text-slate-500">(spacing, size, margins, ink, header, extras)</span></summary>
+            <div className="mt-4 space-y-5">
+            <div>
+              <h2 className={heading}>{STYLES.find((item) => item.id === settings.style)?.label} settings</h2>
             <div className="mt-4 space-y-3">
               {settings.style === 'dot' && (<>
                 {presetButtons([{ label: 'Compact 3.5 mm', value: 3.5 }, { label: 'Standard 5 mm', value: 5 }, { label: 'Wide 7 mm', value: 7 }], settings.dot.spacing, (spacing) => update({ dot: { ...settings.dot, spacing } }))}
@@ -208,8 +211,8 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           </div>
 
-          <div className={card}>
-            <h2 className={heading}>2. Page and margins</h2>
+          <div className="border-t border-slate-200 pt-4">
+            <h2 className={heading}>Page and margins</h2>
             <div className="mt-3 space-y-3">
               <SelectField label="Page size" value={settings.page} onChange={(page) => update({ page: page as PaperSettings['page'] })} options={Object.entries(PAGE_SIZES).map(([value, item]) => ({ value, label: item.label }))} />
               <ChoiceButtons label="Orientation" value={settings.landscape ? 'landscape' : 'portrait'} onChange={(value) => update({ landscape: value === 'landscape' })} options={[{ value: 'portrait', label: 'Portrait' }, { value: 'landscape', label: 'Landscape' }]} />
@@ -225,8 +228,8 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           </div>
 
-          <div className={card}>
-            <h2 className={heading}>3. Ink and line weight</h2>
+          <div className="border-t border-slate-200 pt-4">
+            <h2 className={heading}>Ink and line weight</h2>
             <div className="mt-3 space-y-3">
               <div className="flex flex-wrap gap-2">
                 {(Object.entries(TONES) as [ToneId, { label: string; color: string }][]).map(([id, tone]) => (
@@ -240,8 +243,8 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           </div>
 
-          <div className={card}>
-            <h2 className={heading}>4. Header and page numbers</h2>
+          <div className="border-t border-slate-200 pt-4">
+            <h2 className={heading}>Header and page numbers</h2>
             <div className="mt-3 space-y-3">
               {headerApplies && <Toggle label="Add a header bar" checked={settings.header} onChange={(header) => update({ header })} />}
               {(settings.header || !headerApplies) && (
@@ -256,8 +259,8 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           </div>
 
-          <div className={card}>
-            <h2 className={heading}>5. Extras</h2>
+          <div className="border-t border-slate-200 pt-4">
+            <h2 className={heading}>Extras</h2>
             <div className="mt-3 space-y-3">
               <ChoiceButtons label="Punch-hole guides" value={settings.holes} onChange={(holes) => update({ holes: holes as PaperSettings['holes'] })} options={[{ value: 'none', label: 'None' }, { value: '2', label: '2 holes' }, { value: '3', label: '3 holes' }, { value: '4', label: '4 holes' }]} />
               {settings.holes !== 'none' && <p className="text-[11px] text-slate-500">Rings are drawn 12 mm from the binding edge at the standard spacing ({settings.holes === '3' ? '108 mm, US 3-ring' : '80 mm'}), and the pattern is kept clear of them. Holes that do not fit the page are left out. Use the rings as a guide for a punch, not as a template for the printer.</p>}
@@ -269,25 +272,26 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           </div>
 
+            </div>
+          </details>
+
           <div className={card}>
-            <h2 className={heading}>6. How many pages</h2>
+            <h2 className={heading}>How many pages</h2>
             <div className="mt-3">
               <Slider label={settings.twoUp && twoUpOk ? 'Sheets in the PDF (2 pages each)' : 'Pages in the PDF'} value={settings.pages} min={1} max={50} step={1} unit="pages" onChange={(pages) => update({ pages })} />
               <p className="mt-2 text-[11px] text-slate-500">Make a ready-to-print notebook or binder refill in one file. Identical pages are stored once, so the file stays small.</p>
             </div>
           </div>
 
-          {focused && (
-            <div className={card}>
-              <h2 className={heading}>Other paper types</h2>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {(Object.entries(STYLE_PAGES) as [PaperStyle, string][]).filter(([style]) => style !== initialStyle).map(([style, page]) => (
-                  <Link key={style} to={`/${page}`} className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">{STYLES.find((item) => item.id === style)?.label}</Link>
-                ))}
-                <Link to="/printable-paper-maker" className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">Lined, music, isometric, tracker and more</Link>
-              </div>
+          <div className={card}>
+            <h2 className={heading}>{focused ? 'Other paper types' : 'Paper for one use'}</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {(Object.entries(STYLE_PAGES) as [PaperStyle, string][]).filter(([style]) => style !== initialStyle).map(([style, page]) => (
+                <Link key={style} to={`/${page}`} className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">{STYLES.find((item) => item.id === style)?.label}</Link>
+              ))}
+              {focused && <Link to="/printable-paper-maker" className="inline-flex min-h-9 items-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">Lined, music, isometric, tracker and more</Link>}
             </div>
-          )}
+          </div>
         </div>
 
         <div className="order-1 lg:order-2">

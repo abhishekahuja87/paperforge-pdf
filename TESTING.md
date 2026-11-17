@@ -181,6 +181,12 @@ Seven guides were added (GPA and CGPA, citations, freelance rate, margin vs mark
 
 ### Stationery pack (paper maker)
 
+One-tile change (17 Nov), not run in a browser (full tsc, vite build and styled check not run):
+
+- [ ] The home Printable list shows Printable Paper Maker, planner and flashcards only; `/dot-grid-paper-generator`, `/graph-paper-generator`, `/cornell-notes-template`, `/hexagon-graph-paper-generator`, `/calligraphy-practice-sheet-generator` and `/cross-stitch-pattern-grid-generator` still open.
+- [ ] In the paper maker the quick starts and the paper style grid are open; "Adjust everything" is closed; opening it shows the style settings, page and margins, ink, header and extras, and changing one updates the preview and clears the highlighted quick start.
+- [ ] "How many pages" is below it; "Paper for one use" links to the focused pages; a focused page shows "Other paper types" and no style grid.
+
 Geometry checked in Node: for all seven styles in portrait and landscape (and isometric in all four modes) no line, dot or text lies outside the printable area; binding margins on the front, back and landscape; segment clipping; settings validation and file round trip; presets. The screens and the PDF export were not run. After deploying: on /printable-paper-maker try each style and preset and check the preview changes at once; Download PDF for 1 page and for 50 pages (file stays small, opens, lines are sharp when zoomed); Print this sheet (only the sheet prints, at the page size); with Binding and Switch edge on, 2+ pages, compare Front and Back preview and the PDF; page numbers with a start number; Save and Load settings round trip; a margin below 5 mm shows the warning; habit names with non-Latin letters show as ? in the PDF. Also open /dot-grid-paper-generator, /graph-paper-generator and /cornell-notes-template and check each opens on its template.
 
 ### Planners pack

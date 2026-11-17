@@ -51,8 +51,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bmi-calculator', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer',
   ] },
   { id: 'printables', icon: 'layers', tools: [
-    'printable-paper-maker', 'dot-grid-paper-generator', 'graph-paper-generator', 'printable-planner-maker',
-    'printable-flashcard-maker', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
+    'printable-paper-maker', 'printable-planner-maker', 'printable-flashcard-maker',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'resume-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'job-description-builder',
