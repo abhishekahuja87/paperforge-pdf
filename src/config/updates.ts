@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/add-page-numbers',
+    tool: 'Tool help',
+    title: 'More answers on PDF and JSON tools',
+    summary: 'Page numbers, watermark, N-up, crop, delete pages, organize, flatten, unlock, sanitize, inspect, text extraction and the JSON formatter now answer everyday situations, such as numbering from the second page or printing four slides on one sheet.',
+  },
+  {
+    date: '2026-11-17',
     path: '/printable-planner-maker',
     tool: 'Printable Planner Maker',
     title: 'Each planner and menu type has its own address',

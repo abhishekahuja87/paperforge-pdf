@@ -908,3 +908,6 @@ Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: all 7,
 - [ ] /daily-menu-planner-printable and /monthly-menu-planner-printable open the meal planner on that kind; the weekly, daily and monthly buttons switch the address and keep meals, dishes and paper.
 - [ ] Search for "calendar maker" finds the planner; the footer lists the variant pages.
 Checked with a router stand-in in an unstyled browser: address and highlighted kind change on every button for both makers. Full tsc, vite build and the styled view were not run.
+
+### FAQ batch 3 (17 Nov)
+- [ ] Page numbers, watermark, N-up, sanitize, inspect, crop, delete, JSON formatter, sample, extract, flatten, organize and unlock each show one or more new situation questions (the privacy question is no longer last on these pages). Each answer matches the tool: positions, formats, units, page choices and limits.
