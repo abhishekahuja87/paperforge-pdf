@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/printable-planner-maker',
+    tool: 'Printable Planner Maker',
+    title: 'Each planner and menu type has its own address',
+    summary: 'Weekly, monthly, daily and year planners, and weekly, daily and monthly menus, now open at their own links while the home page keeps one tile for each maker. Switching type keeps your paper and style.',
+  },
+  {
+    date: '2026-11-17',
     path: '/compress-pdf',
     tool: 'Tool help',
     title: 'More answers on popular tools',
