@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-18',
+    path: '/emi-calculator',
+    tool: 'Money calculators',
+    title: 'Tax and loan tools in two clearer topics',
+    summary: 'Tax, salary and GST tools now sit apart from Loans and investing, and the loan and savings calculators have names that say what they work out, such as FD Calculator: Fixed Deposit Maturity.',
+  },
+  {
+    date: '2026-11-18',
     path: '/digitize-documents',
     tool: 'Scan to Searchable PDF (OCR)',
     title: 'Clearer tool names, and the scanner joins the PDF tools',

@@ -52,9 +52,11 @@ export const COLLECTIONS: CollectionSpec[] = [
   { id: 'images', icon: 'image', tools: [
     'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor',
   ] },
-  { id: 'money', icon: 'calculator', tools: [
-    'income-tax-calculator', 'salary-calculator', 'emi-calculator', 'sip-calculator', 'gst-calculator', 'hra-calculator', 'fd-calculator', 'ppf-calculator', 'rd-calculator',
-    'lumpsum-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator', 'gratuity-calculator', 'epf-calculator',
+  { id: 'tax', icon: 'receipt', tools: [
+    'income-tax-calculator', 'salary-calculator', 'hra-calculator', 'gst-calculator', 'gratuity-calculator', 'epf-calculator',
+  ] },
+  { id: 'invest', icon: 'calculator', tools: [
+    'emi-calculator', 'sip-calculator', 'lumpsum-calculator', 'fd-calculator', 'rd-calculator', 'ppf-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator',
   ] },
   { id: 'everyday', icon: 'hash', tools: [
     'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words',

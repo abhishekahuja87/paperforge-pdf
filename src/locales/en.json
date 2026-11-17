@@ -432,7 +432,7 @@
   },
   "toolCatalog": {
     "epf-calculator": [
-      "EPF Calculator",
+      "EPF Calculator: Provident Fund Balance",
       "Project your EPF balance at retirement."
     ],
     "time-zone-converter": [
@@ -468,11 +468,11 @@
       "Estimate gratuity payable on leaving a job."
     ],
     "lumpsum-calculator": [
-      "Lumpsum Calculator",
+      "Lumpsum Calculator: One-Time Investment Returns",
       "Future value of a one-time investment."
     ],
     "inflation-calculator": [
-      "Inflation Calculator",
+      "Inflation Calculator: Future Cost of Money",
       "What today's money will cost or be worth later."
     ],
     "bmi-calculator": [
@@ -488,11 +488,11 @@
       "Compare simple and compound interest on any amount."
     ],
     "rd-calculator": [
-      "RD Calculator",
+      "RD Calculator: Recurring Deposit Maturity",
       "Recurring deposit maturity value and interest."
     ],
     "cagr-calculator": [
-      "CAGR Calculator",
+      "CAGR Calculator: Annual Growth Rate",
       "Compound annual growth rate of an investment."
     ],
     "age-calculator": [
@@ -544,23 +544,23 @@
       "Calculate the tax-exempt part of your HRA."
     ],
     "emi-calculator": [
-      "EMI Calculator",
-      "Monthly EMI, total interest and repayment schedule."
+      "EMI Calculator: Loan EMI, Interest and Schedule",
+      "Monthly EMI, total interest, repayment schedule and ways to pay less interest."
     ],
     "sip-calculator": [
-      "SIP Calculator",
+      "SIP Calculator: Mutual Fund Returns",
       "Estimate SIP returns with optional yearly step-up."
     ],
     "fd-calculator": [
-      "FD Calculator",
+      "FD Calculator: Fixed Deposit Maturity",
       "Fixed deposit maturity amount and interest."
     ],
     "ppf-calculator": [
-      "PPF Calculator",
+      "PPF Calculator: Maturity and Interest",
       "Project PPF balance and maturity value."
     ],
     "gst-calculator": [
-      "GST Calculator",
+      "GST Calculator: Add or Remove GST",
       "Add or remove GST and see CGST and SGST."
     ],
     "image-resizer": [
@@ -945,9 +945,13 @@
       "name": "Image and photo tools",
       "description": "Make images smaller, the right size or another format: compress, resize, convert, passport photo, signature and exam sizes, and hide private details in screenshots. Pick an exact size such as 20 KB or 100 KB for online forms."
     },
-    "money": {
-      "name": "Tax, loans and investing",
-      "description": "Plan taxes, loans and savings: income tax, salary, HRA, EPF and gratuity, EMI and GST, plus investment growth for SIP, FD, PPF, RD, lump sum and CAGR, compound interest and inflation."
+    "tax": {
+      "name": "Tax, salary and GST",
+      "description": "Plan taxes and pay: income tax under the old and new regime, CTC to in-hand salary, HRA exemption, GST, gratuity and EPF."
+    },
+    "invest": {
+      "name": "Loans and investing",
+      "description": "Work out a loan EMI and repayment schedule, and see how savings grow: SIP, lump sum, FD, RD and PPF maturity, CAGR, simple and compound interest, and what inflation does to your money."
     },
     "everyday": {
       "name": "Everyday calculators",
