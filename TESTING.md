@@ -206,7 +206,7 @@ Parser checked in Node: vCard 3.0 with folded lines, escapes and a skipped base6
 
 ### Flashcards
 
-Layout checked in Node against an independent physical model (flip the sheet, see where each back card lands) for portrait and landscape, long and short edge, five grids and two gap sizes: 336 cards, none misaligned. Parser checked for bar, tab and :: separators, \n breaks, quoted CSV. Page rendering checked in headless Chromium: front and back, mirrored columns, shrink-to-fit, long unbroken words, Cyrillic, Greek, accents and Japanese, fold mode with corner ticks. The React screen and the PDF download were not run. After deploying: /printable-flashcard-maker and /double-sided-flashcards-printable; the sample deck shows 8 cards; page 2 (back) has the columns swapped; download the alignment test, print it double-sided and hold it to the light (FRONT n behind BACK n), then try the other flip edge if not; landscape with long edge; fold mode one-sided; import a CSV from Google Sheets and one from Quizlet/Anki; a Hindi or Arabic deck prints in the right script; 100+ cards builds with the progress percentage; print at Actual size and measure a card.
+Layout checked in Node against an independent physical model (flip the sheet, see where each back card lands) for portrait and landscape, long and short edge, five grids and two gap sizes: 336 cards, none misaligned. Parser checked for bar, tab and :: separators, \n breaks, quoted CSV. Page rendering checked in headless Chromium: front and back, mirrored columns, shrink-to-fit, long unbroken words, Cyrillic, Greek, accents and Japanese, fold mode with corner ticks. The React screen and the PDF download were not run. After deploying: /printable-flashcard-maker; the sample deck shows 8 cards; page 2 (back) has the columns swapped; download the alignment test, print it double-sided and hold it to the light (FRONT n behind BACK n), then try the other flip edge if not; landscape with long edge; fold mode one-sided; import a CSV from Google Sheets and one from Quizlet/Anki; a Hindi or Arabic deck prints in the right script; 100+ cards builds with the progress percentage; print at Actual size and measure a card.
 
 ### Deferred items (locale split, Document Studio, pdf.js cleanup)
 
@@ -831,7 +831,7 @@ Not run: full `tsc`, `vite build`, styled browser check, phone share sheet.
 
 Not run: full `tsc`, `vite build`, styled browser check.
 
-- [ ] `/double-sided-flashcards-printable` opens the Printable Flashcard Maker; the home page and the Printable group list only one flashcard tool. The FAQ covers long edge, short edge, landscape and printers without duplex.
+- [ ] `/double-sided-flashcards-printable` shows the not-found page (removed); the home page and the Printable group list only one flashcard tool. The FAQ covers long edge, short edge, landscape and printers without duplex.
 - [ ] Calligraphy, dot grid, graph, hexagon, Cornell and cross-stitch pages: no paper-type grid, a heading like "Calligraphy settings", quick starts only for that type, and an "Other paper types" row of links that open the other pages.
 - [ ] Printable Paper Maker (lined page): clicking a quick start highlights it, shows "Applied: ..." and the preview changes; changing any control clears the highlight.
 - [ ] Watermark PDF presets, Age calculator quick dates and Learn the Clock "Try these" buttons highlight the chosen one.

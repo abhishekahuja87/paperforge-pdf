@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FocusModeProvider } from './lib/focusMode';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -70,9 +70,6 @@ export const App: React.FC = () => {
               <Route path="/ac1" element={<CatalogTemplatesPage />} />
               <Route path="/ac1/edit" element={<Ac1Page />} />
               <Route path="/ac1/poster" element={<Ac1PosterPage />} />
-              <Route path="/learn-carry-and-borrow" element={<Navigate to="/addition-with-carrying-for-kids" replace />} />
-              {/* Merged into the one flashcard maker, which already prints double-sided. Old links keep working. */}
-              <Route path="/double-sided-flashcards-printable" element={<Navigate to="/printable-flashcard-maker" replace />} />
               <Route path="/merge-pdf" element={<MergePage />} />
               <Route path="/split-pdf" element={<SplitPage />} />
               <Route path="/generate-sample-pdf" element={<GenerateSamplePage />} />
