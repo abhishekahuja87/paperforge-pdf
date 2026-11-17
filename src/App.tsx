@@ -133,15 +133,7 @@ export const App: React.FC = () => {
               <Route path="/case-converter" element={<UtilityPage kind="caseConverter" />} />
               <Route path="/number-to-words" element={<UtilityPage kind="numberToWords" />} />
               <Route path="/password-generator" element={<UtilityPage kind="password" />} />
-              <Route path="/image-resizer" element={<ImageResizerPage guideId="imageResizer" defaultMaxKb={100} />} />
-              <Route path="/resize-image-to-20kb" element={<ImageResizerPage guideId="imageResizer20" defaultMaxKb={20} />} />
-              <Route path="/resize-image-to-50kb" element={<ImageResizerPage guideId="imageResizer50" defaultMaxKb={50} />} />
-              <Route path="/resize-image-to-100kb" element={<ImageResizerPage guideId="imageResizer100" defaultMaxKb={100} />} />
-              <Route path="/resize-image-to-200kb" element={<ImageResizerPage guideId="imageResizer200" defaultMaxKb={200} />} />
-              <Route path="/passport-photo-resizer" element={<ImageResizerPage guideId="passportPhoto" defaultMaxKb={100} defaultPreset="passport" />} />
-              <Route path="/signature-resizer" element={<ImageResizerPage guideId="signatureResizer" defaultMaxKb={20} defaultPreset="signature" />} />
-              <Route path="/exam-photo-resizer" element={<ImageResizerPage guideId="examPhoto" defaultMaxKb={50} defaultPreset="exam-photo" />} />
-              <Route path="/resize-image-to-30kb" element={<ImageResizerPage guideId="imageResizer30" defaultMaxKb={30} />} />
+              <Route path="/image-resizer" element={<ImageResizerPage />} />
               <Route path="/json-formatter" element={<JsonFormatterPage />} />
               <Route path="/base64-tool" element={<Base64ToolPage />} />
               <Route path="/display-studio" element={<DisplayStudioPage />} />

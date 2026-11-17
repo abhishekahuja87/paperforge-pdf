@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/image-resizer',
+    tool: 'Image Resizer',
+    title: 'One Image Resizer for signature, exam photo, passport and any KB size',
+    summary: 'The separate signature, exam photo, passport and 20 to 200 KB resizer pages did the same job, so they are now one tool with KB buttons and form presets.',
+  },
+  {
+    date: '2026-11-17',
     path: '/printable-paper-maker',
     tool: 'Printable paper maker',
     title: 'Paper maker: each paper has its own page',

@@ -328,24 +328,6 @@
         }
       ]
     },
-    "resize-image-to-30kb": {
-      "sections": [
-        {
-          "heading": "Where a 30 KB limit appears",
-          "paragraphs": [
-            "Small file limits are common on government, exam and job portals, where thousands of files are stored and servers must keep each one small. A limit of 30 KB is roughly the size of a small photo or a scanned signature at a modest resolution.",
-            "Because the limit is strict, a file even a few bytes over can be rejected, so use the tool to reach a size below the limit rather than exactly on it."
-          ]
-        },
-        {
-          "heading": "Getting the best quality at a small size",
-          "paragraphs": [
-            "Crop the photo to the area you need before you resize, because a smaller picture needs fewer bytes. Plain backgrounds compress better than busy ones, and well-lit photos with little noise stay sharper at low sizes. Save as JPG for photos; PNG files are usually larger for photographs.",
-            "If the result looks too soft, reduce the pixel size a little and try again, since a smaller picture can keep more detail per pixel than a large picture squeezed hard. Always check the form for the pixel size it requires as well as the file size."
-          ]
-        }
-      ]
-    },
     "discount-calculator": {
       "sections": [
         {
@@ -360,24 +342,6 @@
           "paragraphs": [
             "Check the starting price. A discount from an inflated list price is not a real saving. Compare the final price with other shops, and include delivery, tax and any membership fee. A smaller discount on a lower base price may be cheaper than a bigger discount on a higher one.",
             "Use the reverse mode to find the original price when you know the sale price and the discount, and to confirm the saving on a bill."
-          ]
-        }
-      ]
-    },
-    "exam-photo-resizer": {
-      "sections": [
-        {
-          "heading": "Preparing your photo before resizing",
-          "paragraphs": [
-            "Use a recent photo with a plain light background, facing the camera, with your full face visible and no shadows. Avoid caps, dark glasses and filters unless the form allows them. A photo taken in daylight near a window usually works better than one in a dim room.",
-            "Crop the photo so your face fills most of the frame before you resize it. The tool then makes the size and weight fit, so you do not have to guess the pixel dimensions."
-          ]
-        },
-        {
-          "heading": "Common reasons for rejection",
-          "paragraphs": [
-            "Forms reject photos that are too large or small in file size, the wrong dimensions, blurry, with a shadow behind the head, or showing more than one person. Some require the name and date on the photo, and others ban them. Always read the notice for your exam.",
-            "After resizing, open the file and check that it looks sharp, that the colours look natural and that the file size is within the limit shown by your device. Keep the original photo as a backup in case you need another size."
           ]
         }
       ]
@@ -468,24 +432,6 @@
           "paragraphs": [
             "BMI does not measure fat. Muscular people can have a high BMI without extra fat, and older adults can have a normal BMI with little muscle. Where fat is stored also matters, which is why waist size is a useful additional measure.",
             "If your BMI is outside the normal range, or if you are worried about your weight, speak to a doctor or a dietitian. They can look at your health history, blood tests and lifestyle, which a calculator cannot see. Children and teenagers use special growth charts, so this adult tool is not suitable for them."
-          ]
-        }
-      ]
-    },
-    "signature-resizer": {
-      "sections": [
-        {
-          "heading": "Preparing a scan or photo of your signature",
-          "paragraphs": [
-            "Sign with a dark pen on plain white paper, leaving space around the signature. Take a photo in good light from straight above, or scan it, so that the paper looks white and the ink looks dark. Avoid shadows and creases.",
-            "Crop closely around the signature before resizing, so that it fills most of the box. A signature that is too small inside a large white area becomes hard to read once the image is reduced."
-          ]
-        },
-        {
-          "heading": "Common problems on application forms",
-          "paragraphs": [
-            "Forms reject signatures that are too faint, too large in file size, the wrong dimensions or typed rather than handwritten. Some ask for black ink only, and some ban capital letters. Read the notice for exact instructions.",
-            "After resizing, zoom in and check that the strokes are clear and complete. If the signature looks broken, start again from a larger, sharper scan and resize once rather than resizing a file many times."
           ]
         }
       ]
@@ -764,24 +710,6 @@
           "paragraphs": [
             "A diagonal mark in a light grey with about 20 to 30 percent opacity is easy to see without hiding the text. Use a large font so the mark covers the page, and avoid red or very dark colours that hurt readability. Preview a page before you apply the mark to every page.",
             "Keep the original file without a watermark. Once the mark is applied and saved, it is part of the page and cannot be removed cleanly."
-          ]
-        }
-      ]
-    },
-    "passport-photo-resizer": {
-      "sections": [
-        {
-          "heading": "Size in pixels",
-          "paragraphs": [
-            "A 35 by 45 mm photo at 300 dots per inch is about 413 by 531 pixels. Many online forms ask for the photo in pixels rather than millimetres, so check which one your form uses. If both are given, match the pixels and keep the proportions of 35 to 45.",
-            "DPI is only a label that tells a printer how large to print the pixels. The pixel size is what sets the detail and the file size, so match what the form requires."
-          ]
-        },
-        {
-          "heading": "Tips for a photo that passes",
-          "paragraphs": [
-            "Passport photo rules are strict. Use a recent photo, a plain light background, a neutral expression with both eyes open and your whole face visible, and no glasses glare or shadows. Take the photo against a wall in even light, with the camera at eye level.",
-            "Most offices check the photo against rules for head size and position. This tool resizes the image but does not move your head or change the background, so start with a photo that already follows the rules. If a form is for a visa or passport, check the official guidance of the issuing country first."
           ]
         }
       ]
@@ -1073,78 +1001,6 @@
           ]
         }
       ]
-    },
-    "resize-image-to-20kb": {
-      "sections": [
-        {
-          "heading": "What 20 KB looks like",
-          "paragraphs": [
-            "A 20 KB image is very small. It is about the size of a signature scan, a small passport-style photo at low resolution or a tiny thumbnail. At this size a large photograph cannot keep much detail, so the tool lowers the pixel size and the quality until the file fits.",
-            "Crop the picture tightly around the subject before you start. A face that fills the frame stays recognisable at a small size, while a wide photo with a lot of background does not."
-          ]
-        },
-        {
-          "heading": "Tips for a clear result",
-          "paragraphs": [
-            "Use a plain, evenly lit original with no noise. Dark backgrounds and busy patterns need more bytes. If the first try looks too soft, reduce the width and height a little more and let the quality stay higher.",
-            "Check the requirements for pixels as well as kilobytes. Many forms ask for both, for example a width of 140 pixels for a signature. Open the final file and zoom in to be sure it is readable before you upload it."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-50kb": {
-      "sections": [
-        {
-          "heading": "Where 50 KB is used",
-          "paragraphs": [
-            "A 50 KB limit is common for photos on exam and job application forms, and sometimes for ID card or membership uploads. It leaves room for a clear face photo at modest pixel dimensions, such as 200 by 230 pixels, but not for a large camera photo.",
-            "Start with a recent photo that follows the rules for the form, such as a plain background and your face fully visible."
-          ]
-        },
-        {
-          "heading": "Balancing quality and size",
-          "paragraphs": [
-            "The tool tries to keep the quality as high as possible while meeting the limit. If the picture is large, it first reduces the pixels, then the quality. Photos in good light with a plain background compress best.",
-            "After resizing, compare the result with the form's requirements for dimensions, format and background. Keep the original so you can create another size if a different form asks for one."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-100kb": {
-      "sections": [
-        {
-          "heading": "Where 100 KB is used",
-          "paragraphs": [
-            "A limit of 100 KB is common for passport-style photographs, identity documents, college applications and online profile pictures. It allows a good quality photo at moderate pixel dimensions, and also a clear scan of a small document such as a certificate.",
-            "Documents with text need more care than photos. Use a higher quality so the letters stay readable, and check small print after resizing."
-          ]
-        },
-        {
-          "heading": "Photos and documents",
-          "paragraphs": [
-            "For a photo, crop to the head and shoulders, keep the background plain and use JPG. For a document scan, convert it to a straight, well-lit image first and avoid shadows. Scans of text at 150 dots per inch are usually readable and compress well.",
-            "If the document is longer than one page, use the Image to PDF or Compress PDF tools, since a form may allow a PDF within a size limit."
-          ]
-        }
-      ]
-    },
-    "resize-image-to-200kb": {
-      "sections": [
-        {
-          "heading": "Where 200 KB is used",
-          "paragraphs": [
-            "A 200 KB limit is a comfortable size for a photo with good detail, a scanned certificate, a signed form or a logo. It is also useful for images on a website, since a picture under this size loads quickly on a phone.",
-            "Because the limit is larger, you can keep more of the original pixels and quality. Check the form for any minimum size as well."
-          ]
-        },
-        {
-          "heading": "Keeping quality at this size",
-          "paragraphs": [
-            "Use the original photo and avoid resizing it several times. For a document scan, choose a high enough resolution that small text is readable, and a grey or black and white scan if colour is not needed, since it makes the file smaller.",
-            "Look at the finished image at full size. If you see blocky areas or blur around text, ask for a larger limit or reduce the pixel dimensions."
-          ]
-        }
-      ]
     }
   },
   "pageGuides": {
@@ -1360,18 +1216,6 @@
         ]
       ]
     },
-    "imageResizer30": {
-      "faq": [
-        [
-          "What if my image is already under 30 KB?",
-          "The tool keeps it as it is where possible. You do not need to make a file smaller than the limit, and a larger file with better quality is often better when the form allows it."
-        ],
-        [
-          "Why is the file bigger than the target after I change the size?",
-          "Compression has a floor. A very large or detailed image cannot always shrink to a very small size without reducing the pixel dimensions. Lower the width and height, then try again."
-        ]
-      ]
-    },
     "discountCalc": {
       "faq": [
         [
@@ -1381,18 +1225,6 @@
         [
           "Is the discount calculated before or after tax?",
           "It depends on the shop. In many places tax is added after the discount, so the tax is on the reduced price. Check your bill, and use the GST option in the calculator to compare."
-        ]
-      ]
-    },
-    "examPhoto": {
-      "faq": [
-        [
-          "What if the exam asks for different dimensions?",
-          "Different exams use different sizes. Check the notice and use the Image Resizer tool, which lets you set the pixel size and the target file size yourself."
-        ],
-        [
-          "Should the photo be in colour or black and white?",
-          "Follow your exam notice. Most ask for a recent colour photo, though some accept black and white. If the notice does not say, a colour photo is the safer choice."
         ]
       ]
     },
@@ -1453,18 +1285,6 @@
         [
           "Can I use BMI during pregnancy or for athletes?",
           "BMI is not designed for pregnancy, and it can be misleading for athletes and people with a lot of muscle. Ask a health professional how to assess your weight in these cases."
-        ]
-      ]
-    },
-    "signatureResizer": {
-      "faq": [
-        [
-          "Can I use a digital or typed signature?",
-          "Most forms ask for a handwritten signature on paper. A typed or drawn signature may be rejected, so follow the notice. If drawing is allowed, a clear dark line on a white background works."
-        ],
-        [
-          "What file format should I use?",
-          "Use the format the form asks for, usually JPG. The tool saves a JPG that fits the pixel and size limits. Keep the original scan in case you need another size."
         ]
       ]
     },
@@ -1660,18 +1480,6 @@
         ]
       ]
     },
-    "passportPhoto": {
-      "faq": [
-        [
-          "Can I print the photo at a shop?",
-          "Yes. Save the resized file and take it to a photo shop that can print at 35 by 45 mm, or use a print template. Ask the shop to keep the size exact."
-        ],
-        [
-          "Why was my photo rejected?",
-          "Common reasons are shadows, a patterned background, a head that is too small or too large in the frame, a blurry image, or a file size or pixel size outside the limit. Read the rejection message for details."
-        ]
-      ]
-    },
     "salaryCalc": {
       "faq": [
         [
@@ -1849,54 +1657,6 @@
         [
           "Are the generated files safe to share?",
           "Yes. They contain generated placeholder content only. A deliberately broken file is meant for testing and may not open in all programs."
-        ]
-      ]
-    },
-    "imageResizer20": {
-      "faq": [
-        [
-          "Is 20 KB the same as 20,000 bytes?",
-          "A kilobyte is 1,024 bytes in most file managers, though some systems use 1,000. To be safe, aim for a few KB under the limit."
-        ],
-        [
-          "Why does the tool lower the size of my picture?",
-          "Reaching a small file size sometimes needs fewer pixels, not only more compression. Reducing both keeps the image clearer than squeezing a large picture very hard."
-        ]
-      ]
-    },
-    "imageResizer50": {
-      "faq": [
-        [
-          "Can I use the same photo for several forms?",
-          "Often yes, if the limits and dimensions match. When they differ, resize from the original each time, not from a file that has already been reduced."
-        ],
-        [
-          "What if the form needs a minimum size as well?",
-          "Some forms require a file between two sizes, for example 20 to 50 KB. After resizing, check the file size, and if it is too small, ask for a larger limit in the tool, such as 50 KB, to keep more quality."
-        ]
-      ]
-    },
-    "imageResizer100": {
-      "faq": [
-        [
-          "Why is my 100 KB image still rejected?",
-          "The form may check the pixel size, the type of file, or count a kilobyte as 1,000 bytes. Aim well under the limit and read the form's rules."
-        ],
-        [
-          "Can I resize a PNG to 100 KB?",
-          "Yes. The tool can convert it to JPG, which is usually much smaller for photographs. Keep PNG only if the form requires it."
-        ]
-      ]
-    },
-    "imageResizer200": {
-      "faq": [
-        [
-          "Is 200 KB enough for a scanned page?",
-          "For a single page at a normal resolution, usually yes, especially in black and white. A page with photographs may need a larger limit."
-        ],
-        [
-          "Can I use this for a website image?",
-          "Yes. Under 200 KB is a good target for a normal web image. Smaller images load faster, so compress further if the page is heavy."
         ]
       ]
     }

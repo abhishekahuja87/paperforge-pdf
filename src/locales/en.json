@@ -463,22 +463,6 @@
       "GST Invoice Generator",
       "Make a GST tax invoice or bill of supply and save it as PDF."
     ],
-    "passport-photo-resizer": [
-      "Passport Size Photo Resizer",
-      "Resize a photo to 35 × 45 mm under 100 KB."
-    ],
-    "signature-resizer": [
-      "Signature Resizer",
-      "Resize a signature image to 140 × 60 px under 20 KB."
-    ],
-    "exam-photo-resizer": [
-      "Exam Form Photo Resizer",
-      "Resize a photo to 200 × 230 px under 50 KB."
-    ],
-    "resize-image-to-30kb": [
-      "Resize Image to 30 KB",
-      "Shrink an image to under 30 KB for form uploads."
-    ],
     "gratuity-calculator": [
       "Gratuity Calculator",
       "Estimate gratuity payable on leaving a job."
@@ -581,23 +565,7 @@
     ],
     "image-resizer": [
       "Image Resizer (KB and Pixels)",
-      "Reduce an image to a size in KB or exact pixels."
-    ],
-    "resize-image-to-20kb": [
-      "Resize Image to 20 KB",
-      "Shrink an image to under 20 KB for form uploads."
-    ],
-    "resize-image-to-50kb": [
-      "Resize Image to 50 KB",
-      "Shrink an image to under 50 KB for form uploads."
-    ],
-    "resize-image-to-100kb": [
-      "Resize Image to 100 KB",
-      "Shrink an image to under 100 KB for form uploads."
-    ],
-    "resize-image-to-200kb": [
-      "Resize Image to 200 KB",
-      "Shrink an image to under 200 KB for form uploads."
+      "Resize a photo or signature to 20, 50 or 100 KB, or exact pixels."
     ],
     "generate-sample-pdf": [
       "Sample PDF Generator",
@@ -1013,9 +981,5 @@
       "name": "More tools",
       "description": "Other tools on the site."
     }
-  },
-  "sizePresets": {
-    "title": "Need an exact file size?",
-    "hint": "Each page opens the resizer with that limit already set."
   }
 }
