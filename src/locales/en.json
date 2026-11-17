@@ -941,6 +941,10 @@
       "name": "PDF tools",
       "description": "Everything for PDF files without uploading them: merge, split, compress, rotate and reorder pages, add page numbers or watermarks, protect or unlock with a password, extract text, and convert to and from images."
     },
+    "scan": {
+      "name": "Scan and digitize",
+      "description": "Turn scanned pages and photos of documents into clean, searchable PDFs: straighten and crop each page, black out private details, run text recognition and download one file. Everything stays on your device."
+    },
     "images": {
       "name": "Image and photo tools",
       "description": "Make images smaller, the right size or another format: compress, resize, convert, passport photo, signature and exam sizes, and hide private details in screenshots. Pick an exact size such as 20 KB or 100 KB for online forms."
@@ -951,7 +955,11 @@
     },
     "everyday": {
       "name": "Everyday calculators",
-      "description": "Quick answers for daily life: age and date differences, percentages and discounts, unit conversion, BMI, time zones, numbers in words, and splitting a bill equally or settling a whole group trip."
+      "description": "Quick answers for daily life: age and date differences, percentages and discounts, unit conversion, time zones, numbers in words, and splitting a bill equally or settling a whole group trip."
+    },
+    "sports": {
+      "name": "Sports and fitness",
+      "description": "Court and ground sizes with set-out measurements, an exercise library with how-to steps, and a BMI calculator with Indian and WHO categories."
     },
     "printables": {
       "name": "Printables and stationery",
@@ -959,7 +967,11 @@
     },
     "work": {
       "name": "Jobs, freelancing and business",
-      "description": "For job seekers, freelancers and small businesses: build a resume, check a notice period, make a quotation or GST invoice, set your freelance rate, work out margin and markup, and check file sizes before uploading."
+      "description": "For job seekers, freelancers and small businesses: build a resume, check a notice period, make a quotation, GST invoice or rent receipt, set your freelance rate, work out margin and markup, design offer posters, price tags and visiting cards, and check file sizes before uploading."
+    },
+    "present": {
+      "name": "Display and presentation",
+      "description": "Show PDF pages, Word documents and images as a timed fullscreen slideshow for a classroom, a shop screen, a meeting room or a TV."
     },
     "study": {
       "name": "Students and writing",
@@ -967,7 +979,7 @@
     },
     "kids": {
       "name": "Kids and learning",
-      "description": "Games and practice for children and family fun: learn to tell the time on a clock you can move, play shop with rupee notes and coins, and print tambola tickets with a number caller."
+      "description": "Games and practice for children and family fun: learn to tell the time on a clock you can move, practise sums step by step, play shop with rupee notes and coins, explore shadows and the solar system, and print tambola tickets with a number caller."
     },
     "sharing": {
       "name": "QR codes and contacts",

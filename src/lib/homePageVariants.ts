@@ -1,4 +1,5 @@
 import { TOOLS, type ToolItem } from '../config/tools';
+import { searchTermsFor } from '../config/searchTerms';
 import { COLLECTIONS, MOST_USED, NEW_TOOLS, SIZE_PRESET_PATTERN, VARIANT_PAGES, WORKSPACES, type CollectionSpec } from '../config/homeSections';
 import { getFeaturedCopy, getToolCopy, isFeaturedId } from './localizedTool';
 
@@ -12,6 +13,9 @@ export interface FeaturedTool {
 
 /** Colour of each topic's icon badge on the home page. Every topic has its own hue, and none is orange, the colour of the Most used and Workspace tiles above. */
 export const HOME_COLLECTION_STYLES: Record<string, string> = {
+  scan: 'bg-teal-100 text-teal-800',
+  sports: 'bg-sky-100 text-sky-800',
+  present: 'bg-indigo-100 text-indigo-800',
   pdf: 'bg-red-100 text-red-800',
   images: 'bg-cyan-100 text-cyan-800',
   money: 'bg-emerald-100 text-emerald-800',
@@ -27,6 +31,9 @@ export const HOME_COLLECTION_STYLES: Record<string, string> = {
 
 /** Light border of each topic's panel, the same hue as its icon, so panels stay distinct while scrolling fast. */
 export const HOME_COLLECTION_BORDER: Record<string, string> = {
+  scan: 'border-teal-200',
+  sports: 'border-sky-200',
+  present: 'border-indigo-200',
   pdf: 'border-red-200',
   images: 'border-cyan-200',
   money: 'border-emerald-200',
@@ -42,6 +49,9 @@ export const HOME_COLLECTION_BORDER: Record<string, string> = {
 
 /** Hover colour of a tile's icon in each topic: a darker shade of the topic colour, with a white icon. */
 export const HOME_COLLECTION_HOVER: Record<string, string> = {
+  scan: 'group-hover:bg-teal-700 group-hover:text-white',
+  sports: 'group-hover:bg-sky-700 group-hover:text-white',
+  present: 'group-hover:bg-indigo-700 group-hover:text-white',
   pdf: 'group-hover:bg-red-700 group-hover:text-white',
   images: 'group-hover:bg-cyan-700 group-hover:text-white',
   money: 'group-hover:bg-emerald-700 group-hover:text-white',
@@ -70,9 +80,7 @@ export interface WorkspaceStyle {
 /** Each workspace card has its own colour, different from the topic colours. Full class names so Tailwind can see them. */
 export const WORKSPACE_STYLES: Record<string, WorkspaceStyle> = {
   'master-document-studio': { card: 'border-orange-200 from-white to-orange-50/70 hover:border-orange-400', icon: 'bg-orange-100 text-orange-800 group-hover:bg-orange-600 group-hover:text-white', label: 'text-orange-700', focus: 'focus-visible:outline-orange-600' },
-  'digitize-documents': { card: 'border-teal-200 from-white to-teal-50/70 hover:border-teal-400', icon: 'bg-teal-100 text-teal-800 group-hover:bg-teal-600 group-hover:text-white', label: 'text-teal-700', focus: 'focus-visible:outline-teal-600' },
   'pos-invoice-studio': { card: 'border-rose-200 from-white to-rose-50/70 hover:border-rose-400', icon: 'bg-rose-100 text-rose-800 group-hover:bg-rose-600 group-hover:text-white', label: 'text-rose-700', focus: 'focus-visible:outline-rose-600' },
-  'display-studio': { card: 'border-purple-200 from-white to-purple-50/70 hover:border-purple-400', icon: 'bg-purple-100 text-purple-800 group-hover:bg-purple-600 group-hover:text-white', label: 'text-purple-700', focus: 'focus-visible:outline-purple-600' },
 };
 export const DEFAULT_WORKSPACE_STYLE = WORKSPACE_STYLES['master-document-studio'];
 
@@ -87,13 +95,13 @@ export interface HomeCollection {
 
 function matchesQuery(tool: ToolItem, query: string, language: string): boolean {
   const normalized = query.trim().toLowerCase();
+  if (!normalized) return true;
   const localized = getToolCopy(tool, language);
-  return !normalized
-    || tool.title.toLowerCase().includes(normalized)
-    || tool.description.toLowerCase().includes(normalized)
-    || localized.title.toLowerCase().includes(normalized)
-    || localized.description.toLowerCase().includes(normalized)
-    || tool.keywords.some((keyword) => keyword.toLowerCase().includes(normalized));
+  const haystack = [tool.title, tool.description, localized.title, localized.description, ...searchTermsFor(tool.id, tool.keywords)].join(' | ').toLowerCase();
+  if (haystack.includes(normalized)) return true;
+  // Every word of the query must appear somewhere, so "reduce pdf size" finds a tool that lists "reduce", "pdf" and "size".
+  const words = normalized.split(/\s+/).filter((word) => word.length > 2);
+  return words.length > 1 && words.every((word) => haystack.includes(word));
 }
 
 function orderedTools(ids: string[]): ToolItem[] {

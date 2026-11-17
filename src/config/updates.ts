@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-17',
+    path: '/',
+    tool: 'Home page',
+    title: 'Clearer topics and smarter search',
+    summary: 'Scan and digitize, Display and presentation, and Sports and fitness are now topics of their own, and tools such as the rent receipt and the solar system explorer sit with related ones. Search now understands phrases like "reduce pdf size" or "badminton court size".',
+  },
+  {
+    date: '2026-11-17',
     path: '/add-page-numbers',
     tool: 'Tool help',
     title: 'More answers on PDF and JSON tools',

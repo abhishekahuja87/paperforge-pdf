@@ -911,3 +911,9 @@ Checked with a router stand-in in an unstyled browser: address and highlighted k
 
 ### FAQ batch 3 (17 Nov)
 - [ ] Page numbers, watermark, N-up, sanitize, inspect, crop, delete, JSON formatter, sample, extract, flatten, organize and unlock each show one or more new situation questions (the privacy question is no longer last on these pages). Each answer matches the tool: positions, formats, units, page choices and limits.
+
+### Topics and search (17 Nov)
+- [ ] Home shows topics in this order: PDF, Scan and digitize, Images, Tax and loans, Everyday, Sports and fitness, Printables, Jobs and business, Display and presentation, Students, Kids, QR, Developer. The Workspaces row has only Master Document Studio and POS & Bill Studio.
+- [ ] Rent receipt is under Jobs and business; BMI under Sports and fitness; solar system explorer under Kids; the header menu and footer show the same groups.
+- [ ] Search: "reduce pdf size" finds Compress PDF; "scan to searchable pdf" finds Digitize; "badminton court size" finds the court guide; "slideshow from pdf" finds Display; "hex to rgb" finds the colour converter.
+Checked with a Node script against the real config (groups, workspaces, eight searches). The styled home page was not run; check the three new topic colours (teal, sky, indigo).
