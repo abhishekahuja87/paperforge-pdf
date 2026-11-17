@@ -1,5 +1,5 @@
 import { TOOLS, type ToolItem } from '../config/tools';
-import { COLLECTIONS, MOST_USED, NEW_TOOLS, SIZE_PRESET_PATTERN, WORKSPACES, type CollectionSpec } from '../config/homeSections';
+import { COLLECTIONS, MOST_USED, NEW_TOOLS, SIZE_PRESET_PATTERN, VARIANT_PAGES, WORKSPACES, type CollectionSpec } from '../config/homeSections';
 import { getFeaturedCopy, getToolCopy, isFeaturedId } from './localizedTool';
 
 export interface FeaturedTool {
@@ -145,7 +145,7 @@ export function getCollections(): HomeCollection[] {
     tools.forEach((tool) => placed.add(tool.id));
     return build(spec.id, spec.icon, tools);
   });
-  const rest = TOOLS.filter((tool) => tool.isAvailable && !placed.has(tool.id));
+  const rest = TOOLS.filter((tool) => tool.isAvailable && !placed.has(tool.id) && !VARIANT_PAGES.includes(tool.id));
   const all = rest.length > 0 ? [...groups, build('other', 'layers', rest)] : groups;
   return all.filter((group) => group.tools.length + group.presets.length > 0);
 }

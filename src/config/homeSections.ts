@@ -28,6 +28,16 @@ export const COLLECTION_PREVIEW = 6;
 /** Image tools named like resize-image-to-20kb are shown as small chips instead of cards. */
 export const SIZE_PRESET_PATTERN = /^resize-image-to-(\d+)kb$/;
 
+/**
+ * Tools that are another tool's page opened on one option (for example the dot grid page is the paper maker opened on
+ * dot grid). They have their own address for search and are linked from the main tool's option buttons, but the home
+ * page shows only the main tool, so these are not listed there.
+ */
+export const VARIANT_PAGES = [
+  'dot-grid-paper-generator', 'graph-paper-generator', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
+  'printable-calendar-maker', 'daily-planner-printable', 'daily-menu-planner-printable', 'monthly-menu-planner-printable',
+];
+
 export interface CollectionSpec {
   id: string;
   icon: ToolIconName;

@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, Printer, RotateCcw } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
@@ -13,9 +14,20 @@ import { generateFileName } from '../../../lib/pdf/naming';
 
 const clampInt = (value: number, min: number, max: number) => Math.min(max, Math.max(min, Math.round(Number.isFinite(value) ? value : min)));
 
-/** A printable weekly, daily or monthly menu. Plain boxes to write in, or type the dishes first and print them on the sheet. */
-export const MealPlanner: React.FC = () => {
-  const [settings, setSettings] = useState<MealSettings>(() => defaultMeal());
+/** The address each kind of menu opens on. */
+const KIND_PAGES: Record<MealKind, string> = { week: '/printable-meal-planner', day: '/daily-menu-planner-printable', month: '/monthly-menu-planner-printable' };
+
+/** What a page change carries over, so picking another kind keeps the meals, paper and style already chosen. */
+type Carry = Pick<MealSettings, 'kind' | 'meals' | 'page' | 'landscape' | 'margin' | 'tone' | 'weight' | 'weekStart' | 'title' | 'dishes'>;
+
+/** A printable weekly, daily or monthly menu. Each kind has its own address; picking a kind goes to its address. Plain boxes to write in, or type the dishes first. */
+export const MealPlanner: React.FC<{ initialKind?: MealKind }> = ({ initialKind }) => {
+  const location = useLocation();
+  const make = (): MealSettings => {
+    const carry = (location.state as { carry?: Carry } | null)?.carry;
+    return { ...defaultMeal(), ...carry, kind: carry?.kind ?? initialKind ?? 'week' };
+  };
+  const [settings, setSettings] = useState<MealSettings>(make);
   const [index, setIndex] = useState(0);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -62,12 +74,27 @@ export const MealPlanner: React.FC = () => {
           <div className={card}>
             <h2 className={heading}>What to make</h2>
             <div className="mt-3 grid grid-cols-3 gap-2">
-              {KINDS.map((item) => (
-                <button key={item.id} type="button" aria-pressed={settings.kind === item.id} onClick={() => update({ kind: item.id as MealKind, count: 1 })} className={`rounded-lg border px-2 py-2 text-left ${settings.kind === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
-                  <span className="block text-xs font-bold text-slate-900">{item.label}</span>
-                  <span className="block text-[11px] text-slate-500">{item.hint}</span>
-                </button>
-              ))}
+              {KINDS.map((item) => {
+                const target = KIND_PAGES[item.id];
+                const carry: Carry = { kind: item.id, meals: settings.meals, page: settings.page, landscape: settings.landscape, margin: settings.margin, tone: settings.tone, weight: settings.weight, weekStart: settings.weekStart, title: settings.title, dishes: settings.dishes };
+                return (
+                  <Link
+                    key={item.id}
+                    to={target}
+                    state={{ carry }}
+                    replace
+                    aria-current={settings.kind === item.id ? 'true' : undefined}
+                    onClick={(event) => {
+                      // Same address: just switch the kind here, without reloading the page.
+                      if (target === location.pathname) { event.preventDefault(); update({ kind: item.id as MealKind, count: 1 }); }
+                    }}
+                    className={`rounded-lg border px-2 py-2 text-left ${settings.kind === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}
+                  >
+                    <span className="block text-xs font-bold text-slate-900">{item.label}</span>
+                    <span className="block text-[11px] text-slate-500">{item.hint}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -174,7 +201,7 @@ export const MealPlanner: React.FC = () => {
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={() => void download()} disabled={busy} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building...' : `Download PDF${pages.length > 1 ? ` (${pages.length} pages)` : ''}`}</button>
               <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this page</button>
-              <button type="button" onClick={() => { setSettings(defaultMeal()); setIndex(0); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>
+              <button type="button" onClick={() => { setSettings(make()); setIndex(0); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>
             </div>
             {message && <p role="status" className="text-xs text-slate-700">{message}</p>}
             <p className="text-[11px] text-slate-500">Print uses the page shown, at 100% scale. To print several pages, download the PDF and print it with "Actual size".</p>

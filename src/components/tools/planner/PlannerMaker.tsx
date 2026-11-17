@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, Printer, RotateCcw } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
@@ -13,8 +14,19 @@ import { generateFileName } from '../../../lib/pdf/naming';
 
 const clampInt = (value: number, min: number, max: number) => Math.min(max, Math.max(min, Math.round(Number.isFinite(value) ? value : min)));
 
+/** The address each kind of planner opens on. Week and the year page share the main planner page. */
+const KIND_PAGES: Record<PlannerKind, string> = { week: '/printable-planner-maker', month: '/printable-calendar-maker', day: '/daily-planner-printable', year: '/printable-planner-maker' };
+
+/** What a page change carries over, so picking another kind keeps the paper and style already chosen. */
+type Carry = Pick<PlannerSettings, 'kind' | 'page' | 'landscape' | 'margin' | 'tone' | 'weight' | 'weekStart' | 'locale' | 'title'>;
+
+/** One planner maker. Each kind has its own address; picking a kind goes to its address, and the heading, guide and FAQ on the page match it. */
 export const PlannerMaker: React.FC<{ initialKind?: PlannerKind }> = ({ initialKind }) => {
-  const make = (): PlannerSettings => ({ ...defaultPlanner(), kind: initialKind ?? 'month' });
+  const location = useLocation();
+  const make = (): PlannerSettings => {
+    const carry = (location.state as { carry?: Carry } | null)?.carry;
+    return { ...defaultPlanner(), ...carry, kind: carry?.kind ?? initialKind ?? 'month' };
+  };
   const [settings, setSettings] = useState<PlannerSettings>(make);
   const [index, setIndex] = useState(0);
   const [busy, setBusy] = useState(false);
@@ -52,12 +64,27 @@ export const PlannerMaker: React.FC<{ initialKind?: PlannerKind }> = ({ initialK
           <div className={card}>
             <h2 className={heading}>1. What to make</h2>
             <div className="mt-3 grid grid-cols-2 gap-2">
-              {KINDS.map((item) => (
-                <button key={item.id} type="button" aria-pressed={settings.kind === item.id} onClick={() => update({ kind: item.id, count: 1 })} className={`rounded-lg border px-3 py-2 text-left ${settings.kind === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
-                  <span className="block text-xs font-bold text-slate-900">{item.label}</span>
-                  <span className="block text-[11px] text-slate-500">{item.hint}</span>
-                </button>
-              ))}
+              {KINDS.map((item) => {
+                const target = KIND_PAGES[item.id];
+                const carry: Carry = { kind: item.id, page: settings.page, landscape: settings.landscape, margin: settings.margin, tone: settings.tone, weight: settings.weight, weekStart: settings.weekStart, locale: settings.locale, title: settings.title };
+                return (
+                  <Link
+                    key={item.id}
+                    to={target}
+                    state={{ carry }}
+                    replace
+                    aria-current={settings.kind === item.id ? 'true' : undefined}
+                    onClick={(event) => {
+                      // Same address: just switch the kind here, without reloading the page.
+                      if (target === location.pathname) { event.preventDefault(); update({ kind: item.id, count: 1 }); }
+                    }}
+                    className={`rounded-lg border px-3 py-2 text-left ${settings.kind === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}
+                  >
+                    <span className="block text-xs font-bold text-slate-900">{item.label}</span>
+                    <span className="block text-[11px] text-slate-500">{item.hint}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 

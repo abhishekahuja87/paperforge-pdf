@@ -218,10 +218,10 @@ Not run: full tsc, vite build, styled browser check. Checked in Node: 2,304 page
 
 ### Planners pack
 
-Merge (17 Nov): `/printable-calendar-maker` and `/daily-planner-printable` were removed (no redirect; they show the not-found page).
+Merge (17 Nov), revised: `/printable-calendar-maker` and `/daily-planner-printable` are back as link-reached addresses of the one planner (same pattern as the paper maker).
 
 - [ ] Both old addresses open the planner maker (no blank page, no 404); the maker opens on Month and the Month, Week, Day and Year buttons work.
-- [ ] The Printable group and the home page list one planner tile; the sitemap has no calendar or daily planner line; the page FAQ and article now cover calendars for any year and the daily schedule.
+- [ ] The home page lists one planner tile and one meal planner tile, one paper tile, and none of the variant pages (also not under More tools); the sitemap lists the variant addresses; on each page the kind buttons change the address and keep paper, margins and title; the Back button returns to the previous kind; the page FAQ and article now cover calendars for any year and the daily schedule.
 
 Layout checked in Node for all four kinds in portrait and landscape: nothing falls outside the page area; November 2026 with a Monday start puts day 1 in the last column; weekly headings; month rollover from December to January; Spanish, French and German names. Screens and the PDF were not run. After deploying: /printable-planner-maker, /printable-calendar-maker and /daily-planner-printable each open on the right kind; change month, year, week start and language and watch the preview; count 12 gives 12 pages and the previous/next buttons work; Download PDF opens with the same pages; Print this page prints one page; paper-maker FAQs now mention the clef, non-Latin names and printing bundles.
 
@@ -903,3 +903,8 @@ Not run: full `tsc`, `vite build`, styled browser check. Checked in Node: all 7,
 - [ ] My own numbers: 10 to 999 divided by 2 to 9; otherwise the = button stays off.
 - [ ] Addition, subtraction and multiplication pages still behave the same.
 
+
+### Print pages as addresses (17 Nov)
+- [ ] /daily-menu-planner-printable and /monthly-menu-planner-printable open the meal planner on that kind; the weekly, daily and monthly buttons switch the address and keep meals, dishes and paper.
+- [ ] Search for "calendar maker" finds the planner; the footer lists the variant pages.
+Checked with a router stand-in in an unstyled browser: address and highlighted kind change on every button for both makers. Full tsc, vite build and the styled view were not run.
