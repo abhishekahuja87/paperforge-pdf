@@ -918,3 +918,8 @@ Checked with a router stand-in in an unstyled browser: address and highlighted k
 - [ ] Search: "reduce pdf size" finds Compress PDF; "scan to searchable pdf" finds Digitize; "badminton court size" finds the court guide; "slideshow from pdf" finds Display; "hex to rgb" finds the colour converter.
 Checked with a Node script against the real config (groups, workspaces, eight searches). The styled home page was not run; check the three new topic colours (teal, sky, indigo).
 - [ ] Search ranking: "jpg to png" lists Image Converter first; "qr" lists the QR code tools before others. Checked with a Node script; styled page not run.
+
+### Tool names (18 Nov)
+- [ ] /digitize-documents still opens (same address) with the title Scan to Searchable PDF (OCR); it is the fifth tile in the PDF topic; there is no Scan topic and the Workspaces row has two tiles.
+- [ ] Renamed tiles and page titles: Add Page Numbers to PDF, Extract Text from PDF, Multiple Pages Per Sheet (N-Up PDF), Remove PDF Metadata (Sanitize PDF), Inspect PDF: Page Size, Metadata and Security, Word and Character Counter. Search "ocr" and "page numbers" still find them. The pre-built page titles in dist match.
+Checked: JSON parses and the config was read in Node; the styled home page and a build were not run.

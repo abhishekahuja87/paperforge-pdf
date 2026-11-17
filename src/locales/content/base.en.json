@@ -3100,9 +3100,9 @@
     "digitize-documents": {
       "sections": [
         {
-          "heading": "What Digitize Documents does",
+          "heading": "What Scan to Searchable PDF does",
           "paragraphs": [
-            "Digitize Documents turns photos or scans of paper documents into PDFs that contain a searchable text layer. You add PNG, JPG or WebP images, arrange them as pages, edit them if needed, and export either one combined PDF or one PDF per image. It is built on the same page editor as Master Document Studio, but this version accepts images only, not PDF or Word files."
+            "Scan to Searchable PDF turns photos or scans of paper documents into PDFs that contain a searchable text layer. You add PNG, JPG or WebP images, arrange them as pages, edit them if needed, and export either one combined PDF or one PDF per image. It is built on the same page editor as Master Document Studio, but this version accepts images only, not PDF or Word files."
           ]
         },
         {
@@ -3478,7 +3478,7 @@
         {
           "heading": "Using the results",
           "paragraphs": [
-            "Expect imperfect results for complex layouts. Columns, tables, headers and footers can come out in an odd order or run together, because the PDF stores positioned fragments and not paragraphs, and line breaks are not preserved. Hyphenated words and special characters may need cleaning up. For a scanned document, use Digitize Documents to create a searchable PDF first, which uses English OCR, or use a dedicated OCR tool for other languages."
+            "Expect imperfect results for complex layouts. Columns, tables, headers and footers can come out in an odd order or run together, because the PDF stores positioned fragments and not paragraphs, and line breaks are not preserved. Hyphenated words and special characters may need cleaning up. For a scanned document, use Scan to Searchable PDF to create a searchable PDF first, which uses English OCR, or use a dedicated OCR tool for other languages."
           ]
         },
         {

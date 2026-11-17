@@ -13,7 +13,6 @@ export interface FeaturedTool {
 
 /** Colour of each topic's icon badge on the home page. Every topic has its own hue, and none is orange, the colour of the Most used and Workspace tiles above. */
 export const HOME_COLLECTION_STYLES: Record<string, string> = {
-  scan: 'bg-teal-100 text-teal-800',
   sports: 'bg-sky-100 text-sky-800',
   present: 'bg-indigo-100 text-indigo-800',
   pdf: 'bg-red-100 text-red-800',
@@ -31,7 +30,6 @@ export const HOME_COLLECTION_STYLES: Record<string, string> = {
 
 /** Light border of each topic's panel, the same hue as its icon, so panels stay distinct while scrolling fast. */
 export const HOME_COLLECTION_BORDER: Record<string, string> = {
-  scan: 'border-teal-200',
   sports: 'border-sky-200',
   present: 'border-indigo-200',
   pdf: 'border-red-200',
@@ -49,7 +47,6 @@ export const HOME_COLLECTION_BORDER: Record<string, string> = {
 
 /** Hover colour of a tile's icon in each topic: a darker shade of the topic colour, with a white icon. */
 export const HOME_COLLECTION_HOVER: Record<string, string> = {
-  scan: 'group-hover:bg-teal-700 group-hover:text-white',
   sports: 'group-hover:bg-sky-700 group-hover:text-white',
   present: 'group-hover:bg-indigo-700 group-hover:text-white',
   pdf: 'group-hover:bg-red-700 group-hover:text-white',
