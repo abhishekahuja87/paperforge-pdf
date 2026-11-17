@@ -2083,6 +2083,14 @@
         [
           "Does conversion preserve metadata?",
           "No. Canvas re-encoding creates a new image and does not carry over metadata such as EXIF camera or location information."
+        ],
+        [
+          "How do I convert a PNG or WebP image to JPG?",
+          "Add the image, choose JPG as the output and convert. Transparent areas become white, because JPG cannot store transparency. The new file also has no camera or location information."
+        ],
+        [
+          "Can I convert an iPhone HEIC photo here?",
+          "This tool reads PNG, JPG and WebP, so it does not open HEIC files. On the iPhone you can switch the camera format to Most Compatible, or share the photo as JPG, and then use it here if you need to change its size or format."
         ]
       ]
     },
@@ -2103,6 +2111,18 @@
         [
           "What happens if I convert a transparent image to JPG?",
           "JPG cannot store transparency. Transparent areas are filled with white when producing JPG output."
+        ],
+        [
+          "How do I make a photo smaller to email or upload?",
+          "Add the photo, lower the quality a little and set a maximum dimension for the longer side, for example about 1600 pixels for a screen or an email. Check the size shown for each result. If you need an exact limit such as 50 KB, use the Image Resizer instead."
+        ],
+        [
+          "Should I use JPG, PNG or WebP?",
+          "Use JPG for photos, because it gives the smallest files. Use PNG for screenshots, logos and pictures that need sharp text or a see-through background, though the files are larger. WebP is usually smaller than both and works in current browsers and most apps, but some older forms and programs do not accept it."
+        ],
+        [
+          "What is the difference between the Image Compressor and the Image Resizer?",
+          "The Image Compressor makes files smaller using a quality setting and a maximum size, and you see the result. The Image Resizer works to a target: a file size in KB, such as 20 KB for a signature, or an exact width and height. Use the compressor for general shrinking and the resizer for form uploads."
         ]
       ]
     },

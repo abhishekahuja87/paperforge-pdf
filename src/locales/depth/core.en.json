@@ -1105,6 +1105,10 @@
         [
           "What is a good length for a blog post?",
           "It depends on the topic. Many useful posts run from 800 to 2,000 words. Cover the question fully, and do not add length for its own sake."
+        ],
+        [
+          "How do I check the word count for an essay or assignment limit?",
+          "Paste or type your text and read the word count straight away. Check whether your teacher or exam counts the title, headings, references and quotes, because this affects the number you should compare with the limit."
         ]
       ]
     },
@@ -1213,6 +1217,18 @@
         [
           "What is the difference between percentage and percentage points?",
           "Percentage points describe the simple difference between two percentages. If an interest rate goes from 6 percent to 7 percent, it rises by one percentage point, which is a relative increase of about 16.7 percent."
+        ],
+        [
+          "How do I calculate my exam marks as a percentage?",
+          "Divide the marks you got by the total marks and multiply by 100. In the calculator use what percent one number is of another: for example 432 out of 500 gives 86.4 percent."
+        ],
+        [
+          "How do I find the price after a 20 percent discount?",
+          "Take 20 percent of the price and subtract it, or multiply the price by 0.80. On a price of 2,500 the discount is 500 and the sale price is 2,000. The Discount Calculator also shows the amount you save."
+        ],
+        [
+          "How do I work out a salary hike or a price rise in percent?",
+          "Use percentage change: subtract the old value from the new one, divide by the old value and multiply by 100. A salary that goes from 50,000 to 56,000 is a 12 percent hike."
         ]
       ]
     },
@@ -1303,10 +1319,6 @@
     "ageCalc": {
       "faq": [
         [
-          "How is age counted on a leap day birthday?",
-          "For a 29 February birthday, many legal systems treat the birthday as 28 February or 1 March in non-leap years. The rule differs by country and purpose, so check the one that applies to you."
-        ],
-        [
           "Can I calculate the age of a child in months?",
           "Yes. The result shows years, months and days, and the total in months, weeks and days, which doctors and nurseries often ask for."
         ]
@@ -1333,6 +1345,14 @@
         [
           "Does paying a lump sum reduce the EMI or the term?",
           "It depends on your lender and your choice. Usually you can keep the EMI the same and shorten the term, which saves the most interest, or lower the EMI and keep the term."
+        ],
+        [
+          "How do I calculate the EMI for a home, car or personal loan?",
+          "Enter the loan amount, the yearly interest rate and the time in years or months. The formula is the same for any loan with equal monthly payments. For example, a loan of 10,00,000 at 9 percent for 5 years has an EMI of about 20,758 and about 2,45,501 of total interest."
+        ],
+        [
+          "Should I choose a shorter or a longer loan period?",
+          "A shorter period has a higher EMI but much less total interest. The same 10,00,000 at 9 percent over 10 years has an EMI of about 12,668 but about 5,20,109 of interest. Choose the shortest period whose EMI you can pay without strain."
         ]
       ]
     },
@@ -1369,6 +1389,10 @@
         [
           "Is a SIP the same as a mutual fund?",
           "No. A SIP is a way of investing a fixed amount at regular intervals. The mutual fund is the product you invest in. You can run a SIP in many kinds of funds."
+        ],
+        [
+          "What return rate should I enter for a SIP?",
+          "No return is guaranteed, so do not rely on a single figure. Try a low, a middle and a high rate, for example 8, 10 and 12 percent, to see the range of results. Use the lower figures when you are planning for something you cannot miss."
         ]
       ]
     },
@@ -1381,6 +1405,14 @@
         [
           "Why are the image files large?",
           "PNG images keep every detail and are larger than JPG for photographs. Reduce the scale or use the Image Resizer to make them smaller."
+        ],
+        [
+          "How do I save one page of a PDF as a picture?",
+          "Convert the PDF, then download the page image you need. Each page becomes its own PNG, so you do not have to keep the others."
+        ],
+        [
+          "How do I use the pictures on a website or in a presentation?",
+          "The pictures are PNG, which is sharp but large. For a website or an email, run them through the Image Compressor and choose JPG or WebP to make them much smaller."
         ]
       ]
     },
@@ -1441,6 +1473,14 @@
         [
           "Will the PDF be searchable?",
           "No. The pages are pictures, so the text cannot be selected or searched. Use the Digitize Documents tool if you need a searchable text layer."
+        ],
+        [
+          "How do I combine several photos or scanned pages into one PDF?",
+          "Add all the images, put them in the order you want with the arrow buttons, and make the PDF. Each image becomes one page. Check the first and last pages in the preview before you download."
+        ],
+        [
+          "How do I make a PDF from photos of a document taken on a phone?",
+          "Take each photo in good light with the page flat and filling the frame. This tool does not straighten or crop pictures, so trim the edges in your phone gallery first. Then add them in page order. If the PDF is too large to upload, run it through Compress PDF."
         ]
       ]
     },
@@ -1609,6 +1649,10 @@
         [
           "Will the protected file work on phones and in other programs?",
           "Standard PDF viewers on phones and computers ask for the password and open the file. Very old or simple viewers may not support all settings."
+        ],
+        [
+          "How do I put a password on a PDF before emailing it?",
+          "Add the PDF, enter a password you can remember, and download the protected file. Send the file by email and give the password by a different route, such as a phone call or a message, so that anyone who sees the email cannot open the file."
         ]
       ]
     },
@@ -1645,6 +1689,18 @@
         [
           "Will compression make text harder to read?",
           "Text and vector drawings are not blurred by this tool. Images may lose some detail at the stronger setting, so check them before you send the file."
+        ],
+        [
+          "How do I compress a PDF to under 100 KB, 200 KB or 1 MB?",
+          "Choose Reduce to a size, then type your limit or tap one of the common size buttons. The tool first tries a lossless clean-up and, only if the file is still too big, turns the pages into pictures at the best quality that fits. Check the size shown before you download. If a very small limit makes the pages too blurry, remove pages you do not need first, or split the file."
+        ],
+        [
+          "Why is my PDF still big after Clean up only?",
+          "Clean up only rewrites the file structure and removes extra data, so a PDF made of scanned pages or large photos hardly changes. To make it smaller, use Reduce to a size. Text is then no longer selectable, so keep your original."
+        ],
+        [
+          "How do I reduce a scanned PDF for an online form or job portal?",
+          "A scan is already a set of pictures, so use Reduce to a size and enter the limit the portal gives. Many portals want between 100 KB and 2 MB per file. After compressing, open the file and read every page to check that the writing is still clear before you upload it."
         ]
       ]
     },

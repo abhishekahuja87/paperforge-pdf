@@ -141,6 +141,14 @@ accessibility. The reused digitization editor still has English-only controls.
 
 Logic checked in Node: resume checklist findings, month and range formatting, imported-file clean-up, notice-period dates (calendar, working days, months with month-end clamping, buyout, leave, joining gap), file-name clean-up and the size, type, page and name checks. The screens were not run. After deploying: Resume Builder (load the example, change layout/paper, press Print and check that only the resume prints, the PDF text is selectable, the page count matches, Save and Open data file round-trips, the Remember box keeps and clears the saved copy); Notice Period (compare a few dates by hand, check a shared link restores the inputs); Upload File Checker (a large PDF, a protected PDF, a scanned PDF, a JPG and a file named with spaces; the fix links open the right tools).
 
+### FAQ clean-up and situation questions (17 Nov)
+
+Not run: full tsc, vite build, browser check. JSON files parse and round-trip.
+
+- [ ] Compress PDF, Image Compressor, Image Converter, Images to PDF, PDF to Images, Protect PDF, Percentage, EMI, SIP and Word Counter pages show the new questions, with the privacy question still reading naturally; EMI examples read about 20,758 EMI and about 2,45,501 interest (10,00,000 at 9 percent for 5 years) and about 12,668 and 5,20,109 for 10 years.
+- [ ] Age Calculator no longer shows the leap-day question twice; Upload File Checker shows one privacy question, not two.
+- [ ] Switch language to German on /image-compressor: the first four questions keep their translations in order and the new ones follow in English.
+
 ### Image resizer merge (17 Nov)
 
 Not run: full tsc, vite build, browser check. Parse-checked only.

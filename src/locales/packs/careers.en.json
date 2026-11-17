@@ -171,10 +171,6 @@
         [
           "Which files can it read?",
           "PDFs and common images (JPG, PNG, WebP and GIF) can be fully checked. Other files, such as Word documents, are checked for size, type and name only."
-        ],
-        [
-          "Is my information uploaded or stored?",
-          "No. Files are checked on your device and are not sent to {{siteName}}. The page still loads advertising and other resources from the network."
         ]
       ]
     }
