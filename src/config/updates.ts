@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-17',
     path: '/printable-paper-maker',
     tool: 'Printable paper maker',
+    title: 'Paper maker: each paper has its own page',
+    summary: 'Pick a paper in the grid and the page opens on it, for example dot grid or graph paper, with your page size kept. One tool, and every paper is easy to reach and share.',
+  },
+  {
+    date: '2026-11-17',
+    path: '/printable-paper-maker',
+    tool: 'Printable paper maker',
     title: 'Paper maker: pick the paper, change settings only if needed',
     summary: 'Quick starts and the paper style both changed the paper, which was confusing. Now you just pick the paper. Each starts with sensible settings, and everything else is under Adjust everything.',
   },

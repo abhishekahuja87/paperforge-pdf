@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Download, FolderOpen, Printer, RotateCcw, Save } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
@@ -20,9 +20,26 @@ const presetButtons = (spacings: { label: string; value: number }[], current: nu
   </div>
 );
 
-/** With `focused`, the page is about one paper type: no style picker, only the quick starts for that type, and links to the other types. */
-export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean }> = ({ initialStyle, focused = false }) => {
-  const [settings, setSettings] = useState<PaperSettings>(() => (typeof window !== 'undefined' ? decodeShare(window.location.hash) : null) ?? forStyle(DEFAULT_SETTINGS, initialStyle ?? DEFAULT_SETTINGS.style));
+/** The address each paper style opens on. Styles without a page of their own open on the main maker. */
+const STYLE_PAGES: Partial<Record<PaperStyle, string>> = {
+  dot: '/dot-grid-paper-generator', graph: '/graph-paper-generator', cornell: '/cornell-notes-template',
+  hex: '/hexagon-graph-paper-generator', calligraphy: '/calligraphy-practice-sheet-generator', crossstitch: '/cross-stitch-pattern-grid-generator',
+};
+const MAIN_PAGE = '/printable-paper-maker';
+
+/** What a page change carries over, so picking another paper keeps the page size, count and orientation already chosen. */
+interface Carry { style: PaperStyle; page: PaperSettings['page']; pages: number; landscape: boolean; binding: boolean; bindingAlternate: boolean }
+
+/** One paper maker. Every paper style has an address; picking a style goes to its address, and the heading, guide and FAQ on the page match it. */
+export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialStyle }) => {
+  const location = useLocation();
+  const [settings, setSettings] = useState<PaperSettings>(() => {
+    const shared = typeof window !== 'undefined' ? decodeShare(window.location.hash) : null;
+    if (shared) return shared;
+    const carry = (location.state as { carry?: Carry } | null)?.carry;
+    const base = carry ? { ...DEFAULT_SETTINGS, page: carry.page, pages: carry.pages, landscape: carry.landscape, binding: carry.binding, bindingAlternate: carry.bindingAlternate } : DEFAULT_SETTINGS;
+    return forStyle(base, carry?.style ?? initialStyle ?? DEFAULT_SETTINGS.style);
+  });
   const [side, setSide] = useState<'front' | 'back'>('front');
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -84,19 +101,33 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] print:hidden">
         <div className="order-2 space-y-4 lg:order-1">
-          {!focused && (
-            <div className={card}>
-              <h2 className={heading}>Choose the paper</h2>
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                {STYLES.map((item) => (
-                  <button key={item.id} type="button" aria-pressed={settings.style === item.id} onClick={() => setSettings((current) => forStyle(current, item.id))} className={`rounded-lg border px-3 py-2 text-left ${settings.style === item.id ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
+          <div className={card}>
+            <h2 className={heading}>Choose the paper</h2>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              {STYLES.map((item) => {
+                const target = STYLE_PAGES[item.id] ?? MAIN_PAGE;
+                const carry: Carry = { style: item.id, page: settings.page, pages: settings.pages, landscape: settings.landscape, binding: settings.binding, bindingAlternate: settings.bindingAlternate };
+                const on = settings.style === item.id;
+                return (
+                  <Link
+                    key={item.id}
+                    to={target}
+                    state={{ carry }}
+                    replace
+                    aria-current={on ? 'true' : undefined}
+                    onClick={(event) => {
+                      // Same address: just switch the paper here, without reloading the page.
+                      if (target === location.pathname) { event.preventDefault(); setSettings((current) => forStyle(current, item.id)); }
+                    }}
+                    className={`rounded-lg border px-3 py-2 text-left ${on ? 'border-orange-300 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}
+                  >
                     <span className="block text-xs font-bold text-slate-900">{item.label}</span>
                     <span className="block text-[11px] text-slate-500">{item.hint}</span>
-                  </button>
-                ))}
-              </div>
+                  </Link>
+                );
+              })}
             </div>
-          )}
+          </div>
 
           <details className={card}>
             <summary className="cursor-pointer text-sm font-bold text-slate-900">Adjust everything <span className="font-normal text-slate-500">(spacing, size, margins, ink, header, extras)</span></summary>
@@ -253,7 +284,6 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle; focused?: boolean
             </div>
           </div>
 
-          {focused && <p className="text-xs text-slate-600"><Link to="/printable-paper-maker" className="font-semibold text-orange-800 underline">See all paper types</Link></p>}
         </div>
 
         <div className="order-1 lg:order-2">
