@@ -34,7 +34,7 @@ export const StudyPlanner: React.FC = () => {
       <p className="text-xs text-slate-600">Add each subject with its exam date and the hours of study it still needs. The plan fills your study days, giving the most time to whatever is most urgent.</p>
       <div className="mt-3 space-y-2">
         {subjects.map((item, index) => (
-          <div key={item.id} className="grid grid-cols-[1fr_8.5rem_4.5rem_auto] items-center gap-2">
+          <div key={item.id} className="grid grid-cols-2 items-center gap-2 sm:grid-cols-[1fr_8.5rem_4.5rem_auto]">
             <RowInput label={`Subject ${index + 1} name`} placeholder={`Subject ${index + 1}`} value={item.name} onChange={(event) => update(item.id, { name: event.target.value })} />
             <RowInput label={`Subject ${index + 1} exam date`} type="date" value={item.examDate} onChange={(event) => update(item.id, { examDate: event.target.value })} />
             <RowInput label={`Subject ${index + 1} hours needed`} inputMode="decimal" placeholder="Hours" value={item.hours} onChange={(event) => update(item.id, { hours: event.target.value })} />

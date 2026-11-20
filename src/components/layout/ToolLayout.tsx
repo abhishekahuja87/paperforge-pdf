@@ -5,7 +5,7 @@ import { ArrowLeft, Maximize2, ShieldCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ToolArticle } from '../common/ToolArticle';
 import { ADS_CONFIG } from '../../config/ads';
-import { siteConfig } from '../../config/site';
+import { toolPageTitle } from '../../config/site';
 import { buildToolJsonLd } from '../../lib/structuredData';
 import { useTranslation } from 'react-i18next';
 import { useFocusMode } from '../../lib/focusMode';
@@ -73,7 +73,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
     <div className={isWorkshop ? 'min-h-full bg-[var(--theme-background)] text-stone-900' : ''}>
       <div className={`mx-auto px-4 py-8 ${isWorkshop ? 'max-w-6xl space-y-6 sm:py-8' : 'max-w-5xl space-y-8'}`}>
         <PageMetadata
-          title={`${title} ${siteConfig.toolTitleSuffix}`}
+          title={toolPageTitle(title)}
           description={subtitle}
           jsonLd={buildToolJsonLd({ name: title, description: subtitle, path: pathname })}
         />

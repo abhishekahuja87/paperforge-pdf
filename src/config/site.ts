@@ -13,3 +13,12 @@ export const siteConfig = {
   /** Added after a tool's name in its page title, for example "Merge PDF Online Free, No Upload | MyDailyUtils". */
   toolTitleSuffix: 'Online Free, No Upload',
 };
+
+/** Longest "name + suffix" that still leaves room for " | MyDailyUtils" inside Google's ~65 characters. */
+const TITLE_ROOM = 50;
+
+/** Tool page title: adds the suffix only when it fits, so long names keep their own keywords visible. */
+export function toolPageTitle(title: string): string {
+  const full = `${title} ${siteConfig.toolTitleSuffix}`;
+  return full.length <= TITLE_ROOM ? full : title;
+}
