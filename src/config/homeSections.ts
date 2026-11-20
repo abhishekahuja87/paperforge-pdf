@@ -37,6 +37,7 @@ export const VARIANT_PAGES = [
   'dot-grid-paper-generator', 'graph-paper-generator', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
   'printable-calendar-maker', 'daily-planner-printable', 'daily-menu-planner-printable', 'monthly-menu-planner-printable',
   'health-log-sheet-printable', 'emergency-info-card-printable', 'doctor-visit-sheet-printable', 'caregiver-daily-log-printable',
+  'monthly-household-budget-sheet-printable', 'warranty-service-record-printable', 'udhaar-credit-ledger-printable', 'daily-cash-sales-sheet-printable', 'stock-count-sheet-printable', 'pet-vaccination-tracker-printable', 'pet-sitter-instructions-printable',
 ];
 
 export interface CollectionSpec {
@@ -66,11 +67,11 @@ export const COLLECTIONS: CollectionSpec[] = [
     'sports-court-size-guide', 'exercise-library', 'bmi-calculator',
   ] },
   { id: 'printables', icon: 'layers', tools: [
-    'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable',
+    'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable', 'milk-maid-attendance-calendar-printable', 'pet-health-record-card-printable',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',
-    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker',
+    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable',
   ] },
   { id: 'present', icon: 'presentation', tools: ['display-studio'] },
   { id: 'study', icon: 'type', tools: [

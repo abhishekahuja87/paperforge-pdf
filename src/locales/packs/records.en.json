@@ -1,0 +1,776 @@
+{
+  "guideSteps": {
+    "milk-maid-attendance-calendar-printable": [
+      [
+        "Name the things to track",
+        "Type up to five lines, such as Milk (litres), Maid, Cook and Newspaper. Put the unit in brackets when you count a quantity."
+      ],
+      [
+        "Choose the month",
+        "Pick the month and year, and how many months to print. Every month gets its own page with the correct number of days."
+      ],
+      [
+        "Keep the bill rows",
+        "Leave Total, rate and amount due switched on to add up the month at the bottom of the page."
+      ],
+      [
+        "Print and pin it up",
+        "Print the page, stick it on the fridge or kitchen wall and tick or write the quantity each day, then total it when the bill comes."
+      ]
+    ],
+    "monthly-household-budget-sheet-printable": [
+      [
+        "Pick the month",
+        "Choose the month and year printed at the top of the page."
+      ],
+      [
+        "Edit the lines",
+        "Type your own income, fixed costs, everyday costs and savings lines, one per line. The suggestions can be replaced or removed."
+      ],
+      [
+        "Choose the columns",
+        "Keep Planned and Actual to compare the plan with what really happened, or switch to a single Actual column."
+      ],
+      [
+        "Print and fill in",
+        "Write the plan at the start of the month, the actual amounts as bills are paid, and add up each section at the end."
+      ]
+    ],
+    "warranty-service-record-printable": [
+      [
+        "Type the items",
+        "Optionally type the appliances you own, one per line, such as Refrigerator, Washing machine or Water purifier. Leave the box empty for blank rows."
+      ],
+      [
+        "Set the rows",
+        "Choose between 8 and 24 rows, or more if you typed more items."
+      ],
+      [
+        "Add the service log",
+        "Keep the service log page to record repairs and servicing with the date, cost and next due date."
+      ],
+      [
+        "Print and fill in",
+        "Write the brand, bought-on date, shop, bill number and warranty end date, and keep the bills in an envelope beside the sheet."
+      ]
+    ],
+    "staff-attendance-register-printable": [
+      [
+        "Add the staff",
+        "Type the names, one per line, up to 30, or leave the box empty and write the names by hand."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year, and how many months to print. Each page has exactly the days of that month."
+      ],
+      [
+        "Switch on salary columns",
+        "If you want, add Rate and Amount columns to work out pay from the days present."
+      ],
+      [
+        "Print and mark daily",
+        "Write P for present, A for absent, H for half day and L for leave in each box, and count the days at the end of the month."
+      ]
+    ],
+    "udhaar-credit-ledger-printable": [
+      [
+        "Add the customers",
+        "Type customer names, one per line, up to 20, and each gets a page. Leave empty to print blank pages instead."
+      ],
+      [
+        "Choose the pages",
+        "For blank pages, set how many to print, up to 20."
+      ],
+      [
+        "Keep the phone line",
+        "Leave the phone number line on so you can reach the customer about a balance."
+      ],
+      [
+        "Print and use daily",
+        "Write the date and what was given on credit, write what is received when it is paid, and carry the balance down the page."
+      ]
+    ],
+    "daily-cash-sales-sheet-printable": [
+      [
+        "Pick the first day",
+        "Choose the first date and how many days to print, up to 31. Each day gets a page with its date and weekday."
+      ],
+      [
+        "Set the expense lines",
+        "Choose how many lines to leave for expenses, from 4 to 12."
+      ],
+      [
+        "Keep the note count",
+        "Leave the note and coin table on to count the cash in the drawer by denomination."
+      ],
+      [
+        "Print and fill in at closing",
+        "Write the opening cash, the sales by payment type, the expenses and the cash counted, then compare it with the expected closing cash."
+      ]
+    ],
+    "stock-count-sheet-printable": [
+      [
+        "Type the items",
+        "Optionally type the items, one per line, up to 100. They run down the pages in order. Leave empty for blank rows."
+      ],
+      [
+        "Set rows and pages",
+        "Choose 12 to 35 rows on a page. If you typed items, the page count follows automatically; otherwise set the number of blank pages."
+      ],
+      [
+        "Add the shop name",
+        "Type the business name so it is printed on each page."
+      ],
+      [
+        "Print and count",
+        "Write the unit, the opening quantity, the quantity counted, the difference and any note, and write the date and your name at the top."
+      ]
+    ],
+    "pet-health-record-card-printable": [
+      [
+        "Type the pet's details",
+        "Add the pet's name, species and breed, date of birth or age, colour and marks, microchip or licence number, and any allergies."
+      ],
+      [
+        "Add the vet and owner",
+        "Type the vet and clinic with a phone number, and the owner's name and phone."
+      ],
+      [
+        "Print the record",
+        "The page has tables for vaccinations and for deworming, tick and flea treatment, with space for the date, the next due date and the vet's signature or stamp."
+      ],
+      [
+        "Keep it with the vet papers",
+        "Take it to each visit and ask the vet to fill in or stamp the rows. The vet decides what is given and when."
+      ]
+    ],
+    "pet-vaccination-tracker-printable": [
+      [
+        "Pre-fill the names (optional)",
+        "Type the vaccines or treatments exactly as your vet names them, one per line. Leave empty to write them in by hand."
+      ],
+      [
+        "Choose rows and pages",
+        "Pick 8 to 25 rows on a page and up to 6 pages. Pages are added if you typed more names than fit."
+      ],
+      [
+        "Add the species",
+        "Optionally type the species and breed so it is printed under the title."
+      ],
+      [
+        "Print and keep it updated",
+        "Write the date, the brand and batch from the vet's label, the pet's weight, the vet's name or stamp, and the next due date after each visit."
+      ]
+    ],
+    "pet-sitter-instructions-printable": [
+      [
+        "Fill in the feeding details",
+        "Type the food and brand, the amount and the meal times."
+      ],
+      [
+        "Add walks and medicines",
+        "Type the walk and toilet times and any medicines with how much to give and when."
+      ],
+      [
+        "Add the emergency contacts",
+        "Type the vet and clinic, the vet's phone, your phone while away and a backup person."
+      ],
+      [
+        "Print and leave it out",
+        "Print the sheet, add habits and house rules in the lined boxes by hand, and leave it where the sitter will see it, such as the fridge."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "milkMaidGuide": {
+      "title": "Milk and Maid Attendance Calendar Printable: Daily Record Sheet",
+      "subtitle": "Print a monthly milk, maid and newspaper calendar with a row for every date and a total and bill at the bottom. Free, no sign-up, made in your browser.",
+      "faq": [
+        [
+          "What is a milk and maid attendance calendar?",
+          "It is a monthly sheet with a row for every date and a column for each service you pay for, such as the milkman, the maid, the cook or the newspaper. You tick or write the quantity each day, so you can check the bill at the end of the month."
+        ],
+        [
+          "How do I use it to check the milk bill?",
+          "Write the litres delivered each day. At the end of the month add up the column in the Total row, write the rate per litre in the Rate row, and multiply to get the amount due. If your total differs from the milkman's, the daily record shows which days to discuss."
+        ],
+        [
+          "Can I track more than milk?",
+          "Yes. You can have up to five columns, for example Milk (litres), Maid, Cook, Newspaper and Water can. The columns share the width of the page equally."
+        ],
+        [
+          "How do I count a half day or an absence?",
+          "Write the quantity or a short code in the box, such as P for present, A for absent or H for a half day, and use the Remarks column for the reason. Count the codes at the end of the month."
+        ],
+        [
+          "Does it handle months with 28, 30 or 31 days?",
+          "Yes. Each page is drawn for the actual month and year you choose, including February in a leap year, and the weekday names are correct for every date. Sundays are printed in bold."
+        ],
+        [
+          "Can I print a whole year at once?",
+          "Yes. Choose the starting month and set the number of months to 12 to download one PDF with a page for each month."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "householdBudgetGuide": {
+      "title": "Monthly Household Budget Sheet Printable: Income, Bills and Savings",
+      "subtitle": "Print a one-page monthly household budget with income, fixed costs, everyday spending and savings, and planned and actual columns. Free and private.",
+      "faq": [
+        [
+          "What does the household budget sheet contain?",
+          "Four sections on one page: income, fixed costs such as rent and EMI, everyday costs such as groceries and fuel, and savings. Each section has a row for every line, one blank row, a total row, and a Planned and an Actual column."
+        ],
+        [
+          "Can I change the lines?",
+          "Yes. Type your own lines in each box, one per line, up to ten for each section. The page re-spaces itself so every line stays readable."
+        ],
+        [
+          "What is the difference between Planned and Actual?",
+          "Planned is what you intend to spend or earn, written at the start of the month. Actual is what really happened, written as you pay. Comparing the two shows where the plan was unrealistic."
+        ],
+        [
+          "How do I work out the amount left over?",
+          "Add up the income total, subtract the totals of fixed costs, everyday costs and savings, and write the answer in the last row. If it is negative, you spent more than you earned that month."
+        ],
+        [
+          "Is there a rule for how to split income?",
+          "A common rule of thumb is about 50 percent for needs, 30 percent for wants and 20 percent for savings. It is only a starting point, and a household with a loan or school fees may split differently."
+        ],
+        [
+          "Can I use it every month?",
+          "Yes. Change the month and print a new page whenever you need one. Keep a month's page with the bills so you can look back at what you paid."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "warrantyRecordGuide": {
+      "title": "Warranty and Service Record Printable: Appliance Bills Register",
+      "subtitle": "Print a warranty and bills register for home appliances, with columns for brand, bill number and warranty date, plus a service log page. Free and private.",
+      "faq": [
+        [
+          "What goes in the warranty record?",
+          "For each appliance: the item, brand and model, the date bought, the shop and bill number, the date the warranty ends, and a notes column. A second page logs repairs and servicing."
+        ],
+        [
+          "How do I know when my warranty ends?",
+          "Check the warranty card or the bill. The period usually starts from the purchase date, but some brands start it from installation, so read the card and write the end date in the Warranty until column."
+        ],
+        [
+          "Why keep the bill with the warranty?",
+          "A shop or service centre usually asks for the bill to honour a warranty, and a dated bill proves when you bought the item. Staple a small bill to the sheet or keep them together in a folder."
+        ],
+        [
+          "Can I pre-fill the appliance names?",
+          "Yes. Type them one per line, up to 24, and they are printed in the Item column of the first rows. The rest of the rows stay blank for you to fill in by hand."
+        ],
+        [
+          "What is the service log for?",
+          "It records every repair or service: the date, what was done, the cost, when the next service is due, and who did it. A written history helps when you sell the item or claim under a warranty."
+        ],
+        [
+          "Is it printed in landscape?",
+          "Yes, by default, because the table has seven columns. You can switch to portrait under Adjust everything."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The register is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "staffAttendanceGuide": {
+      "title": "Staff Attendance Register Printable: Monthly Sheet for Shops",
+      "subtitle": "Print a monthly staff attendance register with a column for each date, optional weekday letters and salary columns. Landscape, free, made in your browser.",
+      "faq": [
+        [
+          "What does the attendance register look like?",
+          "A landscape table with a row for each staff member and a narrow column for each date of the month, followed by a Days column. You can add Rate and Amount columns for pay. Sundays are marked on the weekday row."
+        ],
+        [
+          "What should I write in the boxes?",
+          "Most shops use P for present, A for absent, H for a half day and L for leave. The legend at the bottom of the page lists them. Any code works as long as everyone uses the same one."
+        ],
+        [
+          "How do I work out the salary from the register?",
+          "Count the days present at the end of the month, counting a half day as half, and write the total in the Days column. Multiply by the daily rate to get the amount. The sheet only organises the numbers; it does not calculate PF, ESI or any deduction."
+        ],
+        [
+          "How many staff can it hold?",
+          "Up to 30 rows on a page. For more staff, print a second sheet. You can also type up to 30 names so they are printed in the first column."
+        ],
+        [
+          "Does it fit months with 28, 29, 30 or 31 days?",
+          "Yes. The page is drawn for the actual month and year, so February has 28 or 29 columns and the weekday letters are correct."
+        ],
+        [
+          "Is this register a legal requirement?",
+          "Rules about attendance and wage registers differ by state and by the type of establishment, so check your state's Shops and Establishments rules or ask your accountant which registers you must keep. This sheet is a clear format for the daily record."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The register is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "udhaarLedgerGuide": {
+      "title": "Udhaar Credit Ledger Printable: Customer Khata Pages",
+      "subtitle": "Print udhaar khata pages: one ledger page per customer with date, details, given, received and balance columns. Free, no sign-up, nothing uploaded.",
+      "faq": [
+        [
+          "What is an udhaar ledger?",
+          "It is a customer-wise account of credit. Each page has a row for every transaction with the date, details of the items, the amount given on credit, the amount received, and the balance after it."
+        ],
+        [
+          "How do I calculate the balance?",
+          "New balance = the balance above + the amount given - the amount received. Write the balance in the last column after each entry so the current figure is always at the bottom."
+        ],
+        [
+          "Can I print a page for every customer?",
+          "Yes. Type the names, one per line, up to 20, and each name is printed on its own page. If you leave the list empty, you get blank pages to write the names on yourself."
+        ],
+        [
+          "How many entries fit on a page?",
+          "Twenty-six rows. When a page is full, carry the final balance to the first row of a new page and write \"balance brought forward\" in the details."
+        ],
+        [
+          "Does it add up the amounts for me?",
+          "No. It is a printed ledger, so you add by hand or with a calculator. That keeps it private and works without a phone."
+        ],
+        [
+          "Is a ledger like this enough to claim a debt?",
+          "A written, dated record signed or initialled by the customer is better than memory, but what counts as proof depends on the situation. For a large amount, ask a lawyer or accountant what you need."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The ledger is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "dailyCashGuide": {
+      "title": "Daily Cash and Sales Sheet Printable: Shop Closing Register",
+      "subtitle": "Print a daily cash and sales sheet for a shop: opening cash, sales by payment type, expenses, cash counted by note and expected closing. Free, no sign-up.",
+      "faq": [
+        [
+          "What does the daily cash sheet record?",
+          "Opening cash, sales split into cash, UPI and online, card and credit given, money received such as udhaar collected, expenses, and the total expected in the drawer at closing. A side table counts notes and coins."
+        ],
+        [
+          "How do I find the expected closing cash?",
+          "Opening cash + cash sales + udhaar collected + other cash in - expenses paid in cash. The formula is printed under the box. UPI and card sales do not go into the drawer, so they are not part of this figure."
+        ],
+        [
+          "What is the note and coin table for?",
+          "You count the notes in the drawer by denomination, from 500 to 10 rupees and coins, multiply by the value and total them. The total counted is compared with the expected closing cash, and any difference goes in the Difference line."
+        ],
+        [
+          "What should I do if the counted cash does not match?",
+          "Write the difference and a short reason in Notes if you know it. Small differences from change are common; a repeating or growing gap is a sign to check the sales entries and the expenses."
+        ],
+        [
+          "Can I print a week or a month at once?",
+          "Yes. Set the number of days up to 31 and download one PDF with a page for each day, starting from the date you choose."
+        ],
+        [
+          "Does it replace accounting software?",
+          "No. It is a daily paper record that is quick to fill in. Many owners use it to feed the numbers into their accountant's books or software at the end of the week."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "stockCountGuide": {
+      "title": "Stock Count Sheet Printable: Inventory Checklist",
+      "subtitle": "Print a stock count sheet with item, unit, opening, counted and difference columns, with the item names pre-filled if you like. Free and private.",
+      "faq": [
+        [
+          "What is a stock count sheet?",
+          "It is a table for a physical stock check. For each item you record the unit, the opening quantity from your records, the quantity you actually counted, and the difference between them."
+        ],
+        [
+          "How do I calculate the difference?",
+          "Difference = counted - opening. A negative figure means fewer items than expected, and a positive one means more. Write the reason in Notes if you find it."
+        ],
+        [
+          "Can I pre-fill the item names?",
+          "Yes. Type one item per line, up to 100. They fill the Item column from the top, and extra pages are added when the list is longer than one page."
+        ],
+        [
+          "How often should I count stock?",
+          "It depends on the business. Fast-moving or high-value items are often counted weekly or monthly, and a full count is done at least once a year. Pick a rhythm and keep to it."
+        ],
+        [
+          "How many rows fit on a page?",
+          "You can set between 12 and 35 rows. Fewer rows make each box taller, which is easier to write in on a shop floor."
+        ],
+        [
+          "Who should do the count?",
+          "Where possible, someone who does not do the billing or receiving, with a second person checking, so the count is independent. Write who counted at the top of the sheet."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "petHealthRecordGuide": {
+      "title": "Pet Health Record Printable: Vaccination and Vet Record Card",
+      "subtitle": "Print a pet health record: details, vaccination table and deworming table with next-due dates and vet signature. Free, no sign-up, nothing uploaded.",
+      "faq": [
+        [
+          "What is on the pet health record?",
+          "The pet's name, species and breed, date of birth, colour and marks, microchip or licence number, vet and owner contact details, allergies, a vaccination table and a table for deworming, tick and flea treatment."
+        ],
+        [
+          "Does it tell me which vaccines my pet needs?",
+          "No. Your vet decides which vaccines and treatments your pet needs and when, based on age, health and where you live. The record only holds what the vet gives you."
+        ],
+        [
+          "Why keep a written record?",
+          "Boarding places, groomers, trainers and airlines often ask for proof of vaccination, and a new vet will want the history. A single sheet with the dates and the vet's stamp is easier to produce than searching for old bills."
+        ],
+        [
+          "What is the next due column for?",
+          "Write the date the vet tells you the next dose or treatment is due. Put it on the calendar or set a phone reminder, so it is not missed."
+        ],
+        [
+          "Can I use it for a cat, a rabbit or a bird?",
+          "Yes. Type the species and breed and use the tables for whatever your vet records. The rows for vaccines and treatments are blank, so they fit any pet."
+        ],
+        [
+          "Can I keep a longer history?",
+          "Use the Vaccination tracker for more rows. It prints up to six landscape pages of dated entries with brand, batch and next-due date."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The record is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "petVaccineTrackerGuide": {
+      "title": "Pet Vaccination Tracker Printable: Dates, Batch and Next Due",
+      "subtitle": "Print a pet vaccination and treatment tracker with date, brand and batch, weight, vet and next due columns, in landscape. Free and private.",
+      "faq": [
+        [
+          "What does the tracker record?",
+          "Each row records the date, the vaccine or treatment, the brand and batch, the pet's weight, the vet's name or stamp and the date the next dose is due."
+        ],
+        [
+          "Where do I find the brand and batch?",
+          "They are on the label or sticker the vet gives you, or on the vaccine card. Stick the sticker or copy the batch number into the Brand and batch column."
+        ],
+        [
+          "Why record the weight?",
+          "Some treatments are dosed by weight, and a series of weights shows how a puppy or kitten is growing. The vet will tell you if it matters for your pet."
+        ],
+        [
+          "Does it say when my pet is due?",
+          "Only what you write. Your vet gives the schedule, and you write the next due date in the last column so it is on paper and on the calendar."
+        ],
+        [
+          "How many entries can I keep?",
+          "Up to 25 rows on a page and up to 6 pages, so a lifetime of boosters fits in one PDF. Print a new copy when pages are full."
+        ],
+        [
+          "What is the difference from the pet health record?",
+          "The pet health record is a one-page card with identity details and short tables. The tracker is a longer log, in landscape, for a longer history of dates and batches."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The tracker is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "petSitterGuide": {
+      "title": "Pet Sitter Instructions Printable: Feeding, Walks and Emergency Sheet",
+      "subtitle": "Print a pet sitter instruction sheet with feeding, walks, medicines, vet and emergency contacts, plus space for habits and house rules. Free and private.",
+      "faq": [
+        [
+          "What should I write for a pet sitter?",
+          "The food, amounts and meal times, the walk and toilet routine, any medicines, the vet's name and phone, how to reach you, and a backup contact. Add the pet's habits and any house rules, such as which door must stay shut."
+        ],
+        [
+          "What information does the sheet have fields for?",
+          "Food and brand, amount and meal times, walks and toilet breaks, medicines, vet and clinic, vet phone, your phone while away, and a backup person and phone. The two lined boxes at the bottom are for habits and for where things are."
+        ],
+        [
+          "What habits should I mention?",
+          "Anything that could surprise a stranger: fear of loud noises, stealing food, pulling on the lead, tendency to slip out of the door, a favourite sleeping spot, and what calms the pet down."
+        ],
+        [
+          "Should I leave medicine instructions in writing?",
+          "Yes. Write the name, how much and when, exactly as the vet told you, so the sitter does not have to rely on memory. If the pet has a health condition, say what to do and when to call the vet."
+        ],
+        [
+          "Can I use it for boarding or for family looking after my pet?",
+          "Yes. It works for a professional sitter, a boarding kennel, or a relative or neighbour. Keep one copy with the pet and give the sitter a copy on paper or a photo of it."
+        ],
+        [
+          "What if I need more space?",
+          "Use the lined boxes for extra detail, or print the pet health record as well and hand over both pages."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "milk-maid-attendance-calendar-printable": {
+      "sections": [
+        {
+          "heading": "What the calendar is for",
+          "paragraphs": [
+            "It is a plain record of what came to the house each day. A column for milk, one for the maid, one for the newspaper, and a row for every date, so a month of deliveries is on a single page that hangs in the kitchen.",
+            "The page is drawn in your browser from the month and year you pick, so the dates and weekdays are always correct."
+          ]
+        },
+        {
+          "heading": "Why a written record helps",
+          "paragraphs": [
+            "Most arguments about the monthly bill come from memory: whether the maid came on the 12th, how many days the milk was not delivered. A tick on the day settles it in seconds and keeps the discussion polite.",
+            "It also makes the bill easy to check. Add up the column, multiply by the rate and you have the amount before the person asks for it."
+          ]
+        },
+        {
+          "heading": "Making it work in your home",
+          "paragraphs": [
+            "Hang the sheet where the delivery arrives, with a pen on a string. Decide who ticks it, and write unusual days in the Remarks column. If you have several helpers, make one column for each so each person is paid for exactly the days worked.",
+            "Print a fresh page at the start of every month, and keep the old ones for a few months in case of a dispute."
+          ]
+        }
+      ]
+    },
+    "monthly-household-budget-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the budget sheet is",
+          "paragraphs": [
+            "It is a single printable page for one month of household money. It lists income at the top, then fixed costs, everyday costs and savings, each with a Planned and an Actual column and a total.",
+            "You can type your own lines, so it works for a salaried family, a shop owner or a student sharing a flat."
+          ]
+        },
+        {
+          "heading": "Why a printed budget works",
+          "paragraphs": [
+            "A budget that sits on the fridge gets looked at. Writing the plan down at the start of the month and filling in the actual amounts as you pay keeps the numbers in view, and the gap between plan and actual shows which lines to adjust.",
+            "It does not need an app, a login or an internet connection once it is printed."
+          ]
+        },
+        {
+          "heading": "Getting started",
+          "paragraphs": [
+            "Begin with the fixed costs, because they are known: rent or EMI, electricity, fees, insurance. Then estimate the everyday costs from last month's bills. Write savings as a line like any other cost, so it is paid first and not left to whatever remains.",
+            "At the end of the month add the totals, write the left-over amount and adjust next month's plan."
+          ]
+        }
+      ]
+    },
+    "warranty-service-record-printable": {
+      "sections": [
+        {
+          "heading": "What the register is",
+          "paragraphs": [
+            "It is a printed table of what you own and when each item's warranty ends: appliance, brand, date bought, shop and bill number, warranty end date and notes. A second page keeps a service log.",
+            "It is drawn in your browser, and what you type is not uploaded."
+          ]
+        },
+        {
+          "heading": "Why it is worth keeping",
+          "paragraphs": [
+            "Warranties are used rarely and forgotten easily. When the refrigerator stops cooling, the question is whether it is still covered and where the bill is. A single sheet answers both.",
+            "It also helps with servicing. Many appliances need a service at fixed intervals, and the log shows when the last one was done."
+          ]
+        },
+        {
+          "heading": "Setting it up",
+          "paragraphs": [
+            "Sit down once with the bills and the warranty cards and fill in the register, one row per item. Put the bills in an envelope in the same order as the rows. When you buy something new, add a row on the same day.",
+            "Check the sheet once a year. Anything whose warranty has just ended is a good moment to decide whether to buy an extended plan or replace it."
+          ]
+        }
+      ]
+    },
+    "staff-attendance-register-printable": {
+      "sections": [
+        {
+          "heading": "What the register is",
+          "paragraphs": [
+            "It is a monthly sheet for recording who came to work each day. Staff names run down the left side and the dates of the month run across, so a whole month for every employee fits on one landscape page.",
+            "You choose the month and year, how many rows to print and whether to add Rate and Amount columns for pay. It is drawn in your browser, so the names you type are not uploaded."
+          ]
+        },
+        {
+          "heading": "Who it helps",
+          "paragraphs": [
+            "Small shops, clinics, workshops, tuition centres, restaurants and anyone with a few employees or daily workers. A paper register by the till works when there is no biometric machine or app, and it is quick enough to mark at the start of the shift.",
+            "Because the format is the same every month, it is easy to compare months and to settle a question about a particular day."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Mark attendance the same day, and use the same codes for everyone. At the end of the month total the days, check them with the staff member and then work out pay. Keep each month's sheet in a file, because it is the record you will want if a dispute arises.",
+            "For the rules that apply to your business, check with your state's labour department or your accountant. The sheet makes the record tidy; it does not replace advice on what you must keep."
+          ]
+        }
+      ]
+    },
+    "udhaar-credit-ledger-printable": {
+      "sections": [
+        {
+          "heading": "What the credit ledger is",
+          "paragraphs": [
+            "It is the traditional khata in a printable form: one page per customer, with columns for the date, the details of the items, the amount given on credit, the amount received and the running balance.",
+            "Type the customers' names and each page is printed with the name at the top, or print blank pages and write them yourself. Nothing you type leaves your browser."
+          ]
+        },
+        {
+          "heading": "Why shops keep one",
+          "paragraphs": [
+            "Credit is how many neighbourhood shops keep customers, but it only works if the figures are clear. A page per customer shows at a glance what is owed, when it was last paid and what was taken.",
+            "It also makes a polite reminder easy: you can show the customer the page."
+          ]
+        },
+        {
+          "heading": "Keeping it accurate",
+          "paragraphs": [
+            "Write each entry on the day, with a short list of items. Update the balance on every line rather than at the end. Ask the customer to initial when they have taken a large amount or paid a large sum. Once a month, total the balances of all customers, so you know how much credit is outstanding."
+          ]
+        }
+      ]
+    },
+    "daily-cash-sales-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the daily sheet is",
+          "paragraphs": [
+            "It is a one-page record of a shop's day: how much cash it started with, what was sold and how it was paid, what money came in from customers' old credit, what was spent, and what should be in the drawer at closing.",
+            "A side table counts the notes by denomination so the actual cash can be compared with the expected figure. Everything is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why close the day on paper",
+          "paragraphs": [
+            "Counting the cash and writing the figures every evening catches mistakes the same day, when they are easy to trace. It also builds a record that makes the monthly accounts quicker and gives you a basis for how the shop is really doing.",
+            "Separating cash, UPI, card and credit sales shows how customers pay, which affects how much change you need to keep."
+          ]
+        },
+        {
+          "heading": "A simple closing routine",
+          "paragraphs": [
+            "Write the opening cash from yesterday's closing. During the day, note expenses as they are paid. At closing, total the sales by type, count the drawer, fill in the note table and compare with the expected closing cash.",
+            "Keep a month's sheets together. If the same difference appears often, check change-giving habits or look at the expense lines."
+          ]
+        }
+      ]
+    },
+    "stock-count-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the stock sheet is",
+          "paragraphs": [
+            "It is a printed table for a physical stock check. Each row is an item, with columns for the unit, the opening quantity from your records, the quantity counted, the difference and a note.",
+            "You can type the item names so they are printed down the first column, and you choose how many rows fit on a page. It is drawn in your browser, so the list stays on your device."
+          ]
+        },
+        {
+          "heading": "Why count stock",
+          "paragraphs": [
+            "Books and shelves drift apart because of breakage, theft, wrong billing and items not recorded when received. A count shows the gap, and a regular count keeps it small.",
+            "It is also a chance to spot slow-moving items and things close to their expiry date."
+          ]
+        },
+        {
+          "heading": "Counting well",
+          "paragraphs": [
+            "Count one section at a time, write the figures straight onto the sheet, and recheck anything with a large difference before you record it. Write the date and the counter's name on every page.",
+            "Keep the sheets with the month's accounts so a later difference can be traced."
+          ]
+        }
+      ]
+    },
+    "pet-health-record-card-printable": {
+      "sections": [
+        {
+          "heading": "What the pet record is",
+          "paragraphs": [
+            "It is a one-page health record for a pet. The top holds identity and contact details, and two tables below hold vaccinations and deworming or tick and flea treatments, each with the date given, the date next due and space for the vet's signature or stamp.",
+            "Everything is typed and drawn in your browser. Nothing about your pet or you is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it is useful",
+          "paragraphs": [
+            "Pets move between vets, boarders, groomers and homes. A record with dates and signatures answers the first question anyone asks: what has this animal had, and when?",
+            "It also protects against missed doses, because the next-due column turns each visit into a reminder."
+          ]
+        },
+        {
+          "heading": "Using it with your vet",
+          "paragraphs": [
+            "Print the page, fill in the details at home and take it to every visit. Ask the vet to write the vaccine or treatment, the date and the next due date, and to sign or stamp the row. Keep it with the pet's bills and your other health sheets, and print a fresh copy when a page is full.",
+            "The vet decides what your pet needs. This sheet only keeps the record tidy."
+          ]
+        }
+      ]
+    },
+    "pet-vaccination-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the tracker is",
+          "paragraphs": [
+            "It is a long landscape log of a pet's vaccinations and treatments. Each row has the date, the vaccine or treatment, the brand and batch, the weight, the vet's name or stamp and the next due date.",
+            "You can type the names of vaccines or treatments to pre-fill the rows, or leave them empty and write by hand. It is drawn in your browser and nothing is uploaded."
+          ]
+        },
+        {
+          "heading": "Why a longer log helps",
+          "paragraphs": [
+            "A young animal has several visits in its first year and then regular boosters for life. A running log with batch numbers gives any vet a complete history, and the next-due column keeps you ahead of the dates.",
+            "It also helps if you rescue or adopt a pet with a partial history, because you can start recording from the day it joins you."
+          ]
+        },
+        {
+          "heading": "Using it",
+          "paragraphs": [
+            "After each visit, copy the details from the vet's label while you are at the clinic. Write the next due date and set a reminder on your phone. Keep the sheet with the pet's other papers and take it to every appointment. The vet decides the schedule; the sheet only records it."
+          ]
+        }
+      ]
+    },
+    "pet-sitter-instructions-printable": {
+      "sections": [
+        {
+          "heading": "What the sheet is",
+          "paragraphs": [
+            "It is a one-page set of instructions for whoever looks after your pet when you are away. It covers feeding, walks and toilet breaks, medicines and emergency contacts, and has two lined boxes for habits and for where things are kept.",
+            "You type the key lines, so the printed page is already filled in. It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why write it down",
+          "paragraphs": [
+            "A sitter, a boarder or a relative cannot guess how the pet likes to be fed or what it fears. A written sheet means the routine stays the same, and a stressed pet is easier to look after when its day is familiar.",
+            "The emergency lines matter most: if something goes wrong, the vet and your phone number are on the page."
+          ]
+        },
+        {
+          "heading": "What makes a good sheet",
+          "paragraphs": [
+            "Be specific: write amounts in cups or grams, and give times, not \"morning\". Put medicines in the order they are given. Put the vet's number and your phone number at the top of the emergency part. Print it, and leave it on the fridge with a copy of the pet health record.",
+            "Run through it with the sitter before you leave, and ask them to call you if anything is unclear."
+          ]
+        }
+      ]
+    }
+  }
+}

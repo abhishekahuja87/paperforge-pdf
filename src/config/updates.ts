@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/milk-maid-attendance-calendar-printable',
+    tool: 'Household, shop and pet sheets',
+    title: 'New: printable milk and maid calendar, budget, staff register, udhaar ledger and pet sheets',
+    summary: 'Ten printable record sheets in three groups: household (milk and maid calendar, monthly budget, warranty record), shop (staff attendance, udhaar ledger, daily cash sheet, stock count) and pet (health record, vaccination tracker, sitter instructions). Typed and printed in your browser, nothing uploaded.',
+  },
+  {
+    date: '2026-11-20',
     path: '/medicine-schedule-chart-printable',
     tool: 'Health and care sheets',
     title: 'New: printable medicine chart, health log, emergency card and more',

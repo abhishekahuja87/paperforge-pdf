@@ -1,0 +1,44 @@
+{
+  "toolCatalog": {
+    "milk-maid-attendance-calendar-printable": [
+      "Milk and Maid Attendance Calendar Printable: Daily Record Sheet",
+      "Daily record of milk, maid and newspaper with the monthly bill, plus budget and warranty sheets."
+    ],
+    "monthly-household-budget-sheet-printable": [
+      "Monthly Household Budget Sheet Printable: Income, Bills and Savings",
+      "One-page monthly budget with planned and actual columns for income, bills, spending and savings."
+    ],
+    "warranty-service-record-printable": [
+      "Warranty and Service Record Printable: Appliance Bills Register",
+      "Print a register of appliances with bill, warranty date and a service log."
+    ],
+    "staff-attendance-register-printable": [
+      "Staff Attendance Register Printable: Monthly Sheet for Shops",
+      "Monthly staff attendance sheet, plus credit ledger, daily cash and stock count sheets."
+    ],
+    "udhaar-credit-ledger-printable": [
+      "Udhaar Credit Ledger Printable: Customer Khata Pages",
+      "One page per customer to record credit given, money received and the running balance."
+    ],
+    "daily-cash-sales-sheet-printable": [
+      "Daily Cash and Sales Sheet Printable: Shop Closing Register",
+      "One page a day for opening cash, sales by payment type, expenses and a note count."
+    ],
+    "stock-count-sheet-printable": [
+      "Stock Count Sheet Printable: Inventory Checklist",
+      "Print an inventory count sheet with opening, counted and difference columns."
+    ],
+    "pet-health-record-card-printable": [
+      "Pet Health Record Printable: Vaccination and Vet Record Card",
+      "Pet health record with details, vaccines and deworming, plus a vaccination tracker and sitter sheet."
+    ],
+    "pet-vaccination-tracker-printable": [
+      "Pet Vaccination Tracker Printable: Dates, Batch and Next Due",
+      "Print a long vaccination and treatment log with batch, weight, vet and next-due columns."
+    ],
+    "pet-sitter-instructions-printable": [
+      "Pet Sitter Instructions Printable: Feeding, Walks and Emergency Sheet",
+      "One-page instructions for a pet sitter, with feeding, walks, medicines and emergency contacts."
+    ]
+  }
+}

@@ -935,3 +935,11 @@ Checked: JSON parses and the config was read in Node; the styled home page and a
 - [ ] Health log: toggling columns re-spaces the table; rows and pages work (up to 20 pages). Emergency card: cards give 8 per A4 with cut lines, the fridge sheet one big card; long text wraps and ends with a dot dot dot. Visit sheet: each section can be switched off and the others grow. Caregiver log: 1 to 31 pages, correct weekday and date on each.
 - [ ] Print this page prints only the sheet shown at actual size. Search "medicine chart", "bp log", "emergency card" finds the tools.
 Checked in Node and an unstyled browser: all five layouts rendered and read by eye (plan, tick chart, cards, fridge sheet, log, visit, caregiver), the link flow with a router stand-in. Full tsc, vite build and the styled page were not run.
+
+### Household, shop and pet sheets (20 Nov)
+- [ ] Home: Printables shows Milk and Maid Attendance Calendar and Pet Health Record Card; Jobs and business shows Staff Attendance Register; the other seven pages are not on the home page but are in the sitemap, footer and search ("udhaar", "khata", "pet sitter", "warranty").
+- [ ] Each of the ten addresses opens its sheet; the buttons in each family change the address and keep paper and ink and the heading (month, shop or pet name); Back returns.
+- [ ] Milk: pick a February in a leap year (29 rows), add a fourth item, totals row on. Budget: edit lines, planned off. Warranty: type 3 items, service log on gives two pages.
+- [ ] Attendance: 30 names, 31-day month fits one landscape page; weekday letters and salary columns toggle. Udhaar: 3 names give 3 pages. Daily cash: 7 days give 7 pages with right weekdays. Stock: 60 items spread over pages.
+- [ ] Pet record, tracker (6 pages) and sitter sheet print on one page each as expected; download PDF matches the preview; Print prints only the sheet.
+Checked in Node and an unstyled browser: all ten layouts rendered and most read by eye, link flow with a router stand-in. Full tsc, vite build and the styled page were not run.

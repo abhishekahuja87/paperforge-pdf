@@ -5,6 +5,7 @@ import freelancers from './packs/freelancers.en.json';
 import stationery from './packs/stationery.en.json';
 import planners from './packs/planners.en.json';
 import care from './packs/care.en.json';
+import records from './packs/records.en.json';
 import qr from './packs/qr.en.json';
 import vcard from './packs/vcard.en.json';
 import flashcards from './packs/flashcards.en.json';
@@ -25,7 +26,7 @@ import coreDepth from './depth/core.en.json';
  * sections keyed by tool id or guide key, so adding a pack never touches the base file.
  * To add a pack: create ./packs/<name>.en.json (and its catalog file, see core.ts), import it here and add it to PACKS.
  */
-const PACKS = [careers, students, freelancers, stationery, planners, care, qr, vcard, flashcards, privacy, shops, household, sports, fitness, explainers, bizcards, hiring, kids];
+const PACKS = [careers, students, freelancers, stationery, planners, care, records, qr, vcard, flashcards, privacy, shops, household, sports, fitness, explainers, bizcards, hiring, kids];
 type Pack = (typeof PACKS)[number];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
