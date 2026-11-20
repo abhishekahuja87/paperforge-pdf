@@ -1,0 +1,778 @@
+{
+  "guideSteps": {
+    "office-cleaning-checklist-printable": [
+      [
+        "Name the area",
+        "Optionally type the floor or area, such as Floor 3 or ODC bay B. The site name goes at the top right."
+      ],
+      [
+        "Edit the tasks",
+        "The task list is already filled in with common office jobs. Edit, delete or add your own, one per line, up to 20."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year, and how many months to print. Add sign-off rows for the cleaner and the supervisor."
+      ],
+      [
+        "Print and tick daily",
+        "The cleaner ticks or initials each box when a task is done, and the supervisor checks the day at the bottom."
+      ]
+    ],
+    "washroom-cleaning-checklist-printable": [
+      [
+        "Name the washroom",
+        "Optionally type which washroom this is, such as Gents, Ladies or Floor 2."
+      ],
+      [
+        "Edit the tasks",
+        "The list includes cleaning toilets, urinals, basins, mirrors, floors and refilling supplies. Edit or add your own."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year and keep the sign-off rows."
+      ],
+      [
+        "Print and tick",
+        "The cleaner ticks the box for each task when it is done, and the supervisor checks the washroom at the end of the day."
+      ]
+    ],
+    "lift-cleaning-checklist-printable": [
+      [
+        "Name the lift",
+        "Optionally type the lift name or number, such as Lift 2 or Tower B."
+      ],
+      [
+        "Edit the tasks",
+        "The list covers the floor, walls, mirror, buttons, door tracks, handrails and lobby. Edit or add your own."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year, and keep the sign-off rows."
+      ],
+      [
+        "Print and tick",
+        "The cleaner ticks each task daily and the supervisor checks and initials the day."
+      ]
+    ],
+    "room-cleaning-checklist-printable": [
+      [
+        "Name the room",
+        "Type the room number or name, such as Room 204, so it is printed under the title."
+      ],
+      [
+        "Edit the tasks",
+        "The list includes bed linen, floor, bathroom, towels, windows, AC vents and amenities. Edit or add your own."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year, and keep the sign-off rows."
+      ],
+      [
+        "Print and tick",
+        "The housekeeper ticks each task when it is done, and the supervisor checks the room."
+      ]
+    ],
+    "pantry-kitchen-cleaning-checklist-printable": [
+      [
+        "Name the area",
+        "Optionally type the pantry or kitchen name, such as Floor 2 pantry or Staff canteen."
+      ],
+      [
+        "Edit the tasks",
+        "The list covers counters, sink, appliances, the fridge, bins and floor. Edit or add your own."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year, and keep the sign-off rows."
+      ],
+      [
+        "Print and tick",
+        "The cleaner ticks each task when done, and the supervisor checks at the end of the day."
+      ]
+    ],
+    "society-common-area-cleaning-checklist-printable": [
+      [
+        "Name the tower or block",
+        "Optionally type the tower or block, such as Tower B. The society name goes at the top right."
+      ],
+      [
+        "Edit the tasks",
+        "The list covers staircases, lobby, lifts, garbage room, parking, garden, drains and more. Edit or add your own."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year, and keep the sign-off rows."
+      ],
+      [
+        "Print and display",
+        "Put the sheet on the notice board. The housekeeping staff tick each task and the supervisor or a committee member checks and initials."
+      ]
+    ],
+    "weekly-cleaning-schedule-printable": [
+      [
+        "List the areas or tasks",
+        "The sheet starts with common society and office areas. Edit, delete or add your own, one per line, up to 24."
+      ],
+      [
+        "Choose the days",
+        "Include Sunday or leave it out for a six-day week."
+      ],
+      [
+        "Keep the extra columns",
+        "Frequency, Assigned to and Supervisor sign help when several people share the work."
+      ],
+      [
+        "Print and use for the week",
+        "Mark the days each area is cleaned. Write who is responsible, and let the supervisor sign the week."
+      ]
+    ],
+    "washroom-hourly-cleaning-log-printable": [
+      [
+        "List the areas",
+        "Type the washrooms and other areas checked on each round, one per line, up to 14."
+      ],
+      [
+        "Set the rounds",
+        "Choose the time of the first round, the gap between rounds and how many rounds a day."
+      ],
+      [
+        "Pick the days",
+        "Choose the first date and how many days to print. Each day is a page with the date and weekday."
+      ],
+      [
+        "Print and initial",
+        "At each round the cleaner writes initials in the box. The supervisor signs at the end and notes any problems."
+      ]
+    ],
+    "water-tank-cleaning-record-printable": [
+      [
+        "Set the title",
+        "Type what the record is for, such as Water tank cleaning record or Pest control record."
+      ],
+      [
+        "Choose the rows",
+        "Pick the number of rows on a page and the number of pages."
+      ],
+      [
+        "Keep the next due column",
+        "Use it to write the date the work is due again."
+      ],
+      [
+        "Print and record",
+        "After every job, write the date, the area, what was done, who did it, the next due date and who checked it."
+      ]
+    ],
+    "deep-cleaning-planner-printable": [
+      [
+        "List the jobs",
+        "The planner starts with common big jobs, such as water tanks, glass, AC filters and pest control. Edit or add your own, up to 20."
+      ],
+      [
+        "Pick the first month and year",
+        "Choose the month the planner starts, and the twelve columns follow in order."
+      ],
+      [
+        "Add the done by column",
+        "Keep it to write the contractor or the person responsible."
+      ],
+      [
+        "Print and plan",
+        "Write the planned month or date in each row, and tick or date each job when it is done."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "officeCleaningGuide": {
+      "title": "Office and ODC Cleaning Checklist Printable: Daily Housekeeping Log",
+      "subtitle": "Print an office or ODC cleaning checklist: tasks down the side, a box for every day of the month, and cleaner and supervisor sign-off rows. Free and private.",
+      "faq": [
+        [
+          "What does the office cleaning checklist include?",
+          "A list of common tasks such as sweeping and mopping, dusting desks, emptying bins, cleaning glass and wiping handles, a box for each day of the month, and two sign-off rows for the cleaner and the supervisor. You can change every task."
+        ],
+        [
+          "What is an ODC and does the checklist suit it?",
+          "An ODC, or offshore development centre, is a dedicated office floor or bay for a team. The checklist suits it, and any open office or workspace, because the tasks are the usual desk, floor, glass and bin jobs that every floor needs."
+        ],
+        [
+          "How do I use it every day?",
+          "The cleaner ticks or writes initials in the box for each task when it is done, and writes X if it was not needed. At the end of the shift the supervisor checks the work and initials the last row."
+        ],
+        [
+          "Can I make one for each floor?",
+          "Yes. Type the floor name in the area box and print a copy for each floor, with the site name in the heading."
+        ],
+        [
+          "Can I change the tasks?",
+          "Yes. The list is only a starting point. Type your own tasks, one per line, up to 20, and the rows resize. The Rows setting adds blank lines for extra jobs."
+        ],
+        [
+          "What should I do with the completed sheets?",
+          "Keep each month's sheet in a file with the housekeeping contract and any complaints. It is a clear record for the facility manager and for the contractor."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "washroomCleaningGuide": {
+      "title": "Washroom Cleaning Checklist Printable: Toilet Cleaning Chart",
+      "subtitle": "Print a washroom or toilet cleaning chart for a month: tasks down the side, a box for each day, and cleaner and supervisor rows. Free and made in your browser.",
+      "faq": [
+        [
+          "What does a washroom cleaning chart record?",
+          "Each task done in each washroom on each day: toilets, urinals, basins, mirrors, floors, bins and supplies. Two rows for the cleaner's and the supervisor's initials close each day."
+        ],
+        [
+          "How is this different from the hourly round sheet?",
+          "The monthly chart records the tasks done each day. The hourly round sheet records that someone checked each washroom at set times, such as every two hours. Many offices and malls use both."
+        ],
+        [
+          "Which tasks are included?",
+          "Cleaning toilet seats and bowls, urinals, floors, basins and taps, mirrors, doors and partitions, emptying bins, refilling soap, tissue and sanitiser, and checking for leaks, lights and the exhaust fan. You can change them all."
+        ],
+        [
+          "Can I print one for each washroom?",
+          "Yes. Type the washroom in the area box and print a copy for each, or use a separate sheet for gents and ladies."
+        ],
+        [
+          "Who should sign it?",
+          "The cleaner who did the work initials each box, and the supervisor checks the washroom and initials the last row. A manager can countersign weekly."
+        ],
+        [
+          "Does this cover health or hygiene rules?",
+          "No. It is a record sheet. Cleaning products, the methods used and any hygiene rules that apply to your premises are for your housekeeping contractor and your own policies."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "liftCleaningGuide": {
+      "title": "Lift Cleaning Checklist Printable: Daily Lift Cleaning Log",
+      "subtitle": "Print a lift cleaning checklist for a month with tasks for the floor, walls, mirror, buttons and tracks, and cleaner and supervisor sign-off. Free and private.",
+      "faq": [
+        [
+          "What does the lift cleaning log cover?",
+          "Sweeping and mopping the floor, wiping walls and panels, cleaning mirrors and glass, buttons and call panels, door tracks and sills, handrails, the ceiling light cover, the lift doors on each floor and the notice frame."
+        ],
+        [
+          "Does this cover lift maintenance or safety checks?",
+          "No. Lift repair, servicing and safety inspections are done by the lift company and the authorised inspector, and recorded in their own logs. This sheet records cleaning only."
+        ],
+        [
+          "Why log the cleaning of a lift?",
+          "A lift is touched by everyone every day and often looks dirty first. A log shows the housekeeping is regular, which helps a society committee or a building manager answer complaints."
+        ],
+        [
+          "Can I use it for several lifts?",
+          "Yes. Type the lift number in the area box and print a copy for each lift. In a tall building you can also add a task for the lift lobby on each floor."
+        ],
+        [
+          "Who signs it?",
+          "The cleaner ticks each task, and the supervisor or security staff initial at the end of the day. Put the sheet where it can be checked, such as the supervisor's room."
+        ],
+        [
+          "What tasks should I add?",
+          "Many buildings add wiping the call buttons on each floor, cleaning the threshold grooves, removing stickers and posters and checking that the notice frame is current. Add any you need, up to 20."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "roomCleaningGuide": {
+      "title": "Room Cleaning Checklist Printable: Hotel, Hostel and PG Room Log",
+      "subtitle": "Print a room cleaning checklist for hotels, hostels, PGs and guest rooms, with a box for each task and day and supervisor sign-off. Free and private.",
+      "faq": [
+        [
+          "What does the room cleaning checklist cover?",
+          "Changing bed linen, making the bed, dusting, sweeping and mopping, cleaning the bathroom, replacing towels and toiletries, emptying bins, cleaning windows and mirrors, cleaning AC vents and filters and checking amenities such as the kettle and glasses."
+        ],
+        [
+          "Who is it for?",
+          "Hotels, guest houses, hostels, PGs, serviced apartments and anyone who prepares rooms for guests. It works for one room or, with a copy for each room, for a whole property."
+        ],
+        [
+          "How do I use it for many rooms?",
+          "Print one sheet for each room with the room number in the area box. Or print a single sheet for a floor and put the floor in the area box, and note the room numbers in a spare task row."
+        ],
+        [
+          "Can I check each room before a guest arrives?",
+          "Yes. Add a task such as Final check before arrival, and use the supervisor row to sign it off. Add a task for the key and the remote if they are checked each time."
+        ],
+        [
+          "How often should rooms be deep cleaned?",
+          "That depends on the property. Use the deep cleaning planner to schedule the big jobs, such as curtains, mattresses and AC servicing, through the year."
+        ],
+        [
+          "Can I change the tasks?",
+          "Yes. The list is a starting point. Type your own tasks, one per line, up to 20, and the sheet adjusts."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "pantryCleaningGuide": {
+      "title": "Pantry and Kitchen Cleaning Checklist Printable: Daily Log",
+      "subtitle": "Print a pantry or kitchen cleaning checklist: counters, sink, appliances, fridge and floor, a box for each day, and sign-off rows. Free and private.",
+      "faq": [
+        [
+          "What does the pantry cleaning checklist include?",
+          "Wiping counters and tables, cleaning the sink and taps, the microwave and stove top, the fridge, the tea or coffee machine, washing utensils, removing old food from the fridge, emptying bins and mopping the floor."
+        ],
+        [
+          "Is it for an office pantry or a commercial kitchen?",
+          "It suits both as a daily housekeeping record. A commercial kitchen that handles food for sale has food safety rules of its own, so follow those and use this sheet for the cleaning part of your routine."
+        ],
+        [
+          "How do I use it?",
+          "The cleaner ticks or initials each task daily, and the supervisor checks and initials at the end. Put the sheet near the pantry door."
+        ],
+        [
+          "Can I add tasks like cleaning the water dispenser?",
+          "Yes. Add up to 20 tasks, such as the water dispenser, the toaster, the chimney filter or shelves. Rows resize to fit."
+        ],
+        [
+          "Should the fridge be checked every day?",
+          "Many offices check it weekly, and the sheet lets you do either. Keep the task and tick it on the day you do it, or move it to the weekly schedule."
+        ],
+        [
+          "Where do I keep the sheet?",
+          "Stick it on the wall or inside a cupboard door, with a pen on a string, and file it each month."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "societyCleaningGuide": {
+      "title": "Society Common Area Cleaning Checklist Printable: Monthly Log",
+      "subtitle": "Print a society common area cleaning checklist: stairs, lobby, lifts, parking and garbage room, a box for each day and supervisor sign-off. Free and private.",
+      "faq": [
+        [
+          "What does the society cleaning checklist cover?",
+          "Sweeping and mopping staircases, cleaning the lobby and entrance, lifts, the garbage room, the parking area, garden paths, drains and gutters, the security cabin, the clubhouse and gym, handrails and gates, and terrace and landings. Every task can be changed."
+        ],
+        [
+          "Who should fill it in?",
+          "The housekeeping staff or the contractor's supervisor ticks each task daily. A committee member or the facility manager initials the sheet weekly. A sheet on the notice board lets residents see it too."
+        ],
+        [
+          "Is it suitable for an RWA or a housing society?",
+          "Yes. It is a plain record of daily cleaning for common areas, useful for an RWA, a managing committee or a facility management company."
+        ],
+        [
+          "Can we use it to check a housekeeping contractor?",
+          "Yes. A written daily record shows what was done and what was missed, which makes a review with the contractor factual. Check your contract for the tasks and frequency it requires."
+        ],
+        [
+          "How do we handle tank cleaning and pest control?",
+          "Those are periodic jobs. Use the tank, pest control and service record to log them, and the deep cleaning planner to schedule them through the year."
+        ],
+        [
+          "Can residents see the sheet?",
+          "If you put it on the notice board, yes. Many societies do this to show that cleaning is regular. Use the area box for the tower or block."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "weeklyCleaningGuide": {
+      "title": "Weekly Cleaning Schedule Printable: Housekeeping Roster for Offices and Societies",
+      "subtitle": "Print a weekly cleaning schedule with areas down the side, a column for each day, and frequency, assigned to and supervisor columns. Free, no sign-up.",
+      "faq": [
+        [
+          "What is a weekly cleaning schedule?",
+          "A roster that shows which area is cleaned on which day, and who is responsible. It sets the plan for the week. A daily checklist then records that the work was done."
+        ],
+        [
+          "How is it different from the daily checklists?",
+          "The schedule is the plan: which areas and which days. The daily checklists, such as the office or society checklist, record the actual work. Many sites use both."
+        ],
+        [
+          "What goes in the Frequency column?",
+          "Write how often the area is cleaned, such as Daily, Twice a week or Weekly. It helps the supervisor see which areas need attention on a given day."
+        ],
+        [
+          "Can I use it for a society and for an office?",
+          "Yes. The starting list is mostly for a society, with the gate, lobby, stairs, lifts, parking and garden, but you can replace it with office areas such as reception, pantry and meeting rooms."
+        ],
+        [
+          "Who should sign the schedule?",
+          "The supervisor signs at the end of the week to confirm the work was done, and a manager or committee member can countersign. Write the week and the date at the bottom."
+        ],
+        [
+          "How many areas can I list?",
+          "Up to 24 rows on a landscape page. For a large site, print one schedule for each building or block."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "cleaningRoundGuide": {
+      "title": "Washroom Hourly Cleaning Log Printable: Round Sheet with Time Slots",
+      "subtitle": "Print a washroom hourly cleaning round sheet: areas down the side, time slots across, initials at each round, remarks and supervisor sign. Free, no sign-up.",
+      "faq": [
+        [
+          "What is a cleaning round sheet?",
+          "A page that records that each washroom or area was checked at set times in the day, such as every two hours. The cleaner writes initials in the box for each area at each round."
+        ],
+        [
+          "How do I set the times?",
+          "Type the time of the first round in 24-hour format, choose the gap, and the number of rounds. For example 08:00, every 2 hours, 6 rounds gives 08:00, 10:00, 12:00, 14:00, 16:00 and 18:00."
+        ],
+        [
+          "How many days can I print?",
+          "Up to 31 days, one page for each day, with the date and weekday printed at the top. Use it for one day, a week or a month."
+        ],
+        [
+          "What should I write in the Remarks section?",
+          "Problems found, such as a leaking tap, a missing supply or a broken light, with the time and who was told. The supervisor signs at the bottom."
+        ],
+        [
+          "How is it different from the monthly washroom checklist?",
+          "The round sheet records timed checks during the day. The monthly checklist records the tasks done on each day. A busy washroom often has both."
+        ],
+        [
+          "Can I use it for other areas?",
+          "Yes. List any area, such as a pantry, lift lobby or reception, and it becomes a round sheet for those. The first column holds the area name."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "serviceRecordGuide": {
+      "title": "Water Tank Cleaning Record Printable: Tank, Pest Control and Service Log",
+      "subtitle": "Print a record for water tank cleaning, pest control and other periodic jobs, with date, area, work done, done by, next due and checked by. Free and private.",
+      "faq": [
+        [
+          "What is the tank cleaning record for?",
+          "It is a log of periodic jobs, such as cleaning a water tank or sump, pest control, or servicing. Each row records the date, the area or item, the work done, who did it, when it is next due and who checked it."
+        ],
+        [
+          "Can I use it for pest control and other services?",
+          "Yes. Change the title to anything, such as Pest control record or AC servicing record. The columns suit any periodic job."
+        ],
+        [
+          "How often should a tank be cleaned?",
+          "It depends on the building, the tank, local rules and your contractor's advice, so this sheet does not set an interval. Write the next due date the contractor recommends in the Next due column."
+        ],
+        [
+          "What should be kept with the record?",
+          "Keep the contractor's bill, certificate or report with the sheet. A written entry plus the paper gives a complete history if a question is raised about the water or the work."
+        ],
+        [
+          "Does the sheet say how the work should be done?",
+          "No. Cleaning a tank, using pest control chemicals and similar jobs have safety and legal requirements. They are done by trained contractors; this sheet only records that and when it was done."
+        ],
+        [
+          "How many entries fit on a page?",
+          "Up to 24 rows, and up to five pages. For a long history, print more sheets as each one fills."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "deepCleaningGuide": {
+      "title": "Deep Cleaning Planner Printable: Yearly Schedule for Offices and Societies",
+      "subtitle": "Print a yearly deep cleaning planner with a row for each big job, a column for each month and a done by column. Free and made in your browser.",
+      "faq": [
+        [
+          "What is a deep cleaning planner?",
+          "A one-page yearly plan for the big, occasional jobs that daily cleaning does not cover: tanks, windows, AC filters, carpets, floor polishing, pest control, kitchen chimneys, drains and stores. Each job has a row and each month has a column."
+        ],
+        [
+          "How do I use it?",
+          "At the start of the year, mark the months each job is planned. As each job is done, write the date or tick the box. The page shows what is coming and what has been missed."
+        ],
+        [
+          "How often should each job be done?",
+          "It depends on your building, climate, use and rules. Ask your contractor, check any local requirements, and decide for each job. The planner holds the plan; it does not set the intervals."
+        ],
+        [
+          "Can I start the year in any month?",
+          "Yes. Choose the first month, and the columns follow, for example April to March for a financial year."
+        ],
+        [
+          "How is it different from the weekly schedule?",
+          "The weekly schedule is for areas cleaned every week. The deep cleaning planner is for occasional jobs spread across the year. A site usually needs both, plus the daily checklists."
+        ],
+        [
+          "What should I write in Done by?",
+          "The contractor's or person's name, so you know who to call if the job needs repeating. Keep the bills and reports with the planner."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The checklist is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "office-cleaning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the checklist is",
+          "paragraphs": [
+            "It is a one-page monthly cleaning record for an office, an ODC floor or any workspace. Tasks run down the left side, the days of the month run across, and each box is ticked when the job is done.",
+            "Two rows at the bottom let the cleaner and the supervisor sign off each day. It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why a written record helps",
+          "paragraphs": [
+            "Cleaning is easy to notice when it is missed and hard to prove when it is done. A sheet on the wall shows what was done each day, supports the contractor when work is complete and gives the facility manager something to point to when it is not.",
+            "It also sets expectations clearly for a new cleaner: the tasks are written down, not remembered."
+          ]
+        },
+        {
+          "heading": "Setting it up",
+          "paragraphs": [
+            "Walk the floor once and list every recurring job. Put the daily jobs on this sheet, and keep the monthly and yearly ones for the weekly schedule and the deep cleaning planner. Fix the sheet at a place the cleaner passes each day, with a pen on a string.",
+            "Review it at the end of the month with the housekeeping team and adjust the tasks that are missed or not needed."
+          ]
+        }
+      ]
+    },
+    "washroom-cleaning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the chart is",
+          "paragraphs": [
+            "It is a monthly sheet for the cleaning of a washroom. Tasks are listed down the side, each day of the month has a column, and a box is ticked when a task is done.",
+            "You can name the washroom, change the tasks and print sheets for as many washrooms as you have. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A washroom is the first place people judge a building. A chart on the door shows staff and visitors that the place is cared for, and shows the supervisor which days a task was skipped.",
+            "It also makes the contractor's work easy to review at the end of the month."
+          ]
+        },
+        {
+          "heading": "Using it",
+          "paragraphs": [
+            "Fix the chart on the inside of the door or on a service cupboard. The cleaner ticks each task as it is done, and the supervisor does a quick check. Combine it with the hourly round sheet if the washroom needs checks during the day.",
+            "Replace the sheet at the start of each month, and keep the old ones with the housekeeping records."
+          ]
+        }
+      ]
+    },
+    "lift-cleaning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the log is",
+          "paragraphs": [
+            "It is a monthly sheet for the daily cleaning of a lift. Tasks run down the side, the days of the month run across, and a box is ticked when each job is done.",
+            "You can name the lift, change the tasks and print one sheet for each lift. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why it matters",
+          "paragraphs": [
+            "In a residential society or an office building the lifts are among the most used spaces. A short daily routine keeps them presentable, and a log keeps the routine honest.",
+            "It is also something a committee or a facility manager can show when residents or tenants ask what is being done."
+          ]
+        },
+        {
+          "heading": "Using the log",
+          "paragraphs": [
+            "Put the daily jobs here, such as the floor, mirror and buttons, and add the weekly jobs to the weekly cleaning schedule. Technical checks are a different record and are kept by the lift company.",
+            "At the end of the month, file the sheet and print a new one."
+          ]
+        }
+      ]
+    },
+    "room-cleaning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the checklist is",
+          "paragraphs": [
+            "It is a monthly sheet for the cleaning of a guest room, hostel room or PG room. Tasks run down the left side, days run across, and a box is ticked when a job is done.",
+            "It has two sign-off rows for the housekeeper and the supervisor. The sheet is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why use one",
+          "paragraphs": [
+            "Rooms that are cleaned to the same routine every time get fewer complaints. A checklist in the housekeeping cupboard or on the trolley is a reminder for staff and a record for the manager.",
+            "For hostels and PGs it also settles the question of when a room was last cleaned."
+          ]
+        },
+        {
+          "heading": "Setting it up",
+          "paragraphs": [
+            "List the tasks in the order the housekeeper does them, from the bed to the bathroom, so the sheet matches the routine. Keep the daily list short, and put weekly and monthly tasks in the weekly schedule and the deep cleaning planner.",
+            "File the sheets for each room at the end of the month."
+          ]
+        }
+      ]
+    },
+    "pantry-kitchen-cleaning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the checklist is",
+          "paragraphs": [
+            "It is a monthly sheet for the cleaning of a pantry, tea station, canteen or kitchen. Tasks are listed down the side, the days of the month run across, and each box is ticked when a job is done.",
+            "There are two sign-off rows at the bottom for the cleaner and the supervisor. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why keep it",
+          "paragraphs": [
+            "Shared kitchens drift. Cups pile up, the fridge fills with old food, and the sink is nobody's job. A checklist makes the job someone's, and the signature shows whose.",
+            "It also gives the office manager a calm answer when someone complains about the pantry."
+          ]
+        },
+        {
+          "heading": "Using it",
+          "paragraphs": [
+            "Write the tasks in the order the cleaner works. Keep daily jobs on this sheet. Put the monthly jobs, like defrosting the fridge or cleaning the chimney, on the deep cleaning planner.",
+            "Review the sheet at month end and take out tasks that never get done or add ones that are always missing."
+          ]
+        }
+      ]
+    },
+    "society-common-area-cleaning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the checklist is",
+          "paragraphs": [
+            "It is a monthly record of the daily cleaning of a society's common areas. Tasks are listed down the left, the days of the month run across, and a box is ticked each time a job is done.",
+            "Two rows at the bottom let the housekeeping staff and the supervisor sign off the day. It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps a committee",
+          "paragraphs": [
+            "Residents notice dirt and rarely notice cleaning. A visible daily record lets the committee answer complaints with facts, supports the contractor when work is done properly and gives the facility manager a way to follow up on gaps.",
+            "It also makes handover easy when a new staff member or a new contractor starts."
+          ]
+        },
+        {
+          "heading": "Setting it up",
+          "paragraphs": [
+            "Walk the premises with the supervisor and list the tasks for each area, in the order the staff do them. Print a sheet for each tower or block, and put each on the notice board near the area it covers.",
+            "Review it each month at the committee meeting and keep the old sheets with the society's records."
+          ]
+        }
+      ]
+    },
+    "weekly-cleaning-schedule-printable": {
+      "sections": [
+        {
+          "heading": "What the schedule is",
+          "paragraphs": [
+            "It is a one-page weekly roster for housekeeping. Areas run down the left side, the days of the week run across, and the last columns hold the frequency, the person assigned and the supervisor's sign.",
+            "The list starts with common areas of a society and can be edited for an office or any other site. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why a schedule matters",
+          "paragraphs": [
+            "Without a schedule, cleaning goes to whatever is noticed. With one, every area has a day, every day has a person, and the supervisor can check that the plan is being followed.",
+            "It also helps with changes: if a staff member is absent, the roster shows what needs covering."
+          ]
+        },
+        {
+          "heading": "Using it with the daily sheets",
+          "paragraphs": [
+            "Fill in the roster at the start of the week, and pin it where the staff and supervisor see it. Use the daily checklist to record what was actually done. Keep each week's roster so that you can see how the plan changed over time.",
+            "Review it monthly and adjust days and assignments as the site changes."
+          ]
+        }
+      ]
+    },
+    "washroom-hourly-cleaning-log-printable": {
+      "sections": [
+        {
+          "heading": "What the round sheet is",
+          "paragraphs": [
+            "It is a daily page for washroom and area checks. Areas run down the left side, the times of the rounds run across, and the cleaner writes initials in the box at each round.",
+            "You choose the time of the first round, the gap between rounds and the number of rounds, and print as many days as you need. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why use one",
+          "paragraphs": [
+            "Busy washrooms in offices, malls, schools and public buildings need checks through the day, and a sheet on the door shows that they happen. Visitors see the check, and supervisors can see gaps.",
+            "The remarks and supervisor sign turn a simple tick sheet into a short daily report."
+          ]
+        },
+        {
+          "heading": "Using it",
+          "paragraphs": [
+            "Fix the sheet on the washroom door or on the cleaner's trolley. Set the rounds to match the shift, and keep the interval short for the busiest hours. At the end of the day, the supervisor signs and files it.",
+            "Keep a month of sheets together. A repeating problem, like a tap that is always leaking, is easier to spot when the notes are in one place."
+          ]
+        }
+      ]
+    },
+    "water-tank-cleaning-record-printable": {
+      "sections": [
+        {
+          "heading": "What the record is",
+          "paragraphs": [
+            "It is a landscape table for logging periodic cleaning and service jobs. Each row is one job, with the date, the area or item, the work done, who did it, when it is next due and who checked it.",
+            "The title is yours to type, so one sheet design serves for tanks, pest control and servicing. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why keep a record",
+          "paragraphs": [
+            "Periodic jobs are the ones that get forgotten. A written record with a next due date turns a vague memory into a plan, and it protects a society or business by showing that the work was done.",
+            "It is also useful when a contractor or a new committee takes over."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the row on the day of the work, with the contractor present if you can. Write the next due date in the Next due column and copy it to a calendar or phone reminder. Keep the contractor's paperwork with the sheet.",
+            "Leave the cleaning method and any chemicals to the licensed contractor, and follow your local rules."
+          ]
+        }
+      ]
+    },
+    "deep-cleaning-planner-printable": {
+      "sections": [
+        {
+          "heading": "What the planner is",
+          "paragraphs": [
+            "It is a yearly grid for planning the big cleaning jobs. Jobs are listed down the left side and the twelve months run across the page, with a Done by column at the end.",
+            "You can edit the list of jobs, choose the first month and the year, and print it in landscape. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why plan the year",
+          "paragraphs": [
+            "Big jobs have to be booked: contractors need notice, some work needs the building empty, and some jobs are best done in a particular season. A planner on the wall spreads the work across the year and avoids a rush.",
+            "It also lets a manager or committee see at a glance what is due this month."
+          ]
+        },
+        {
+          "heading": "Using it",
+          "paragraphs": [
+            "Sit down once a year with the contractors and your records and mark when each job will happen. Put the planner where the facility team sees it, and copy the dates to a calendar.",
+            "At the end of the year, use it to see what was done, what was missed and what to change for the next one."
+          ]
+        }
+      ]
+    }
+  }
+}
