@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/',
+    tool: 'Home page',
+    title: 'Install the app, pin tools and see the ones you used lately',
+    summary: 'Add MyDailyUtils to your phone home screen so it opens in one tap and works offline for most tools. Tap Pin on any tool to keep it on the home page, and see your recently used tools there. All saved only in your browser.',
+  },
+  {
+    date: '2026-11-20',
     path: '/fill-pdf',
     tool: 'New tools',
     title: 'New: Fill PDF, photo name and date strip, WhatsApp link, barcode generator, random name picker and team generator',

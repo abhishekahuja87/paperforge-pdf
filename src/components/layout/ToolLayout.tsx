@@ -4,6 +4,7 @@ import { PageMetadata } from '../common/PageMetadata';
 import { ArrowLeft, Maximize2, ShieldCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ToolArticle } from '../common/ToolArticle';
+import { PinToolButton } from '../common/PinToolButton';
 import { ADS_CONFIG } from '../../config/ads';
 import { metaDescription, toolPageTitle } from '../../config/site';
 import { buildToolJsonLd } from '../../lib/structuredData';
@@ -93,6 +94,8 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
             </div>
             <div className="flex items-start justify-between gap-3">
               <h1 lang={contentLanguage} className="text-2xl font-black leading-tight tracking-[-0.03em] text-stone-900 sm:text-3xl">{title}</h1>
+              <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+              <PinToolButton path={pathname} />
               <button
                 type="button"
                 onClick={() => setFocus(true)}
@@ -101,6 +104,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                 <Maximize2 className="h-3.5 w-3.5" aria-hidden="true" />
                 {t('focusMode', { defaultValue: 'Focus mode' })}
               </button>
+              </div>
             </div>
             <p lang={contentLanguage} className="text-sm leading-6 text-stone-600">{subtitle}</p>
           </header>

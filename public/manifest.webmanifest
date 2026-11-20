@@ -1,0 +1,21 @@
+{
+  "name": "MyDailyUtils: free everyday tools",
+  "short_name": "MyDailyUtils",
+  "description": "Free PDF, image, calculator and printable tools that run in your browser.",
+  "start_url": "/?source=app",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f3eb",
+  "theme_color": "#f7f3eb",
+  "lang": "en-IN",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Merge PDF", "url": "/merge-pdf?source=shortcut", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Image Resizer", "url": "/image-resizer?source=shortcut", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Sign PDF", "url": "/sign-pdf?source=shortcut", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
