@@ -39,9 +39,10 @@ export const SignPdf: React.FC = () => {
     if (file.size > MAX_BYTES) { setMessage('That file is over 40 MB. Compress it first, then sign.'); return; }
     try {
       const data = await file.arrayBuffer();
-      const doc = await pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) }).promise;
+      const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
+      const doc = await task.promise;
       setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1);
-      void doc.destroy();
+      void task.destroy();
     } catch {
       setMessage('Could not open that PDF. If it has a password, unlock it first.');
     }
@@ -50,7 +51,8 @@ export const SignPdf: React.FC = () => {
   const render = useCallback(async () => {
     const el = canvas.current;
     if (!bytes || !el) return;
-    const doc = await pdfjsLib.getDocument({ data: new Uint8Array(bytes.slice(0)) }).promise;
+    const task = pdfjsLib.getDocument({ data: new Uint8Array(bytes.slice(0)) });
+    const doc = await task.promise;
     try {
       const pdfPage = await doc.getPage(Math.min(page, doc.numPages));
       const base = pdfPage.getViewport({ scale: 1 });
@@ -60,7 +62,7 @@ export const SignPdf: React.FC = () => {
       if (!ctx) return;
       await pdfPage.render({ canvasContext: ctx, canvas: el, viewport }).promise;
       setView({ w: el.width, h: el.height });
-    } finally { void doc.destroy(); }
+    } finally { void task.destroy(); }
   }, [bytes, page]);
 
   useEffect(() => { void render(); }, [render]);
