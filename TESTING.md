@@ -1009,3 +1009,10 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 ### Sitemap lastmod (20 Nov)
 - After a build, open dist/sitemap.xml: pages with an entry in updates.ts (for example /merge-pdf, /digitize-documents) have `<lastmod>YYYY-MM-DD</lastmod>`; the home page has the newest update date; pages without an entry have only `<loc>`. No date is in the future.
 - Search Console > Sitemaps > open sitemap.xml: status Success, no errors about the date format.
+
+### Take a photo button (20 Nov)
+- On a phone or tablet, image tools (/image-resizer, /image-compressor, /image-converter, /images-to-pdf, /screenshot-redactor) show a Take a photo button under the upload box; on a laptop it is not shown. Tap it: the camera opens, the photo loads into the tool like a chosen file. Images to PDF: take two photos in a row and both are listed.
+- Tools that take PDFs or documents (merge, compress PDF, etc.) show no camera button.
+- /passport-photo-sheet-maker, /photo-grid-splitter, /photo-collage-maker (adds one photo each tap, stops at 9) and the logo picker on the printable makers: same button beside Choose.
+- Cancel the camera: nothing changes, no error. A 10 MB phone photo still resizes and compresses quickly.
+- iPhone Safari, Android Chrome, and a tablet; Hindi page shows the Hindi label.

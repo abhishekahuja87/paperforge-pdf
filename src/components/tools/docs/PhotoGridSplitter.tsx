@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Download, ImagePlus } from 'lucide-react';
+import { CameraButton } from '../../common/CameraButton';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons } from '../utilities/common';
 import { Slider, card, heading } from '../paper/controls';
@@ -73,6 +74,10 @@ export const PhotoGridSplitter: React.FC = () => {
     } catch { setMessage('Could not make the zip. Try a smaller grid.'); } finally { setBusy(false); }
   };
 
+  const openPicture = (file: File) => {
+    loadBitmap(file).then((b) => { setBitmap(b); setZoom(1); setOx(0); setOy(0); setMessage(''); }).catch((e: unknown) => setMessage(e instanceof Error ? e.message : 'Could not open that picture.'));
+  };
+
   return (
     <section className="mx-auto min-w-0 space-y-4">
       <div className={`${card} space-y-3`}>
@@ -81,9 +86,10 @@ export const PhotoGridSplitter: React.FC = () => {
           <ImagePlus className="h-4 w-4" aria-hidden="true" />{bitmap ? 'Choose another picture' : 'Choose a picture'}
           <input type="file" accept="image/*" className="sr-only" onChange={(event) => {
             const file = event.target.files?.[0]; event.target.value = '';
-            if (file) loadBitmap(file).then((b) => { setBitmap(b); setZoom(1); setOx(0); setOy(0); setMessage(''); }).catch((e: unknown) => setMessage(e instanceof Error ? e.message : 'Could not open that picture.'));
+            if (file) openPicture(file);
           }} />
         </label>
+        <CameraButton onPhoto={openPicture} className="ml-2 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50" />
       </div>
       <div className={`${card} space-y-3`}>
         <h2 className={heading}>2. Grid</h2>

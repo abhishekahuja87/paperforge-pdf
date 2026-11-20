@@ -289,6 +289,7 @@
     }
   },
   "dropZone": {
+    "takePhoto": "Tomar una foto",
     "chooseOne": "Elige un archivo o suéltalo aquí",
     "chooseMany": "Elige archivos o suéltalos aquí",
     "reading": "Leyendo tu archivo…",

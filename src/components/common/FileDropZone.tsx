@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { FilePlus2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { CameraButton } from './CameraButton';
 
 interface FileDropZoneProps {
   accept?: string;
@@ -29,6 +30,13 @@ export function describeAccept(accept?: string): string {
   const names = FORMAT_NAMES.filter(([pattern]) => pattern.test(lower)).map(([, name]) => name);
   if (lower.includes('image/*') && !names.includes('PNG')) names.push('Images');
   return names.join(', ');
+}
+
+/** True when the tool takes pictures only (no PDF or other documents), so a camera button makes sense. */
+export function acceptsPhotosOnly(accept?: string): boolean {
+  if (!accept) return false;
+  const lower = accept.toLowerCase();
+  return lower.includes('image/') && !/pdf|docx?|json|vcf|vcard|text\//.test(lower);
 }
 
 export const FileDropZone: React.FC<FileDropZoneProps> = ({
@@ -97,6 +105,9 @@ export const FileDropZone: React.FC<FileDropZoneProps> = ({
         <span lang={i18n.language} className="text-sm font-bold text-stone-900">{readingPdf ? t('dropZone.reading') : t(multiple ? 'dropZone.chooseMany' : 'dropZone.chooseOne')}</span>
         <span lang={i18n.language} className="mt-1 text-xs text-stone-500">{formats ? t('dropZone.hint', { formats }) : t('dropZone.hintPlain')}</span>
       </button>
+      {acceptsPhotosOnly(accept) && !disabled && (
+        <div className="mt-2 flex justify-center"><CameraButton onPhoto={(file) => selectFiles([file])} className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-orange-200 bg-white px-4 py-2 text-sm font-semibold text-orange-900 hover:bg-orange-50" /></div>
+      )}
       {showNotice && <p lang={i18n.language} role="alert" className="mt-2 text-xs text-rose-800">{t('chooseOneFile')}</p>}
     </>
   );
