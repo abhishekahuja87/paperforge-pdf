@@ -152,7 +152,7 @@ const cash: SheetDef = {
       y += expenses * expRow + 2;
       lineRow(c.x, y, leftW, 'Total expenses', true); y += 11;
       lineRow(c.x, y, leftW, 'Expected closing cash', true);
-      fitText({ x: 0, y: 0, w: 0, h: 0, color: c.color, weight: c.weight, heading: '', items: c.items }, c.x, y + 14, leftW, 8, 'Opening cash + cash sales + udhaar collected + other cash in - expenses.', 7.5);
+      fitText(c, c.x, y + 14, leftW, 8, 'Opening cash + cash sales + udhaar collected + other cash in - expenses.', 7.5);
       if (notes) {
         let ry = top + 1;
         text(c, rightX, ry + 4, 10, 'Cash in the drawer', true, 'start', INK); ry += 6;
