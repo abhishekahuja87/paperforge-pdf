@@ -289,6 +289,7 @@
     }
   },
   "dropZone": {
+    "takePhoto": "Foto aufnehmen",
     "chooseOne": "Datei wählen oder hier ablegen",
     "chooseMany": "Dateien wählen oder hier ablegen",
     "reading": "Datei wird gelesen…",

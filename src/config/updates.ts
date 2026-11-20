@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/image-resizer',
+    tool: 'Photo tools',
+    title: 'Take a photo straight from your phone camera',
+    summary: 'On phones and tablets the picture tools now have a Take a photo button beside Choose a file: image resizer, compressor, converter, images to PDF, passport photos, collage, grid splitter, screenshot redactor and logo pickers. The photo stays on your device.',
+  },
+  {
+    date: '2026-11-20',
     path: '/study-planner',
     tool: 'Study Planner',
     title: 'Fits small phone screens',

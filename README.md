@@ -178,7 +178,7 @@ Tool header is now one left-aligned block in the same column width as the tool (
 
 Guide text audit (steps and questions) started: Merge (page ranges), Compress (reduce to a size), Split (odd/even, live count) updated to match the tools. The "runs in your browser" note wraps on phones (the no-wrap was removed, which caused sideways scrolling). Remaining tools are still to be checked one by one against their components.
 
-`FileDropZone` no longer takes `label`/`hint`: the title ("Choose a file or drop it here" / "Choose files…", or "Reading your file…" via `readingPdf`) and the one-line hint (accepted types derived from `accept` by `describeAccept`, plus "Stays on your device") come from the `dropZone` locale keys, so every tool has the same upload box. Studio pages (`Master`, `Digitize`, `Display`) pass `wide` only once files are loaded, so their header follows the workspace width; the POS workspace stays wide.
+`FileDropZone` shows a "Take a photo" button (`CameraButton`, a file input with `capture`, touch devices only) when the tool accepts pictures and no documents (`acceptsPhotosOnly`); pickers outside the drop zone use `CameraButton` directly. `FileDropZone` no longer takes `label`/`hint`: the title ("Choose a file or drop it here" / "Choose files…", or "Reading your file…" via `readingPdf`) and the one-line hint (accepted types derived from `accept` by `describeAccept`, plus "Stays on your device") come from the `dropZone` locale keys, so every tool has the same upload box. Studio pages (`Master`, `Digitize`, `Display`) pass `wide` only once files are loaded, so their header follows the workspace width; the POS workspace stays wide.
 
 ### File names and topic borders
 

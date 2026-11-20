@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Download, ImagePlus } from 'lucide-react';
+import { CameraButton } from '../../common/CameraButton';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Slider, Toggle, card, heading } from '../paper/controls';
@@ -97,6 +98,10 @@ export const PassportPhotoMaker: React.FC = () => {
     } catch { setMessage('Could not build the PDF.'); }
   };
 
+  const openPhoto = (file: File) => {
+    loadBitmap(file).then((b) => { setBitmap(b); setZoom(1); setOx(0); setOy(0); setMessage(''); }).catch((e: unknown) => setMessage(e instanceof Error ? e.message : 'Could not open that photo.'));
+  };
+
   return (
     <section className="mx-auto min-w-0 space-y-4">
       <div className={`${card} space-y-3`}>
@@ -105,9 +110,10 @@ export const PassportPhotoMaker: React.FC = () => {
           <ImagePlus className="h-4 w-4" aria-hidden="true" />{bitmap ? 'Choose another photo' : 'Choose a photo'}
           <input type="file" accept="image/*" className="sr-only" onChange={(event) => {
             const file = event.target.files?.[0]; event.target.value = '';
-            if (file) loadBitmap(file).then((b) => { setBitmap(b); setZoom(1); setOx(0); setOy(0); setMessage(''); }).catch((e: unknown) => setMessage(e instanceof Error ? e.message : 'Could not open that photo.'));
+            if (file) openPhoto(file);
           }} />
         </label>
+        <CameraButton onPhoto={openPhoto} className="ml-2 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50" />
         <p className="text-[11px] text-slate-500">Use a plain, evenly lit background and a straight-on face. This tool crops and lays out; it does not change the background.</p>
       </div>
 

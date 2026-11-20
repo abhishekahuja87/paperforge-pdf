@@ -370,6 +370,7 @@
     ]
   },
   "dropZone": {
+    "takePhoto": "Take a photo",
     "chooseOne": "Choose a file or drop it here",
     "chooseMany": "Choose files or drop them here",
     "reading": "Reading your file…",

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowUp, Download, ImagePlus, Trash2 } from 'lucide-react';
+import { CameraButton } from '../../common/CameraButton';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons } from '../utilities/common';
 import { Slider, card, heading } from '../paper/controls';
@@ -73,6 +74,13 @@ export const PhotoCollageMaker: React.FC = () => {
 
   const move = (i: number, by: number) => setPhotos((all) => { const next = [...all]; const [m] = next.splice(i, 1); next.splice(i + by, 0, m!); return next; });
 
+  const addFiles = async (files: File[]) => {
+    const added: ImageBitmap[] = [];
+    for (const file of files.slice(0, MAX - photos.length)) { try { added.push(await loadBitmap(file)); } catch { setMessage('One file could not be read as a picture.'); } }
+    if (files.length > MAX - photos.length) setMessage(`Up to ${MAX} photos.`);
+    if (added.length) setPhotos((all) => [...all, ...added]);
+  };
+
   return (
     <section className="mx-auto min-w-0 space-y-4">
       <div className={`${card} space-y-3`}>
@@ -81,12 +89,10 @@ export const PhotoCollageMaker: React.FC = () => {
           <ImagePlus className="h-4 w-4" aria-hidden="true" />Choose photos
           <input type="file" accept="image/*" multiple className="sr-only" onChange={async (event) => {
             const files = Array.from(event.target.files ?? []); event.target.value = '';
-            const added: ImageBitmap[] = [];
-            for (const file of files.slice(0, MAX - photos.length)) { try { added.push(await loadBitmap(file)); } catch { setMessage('One file could not be read as a picture.'); } }
-            if (files.length > MAX - photos.length) setMessage(`Up to ${MAX} photos.`);
-            if (added.length) setPhotos((all) => [...all, ...added]);
+            await addFiles(files);
           }} />
         </label>
+        <CameraButton onPhoto={(file) => void addFiles([file])} className="ml-2 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50" />
         {photos.length > 0 && (
           <ul className="space-y-1">
             {photos.map((_, i) => (
