@@ -1,3 +1,8 @@
+import { PLAY_FAMILY } from './play';
+import { CERT_FAMILY } from './cert';
+import { LABEL_FAMILY } from './label';
+import { NOTICE_FAMILY } from './notice';
+import { OPS_FAMILY } from './ops';
 import { LIFE_FAMILY } from './life';
 import { AUTO_FAMILY } from './auto';
 import { KIN_FAMILY } from './kin';
@@ -10,5 +15,5 @@ import { SHOP_FAMILY } from './shop';
 import { TEACH_FAMILY } from './teach';
 import type { Family } from './types';
 
-export const FAMILIES: Record<Family['key'], Family> = { home: HOME_FAMILY, shop: SHOP_FAMILY, pet: PET_FAMILY, teach: TEACH_FAMILY, clean: CLEAN_FAMILY, study: STUDY_FAMILY, event: EVENT_FAMILY, kin: KIN_FAMILY, auto: AUTO_FAMILY, life: LIFE_FAMILY };
+export const FAMILIES: Record<Family['key'], Family> = { home: HOME_FAMILY, shop: SHOP_FAMILY, pet: PET_FAMILY, teach: TEACH_FAMILY, clean: CLEAN_FAMILY, study: STUDY_FAMILY, event: EVENT_FAMILY, kin: KIN_FAMILY, auto: AUTO_FAMILY, life: LIFE_FAMILY, play: PLAY_FAMILY, cert: CERT_FAMILY, label: LABEL_FAMILY, notice: NOTICE_FAMILY, ops: OPS_FAMILY } as Record<Family['key'], Family>;
 export type { Common, Family, Field, SheetDef, Values } from './types';

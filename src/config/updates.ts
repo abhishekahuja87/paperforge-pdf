@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/math-worksheet-generator-printable',
+    tool: 'Worksheets, puzzles, certificates and labels',
+    title: 'New: 46 printable makers: worksheets, puzzles, certificates, labels, notices and society sheets',
+    summary: 'Maths and times table worksheets, word search, maze, sudoku, bingo, OMR sheet, rangoli dots, recipe cards, eight certificates, name tags and labels, door signs, seating chart, society notices, gate pass and creator and business trackers. Each has options and an answer page where it makes sense.',
+  },
+  {
+    date: '2026-11-20',
     path: '/habit-tracker-printable',
     tool: 'More printable sheets',
     title: 'New: 40 printable sheets for study, events, baby, vehicle, home and daily life',

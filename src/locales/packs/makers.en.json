@@ -1,0 +1,3458 @@
+{
+  "guideSteps": {
+    "math-worksheet-generator-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Choose the kind of sums, the size of the numbers, stacked or in-a-line layout, how many sums, and whether to add an answer page."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Pick the kind of sums and the size of the numbers, check the preview, and print a fresh sheet whenever the child needs more practice."
+      ]
+    ],
+    "times-table-worksheet-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Choose the first and last table, how far each table goes, and a practice sheet, a mixed-order sheet or a chart."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Choose the tables to practise, print the practice sheet to fill in, and use the chart to check the answers."
+      ]
+    ],
+    "word-search-generator-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type a title and your words, choose the grid size and difficulty, and add an answer page."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type your words, choose the grid size and difficulty, and print the puzzle. Keep the answer page for the teacher."
+      ]
+    ],
+    "maze-generator-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Choose the size, how many different mazes, and whether to add an answer page."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Choose a size that matches the child, print the maze, and keep the answer page to check."
+      ]
+    ],
+    "sudoku-puzzle-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Choose the grid size, the difficulty, how many puzzles on a page, the number of pages and whether to add an answer page."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Choose the size and difficulty, print the puzzles, and keep the answer page to check."
+      ]
+    ],
+    "handwriting-tracing-sheet-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type what to trace on each line, choose the letter size and whether each row is followed by a blank row."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the letters, numbers or words, choose a size, and print. The child traces the grey row and writes on the blank one."
+      ]
+    ],
+    "bingo-card-generator-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type a title and your items, choose the card size, the number of cards, how many on a page and a free space."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type your words or things, choose the card size and the number of cards, and print. Call out the items from your list."
+      ]
+    ],
+    "omr-answer-sheet-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the test name, choose the number of questions, the choices for each question, roll number digits and the number of copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Choose the number of questions and the choices, print enough copies for the test, and ask students to fill in the bubbles fully."
+      ]
+    ],
+    "rangoli-dot-grid-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Choose the pattern, the size, how many grids on a page and the dot size."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Choose a pattern and size, print several grids, and practise joining the dots with a pencil before you make a full rangoli."
+      ]
+    ],
+    "recipe-card-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Aarav, Class 3\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type a dish name if you wish, choose the card size, the layout and the number of pages."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Print the cards, and write your family's recipes in your own hand, one on each card."
+      ]
+    ],
+    "certificate-of-achievement-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "certificate-of-participation-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "certificate-of-appreciation-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "course-completion-certificate-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "sports-winner-certificate-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "perfect-attendance-certificate-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "employee-of-the-month-certificate-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "best-student-certificate-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Public School\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names (one certificate for each), the wording, date, signature labels and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, check the wording, choose a border and print on good paper. Sign it in pen."
+      ]
+    ],
+    "name-tag-sticker-sheet-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type one name on each line, choose the text size and border, and repeat one tag if you need many."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the names, one on each line, and print on sticker paper or plain paper and cut."
+      ]
+    ],
+    "school-book-label-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the name, class, subject and school to print on every label, or leave them blank."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the details once and print a full sheet, then cut and stick on each notebook."
+      ]
+    ],
+    "kids-name-labels-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type one name per line, or repeat the first name to fill the sheet. Choose the size and the border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type your child's name, tick repeat, and print on sticker paper. Cut along the dashed lines."
+      ]
+    ],
+    "spice-jar-label-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names of the jars, one on each line, and choose the size and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Edit the list of names, print on sticker paper and stick the labels on your jars."
+      ]
+    ],
+    "address-label-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type one address per line, separate the lines with a slash, or repeat the first address."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type each address with slashes between its lines, for example Mr Sharma / 12 Park Road / Pune, and print."
+      ]
+    ],
+    "storage-box-and-file-label-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type each label on a line, choose the text size and the border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Edit the list of labels, print and stick them on boxes and folders."
+      ]
+    ],
+    "freezer-food-date-label-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type an item name to repeat, or leave the labels blank to write by hand."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Print a sheet on sticker paper, and write the item and dates when you pack the food."
+      ]
+    ],
+    "gift-tag-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the names to print on every tag, or leave blank to write by hand. Choose the text size and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Print the tags, cut them out, punch a hole and tie them to gifts with a ribbon."
+      ]
+    ],
+    "table-place-card-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type one guest name per line, add a small line such as the table, and choose the size and border."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Type the guest names, print on card, cut and place one at each seat."
+      ]
+    ],
+    "door-sign-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Choose a message or type your own, add a small line, choose a border and the number of copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Choose the message, print on thick paper and stick it on the door."
+      ]
+    ],
+    "wedding-seating-chart-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type table names or choose the number of tables, and choose the seats at each table."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Choose the tables and seats, print, and write guest names on the lines as you plan."
+      ]
+    ],
+    "society-notice-template-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Change the subject and text, add the date and reference, choose the text size and the number of copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Edit the blanks in the text, add the date and signer, and print for the notice board."
+      ]
+    ],
+    "general-body-meeting-notice-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Change the agenda and details, add the date and signer, and choose the number of copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Fill the date, time and place, edit the agenda and print one for each notice board."
+      ]
+    ],
+    "maintenance-collection-reminder-notice-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Edit the month, amounts and how to pay, and choose the number of copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Fill in the month, edit the payment method and print for the notice board or each flat."
+      ]
+    ],
+    "water-supply-interruption-notice-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Edit the dates, times and reason, and choose the number of copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Fill in the date, hours and reason, and print for every notice board."
+      ]
+    ],
+    "festival-celebration-notice-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Edit the event details, add the date and signer, and choose the number of copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Fill in the festival, date, time and place, and print for the notice boards."
+      ]
+    ],
+    "office-circular-template-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Edit the subject and paragraphs, add the date and reference and choose the copies."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Edit the text, add the reference and date, and print for staff to read and sign."
+      ]
+    ],
+    "gate-pass-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sharma Stores\", to print on the page."
+      ],
+      [
+        "Choose your options",
+        "Type the society or business name and choose the pages."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Print, cut or keep four to a page, and fill one for each visitor."
+      ]
+    ],
+    "society-maintenance-collection-register-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Add the flats or residents",
+        "Type them one per line if you want them printed, then choose the rows and pages."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "List the flats, write the amount due, and record the date, mode and receipt number when each is paid."
+      ]
+    ],
+    "parking-slot-allotment-register-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Write each slot with the flat, the resident, the vehicle number and the sticker number, and update it when vehicles change."
+      ]
+    ],
+    "society-complaint-register-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Write each complaint when it is received, who will handle it, what was done and the date it was closed."
+      ]
+    ],
+    "key-register-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Each time a key leaves the office, write the date, the key, who took it and the time, and write the return time when it comes back."
+      ]
+    ],
+    "meeting-agenda-template-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Add the topics",
+        "Type them one per line if you want them printed, then choose the rows and pages."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "List the topics, who will lead each and how many minutes you can spend, then use the notes column during the meeting."
+      ]
+    ],
+    "content-calendar-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Write one row for each post: the date, the platform, the idea and the format, and tick when the caption is ready and when it is posted."
+      ]
+    ],
+    "social-media-post-planner-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Add the platforms",
+        "Type them one per line if you want them printed, then choose the rows and pages."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Edit the platforms, then write what you will post in each box for the week."
+      ]
+    ],
+    "invoice-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Write each invoice when you send it, and add the date paid when the money arrives. Use Status for Paid, Due or Late."
+      ]
+    ],
+    "freelance-project-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Add a row for each project with its client, dates, fee and advance, and update the status as work moves along."
+      ]
+    ],
+    "client-contact-list-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name, such as \"Sunrise Heights\", to print on the page."
+      ],
+      [
+        "Add the names",
+        "Type them one per line if you want them printed, then choose the rows and pages."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and use",
+        "Add each client or vendor with their phone and email, and write the date you last spoke."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "mathWorksheetGeneratorGuide": {
+      "title": "Maths Worksheet Generator Printable: Addition, Subtraction, Multiplication and Division",
+      "subtitle": "Make a maths worksheet: choose addition, subtraction, multiplication, division or mixed sums, the size of the numbers and how many. Answer page included. Free.",
+      "faq": [
+        [
+          "What does the maths worksheet include?",
+          "It is a worksheet maker for addition, subtraction, multiplication, division or all four mixed. Choose the size of the numbers, stacked or in a line, and the number of sums."
+        ],
+        [
+          "What can I choose before printing?",
+          "Choose the kind of sums, the size of the numbers, stacked or in-a-line layout, how many sums, and whether to add an answer page."
+        ],
+        [
+          "Can I make a new sheet every time?",
+          "Yes. Change the puzzle number and you get a different set of sums. Use the same number to print the same sheet again."
+        ],
+        [
+          "Is there an answer page?",
+          "Yes. Tick the answer page and a second sheet is added with all the answers in green, so a parent or teacher can mark quickly."
+        ],
+        [
+          "Which class is it for?",
+          "It works for any age. One-digit sums suit early primary, and two to four digit numbers suit older children. Choose the size that matches your child."
+        ],
+        [
+          "Can I print a whole class set?",
+          "Print as many copies as you need, and change the puzzle number to give neighbours different sheets."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "timesTableWorksheetGuide": {
+      "title": "Times Table Worksheet Printable: Practice Sheets and Multiplication Charts",
+      "subtitle": "Print times table practice: choose the tables, the range up to 10, 12 or 20, and a write-in sheet, a mixed-order sheet or an answer chart. Free and private.",
+      "faq": [
+        [
+          "What does the times tables include?",
+          "It is a times table sheet maker with three styles: a write-in practice sheet, a mixed-order practice sheet and a chart with all the answers."
+        ],
+        [
+          "What can I choose before printing?",
+          "Choose the first and last table, how far each table goes, and a practice sheet, a mixed-order sheet or a chart."
+        ],
+        [
+          "What is the difference between the styles?",
+          "Practice leaves the answers blank in order. Mixed order shuffles each table so children cannot just count on. The chart shows every answer for reference."
+        ],
+        [
+          "Which tables can I make?",
+          "Any from 1 to 30, with each table going up to 10, 12 or 20."
+        ],
+        [
+          "Can I print a different mixed sheet each time?",
+          "Yes. Change the puzzle number for a new order."
+        ],
+        [
+          "Is the chart good for a wall?",
+          "Yes. Print it on A4 or a larger paper size and stick it near the study table."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "wordSearchGeneratorGuide": {
+      "title": "Word Search Generator Printable: Make Your Own Word Search Puzzle",
+      "subtitle": "Make a word search puzzle from your own words. Choose the grid size and difficulty, print the puzzle and an answer page. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What does the word search include?",
+          "It is a word search maker that builds a puzzle from the words you type. You choose the grid size and how the words are hidden, and the page lists the words to find."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type a title and your words, choose the grid size and difficulty, and add an answer page."
+        ],
+        [
+          "How many words can I use?",
+          "Up to 24 words, with letters only. Words longer than the grid, or that cannot fit, are left out of the puzzle."
+        ],
+        [
+          "What do the difficulty levels mean?",
+          "Easy hides words across and down. Medium adds diagonals. Hard hides words in every direction, including backwards."
+        ],
+        [
+          "Can I make one for spelling practice?",
+          "Yes. Type this week's spelling words and print the puzzle for the class."
+        ],
+        [
+          "Is there an answer page?",
+          "Yes. The answer page shows the hidden words in bold and the other letters in grey."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "mazeGeneratorGuide": {
+      "title": "Maze Generator Printable: Printable Mazes for Kids with Answer Page",
+      "subtitle": "Make printable mazes for kids: small, medium or large, a new maze each time, with an optional answer page showing the way. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the maze include?",
+          "It is a maze maker that draws a fresh maze every time, with a start and an end, and an answer page showing the route."
+        ],
+        [
+          "What can I choose before printing?",
+          "Choose the size, how many different mazes, and whether to add an answer page."
+        ],
+        [
+          "Is every maze solvable?",
+          "Yes. Every maze has a way from the start at the top left to the end at the bottom right, and the answer page shows it."
+        ],
+        [
+          "Can I make several different mazes?",
+          "Yes. Choose up to six, and each is different. Change the puzzle number for another set."
+        ],
+        [
+          "Which size is right for my child?",
+          "Small is good for young children. Medium and large are more challenging, and large mazes are fun for older children and adults."
+        ],
+        [
+          "Can I use it in a classroom?",
+          "Yes. Print one for each child, with different puzzle numbers if you want them all to be different."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "sudokuPuzzleGuide": {
+      "title": "Sudoku Puzzle Printable: Easy, Medium and Hard with Answers",
+      "subtitle": "Print sudoku puzzles: 4 by 4 for children, 6 by 6 for beginners and classic 9 by 9, easy to hard, one to four on a page, with answers. Free and private.",
+      "faq": [
+        [
+          "What does the sudoku include?",
+          "It is a sudoku maker with three grid sizes and three difficulty levels. Puzzles are made fresh, checked for a single solution, and printed with an answer page."
+        ],
+        [
+          "What can I choose before printing?",
+          "Choose the grid size, the difficulty, how many puzzles on a page, the number of pages and whether to add an answer page."
+        ],
+        [
+          "Does each puzzle have only one answer?",
+          "Yes. Each puzzle is checked so that it has exactly one solution."
+        ],
+        [
+          "Which grid is best for children?",
+          "The 4 by 4 grid is a good start. The 6 by 6 grid is for beginners, and the 9 by 9 grid is the classic."
+        ],
+        [
+          "How does difficulty work?",
+          "Easy gives more numbers to start with, and hard gives fewer, so you need more steps to solve it."
+        ],
+        [
+          "Can I print the same puzzles again?",
+          "Yes. Use the same puzzle number, and you get the same set."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "handwritingTracingSheetGuide": {
+      "title": "Handwriting Tracing Sheet Printable: Trace Letters, Numbers and Names",
+      "subtitle": "Print handwriting tracing sheets for letters, numbers, names and words: grey to trace, then a blank line to write. Three sizes. Free and private.",
+      "faq": [
+        [
+          "What does the tracing sheet include?",
+          "It is a tracing sheet maker. Each line you type becomes a row of grey letters to trace, followed by a blank row to write the same thing."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type what to trace on each line, choose the letter size and whether each row is followed by a blank row."
+        ],
+        [
+          "Can I trace my child's name?",
+          "Yes. Type the name on a line and print. Add several lines for more practice."
+        ],
+        [
+          "What does the letter size mean?",
+          "Large is for children of about four to five who are learning to hold a pencil. Medium and small suit older children."
+        ],
+        [
+          "How do the guide lines work?",
+          "Each row has a bold baseline and two light guide lines so letters keep the right height."
+        ],
+        [
+          "Can it do capital and small letters?",
+          "Yes. Type capitals on one line and small letters on another, and mix numbers and words."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "bingoCardGeneratorGuide": {
+      "title": "Bingo Card Generator Printable: Custom Bingo Cards for Parties and Classes",
+      "subtitle": "Make bingo cards from your own list: choose the card size, how many different cards and a free space. For parties, classes and baby showers. Free and private.",
+      "faq": [
+        [
+          "What does the bingo cards include?",
+          "It is a bingo card maker. Type your items, choose the card size and the number of cards, and each card gets a different random layout."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type a title and your items, choose the card size, the number of cards, how many on a page and a free space."
+        ],
+        [
+          "How do I make every card different?",
+          "Type more items than squares. Each card draws a different random set, so no two are the same."
+        ],
+        [
+          "How many cards can I make?",
+          "Up to 30 different cards, one, two or four on a page."
+        ],
+        [
+          "What can I put on the cards?",
+          "Words, names, colours, animals, vocabulary, party items or anything short."
+        ],
+        [
+          "Is there a free space?",
+          "Yes, for 3 by 3 and 5 by 5 cards you can put a free space in the middle."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "omrAnswerSheetGuide": {
+      "title": "OMR Answer Sheet Printable: Bubble Sheet for Tests and Practice",
+      "subtitle": "Print an OMR-style answer sheet: up to 100 questions with A to D or A to E bubbles, true or false and roll number bubbles. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the omr answer sheet include?",
+          "It is a bubble answer sheet with a numbered list of questions and a circle for each choice. Roll number bubbles can be added at the top."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the test name, choose the number of questions, the choices for each question, roll number digits and the number of copies."
+        ],
+        [
+          "Can a scanner read it?",
+          "The sheet is made for practice and manual marking. Machine scanning needs special forms, so use it for mock tests and quizzes."
+        ],
+        [
+          "How many questions can it have?",
+          "From 10 to 100, in steps of 5, in columns of 25."
+        ],
+        [
+          "Can I add a roll number?",
+          "Yes. Choose four, six or eight digits and students fill one bubble in each column."
+        ],
+        [
+          "Does it work for true or false?",
+          "Yes. Choose true or false and each question gets two bubbles."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "rangoliDotGridGuide": {
+      "title": "Rangoli Dot Grid Printable: Diamond, Square, Triangle and Kolam Dot Patterns",
+      "subtitle": "Print rangoli and kolam dot grids: diamond, square, triangle, staggered and hexagon patterns in several sizes. Practise and design on paper. Free and private.",
+      "faq": [
+        [
+          "What does the rangoli dot grids include?",
+          "It is a dot grid maker for rangoli and kolam. You choose a pattern, a size and how many grids to print on a page."
+        ],
+        [
+          "What can I choose before printing?",
+          "Choose the pattern, the size, how many grids on a page and the dot size."
+        ],
+        [
+          "What is the diamond pattern?",
+          "Rows of 1, 3, 5, 7, 5, 3 and 1 dots, which is a classic base for many rangoli designs."
+        ],
+        [
+          "What does staggered mean?",
+          "Alternate rows are shifted by half a dot, a layout often used for kolam."
+        ],
+        [
+          "Can I make larger or smaller grids?",
+          "Yes. Choose the number of dots in the middle row, from 3 to 15, and how many grids fit on a page."
+        ],
+        [
+          "Is it good for children?",
+          "Yes. Many children enjoy joining dots, and practising on paper helps before drawing with colour powder."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "recipeCardGuide": {
+      "title": "Recipe Card Printable: Blank Recipe Cards for Your Family Cookbook",
+      "subtitle": "Print blank recipe cards: dish, serves, times, ingredients and method, in full page, half page or four-on-a-page sizes. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the recipe card include?",
+          "It is a blank recipe card with a title, the number it serves, prep time, cook time, a list of ingredients and the method."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type a dish name if you wish, choose the card size, the layout and the number of pages."
+        ],
+        [
+          "What sizes are there?",
+          "A full page, two cards on a page, or four small cards on a page. Cut the small ones and keep them in a box."
+        ],
+        [
+          "Can I type the dish name?",
+          "Yes. Type it for a single card or leave it blank to write by hand."
+        ],
+        [
+          "What are the two layouts?",
+          "Ingredients beside the method fits more on a wide card. Ingredients above the method suits tall cards."
+        ],
+        [
+          "Is it good for a family cookbook?",
+          "Yes. Many families collect handwritten recipes from elders. Print on good paper and bind the pages."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "certificateOfAchievementGuide": {
+      "title": "Certificate of Achievement Printable: Free Certificate Template",
+      "subtitle": "Print a certificate of achievement: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the achievement certificate include?",
+          "It is a landscape certificate with a title, a line for the name, the wording, a date and two signature lines. You choose from four borders."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Can I add many names?",
+          "Yes. Type up to 30 names, one on each line, and each gets its own certificate."
+        ],
+        [
+          "Can I change the wording?",
+          "Yes. Type your own line under the name, such as \"for first position in the drawing contest\"."
+        ],
+        [
+          "What paper should I use?",
+          "Use thick A4 paper or card for a better feel. Choose the gold corner border for a formal look."
+        ],
+        [
+          "Is it an official document?",
+          "No. It is a plain certificate for your own school, class or club. It has no legal standing."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "certificateOfParticipationGuide": {
+      "title": "Certificate of Participation Printable: Free Certificate Template",
+      "subtitle": "Print a certificate of participation: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the participation certificate include?",
+          "It is a landscape participation certificate with a name line, wording you can change, a date and two signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Who is it for?",
+          "Everyone who took part in an event such as a competition, sports day, workshop or science fair."
+        ],
+        [
+          "Can I add the event name?",
+          "Yes. Type it in the wording line, such as \"in the Annual Day dance competition\"."
+        ],
+        [
+          "How do I print for the whole class?",
+          "Type all the names, one on each line, and print the pages."
+        ],
+        [
+          "Can I add the school name?",
+          "Yes. Type it in the heading box and it prints at the top of every certificate."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "certificateOfAppreciationGuide": {
+      "title": "Certificate of Appreciation Printable: Free Certificate Template",
+      "subtitle": "Print a certificate of appreciation: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the appreciation certificate include?",
+          "It is a landscape certificate of appreciation with a name, a line of thanks, a date and two signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Who can I give it to?",
+          "Volunteers, teachers, helpers, guests and staff, for support and effort."
+        ],
+        [
+          "Can I add my own thanks?",
+          "Yes. Replace the wording with your own message, such as \"for organising the annual function\"."
+        ],
+        [
+          "Is it good for a society?",
+          "Yes. Resident associations often thank volunteers at the year-end meeting."
+        ],
+        [
+          "Can I print one for each person?",
+          "Yes. Type the names and print."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "courseCompletionCertificateGuide": {
+      "title": "Course Completion Certificate Printable: Free Certificate Template",
+      "subtitle": "Print a course completion certificate: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the course completion certificate include?",
+          "It is a landscape certificate of completion with a name, the course wording, a date and two signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Can I add the course name?",
+          "Yes. Edit the wording, such as \"has successfully completed the Basic Computer course\"."
+        ],
+        [
+          "Is it for tuition and workshops?",
+          "Yes. It suits tuition classes, hobby workshops, summer camps and company training."
+        ],
+        [
+          "Does it replace an official certificate?",
+          "No. It is a simple certificate from you. Official exams have their own certificates."
+        ],
+        [
+          "How do I add a date?",
+          "Type it in the date box and it prints above the date line."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "sportsWinnerCertificateGuide": {
+      "title": "Sports Winner Certificate Printable: Free Certificate Template",
+      "subtitle": "Print a sports winner certificate: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the sports winner certificate include?",
+          "It is a landscape certificate of merit for sports with a name line, wording you can change, a date and two signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Can I write the position?",
+          "Yes. Edit the wording, such as \"for winning first place in the 100 metre race\"."
+        ],
+        [
+          "Is it for school sports day?",
+          "Yes. It suits school and club events, tournaments and fun runs."
+        ],
+        [
+          "Can I print many?",
+          "Yes. Type all the names and print a page for each."
+        ],
+        [
+          "How do I add the sport?",
+          "Put it in the wording line. Print one set for each race or game."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "perfectAttendanceCertificateGuide": {
+      "title": "Perfect Attendance Award Printable: Free Certificate Template",
+      "subtitle": "Print a perfect attendance award: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the perfect attendance certificate include?",
+          "It is a landscape award with a name, wording about attendance, a date and two signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Who is it for?",
+          "Students, or staff, with a full record of attendance for a month, term or year."
+        ],
+        [
+          "Can I add the period?",
+          "Yes. Write it in the wording, such as \"for perfect attendance in the first term\"."
+        ],
+        [
+          "Does it need any records?",
+          "No. You decide who earns it, from your own register."
+        ],
+        [
+          "Can I use it at work?",
+          "Yes. Change the signers to a manager and a director."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "employeeOfTheMonthCertificateGuide": {
+      "title": "Employee of the Month Printable: Free Certificate Template",
+      "subtitle": "Print a employee of the month: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the employee of the month certificate include?",
+          "It is a landscape recognition certificate with the employee's name, a line of praise, a date and two signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Who is it for?",
+          "Staff and team members recognised for good work in a month, quarter or year."
+        ],
+        [
+          "Can I add the month?",
+          "Yes. Write it in the wording or the date box."
+        ],
+        [
+          "Is it good for small businesses?",
+          "Yes. A shop owner can print one for a helper at no cost."
+        ],
+        [
+          "Can I add the company name?",
+          "Yes. Type it in the heading box and it prints at the top."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "bestStudentCertificateGuide": {
+      "title": "Best Student Award Printable: Free Certificate Template",
+      "subtitle": "Print a best student award: type names, edit the wording, add a date and signers, pick a border. One page per name. Free and private.",
+      "faq": [
+        [
+          "What does the best student certificate include?",
+          "It is a landscape award for a student with a name, wording, a date and two signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names (one certificate for each), the wording, date, signature labels and border."
+        ],
+        [
+          "Can I use it for student of the month?",
+          "Yes. Edit the wording and print one for each month."
+        ],
+        [
+          "Can I add the class?",
+          "Yes. Type it in the wording, such as \"of Class 6 B\"."
+        ],
+        [
+          "Does it need marks?",
+          "No. You choose the student and the reason."
+        ],
+        [
+          "How many can I print?",
+          "Up to 30 names at once, one page for each."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "nameTagStickerSheetGuide": {
+      "title": "Name Tag Sticker Sheet Printable: Hello My Name Is Labels",
+      "subtitle": "Print name tags: type the names, ten to a sheet, with Hello my name is at the top and a large name. For events, classes and parties. Free and private.",
+      "faq": [
+        [
+          "What does the name tags include?",
+          "It is a sheet of ten name tags, each with HELLO, my name is at the top and a large name below."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type one name on each line, choose the text size and border, and repeat one tag if you need many."
+        ],
+        [
+          "How many tags are on a sheet?",
+          "Ten, in two columns of five. Each name is a separate tag."
+        ],
+        [
+          "Can I print the same name many times?",
+          "Yes. Tick repeat and the first name fills the sheet."
+        ],
+        [
+          "What paper should I use?",
+          "Sticker paper works well. On plain paper, cut the tags and use pins or tape."
+        ],
+        [
+          "Can I use it for a school event?",
+          "Yes. Add names for a class, a workshop or a parents' evening."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "schoolBookLabelGuide": {
+      "title": "School Book Label Printable: Notebook Name Labels with Class and Subject",
+      "subtitle": "Print school book labels: name, class, subject and school, ten to a sheet, with your details typed in or blank to write. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the school book labels include?",
+          "It is a sheet of ten labels for notebooks, each with lines for the name, class, subject and school."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the name, class, subject and school to print on every label, or leave them blank."
+        ],
+        [
+          "Can I fill in the details?",
+          "Yes. Type the name, class, subject and school and they print on every label."
+        ],
+        [
+          "Can I print blank labels?",
+          "Yes. Turn off the fill option to print blank labels to write on."
+        ],
+        [
+          "How many labels are there on a sheet?",
+          "Ten, in two columns of five."
+        ],
+        [
+          "Can I use it for several subjects?",
+          "Print a sheet for each subject, changing the subject each time."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "kidsNameLabelsGuide": {
+      "title": "Kids Name Labels Printable: Small Labels for Bottles, Boxes and Uniforms",
+      "subtitle": "Print small kids name labels, 48 to a sheet, for bottles, lunch boxes and stationery. Type one name and repeat it, or type several. Free and private.",
+      "faq": [
+        [
+          "What does the kids name labels include?",
+          "It is a sheet of 48 small labels for names, with dashed cut lines."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type one name per line, or repeat the first name to fill the sheet. Choose the size and the border."
+        ],
+        [
+          "How many labels are on a sheet?",
+          "Forty-eight, in four columns of twelve."
+        ],
+        [
+          "Can I make labels for two children?",
+          "Yes. Type both names. Each name fills as many labels as there are lines, or use repeat for one name."
+        ],
+        [
+          "Will they survive washing?",
+          "That depends on the sticker paper. Use laminated or waterproof sticker sheets for bottles and boxes."
+        ],
+        [
+          "Is it good for daycare?",
+          "Yes. A full sheet of names is useful for a whole class."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "spiceJarLabelGuide": {
+      "title": "Spice Jar Label Printable: Kitchen and Pantry Labels for Jars and Boxes",
+      "subtitle": "Print spice jar and pantry labels: type the names, 24 to a sheet, in three sizes with a border. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What does the spice jar labels include?",
+          "It is a sheet of 24 kitchen labels. Each has a jar name in large letters and an optional small line."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names of the jars, one on each line, and choose the size and border."
+        ],
+        [
+          "Can I change the names?",
+          "Yes. Type your own jar names, one on each line, in English or in a language you can type in Roman letters."
+        ],
+        [
+          "How many labels are on a sheet?",
+          "Twenty-four, in three columns of eight."
+        ],
+        [
+          "Can I add a small line?",
+          "Yes. Add a line such as \"Use within 6 months\" that prints on every label."
+        ],
+        [
+          "Which sticker paper should I use?",
+          "Matt sticker paper is easy to write on and stays in place on glass and steel."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "addressLabelGuide": {
+      "title": "Address Label Printable: Shipping and Envelope Labels",
+      "subtitle": "Print address labels: type each address on a line with slashes between the lines. 14 to a sheet for parcels and envelopes. Free and private.",
+      "faq": [
+        [
+          "What does the address labels include?",
+          "It is a sheet of 14 address labels. Each has a To: at the top and up to six lines of address."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type one address per line, separate the lines with a slash, or repeat the first address."
+        ],
+        [
+          "How do I write an address?",
+          "Put the whole address on one line and separate its lines with a slash, such as Mr Sharma / 12 Park Road / Pune 411001."
+        ],
+        [
+          "How many labels are on a sheet?",
+          "Fourteen, in two columns of seven."
+        ],
+        [
+          "Can I print my own return address?",
+          "Yes. Type your address once and tick repeat to fill the sheet."
+        ],
+        [
+          "Is it good for small online sellers?",
+          "Yes. It saves handwriting on every parcel."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "storageBoxAndFileLabelGuide": {
+      "title": "Storage Box and File Label Printable: Folder and Shelf Labels",
+      "subtitle": "Print storage and file labels: type the names, 16 to a sheet, large text. For boxes, folders, shelves and cupboards. Free and private.",
+      "faq": [
+        [
+          "What does the storage and file labels include?",
+          "It is a sheet of 16 large labels for boxes, files and shelves."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type each label on a line, choose the text size and the border."
+        ],
+        [
+          "Can I change the labels?",
+          "Yes. Type your own, one on each line."
+        ],
+        [
+          "How many labels are on a sheet?",
+          "Sixteen, in two columns of eight."
+        ],
+        [
+          "What size is the text?",
+          "Choose small, medium or large. Large is good for boxes at a distance."
+        ],
+        [
+          "Can I use them in an office?",
+          "Yes. Folders, files and shelves can all use them."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "freezerFoodDateLabelGuide": {
+      "title": "Food Date Label Printable: Freezer and Leftover Labels",
+      "subtitle": "Print food date labels: item, made on and use by lines, 24 to a sheet, for freezer boxes and leftovers. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What does the food date labels include?",
+          "It is a sheet of 24 small labels with lines for Item, Made on and Use by."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type an item name to repeat, or leave the labels blank to write by hand."
+        ],
+        [
+          "Does it tell me how long food keeps?",
+          "No. It has lines for the dates, and you decide how long to keep food. Follow safe food handling guidance."
+        ],
+        [
+          "How many labels are on a sheet?",
+          "Twenty-four, in three columns of eight."
+        ],
+        [
+          "Can I pre-fill the item?",
+          "Yes. Type it and tick repeat to print it on every label."
+        ],
+        [
+          "Is it good for meal prep?",
+          "Yes. Write the dish and the date on each box."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "giftTagGuide": {
+      "title": "Gift Tag Printable: To and From Tags with a Message",
+      "subtitle": "Print gift tags: To, From and a message, eight to a sheet, with a double border. For birthdays, Diwali, weddings and more. Free and private.",
+      "faq": [
+        [
+          "What does the gift tags include?",
+          "It is a sheet of eight gift tags with lines for To, From and a short message."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the names to print on every tag, or leave blank to write by hand. Choose the text size and border."
+        ],
+        [
+          "How many tags are on a sheet?",
+          "Eight, in two columns of four."
+        ],
+        [
+          "Can I type the From name?",
+          "Yes. Type it once and it prints on every tag."
+        ],
+        [
+          "What paper should I use?",
+          "Thick paper or card makes sturdier tags."
+        ],
+        [
+          "Is it good for a hamper?",
+          "Yes. Print a sheet and write the recipient on each."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "tablePlaceCardGuide": {
+      "title": "Table Place Card Printable: Name Cards for Parties and Weddings",
+      "subtitle": "Print place cards: type the guest names, eight to a sheet, with a large name and a small table line. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What does the place cards include?",
+          "It is a sheet of eight place cards with a large name and a small line for the table."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type one guest name per line, add a small line such as the table, and choose the size and border."
+        ],
+        [
+          "How many place cards are on a sheet?",
+          "Eight, in two columns of four."
+        ],
+        [
+          "Can I add the table number?",
+          "Yes. Type a small line like Table 3 and it prints under each name."
+        ],
+        [
+          "Should I fold them?",
+          "You can cut and stand them against a glass, or fold card at the centre of each."
+        ],
+        [
+          "Does it work with the seating chart?",
+          "Yes. Use the seating chart to plan, then print the cards."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "doorSignGuide": {
+      "title": "Door Sign Printable: Open, Closed, Welcome and Custom Signs",
+      "subtitle": "Print door signs: Open, Closed, Welcome, Back in 10 minutes, Please knock and your own words, in huge letters. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the door signs include?",
+          "It is a full A4 sign with large bold letters, a border and an optional small line."
+        ],
+        [
+          "What can I choose before printing?",
+          "Choose a message or type your own, add a small line, choose a border and the number of copies."
+        ],
+        [
+          "What messages are there?",
+          "Open, Closed, Welcome, Back in 10 minutes, Please knock, Reserved, Silence please, Staff only, Push, Pull, Please wait here, Thank you visit again, Meeting in progress and Please take off your shoes."
+        ],
+        [
+          "Can I write my own?",
+          "Yes. Choose My own words and type up to 40 characters."
+        ],
+        [
+          "Can I add a phone number?",
+          "Yes. Use the small line below."
+        ],
+        [
+          "What paper should I use?",
+          "Thick paper or a laminated sheet lasts longer on a door."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "weddingSeatingChartGuide": {
+      "title": "Wedding Seating Chart Printable: Table Plan with Guest Lines",
+      "subtitle": "Print a seating chart: up to 24 tables, six to a page, up to 12 seats each, with editable table names. Plan weddings and parties. Free and private.",
+      "faq": [
+        [
+          "What does the seating chart include?",
+          "It is a table plan with a box for each table and a numbered line for each seat."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type table names or choose the number of tables, and choose the seats at each table."
+        ],
+        [
+          "How many tables can I plan?",
+          "Up to 24 tables, six on a page, with two to twelve seats each."
+        ],
+        [
+          "Can I name the tables?",
+          "Yes. Type names such as Family, Friends or Colleagues, one on each line."
+        ],
+        [
+          "How do I use it?",
+          "Pencil in the guests, move names as plans change and copy the final plan onto place cards."
+        ],
+        [
+          "Does it work for round tables?",
+          "Yes. Each box is a list of seats, so it works for any shape of table."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "societyNoticeTemplateGuide": {
+      "title": "Society Notice Template Printable: Notice Format for Residents",
+      "subtitle": "Print a society notice: name, reference, date, subject, your text and a signature block. A clean format for resident notice boards. Free and private.",
+      "faq": [
+        [
+          "What does the general notice include?",
+          "It is a notice page with the society name at the top, a title, a reference and date line, a subject, your paragraphs and a signature line."
+        ],
+        [
+          "What can I choose before printing?",
+          "Change the subject and text, add the date and reference, choose the text size and the number of copies."
+        ],
+        [
+          "Is the wording legal?",
+          "No. It is a plain notice with no legal wording. For matters covered by your bye-laws, follow their format."
+        ],
+        [
+          "Can I change everything?",
+          "Yes. Edit the subject, the paragraphs, the date and the signer."
+        ],
+        [
+          "How many paragraphs can I add?",
+          "Up to 14, and the page wraps long lines."
+        ],
+        [
+          "What should be on a notice?",
+          "A clear subject, the date, what is happening and who to contact. Keep it short."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "generalBodyMeetingNoticeGuide": {
+      "title": "General Body Meeting Notice Printable: Society AGM Notice Format",
+      "subtitle": "Print a general body meeting notice: date, time, place and an editable agenda. For societies, associations and clubs. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the meeting notice include?",
+          "It is a notice of a general body meeting with a date, time, place, an agenda and a signature."
+        ],
+        [
+          "What can I choose before printing?",
+          "Change the agenda and details, add the date and signer, and choose the number of copies."
+        ],
+        [
+          "What goes on the agenda?",
+          "The sheet starts with minutes, accounts and other matters. Replace them with your own points."
+        ],
+        [
+          "Does it include the rules for notice?",
+          "No. Check your bye-laws for how many days of notice are needed and who must be told."
+        ],
+        [
+          "Can I use it for a club?",
+          "Yes. Change the society wording to the name of your club or association."
+        ],
+        [
+          "Can I attach the agenda?",
+          "Yes. Write it in the notice, or print the meeting agenda template separately."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "maintenanceCollectionReminderNoticeGuide": {
+      "title": "Maintenance Collection Reminder Notice Printable: Society Dues Notice",
+      "subtitle": "Print a maintenance reminder notice: the month due, how to pay and a polite request. For societies and associations. Free and private.",
+      "faq": [
+        [
+          "What does the maintenance reminder include?",
+          "It is a polite reminder notice about maintenance charges for a month, with a line on how to pay."
+        ],
+        [
+          "What can I choose before printing?",
+          "Edit the month, amounts and how to pay, and choose the number of copies."
+        ],
+        [
+          "Is it a legal demand?",
+          "No. It is a polite reminder. Recovery of dues follows your bye-laws and the law, which this sheet does not cover."
+        ],
+        [
+          "Can I add the amount?",
+          "Yes. Edit the text to add the amount and the due date."
+        ],
+        [
+          "Who should sign it?",
+          "Usually the treasurer or secretary."
+        ],
+        [
+          "Should I name defaulters?",
+          "Consider your society's rules and privacy before naming anyone."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "waterSupplyInterruptionNoticeGuide": {
+      "title": "Water Supply Interruption Notice Printable: Planned Work Notice",
+      "subtitle": "Print a water supply notice: date, time, reason and a request to store water. Also works for planned work notices. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the water supply notice include?",
+          "It is a notice about a planned interruption, with the date, the hours, the reason and an apology."
+        ],
+        [
+          "What can I choose before printing?",
+          "Edit the dates, times and reason, and choose the number of copies."
+        ],
+        [
+          "Can I use it for other work?",
+          "Yes. Change the subject and text for power, lift or painting work."
+        ],
+        [
+          "Should I give a reason?",
+          "A short reason helps people accept the inconvenience."
+        ],
+        [
+          "When should I post it?",
+          "As early as you can, so residents can plan."
+        ],
+        [
+          "Does it include official rules?",
+          "No. It is a plain notice. For public works, follow the authority's own notices."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "festivalCelebrationNoticeGuide": {
+      "title": "Festival Celebration Notice Printable: Society Event Invitation Notice",
+      "subtitle": "Print a festival notice: date, time, place and a request for volunteers. Invite residents to Diwali, Holi, Ganesh Chaturthi and more. Free and private.",
+      "faq": [
+        [
+          "What does the festival notice include?",
+          "It is an invitation-style notice for a festival or event with the details and a request for volunteers."
+        ],
+        [
+          "What can I choose before printing?",
+          "Edit the event details, add the date and signer, and choose the number of copies."
+        ],
+        [
+          "Can I use it for any festival?",
+          "Yes. Replace the blanks with the festival and details."
+        ],
+        [
+          "Can I ask for volunteers?",
+          "Yes. The last line asks them to give names to the committee."
+        ],
+        [
+          "Should I mention contributions?",
+          "Add a line if there is one, and follow your society's rules."
+        ],
+        [
+          "Can I invite non-residents?",
+          "Edit the text as you wish."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "officeCircularTemplateGuide": {
+      "title": "Office Circular Template Printable: Circular Format for Staff",
+      "subtitle": "Print an office circular: reference, date, To line, subject, text and signature. A clean format for staff announcements. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the office circular include?",
+          "It is a circular with a heading, a reference and date, a To line, a subject, text and a signature."
+        ],
+        [
+          "What can I choose before printing?",
+          "Edit the subject and paragraphs, add the date and reference and choose the copies."
+        ],
+        [
+          "What is a circular?",
+          "A written notice to a group of people, such as all staff, giving information or instructions."
+        ],
+        [
+          "Is it the same as a memo?",
+          "They are similar. A circular goes to many people. A memo is often shorter and between two people or teams."
+        ],
+        [
+          "Can I add an acknowledgement?",
+          "Yes. The text asks staff to sign an acknowledgement sheet, which you can print separately."
+        ],
+        [
+          "Does it follow a legal format?",
+          "No. Follow your company's own format if it has one."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "gatePassGuide": {
+      "title": "Gate Pass Printable: Visitor and Material Gate Pass Format",
+      "subtitle": "Print gate passes, four to a page: number, date, visitor, phone, whom to meet, purpose, vehicle, in and out and signatures. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the gate pass include?",
+          "It is a page of four gate passes with lines for the visitor, the host, the purpose, the vehicle, the times and signatures."
+        ],
+        [
+          "What can I choose before printing?",
+          "Type the society or business name and choose the pages."
+        ],
+        [
+          "What is a gate pass?",
+          "A slip given to a visitor at the gate to record who came, whom they met and when they left."
+        ],
+        [
+          "Can I add my society name?",
+          "Yes. Type it in the heading box."
+        ],
+        [
+          "How many passes are on a page?",
+          "Four."
+        ],
+        [
+          "Is it for material too?",
+          "You can write the item in the purpose line. Use separate sheets if you need a full material pass."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "societyMaintenanceCollectionRegisterGuide": {
+      "title": "Society Maintenance Collection Register Printable: Flat-wise Dues Sheet",
+      "subtitle": "Print a society maintenance collection register: flat, resident, month, amount, paid on, mode, receipt and balance. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the maintenance collection register have?",
+          "It has these columns: No., Flat no., Resident, Month, Due (Rs.), Paid on, Mode, Receipt no., Balance (Rs.). 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the flats or residents, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Is it a legal accounts register?",
+          "No. It is a simple collection sheet. The society's official accounts and receipts follow its bye-laws and the rules for societies."
+        ],
+        [
+          "How many flats fit on a page?",
+          "Up to 30. Print more pages for a larger society."
+        ],
+        [
+          "Can I use it for a month at a time?",
+          "Yes. Write the month at the top and use a fresh sheet each month."
+        ],
+        [
+          "Should I issue a receipt?",
+          "Yes. Write the receipt number here so the sheet and receipts match."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "parkingSlotAllotmentRegisterGuide": {
+      "title": "Parking Slot Allotment Register Printable: Society Parking and Vehicle Record",
+      "subtitle": "Print a parking slot register: slot, flat, resident, vehicle number, type, sticker number and remarks. For societies and offices. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the parking slot register have?",
+          "It has these columns: Slot, Flat, Resident, Vehicle no., Type, Sticker no., Phone, Remarks. 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What is the Type column for?",
+          "Write two wheeler, four wheeler or any other, so you can count each type."
+        ],
+        [
+          "Does it handle visitor parking?",
+          "Use the visitor register for visitors. This sheet is for allotted slots."
+        ],
+        [
+          "Is it a legal record?",
+          "No. It is a working register. Parking rules are set by your society."
+        ],
+        [
+          "How often should I update it?",
+          "When someone buys a new vehicle or a flat changes hands."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "societyComplaintRegisterGuide": {
+      "title": "Society Complaint Register Printable: Resident Complaint and Action Log",
+      "subtitle": "Print a complaint register: date, flat, complaint, assigned to, action taken and date closed. For societies, offices and shops. Free and private.",
+      "faq": [
+        [
+          "What columns does the complaint register have?",
+          "It has these columns: No., Date, Flat or name, Complaint, Assigned to, Action taken, Closed on. 18 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Who can use it?",
+          "Societies, offices, shops and schools, wherever complaints need to be recorded."
+        ],
+        [
+          "Why record the action taken?",
+          "It shows that complaints were looked at and gives the person who complained a clear answer."
+        ],
+        [
+          "Can I use it as a customer feedback log?",
+          "Yes. Write the customer name in the second column."
+        ],
+        [
+          "Should I keep it private?",
+          "Yes. It holds names and issues, so keep the printed register with the office."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "keyRegisterGuide": {
+      "title": "Key Register Printable: Key Issue and Return Log",
+      "subtitle": "Print a key register: date, key or item, who took it, time out, time in and a signature. For offices, societies and shops. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the key register have?",
+          "It has these columns: No., Date, Key or item, Taken by, Time out, Time in, Taken by sign, Returned to sign, Remarks. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What can it track?",
+          "Keys, remotes, tools and equipment lent out."
+        ],
+        [
+          "Does it replace a lock?",
+          "No. It is a record only."
+        ],
+        [
+          "Who should keep it?",
+          "The guard, the office assistant or the person in charge of the keys."
+        ],
+        [
+          "Can I use it for lent equipment?",
+          "Yes. Write the item in the second column."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "meetingAgendaTemplateGuide": {
+      "title": "Meeting Agenda Template Printable: Time, Topic and Lead Sheet",
+      "subtitle": "Print a meeting agenda template: time, topic, who leads, minutes allotted and notes. For teams, committees and societies. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the meeting agenda have?",
+          "It has these columns: No., Time, Topic, Led by, Minutes, Notes. 12 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the topics, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Why allot minutes to each topic?",
+          "It keeps the meeting on time and shows when the plan is too long."
+        ],
+        [
+          "How is it different from the minutes sheet?",
+          "The agenda is the plan before the meeting. The minutes sheet records what happened."
+        ],
+        [
+          "Can I send it in advance?",
+          "Yes. Print or download the PDF and share it before the meeting."
+        ],
+        [
+          "How many topics can I add?",
+          "Up to 18."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "contentCalendarGuide": {
+      "title": "Content Calendar Printable: Social Media Posting Plan for Creators and Shops",
+      "subtitle": "Print a content calendar: date, platform, topic or idea, format, caption ready and posted. Plan posts for Instagram, YouTube and more. Free and private.",
+      "faq": [
+        [
+          "What columns does the content calendar have?",
+          "It has these columns: No., Date, Platform, Topic or idea, Format, Caption ready, Posted, Notes. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Which platforms is it for?",
+          "Any. Instagram, YouTube, Facebook, LinkedIn, WhatsApp status or a blog."
+        ],
+        [
+          "What goes in Format?",
+          "Reel, photo, carousel, story, video or text, so you can balance the mix."
+        ],
+        [
+          "How many posts should I plan?",
+          "As many as you can keep up with. Start with two or three a week."
+        ],
+        [
+          "Is it good for small shops?",
+          "Yes. Plan offers, festivals and new stock in advance."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "socialMediaPostPlannerGuide": {
+      "title": "Social Media Post Planner Printable: Weekly Posting Schedule by Platform",
+      "subtitle": "Print a weekly social media planner: platforms down the side and the seven days across. Plan what to post and where. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the social media weekly planner have?",
+          "It has these columns: Platform, Mon, Tue, Wed, Thu, Fri, Sat, Sun. 8 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the platforms, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "How is it different from the content calendar?",
+          "The content calendar lists each post. This planner shows a week at a glance by platform."
+        ],
+        [
+          "Can I change the platforms?",
+          "Yes. Type your own, up to 12."
+        ],
+        [
+          "How many posts a day?",
+          "Whatever suits you. Write them in the box."
+        ],
+        [
+          "Can I use it for a shop?",
+          "Yes. Plan offers and new arrivals for each day."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "invoiceTrackerGuide": {
+      "title": "Invoice Tracker Printable: Freelancer and Small Business Payment Log",
+      "subtitle": "Print an invoice tracker: invoice number, client, date, amount, due date, paid on and status. Know who has paid and who has not. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the invoice tracker have?",
+          "It has these columns: No., Invoice no., Client, Date, Amount (Rs.), Due date, Paid on, Status, Notes. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Does it make invoices?",
+          "No. Use the invoice generators on this site for that. This sheet tracks them."
+        ],
+        [
+          "Does it handle tax?",
+          "No. It has no tax columns. Keep your tax records as the rules require."
+        ],
+        [
+          "What goes in Status?",
+          "Paid, due or late, or any word you prefer."
+        ],
+        [
+          "Is it good for freelancers?",
+          "Yes. It shows quickly which clients need a reminder."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "freelanceProjectTrackerGuide": {
+      "title": "Freelance Project Tracker Printable: Client Work, Deadlines and Fees",
+      "subtitle": "Print a freelance project tracker: client, project, start date, due date, fee, advance and status. Keep client work in one place. Free and private.",
+      "faq": [
+        [
+          "What columns does the project tracker have?",
+          "It has these columns: No., Client, Project, Start, Due, Fee (Rs.), Advance (Rs.), Status, Notes. 20 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What can I write in Status?",
+          "Not started, in progress, waiting for client, done or paid."
+        ],
+        [
+          "Does it include tax?",
+          "No. It records fees you agree and nothing else."
+        ],
+        [
+          "Can I track many projects?",
+          "Up to 28 on a page."
+        ],
+        [
+          "How is it different from the invoice tracker?",
+          "This tracks work and deadlines. The invoice tracker tracks the money billed."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "clientContactListGuide": {
+      "title": "Client Contact List Printable: Customer and Vendor Phone Book",
+      "subtitle": "Print a client contact list: name, company, phone, email, last contact and notes for customers and vendors. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the client contact list have?",
+          "It has these columns: No., Name, Company, Phone, Email, City, Last contact, Notes. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the names, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Is it safe to write clients' details?",
+          "Keep the printed list private and do not share it. It holds personal information."
+        ],
+        [
+          "Can I use it for suppliers?",
+          "Yes. Write the supplier name and what they supply in Notes."
+        ],
+        [
+          "Can I sort it?",
+          "Write names alphabetically or print a page for each group."
+        ],
+        [
+          "Does it replace a CRM?",
+          "No. It is a simple paper list for small businesses."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "math-worksheet-generator-printable": {
+      "sections": [
+        {
+          "heading": "What the maths worksheet is",
+          "paragraphs": [
+            "It is a worksheet maker for addition, subtraction, multiplication, division or all four mixed. Choose the size of the numbers, stacked or in a line, and the number of sums.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Children improve with short, regular practice, and parents run out of sheets. A generator gives a new sheet in seconds, and an answer page makes checking fast."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start with sums your child can do and increase the size of the numbers as they grow confident. Keep the sheet short so it feels like a win."
+          ]
+        }
+      ]
+    },
+    "times-table-worksheet-printable": {
+      "sections": [
+        {
+          "heading": "What the times tables is",
+          "paragraphs": [
+            "It is a times table sheet maker with three styles: a write-in practice sheet, a mixed-order practice sheet and a chart with all the answers.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Tables are learned through repetition, and variety keeps it from becoming boring. A shuffled sheet checks whether a child knows the facts or only the order."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Practise one or two tables at a time, then use the mixed sheet to test. Keep the chart on the wall for reference."
+          ]
+        }
+      ]
+    },
+    "word-search-generator-printable": {
+      "sections": [
+        {
+          "heading": "What the word search is",
+          "paragraphs": [
+            "It is a word search maker that builds a puzzle from the words you type. You choose the grid size and how the words are hidden, and the page lists the words to find.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Teachers and parents often need a puzzle on a topic: this week's spelling, a festival or a science chapter. A generator makes one for any list in a few seconds."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Choose words that match the topic and a grid size that suits the age. Print the puzzle, keep the answer page and change the puzzle number for another version."
+          ]
+        }
+      ]
+    },
+    "maze-generator-printable": {
+      "sections": [
+        {
+          "heading": "What the maze is",
+          "paragraphs": [
+            "It is a maze maker that draws a fresh maze every time, with a start and an end, and an answer page showing the route.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Mazes are a good quiet activity that also builds attention and planning. A generator means you never run out."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start small and move to larger mazes. Use a pencil so mistakes can be rubbed out, and compare with the answer page afterwards."
+          ]
+        }
+      ]
+    },
+    "sudoku-puzzle-printable": {
+      "sections": [
+        {
+          "heading": "What the sudoku is",
+          "paragraphs": [
+            "It is a sudoku maker with three grid sizes and three difficulty levels. Puzzles are made fresh, checked for a single solution, and printed with an answer page.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Sudoku is a calm puzzle for all ages. Small grids introduce the idea to children, and the classic grid keeps adults busy."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start with an easy puzzle and use a pencil. Move up a level when the easy ones feel quick."
+          ]
+        }
+      ]
+    },
+    "handwriting-tracing-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the tracing sheet is",
+          "paragraphs": [
+            "It is a tracing sheet maker. Each line you type becomes a row of grey letters to trace, followed by a blank row to write the same thing.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Tracing builds the muscle memory for letters. Making the sheet from your own text means it can use the child's name or this week's words."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start with large size and short lines. Praise neat letters, and move to the blank row when tracing feels easy."
+          ]
+        }
+      ]
+    },
+    "bingo-card-generator-printable": {
+      "sections": [
+        {
+          "heading": "What the bingo cards is",
+          "paragraphs": [
+            "It is a bingo card maker. Type your items, choose the card size and the number of cards, and each card gets a different random layout.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Bingo works for any group, from a classroom revising vocabulary to a baby shower or a family evening. Custom items make it fit the occasion."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print the cards, keep your list of items and tick them off as you call. Use buttons or pieces of paper as markers."
+          ]
+        }
+      ]
+    },
+    "omr-answer-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the omr answer sheet is",
+          "paragraphs": [
+            "It is a bubble answer sheet with a numbered list of questions and a circle for each choice. Roll number bubbles can be added at the top.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Practising with a bubble sheet helps students get used to marking answers fast and neatly, which matters in competitive exams."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print one for each student, collect them after the test, and check them against your answer key."
+          ]
+        }
+      ]
+    },
+    "rangoli-dot-grid-printable": {
+      "sections": [
+        {
+          "heading": "What the rangoli dot grids is",
+          "paragraphs": [
+            "It is a dot grid maker for rangoli and kolam. You choose a pattern, a size and how many grids to print on a page.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Designing on paper first saves time and powder. A page of practice grids lets you try patterns and share ideas with family."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start with a small diamond grid, join the dots with a pencil and colour the shapes. Move to larger grids for festival designs."
+          ]
+        }
+      ]
+    },
+    "recipe-card-printable": {
+      "sections": [
+        {
+          "heading": "What the recipe card is",
+          "paragraphs": [
+            "It is a blank recipe card with a title, the number it serves, prep time, cook time, a list of ingredients and the method.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Family recipes live in memory and handwriting. A set of cards gives them a home and makes a lovely gift."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Ask a relative to dictate a recipe while you write it, with the quantities they use. Keep the cards in a tin or binder."
+          ]
+        }
+      ]
+    },
+    "certificate-of-achievement-printable": {
+      "sections": [
+        {
+          "heading": "What the achievement certificate is",
+          "paragraphs": [
+            "It is a landscape certificate with a title, a line for the name, the wording, a date and two signature lines. You choose from four borders.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A printed certificate makes a small win feel real. Typing the names saves the hand-lettering and makes a whole class set in minutes."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Type the names, check the wording and print on good paper. Ask the signers to sign each one in pen."
+          ]
+        }
+      ]
+    },
+    "certificate-of-participation-printable": {
+      "sections": [
+        {
+          "heading": "What the participation certificate is",
+          "paragraphs": [
+            "It is a landscape participation certificate with a name line, wording you can change, a date and two signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Taking part deserves recognition, especially for children. A certificate encourages them to try again."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Add the event name and date, print the pages and have the organiser sign."
+          ]
+        }
+      ]
+    },
+    "certificate-of-appreciation-printable": {
+      "sections": [
+        {
+          "heading": "What the appreciation certificate is",
+          "paragraphs": [
+            "It is a landscape certificate of appreciation with a name, a line of thanks, a date and two signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A certificate costs little and means a lot to someone who gave their time. Saying thank you in writing is remembered."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Choose a border, type the names, and write a personal line of thanks."
+          ]
+        }
+      ]
+    },
+    "course-completion-certificate-printable": {
+      "sections": [
+        {
+          "heading": "What the course completion certificate is",
+          "paragraphs": [
+            "It is a landscape certificate of completion with a name, the course wording, a date and two signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Learners like to take something home. A certificate of completion marks the end of a course and gives them something to show."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Type the course name in the wording, add the date and signatures, and print on good paper."
+          ]
+        }
+      ]
+    },
+    "sports-winner-certificate-printable": {
+      "sections": [
+        {
+          "heading": "What the sports winner certificate is",
+          "paragraphs": [
+            "It is a landscape certificate of merit for sports with a name line, wording you can change, a date and two signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Sports day is remembered through its prizes, and a certificate is a keepsake for children who do not win a medal."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Edit the wording for each event, type the winners and print."
+          ]
+        }
+      ]
+    },
+    "perfect-attendance-certificate-printable": {
+      "sections": [
+        {
+          "heading": "What the perfect attendance certificate is",
+          "paragraphs": [
+            "It is a landscape award with a name, wording about attendance, a date and two signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Showing up is a habit, and a certificate rewards it. Children enjoy the recognition and it encourages regular attendance."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Check your register, type the names, add the period and print."
+          ]
+        }
+      ]
+    },
+    "employee-of-the-month-certificate-printable": {
+      "sections": [
+        {
+          "heading": "What the employee of the month certificate is",
+          "paragraphs": [
+            "It is a landscape recognition certificate with the employee's name, a line of praise, a date and two signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "People remember being thanked. A simple certificate on the wall or in a frame shows that effort is noticed."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Choose the person, write a specific line of praise and present it in front of the team."
+          ]
+        }
+      ]
+    },
+    "best-student-certificate-printable": {
+      "sections": [
+        {
+          "heading": "What the best student certificate is",
+          "paragraphs": [
+            "It is a landscape award for a student with a name, wording, a date and two signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A student who is recognised for effort or conduct often tries harder. A certificate also makes parents proud."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Pick a reason you can name, such as helpfulness or improvement, and write it in the wording."
+          ]
+        }
+      ]
+    },
+    "name-tag-sticker-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the name tags is",
+          "paragraphs": [
+            "It is a sheet of ten name tags, each with HELLO, my name is at the top and a large name below.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Names make people feel welcome and help strangers talk. A printed tag is easier to read than handwriting."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Type the names, print one sheet to check the size, then print the rest."
+          ]
+        }
+      ]
+    },
+    "school-book-label-printable": {
+      "sections": [
+        {
+          "heading": "What the school book labels is",
+          "paragraphs": [
+            "It is a sheet of ten labels for notebooks, each with lines for the name, class, subject and school.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "At the start of the year parents write the same details dozens of times. A sheet printed in advance saves the effort and looks neat."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Type the child's details, print one sheet for each subject and stick on the cover."
+          ]
+        }
+      ]
+    },
+    "kids-name-labels-printable": {
+      "sections": [
+        {
+          "heading": "What the kids name labels is",
+          "paragraphs": [
+            "It is a sheet of 48 small labels for names, with dashed cut lines.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Lost bottles and lunch boxes are a regular problem at school. A named item finds its way home."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print the sheet on waterproof sticker paper and place labels on the inside of bottle bases and lids."
+          ]
+        }
+      ]
+    },
+    "spice-jar-label-printable": {
+      "sections": [
+        {
+          "heading": "What the spice jar labels is",
+          "paragraphs": [
+            "It is a sheet of 24 kitchen labels. Each has a jar name in large letters and an optional small line.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A labelled kitchen is faster to cook in and easier for helpers. It also makes a neat shelf."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Use short names, print one sheet, and stick the labels on lids or on the front of the jars."
+          ]
+        }
+      ]
+    },
+    "address-label-printable": {
+      "sections": [
+        {
+          "heading": "What the address labels is",
+          "paragraphs": [
+            "It is a sheet of 14 address labels. Each has a To: at the top and up to six lines of address.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Clear addresses help parcels arrive. Typed labels are easier to read than handwriting."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Type each address on a line, print one sheet to check alignment and then print on sticker paper."
+          ]
+        }
+      ]
+    },
+    "storage-box-and-file-label-printable": {
+      "sections": [
+        {
+          "heading": "What the storage and file labels is",
+          "paragraphs": [
+            "It is a sheet of 16 large labels for boxes, files and shelves.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Organisation depends on labels. A clearly labelled box saves minutes every time you look for something."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Group your things first, then print a label for each group and stick it on the front."
+          ]
+        }
+      ]
+    },
+    "freezer-food-date-label-printable": {
+      "sections": [
+        {
+          "heading": "What the food date labels is",
+          "paragraphs": [
+            "It is a sheet of 24 small labels with lines for Item, Made on and Use by.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A date on a box prevents waste and doubt. Labels make the freezer easy for everyone at home."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep a sheet and a pen near the freezer. Write the label as you pack the food."
+          ]
+        }
+      ]
+    },
+    "gift-tag-printable": {
+      "sections": [
+        {
+          "heading": "What the gift tags is",
+          "paragraphs": [
+            "It is a sheet of eight gift tags with lines for To, From and a short message.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A tag turns a package into a gift. A handwritten message on a printed tag feels personal and neat."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print on card, cut out the tags and tie them with string or ribbon."
+          ]
+        }
+      ]
+    },
+    "table-place-card-printable": {
+      "sections": [
+        {
+          "heading": "What the place cards is",
+          "paragraphs": [
+            "It is a sheet of eight place cards with a large name and a small line for the table.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Place cards make guests feel expected and avoid the confusion of where to sit."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Plan the seating first, type the names in order and print on card."
+          ]
+        }
+      ]
+    },
+    "door-sign-printable": {
+      "sections": [
+        {
+          "heading": "What the door signs is",
+          "paragraphs": [
+            "It is a full A4 sign with large bold letters, a border and an optional small line.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A clear sign saves explaining the same thing to every visitor. Shops, offices and homes all use them."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print on thick paper, and laminate it if it will hang outdoors."
+          ]
+        }
+      ]
+    },
+    "wedding-seating-chart-printable": {
+      "sections": [
+        {
+          "heading": "What the seating chart is",
+          "paragraphs": [
+            "It is a table plan with a box for each table and a numbered line for each seat.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Seating is the part of a wedding that causes most debates. A paper plan lets you try arrangements before deciding."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Use a pencil, group guests by family and friendship, and print place cards once the plan is final."
+          ]
+        }
+      ]
+    },
+    "society-notice-template-printable": {
+      "sections": [
+        {
+          "heading": "What the general notice is",
+          "paragraphs": [
+            "It is a notice page with the society name at the top, a title, a reference and date line, a subject, your paragraphs and a signature line.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A clean notice is read; a messy one is ignored. A standard format makes official messages look consistent."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill the blanks, keep paragraphs short and print enough copies for each tower's notice board."
+          ]
+        }
+      ]
+    },
+    "general-body-meeting-notice-printable": {
+      "sections": [
+        {
+          "heading": "What the meeting notice is",
+          "paragraphs": [
+            "It is a notice of a general body meeting with a date, time, place, an agenda and a signature.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Members attend when they are told early and clearly. A written notice also gives a record of what was announced."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Check your own rules for the notice period, fill in the details and display the notice well ahead."
+          ]
+        }
+      ]
+    },
+    "maintenance-collection-reminder-notice-printable": {
+      "sections": [
+        {
+          "heading": "What the maintenance reminder is",
+          "paragraphs": [
+            "It is a polite reminder notice about maintenance charges for a month, with a line on how to pay.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Most members pay when reminded kindly. A clear notice with the month and the method saves repeated calls."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print it for the notice board and, if you wish, for each flat."
+          ]
+        }
+      ]
+    },
+    "water-supply-interruption-notice-printable": {
+      "sections": [
+        {
+          "heading": "What the water supply notice is",
+          "paragraphs": [
+            "It is a notice about a planned interruption, with the date, the hours, the reason and an apology.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "People accept short disruptions when they know about them. A notice a day or two earlier prevents frustration."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill the blanks, post it at each entrance and in the lift."
+          ]
+        }
+      ]
+    },
+    "festival-celebration-notice-printable": {
+      "sections": [
+        {
+          "heading": "What the festival notice is",
+          "paragraphs": [
+            "It is an invitation-style notice for a festival or event with the details and a request for volunteers.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Community events work when people know the time and place and feel welcome. A warm notice does half the job."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Post it a week ahead, and add a reminder the day before."
+          ]
+        }
+      ]
+    },
+    "office-circular-template-printable": {
+      "sections": [
+        {
+          "heading": "What the office circular is",
+          "paragraphs": [
+            "It is a circular with a heading, a reference and date, a To line, a subject, text and a signature.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A circular makes an announcement official and gives people something to refer to later."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep it short, number it, and keep a copy with the reference in your file."
+          ]
+        }
+      ]
+    },
+    "gate-pass-printable": {
+      "sections": [
+        {
+          "heading": "What the gate pass is",
+          "paragraphs": [
+            "It is a page of four gate passes with lines for the visitor, the host, the purpose, the vehicle, the times and signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A gate pass gives the security guard a simple record and gives the resident control over who comes in."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print a stack, number them in pen and give one to each visitor."
+          ]
+        }
+      ]
+    },
+    "society-maintenance-collection-register-printable": {
+      "sections": [
+        {
+          "heading": "What the maintenance collection register is",
+          "paragraphs": [
+            "It is a landscape register with a row for each flat. Columns hold the resident, the month, the amount due, the date paid, the mode, the receipt number and the balance.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Collection is easier when every flat is on one page. The treasurer sees who has paid, who has not and what is pending without searching."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print a sheet for each month, fill it as payments arrive and file it with the receipt book."
+          ]
+        }
+      ]
+    },
+    "parking-slot-allotment-register-printable": {
+      "sections": [
+        {
+          "heading": "What the parking slot register is",
+          "paragraphs": [
+            "It is a landscape register with a row for each parking slot and columns for the flat, the resident, the vehicle, the sticker and remarks.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Parking disputes are common in societies. A written allotment shows who has which slot and what vehicles use the premises."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill it from the committee's allotment list, keep a copy with the guard and update it every few months."
+          ]
+        }
+      ]
+    },
+    "society-complaint-register-printable": {
+      "sections": [
+        {
+          "heading": "What the complaint register is",
+          "paragraphs": [
+            "It is a landscape register with a row for each complaint. Columns hold the date, who complained, the issue, who is handling it, the action taken and the date closed.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A complaint that is written down is easier to follow up. A register also shows repeating problems."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Review the Closed on column weekly, and discuss open items at the committee meeting."
+          ]
+        }
+      ]
+    },
+    "key-register-printable": {
+      "sections": [
+        {
+          "heading": "What the key register is",
+          "paragraphs": [
+            "It is a landscape log with a row for each key taken, with the time out, the time in and signatures.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Keys vanish when nobody writes them down. A register shows who has what and makes returns a habit."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep it with the keys and ask everyone to write it before they leave."
+          ]
+        }
+      ]
+    },
+    "meeting-agenda-template-printable": {
+      "sections": [
+        {
+          "heading": "What the meeting agenda is",
+          "paragraphs": [
+            "It is a portrait agenda with a row for each topic. Columns hold the time, the topic, who leads, the minutes and notes.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A meeting without an agenda drifts. A sheet that lists topics and times lets everyone prepare."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Share it ahead, keep to the times and write the notes as you go."
+          ]
+        }
+      ]
+    },
+    "content-calendar-printable": {
+      "sections": [
+        {
+          "heading": "What the content calendar is",
+          "paragraphs": [
+            "It is a landscape calendar-style table with a row for each post and ticks for caption ready and posted.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Posting without a plan leads to gaps. A sheet shows which days are covered and which ideas are waiting."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Plan a month in one sitting, then tick each step as you work."
+          ]
+        }
+      ]
+    },
+    "social-media-post-planner-printable": {
+      "sections": [
+        {
+          "heading": "What the social media weekly planner is",
+          "paragraphs": [
+            "It is a landscape weekly grid with a row for each platform and a column for each day.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A weekly view shows where you are posting too much or too little."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Plan on Sunday, fill every box with a short idea and tick it off as you post."
+          ]
+        }
+      ]
+    },
+    "invoice-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the invoice tracker is",
+          "paragraphs": [
+            "It is a landscape log with a row for each invoice, with the client, the date, the amount, the due date, when it was paid and its status.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Late payments hurt small businesses. A list of what is owed and by whom makes follow-up easy."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill it the day you send an invoice, and review the Due date column every Monday."
+          ]
+        }
+      ]
+    },
+    "freelance-project-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the project tracker is",
+          "paragraphs": [
+            "It is a landscape tracker with a row for each project and columns for the client, dates, fee, advance and status.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "When several clients pull at once, a list of deadlines prevents mistakes."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Add a row when you accept a job. Check the Due column every morning."
+          ]
+        }
+      ]
+    },
+    "client-contact-list-printable": {
+      "sections": [
+        {
+          "heading": "What the client contact list is",
+          "paragraphs": [
+            "It is a landscape contact list with a row for each person and columns for company, phone, email, city, last contact and notes.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A paper list works when the phone is dead or a helper needs a number. It is also a backup."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill it in as you meet people and review it once a month."
+          ]
+        }
+      ]
+    }
+  }
+}

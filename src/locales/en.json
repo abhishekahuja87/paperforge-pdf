@@ -963,11 +963,11 @@
     },
     "printables": {
       "name": "Printables and stationery",
-      "description": "Print at home: graph, dot grid, hexagon and lined paper, Cornell notes, calligraphy and cross-stitch grids, planners, calendars, menus, double-sided flashcards, and health sheets such as a medicine chart, health log and emergency card, a milk and maid calendar, household budget and warranty record, pet health sheets a weekly cleaning schedule, a habit tracker, a wedding shagun register, a baby feeding log, and many more record sheets for study, events, family, vehicles and home. Choose the size, spacing and margins before you print."
+      "description": "Print at home: graph, dot grid, hexagon and lined paper, Cornell notes, calligraphy and cross-stitch grids, planners, calendars, menus, double-sided flashcards, and health sheets such as a medicine chart, health log and emergency card, a milk and maid calendar, household budget and warranty record, pet health sheets a weekly cleaning schedule, a habit tracker, a wedding shagun register, a baby feeding log, many more record sheets, certificates, name tags and labels, recipe cards and rangoli dot grids. Choose the size, spacing and margins before you print."
     },
     "work": {
       "name": "Jobs, freelancing and business",
-      "description": "For job seekers, freelancers and small businesses: build a resume, check a notice period, make a quotation, GST invoice or rent receipt, set your freelance rate, work out margin and markup, design offer posters, price tags and visiting cards, check file sizes before uploading, and print a staff attendance register, udhaar ledger, daily cash sheet, stock count sheet, tuition fee register, office, washroom, lift, pantry and society cleaning checklists, and a customer order register."
+      "description": "For job seekers, freelancers and small businesses: build a resume, check a notice period, make a quotation, GST invoice or rent receipt, set your freelance rate, work out margin and markup, design offer posters, price tags and visiting cards, check file sizes before uploading, and print a staff attendance register, udhaar ledger, daily cash sheet, stock count sheet, tuition fee register, office, washroom, lift, pantry and society cleaning checklists, and a customer order register, society notices, a gate pass, door signs and a content calendar."
     },
     "present": {
       "name": "Display and presentation",
@@ -975,11 +975,11 @@
     },
     "study": {
       "name": "Students and writing",
-      "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts, case conversion and a printable class attendance register with marks, lesson plan, timetable and homework diary sheets, plus an exam timetable planner, revision planner and assignment tracker."
+      "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts, case conversion and a printable class attendance register with marks, lesson plan, timetable and homework diary sheets, plus an exam timetable planner, revision planner, assignment tracker and a printable OMR answer sheet."
     },
     "kids": {
       "name": "Kids and learning",
-      "description": "Games and practice for children and family fun: learn to tell the time on a clock you can move, practise sums step by step, play shop with rupee notes and coins, explore shadows and the solar system, and print tambola tickets with a number caller."
+      "description": "Games and practice for children and family fun: learn to tell the time on a clock you can move, practise sums step by step, play shop with rupee notes and coins, explore shadows and the solar system, print tambola tickets with a number caller, and make maths worksheets and mazes."
     },
     "sharing": {
       "name": "Share privately: documents, QR codes, contacts",

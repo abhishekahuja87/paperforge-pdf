@@ -969,3 +969,12 @@ Checked in Node and an unstyled browser: layouts rendered and most read by eye. 
 - [ ] Habit tracker: pick February, three months, weekday letters off. Petty cash voucher: business name prints top right, four to a page. Meeting minutes: 3 and 10 action rows. Kitty tracker: 12 month columns fit one landscape page.
 - [ ] Download PDF matches the preview; Print prints only the sheet.
 Checked in Node and an unstyled browser: all 40 layouts rendered and about eight read by eye. Full tsc, vite build and the styled page were not run.
+
+### Worksheets, puzzles, certificates, labels, notices and trackers: 46 pages (20 Nov)
+- [ ] Home: Kids shows Maths Worksheet and Maze; Students shows OMR Answer Sheet; Printables shows Certificate of Achievement, Name Tags, Recipe Card and Rangoli Dot Grids; Jobs and business shows Society Notice, Content Calendar and Door Signs. The other 36 are not on the home page but are in the sitemap, footer and search ("word search", "sudoku", "gate pass", "place cards", "kitty").
+- [ ] Maths worksheet: each kind of sum (division answers are whole numbers, subtraction never goes below zero), stacked and in a line, 60 sums gives three pages, answer page matches the sums, a new puzzle number changes the sums and the same number gives the same sheet.
+- [ ] Word search: 24 words, each grid size and direction level; words that cannot fit are left out; the answer page shows the words in bold. Maze: three sizes, six mazes, answer route runs start to end. Sudoku: 4, 6 and 9 grids, three levels, answers match; hard 9 by 9 builds in about a second.
+- [ ] Tracing sheet, bingo (3, 4, 5; free space; different cards), OMR (100 questions, 5 choices, 8-digit roll number fits the page), rangoli (all five patterns, six on a page) and recipe card (three sizes, two layouts) print as expected.
+- [ ] Certificates: eight pages, four borders, 30 names give 30 pages, long names shrink to fit, wording and signature labels change. Labels: every sheet, repeat on and off, address slashes make lines, door sign custom text, seating chart 24 tables. Notices: text wraps, 14 paragraphs fit, gate pass four to a page.
+- [ ] Download PDF matches the preview; Print prints only the sheet.
+Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts rendered and read by eye; certificate, label, notice and tracker layouts rendered. Full tsc, vite build and the styled page were not run.
