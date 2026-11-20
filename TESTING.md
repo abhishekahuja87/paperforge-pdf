@@ -1016,3 +1016,12 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 - /passport-photo-sheet-maker, /photo-grid-splitter, /photo-collage-maker (adds one photo each tap, stops at 9) and the logo picker on the printable makers: same button beside Choose.
 - Cancel the camera: nothing changes, no error. A 10 MB phone photo still resizes and compresses quickly.
 - iPhone Safari, Android Chrome, and a tablet; Hindi page shows the Hindi label.
+
+### Six new tools (20 Nov)
+- /photo-name-date-strip: choose or take a photo, name and date appear on a strip below (or above); white, yellow, black; width 400 and 50 KB gives a JPG under 50 KB with a readable face; a very long name shrinks to fit; no limit (blank) saves at high quality.
+- /fill-pdf: open a one-page and a multi-page PDF (and a scanned one); Text, Tick and Cross placed with a tap; drag an item to move it; Today's date; size and colour; the downloaded PDF has everything where it was on screen (open in a phone viewer and a computer viewer); "Rs." works, a rupee sign or Hindi shows the message; a password PDF shows the message.
+- /whatsapp-link-generator: India 98765 43210 with a message gives https://wa.me/919876543210?text=...; a leading 0 is removed; Test the link opens WhatsApp; scan the QR with a phone camera; too short or too long a number shows a message.
+- /barcode-generator: Code 128 "SKU-1042" scans with a phone scanner app; EAN-13 400638133393 (check digit 1 added) and 4006381333931 scan; a wrong last digit explains the right one; PNG and the A4 label sheets (12, 21, 24) print at 100% and scan.
+- /random-name-picker: 10 names, pick 1 then 3; no repeats until Start over; "Everyone has been picked" message; duplicate names are separate entries.
+- /random-team-generator: 7 names into 3 teams gives 3, 2, 2; people per team 3 gives 3 teams; shuffled order is numbered; Copy result pastes cleanly.
+- Home page lists the six tools; /sitemap.xml after a build lists them with dates.
