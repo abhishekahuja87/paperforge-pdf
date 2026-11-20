@@ -1,0 +1,24 @@
+{
+  "toolCatalog": {
+    "medicine-schedule-chart-printable": [
+      "Medicine Schedule Chart Printable",
+      "Medicine plan and weekly tick chart, plus health log, emergency card and visit sheets."
+    ],
+    "health-log-sheet-printable": [
+      "Health Log Sheet Printable: BP, Sugar and Weight Tracker",
+      "Print a blank log for BP, pulse, sugar and weight."
+    ],
+    "emergency-info-card-printable": [
+      "Emergency Info Card Printable: Wallet Card or Fridge Sheet",
+      "Print an emergency card with allergies, medicines and contacts."
+    ],
+    "doctor-visit-sheet-printable": [
+      "Doctor Visit Sheet Printable: Notes and Questions to Ask",
+      "Print a one-page sheet to prepare for a doctor visit."
+    ],
+    "caregiver-daily-log-printable": [
+      "Caregiver Daily Log Printable: Day Sheet and Handover",
+      "Print a day log for food, medicines and handover notes."
+    ]
+  }
+}

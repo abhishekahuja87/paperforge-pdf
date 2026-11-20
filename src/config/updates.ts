@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-20',
+    path: '/medicine-schedule-chart-printable',
+    tool: 'Health and care sheets',
+    title: 'New: printable medicine chart, health log, emergency card and more',
+    summary: 'Five printable sheets for caring for yourself or a parent: a medicine schedule chart with weekly tick boxes, a health log for BP and sugar, an emergency info card, a doctor visit sheet and a caregiver day log. Typed and printed in your browser, nothing uploaded.',
+  },
+  {
     date: '2026-11-18',
     path: '/emi-calculator',
     tool: 'Money calculators',

@@ -3,6 +3,7 @@ import { STUDENTS_TOOLS } from './students';
 import { FREELANCERS_TOOLS } from './freelancers';
 import { STATIONERY_TOOLS } from './stationery';
 import { PLANNER_TOOLS } from './planners';
+import { CARE_TOOLS } from './care';
 import { QR_TOOLS } from './qr';
 import { VCARD_TOOLS } from './vcard';
 import { FLASHCARD_TOOLS } from './flashcards';
@@ -20,7 +21,7 @@ import type { PackTool } from './types';
 export type { PackTool } from './types';
 
 /** Every pack, in the order its tools are listed. To add a pack: create its file here and add it below. */
-export const PACK_TOOLS: PackTool[] = [...CAREERS_TOOLS, ...STUDENTS_TOOLS, ...FREELANCERS_TOOLS, ...STATIONERY_TOOLS, ...PLANNER_TOOLS, ...QR_TOOLS, ...VCARD_TOOLS, ...FLASHCARD_TOOLS, ...PRIVACY_TOOLS, ...SHOPS_TOOLS, ...HOUSEHOLD_TOOLS, ...SPORTS_TOOLS, ...FITNESS_TOOLS, ...EXPLAINER_TOOLS, ...BIZCARD_TOOLS, ...HIRING_TOOLS, ...KIDS_TOOLS];
+export const PACK_TOOLS: PackTool[] = [...CAREERS_TOOLS, ...STUDENTS_TOOLS, ...FREELANCERS_TOOLS, ...STATIONERY_TOOLS, ...PLANNER_TOOLS, ...CARE_TOOLS, ...QR_TOOLS, ...VCARD_TOOLS, ...FLASHCARD_TOOLS, ...PRIVACY_TOOLS, ...SHOPS_TOOLS, ...HOUSEHOLD_TOOLS, ...SPORTS_TOOLS, ...FITNESS_TOOLS, ...EXPLAINER_TOOLS, ...BIZCARD_TOOLS, ...HIRING_TOOLS, ...KIDS_TOOLS];
 
 export const findPackTool = (kind: string) => PACK_TOOLS.find((item) => item.kind === kind);
 
