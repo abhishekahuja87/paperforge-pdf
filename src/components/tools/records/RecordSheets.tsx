@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, Printer, RotateCcw } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
@@ -6,7 +6,11 @@ import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
 import { buildPdfFromSheets } from '../../../lib/paper/pdf';
 import type { FontId } from '../../../lib/paper/geometry';
 import { PAGE_SIZES, WEIGHTS, type PageSizeId, type ToneId, type Weight } from '../../../lib/paper/types';
-import { FONTS, THEMES, type ThemeId } from '../../../lib/records/theme';
+import type { ThemeId } from '../../../lib/records/theme';
+import type { Logo } from '../../../lib/paper/image';
+import { clearProfile, loadProfile, saveProfile } from '../../../lib/records/profile';
+import { LogoPicker } from '../paper/LogoPicker';
+import { StylePicker } from '../paper/StylePicker';
 import type { Common, Family, Field, SheetDef, Values } from '../../../lib/records';
 import { MAX_LINE, MAX_TEXT } from '../../../lib/records/types';
 import { Slider, Toggle, card, heading } from '../paper/controls';
@@ -16,6 +20,13 @@ import { generateFileName } from '../../../lib/pdf/naming';
 /** What a page change carries over: the paper and ink, the name, and everything typed on each sheet, so picking another sheet keeps it. */
 interface Carry { common: Omit<Common, 'landscape'>; valuesById: Record<string, Values> }
 
+/** What a device remembers when the person ticks Remember: loaded once, only when the page was not opened from another sheet. */
+const remembered = (familyKey: string): { look?: Partial<Common>; logo?: Logo | null } => {
+  const saved = loadProfile();
+  if (!saved) return {};
+  return { look: { ...saved.look, heading: saved.headings?.[familyKey] ?? '' }, logo: saved.logo ?? null };
+};
+
 const startValues = (family: Family): Record<string, Values> => Object.fromEntries(family.sheets.map((sheet) => [sheet.id, { ...sheet.defaults }]));
 
 /** A family of printable record sheets. Each sheet has its own address; the buttons are links to them. Everything is typed and printed in the browser. */
@@ -23,13 +34,20 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
   const location = useLocation();
   const make = () => {
     const carry = (location.state as { carry?: Carry } | null)?.carry;
-    return { values: { ...startValues(family), ...carry?.valuesById }, common: { page: 'a4' as PageSizeId, margin: 10, tone: 'charcoal' as ToneId, weight: 'normal' as Weight, heading: '', theme: 'classic' as ThemeId, font: 'sans' as FontId, ...carry?.common } };
+    const saved: ReturnType<typeof remembered> = carry ? {} : remembered(family.key);
+    return { remembered: Boolean(!carry && loadProfile()), values: { ...startValues(family), ...carry?.valuesById }, common: { page: 'a4' as PageSizeId, margin: 10, tone: 'charcoal' as ToneId, weight: 'normal' as Weight, heading: '', theme: 'classic' as ThemeId, font: 'sans' as FontId, logo: (saved.logo ?? null) as Logo | null, ...saved.look, ...carry?.common } };
   };
   const initial = useMemo(make, []); // eslint-disable-line react-hooks/exhaustive-deps
   const [activeId, setActiveId] = useState(initialId);
   const def: SheetDef = family.sheets.find((sheet) => sheet.id === activeId) ?? family.sheets[0]!;
   const [valuesById, setValuesById] = useState<Record<string, Values>>(initial.values);
   const [paper, setPaper] = useState(initial.common);
+  const [remember, setRemember] = useState(initial.remembered);
+  useEffect(() => {
+    if (!remember) return;
+    const saved = loadProfile();
+    saveProfile({ look: { page: paper.page, margin: paper.margin, tone: paper.tone, weight: paper.weight, theme: paper.theme ?? 'classic', font: paper.font ?? 'sans' }, logo: paper.logo ?? null, headings: { ...saved?.headings, [family.key]: paper.heading } });
+  }, [remember, paper, family.key]);
   const [landscapeFor, setLandscapeFor] = useState<Record<string, boolean>>({});
   const [index, setIndex] = useState(0);
   const [busy, setBusy] = useState(false);
@@ -97,7 +115,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
             <h2 className={heading}>Which sheet</h2>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {family.sheets.map((item) => {
-                const carry: Carry = { common: { page: paper.page, margin: paper.margin, tone: paper.tone, weight: paper.weight, heading: paper.heading, theme: paper.theme, font: paper.font }, valuesById };
+                const carry: Carry = { common: { page: paper.page, margin: paper.margin, tone: paper.tone, weight: paper.weight, heading: paper.heading, theme: paper.theme, font: paper.font, logo: paper.logo }, valuesById };
                 return (
                   <Link
                     key={item.id}
@@ -124,6 +142,11 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
             <label className="block text-xs font-semibold text-slate-700">{family.headingLabel}
               <input type="text" maxLength={MAX_TEXT} value={paper.heading} placeholder={family.headingPlaceholder} onChange={(event) => setPaperValue({ heading: event.target.value })} className={fieldClass} />
             </label>
+            <LogoPicker logo={paper.logo ?? null} onChange={(logo) => setPaperValue({ logo })} />
+            <label className="flex items-start gap-2 text-xs text-slate-700">
+              <input type="checkbox" checked={remember} onChange={(event) => { setRemember(event.target.checked); if (!event.target.checked) clearProfile(); }} className="mt-0.5 h-4 w-4" />
+              <span><span className="font-semibold">Remember the name, logo and look on this device.</span> <span className="text-slate-500">Saved only in this browser, never uploaded. Untick to forget.</span></span>
+            </label>
           </div>
 
           <div className={`${card} space-y-3`}>
@@ -143,18 +166,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
               </div>
               <div className="space-y-3 border-t border-slate-200 pt-4">
                 <h2 className={heading}>Colour, font and lines</h2>
-                <div>
-                  <p className="mb-1.5 text-xs font-semibold text-slate-700">Colour theme</p>
-                  <div className="flex flex-wrap gap-2">
-                    {(Object.entries(THEMES) as [ThemeId, { label: string; ink: string; accent: string; fill: boolean }][]).map(([id, theme]) => (
-                      <button key={id} type="button" aria-pressed={paper.theme === id} onClick={() => setPaperValue({ theme: id })} className={`flex min-h-9 items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-semibold ${paper.theme === id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
-                        <span className="flex h-3.5 w-6 overflow-hidden rounded-full border border-slate-200" aria-hidden="true"><span className="h-full w-1/2" style={{ background: theme.ink }} /><span className="h-full w-1/2" style={{ background: theme.accent }} /></span>{theme.label}
-                      </button>
-                    ))}
-                  </div>
-                  <p className="mt-1.5 text-[11px] text-slate-500">Coloured themes add coloured titles, header bands and light row shading. Classic, gray, slate, sepia and cyan keep the sheet plain.</p>
-                </div>
-                <ChoiceButtons label="Font" value={paper.font ?? 'sans'} onChange={(value) => setPaperValue({ font: value as FontId })} options={(Object.entries(FONTS) as [FontId, { label: string }][]).map(([value, item]) => ({ value, label: item.label }))} />
+                <StylePicker value={{ tone: paper.tone, theme: paper.theme, font: paper.font }} onChange={(patch) => setPaperValue(patch)} />
                 <ChoiceButtons label="Line weight" value={paper.weight} onChange={(value) => setPaperValue({ weight: value as Weight })} options={(Object.entries(WEIGHTS) as [Weight, { label: string }][]).map(([value, item]) => ({ value, label: item.label }))} />
               </div>
             </div>
@@ -186,7 +198,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
           </div>
         </div>
       </div>
-      <div className="print:hidden"><Note>Everything is made in your browser and nothing is uploaded or saved. What you type stays on this page and is printed on the sheet. {family.note ?? "These sheets help you keep records; check your own rules and your vet's or accountant's advice where it matters."}</Note></div>
+      <div className="print:hidden"><Note>Everything is made in your browser and nothing is uploaded. What you type stays on this page and is printed on the sheet; the name, logo and look are saved on this device only if you tick Remember. {family.note ?? "These sheets help you keep records; check your own rules and your vet's or accountant's advice where it matters."}</Note></div>
     </section>
   );
 };

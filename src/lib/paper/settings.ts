@@ -1,3 +1,5 @@
+import { THEMES, type ThemeId } from '../records/theme';
+import type { FontId } from './geometry';
 import { DEFAULT_SETTINGS, canTwoUp, type HexOrientation, type HoleGuide, type StampCorner, type StoryRatio, STORY_RATIOS, PAGE_SIZES, STYLES, TONES, WEIGHTS, HEADER_LABELS, type CornellBody, type DotSize, type HeaderField, type IsoAxis, type IsoMode, type MusicMode, type PageSizeId, type PaperSettings, type PaperStyle, type ToneId, type Weight } from './types';
 
 const isRecord = (value: unknown): value is Record<string, unknown> => typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -36,6 +38,8 @@ export function coerceSettings(input: unknown): PaperSettings {
     binding: bool(input.binding, d.binding),
     bindingAlternate: bool(input.bindingAlternate, d.bindingAlternate),
     tone: pick<ToneId>(input.tone, Object.keys(TONES) as ToneId[], d.tone),
+    ...(typeof input.theme === 'string' && input.theme in THEMES ? { theme: input.theme as ThemeId } : {}),
+    ...(input.font === 'serif' || input.font === 'mono' ? { font: input.font as FontId } : {}),
     weight: pick<Weight>(input.weight, Object.keys(WEIGHTS) as Weight[], d.weight),
     header: bool(input.header, d.header),
     headerFields: fields,

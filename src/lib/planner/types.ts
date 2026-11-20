@@ -1,3 +1,5 @@
+import type { FontId } from '../paper/geometry';
+import type { ThemeId } from '../records/theme';
 import type { PageSizeId, ToneId, Weight } from '../paper/types';
 
 export type PlannerKind = 'month' | 'week' | 'day' | 'year';
@@ -8,6 +10,9 @@ export interface PlannerSettings {
   landscape: boolean;
   margin: number;
   tone: ToneId;
+  /** Optional colour theme and typeface; without them the ink tone and sans are used. */
+  theme?: ThemeId;
+  font?: FontId;
   weight: Weight;
   /** BCP 47 language for month and weekday names. Only Latin-script languages, which the PDF font can show. */
   locale: string;

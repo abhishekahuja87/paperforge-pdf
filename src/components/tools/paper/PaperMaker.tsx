@@ -7,9 +7,10 @@ import { buildSheet, hasBackSide } from '../../../lib/paper/geometry';
 import { buildPaperPdf } from '../../../lib/paper/pdf';
 import { forStyle, parseSettingsFile, serializeSettings } from '../../../lib/paper/settings';
 import { encodeShare, decodeShare } from '../../../lib/paper/share';
-import { DEFAULT_SETTINGS, HEADER_LABELS, PAGE_SIZES, STORY_RATIOS, STYLES, TONES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings, type PaperStyle, type ToneId, type Weight } from '../../../lib/paper/types';
+import { DEFAULT_SETTINGS, HEADER_LABELS, PAGE_SIZES, STORY_RATIOS, STYLES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings, type PaperStyle, type Weight } from '../../../lib/paper/types';
 import { SheetPreview } from './SheetPreview';
 import { Slider, Toggle, card, heading } from './controls';
+import { StylePicker } from './StylePicker';
 import { generateFileName } from '../../../lib/pdf/naming';
 
 const presetButtons = (spacings: { label: string; value: number }[], current: number, onPick: (value: number) => void) => (
@@ -230,18 +231,11 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
           </div>
 
           <div className="border-t border-slate-200 pt-4">
-            <h2 className={heading}>Ink and line weight</h2>
+            <h2 className={heading}>Colour, font and line weight</h2>
             <div className="mt-3 space-y-3">
-              <div className="flex flex-wrap gap-2">
-                {(Object.entries(TONES) as [ToneId, { label: string; color: string }][]).map(([id, tone]) => (
-                  <button key={id} type="button" aria-pressed={settings.tone === id} onClick={() => update({ tone: id })} className={`flex min-h-9 items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-semibold ${settings.tone === id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700'}`}>
-                    <span className="h-3 w-3 rounded-full" style={{ background: tone.color }} aria-hidden="true" />{tone.label}
-                  </button>
-                ))}
-              </div>
+              <StylePicker value={{ tone: settings.tone, theme: settings.theme, font: settings.font }} onChange={(patch) => update(patch)} />
               <ChoiceButtons label="Line weight" value={settings.weight} onChange={(value) => update({ weight: value as Weight })} options={(Object.entries(WEIGHTS) as [Weight, { label: string }][]).map(([value, item]) => ({ value, label: item.label }))} />
-              <p className="text-[11px] text-slate-500">Light tones use less ink and stay out of the way of your writing.</p>
-            </div>
+                          </div>
           </div>
 
           <div className="border-t border-slate-200 pt-4">

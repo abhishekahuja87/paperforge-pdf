@@ -1,3 +1,5 @@
+import type { ThemeId } from '../records/theme';
+import type { FontId } from './geometry';
 /** Settings and option lists for the printable paper maker. All sizes are in millimetres. */
 
 export type PaperStyle = 'dot' | 'graph' | 'lined' | 'cornell' | 'isometric' | 'music' | 'tracker' | 'hex' | 'calligraphy' | 'crossstitch' | 'storyboard';
@@ -25,6 +27,9 @@ export interface PaperSettings {
   /** Moves the binding edge to the other side on back pages, for double-sided printing. */
   bindingAlternate: boolean;
   tone: ToneId;
+  /** Optional colour theme and typeface; without them the ink tone and sans are used. */
+  theme?: ThemeId;
+  font?: FontId;
   weight: Weight;
   header: boolean;
   headerFields: HeaderField[];

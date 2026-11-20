@@ -1,3 +1,5 @@
+import type { FontId } from '../paper/geometry';
+import type { ThemeId } from '../records/theme';
 import type { PageSizeId, ToneId, Weight } from '../paper/types';
 
 export type CareKind = 'medicine' | 'log' | 'emergency' | 'visit' | 'caregiver';
@@ -49,6 +51,9 @@ export interface CareSettings {
   landscape: boolean;
   margin: number;
   tone: ToneId;
+  /** Optional colour theme and typeface; without them the ink tone and sans are used. */
+  theme?: ThemeId;
+  font?: FontId;
   weight: Weight;
   /** Name of the person the sheet is for, printed at the top. */
   person: string;

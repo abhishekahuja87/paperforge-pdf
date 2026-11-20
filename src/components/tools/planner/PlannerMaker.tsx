@@ -4,11 +4,12 @@ import { ChevronLeft, ChevronRight, Download, Printer, RotateCcw } from 'lucide-
 import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
 import { buildPdfFromSheets } from '../../../lib/paper/pdf';
-import { PAGE_SIZES, TONES, WEIGHTS, type PageSizeId, type ToneId, type Weight } from '../../../lib/paper/types';
+import { PAGE_SIZES, WEIGHTS, type PageSizeId, type Weight } from '../../../lib/paper/types';
 import { buildPlannerPages } from '../../../lib/planner/layout';
 import { monthName } from '../../../lib/planner/dates';
 import { KINDS, LOCALES, MAX_COUNT, defaultPlanner, type PlannerKind, type PlannerSettings } from '../../../lib/planner/types';
 import { Slider, Toggle, card, heading } from '../paper/controls';
+import { StylePicker } from '../paper/StylePicker';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';
 
@@ -18,7 +19,7 @@ const clampInt = (value: number, min: number, max: number) => Math.min(max, Math
 const KIND_PAGES: Record<PlannerKind, string> = { week: '/printable-planner-maker', month: '/printable-calendar-maker', day: '/daily-planner-printable', year: '/printable-planner-maker' };
 
 /** What a page change carries over, so picking another kind keeps the paper and style already chosen. */
-type Carry = Pick<PlannerSettings, 'kind' | 'page' | 'landscape' | 'margin' | 'tone' | 'weight' | 'weekStart' | 'locale' | 'title'>;
+type Carry = Pick<PlannerSettings, 'kind' | 'page' | 'landscape' | 'margin' | 'tone' | 'theme' | 'font' | 'weight' | 'weekStart' | 'locale' | 'title'>;
 
 /** One planner maker. Each kind has its own address; picking a kind goes to its address, and the heading, guide and FAQ on the page match it. */
 export const PlannerMaker: React.FC<{ initialKind?: PlannerKind }> = ({ initialKind }) => {
@@ -66,7 +67,7 @@ export const PlannerMaker: React.FC<{ initialKind?: PlannerKind }> = ({ initialK
             <div className="mt-3 grid grid-cols-2 gap-2">
               {KINDS.map((item) => {
                 const target = KIND_PAGES[item.id];
-                const carry: Carry = { kind: item.id, page: settings.page, landscape: settings.landscape, margin: settings.margin, tone: settings.tone, weight: settings.weight, weekStart: settings.weekStart, locale: settings.locale, title: settings.title };
+                const carry: Carry = { kind: item.id, page: settings.page, landscape: settings.landscape, margin: settings.margin, tone: settings.tone, theme: settings.theme, font: settings.font, weight: settings.weight, weekStart: settings.weekStart, locale: settings.locale, title: settings.title };
                 return (
                   <Link
                     key={item.id}
@@ -133,13 +134,7 @@ export const PlannerMaker: React.FC<{ initialKind?: PlannerKind }> = ({ initialK
           <div className={card}>
             <h2 className={heading}>4. Ink and lines</h2>
             <div className="mt-3 space-y-3">
-              <div className="flex flex-wrap gap-2">
-                {(Object.entries(TONES) as [ToneId, { label: string; color: string }][]).map(([id, tone]) => (
-                  <button key={id} type="button" aria-pressed={settings.tone === id} onClick={() => update({ tone: id })} className={`flex min-h-9 items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-semibold ${settings.tone === id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700'}`}>
-                    <span className="h-3 w-3 rounded-full" style={{ background: tone.color }} aria-hidden="true" />{tone.label}
-                  </button>
-                ))}
-              </div>
+              <StylePicker value={{ tone: settings.tone, theme: settings.theme, font: settings.font }} onChange={(patch) => update(patch)} />
               <ChoiceButtons label="Line weight" value={settings.weight} onChange={(value) => update({ weight: value as Weight })} options={(Object.entries(WEIGHTS) as [Weight, { label: string }][]).map(([value, item]) => ({ value, label: item.label }))} />
             </div>
           </div>

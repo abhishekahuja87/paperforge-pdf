@@ -1,4 +1,4 @@
-import { INK, clamp, fillRect, fitText, line, lines, makePages, num, str, text, type Ctx } from './draw';
+import { INK, clamp, drawLogo, fillRect, fitText, line, lines, makePages, num, str, text, type Ctx } from './draw';
 import type { Family, Field, SheetDef } from './types';
 
 const GOLD = '#8a6d1f';
@@ -66,7 +66,8 @@ export function certSheet(s: CertSpec): SheetDef {
         frame(c, border);
         const cx = c.x + c.w / 2;
         const heading = c.heading.trim();
-        if (heading) fitText(c, c.x + 15, c.y + 20, c.w - 30, 12, heading, 15, true, 'middle');
+        drawLogo(c, cx - 15, c.y + 12, 30, 9, 'middle');
+        if (heading) fitText(c, c.x + 15, c.y + (c.logo ? 28 : 20), c.w - 30, 12, heading, 15, true, 'middle');
         fitText(c, c.x + 12, c.y + 44, c.w - 24, 20, s.title, 32, true, 'middle', c.accent);
         line(c, cx - 40, c.y + 52, cx + 40, c.y + 52, c.weight * 2, GOLD);
         text(c, cx, c.y + 68, 12, s.intro, false, 'middle', '#555555');

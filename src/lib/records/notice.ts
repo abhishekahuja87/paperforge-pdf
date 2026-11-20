@@ -1,4 +1,4 @@
-import { INK, clamp, fillRect, fitText, line, lines, makePages, num, str, text, wrap } from './draw';
+import { INK, clamp, drawLogo, fillRect, fitText, line, lines, makePages, num, str, text, wrap } from './draw';
 import { blank } from './simple';
 import type { Family, SheetDef } from './types';
 
@@ -35,18 +35,20 @@ export function noticeSheet(s: NoticeSpec): SheetDef {
       const heading = c.heading.trim();
       const style = str(v, 'letterhead') || 'line';
       const bandCol = c.fill ? c.accent : c.color;
+      const lg = c.logo ? 28 : 0;
       if (style === 'band') {
         fillRect(c, c.x, c.y, c.w, 20, bandCol);
-        if (heading) fitText(c, c.x + 4, c.y + 13, c.w - 8, 12, heading, 20, true, 'middle', '#ffffff');
+        if (heading) fitText(c, c.x + 4 + lg, c.y + 13, c.w - 8 - lg * 2, 12, heading, 20, true, 'middle', '#ffffff');
       } else if (style === 'box') {
         const bx = c.x + 12; const bw = c.w - 24;
         fillRect(c, bx, c.y, bw, 20, c.tint);
         line(c, bx, c.y, bx + bw, c.y, c.weight * 2, bandCol); line(c, bx, c.y + 20, bx + bw, c.y + 20, c.weight * 2, bandCol); line(c, bx, c.y, bx, c.y + 20, c.weight * 2, bandCol); line(c, bx + bw, c.y, bx + bw, c.y + 20, c.weight * 2, bandCol);
-        if (heading) fitText(c, bx + 4, c.y + 13, bw - 8, 12, heading, 20, true, 'middle', c.accent);
+        if (heading) fitText(c, bx + 4 + lg, c.y + 13, bw - 8 - lg * 2, 12, heading, 20, true, 'middle', c.accent);
       } else {
-        if (heading) fitText(c, c.x, c.y + 12, c.w, 12, heading, 20, true, 'middle', c.accent);
+        if (heading) fitText(c, c.x + lg, c.y + 12, c.w - lg * 2, 12, heading, 20, true, 'middle', c.accent);
         line(c, c.x, c.y + 18, c.x + c.w, c.y + 18, c.weight * 2);
       }
+      drawLogo(c, c.x + (style === 'box' ? 14 : 2), c.y + 2, 26, 16);
       text(c, cx, c.y + 36, 24, s.title, true, 'middle', c.accent);
       line(c, cx - 28, c.y + 39, cx + 28, c.y + 39, c.weight * 1.4, bandCol);
       const ref = str(v, 'ref');

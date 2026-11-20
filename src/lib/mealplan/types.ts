@@ -1,3 +1,5 @@
+import type { FontId } from '../paper/geometry';
+import type { ThemeId } from '../records/theme';
 import type { PageSizeId, ToneId, Weight } from '../paper/types';
 
 export type MealKind = 'week' | 'day' | 'month';
@@ -8,6 +10,9 @@ export interface MealSettings {
   landscape: boolean;
   margin: number;
   tone: ToneId;
+  /** Optional colour theme and typeface; without them the ink tone and sans are used. */
+  theme?: ThemeId;
+  font?: FontId;
   weight: Weight;
   /** 0 = Sunday, 1 = Monday, 6 = Saturday. */
   weekStart: 0 | 1 | 6;

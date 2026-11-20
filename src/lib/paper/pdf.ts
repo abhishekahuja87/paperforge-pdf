@@ -1,4 +1,4 @@
-import type { PDFFont, PDFPage } from 'pdf-lib';
+import type { PDFFont, PDFImage, PDFPage } from 'pdf-lib';
 import { buildSheet, hasBackSide, type FontId, type Item, type Sheet, type Side } from './geometry';
 import type { PaperSettings } from './types';
 
@@ -31,12 +31,15 @@ const pickFont = (fonts: Fonts, face: FontId | undefined, bold: boolean): PDFFon
   return bold ? fonts.bold : fonts.regular;
 };
 
-export function drawItems(page: PDFPage, items: Item[], height: number, fonts: Fonts, lib: typeof import('pdf-lib')): void {
+export function drawItems(page: PDFPage, items: Item[], height: number, fonts: Fonts, lib: typeof import('pdf-lib'), images?: Map<string, PDFImage>): void {
   const { rgb } = lib;
   const color = (hex: string) => { const [r, g, b] = hexToRgb(hex); return rgb(r, g, b); };
   for (const item of items) {
     if (item.t === 'rect') {
       page.drawRectangle({ x: item.x * PT, y: (height - item.y - item.h) * PT, width: item.w * PT, height: item.h * PT, color: color(item.c) });
+    } else if (item.t === 'image') {
+      const picture = images?.get(item.src);
+      if (picture) page.drawImage(picture, { x: item.x * PT, y: (height - item.y - item.h) * PT, width: item.w * PT, height: item.h * PT });
     } else if (item.t === 'line') {
       page.drawLine({ start: { x: item.x1 * PT, y: (height - item.y1) * PT }, end: { x: item.x2 * PT, y: (height - item.y2) * PT }, thickness: item.w * PT, color: color(item.c), dashArray: item.dash ? item.dash.map((v) => v * PT) : undefined });
     } else if (item.t === 'dot') {
@@ -53,12 +56,30 @@ export function drawItems(page: PDFPage, items: Item[], height: number, fonts: F
   }
 }
 
+/** Embeds each different picture once. Pictures are PNG data addresses made by the logo picker. */
+export async function embedImages(doc: import('pdf-lib').PDFDocument, sheets: Sheet[]): Promise<Map<string, PDFImage>> {
+  const map = new Map<string, PDFImage>();
+  for (const sheet of sheets) {
+    for (const item of sheet.fixed) {
+      if (item.t !== 'image' || map.has(item.src)) continue;
+      try {
+        const base64 = item.src.slice(item.src.indexOf(',') + 1);
+        const binary = atob(base64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+        map.set(item.src, await doc.embedPng(bytes));
+      } catch { /* a picture that cannot be read is left out */ }
+    }
+  }
+  return map;
+}
+
 /** Builds the whole bundle as a vector PDF. Identical pages are drawn once and reused, so 50 pages stay small. */
 export async function buildPaperPdf(settings: PaperSettings): Promise<Uint8Array> {
   const lib = await import('pdf-lib');
-  const { PDFDocument, StandardFonts } = lib;
+  const { PDFDocument } = lib;
   const out = await PDFDocument.create();
-  const fonts: Fonts = { regular: await out.embedFont(StandardFonts.Helvetica), bold: await out.embedFont(StandardFonts.HelveticaBold) };
+  const fonts = await embedFonts(out, lib);
   const sheets: Record<Side, Sheet> = { front: buildSheet(settings, 'front'), back: buildSheet(settings, hasBackSide(settings) ? 'back' : 'front') };
   const widthPt = sheets.front.width * PT;
   const heightPt = sheets.front.height * PT;
@@ -67,7 +88,7 @@ export async function buildPaperPdf(settings: PaperSettings): Promise<Uint8Array
   if (settings.pages > 1) {
     for (const side of (hasBackSide(settings) ? ['front', 'back'] : ['front']) as Side[]) {
       const tpl = await PDFDocument.create();
-      const tplFonts: Fonts = { regular: await tpl.embedFont(StandardFonts.Helvetica), bold: await tpl.embedFont(StandardFonts.HelveticaBold) };
+      const tplFonts = await embedFonts(tpl, lib);
       const tplPage = tpl.addPage([widthPt, heightPt]);
       drawItems(tplPage, sheets[side].fixed, sheets[side].height, tplFonts, lib);
       [templates[side]] = await out.embedPdf(tpl, [0]);
@@ -97,9 +118,10 @@ export async function buildPdfFromSheets(sheets: Sheet[], title: string): Promis
   const { PDFDocument } = lib;
   const out = await PDFDocument.create();
   const fonts = await embedFonts(out, lib);
+  const images = await embedImages(out, sheets);
   for (const sheet of sheets) {
     const page = out.addPage([sheet.width * PT, sheet.height * PT]);
-    drawItems(page, sheet.fixed, sheet.height, fonts, lib);
+    drawItems(page, sheet.fixed, sheet.height, fonts, lib, images);
   }
   out.setTitle(title);
   out.setCreator('MyDailyUtils');

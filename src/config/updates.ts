@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/printable-planner-maker',
+    tool: 'Printable sheets',
+    title: 'New: add your logo, remember your details, and colours and fonts on planners, meal planner, care sheets and paper',
+    summary: 'Add a logo or picture to certificates, notices, labels and every record sheet (it stays in your browser). Tick Remember to keep your name, logo and look on this device. The paper maker, planners, meal planner and care sheets now have the same 14 colour themes and 3 fonts, calendars get a coloured header band, and name tags accept rows pasted from Excel.',
+  },
+  {
+    date: '2026-11-20',
     path: '/milk-maid-attendance-calendar-printable',
     tool: 'Printable sheets',
     title: 'New: 14 colour themes and 3 fonts for the printable sheets',

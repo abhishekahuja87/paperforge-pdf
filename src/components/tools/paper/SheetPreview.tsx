@@ -26,11 +26,13 @@ export const SheetPreview: React.FC<Props> = ({ sheet, pageLabel, id }) => {
   const paths = useMemo(() => groupPaths(sheet.fixed), [sheet.fixed]);
   const texts = sheet.fixed.filter((item): item is Extract<Item, { t: 'text' }> => item.t === 'text');
   const rects = sheet.fixed.filter((item): item is Extract<Item, { t: 'rect' }> => item.t === 'rect');
+  const pictures = sheet.fixed.filter((item): item is Extract<Item, { t: 'image' }> => item.t === 'image');
   const number = sheet.pageNumber;
   return (
     <svg id={id} role="img" aria-label="Preview of the paper" viewBox={`0 0 ${sheet.width} ${sheet.height}`} className="block h-auto max-h-[46vh] w-full bg-white lg:max-h-[78vh]" style={{ aspectRatio: `${sheet.width} / ${sheet.height}` }}>
       <rect width={sheet.width} height={sheet.height} fill="#ffffff" />
       {rects.map((item, index) => <rect key={`r${index}`} x={item.x} y={item.y} width={item.w} height={item.h} fill={item.c} />)}
+      {pictures.map((item, index) => <image key={`i${index}`} href={item.src} x={item.x} y={item.y} width={item.w} height={item.h} preserveAspectRatio="xMidYMid meet" />)}
       {paths.map((group) => (
         group.kind === 'line' ? (
           <path key={group.key} d={group.d} stroke={group.color} strokeWidth={group.width} strokeLinecap="butt" strokeDasharray={group.dash?.join(' ')} fill="none" />

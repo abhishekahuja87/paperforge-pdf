@@ -1,6 +1,7 @@
 import { clipSegment, fit, r3, type Box } from './util';
 import { calligraphy, crossStitch, hexGrid, holeGuides, stampItem, storyboard, twoUpItems } from './extra';
-import { BINDING_MM, DOT_RADIUS, HEADER_LABELS, PAGE_SIZES, TONES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings } from './types';
+import { inkOf, restyle } from './style';
+import { BINDING_MM, DOT_RADIUS, HEADER_LABELS, PAGE_SIZES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings } from './types';
 
 /** Everything on a sheet is a handful of simple shapes in millimetres, origin top-left. The SVG preview and the PDF export both draw this list. */
 /** Typefaces every PDF reader has, so nothing is downloaded: sans (Helvetica), serif (Times) and typewriter (Courier). */
@@ -8,6 +9,8 @@ export type FontId = 'sans' | 'serif' | 'mono';
 
 export type Item =
   | { t: 'rect'; x: number; y: number; w: number; h: number; c: string }
+  /** A picture (a logo) as a PNG data address, drawn inside the box. */
+  | { t: 'image'; x: number; y: number; w: number; h: number; src: string }
   | { t: 'line'; x1: number; y1: number; x2: number; y2: number; w: number; c: string; dash?: [number, number] }
   | { t: 'dot'; x: number; y: number; r: number; c: string }
   | { t: 'ring'; x: number; y: number; r: number; w: number; c: string }
@@ -258,7 +261,7 @@ function buildPage(settings: PaperSettings, side: Side): Sheet {
   const { width, height } = pageSize(settings);
   const full = printableArea(settings, side);
   const weight = WEIGHTS[settings.weight].mm;
-  const color = TONES[settings.tone].color;
+  const color = inkOf(settings);
   const fixed: Item[] = [];
   let pageNumber: Sheet['pageNumber'] = null;
   let area = full;
@@ -298,7 +301,7 @@ function buildPage(settings: PaperSettings, side: Side): Sheet {
 /** Builds the fixed shapes of one sheet, with the punch-hole guides and corner stamp. Page numbers are added per page by the caller. */
 export function buildSheet(settings: PaperSettings, side: Side = 'front'): Sheet {
   // Hole guides sit 12 mm from the edge, so the pattern is moved clear of them even if the binding margin is off.
-  const page = buildPage(settings.holes !== 'none' && !settings.binding ? { ...settings, binding: true } : settings, side);
+  const page = restyle([buildPage(settings.holes !== 'none' && !settings.binding ? { ...settings, binding: true } : settings, side)], settings)[0]!;
   const atStart = side === 'front' || !settings.bindingAlternate;
   page.fixed.push(...holeGuides(page.width, page.height, settings.holes, settings.landscape, atStart), ...stampItem(page.width, page.height, settings.stamp));
   if (!settings.twoUp || !canTwoUp(settings)) return page;

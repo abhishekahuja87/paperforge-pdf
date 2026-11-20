@@ -1,6 +1,7 @@
 import type { Sheet } from '../paper/geometry';
 import type { FontId } from '../paper/geometry';
 import type { PageSizeId, ToneId, Weight } from '../paper/types';
+import type { Logo } from '../paper/image';
 import type { ThemeId } from './theme';
 
 /** Paper and ink settings shared by every record sheet, plus the name printed on each page (shop, household or pet). */
@@ -14,6 +15,8 @@ export interface Common {
   /** Colour theme and typeface. Older callers that leave them out get the ink tone and sans. */
   theme?: ThemeId;
   font?: FontId;
+  /** A logo or picture printed on the sheet, when the person added one. */
+  logo?: Logo | null;
 }
 
 export type Values = Record<string, string | number | boolean>;
