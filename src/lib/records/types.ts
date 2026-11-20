@@ -35,7 +35,7 @@ export interface SheetDef {
 }
 
 export interface Family {
-  key: 'home' | 'shop' | 'pet' | 'teach' | 'clean';
+  key: 'home' | 'shop' | 'pet' | 'teach' | 'clean' | 'study' | 'event' | 'kin' | 'auto' | 'life';
   /** Label and example for the name printed at the top of every page. */
   headingLabel: string;
   headingPlaceholder: string;

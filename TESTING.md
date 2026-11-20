@@ -961,3 +961,11 @@ Checked in a real Chromium from the command line: locked pages for a document, a
 - [ ] Cleaning checklists: edit the task list (20 tasks), sign-off rows, skip Sundays off by default. Round sheet: 08:00, every 2 hours, 6 rounds, 31 days. Weekly schedule and deep planner on landscape A4.
 - [ ] Download PDF matches the preview; Print prints only the sheet.
 Checked in Node and an unstyled browser: layouts rendered and most read by eye. Full tsc, vite build and the styled page were not run.
+
+### More printable sheets: 40 pages (20 Nov)
+- [ ] Home: Students and writing shows Exam Timetable Planner; Printables shows Wedding Shagun Register, Baby Feeding Log and Habit Tracker; Everyday calculators shows Vehicle Service Log; Jobs and business shows Customer Order Register. The other 34 addresses are not on the home page but are in the sitemap, footer and search ("kitty party", "petty cash voucher", "rent register", "packing list").
+- [ ] Open each family's pages (study 6, event 7, baby and family 6, vehicle and home 8, life and business 13); the buttons switch the address and keep paper, ink and the heading. The closing note under each family matches it (the baby note says no medical advice).
+- [ ] Typed lists print in the first column: weekly study timetable time slots, packing list and grocery items, chore chart chores, rent and utility months, wedding checklist tasks. A list longer than the rows adds pages.
+- [ ] Habit tracker: pick February, three months, weekday letters off. Petty cash voucher: business name prints top right, four to a page. Meeting minutes: 3 and 10 action rows. Kitty tracker: 12 month columns fit one landscape page.
+- [ ] Download PDF matches the preview; Print prints only the sheet.
+Checked in Node and an unstyled browser: all 40 layouts rendered and about eight read by eye. Full tsc, vite build and the styled page were not run.
