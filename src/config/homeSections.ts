@@ -34,6 +34,7 @@ export const SIZE_PRESET_PATTERN = /^resize-image-to-(\d+)kb$/;
  * page shows only the main tool, so these are not listed there.
  */
 export const VARIANT_PAGES = [
+  'wifi-password-sign-printable', 'restaurant-menu-card-printable',
   'dot-grid-paper-generator', 'graph-paper-generator', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
   'printable-calendar-maker', 'daily-planner-printable', 'daily-menu-planner-printable', 'monthly-menu-planner-printable',
   'health-log-sheet-printable', 'emergency-info-card-printable', 'doctor-visit-sheet-printable', 'caregiver-daily-log-printable',
@@ -53,10 +54,10 @@ export interface CollectionSpec {
 export const COLLECTIONS: CollectionSpec[] = [
   { id: 'pdf', icon: 'file-text', tools: [
     'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'digitize-documents', 'pdf-to-images', 'extract-text', 'add-page-numbers',
-    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf',
+    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner',
   ] },
   { id: 'images', icon: 'image', tools: [
-    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor',
+    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker',
   ] },
   { id: 'tax', icon: 'receipt', tools: [
     'income-tax-calculator', 'salary-calculator', 'hra-calculator', 'gst-calculator', 'gratuity-calculator', 'epf-calculator',
@@ -65,7 +66,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'emi-calculator', 'sip-calculator', 'lumpsum-calculator', 'fd-calculator', 'rd-calculator', 'ppf-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator',
   ] },
   { id: 'everyday', icon: 'hash', tools: [
-    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'vehicle-service-log-printable',
+    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'vehicle-service-log-printable', 'secret-santa-generator',
   ] },
   { id: 'sports', icon: 'dumbbell', tools: [
     'sports-court-size-guide', 'exercise-library', 'bmi-calculator',
@@ -75,11 +76,11 @@ export const COLLECTIONS: CollectionSpec[] = [
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',
-    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable', 'tuition-fee-register-printable', 'office-cleaning-checklist-printable', 'customer-order-register-printable', 'society-notice-template-printable', 'content-calendar-printable', 'door-sign-printable',
+    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable', 'tuition-fee-register-printable', 'office-cleaning-checklist-printable', 'customer-order-register-printable', 'society-notice-template-printable', 'content-calendar-printable', 'door-sign-printable', 'stamp-maker', 'id-card-maker-printable', 'upi-payment-qr-stand-printable',
   ] },
   { id: 'present', icon: 'presentation', tools: ['display-studio'] },
   { id: 'study', icon: 'type', tools: [
-    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable',
+    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'question-paper-template-printable',
   ] },
   { id: 'kids', icon: 'clock', tools: [
     'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'solar-system-explorer', 'math-worksheet-generator-printable', 'maze-generator-printable',

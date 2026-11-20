@@ -99,6 +99,15 @@ export function table(c: Ctx, top: number, bottom: number, columns: { label: str
   return { rowH, xs, firstRow: gridTop };
 }
 
+/** The usable width and height of a page with these settings, for layouts that must count pages before drawing. */
+export function pageBox(common: Common): { w: number; h: number } {
+  const size = PAGE_SIZES[common.page];
+  const margin = Math.min(30, Math.max(4, common.margin));
+  const width = common.landscape ? size.height : size.width;
+  const height = common.landscape ? size.width : size.height;
+  return { w: width - 2 * margin, h: height - 2 * margin };
+}
+
 /** Builds `count` pages with the paper settings, calling `draw` for each. */
 export function makePages(common: Common, count: number, draw: (c: Ctx, index: number) => void): Sheet[] {
   const size = PAGE_SIZES[common.page];

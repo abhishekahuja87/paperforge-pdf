@@ -1,0 +1,983 @@
+{
+  "guideSteps": {
+    "signature-maker": [
+      [
+        "Draw or type",
+        "Choose Draw it and sign with your finger or mouse, or choose Type it and enter your name in a handwriting style."
+      ],
+      [
+        "Pick the ink",
+        "Choose black, blue, dark red or green, and the pen thickness. Undo or clear and try again until you like it."
+      ],
+      [
+        "Check the preview",
+        "The preview shows your signature trimmed to the ink on a checkered see-through background."
+      ],
+      [
+        "Download",
+        "Download the PNG, with a see-through or white background, and add it to a form, document or the Sign PDF tool."
+      ]
+    ],
+    "sign-pdf": [
+      [
+        "Choose the PDF",
+        "Choose the PDF you need to sign. It opens in your browser and is never uploaded."
+      ],
+      [
+        "Add your signature",
+        "Draw or type a signature, or use a picture of your signature. A signature on white paper can be made see-through."
+      ],
+      [
+        "Tap where it goes",
+        "Pick the page and tap on the preview where the signature should sit. Change the size with the slider."
+      ],
+      [
+        "Download",
+        "Choose this page, the last page or every page, then download the signed PDF."
+      ]
+    ],
+    "document-scanner": [
+      [
+        "Add pages",
+        "Take a photo of each page with your camera, or choose pictures from your gallery. Add more at any time."
+      ],
+      [
+        "Clean each page",
+        "Pick Clean colour, Clean gray or Black and white, turn the page, and trim the edges with the sliders."
+      ],
+      [
+        "Put pages in order",
+        "Move pages earlier or later and remove any that you do not need."
+      ],
+      [
+        "Save the PDF",
+        "Choose A4 pages or the picture size and download one PDF, or save a single page as a picture."
+      ]
+    ],
+    "passport-photo-sheet-maker": [
+      [
+        "Choose your photo",
+        "Choose a clear, straight-on photo with a plain background and even light."
+      ],
+      [
+        "Size and crop",
+        "Pick 35 x 45 mm, 2 x 2 inch, 30 x 40 mm, 25 x 35 mm or your own size, then zoom and move the photo inside the frame."
+      ],
+      [
+        "Choose the sheet",
+        "Pick 4 x 6 inch, 5 x 7 inch or A4 paper and how many copies. The sheet preview shows the layout and cut lines."
+      ],
+      [
+        "Download and print",
+        "Download the PDF and print it at 100% (actual size), then cut along the thin lines."
+      ]
+    ],
+    "photo-grid-splitter": [
+      [
+        "Choose a picture",
+        "Choose the picture you want to spread across the grid."
+      ],
+      [
+        "Set the grid",
+        "Pick up to 5 columns and 5 rows, and choose square, portrait or keep-the-picture-shape pieces."
+      ],
+      [
+        "Zoom and move",
+        "Zoom and move the picture until the part you want sits across the grid. The preview shows the lines and post order."
+      ],
+      [
+        "Download the zip",
+        "Download all pieces as one zip. Post them from number 1 to the highest number."
+      ]
+    ],
+    "photo-collage-maker": [
+      [
+        "Add photos",
+        "Choose between two and nine photos. Move them earlier or later to change the order."
+      ],
+      [
+        "Choose the layout",
+        "Pick an even grid or one big photo, and a size for a square post, a story, or A4 portrait or landscape."
+      ],
+      [
+        "Style it",
+        "Set the space between photos, rounded corners and the background colour. The preview updates as you go."
+      ],
+      [
+        "Download",
+        "Download the collage as a JPG for sharing or a PNG for the best quality."
+      ]
+    ],
+    "secret-santa-generator": [
+      [
+        "Enter the names",
+        "Type each person on a new line. You need at least three different names."
+      ],
+      [
+        "Add rules",
+        "Optionally add pairs who must not draw each other, such as a couple, and a gift budget."
+      ],
+      [
+        "Draw",
+        "Press Draw the names. The draw happens on your phone and nobody sees the result yet."
+      ],
+      [
+        "Pass the phone",
+        "Each person taps their own name, sees who they got, then hides it. Each name opens only once."
+      ]
+    ],
+    "stamp-maker": [
+      [
+        "Choose the shape",
+        "Choose a round seal with curved text or a rectangle with straight lines."
+      ],
+      [
+        "Type the text",
+        "Enter the top and bottom text and up to three middle lines, such as the name, place or PAID."
+      ],
+      [
+        "Style it",
+        "Pick the ink colour, double border, stars, tilt and how worn the ink looks."
+      ],
+      [
+        "Download",
+        "Download the PNG with a see-through background and place it on your document."
+      ]
+    ],
+    "id-card-maker-printable": [
+      [
+        "Add your name and logo",
+        "Type the school or business name and add a logo or picture. It prints in the coloured band at the top of every card."
+      ],
+      [
+        "Add the people",
+        "Type one person per line as Name | Class or role | ID number, or leave it empty for blank cards to fill in by hand."
+      ],
+      [
+        "Choose the look",
+        "Pick a colour band or side stripe, a theme colour and font, and whether to print a photo box and a signature line."
+      ],
+      [
+        "Print and cut",
+        "Download the PDF, print on card or thick paper at actual size, stick in photos and cut along the card edges."
+      ]
+    ],
+    "upi-payment-qr-stand-printable": [
+      [
+        "Add your shop name and logo",
+        "Type your shop name and add a logo. They print in the band at the top of the sign."
+      ],
+      [
+        "Enter your UPI ID",
+        "Type your UPI ID and the name you want people to see when they pay. Optionally add a fixed amount."
+      ],
+      [
+        "Check the preview",
+        "Scan the QR code on the preview with your own UPI app and confirm that the name and ID are right."
+      ],
+      [
+        "Print and display",
+        "Download the PDF, print it, and put it in a stand or frame near the counter."
+      ]
+    ],
+    "wifi-password-sign-printable": [
+      [
+        "Add a name and logo",
+        "Optionally add your cafe, office or home name and a logo to print at the top."
+      ],
+      [
+        "Enter the network",
+        "Type the network name and the password, or choose Open if there is no password."
+      ],
+      [
+        "Choose what to show",
+        "Decide whether to print the password in words. The QR code lets phones join without typing it."
+      ],
+      [
+        "Print and display",
+        "Download the PDF and print it for a table, counter, wall or guest room."
+      ]
+    ],
+    "restaurant-menu-card-printable": [
+      [
+        "Add your name and logo",
+        "Type the cafe, kitchen or shop name and add a logo. Optionally add a line under the name."
+      ],
+      [
+        "Type the menu",
+        "Type one item per line as Item | price | short description. Start a line with # for a section heading, such as #Starters."
+      ],
+      [
+        "Choose the look",
+        "Pick one or two columns, a theme colour and font, and a line at the bottom such as a note about allergies."
+      ],
+      [
+        "Print",
+        "Download the PDF and print it, or laminate it. Long menus continue on a second page."
+      ]
+    ],
+    "question-paper-template-printable": [
+      [
+        "Add the school and exam",
+        "Type the school name, add a logo, then the exam name, subject, class and time allowed."
+      ],
+      [
+        "Type the questions",
+        "Type one question per line. Add marks like [2] at the end. For multiple choice write Question | option | option | option, and add =b to mark the answer. Start a line with # for a section heading."
+      ],
+      [
+        "Choose the layout",
+        "Choose how many answer lines to leave under written questions, and whether to print a name and roll number line and an answer key page."
+      ],
+      [
+        "Print",
+        "Download the PDF. The maximum marks are added up for you, and long papers continue on more pages."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "signatureMakerGuide": {
+      "title": "Signature Maker: Draw or Type a Signature and Save It as a Transparent PNG",
+      "subtitle": "Make a signature picture: draw with your finger or type your name, choose the ink, and download a transparent PNG for forms and documents. Free and private.",
+      "faq": [
+        [
+          "What does the signature maker do?",
+          "It turns a signature you draw or type into a picture file (PNG) trimmed to the ink, with a see-through background, so you can place it on forms and documents."
+        ],
+        [
+          "Can I draw with my finger on a phone?",
+          "Yes. The drawing area is made for touch as well as a mouse. Draw slowly and use Undo to remove the last stroke."
+        ],
+        [
+          "What is the difference between a see-through and a white background?",
+          "See-through lets the paper or page show behind the ink, which suits documents. A white background suits forms that reject see-through pictures."
+        ],
+        [
+          "Is a signature picture a legal e-signature?",
+          "Not by itself. It is a plain image of your signature. Use it where an image is accepted, and follow the rules of whoever asked for the signature."
+        ],
+        [
+          "Why does my typed signature look different on another device?",
+          "Typed styles use the fonts already installed on your device, so a script style can look a little different elsewhere. Download the PNG to keep exactly what you see."
+        ],
+        [
+          "How do I put the signature on a PDF?",
+          "Download the PNG, then use the Sign PDF tool on this site, where you can draw or choose your picture and place it on any page."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "signPdfGuide": {
+      "title": "Sign PDF: Add Your Signature to a PDF Online Without Uploading It",
+      "subtitle": "Sign a PDF in your browser: draw, type or upload your signature, tap where it goes, and download the signed PDF. Nothing is uploaded. Free.",
+      "faq": [
+        [
+          "How do I sign a PDF with this tool?",
+          "Choose the PDF, draw, type or upload your signature, tap the place on the page where it should go, and download the signed PDF."
+        ],
+        [
+          "Is my PDF uploaded anywhere?",
+          "No. The PDF is opened and changed in your browser on your own device. Nothing is sent to a server."
+        ],
+        [
+          "Can I sign more than one page?",
+          "Yes. Place the signature on this page, on the last page, or on every page at the same spot."
+        ],
+        [
+          "Can I use a photo of my handwritten signature?",
+          "Yes. Choose the picture and turn on the option that makes the white paper see-through, so only the ink is placed on the page."
+        ],
+        [
+          "Is this a certified digital signature?",
+          "No. It places a picture of your signature on the page. Use it where a plain signature image is accepted; some uses need a certified or legally defined e-signature."
+        ],
+        [
+          "Why can I not open my PDF?",
+          "A PDF with a password cannot be opened until it is unlocked. Use the Unlock PDF tool first, then sign it. Very large files over 40 MB should be compressed first."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "documentScannerGuide": {
+      "title": "Document Scanner: Turn Photos of Pages into a Clean PDF",
+      "subtitle": "Scan documents with your phone camera: lift shadows, whiten paper, trim and rotate each page, and save a clean multi-page PDF. Private, nothing uploaded.",
+      "faq": [
+        [
+          "How does the document scanner work?",
+          "You add photos of pages, the tool lifts shadows and whitens the paper, and you trim and turn each page. It then builds one PDF."
+        ],
+        [
+          "Does it work on a phone?",
+          "Yes. Take a photo button opens the camera on most phones, and Choose pictures lets you use photos already in your gallery."
+        ],
+        [
+          "What do the looks mean?",
+          "Clean colour keeps colour and whitens paper. Clean gray removes colour. Black and white gives sharp text and small files, best for text pages."
+        ],
+        [
+          "Does it find the page edges by itself?",
+          "No. You trim each edge with a slider. Fill the frame when you photograph and lay the page flat in even light for the best result."
+        ],
+        [
+          "Does it read the text?",
+          "No. It cleans pictures and makes a PDF. To make a searchable PDF, use the Scan to Searchable PDF tool on this site."
+        ],
+        [
+          "How many pages can I scan at once?",
+          "Up to 30 pages at a time, to keep your phone responsive. Make several PDFs and join them with Merge PDF if you need more."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "passportPhotoSheetMakerGuide": {
+      "title": "Passport Photo Sheet Maker: Crop a Photo and Print Several on One Sheet",
+      "subtitle": "Crop a photo to 35x45 mm, 2x2 inch or your own size and fill a 4x6, 5x7 or A4 sheet with copies. Download a PDF to print at actual size. Private.",
+      "faq": [
+        [
+          "What does the passport photo sheet maker do?",
+          "It crops your photo to the size you choose and repeats it across a sheet of photo paper or A4, so you can print several in one go."
+        ],
+        [
+          "Which sizes can I choose?",
+          "35 x 45 mm, 2 x 2 inch, 30 x 40 mm and 25 x 35 mm, or your own width and height in millimetres."
+        ],
+        [
+          "Does it follow my country's passport rules?",
+          "No. It only crops and lays out. Check the size, background and face position your form, office or visa centre asks for, because rules differ."
+        ],
+        [
+          "Will the printed photos be the right size?",
+          "Yes, if you print at 100% or actual size. Do not use Fit to page in the print dialog, or the photos will be scaled."
+        ],
+        [
+          "Can it change the background?",
+          "No. It does not edit the background. Photograph against a plain light wall, or ask a photo studio if a special background is needed."
+        ],
+        [
+          "What is the face guide?",
+          "A dashed oval on the preview only, to help you centre the face. It is never printed."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "photoGridSplitterGuide": {
+      "title": "Photo Grid Splitter: Cut One Picture into a Grid of Posts",
+      "subtitle": "Cut one picture into a grid of posts for a profile or a carousel. Choose columns and rows, zoom and move the picture, and download numbered pieces as a zip.",
+      "faq": [
+        [
+          "What does the photo grid splitter do?",
+          "It cuts one picture into a grid of equal pieces, each saved as its own numbered JPG, so you can post them side by side."
+        ],
+        [
+          "How big can the grid be?",
+          "Up to 5 columns by 5 rows. Common choices are 3 by 1 for a panorama and 3 by 3 for a profile grid."
+        ],
+        [
+          "In what order should I post the pieces?",
+          "Start with number 1 and finish with the highest number. A profile shows the newest post first, so this builds the grid the right way round."
+        ],
+        [
+          "What size are the pieces?",
+          "Each piece is 1080 pixels wide, and 1080 or 1350 pixels tall for square or portrait pieces, which suits most social apps."
+        ],
+        [
+          "Can I keep the whole picture?",
+          "Choose Keep the picture shape and the grid follows the shape of your picture. Otherwise the picture is zoomed to fill the grid and the edges are cropped."
+        ],
+        [
+          "How do I open the zip on a phone?",
+          "Use the Files app to extract it, then post the pictures from your gallery in order."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "photoCollageMakerGuide": {
+      "title": "Photo Collage Maker: Join 2 to 9 Photos into One Picture",
+      "subtitle": "Make a photo collage: add 2 to 9 photos, choose a grid or one big photo, set spacing and corners, pick a size for a post, a story or A4, and download.",
+      "faq": [
+        [
+          "What does the photo collage maker do?",
+          "It joins two to nine photos into one picture, with the layout, spacing, corners and background you choose."
+        ],
+        [
+          "Which sizes are available?",
+          "Square post, story (9:16), A4 portrait and A4 landscape."
+        ],
+        [
+          "Can I change the order of the photos?",
+          "Yes. Use the up and down buttons beside each photo, and remove any photo you do not want."
+        ],
+        [
+          "Are my photos cropped?",
+          "Each photo is cropped to fill its space and the centre is kept. Use a layout with fewer photos if you want less cropping."
+        ],
+        [
+          "What is the one big photo layout?",
+          "The first photo takes the left part of the picture and the rest stack on the right. It needs three or more photos."
+        ],
+        [
+          "Which format should I download?",
+          "JPG makes a smaller file that suits messaging and social apps. PNG keeps the highest quality for printing."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "secretSantaGeneratorGuide": {
+      "title": "Secret Santa Generator: Draw Names on One Phone, Pass It Round",
+      "subtitle": "Draw Secret Santa names on one phone: enter names, add pairs who should not draw each other, then pass the phone round so each person taps to see their match.",
+      "faq": [
+        [
+          "How does the Secret Santa generator work?",
+          "You enter the names and it matches each person to one other person, so everyone gives one gift and receives one gift, and nobody draws themselves."
+        ],
+        [
+          "Can I stop two people drawing each other?",
+          "Yes. Add one pair per line, such as Asha - Rohan, and those two will not draw each other."
+        ],
+        [
+          "How do people see their match?",
+          "Pass the phone round. Each person taps their own name, reads who they got, then taps Hide and pass on. A used name cannot be opened again."
+        ],
+        [
+          "Can the organiser see everything?",
+          "There is an organiser option that shows the full list. Use it only if you need to, because it spoils the surprise."
+        ],
+        [
+          "What if the rules make a draw impossible?",
+          "The tool tells you. Remove a rule or add a person and draw again."
+        ],
+        [
+          "Does anything get sent to participants?",
+          "No. It does not send emails or messages. The draw lives on your phone until you close or reload the page."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "stampMakerGuide": {
+      "title": "Stamp Maker: Make a Round or Rectangular Office Stamp as a Transparent PNG",
+      "subtitle": "Make a round or rectangular stamp with curved text, a double border, stars and worn ink, and save it as a transparent PNG for your own invoices and notices.",
+      "faq": [
+        [
+          "What does the stamp maker do?",
+          "It draws a stamp from your text, in a round or rectangular shape, and saves it as a PNG picture with a see-through background."
+        ],
+        [
+          "Is this an official seal?",
+          "No. It is a picture of a stamp for your own invoices, notices and letters. Offices that need a registered stamp will not accept a printed picture."
+        ],
+        [
+          "Can I change the colour?",
+          "Yes. Choose blue, red, purple, black or green."
+        ],
+        [
+          "What does the worn ink look do?",
+          "It removes small flecks from the stamp so it looks like a real inked stamp. Set it to zero for a clean look."
+        ],
+        [
+          "How do I use the PNG?",
+          "Insert it into a document, or place it on a PDF with the Sign PDF tool by using it as a picture."
+        ],
+        [
+          "How long can the text be?",
+          "The curved text shrinks to fit around the circle, and the middle lines shrink to fit inside, but shorter text always looks cleaner."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "idCardMakerGuide": {
+      "title": "ID Card Maker Printable: Photo ID Cards for School, Staff and Events",
+      "subtitle": "Make ID cards for a school, shop, society or event: logo, colour band, photo box, name, role and ID number, 8 per A4 page. Free printable PDF.",
+      "faq": [
+        [
+          "What size are the ID cards?",
+          "Each card is 85.6 by 54 mm, the common bank-card size, and as many as fit are printed per page, usually eight on A4."
+        ],
+        [
+          "Can I add a photo?",
+          "The card has a box for a passport-size photo. Print the cards, then stick a photo in each box. The Passport Photo Sheet Maker can cut photos to size."
+        ],
+        [
+          "How do I make cards for many people?",
+          "Type one person per line as Name | Class or role | ID number. Up to 40 people, spread across pages automatically."
+        ],
+        [
+          "Can I add my logo?",
+          "Yes. Add a logo in the name section and it prints in the top band of every card."
+        ],
+        [
+          "Can I get blank cards?",
+          "Yes. Leave the people list empty and cards print with lines for the name, class or role and ID number to write by hand."
+        ],
+        [
+          "Are these official ID cards?",
+          "They are templates for your own use. Check whether your school, office or authority requires a specific format before you rely on them for official identification."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "upiPaymentQrStandGuide": {
+      "title": "UPI QR Stand Printable: Scan and Pay Sign with Your Shop Name",
+      "subtitle": "Make a Scan and Pay sign with your own UPI QR code, shop name and logo. Type your UPI ID, print on A4 or A5, and put it on your counter. Free and private.",
+      "faq": [
+        [
+          "What does the UPI QR stand contain?",
+          "A Scan and Pay heading, your shop name and logo, a QR code made from your UPI ID and name, and a line telling people to check the name in their app."
+        ],
+        [
+          "Does the QR code contain anything besides my UPI ID?",
+          "It holds only the UPI ID, the name and, if you add one, a fixed amount. Nothing else is stored in it."
+        ],
+        [
+          "Can I set an amount?",
+          "Yes. Add a fixed amount and the QR code asks for that amount. Leave it empty to let the payer type the amount."
+        ],
+        [
+          "How do I check that it works?",
+          "Scan the code on the screen with your own UPI app before printing. The name shown should be the one you expect."
+        ],
+        [
+          "What size should I print?",
+          "A4 for a wall or counter board and A5 for a stand. Use a sharp printer and plain white paper so the code scans easily."
+        ],
+        [
+          "Is this connected to any payment company?",
+          "No. It only draws a standard UPI QR code from the details you type. Payments are handled by the UPI app and your bank, not by this site."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "wifiPasswordSignGuide": {
+      "title": "Wi-Fi Password Sign Printable: Network, Password and QR Code",
+      "subtitle": "Print a Wi-Fi sign for a cafe, office, home or guest room: network name, password and a QR code phones can scan to join. Free printable A4 PDF.",
+      "faq": [
+        [
+          "What does the Wi-Fi sign include?",
+          "The words Wi-Fi, a QR code that joins the network, the network name, the password and an optional message."
+        ],
+        [
+          "How does a guest join with the QR code?",
+          "They open the phone camera or a QR scanner and point it at the code. Most phones offer to join the network."
+        ],
+        [
+          "Can I hide the password?",
+          "Yes. Turn off printing the password in words. The QR code still lets guests join, and others can ask you."
+        ],
+        [
+          "What if my network has no password?",
+          "Choose Open, no password. The sign then says no password is needed."
+        ],
+        [
+          "Is printing my password a security risk?",
+          "Anyone who sees the sign can join your network. Use a guest network for public places and change the password if it spreads."
+        ],
+        [
+          "Does the QR code work on all phones?",
+          "Most current phones read Wi-Fi QR codes through the camera. Older phones may need a QR scanner app, so keep the password printed too."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "restaurantMenuCardGuide": {
+      "title": "Menu Card Printable: Make a Menu or Price List for Your Cafe, Shop or Home Kitchen",
+      "subtitle": "Make a menu card or price list: sections, items, prices and short descriptions in one or two columns, with your logo and a colour theme. Free printable PDF.",
+      "faq": [
+        [
+          "How do I add sections to the menu?",
+          "Start a line with # and the section name, such as #Starters or #Drinks. The lines below it belong to that section."
+        ],
+        [
+          "How do I write an item?",
+          "Write Item | price | description. The description is optional. Prices can be any text, such as 150 or 150/250."
+        ],
+        [
+          "Can I print a currency before the prices?",
+          "Yes. Type it in the box before each price, such as Rs. followed by a space. Leave it empty if the prices already show it."
+        ],
+        [
+          "What if my menu is long?",
+          "Use two columns, or let it continue on a second page. Up to 70 lines are supported."
+        ],
+        [
+          "Can I use it as a price list?",
+          "Yes. A salon, repair shop or tuition centre can list services and prices in the same way."
+        ],
+        [
+          "Does it include food-safety or allergy wording?",
+          "No. It prints only what you type. Add your own note at the bottom, and follow the rules that apply to your business."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "questionPaperTemplateGuide": {
+      "title": "Question Paper Template Printable: Make a Test Paper with Marks and Answer Lines",
+      "subtitle": "Make a test paper: header, name and roll lines, sections, numbered questions with marks, multiple choice options, answer lines and an answer key page. Free PDF.",
+      "faq": [
+        [
+          "How do I write a multiple choice question?",
+          "Write the question, then the options separated by a vertical bar, such as What is 2 + 2? | 3 | 4 | 5 | 6 =b [1]. The options are lettered a, b, c and d."
+        ],
+        [
+          "How are the marks added up?",
+          "Put the marks in square brackets at the end of each question, such as [2]. The paper prints the total as Maximum marks."
+        ],
+        [
+          "What is the =b for?",
+          "It marks the correct option. With the answer key switched on, an extra page lists the correct letters for the multiple choice questions."
+        ],
+        [
+          "Can I add sections?",
+          "Yes. Start a line with # and the section name, such as #Section A: Choose the right answer."
+        ],
+        [
+          "How many answer lines are printed?",
+          "You choose from none to eight lines under each written question. Multiple choice questions have no lines."
+        ],
+        [
+          "Does it write the questions for me?",
+          "No. You type your own questions. The tool only lays them out as a neat paper with marks and answer lines."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "signature-maker": {
+      "sections": [
+        {
+          "heading": "What the signature maker is",
+          "paragraphs": [
+            "The signature maker is a small drawing pad. You sign with a finger or mouse, or type your name in a handwriting style, and it saves just the ink as a picture with a see-through background.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A saved signature picture saves you from printing, signing and scanning a page every time. Forms, letters, invoices and documents that accept an image of a signature can use the same file again and again."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Draw slowly on a large screen for the smoothest line, and keep the pen thickness moderate so the signature stays clear when it is made small. Keep the PNG somewhere safe, because anyone who has it can paste it onto a page."
+          ]
+        }
+      ]
+    },
+    "sign-pdf": {
+      "sections": [
+        {
+          "heading": "What the sign PDF tool is",
+          "paragraphs": [
+            "Sign PDF places a picture of your signature on a page of your PDF. You choose the signature, tap the spot on a preview of the page, and the tool writes the signed copy to your device.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "It saves the print, sign and scan routine for forms, agreements, declarations and letters that accept a signature image. Because the work happens in your browser, the document never leaves your phone or computer."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Choose a page preview large enough to see the signature line, and keep the size modest so the signature looks natural. Check the downloaded PDF before you send it, and keep the original unsigned copy."
+          ]
+        }
+      ]
+    },
+    "document-scanner": {
+      "sections": [
+        {
+          "heading": "What the document scanner is",
+          "paragraphs": [
+            "The document scanner turns phone photos of paper into a clean PDF. It removes the shadow and uneven light that make photos of pages hard to read, then lets you trim, turn and order the pages.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "It is useful for forms, certificates, receipts, notes and identity proofs that you need to send as one file. The clean-up makes text darker and paper whiter, which also makes the file smaller."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Photograph each page flat, in daylight if possible, with the whole page in view. Choose Black and white for text, Clean colour for stamps and photos, and always check each page before you send an important document."
+          ]
+        }
+      ]
+    },
+    "passport-photo-sheet-maker": {
+      "sections": [
+        {
+          "heading": "What the passport photo sheet maker is",
+          "paragraphs": [
+            "The passport photo sheet maker crops one photo to a standard size and tiles it across the paper. It saves the cost of a studio print when you only need the layout.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A sheet of copies is handy for forms, admissions, ID cards and applications. Choosing the paper first shows how many photos fit, so you can use the whole sheet."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Use a sharp, evenly lit photo taken at eye level, and check the requirements of the office you are applying to. Print on photo paper at actual size and trim along the thin lines with a sharp cutter or scissors."
+          ]
+        }
+      ]
+    },
+    "photo-grid-splitter": {
+      "sections": [
+        {
+          "heading": "What the photo grid splitter is",
+          "paragraphs": [
+            "The photo grid splitter turns one large picture into a set of numbered pieces. Posted together, the pieces read as one big picture across a profile grid or a swipeable carousel.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "It is handy for panoramas, posters, shop banners and big announcements. Seeing the grid lines on the preview lets you place faces and text so no line cuts through them."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start with a sharp, high-resolution picture so each piece stays crisp. Keep important text away from the grid lines, and post in the numbered order so the grid builds correctly."
+          ]
+        }
+      ]
+    },
+    "photo-collage-maker": {
+      "sections": [
+        {
+          "heading": "What the photo collage maker is",
+          "paragraphs": [
+            "The photo collage maker joins several pictures into one, so you can share a whole event or a product range in a single post. You choose the layout and style, and see the result before you download.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Collages are useful for before-and-after pictures, festival memories, product catalogues and school events. A single image is also easier to send than a long list of photos."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Choose photos with similar brightness for the cleanest look, put the best photo first, and use a little spacing so the pictures do not blend together. Pick the size that matches where you will post it."
+          ]
+        }
+      ]
+    },
+    "secret-santa-generator": {
+      "sections": [
+        {
+          "heading": "What the Secret Santa generator is",
+          "paragraphs": [
+            "The Secret Santa generator draws gift-exchange matches fairly on a single phone. It uses your browser's random number generator and checks that no one draws themselves or a person they should not.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "It suits offices, families, classes and friend groups who want to run a gift exchange without asking everyone to share an email. Passing one phone also makes it a fun part of the party."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Decide the budget and the date before you draw, and finish all the reveals before you close the page. If someone misses their reveal, use the organiser option or draw again and start over."
+          ]
+        }
+      ]
+    },
+    "stamp-maker": {
+      "sections": [
+        {
+          "heading": "What the stamp maker is",
+          "paragraphs": [
+            "The stamp maker draws a round or rectangular stamp from your own text. Curved text follows the circle, and the border, stars, tilt and worn ink make it look like a stamped impression.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A stamp picture is useful for marking documents Paid, Received or Approved, and for adding a shop or society name to your invoices and notices."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the text short, use one ink colour, and place the stamp so it does not cover the writing underneath. Check the requirements of whoever receives the document, because some require a registered stamp."
+          ]
+        }
+      ]
+    },
+    "id-card-maker-printable": {
+      "sections": [
+        {
+          "heading": "What the ID cards is",
+          "paragraphs": [
+            "The ID card maker lays out photo ID cards on a page, with your logo, a colour band, a box for a photo and the details of each person. You can type the people in or print blank cards.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A neat ID card helps schools, tuition centres, small businesses, societies and events show who belongs. Printing several per page keeps paper use low."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print on thick paper or card at actual size, laminate if you can, and cut along the edge. Use a recent passport-size photo and add the valid-until date so old cards are easy to spot."
+          ]
+        }
+      ]
+    },
+    "upi-payment-qr-stand-printable": {
+      "sections": [
+        {
+          "heading": "What the UPI QR stand is",
+          "paragraphs": [
+            "The UPI QR stand makes a printable Scan and Pay sign for your shop counter. You type your UPI ID and shop name, add a logo, and the page draws the QR code as sharp vector squares.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A clear sign speeds up payments and means fewer customers asking for your number. Showing the name beside the code also helps customers confirm they are paying the right shop."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Always scan the printed code with your own app before you put it up. Use dark ink on white paper, keep the code unfolded and unscratched, and replace the sign if your UPI ID changes."
+          ]
+        }
+      ]
+    },
+    "wifi-password-sign-printable": {
+      "sections": [
+        {
+          "heading": "What the Wi-Fi sign is",
+          "paragraphs": [
+            "The Wi-Fi password sign puts your network name, password and a joining QR code on one printable page. Guests scan the code and connect without typing a long password.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "It suits cafes, waiting rooms, offices, classrooms, homestays and guest rooms, and it cuts down on repeated questions about the password."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Use a separate guest network for public places and change the password from time to time. Test the QR code with your own phone before you print and display the sign."
+          ]
+        }
+      ]
+    },
+    "restaurant-menu-card-printable": {
+      "sections": [
+        {
+          "heading": "What the menu card is",
+          "paragraphs": [
+            "The menu card maker turns a list of items into a tidy printed menu. Section headings, prices and dotted lines to the price give it a clean restaurant look without a design tool.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A printed menu or price list helps small cafes, home kitchens, bakeries, salons and shops. It saves explaining the same things over and over and makes prices clear to customers."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep descriptions short, group items into sections, and use two columns for long menus. Print a copy first, check the prices, and update the sheet whenever prices change."
+          ]
+        }
+      ]
+    },
+    "question-paper-template-printable": {
+      "sections": [
+        {
+          "heading": "What the question paper is",
+          "paragraphs": [
+            "The question paper template lays out a test paper from the questions you type. It adds the school header, the exam details, name and roll lines, numbered questions with marks and space for answers.",
+            "It runs in your browser, and nothing you add is uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Teachers and tuition tutors save time because the layout, numbering and marks total are done for them. Multiple choice questions are lettered automatically and an answer key page keeps the answers separate from the paper."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Write each question clearly, give marks in brackets, and group questions into sections. Print one copy and check it before running off the class set, and keep the answer key page apart from the student copies."
+          ]
+        }
+      ]
+    }
+  }
+}

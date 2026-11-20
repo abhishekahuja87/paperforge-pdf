@@ -1,0 +1,56 @@
+{
+  "toolCatalog": {
+    "signature-maker": [
+      "Signature Maker: Draw or Type a Signature and Save It as a Transparent PNG",
+      "Draw your signature with a finger or mouse, or type it, and save it as a see-through PNG for forms and documents."
+    ],
+    "sign-pdf": [
+      "Sign PDF: Add Your Signature to a PDF Online Without Uploading It",
+      "Draw, type or upload your signature and place it on any page of a PDF. Done in your browser, nothing is uploaded."
+    ],
+    "document-scanner": [
+      "Document Scanner: Turn Photos of Pages into a Clean PDF",
+      "Photograph or choose pages, clean up shadows, trim and turn them, and save one tidy PDF. Done in your browser."
+    ],
+    "passport-photo-sheet-maker": [
+      "Passport Photo Sheet Maker: Crop a Photo and Print Several on One Sheet",
+      "Crop one photo to a passport size and fill a 4x6, 5x7 or A4 sheet to print at home or a studio."
+    ],
+    "photo-grid-splitter": [
+      "Photo Grid Splitter: Cut One Picture into a Grid of Posts",
+      "Split a picture into a 1 to 5 by 1 to 5 grid of square or portrait pieces, numbered in posting order, and download them as a zip."
+    ],
+    "photo-collage-maker": [
+      "Photo Collage Maker: Join 2 to 9 Photos into One Picture",
+      "Join two to nine photos in an even grid or with one big photo, add spacing, rounded corners and a background colour, and download a JPG or PNG."
+    ],
+    "secret-santa-generator": [
+      "Secret Santa Generator: Draw Names on One Phone, Pass It Round",
+      "Draw Secret Santa names fairly on one phone. Pass it around and each person taps their name to see who they got."
+    ],
+    "stamp-maker": [
+      "Stamp Maker: Make a Round or Rectangular Office Stamp as a Transparent PNG",
+      "Make a round seal or rectangular stamp with curved text, your ink colour and a worn look, and save it as a see-through PNG."
+    ],
+    "id-card-maker-printable": [
+      "ID Card Maker Printable: Photo ID Cards for School, Staff and Events",
+      "Make photo ID cards with a logo, name, class or role and ID number, several per A4 page, ready to print and cut."
+    ],
+    "upi-payment-qr-stand-printable": [
+      "UPI QR Stand Printable: Scan and Pay Sign with Your Shop Name",
+      "Make a printable scan-and-pay sign with your UPI QR code, shop name and logo for your counter or shop door."
+    ],
+    "wifi-password-sign-printable": [
+      "Wi-Fi Password Sign Printable: Network, Password and QR Code",
+      "Print a Wi-Fi sign with the network name, password and a QR code that phones can scan to join."
+    ],
+    "restaurant-menu-card-printable": [
+      "Menu Card Printable: Make a Menu or Price List for Your Cafe, Shop or Home Kitchen",
+      "Make a printable menu or price list with sections, prices, descriptions and dotted leaders, in one or two columns, with your logo."
+    ],
+    "question-paper-template-printable": [
+      "Question Paper Template Printable: Make a Test Paper with Marks and Answer Lines",
+      "Make a printable test paper with a header, sections, numbered questions, marks, multiple choice options, answer lines and an optional answer key."
+    ]
+  }
+}

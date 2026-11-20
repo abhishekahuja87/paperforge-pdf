@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/sign-pdf',
+    tool: 'Documents, photos and sheets',
+    title: 'New: sign PDF, document scanner, signature maker, photo tools, stamp maker, Secret Santa, ID cards, UPI stand, menu card and question paper',
+    summary: 'Sign a PDF or make a transparent signature, scan pages with your camera into a clean PDF, crop passport photo sheets, split a picture into a grid, make collages and stamps, draw Secret Santa names on one phone, and print ID cards, a UPI scan-and-pay stand, a Wi-Fi sign, a menu card and a test paper. All in your browser.',
+  },
+  {
+    date: '2026-11-20',
     path: '/printable-planner-maker',
     tool: 'Printable sheets',
     title: 'New: add your logo, remember your details, and colours and fonts on planners, meal planner, care sheets and paper',

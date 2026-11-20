@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { Download, Printer, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { Note, SelectField } from '../../finance/ui';
@@ -140,6 +141,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
                 <SelectField label="Security" value={wifi.security} onChange={(security) => setWifi({ ...wifi, security: security as typeof wifi.security })} options={[{ value: 'WPA', label: 'WPA / WPA2 / WPA3' }, { value: 'WEP', label: 'WEP (old)' }, { value: 'nopass', label: 'Open, no password' }]} />
                 {wifi.security !== 'nopass' && <Field label="Password" value={wifi.password} onChange={(password) => setWifi({ ...wifi, password })} />}
                 <Toggle label="Hidden network" checked={wifi.hidden} onChange={(hidden) => setWifi({ ...wifi, hidden })} />
+                <p className="text-[11px] text-slate-500">Want a sign for a table or wall? <Link to="/wifi-password-sign-printable" className="font-semibold text-orange-800 underline">Print a Wi-Fi sign</Link> with the code, name and password.</p>
               </>)}
               {kind === 'contact' && (<>
                 <div className="grid grid-cols-2 gap-3">
