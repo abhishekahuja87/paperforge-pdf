@@ -986,3 +986,11 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 - Certificates: try each border (band, sidebar, tinted, ribbon) with a coloured theme; names stay centred.
 - Notice templates: letterhead line, band and box; name tags: header band and filled border.
 - Night theme: print preview still readable, no large black areas other than bands.
+
+### Logo, remember and styles on every maker (20 Nov)
+- Any records sheet: under "Name on the sheet" add a PNG or JPG logo. It shows in the preview (title bar, certificate top, notice letterhead, each name tag corner) and in the downloaded PDF. Remove clears it. A see-through PNG stays see-through.
+- Tick "Remember", type a name, reload: name, logo, theme and font come back. Untick, reload: they are gone. Private window: nothing breaks.
+- Certificates with Ribbon, Band and Tinted borders: the logo sits clear of the bands.
+- Name tags: paste two columns from Excel (name, class): each tag shows two lines. A list longer than one page makes more pages (up to 12).
+- Paper maker, Planner, Meal planner, Care sheets: pick Ocean + Serif; calendars get a blue header band, titles turn blue, text is in Times. Classic or an older ink tone looks as before. Shared paper links with no theme still open.
+- Courier on the meal planner and care sheets: typed dishes and medicines still wrap inside their cells.

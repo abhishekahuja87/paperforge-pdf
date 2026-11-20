@@ -1,4 +1,5 @@
 import type { FontId, Item, Sheet } from '../paper/geometry';
+import type { Logo } from '../paper/image';
 import { PAGE_SIZES, TONES, WEIGHTS } from '../paper/types';
 import { FONTS, THEMES } from './theme';
 import type { Common, Values } from './types';
@@ -7,10 +8,20 @@ export const TEXT = '#444444';
 export const INK = '#111111';
 const r3 = (value: number) => Math.round(value * 1000) / 1000;
 
-export interface Ctx { x: number; y: number; w: number; h: number; color: string; weight: number; heading: string; items: Item[]; accent: string; tint: string; fill: boolean; font: FontId; cw: number }
+export interface Ctx { x: number; y: number; w: number; h: number; color: string; weight: number; heading: string; items: Item[]; accent: string; tint: string; fill: boolean; font: FontId; cw: number; logo?: Logo | null }
 
 /** A filled rectangle, such as a header band or a pale wash. */
 export const fillRect = (c: Ctx, x: number, y: number, w: number, h: number, color: string) => c.items.push({ t: 'rect', x: r3(x), y: r3(y), w: r3(w), h: r3(h), c: color });
+
+/** Draws the logo to fit a box without stretching it. `align` is where it sits in the box. Returns the width used, or 0 with no logo. */
+export function drawLogo(c: Ctx, x: number, y: number, w: number, h: number, align: 'start' | 'middle' | 'end' = 'start'): number {
+  if (!c.logo) return 0;
+  const lw = Math.min(w, h * c.logo.ratio);
+  const lh = lw / c.logo.ratio;
+  const lx = align === 'middle' ? x + (w - lw) / 2 : align === 'end' ? x + w - lw : x;
+  c.items.push({ t: 'image', x: r3(lx), y: r3(y + (h - lh) / 2), w: r3(lw), h: r3(lh), src: c.logo.src });
+  return lw;
+}
 
 export const line = (c: Ctx, x1: number, y1: number, x2: number, y2: number, w = c.weight, color = c.color) =>
   c.items.push({ t: 'line', x1: r3(x1), y1: r3(y1), x2: r3(x2), y2: r3(y2), w, c: color });
@@ -55,7 +66,8 @@ export function fitText(c: Ctx, x: number, y: number, width: number, height: num
 
 /** The title at the top left and the typed name (shop, household or pet) at the top right. Returns how far down the content starts. */
 export function titleBar(c: Ctx, title: string, sub = ''): number {
-  text(c, c.x, c.y + 8, 18, title, true, 'start', c.accent);
+  const logoW = drawLogo(c, c.x, c.y, 24, 11);
+  text(c, c.x + (logoW ? logoW + 3 : 0), c.y + 8, 18, title, true, 'start', c.accent);
   if (c.fill) { fillRect(c, c.x, c.y + 10.6, c.w, 0.9, c.accent); }
   if (c.heading.trim()) text(c, c.x + c.w, c.y + 8, 12, c.heading.trim(), true, 'end', c.accent);
   if (sub) text(c, c.x, c.y + 13.5, 9, sub);
@@ -99,7 +111,7 @@ export function makePages(common: Common, count: number, draw: (c: Ctx, index: n
   const weight = WEIGHTS[common.weight].mm;
   const pages: Sheet[] = [];
   for (let i = 0; i < count; i += 1) {
-    const ctx: Ctx = { x: margin, y: margin, w: width - 2 * margin, h: height - 2 * margin, color, weight, heading: common.heading, items: [], accent: theme ? theme.accent : INK, tint: theme ? theme.tint : '#f1f1f1', fill: theme ? theme.fill : false, font: face, cw: FONTS[face].cw };
+    const ctx: Ctx = { x: margin, y: margin, w: width - 2 * margin, h: height - 2 * margin, color, weight, heading: common.heading, items: [], accent: theme ? theme.accent : INK, tint: theme ? theme.tint : '#f1f1f1', fill: theme ? theme.fill : false, font: face, cw: FONTS[face].cw, logo: common.logo };
     draw(ctx, i);
     pages.push({ width, height, area: { x: margin, y: margin, w: ctx.w, h: ctx.h }, fixed: ctx.items, pageNumber: null });
   }

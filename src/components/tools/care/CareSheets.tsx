@@ -4,13 +4,14 @@ import { ChevronLeft, ChevronRight, Download, Plus, Printer, RotateCcw, Trash2 }
 import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
 import { buildPdfFromSheets } from '../../../lib/paper/pdf';
-import { PAGE_SIZES, TONES, WEIGHTS, type PageSizeId, type ToneId, type Weight } from '../../../lib/paper/types';
+import { PAGE_SIZES, WEIGHTS, type PageSizeId, type Weight } from '../../../lib/paper/types';
 import { buildCarePages } from '../../../lib/care/layout';
 import {
   FOOD_NOTES, KINDS, LOG_COLUMNS, MAX_AMOUNT, MAX_DAYS, MAX_LOG_PAGES, MAX_MEDICINES, MAX_NAME, MAX_STRENGTH, MAX_TEXT, MAX_WEEKS, SLOTS,
   defaultCare, emptyMedicine, type CareKind, type CareSettings, type FoodNote, type LogColumn, type MedicineRow, type Slot,
 } from '../../../lib/care/types';
 import { Slider, Toggle, card, heading } from '../paper/controls';
+import { StylePicker } from '../paper/StylePicker';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';
 
@@ -24,7 +25,7 @@ const KIND_PAGES: Record<CareKind, string> = {
 };
 
 /** What a page change carries over, so picking another sheet keeps the name, doctor, medicines and paper already chosen. */
-type Carry = Pick<CareSettings, 'kind' | 'page' | 'landscape' | 'margin' | 'tone' | 'weight' | 'person' | 'doctor' | 'large' | 'medicines' | 'blood' | 'allergies' | 'conditions' | 'takes' | 'contact1' | 'contact2'>;
+type Carry = Pick<CareSettings, 'kind' | 'page' | 'landscape' | 'margin' | 'tone' | 'theme' | 'font' | 'weight' | 'person' | 'doctor' | 'large' | 'medicines' | 'blood' | 'allergies' | 'conditions' | 'takes' | 'contact1' | 'contact2'>;
 
 const limit = (value: string, max: number) => value.slice(0, max);
 
@@ -88,7 +89,7 @@ export const CareSheets: React.FC<{ initialKind?: CareKind }> = ({ initialKind }
             <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-2">
               {KINDS.map((item) => {
                 const target = KIND_PAGES[item.id];
-                const carry: Carry = { kind: item.id, page: s.page, landscape: s.landscape, margin: s.margin, tone: s.tone, weight: s.weight, person: s.person, doctor: s.doctor, large: s.large, medicines: s.medicines, blood: s.blood, allergies: s.allergies, conditions: s.conditions, takes: s.takes, contact1: s.contact1, contact2: s.contact2 };
+                const carry: Carry = { kind: item.id, page: s.page, landscape: s.landscape, margin: s.margin, tone: s.tone, theme: s.theme, font: s.font, weight: s.weight, person: s.person, doctor: s.doctor, large: s.large, medicines: s.medicines, blood: s.blood, allergies: s.allergies, conditions: s.conditions, takes: s.takes, contact1: s.contact1, contact2: s.contact2 };
                 return (
                   <Link
                     key={item.id}
@@ -222,13 +223,7 @@ export const CareSheets: React.FC<{ initialKind?: CareKind }> = ({ initialKind }
               </div>
               <div className="space-y-3 border-t border-slate-200 pt-4">
                 <h2 className={heading}>Ink and lines</h2>
-                <div className="flex flex-wrap gap-2">
-                  {(Object.entries(TONES) as [ToneId, { label: string; color: string }][]).map(([id, tone]) => (
-                    <button key={id} type="button" aria-pressed={s.tone === id} onClick={() => update({ tone: id })} className={`flex min-h-9 items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-semibold ${s.tone === id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
-                      <span className="h-3 w-3 rounded-full" style={{ background: tone.color }} aria-hidden="true" />{tone.label}
-                    </button>
-                  ))}
-                </div>
+                <StylePicker value={{ tone: s.tone, theme: s.theme, font: s.font }} onChange={(patch) => update(patch)} />
                 <ChoiceButtons label="Line weight" value={s.weight} onChange={(value) => update({ weight: value as Weight })} options={(Object.entries(WEIGHTS) as [Weight, { label: string }][]).map(([value, item]) => ({ value, label: item.label }))} />
               </div>
             </div>

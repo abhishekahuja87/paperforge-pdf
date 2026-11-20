@@ -1,5 +1,7 @@
 import type { Item, Sheet } from '../paper/geometry';
-import { PAGE_SIZES, TONES, WEIGHTS } from '../paper/types';
+import { PAGE_SIZES, WEIGHTS } from '../paper/types';
+import { inkOf, restyle } from '../paper/style';
+import { FONTS } from '../records/theme';
 import { addDays, parseIso, shortDate, weekdayName } from '../planner/dates';
 import { LOG_COLUMNS, MAX_DAYS, MAX_LOG_PAGES, MAX_WEEKS, SLOTS, type CareSettings, type MedicineRow } from './types';
 
@@ -41,9 +43,9 @@ function fitText(c: Ctx, x: number, y: number, width: number, height: number, va
   const clean = value.trim();
   if (!clean) return;
   let pt = size;
-  let lines = wrap(clean, Math.max(3, Math.floor(width / (pt * 0.19))));
+  let lines = wrap(clean, Math.max(3, Math.floor(width / (pt * FONTS[c.s.font ?? 'sans'].cw))));
   const room = (p: number) => Math.max(1, Math.floor(height / (p * 0.42)));
-  while (pt > 6 && lines.length > room(pt)) { pt -= 0.5; lines = wrap(clean, Math.max(3, Math.floor(width / (pt * 0.19)))); }
+  while (pt > 6 && lines.length > room(pt)) { pt -= 0.5; lines = wrap(clean, Math.max(3, Math.floor(width / (pt * FONTS[c.s.font ?? 'sans'].cw)))); }
   const limit = room(pt);
   if (lines.length > limit) {
     lines = lines.slice(0, limit);
@@ -265,7 +267,7 @@ export function buildCarePages(s: CareSettings): Sheet[] {
   const width = s.landscape ? size.height : size.width;
   const height = s.landscape ? size.width : size.height;
   const margin = Math.min(30, Math.max(4, s.margin));
-  const color = TONES[s.tone].color;
+  const color = inkOf(s);
   const weight = WEIGHTS[s.weight].mm;
   const make = (draw: (ctx: Ctx) => void): Sheet => {
     const ctx: Ctx = { s, x: margin, y: margin, w: width - 2 * margin, h: height - 2 * margin, color, weight, items: [] };
@@ -287,5 +289,5 @@ export function buildCarePages(s: CareSettings): Sheet[] {
     const days = Math.min(MAX_DAYS, Math.max(1, Math.round(s.days)));
     for (let i = 0; i < days; i += 1) pages.push(make((ctx) => caregiverPage(ctx, addDays(start, i))));
   }
-  return pages;
+  return restyle(pages, s);
 }

@@ -1,4 +1,4 @@
-import { INK, clamp, fillRect, fitText, flag, line, lines, makePages, num, str, text, titleBar, wrap, type Ctx } from './draw';
+import { INK, clamp, drawLogo, fillRect, fitText, flag, line, lines, makePages, num, str, text, titleBar, wrap, type Ctx } from './draw';
 import type { Family, Field, SheetDef } from './types';
 
 export interface LabelSpec {
@@ -37,7 +37,7 @@ export function labelSheet(s: LabelSpec): SheetDef {
   const per = s.cols * s.rows;
   const fields: Field[] = [];
   if (s.kind === 'text') {
-    fields.push({ type: 'list', key: 'items', label: s.items?.label ?? 'Text for each label', hint: s.items?.hint ?? 'One per line. Each line is one label.', max: per * 4 });
+    fields.push({ type: 'list', key: 'items', label: s.items?.label ?? 'Text for each label', hint: s.items?.hint ?? 'One per line. Each line is one label. Paste a column or rows from Excel or Sheets; extra columns become extra lines on the label.', max: per * 12 });
     if (s.subLabel) fields.push({ type: 'text', key: 'sub', label: `${s.subLabel} (printed on every label)`, placeholder: '', max: 30 });
     fields.push({ type: 'toggle', key: 'repeat', label: 'Repeat the first label to fill the sheet', hint: 'Useful when you need many of the same label.' });
   } else {
@@ -52,9 +52,9 @@ export function labelSheet(s: LabelSpec): SheetDef {
   return {
     id: s.id, label: s.label, hint: s.hint, path: `/${s.id}`, landscape: false, fields, defaults,
     build: (v, common) => {
-      const typed = s.kind === 'text' ? lines(v, 'items', per * 4) : [];
+      const typed = s.kind === 'text' ? lines(v, 'items', per * 12) : [];
       const repeat = flag(v, 'repeat');
-      const pages = repeat || typed.length === 0 ? clamp(num(v, 'pages', 1), 1, 6) : Math.max(1, Math.min(6, Math.ceil(typed.length / per)));
+      const pages = repeat || typed.length === 0 ? clamp(num(v, 'pages', 1), 1, 6) : Math.max(1, Math.min(12, Math.ceil(typed.length / per)));
       const size = SIZES[(str(v, 'size') || s.size) as keyof typeof SIZES] ?? 15;
       return makePages(common, pages, (c, pi) => {
         const cw = c.w / s.cols; const ch = c.h / s.rows;
@@ -63,6 +63,7 @@ export function labelSheet(s: LabelSpec): SheetDef {
           frameLabel(c, x, y, w, h, str(v, 'border') || s.border);
           const banded = flag(v, 'band');
           if (banded) { fillRect(c, x, y, w, 8, c.fill ? c.accent : c.color); text(c, x + w / 2, y + 5.6, 7.5, (s.header ?? s.label).toUpperCase(), true, 'middle', '#ffffff'); }
+          if (c.logo && !banded) drawLogo(c, x + w - Math.min(14, w * 0.3) - 2, y + 2, Math.min(14, w * 0.3), Math.min(8, h * 0.28), 'end');
           if (s.kind === 'form') {
             const formLines = s.formLines ?? [];
             const offset = banded ? 8 : 0;
@@ -76,7 +77,7 @@ export function labelSheet(s: LabelSpec): SheetDef {
               if (value) fitText(c, at + 1, ly - 0.6, x + w - at - 4, Math.min(9, step * 0.7), value, Math.min(11, step * 0.7));
             });
           } else {
-            const entry = repeat ? (typed[0] ?? '') : (typed[pi * per + k] ?? '');
+            const entry = (repeat ? (typed[0] ?? '') : (typed[pi * per + k] ?? '')).replace(/\t+/g, ' / ');
             if (s.header && !banded) text(c, x + 3, y + 5, 7.5, s.header, true, 'start', '#666666');
             if (entry) {
               const parts = entry.split('/').map((p) => p.trim()).filter(Boolean);

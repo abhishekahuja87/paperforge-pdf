@@ -1,5 +1,7 @@
 import type { Item, Sheet } from '../paper/geometry';
-import { PAGE_SIZES, TONES, WEIGHTS } from '../paper/types';
+import { PAGE_SIZES, WEIGHTS } from '../paper/types';
+import { inkOf, resolveTheme, restyle } from '../paper/style';
+import { FONTS } from '../records/theme';
 import { addDays, daysInMonth, firstWeekday, longDate, monthName, parseIso, shortDate, startOfWeek, weekdayName } from '../planner/dates';
 import { MAX_COUNT, type MealSettings } from './types';
 
@@ -32,9 +34,9 @@ function fitText(c: Ctx, x: number, y: number, width: number, height: number, va
   const clean = value.trim();
   if (!clean) return;
   let pt = size;
-  let lines = wrap(clean, Math.max(3, Math.floor(width / (pt * 0.19))));
+  let lines = wrap(clean, Math.max(3, Math.floor(width / (pt * FONTS[c.s.font ?? 'sans'].cw))));
   const room = (p: number) => Math.max(1, Math.floor((height - 1) / (p * 0.45)));
-  while (pt > 6.5 && lines.length > room(pt)) { pt -= 0.5; lines = wrap(clean, Math.max(3, Math.floor(width / (pt * 0.19)))); }
+  while (pt > 6.5 && lines.length > room(pt)) { pt -= 0.5; lines = wrap(clean, Math.max(3, Math.floor(width / (pt * FONTS[c.s.font ?? 'sans'].cw)))); }
   const limit = room(pt);
   if (lines.length > limit) {
     lines = lines.slice(0, limit);
@@ -126,7 +128,9 @@ function monthPage(c: Ctx, year: number, month: number): void {
   const cellW = c.w / 7;
   const cellH = gridH / rows;
   const gridTop = top + headH;
-  for (let d = 0; d < 7; d += 1) text(c, c.x + d * cellW + cellW / 2, top + 5, 8.5, weekdayName((s.weekStart + d) % 7, LOCALE, cellW >= 26 ? 'long' : 'short'), true, 'middle');
+  const band = resolveTheme(s).theme.fill ? resolveTheme(s).theme.accent : '';
+  if (band) c.items.push({ t: 'rect', x: c.x, y: top, w: c.w, h: headH, c: band });
+  for (let d = 0; d < 7; d += 1) text(c, c.x + d * cellW + cellW / 2, top + 5, 8.5, weekdayName((s.weekStart + d) % 7, LOCALE, cellW >= 26 ? 'long' : 'short'), true, 'middle', band ? '#ffffff' : TEXT);
   line(c, c.x, top, c.x + c.w, top, c.weight * 1.6);
   for (let r = 0; r <= rows; r += 1) line(c, c.x, gridTop + r * cellH, c.x + c.w, gridTop + r * cellH, r === 0 || r === rows ? c.weight * 1.6 : c.weight);
   for (let d = 0; d <= 7; d += 1) line(c, c.x + d * cellW, top, c.x + d * cellW, gridTop + rows * cellH, d === 0 || d === 7 ? c.weight * 1.6 : c.weight);
@@ -150,7 +154,7 @@ export function buildMealPages(s: MealSettings): Sheet[] {
   const width = s.landscape ? size.height : size.width;
   const height = s.landscape ? size.width : size.height;
   const margin = Math.min(30, Math.max(4, s.margin));
-  const color = TONES[s.tone].color;
+  const color = inkOf(s);
   const weight = WEIGHTS[s.weight].mm;
   const count = Math.min(MAX_COUNT[s.kind], Math.max(1, Math.round(s.count)));
   const meals = s.meals.length > 0 ? s.meals : ['Lunch'];
@@ -167,5 +171,5 @@ export function buildMealPages(s: MealSettings): Sheet[] {
     }
     pages.push({ width, height, area: { x: margin, y: margin, w: ctx.w, h: ctx.h }, fixed: ctx.items, pageNumber: null });
   }
-  return pages;
+  return restyle(pages, s);
 }
