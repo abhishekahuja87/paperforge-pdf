@@ -1,0 +1,32 @@
+{
+  "toolCatalog": {
+    "class-attendance-register-printable": [
+      "Class Attendance Register Printable: Monthly Sheet for Teachers",
+      "Monthly class attendance register for teachers, plus marks, fee, lesson plan, timetable, homework diary and meeting sheets."
+    ],
+    "student-marks-register-printable": [
+      "Student Marks Register Printable: Tests and Subjects",
+      "Print a marks register with a row for each student, a column for each test, and total and percentage columns."
+    ],
+    "tuition-fee-register-printable": [
+      "Tuition Fee Register Printable: Monthly Fee Record",
+      "Print a fee register with a row for each student and a column for every month, plus total paid and balance."
+    ],
+    "weekly-lesson-plan-printable": [
+      "Weekly Lesson Plan Printable: Teacher Planner",
+      "Print a weekly lesson plan with topic, activities and homework for every day, and a notes strip."
+    ],
+    "class-timetable-printable": [
+      "Class Timetable Printable: Periods and Break Chart",
+      "Print a class timetable with period times worked out for you, a break, and a box for every subject."
+    ],
+    "homework-diary-printable": [
+      "Homework Diary Printable: Weekly Student Diary",
+      "Print a weekly homework diary with subject and homework lines for each day and a parent signature box."
+    ],
+    "parent-teacher-meeting-sheet-printable": [
+      "Parent-Teacher Meeting Sheet Printable: Student Notes",
+      "Print a page for each student to note attendance, progress, strengths, concerns and what was agreed."
+    ]
+  }
+}

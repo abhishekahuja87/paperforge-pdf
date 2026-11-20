@@ -113,6 +113,23 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'color-converter': ['hex to rgb', 'rgb to hex', 'hsl converter', 'colour picker', 'color code'],
   'password-generator': ['strong password maker', 'random password', 'passphrase generator', 'secure password'],
   'lorem-ipsum-generator': ['dummy text', 'placeholder text', 'filler text', 'sample paragraph'],
+  'class-attendance-register-printable': ['teacher attendance register', 'school attendance sheet', 'tuition attendance', 'student attendance chart'],
+  'student-marks-register-printable': ['marks sheet', 'exam marks register', 'class result sheet', 'gradebook printable'],
+  'tuition-fee-register-printable': ['tuition fees record', 'fee collection register', 'coaching fee tracker', 'monthly fee sheet'],
+  'weekly-lesson-plan-printable': ['teacher lesson planner', 'weekly plan for teachers', 'lesson plan template', 'school planner'],
+  'class-timetable-printable': ['school timetable maker', 'class routine', 'period timetable', 'tuition timetable'],
+  'homework-diary-printable': ['school diary', 'homework planner', 'student diary printable', 'assignment diary'],
+  'parent-teacher-meeting-sheet-printable': ['PTM notes', 'parent meeting record', 'PTA meeting sheet', 'student progress meeting'],
+  'office-cleaning-checklist-printable': ['ODC cleaning', 'housekeeping checklist', 'office housekeeping', 'daily cleaning log'],
+  'washroom-cleaning-checklist-printable': ['toilet cleaning chart', 'restroom cleaning log', 'bathroom cleaning sheet'],
+  'lift-cleaning-checklist-printable': ['elevator cleaning log', 'lift housekeeping', 'lift cleaning chart'],
+  'room-cleaning-checklist-printable': ['hotel room housekeeping', 'hostel room cleaning', 'PG room cleaning', 'guest room log'],
+  'pantry-kitchen-cleaning-checklist-printable': ['canteen cleaning log', 'office pantry cleaning', 'kitchen cleaning chart'],
+  'society-common-area-cleaning-checklist-printable': ['RWA housekeeping', 'apartment cleaning log', 'staircase cleaning', 'society housekeeping register'],
+  'weekly-cleaning-schedule-printable': ['cleaning roster', 'housekeeping schedule', 'janitorial schedule', 'cleaning duty chart'],
+  'washroom-hourly-cleaning-log-printable': ['toilet round sheet', 'hourly cleaning chart', 'washroom time log'],
+  'water-tank-cleaning-record-printable': ['tank cleaning register', 'pest control register', 'sump cleaning record', 'service log sheet'],
+  'deep-cleaning-planner-printable': ['annual cleaning plan', 'yearly cleaning calendar', 'periodic cleaning schedule'],
 };
 
 /** A tool's own keywords followed by its extra search terms. */

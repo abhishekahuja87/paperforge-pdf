@@ -19,6 +19,20 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/office-cleaning-checklist-printable',
+    tool: 'Cleaning checklists and schedules',
+    title: 'New: printable cleaning checklists, rosters and logs',
+    summary: 'Office and ODC, washroom, lift, room, pantry and society checklists, a weekly cleaning schedule, an hourly round sheet, a tank and pest control record and a yearly deep cleaning planner. Edit the tasks, pick the month and print.',
+  },
+  {
+    date: '2026-11-20',
+    path: '/class-attendance-register-printable',
+    tool: 'Teacher and tuition sheets',
+    title: 'New: class attendance, marks, fee, lesson plan, timetable, diary and PTM sheets',
+    summary: 'Seven printable sheets for teachers and tuition classes. Type the names and subjects, choose the month and print or download the PDF.',
+  },
+  {
+    date: '2026-11-20',
     path: '/password-protected-document-maker',
     tool: 'Private Document Maker',
     title: 'New: write a document and lock it with a password, with no upload',

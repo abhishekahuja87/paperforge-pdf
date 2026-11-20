@@ -963,11 +963,11 @@
     },
     "printables": {
       "name": "Printables and stationery",
-      "description": "Print at home: graph, dot grid, hexagon and lined paper, Cornell notes, calligraphy and cross-stitch grids, planners, calendars, menus, double-sided flashcards, and health sheets such as a medicine chart, health log and emergency card, a milk and maid calendar, household budget and warranty record, and pet health sheets. Choose the size, spacing and margins before you print."
+      "description": "Print at home: graph, dot grid, hexagon and lined paper, Cornell notes, calligraphy and cross-stitch grids, planners, calendars, menus, double-sided flashcards, and health sheets such as a medicine chart, health log and emergency card, a milk and maid calendar, household budget and warranty record, pet health sheets and a weekly cleaning schedule. Choose the size, spacing and margins before you print."
     },
     "work": {
       "name": "Jobs, freelancing and business",
-      "description": "For job seekers, freelancers and small businesses: build a resume, check a notice period, make a quotation, GST invoice or rent receipt, set your freelance rate, work out margin and markup, design offer posters, price tags and visiting cards, check file sizes before uploading, and print a staff attendance register, udhaar ledger, daily cash sheet and stock count sheet."
+      "description": "For job seekers, freelancers and small businesses: build a resume, check a notice period, make a quotation, GST invoice or rent receipt, set your freelance rate, work out margin and markup, design offer posters, price tags and visiting cards, check file sizes before uploading, and print a staff attendance register, udhaar ledger, daily cash sheet, stock count sheet, tuition fee register and office, washroom, lift, pantry and society cleaning checklists."
     },
     "present": {
       "name": "Display and presentation",
@@ -975,7 +975,7 @@
     },
     "study": {
       "name": "Students and writing",
-      "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts and case conversion."
+      "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts, case conversion and a printable class attendance register with marks, lesson plan, timetable and homework diary sheets."
     },
     "kids": {
       "name": "Kids and learning",

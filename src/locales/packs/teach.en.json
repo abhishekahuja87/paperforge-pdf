@@ -1,0 +1,547 @@
+{
+  "guideSteps": {
+    "class-attendance-register-printable": [
+      [
+        "Add the students",
+        "Type the names, one per line, up to 40, or leave the box empty and write the names by hand."
+      ],
+      [
+        "Pick the month",
+        "Choose the month and year, and how many months to print. Switch on Leave out Sundays to give working days wider boxes."
+      ],
+      [
+        "Choose the extras",
+        "Add weekday letters under the dates and Present and Absent total columns if you want them."
+      ],
+      [
+        "Print and mark daily",
+        "Write P for present, A for absent and L for leave in each box, then count the days at the end of the month."
+      ]
+    ],
+    "student-marks-register-printable": [
+      [
+        "Type the subject and students",
+        "Add the subject, and the student names, one per line, up to 40."
+      ],
+      [
+        "Name the columns",
+        "Type the tests or subjects you want as columns, one per line, up to 8. The suggestions can be replaced."
+      ],
+      [
+        "Choose the extras",
+        "Keep the space for maximum marks in each heading, and the Total and percentage columns."
+      ],
+      [
+        "Print and fill in",
+        "Write each student's marks in the boxes, add up the total and work out the percentage by hand or with a calculator."
+      ]
+    ],
+    "tuition-fee-register-printable": [
+      [
+        "Add the students",
+        "Type the student names, one per line, up to 30, or leave it empty and write them by hand."
+      ],
+      [
+        "Pick the first month",
+        "Choose the month the register starts in, such as April, and the twelve columns follow in order."
+      ],
+      [
+        "Choose the columns",
+        "Keep the monthly fee column to note each student's fee, and the total paid and balance columns."
+      ],
+      [
+        "Print and record",
+        "Write the amount and the date paid in each month's box, and total each row at the end of the year or term."
+      ]
+    ],
+    "weekly-lesson-plan-printable": [
+      [
+        "Type the subject",
+        "Add the subject and class, and a start date if you want the dates printed under the weekdays."
+      ],
+      [
+        "Choose the days",
+        "Pick Monday to Friday or Monday to Saturday."
+      ],
+      [
+        "Keep the notes strip",
+        "Leave the notes and reflection strip on to jot down what worked and what to change."
+      ],
+      [
+        "Print and plan",
+        "Write the topic, the activities and the homework or assessment for each day, in the ruled boxes."
+      ]
+    ],
+    "class-timetable-printable": [
+      [
+        "Choose the days",
+        "Pick Monday to Friday, Saturday or Sunday as the last day."
+      ],
+      [
+        "Set the periods",
+        "Choose the number of periods, the first period's start time and the length of each period."
+      ],
+      [
+        "Add the break",
+        "Choose which period the break comes after and how long it lasts, or set 0 for none."
+      ],
+      [
+        "Print and fill in",
+        "Write the subject or teacher in each box. The times for every period are already printed in the first column."
+      ]
+    ],
+    "homework-diary-printable": [
+      [
+        "Pick the week",
+        "Choose a starting date, or leave it empty and write the dates by hand. Pick five or six days."
+      ],
+      [
+        "Choose the lines",
+        "Set the number of lines for each day, from 3 to 6."
+      ],
+      [
+        "Add the extras",
+        "Keep the parent signature box and the teacher note if you want them."
+      ],
+      [
+        "Print the weeks you need",
+        "Set the number of pages to print several weeks at once. Students write the subject and the homework each day, and a parent signs."
+      ]
+    ],
+    "parent-teacher-meeting-sheet-printable": [
+      [
+        "Add the students",
+        "Type student names, one per line, up to 30, and each gets a page. Leave it empty to print blank pages."
+      ],
+      [
+        "Print the pages",
+        "Set how many blank pages you want if you did not type names."
+      ],
+      [
+        "Prepare before the meeting",
+        "Fill in the date and the parent's name, and jot down attendance and progress points before the parent arrives."
+      ],
+      [
+        "Record the meeting",
+        "Write the strengths, the concerns and what you agreed, and have the teacher and parent sign at the bottom."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "classAttendanceGuide": {
+      "title": "Class Attendance Register Printable: Monthly Sheet for Teachers",
+      "subtitle": "Print a monthly class attendance register with a column for each school day, weekday letters and present and absent totals. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the class attendance register look like?",
+          "A landscape table with a row for each student and a narrow column for each date of the month, followed by Present and Absent totals. Sundays can be left out, so the working days get wider boxes that are easier to write in."
+        ],
+        [
+          "What should I write in the boxes?",
+          "Most teachers use P for present, A for absent and L for leave. The legend at the bottom of the page lists them. Any codes work as long as you use the same ones all month."
+        ],
+        [
+          "How do I count the days present?",
+          "At the end of the month count the P boxes in each row and write the number in the Present column, then count the A boxes for the Absent column. Check that Present plus Absent plus leave equals the days the class ran."
+        ],
+        [
+          "How many students fit on a page?",
+          "Up to 40 rows. For a class of 30 or fewer the rows are tall enough to write comfortably. For a larger class, print two sheets and split the names between them."
+        ],
+        [
+          "Does it work for tuition classes that run on certain days only?",
+          "Yes. The register shows every working day of the month, and you simply leave the days with no class blank. If you teach on fewer days, the Leave out Sundays option and a big box size help keep it readable."
+        ],
+        [
+          "Is this register accepted by my school or board?",
+          "Schools and boards often prescribe their own registers and formats, so use this only where you are free to choose. For a tuition class, a coaching centre or your own record, it gives a clear monthly format."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The register is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "marksRegisterGuide": {
+      "title": "Student Marks Register Printable: Tests and Subjects",
+      "subtitle": "Print a student marks register with a row for each student, a column for every test and optional total and percentage columns. Free, no sign-up.",
+      "faq": [
+        [
+          "What is a marks register?",
+          "It is a table of every student's marks. Students are listed down the side, each test or subject is a column, and there are optional Total and percentage columns at the end."
+        ],
+        [
+          "How do I work out the percentage?",
+          "Percentage = marks obtained divided by maximum marks, multiplied by 100. For example, 72 out of 80 is 90 percent. Write the answer in the % column after adding up the total."
+        ],
+        [
+          "Can I use the columns for subjects instead of tests?",
+          "Yes. Type the subjects as the columns, such as English, Maths and Science, and use one register for a whole term. You can have up to eight columns."
+        ],
+        [
+          "What is the space for maximum marks?",
+          "Each heading ends with a blank, so you can write the maximum marks for that test, for example Unit test 1 / 25. It saves hunting for the paper to check the total."
+        ],
+        [
+          "Can I keep the whole year in one register?",
+          "Yes, with up to eight columns. If you have more tests, print a second register for the next term and label both."
+        ],
+        [
+          "Does it calculate the totals?",
+          "No. It is a printed register, so you add by hand or with a calculator. That keeps your students' marks private on your device and works without internet."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The register is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "tuitionFeeGuide": {
+      "title": "Tuition Fee Register Printable: Monthly Fee Record",
+      "subtitle": "Print a tuition fee register with a row for each student and a column for every month, with fee, total paid and balance columns. Free and private.",
+      "faq": [
+        [
+          "What does the fee register record?",
+          "For each student, the monthly fee and the amount and date paid in each of twelve months, with a total paid and a balance at the end. It shows at a glance who has paid and who has not."
+        ],
+        [
+          "How do I work out the balance?",
+          "Balance = the fees due for the period minus the total paid. Write the total paid in its column, work out the fees due from the monthly fee and the number of months, and subtract."
+        ],
+        [
+          "Can I start the year in any month?",
+          "Yes. Choose the first month and the twelve columns run from there, for example April to March or January to December."
+        ],
+        [
+          "What should I write in each month's box?",
+          "The amount paid and the date, for example 1500 on 5th. If a student pays in parts, write each payment in the same box or in the box with a short note."
+        ],
+        [
+          "Should I give a receipt too?",
+          "A register is your own record. Many parents like a receipt for fees paid, so use your own receipt book or a signed note for payments. This sheet keeps the account in one place."
+        ],
+        [
+          "How many students can I record?",
+          "Up to 30 rows on a page. For a bigger batch, print two registers and label them by batch or class."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The register is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "lessonPlanGuide": {
+      "title": "Weekly Lesson Plan Printable: Teacher Planner",
+      "subtitle": "Print a weekly lesson plan with a topic, activities and homework box for each day, optional dates, and a reflection strip. Free and made in your browser.",
+      "faq": [
+        [
+          "What is on the weekly lesson plan?",
+          "A column for each day of the week with three ruled boxes: Topic, Activities, and Homework or assessment. Below is a strip for notes and reflection. Add the subject, class and week at the top."
+        ],
+        [
+          "How do I use it?",
+          "At the start of the week write the topic and activities for each day. During the week mark what was covered. At the end, use the notes strip for what worked and what needs repeating."
+        ],
+        [
+          "Can I print dates on it?",
+          "Yes. Choose a week starting date and the date is printed beside each weekday. Leave it empty and write the dates by hand."
+        ],
+        [
+          "Is it for a single subject or the whole day?",
+          "It works either way. Use one sheet for each subject, or one sheet for a primary class teacher who teaches every subject by using the Topic box as a list of the subjects of the day."
+        ],
+        [
+          "Does it follow a syllabus or board format?",
+          "No. It is a flexible planner. If your school requires a specific lesson plan format, use that for the official copy and use this sheet for your own day-to-day planning."
+        ],
+        [
+          "Can I print more than one week?",
+          "Print the page more than once, with a different starting date each time. Ruled boxes are large enough to write by hand."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The planner is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "classTimetableGuide": {
+      "title": "Class Timetable Printable: Periods and Break Chart",
+      "subtitle": "Print a class timetable with period times calculated for you, an optional break, and a large box for every subject. Free and made in your browser.",
+      "faq": [
+        [
+          "What does the timetable look like?",
+          "A landscape grid with the days across and the periods down. The first column shows each period's number and its start and end time, and an optional break row runs across the page."
+        ],
+        [
+          "How are the period times worked out?",
+          "You give the start time of the first period and the length of each period in minutes. The page adds them up for every period, and adds the break at the point you choose."
+        ],
+        [
+          "Can I leave out the break?",
+          "Yes. Set the break after period to 0 and no break row is drawn. You can also change how many minutes the break lasts."
+        ],
+        [
+          "What times should I type?",
+          "Use 24-hour format, for example 08:00 or 14:30. Switch on 12-hour times if you want 8:00 and 2:30 printed without am or pm."
+        ],
+        [
+          "Can I use it for tuition or a coaching schedule?",
+          "Yes. Make the periods the length of a class and put the batch or subject in each box. The break can be used as a gap between batches."
+        ],
+        [
+          "How many periods and days can it hold?",
+          "Up to ten periods and seven days. More periods make each box smaller, but a landscape A4 page still leaves enough room to write a subject name."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The timetable is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "homeworkDiaryGuide": {
+      "title": "Homework Diary Printable: Weekly Student Diary",
+      "subtitle": "Print a weekly homework diary with subject and homework lines for every day, a parent signature box and a teacher note. Free and private.",
+      "faq": [
+        [
+          "What is a homework diary?",
+          "A page where a student writes down each day's homework, subject by subject, so nothing is forgotten. A parent signs to show they have seen it, and a teacher can add a note."
+        ],
+        [
+          "How do I use it with a child?",
+          "Have the child write the homework in school or as soon as they get home, one line for each subject. Tick or cross each line when it is done, and the parent signs at the end of the day."
+        ],
+        [
+          "Can I print several weeks at once?",
+          "Yes. Set the number of pages up to 12 and each page is one week, with dates counted on from the starting date if you set one."
+        ],
+        [
+          "Does the parent signature box help?",
+          "It gives a daily point of contact between home and school, and the teacher can see that the parent has seen the homework. You can switch it off if you do not need it."
+        ],
+        [
+          "Is it suitable for young children?",
+          "Yes. With only three or four lines a day, the boxes are big enough for large handwriting. For older students, use five or six lines."
+        ],
+        [
+          "Can I use it for tuition homework?",
+          "Yes. Write the batch in the heading and use the subject column for the topic. It works as a weekly task sheet for any class."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The diary is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "parentTeacherGuide": {
+      "title": "Parent-Teacher Meeting Sheet Printable: Student Notes",
+      "subtitle": "Print a parent-teacher meeting sheet with a page for each student: progress, strengths, concerns, agreed actions and signatures. Free and private.",
+      "faq": [
+        [
+          "What does the meeting sheet cover?",
+          "Six ruled sections: attendance and punctuality, progress in studies, strengths, concerns, what you agreed to do, and the parent's comments. At the bottom are lines for the teacher's and parent's signatures and the next meeting date."
+        ],
+        [
+          "How should I use it in a meeting?",
+          "Fill in the student's name and the date, prepare short notes beforehand, and use the sections as an agenda. At the end, write down what you and the parent agreed so you both know what happens next."
+        ],
+        [
+          "Can I print a page for the whole class?",
+          "Yes. Type the names, one per line, up to 30, and each student has a page with the name printed at the top. Without names you get blank pages to fill in."
+        ],
+        [
+          "Why is a written record useful?",
+          "It shows what was said and agreed, helps you prepare for the next meeting and gives you a fair record if a question comes up later. It also reminds the parent of their part."
+        ],
+        [
+          "What should I write about concerns?",
+          "Keep it factual and specific: what you saw, when, and what you suggest. Pair each concern with a strength and an action, so the meeting stays constructive."
+        ],
+        [
+          "Where should I keep the sheets?",
+          "Keep them in a folder with each student's other records, in a place only you and the school can reach. They hold private information about children, so treat them like any other student record."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "class-attendance-register-printable": {
+      "sections": [
+        {
+          "heading": "What the register is",
+          "paragraphs": [
+            "It is a monthly sheet for recording which students came to class each day. Student names run down the left side and the dates of the month run across, so a whole month for a class fits on one landscape page.",
+            "You choose the month, the number of rows and whether to include Sundays, weekday letters and totals. It is drawn in your browser, so the names you type are not uploaded."
+          ]
+        },
+        {
+          "heading": "Who it helps",
+          "paragraphs": [
+            "Class teachers, tuition and coaching owners, activity and hobby class instructors and anyone who keeps a regular batch. A paper register is quick to mark at the start of the class and needs no app or internet.",
+            "Because the format is the same every month, it is easy to compare months and to answer a parent who asks about a particular day."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Mark attendance at the start of every class, with the same codes for everyone. At the end of the month total the days, and keep each month's sheet in a file. Print the next month in advance, so the sheet is ready on the first day.",
+            "If your school gives you a required format, use that. This sheet is for the records you are free to design yourself."
+          ]
+        }
+      ]
+    },
+    "student-marks-register-printable": {
+      "sections": [
+        {
+          "heading": "What the marks register is",
+          "paragraphs": [
+            "It is a printed table for a teacher to record marks. Each row is a student, each column is a test or subject, and the last columns hold the total and the percentage.",
+            "You type the students and the column names, and the sheet is drawn in your browser. Nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep a paper register",
+          "paragraphs": [
+            "Reports, parent meetings and decisions about extra help all start from a clear list of marks. A register in one place is easier to check than loose papers, and a printed copy is safe if a phone or laptop is lost.",
+            "It is also a good record for a tuition teacher who needs to show a parent progress over several months."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Write the maximum marks in each heading before you start. Fill the marks as soon as the papers are checked. Add the totals and percentages in one sitting and check a few by a second method.",
+            "Keep the register with the question papers for the year, so a question about a mark can be settled quickly."
+          ]
+        }
+      ]
+    },
+    "tuition-fee-register-printable": {
+      "sections": [
+        {
+          "heading": "What the fee register is",
+          "paragraphs": [
+            "It is a yearly table for a tuition teacher or coaching owner. Each row is a student and each column is a month, so a year of fee payments for a batch is on one landscape page.",
+            "Total paid and balance columns close each row. It is drawn in your browser, and the names you type are not uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Fees are the part of a tuition business that causes the most awkward conversations. A written record of what was paid, when, and what is pending lets you ask politely and be sure of your figures.",
+            "It also makes the end of the year simple: add each row, check the balances and plan the next term."
+          ]
+        },
+        {
+          "heading": "Keeping it accurate",
+          "paragraphs": [
+            "Write each payment on the day it is received, with the date. Do not rely on memory for part-payments. Once a month, scan the page for empty boxes and follow up.",
+            "Keep the old registers for a few years, in case a parent asks about a past term."
+          ]
+        }
+      ]
+    },
+    "weekly-lesson-plan-printable": {
+      "sections": [
+        {
+          "heading": "What the plan is",
+          "paragraphs": [
+            "It is a one-page weekly planner for teachers. Each day has three ruled boxes for the topic, the activities and the homework or assessment, and a strip at the bottom for notes.",
+            "The subject, class and week are typed at the top, and the page is drawn in your browser. Nothing you write is uploaded."
+          ]
+        },
+        {
+          "heading": "Why plan on paper",
+          "paragraphs": [
+            "A plan that is written down helps you see the week as a whole: where the heavy topics are, where a test falls, and where homework piles up. Teachers often keep the week's sheet on the desk and tick off each day.",
+            "The reflection strip makes the next week's plan better, because the lessons that need repeating are written down while you remember them."
+          ]
+        },
+        {
+          "heading": "Getting the most from it",
+          "paragraphs": [
+            "Plan in pencil on Sunday, adjust as the week goes. Keep the sheets in a file by subject, so that next year's plan starts from this year's notes.",
+            "For group classes or tuition batches, write the batch name in the heading so the sheets do not get mixed."
+          ]
+        }
+      ]
+    },
+    "class-timetable-printable": {
+      "sections": [
+        {
+          "heading": "What the timetable is",
+          "paragraphs": [
+            "It is a weekly grid for a class or a batch. Days run across the top and periods down the side, with the time for each period already printed.",
+            "You choose the number of days, the number of periods, when the first one starts and how long a period and the break last. The grid is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why work the times out",
+          "paragraphs": [
+            "Writing the time for each period by hand is slow and mistakes are easy. Here the times are added up for you, so changing the start time or the period length gives a new correct timetable in a moment.",
+            "That makes it easy to compare a long-period plan and a short-period plan before you decide."
+          ]
+        },
+        {
+          "heading": "Using it",
+          "paragraphs": [
+            "Pencil in the subjects first, check that no teacher or subject is doubled up, then ink it. Pin it where students can see it, or stick a copy in the diary. For a tuition centre, print one for each batch.",
+            "Keep a spare blank copy, so you can plan a change without losing the old plan."
+          ]
+        }
+      ]
+    },
+    "homework-diary-printable": {
+      "sections": [
+        {
+          "heading": "What the diary is",
+          "paragraphs": [
+            "It is a weekly page with a block for each school day. Each block has lines for the subject and the homework, and a box for a parent's signature. At the bottom is room for a teacher's note.",
+            "You can print many weeks in one go, and add the dates if you give a starting date. It is drawn in your browser."
+          ]
+        },
+        {
+          "heading": "Why a paper diary",
+          "paragraphs": [
+            "Writing homework down is a habit. A diary that a parent signs every day makes that habit visible, and it helps a child learn to plan. It also gives teachers a simple way to leave a note for a parent.",
+            "It works without a phone or app, so it is a good fit for younger children."
+          ]
+        },
+        {
+          "heading": "Making it work",
+          "paragraphs": [
+            "Agree a time each day to fill it in and sign it. Keep the pages in a folder, one for each week, and look back at the end of a term to see where homework piled up.",
+            "For a class, print a stack at the start of the term and give a week at a time."
+          ]
+        }
+      ]
+    },
+    "parent-teacher-meeting-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the sheet is",
+          "paragraphs": [
+            "It is a one-page record of a parent-teacher meeting. One page covers one student: attendance, progress, strengths, concerns, the actions agreed and the parent's comments, with signatures at the end.",
+            "You can type a list of names so each page is printed with the student's name. It is drawn in your browser, so the names are not uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep a record",
+          "paragraphs": [
+            "Meetings are short and busy. Without notes, a good plan made on Tuesday is forgotten by the next month. A page in the student's file makes the next meeting start from where the last one ended.",
+            "It also helps parents, who leave with a clear idea of what you will do and what they could do at home."
+          ]
+        },
+        {
+          "heading": "Preparing and following up",
+          "paragraphs": [
+            "Before the meeting, fill in the attendance and progress sections from your records. In the meeting, listen first and write the parent's comments in their words. Close by reading back what you agreed.",
+            "Check the actions at the next meeting. A sheet that is looked at again is much more useful than one that is filed and forgotten."
+          ]
+        }
+      ]
+    }
+  }
+}

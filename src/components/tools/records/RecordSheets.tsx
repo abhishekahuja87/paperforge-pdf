@@ -179,7 +179,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
           </div>
         </div>
       </div>
-      <div className="print:hidden"><Note>Everything is made in your browser and nothing is uploaded or saved. What you type stays on this page and is printed on the sheet. These sheets help you keep records; check your own rules and your vet's or accountant's advice where it matters.</Note></div>
+      <div className="print:hidden"><Note>Everything is made in your browser and nothing is uploaded or saved. What you type stays on this page and is printed on the sheet. {family.note ?? "These sheets help you keep records; check your own rules and your vet's or accountant's advice where it matters."}</Note></div>
     </section>
   );
 };
