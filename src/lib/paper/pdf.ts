@@ -1,5 +1,5 @@
 import type { PDFFont, PDFPage } from 'pdf-lib';
-import { buildSheet, hasBackSide, type Item, type Sheet, type Side } from './geometry';
+import { buildSheet, hasBackSide, type FontId, type Item, type Sheet, type Side } from './geometry';
 import type { PaperSettings } from './types';
 
 const PT = 72 / 25.4;
@@ -13,20 +13,38 @@ const hexToRgb = (hex: string): [number, number, number] => {
 const safeText = (font: PDFFont, text: string): string =>
   Array.from(text).map((ch) => { try { font.encodeText(ch); return ch; } catch { return '?'; } }).join('');
 
-export interface Fonts { regular: PDFFont; bold: PDFFont }
+/** Sans is always there; serif and typewriter are added when the document is built with embedFonts. */
+export interface Fonts { regular: PDFFont; bold: PDFFont; serif?: PDFFont; serifBold?: PDFFont; mono?: PDFFont; monoBold?: PDFFont }
+
+export async function embedFonts(doc: import('pdf-lib').PDFDocument, lib: typeof import('pdf-lib')): Promise<Fonts> {
+  const { StandardFonts } = lib;
+  return {
+    regular: await doc.embedFont(StandardFonts.Helvetica), bold: await doc.embedFont(StandardFonts.HelveticaBold),
+    serif: await doc.embedFont(StandardFonts.TimesRoman), serifBold: await doc.embedFont(StandardFonts.TimesRomanBold),
+    mono: await doc.embedFont(StandardFonts.Courier), monoBold: await doc.embedFont(StandardFonts.CourierBold),
+  };
+}
+
+const pickFont = (fonts: Fonts, face: FontId | undefined, bold: boolean): PDFFont => {
+  if (face === 'serif' && fonts.serif && fonts.serifBold) return bold ? fonts.serifBold : fonts.serif;
+  if (face === 'mono' && fonts.mono && fonts.monoBold) return bold ? fonts.monoBold : fonts.mono;
+  return bold ? fonts.bold : fonts.regular;
+};
 
 export function drawItems(page: PDFPage, items: Item[], height: number, fonts: Fonts, lib: typeof import('pdf-lib')): void {
   const { rgb } = lib;
   const color = (hex: string) => { const [r, g, b] = hexToRgb(hex); return rgb(r, g, b); };
   for (const item of items) {
-    if (item.t === 'line') {
+    if (item.t === 'rect') {
+      page.drawRectangle({ x: item.x * PT, y: (height - item.y - item.h) * PT, width: item.w * PT, height: item.h * PT, color: color(item.c) });
+    } else if (item.t === 'line') {
       page.drawLine({ start: { x: item.x1 * PT, y: (height - item.y1) * PT }, end: { x: item.x2 * PT, y: (height - item.y2) * PT }, thickness: item.w * PT, color: color(item.c), dashArray: item.dash ? item.dash.map((v) => v * PT) : undefined });
     } else if (item.t === 'dot') {
       page.drawCircle({ x: item.x * PT, y: (height - item.y) * PT, size: item.r * PT, color: color(item.c) });
     } else if (item.t === 'ring') {
       page.drawCircle({ x: item.x * PT, y: (height - item.y) * PT, size: item.r * PT, borderColor: color(item.c), borderWidth: item.w * PT });
     } else {
-      const font = item.bold ? fonts.bold : fonts.regular;
+      const font = pickFont(fonts, item.font, Boolean(item.bold));
       const text = safeText(font, item.text);
       const width = font.widthOfTextAtSize(text, item.size);
       const x = item.x * PT - (item.anchor === 'middle' ? width / 2 : item.anchor === 'end' ? width : 0);
@@ -76,9 +94,9 @@ export async function buildPaperPdf(settings: PaperSettings): Promise<Uint8Array
 /** Builds a PDF with one page per sheet, for layouts where every page differs (calendars, planners). */
 export async function buildPdfFromSheets(sheets: Sheet[], title: string): Promise<Uint8Array> {
   const lib = await import('pdf-lib');
-  const { PDFDocument, StandardFonts } = lib;
+  const { PDFDocument } = lib;
   const out = await PDFDocument.create();
-  const fonts: Fonts = { regular: await out.embedFont(StandardFonts.Helvetica), bold: await out.embedFont(StandardFonts.HelveticaBold) };
+  const fonts = await embedFonts(out, lib);
   for (const sheet of sheets) {
     const page = out.addPage([sheet.width * PT, sheet.height * PT]);
     drawItems(page, sheet.fixed, sheet.height, fonts, lib);

@@ -1,4 +1,4 @@
-import { INK, clamp, fitText, flag, line, lines, makePages, num, str, text, titleBar, wrap, type Ctx } from './draw';
+import { INK, clamp, fillRect, fitText, flag, line, lines, makePages, num, str, text, titleBar, wrap, type Ctx } from './draw';
 import type { Family, Field, SheetDef } from './types';
 
 export interface LabelSpec {
@@ -24,10 +24,12 @@ const SIZES = { small: 11, medium: 15, large: 22 };
 
 function frameLabel(c: Ctx, x: number, y: number, w: number, h: number, border: string): void {
   if (border === 'none') return;
+  if (border === 'filled') fillRect(c, x, y, w, h, c.tint);
   const dash: [number, number] | undefined = border === 'dashed' ? [1.5, 1] : undefined;
+  const stroke = border === 'filled' ? 'plain' : border;
   const edge = (x1: number, y1: number, x2: number, y2: number, weight = c.weight) => c.items.push({ t: 'line', x1, y1, x2, y2, w: weight, c: c.color, ...(dash ? { dash } : {}) });
   edge(x, y, x + w, y); edge(x + w, y, x + w, y + h); edge(x + w, y + h, x, y + h); edge(x, y + h, x, y);
-  if (border === 'double') { const i = 1.6; edge(x + i, y + i, x + w - i, y + i, c.weight * 0.7); edge(x + w - i, y + i, x + w - i, y + h - i, c.weight * 0.7); edge(x + w - i, y + h - i, x + i, y + h - i, c.weight * 0.7); edge(x + i, y + h - i, x + i, y + i, c.weight * 0.7); }
+  if (stroke === 'double') { const i = 1.6; edge(x + i, y + i, x + w - i, y + i, c.weight * 0.7); edge(x + w - i, y + i, x + w - i, y + h - i, c.weight * 0.7); edge(x + w - i, y + h - i, x + i, y + h - i, c.weight * 0.7); edge(x + i, y + h - i, x + i, y + i, c.weight * 0.7); }
 }
 
 /** A sheet of stickers or tags in a grid: typed text for each label, or lines to fill in by hand. */
@@ -43,9 +45,10 @@ export function labelSheet(s: LabelSpec): SheetDef {
     fields.push({ type: 'toggle', key: 'repeat', label: 'Fill in the typed details on every label', hint: 'Turn off to print blank labels.' });
   }
   fields.push({ type: 'select', key: 'size', label: 'Text size', options: [{ value: 'small', label: 'Small' }, { value: 'medium', label: 'Medium' }, { value: 'large', label: 'Large' }] });
-  fields.push({ type: 'select', key: 'border', label: 'Border', options: [{ value: 'plain', label: 'Plain line' }, { value: 'double', label: 'Double line' }, { value: 'dashed', label: 'Dashed cut line' }, { value: 'none', label: 'None' }] });
+  fields.push({ type: 'select', key: 'border', label: 'Border', options: [{ value: 'plain', label: 'Plain line' }, { value: 'double', label: 'Double line' }, { value: 'dashed', label: 'Dashed cut line' }, { value: 'filled', label: 'Tinted with a line' }, { value: 'none', label: 'None' }] });
+  fields.push({ type: 'toggle', key: 'band', label: 'Colour band at the top of each label', hint: 'Fills a band with the theme colour and puts the label heading in it.' });
   fields.push({ type: 'number', key: 'pages', label: 'Pages (when repeating)', min: 1, max: 6, step: 1, unit: 'pages' });
-  const defaults: Record<string, string | number | boolean> = { size: s.size, border: s.border, repeat: s.kind === 'form', pages: 1, items: s.items?.defaults ?? '', sub: '' };
+  const defaults: Record<string, string | number | boolean> = { size: s.size, border: s.border, repeat: s.kind === 'form', band: false, pages: 1, items: s.items?.defaults ?? '', sub: '' };
   return {
     id: s.id, label: s.label, hint: s.hint, path: `/${s.id}`, landscape: false, fields, defaults,
     build: (v, common) => {
@@ -58,11 +61,14 @@ export function labelSheet(s: LabelSpec): SheetDef {
         for (let k = 0; k < per; k += 1) {
           const x = c.x + (k % s.cols) * cw + 1.2; const y = c.y + Math.floor(k / s.cols) * ch + 1.2; const w = cw - 2.4; const h = ch - 2.4;
           frameLabel(c, x, y, w, h, str(v, 'border') || s.border);
+          const banded = flag(v, 'band');
+          if (banded) { fillRect(c, x, y, w, 8, c.fill ? c.accent : c.color); text(c, x + w / 2, y + 5.6, 7.5, (s.header ?? s.label).toUpperCase(), true, 'middle', '#ffffff'); }
           if (s.kind === 'form') {
             const formLines = s.formLines ?? [];
-            const step = h / (formLines.length + 1);
+            const offset = banded ? 8 : 0;
+            const step = (h - offset) / (formLines.length + 1);
             formLines.forEach((lab, i) => {
-              const ly = y + step * (i + 1);
+              const ly = y + offset + step * (i + 1);
               text(c, x + 3, ly, Math.min(9, step * 0.55), `${lab}:`, true, 'start', INK);
               const at = x + 4 + lab.length * Math.min(9, step * 0.55) * 0.22 + 2;
               line(c, at, ly + 0.8, x + w - 3, ly + 0.8, c.weight * 0.8);
@@ -71,16 +77,17 @@ export function labelSheet(s: LabelSpec): SheetDef {
             });
           } else {
             const entry = repeat ? (typed[0] ?? '') : (typed[pi * per + k] ?? '');
-            if (s.header) text(c, x + 3, y + 5, 7.5, s.header, true, 'start', '#666666');
+            if (s.header && !banded) text(c, x + 3, y + 5, 7.5, s.header, true, 'start', '#666666');
             if (entry) {
               const parts = entry.split('/').map((p) => p.trim()).filter(Boolean);
               if (parts.length > 1) {
-                const top = y + (s.header ? 9 : 4);
+                const top = y + (s.header || banded ? 9 : 4);
                 const stepY = Math.min(size * 0.45, (h - (top - y) - 3) / parts.length);
                 parts.slice(0, 6).forEach((part, i) => fitText(c, x + 3, top + stepY * (i + 0.8), w - 6, stepY, part, Math.min(size, stepY * 2.2), i === 0));
               } else {
-                const box = h - (s.header ? 10 : 4) - (str(v, 'sub') ? 7 : 0);
-                fitText(c, x + 2, y + (s.header ? 9 : 3) + box / 2 + Math.min(size, box * 1.6) * 0.15, w - 4, box, entry, size, true, 'middle');
+                const head = s.header || banded ? 10 : 4;
+                const box = h - head - (str(v, 'sub') ? 7 : 0);
+                fitText(c, x + 2, y + (head - 1) + box / 2 + Math.min(size, box * 1.6) * 0.15, w - 4, box, entry, size, true, 'middle');
               }
             }
             if (str(v, 'sub')) text(c, x + w / 2, y + h - 3, 8, str(v, 'sub'), false, 'middle', '#555555');
@@ -113,7 +120,7 @@ const doorSign: SheetDef = {
     { type: 'select', key: 'message', label: 'Message', options: [...MESSAGES.map((m) => ({ value: m, label: m })), { value: 'custom', label: 'My own words' }] },
     { type: 'text', key: 'custom', label: 'Your own words', placeholder: 'Closed for Diwali', max: 40 },
     { type: 'text', key: 'small', label: 'Small line below (optional)', placeholder: 'Please call 98xxxxxx for help', max: 60 },
-    { type: 'select', key: 'border', label: 'Border', options: [{ value: 'double', label: 'Double line' }, { value: 'plain', label: 'Bold line' }, { value: 'dashed', label: 'Dashed' }, { value: 'none', label: 'None' }] },
+    { type: 'select', key: 'border', label: 'Border', options: [{ value: 'double', label: 'Double line' }, { value: 'plain', label: 'Bold line' }, { value: 'dashed', label: 'Dashed' }, { value: 'filled', label: 'Tinted with a line' }, { value: 'none', label: 'None' }] },
     { type: 'number', key: 'pages', label: 'Copies', min: 1, max: 6, step: 1, unit: 'copies' },
   ],
   defaults: { message: 'OPEN', custom: '', small: '', border: 'double', pages: 1 },

@@ -1,5 +1,5 @@
 import { daysInMonth, firstWeekday, weekdayName } from '../planner/dates';
-import { INK, fitText, line, text, titleBar, type Ctx } from './draw';
+import { INK, fillRect, fitText, line, text, titleBar, type Ctx } from './draw';
 
 export interface GridOptions {
   title: string;
@@ -50,15 +50,17 @@ export function monthGrid(c: Ctx, o: GridOptions): void {
   o.tail.forEach((col) => xs.push(xs[xs.length - 1]! + col.w));
   const tailStart = 2 + days.length;
 
+  const head = c.fill ? '#ffffff' : INK;
+  if (c.fill) fillRect(c, c.x, top, c.w, headH, c.accent);
   line(c, c.x, top, c.x + c.w, top, c.weight * 1.6);
-  text(c, c.x + NUMBER_W / 2, top + 6, 8, 'No.', true, 'middle', INK);
-  fitText(c, c.x + NUMBER_W + 1, top + 5.4, o.labelW - 2, 7, o.labelHead, 9, true, 'middle');
+  text(c, c.x + NUMBER_W / 2, top + 6, 8, 'No.', true, 'middle', head);
+  fitText(c, c.x + NUMBER_W + 1, top + 5.4, o.labelW - 2, 7, o.labelHead, 9, true, 'middle', head);
   days.forEach(({ d, weekday }, i) => {
     const cx = xs[2 + i]! + dayW / 2;
-    text(c, cx, top + 5.5, Math.min(7.5, dayW * 1.15), String(d), true, 'middle', INK);
-    if (o.weekdays) text(c, cx, top + 10.5, Math.min(7, dayW * 1.05), weekdayName(weekday, 'en', 'narrow'), weekday === 0, 'middle', weekday === 0 ? INK : '#666666');
+    text(c, cx, top + 5.5, Math.min(7.5, dayW * 1.15), String(d), true, 'middle', head);
+    if (o.weekdays) text(c, cx, top + 10.5, Math.min(7, dayW * 1.05), weekdayName(weekday, 'en', 'narrow'), weekday === 0, 'middle', c.fill ? '#ffffff' : weekday === 0 ? INK : '#666666');
   });
-  o.tail.forEach((col, i) => fitText(c, xs[tailStart + i]! + 0.8, top + 5.4, col.w - 1.6, headH - 2, col.label, 7.5, true, 'middle'));
+  o.tail.forEach((col, i) => fitText(c, xs[tailStart + i]! + 0.8, top + 5.4, col.w - 1.6, headH - 2, col.label, 7.5, true, 'middle', head));
 
   for (let r = 0; r <= o.rows; r += 1) line(c, c.x, gridTop + r * rowH, c.x + c.w, gridTop + r * rowH, r === 0 || r === o.rows ? c.weight * 1.6 : c.weight);
   for (let f = 1; f <= o.foot.length; f += 1) line(c, c.x, gridTop + o.rows * rowH + f * FOOT_ROW, c.x + c.w, gridTop + o.rows * rowH + f * FOOT_ROW, f === o.foot.length ? c.weight * 1.6 : c.weight);

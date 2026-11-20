@@ -1,4 +1,4 @@
-import { INK, clamp, fitText, line, lines, makePages, num, str, text, wrap } from './draw';
+import { INK, clamp, fillRect, fitText, line, lines, makePages, num, str, text, wrap } from './draw';
 import { blank } from './simple';
 import type { Family, SheetDef } from './types';
 
@@ -25,17 +25,30 @@ export function noticeSheet(s: NoticeSpec): SheetDef {
       { type: 'text', key: 'ref', label: 'Reference number (optional)', placeholder: 'SOC/2026/14', max: 24 },
       { type: 'text', key: 'date', label: 'Date', placeholder: '20 November 2026', max: 24 },
       { type: 'text', key: 'signer', label: 'Signed by', placeholder: s.signer, max: 40 },
+      { type: 'select', key: 'letterhead', label: 'Top of the page', options: [{ value: 'line', label: 'Name with a rule' }, { value: 'band', label: 'Colour band with the name' }, { value: 'box', label: 'Name in a framed box' }] },
       { type: 'number', key: 'size', label: 'Text size', min: 10, max: 16, step: 1, unit: 'pt' },
       { type: 'number', key: 'pages', label: 'Copies', min: 1, max: 10, step: 1, unit: 'copies' },
     ],
-    defaults: { subject: s.subject, body: s.body, ref: '', date: '', signer: s.signer, size: 12, pages: 1 },
+    defaults: { subject: s.subject, body: s.body, ref: '', date: '', signer: s.signer, letterhead: 'line', size: 12, pages: 1 },
     build: (v, common) => makePages(common, clamp(num(v, 'pages', 1), 1, 10), (c) => {
       const cx = c.x + c.w / 2;
       const heading = c.heading.trim();
-      if (heading) fitText(c, c.x, c.y + 12, c.w, 12, heading, 20, true, 'middle');
-      line(c, c.x, c.y + 18, c.x + c.w, c.y + 18, c.weight * 2);
-      text(c, cx, c.y + 34, 24, s.title, true, 'middle', INK);
-      line(c, cx - 28, c.y + 37, cx + 28, c.y + 37, c.weight * 1.4);
+      const style = str(v, 'letterhead') || 'line';
+      const bandCol = c.fill ? c.accent : c.color;
+      if (style === 'band') {
+        fillRect(c, c.x, c.y, c.w, 20, bandCol);
+        if (heading) fitText(c, c.x + 4, c.y + 13, c.w - 8, 12, heading, 20, true, 'middle', '#ffffff');
+      } else if (style === 'box') {
+        const bx = c.x + 12; const bw = c.w - 24;
+        fillRect(c, bx, c.y, bw, 20, c.tint);
+        line(c, bx, c.y, bx + bw, c.y, c.weight * 2, bandCol); line(c, bx, c.y + 20, bx + bw, c.y + 20, c.weight * 2, bandCol); line(c, bx, c.y, bx, c.y + 20, c.weight * 2, bandCol); line(c, bx + bw, c.y, bx + bw, c.y + 20, c.weight * 2, bandCol);
+        if (heading) fitText(c, bx + 4, c.y + 13, bw - 8, 12, heading, 20, true, 'middle', c.accent);
+      } else {
+        if (heading) fitText(c, c.x, c.y + 12, c.w, 12, heading, 20, true, 'middle', c.accent);
+        line(c, c.x, c.y + 18, c.x + c.w, c.y + 18, c.weight * 2);
+      }
+      text(c, cx, c.y + 36, 24, s.title, true, 'middle', c.accent);
+      line(c, cx - 28, c.y + 39, cx + 28, c.y + 39, c.weight * 1.4, bandCol);
       const ref = str(v, 'ref');
       text(c, c.x, c.y + 52, 10, ref ? `Ref: ${ref}` : 'Ref:', true, 'start', INK);
       text(c, c.x + c.w, c.y + 52, 10, `Date: ${str(v, 'date') || '____________'}`, true, 'end', INK);
@@ -47,7 +60,7 @@ export function noticeSheet(s: NoticeSpec): SheetDef {
       line(c, c.x + 22, y + 1.6, c.x + 22 + Math.min(c.w - 22, subject.length * 2.3 + 4), y + 1.6, c.weight);
       y += 14;
       const size = clamp(num(v, 'size', 12), 10, 16);
-      const perLine = Math.floor(c.w / (size * 0.19));
+      const perLine = Math.floor(c.w / (size * c.cw));
       const step = size * 0.5;
       lines(v, 'body', 14).forEach((para) => {
         wrap(para, perLine).forEach((row) => { if (y < c.y + c.h - 40) text(c, c.x, y, size, row, false, 'start', INK); y += step; });

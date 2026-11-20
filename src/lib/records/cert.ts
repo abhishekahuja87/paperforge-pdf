@@ -1,4 +1,4 @@
-import { INK, clamp, fitText, line, lines, makePages, num, str, text, type Ctx } from './draw';
+import { INK, clamp, fillRect, fitText, line, lines, makePages, num, str, text, type Ctx } from './draw';
 import type { Family, Field, SheetDef } from './types';
 
 const GOLD = '#8a6d1f';
@@ -15,7 +15,9 @@ export interface CertSpec {
   signers: [string, string];
 }
 
-type Border = 'double' | 'corners' | 'dotted' | 'simple';
+type Border = 'double' | 'corners' | 'dotted' | 'simple' | 'band' | 'sidebar' | 'tinted' | 'ribbon';
+
+const bandColor = (c: Ctx) => (c.fill ? c.accent : c.color);
 
 function frame(c: Ctx, border: Border): void {
   const { x, y, w, h } = c;
@@ -24,6 +26,10 @@ function frame(c: Ctx, border: Border): void {
     line(c, x + w - inset, y + h - inset, x + inset, y + h - inset, weight, color); line(c, x + inset, y + h - inset, x + inset, y + inset, weight, color);
   };
   if (border === 'simple') { rect(2, c.weight * 3); return; }
+  if (border === 'band') { fillRect(c, x, y, w, 11, bandColor(c)); fillRect(c, x, y + h - 11, w, 11, bandColor(c)); rect(14, c.weight * 1); return; }
+  if (border === 'sidebar') { fillRect(c, x, y, 16, h, bandColor(c)); fillRect(c, x + 18, y, 2, h, c.fill ? c.tint : '#dddddd'); rect(2, c.weight * 1.4); return; }
+  if (border === 'tinted') { fillRect(c, x, y, w, h, c.tint); fillRect(c, x + 7, y + 7, w - 14, h - 14, '#ffffff'); rect(7, c.weight * 2, bandColor(c)); rect(9.5, c.weight * 0.8); return; }
+  if (border === 'ribbon') { rect(2, c.weight * 1.6); fillRect(c, x + w / 2 - 22, y + 2, 44, 9, bandColor(c)); fillRect(c, x + w / 2 - 22, y + h - 11, 44, 9, bandColor(c)); return; }
   if (border === 'double') { rect(2, c.weight * 3.5); rect(5.5, c.weight * 1); return; }
   if (border === 'corners') {
     rect(2, c.weight * 1.2);
@@ -46,7 +52,7 @@ export function certSheet(s: CertSpec): SheetDef {
     { type: 'text', key: 'date', label: 'Date (optional)', placeholder: '20 November 2026', max: 24 },
     { type: 'text', key: 'sign1', label: 'First signature label', placeholder: s.signers[0], max: 30 },
     { type: 'text', key: 'sign2', label: 'Second signature label', placeholder: s.signers[1], max: 30 },
-    { type: 'select', key: 'border', label: 'Border', options: [{ value: 'double', label: 'Double line' }, { value: 'corners', label: 'Gold corners' }, { value: 'dotted', label: 'Dotted frame' }, { value: 'simple', label: 'Simple bold line' }] },
+    { type: 'select', key: 'border', label: 'Border', options: [{ value: 'double', label: 'Double line' }, { value: 'corners', label: 'Gold corners' }, { value: 'dotted', label: 'Dotted frame' }, { value: 'simple', label: 'Simple bold line' }, { value: 'band', label: 'Colour bands top and bottom' }, { value: 'sidebar', label: 'Colour side bar' }, { value: 'tinted', label: 'Tinted page with frame' }, { value: 'ribbon', label: 'Ribbon tabs' }] },
     { type: 'number', key: 'blanks', label: 'Blank copies (if no names)', min: 1, max: 12, step: 1, unit: 'copies' },
   ];
   return {
@@ -61,7 +67,7 @@ export function certSheet(s: CertSpec): SheetDef {
         const cx = c.x + c.w / 2;
         const heading = c.heading.trim();
         if (heading) fitText(c, c.x + 15, c.y + 20, c.w - 30, 12, heading, 15, true, 'middle');
-        fitText(c, c.x + 12, c.y + 44, c.w - 24, 20, s.title, 32, true, 'middle');
+        fitText(c, c.x + 12, c.y + 44, c.w - 24, 20, s.title, 32, true, 'middle', c.accent);
         line(c, cx - 40, c.y + 52, cx + 40, c.y + 52, c.weight * 2, GOLD);
         text(c, cx, c.y + 68, 12, s.intro, false, 'middle', '#555555');
         const name = names[i] ?? '';

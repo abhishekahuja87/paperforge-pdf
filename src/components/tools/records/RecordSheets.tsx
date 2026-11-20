@@ -4,7 +4,9 @@ import { ChevronLeft, ChevronRight, Download, Printer, RotateCcw } from 'lucide-
 import { Note, SelectField } from '../../finance/ui';
 import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
 import { buildPdfFromSheets } from '../../../lib/paper/pdf';
-import { PAGE_SIZES, TONES, WEIGHTS, type PageSizeId, type ToneId, type Weight } from '../../../lib/paper/types';
+import type { FontId } from '../../../lib/paper/geometry';
+import { PAGE_SIZES, WEIGHTS, type PageSizeId, type ToneId, type Weight } from '../../../lib/paper/types';
+import { FONTS, THEMES, type ThemeId } from '../../../lib/records/theme';
 import type { Common, Family, Field, SheetDef, Values } from '../../../lib/records';
 import { MAX_LINE, MAX_TEXT } from '../../../lib/records/types';
 import { Slider, Toggle, card, heading } from '../paper/controls';
@@ -21,7 +23,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
   const location = useLocation();
   const make = () => {
     const carry = (location.state as { carry?: Carry } | null)?.carry;
-    return { values: { ...startValues(family), ...carry?.valuesById }, common: { page: 'a4' as PageSizeId, margin: 10, tone: 'charcoal' as ToneId, weight: 'normal' as Weight, heading: '', ...carry?.common } };
+    return { values: { ...startValues(family), ...carry?.valuesById }, common: { page: 'a4' as PageSizeId, margin: 10, tone: 'charcoal' as ToneId, weight: 'normal' as Weight, heading: '', theme: 'classic' as ThemeId, font: 'sans' as FontId, ...carry?.common } };
   };
   const initial = useMemo(make, []); // eslint-disable-line react-hooks/exhaustive-deps
   const [activeId, setActiveId] = useState(initialId);
@@ -95,7 +97,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
             <h2 className={heading}>Which sheet</h2>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {family.sheets.map((item) => {
-                const carry: Carry = { common: { page: paper.page, margin: paper.margin, tone: paper.tone, weight: paper.weight, heading: paper.heading }, valuesById };
+                const carry: Carry = { common: { page: paper.page, margin: paper.margin, tone: paper.tone, weight: paper.weight, heading: paper.heading, theme: paper.theme, font: paper.font }, valuesById };
                 return (
                   <Link
                     key={item.id}
@@ -140,14 +142,19 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
                 {paper.margin < 5 && <p role="status" className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] text-amber-900">Many home printers cannot print closer than about 5 mm to the edge. Use 5 mm or more to be safe.</p>}
               </div>
               <div className="space-y-3 border-t border-slate-200 pt-4">
-                <h2 className={heading}>Ink and lines</h2>
-                <div className="flex flex-wrap gap-2">
-                  {(Object.entries(TONES) as [ToneId, { label: string; color: string }][]).map(([id, tone]) => (
-                    <button key={id} type="button" aria-pressed={paper.tone === id} onClick={() => setPaperValue({ tone: id })} className={`flex min-h-9 items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-semibold ${paper.tone === id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
-                      <span className="h-3 w-3 rounded-full" style={{ background: tone.color }} aria-hidden="true" />{tone.label}
-                    </button>
-                  ))}
+                <h2 className={heading}>Colour, font and lines</h2>
+                <div>
+                  <p className="mb-1.5 text-xs font-semibold text-slate-700">Colour theme</p>
+                  <div className="flex flex-wrap gap-2">
+                    {(Object.entries(THEMES) as [ThemeId, { label: string; ink: string; accent: string; fill: boolean }][]).map(([id, theme]) => (
+                      <button key={id} type="button" aria-pressed={paper.theme === id} onClick={() => setPaperValue({ theme: id })} className={`flex min-h-9 items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-semibold ${paper.theme === id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
+                        <span className="flex h-3.5 w-6 overflow-hidden rounded-full border border-slate-200" aria-hidden="true"><span className="h-full w-1/2" style={{ background: theme.ink }} /><span className="h-full w-1/2" style={{ background: theme.accent }} /></span>{theme.label}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-slate-500">Coloured themes add coloured titles, header bands and light row shading. Classic, gray, slate, sepia and cyan keep the sheet plain.</p>
                 </div>
+                <ChoiceButtons label="Font" value={paper.font ?? 'sans'} onChange={(value) => setPaperValue({ font: value as FontId })} options={(Object.entries(FONTS) as [FontId, { label: string }][]).map(([value, item]) => ({ value, label: item.label }))} />
                 <ChoiceButtons label="Line weight" value={paper.weight} onChange={(value) => setPaperValue({ weight: value as Weight })} options={(Object.entries(WEIGHTS) as [Weight, { label: string }][]).map(([value, item]) => ({ value, label: item.label }))} />
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import type { Item, Sheet } from '../../../lib/paper/geometry';
+import type { FontId, Item, Sheet } from '../../../lib/paper/geometry';
 
 /** Groups items with the same look into one path each, so thousands of dots stay a handful of elements. */
 function groupPaths(items: Item[]): { key: string; d: string; kind: 'line' | 'dot' | 'ring'; color: string; width: number; dash?: [number, number] }[] {
@@ -17,16 +17,20 @@ function groupPaths(items: Item[]): { key: string; d: string; kind: 'line' | 'do
   return [...groups.values()];
 }
 
+const FAMILY: Record<FontId, string> = { sans: 'Helvetica, Arial, sans-serif', serif: '"Times New Roman", Times, serif', mono: '"Courier New", Courier, monospace' };
+
 interface Props { sheet: Sheet; pageLabel: string | null; id: string }
 
 /** Live preview: the page drawn in millimetres, so what you see is what the PDF contains. */
 export const SheetPreview: React.FC<Props> = ({ sheet, pageLabel, id }) => {
   const paths = useMemo(() => groupPaths(sheet.fixed), [sheet.fixed]);
   const texts = sheet.fixed.filter((item): item is Extract<Item, { t: 'text' }> => item.t === 'text');
+  const rects = sheet.fixed.filter((item): item is Extract<Item, { t: 'rect' }> => item.t === 'rect');
   const number = sheet.pageNumber;
   return (
     <svg id={id} role="img" aria-label="Preview of the paper" viewBox={`0 0 ${sheet.width} ${sheet.height}`} className="block h-auto max-h-[46vh] w-full bg-white lg:max-h-[78vh]" style={{ aspectRatio: `${sheet.width} / ${sheet.height}` }}>
       <rect width={sheet.width} height={sheet.height} fill="#ffffff" />
+      {rects.map((item, index) => <rect key={`r${index}`} x={item.x} y={item.y} width={item.w} height={item.h} fill={item.c} />)}
       {paths.map((group) => (
         group.kind === 'line' ? (
           <path key={group.key} d={group.d} stroke={group.color} strokeWidth={group.width} strokeLinecap="butt" strokeDasharray={group.dash?.join(' ')} fill="none" />
@@ -37,7 +41,7 @@ export const SheetPreview: React.FC<Props> = ({ sheet, pageLabel, id }) => {
         )
       ))}
       {texts.map((item, index) => (
-        <text key={index} x={item.x} y={item.y} fontSize={item.size * 0.3528} fill={item.c} fontWeight={item.bold ? 700 : 400} textAnchor={item.anchor ?? 'start'} fontFamily="Helvetica, Arial, sans-serif">{item.text}</text>
+        <text key={index} x={item.x} y={item.y} fontSize={item.size * 0.3528} fill={item.c} fontWeight={item.bold ? 700 : 400} textAnchor={item.anchor ?? 'start'} fontFamily={FAMILY[item.font ?? 'sans']}>{item.text}</text>
       ))}
       {number && pageLabel && <text x={number.x} y={number.y} fontSize={number.size * 0.3528} fill={number.c} textAnchor={number.anchor} fontFamily="Helvetica, Arial, sans-serif">{pageLabel}</text>}
     </svg>

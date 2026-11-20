@@ -3,11 +3,15 @@ import { calligraphy, crossStitch, hexGrid, holeGuides, stampItem, storyboard, t
 import { BINDING_MM, DOT_RADIUS, HEADER_LABELS, PAGE_SIZES, TONES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings } from './types';
 
 /** Everything on a sheet is a handful of simple shapes in millimetres, origin top-left. The SVG preview and the PDF export both draw this list. */
+/** Typefaces every PDF reader has, so nothing is downloaded: sans (Helvetica), serif (Times) and typewriter (Courier). */
+export type FontId = 'sans' | 'serif' | 'mono';
+
 export type Item =
+  | { t: 'rect'; x: number; y: number; w: number; h: number; c: string }
   | { t: 'line'; x1: number; y1: number; x2: number; y2: number; w: number; c: string; dash?: [number, number] }
   | { t: 'dot'; x: number; y: number; r: number; c: string }
   | { t: 'ring'; x: number; y: number; r: number; w: number; c: string }
-  | { t: 'text'; x: number; y: number; size: number; text: string; c: string; bold?: boolean; anchor?: 'start' | 'middle' | 'end' };
+  | { t: 'text'; x: number; y: number; size: number; text: string; c: string; bold?: boolean; anchor?: 'start' | 'middle' | 'end'; font?: FontId };
 
 export type Rect = Box;
 

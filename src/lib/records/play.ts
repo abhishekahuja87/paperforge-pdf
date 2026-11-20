@@ -79,14 +79,14 @@ const mathSheet: SheetDef = {
             const size = Math.min(15, rh * 0.38);
             text(c, right, y + 10, size, String(p.a), true, 'end', INK);
             text(c, right, y + 10 + size * 0.5, size, String(p.b), true, 'end', INK);
-            text(c, right - String(Math.max(p.a, p.b)).length * size * 0.2 - 4, y + 10 + size * 0.5, size, opSymbol(p.op), true, 'end', INK);
+            text(c, right - String(Math.max(p.a, p.b)).length * size * (c.cw + 0.01) - 4, y + 10 + size * 0.5, size, opSymbol(p.op), true, 'end', INK);
             line(c, x + 6, y + 10 + size * 0.5 + 2, right + 1, y + 10 + size * 0.5 + 2, c.weight * 1.5);
             if (withAnswers) text(c, right, y + 10 + size * 1.1 + 2, size, String(p.answer), true, 'end', '#2a6b2a');
           } else {
             const size = Math.min(14, rh * 0.5);
             const label = `${p.a} ${opSymbol(p.op)} ${p.b} =`;
             text(c, x + 8, y + rh * 0.62, size, label, true, 'start', INK);
-            if (withAnswers) text(c, x + 8 + label.length * size * 0.2 + 3, y + rh * 0.62, size, String(p.answer), true, 'start', '#2a6b2a');
+            if (withAnswers) text(c, x + 8 + label.length * size * (c.cw + 0.01) + 3, y + rh * 0.62, size, String(p.answer), true, 'start', '#2a6b2a');
             else line(c, x + 8 + label.length * size * 0.2 + 2, y + rh * 0.62 + 0.8, x + cw - 4, y + rh * 0.62 + 0.8, c.weight);
           }
         });
@@ -450,7 +450,7 @@ const tracingSheet: SheetDef = {
           line(c, c.x, base, c.x + c.w, base, c.weight * 1.2);
           const trace = style !== 'blank' && g === 0 && entry;
           if (trace) {
-            const unit = entry.length * pt * 0.2 + pt * 0.5;
+            const unit = entry.length * pt * (c.cw + 0.01) + pt * 0.5;
             const repeats = Math.max(1, Math.floor(c.w / unit));
             for (let r = 0; r < repeats; r += 1) text(c, c.x + 1 + r * unit, base - 0.8, pt, entry, false, 'start', '#c4c4c4');
           }
