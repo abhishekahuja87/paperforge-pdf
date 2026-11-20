@@ -48,6 +48,8 @@ export interface ShellPage {
   article: ShellSection[];
   /** schema.org data written into the page head as JSON-LD. */
   jsonLd: JsonLd[];
+  /** ISO date of the last real change, from the updates log (src/config/updates.ts). Left out when no change is recorded, so the sitemap never states a made-up date. */
+  lastmod?: string;
 }
 
 export interface ShellLink {
@@ -290,6 +292,21 @@ export function getShellGroups(): ShellGroup[] {
 }
 
 export function getShellPages(): ShellPage[] {
+  return withLastmod(buildShellPages());
+}
+
+/** Adds the date of the newest logged update to each page that has one. The home page takes the newest update on the site. */
+function withLastmod(pages: ShellPage[]): ShellPage[] {
+  const newest = new Map<string, string>();
+  for (const update of UPDATES) if (!newest.has(update.path) || update.date > newest.get(update.path)!) newest.set(update.path, update.date);
+  const siteNewest = UPDATES.reduce((latest, update) => (update.date > latest ? update.date : latest), '');
+  return pages.map((page) => {
+    const date = page.path === '/' ? siteNewest : newest.get(page.path);
+    return date && /^\d{4}-\d{2}-\d{2}$/.test(date) ? { ...page, lastmod: date } : page;
+  });
+}
+
+function buildShellPages(): ShellPage[] {
   const home: ShellPage = {
     kind: 'home',
     path: '/',
