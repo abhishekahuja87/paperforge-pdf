@@ -115,6 +115,7 @@ function shellBody(page, groups, text, site) {
     { path: '/about', title: text.about, description: '' },
     { path: '/whats-new', title: text.whatsNew, description: '' },
     { path: '/editorial-policy', title: text.editorialPolicy, description: '' },
+    { path: '/why-trust-us', title: text.whyTrustUs || 'Why trust us', description: '' },
     { path: '/contact', title: text.contact, description: '' },
     { path: '/privacy', title: text.privacyPolicy, description: '' },
     { path: '/terms', title: text.terms, description: '' },

@@ -4,6 +4,7 @@
  * the tool really does; read the tool before editing a guide.
  */
 import { PACK_GUIDES } from './packGuides';
+import { TOOL_GUIDES } from './toolGuides';
 
 export interface GuideSection {
   heading: string;
@@ -34,7 +35,7 @@ const CORE_GUIDES: Guide[] = [
         'File size depends on the number of pixels and on how hard the picture is compressed. Fewer pixels give a much smaller file, and lower JPG quality gives a smaller file at the cost of detail. A passport-style photo can be small in pixels without looking bad, while a full 12-megapixel photo squeezed to 20 KB looks blocky. Crop to the face or document first, because every pixel you remove makes the size target easier.',
       ] },
       { heading: 'Step by step', paragraphs: [
-        'Open the Image Resizer, or one of the pages for 20, 50, 100 or 200 KB, and choose your picture. Enter the maximum size in KB. If the form also needs an exact width and height, tick the exact size option and type them, then pick crop, fit or stretch. Press Resize, check the size shown under the result, look at the preview, and download the JPG.',
+        'Open the Image Resizer and choose your picture. Enter the maximum size in KB, or tap one of the 20, 30, 50, 100 or 200 KB buttons. If the form also needs an exact width and height, tick the exact size option and type them, then pick crop, fit or stretch. Press Resize, check the size shown under the result, look at the preview, and download the JPG.',
       ] },
       { heading: 'If the tool says it could not reach the limit', paragraphs: [
         'That means even the lowest quality was still too large at that pixel size. Raise the size limit if the form allows, use a smaller width and height, or crop closer to the subject and try again. Signatures on plain white paper compress far better than busy photos.',
@@ -469,7 +470,7 @@ const CORE_GUIDES: Guide[] = [
         "Use a plain, evenly lit background, face the camera, keep the head centred and avoid shadows. A clean picture compresses better, so you keep more detail under a small KB limit.",
       ] },
       { heading: "Resizing with the tool", paragraphs: [
-        "Open the Passport Photo Resizer, Signature Resizer or Exam Photo Resizer, choose your image, check the size and KB limit and press Resize. If your form lists millimetres or inches, change the unit and set a resolution; 300 DPI is common for printed photos. For example, 35 × 45 mm at 300 DPI is about 413 × 531 pixels.",
+        "Open the Image Resizer, choose your image, tap the Passport, Signature or Exam photo preset under Quick presets for forms, check the size and KB limit and press Resize. If your form lists millimetres or inches, change the unit and set a resolution; 300 DPI is common for printed photos. For example, 35 × 45 mm at 300 DPI is about 413 × 531 pixels.",
       ] },
       { heading: "Signatures", paragraphs: [
         "Sign with a dark pen on plain white paper, photograph it in even light and crop closely. If the shape differs from the target size, choose \"Fit inside with white borders\" so no part of the signature is cut off.",
@@ -562,7 +563,7 @@ const CORE_GUIDES: Guide[] = [
 ];
 
 /** Every guide: the core ones above plus those that go with the tool packs. */
-export const GUIDES: Guide[] = [...CORE_GUIDES, ...PACK_GUIDES];
+export const GUIDES: Guide[] = [...CORE_GUIDES, ...PACK_GUIDES, ...TOOL_GUIDES];
 
 export function getGuide(slug: string | undefined): Guide | undefined {
   return GUIDES.find((guide) => guide.slug === slug);

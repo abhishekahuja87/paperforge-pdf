@@ -13,6 +13,7 @@ import { TOOLS, type ToolItem } from '../config/tools';
 import { GUIDES } from '../content/guides';
 import { getTopics } from '../config/topics';
 import { EDITORIAL } from '../content/editorial';
+import { TRUST } from '../content/trust';
 import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
@@ -378,6 +379,7 @@ function buildShellPages(): ShellPage[] {
         { heading: 'Support', paragraphs: ['Use the contact form to report a problem or request a tool.'] },
       ]),
     info('/editorial-policy', EDITORIAL.title, EDITORIAL.subtitle, EDITORIAL.description, EDITORIAL.sections),
+    info('/why-trust-us', TRUST.title, TRUST.subtitle, TRUST.description, TRUST.sections),
     info('/whats-new', "What's new", 'Improvements to the tools, newest first.',
       'A dated list of what has been added or improved on MyDailyUtils tools and calculators.',
       UPDATES.map((update) => ({ heading: `${formatUpdateDate(update.date)}: ${update.tool} - ${update.title}`, paragraphs: [update.summary] }))),

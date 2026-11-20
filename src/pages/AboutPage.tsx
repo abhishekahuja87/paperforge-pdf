@@ -66,7 +66,7 @@ export const AboutPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">How we keep the tools accurate</h2>
         <p>
-          Each tool states the rules it follows and where they come from, and finance tools name the tax year they cover. Results are estimates, not professional advice. Read our <Link to="/editorial-policy" className="font-semibold text-indigo-700 underline">editorial policy</Link> for how tools are tested, how corrections are handled and how the site earns money.
+          Each tool states the rules it follows and where they come from, and finance tools name the tax year they cover. Results are estimates, not professional advice. Read <Link to="/why-trust-us" className="font-semibold text-indigo-700 underline">why you can trust the site</Link> and our <Link to="/editorial-policy" className="font-semibold text-indigo-700 underline">editorial policy</Link> for how tools are tested, how corrections are handled and how the site earns money.
         </p>
       </section>
 
