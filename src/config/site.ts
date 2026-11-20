@@ -22,3 +22,14 @@ export function toolPageTitle(title: string): string {
   const full = `${title} ${siteConfig.toolTitleSuffix}`;
   return full.length <= TITLE_ROOM ? full : title;
 }
+
+/** Meta description kept within Google's ~160 characters: ends at the last full sentence that fits, else at a word. */
+export function metaDescription(text: string): string {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  if (clean.length <= 160) return clean;
+  const cut = clean.slice(0, 160);
+  const sentence = cut.lastIndexOf('. ');
+  if (sentence >= 90) return cut.slice(0, sentence + 1);
+  const word = cut.lastIndexOf(' ');
+  return `${cut.slice(0, word > 0 ? word : 157).replace(/[,;:\s]+$/, '')}…`;
+}

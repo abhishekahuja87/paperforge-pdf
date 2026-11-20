@@ -8,7 +8,7 @@
  */
 import { PACK_GUIDE_KEYS } from '../config/packs';
 import { en } from '../locales/english';
-import { siteConfig, toolPageTitle } from '../config/site';
+import { metaDescription, siteConfig, toolPageTitle } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
 import { GUIDES } from '../content/guides';
 import { getTopics } from '../config/topics';
@@ -326,7 +326,7 @@ function buildShellPages(): ShellPage[] {
       kind: 'tool',
       path: tool.path,
       title: toolPageTitle(copy.heading),
-      description: copy.subtitle,
+      description: metaDescription(copy.subtitle),
       heading: copy.heading,
       subtitle: copy.subtitle,
       steps: copy.steps,
