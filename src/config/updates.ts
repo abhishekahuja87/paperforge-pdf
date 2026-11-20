@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/password-protected-document-maker',
+    tool: 'Private Document Maker',
+    title: 'New: write a document and lock it with a password, with no upload',
+    summary: 'Write a letter, notice, offer letter or quote with styles, tables, pictures and templates, lock it with AES-256 in your browser and send one file that opens in any browser with the password. A second page locks any PDF, Word, Excel or photo the same way.',
+  },
+  {
+    date: '2026-11-20',
     path: '/milk-maid-attendance-calendar-printable',
     tool: 'Household, shop and pet sheets',
     title: 'New: printable milk and maid calendar, budget, staff register, udhaar ledger and pet sheets',

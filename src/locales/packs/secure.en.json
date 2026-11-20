@@ -1,0 +1,162 @@
+{
+  "guideSteps": {
+    "password-protected-document-maker": [
+      [
+        "Write or pick a template",
+        "Type your document, or start from a template such as a letter, notice, offer letter, quotation or details sheet. Use the toolbar for headings, fonts, colours, lists, tables, pictures and links."
+      ],
+      [
+        "Choose the look",
+        "Under Look and page, pick a theme, accent colour, paper size, margins, a header or footer line and an optional watermark such as Confidential."
+      ],
+      [
+        "Set a password",
+        "Type a password or tap Make a passphrase. The strength bar tells you how hard it is to guess. Add a short message for the unlock screen if you like."
+      ],
+      [
+        "Lock, send and share the password",
+        "Tap Lock the document and download. Send the single file by email or WhatsApp and give the password by another route, such as a phone call."
+      ]
+    ],
+    "lock-a-file-with-password": [
+      [
+        "Choose the file",
+        "Pick a PDF, Word, Excel, PowerPoint, photo, ZIP or any other file up to 16 MB. It is read in your browser and not uploaded."
+      ],
+      [
+        "Set a password",
+        "Type a password or tap Make a passphrase and check the strength bar."
+      ],
+      [
+        "Lock and download",
+        "Tap Lock the file and download. The page opens the locked file again with your password to be sure it works."
+      ],
+      [
+        "Send it",
+        "Send the locked file by email, WhatsApp or pen drive. The other person opens it in a browser, types the password and downloads the original file."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "privateDocumentGuide": {
+      "title": "Private Document Maker: Write and Lock with a Password",
+      "subtitle": "Write a document in your browser, lock it with a password and send one file that opens in any browser. No upload, no account.",
+      "faq": [
+        [
+          "How can I send a confidential document without uploading it?",
+          "Write your document here, lock it with a password, and download one file. Send that file by email, WhatsApp or a pen drive and tell the person the password by a different route, such as a call. The document is locked inside your browser, so we never receive it. Your email or chat service does carry the locked file, but without the password it cannot be read."
+        ],
+        [
+          "How strong is the lock?",
+          "The password is stretched with PBKDF2-SHA-256 (1,200,000 rounds and a random salt) into a 256-bit key, and the document is sealed with AES-256-GCM, which also detects any change to the file. These are standard methods built into your browser. In practice the password decides the strength: the page refuses very short or common passwords and can make a random passphrase for you."
+        ],
+        [
+          "What does the other person need to open it?",
+          "A modern browser such as Chrome, Edge, Firefox or Safari, the file and the password. They need no account, no install and no internet connection. Some email and chat apps only show a preview that cannot run the unlock page, so ask them to save the file and open it in a browser. A few mail systems block .html attachments; if that happens, send it through WhatsApp or a cloud link, or put it in a ZIP."
+        ],
+        [
+          "What if I forget the password?",
+          "It cannot be recovered. We never see the password and the file cannot be opened without it. Keep the password somewhere safe, and keep your own copy of the document before you send it."
+        ],
+        [
+          "Can the reader copy, print or screenshot it?",
+          "Yes. Anyone who has the password can read the document, select and copy the text, print it or save it as PDF, and take screenshots. A password protects the file while it travels; it cannot control what a trusted reader does afterwards. There is also no way to take the file back once it is sent, so share it only with people you trust."
+        ],
+        [
+          "Is this a replacement for Word?",
+          "It covers what most letters, notices, quotes and details sheets need: styles and headings, fonts and sizes, colours and highlights, lists and checklists, tables, pictures, links, boxes for notes and warnings, a header, footer and watermark, and nine templates. It does not do track changes, comments, equations or opening .docx files. To lock a .docx or PDF you already have, use the Lock a file page."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The document, the password and the locked file are made in your browser and are never sent to {{siteName}}. Nothing you type is saved on this device either. The page itself still loads advertising and other resources from the network, so keep a copy of the locked file you download."
+        ]
+      ]
+    },
+    "lockFileGuide": {
+      "title": "Lock a File with a Password: PDF, Word, Photo or ZIP",
+      "subtitle": "Lock any file with AES-256 and a password in your browser. Send one file that opens in any browser. Nothing is uploaded.",
+      "faq": [
+        [
+          "How do I password protect a PDF, Word or Excel file without uploading it?",
+          "Choose the file here, set a password and download the locked file. The file is read and locked in your browser, so it never goes to a server. The result is one .html file. The person you send it to opens it in a browser, types the password and downloads the original file."
+        ],
+        [
+          "What file types can I lock?",
+          "Any type: PDF, Word, Excel, PowerPoint, photos, ZIP and more, up to 16 MB, so the locked file still fits in an email. The file name is locked too, so nobody can see it without the password."
+        ],
+        [
+          "How is this different from the password built into a PDF or Word file?",
+          "A password inside a PDF or Word file depends on the app that opens it and works only for that type. Here the whole file is locked the same way for every type, with AES-256-GCM and a key made from your password with 1,200,000 rounds of PBKDF2-SHA-256. The reader needs only a browser, not the right app. Anyone who has the password can still save and share the original, as with any password."
+        ],
+        [
+          "What happens to an HTML file I lock?",
+          "You can choose to show it as a page when it is unlocked. It then runs inside a sealed frame that cannot reach the unlock page, with scripts allowed so that a normal page still works. Or choose to offer it as a download."
+        ],
+        [
+          "What if I forget the password?",
+          "It cannot be recovered, by us or by anyone else. Keep the password safe and keep your original file."
+        ],
+        [
+          "Why do you limit the size to 16 MB?",
+          "The locked file is about a third bigger than the original, and many email services stop near 25 MB. For a larger file, compress it first or use a ZIP."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The file, the password and the locked file are made in your browser and are never sent to {{siteName}}. Nothing you type is saved on this device either. The page itself still loads advertising and other resources from the network, so keep a copy of the locked file you download."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "password-protected-document-maker": {
+      "sections": [
+        {
+          "heading": "Why write it here instead of in a cloud document",
+          "paragraphs": [
+            "Most ways of sharing a private document start with an upload: a cloud folder, an e-signature site, a shared link. That is fine for many things, but not for a salary letter, a bank detail sheet or a draft offer. Here the document is written and locked in your own browser, so the only thing that travels is a locked file.",
+            "The reader needs a browser and the password, nothing more. The unlock screen works without an internet connection."
+          ]
+        },
+        {
+          "heading": "What it does well, and what it does not",
+          "paragraphs": [
+            "You get a real writing page: titles and headings, fonts, colours, lists, checklists, tables with rows and columns you can add, pictures, links, note and warning boxes, a header, footer and watermark, and themes with your choice of accent colour. Nine templates give you a starting point for letters, notices, offer letters, quotations, details sheets, meeting minutes, reports and handover notes.",
+            "It does not replace a full word processor. There are no tracked changes, comments or .docx import, and a password does not stop someone who has it from copying or taking a screenshot. If you need a file you already have locked, use the lock-a-file page."
+          ]
+        },
+        {
+          "heading": "Sending it safely",
+          "paragraphs": [
+            "Pick a password that is long rather than clever; a passphrase of several random words is easy to type and hard to guess. Send the file and the password by different routes, for example the file by email and the password by phone call. If the file will be read on a phone, tell the reader to open it in a browser.",
+            "Keep your own copy of the document, because the page does not save it for you."
+          ]
+        }
+      ]
+    },
+    "lock-a-file-with-password": {
+      "sections": [
+        {
+          "heading": "Locking a file that already exists",
+          "paragraphs": [
+            "Sometimes the document is already finished: a PDF contract, a scanned ID, an Excel sheet of salaries. This page locks it as it is. The file is read by your browser, sealed with AES-256-GCM and placed inside a single .html file with a small unlock screen.",
+            "The other person opens that file in a browser, types the password and gets the original file back to download. Nothing is uploaded at any point."
+          ]
+        },
+        {
+          "heading": "Why a browser-only lock",
+          "paragraphs": [
+            "Free online tools that add a password usually need you to upload the file first, which is exactly what you may want to avoid. Here the work is done on your device with the encryption built into your browser, and the page has no way to send your file anywhere.",
+            "The key is made from your password with 1,200,000 rounds of PBKDF2-SHA-256 and a random salt. That makes guessing slow, but the real protection is a good password, so the page measures it and offers to make a random one."
+          ]
+        },
+        {
+          "heading": "Good habits",
+          "paragraphs": [
+            "Send the locked file and the password by different routes. Keep the original, since a lost password cannot be recovered. Check that the other person can open .html attachments; some mail systems block them, in which case a messaging app or a ZIP file usually works.",
+            "Remember what a password cannot do. Once a person has opened the file they can save, copy and share what they find inside."
+          ]
+        }
+      ]
+    }
+  }
+}

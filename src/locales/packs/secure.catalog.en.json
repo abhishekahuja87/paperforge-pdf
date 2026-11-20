@@ -1,0 +1,12 @@
+{
+  "toolCatalog": {
+    "password-protected-document-maker": [
+      "Private Document Maker: Write and Lock with a Password",
+      "Write a letter, notice or quote with styles, tables and pictures, lock it with a password and send one file. Nothing is uploaded."
+    ],
+    "lock-a-file-with-password": [
+      "Lock a File with a Password: PDF, Word, Photo or ZIP",
+      "Lock any file with AES-256 and a password, then send one file that opens in any browser. Nothing is uploaded."
+    ]
+  }
+}

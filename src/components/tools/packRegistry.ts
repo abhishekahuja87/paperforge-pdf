@@ -6,6 +6,7 @@ import { PAPER_COMPONENTS } from './paper/registry';
 import { PLANNER_COMPONENTS } from './planner/registry';
 import { CARE_COMPONENTS } from './care/registry';
 import { RECORDS_COMPONENTS } from './records/registry';
+import { SECURE_COMPONENTS } from './secure/registry';
 import { QR_COMPONENTS } from './qr/registry';
 import { VCARD_COMPONENTS } from './vcard/registry';
 import { FLASHCARD_COMPONENTS } from './flashcards/registry';
@@ -31,6 +32,7 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...PLANNER_COMPONENTS,
   ...CARE_COMPONENTS,
   ...RECORDS_COMPONENTS,
+  ...SECURE_COMPONENTS,
   ...QR_COMPONENTS,
   ...VCARD_COMPONENTS,
   ...FLASHCARD_COMPONENTS,

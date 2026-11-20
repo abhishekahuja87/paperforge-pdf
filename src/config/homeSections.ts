@@ -38,6 +38,7 @@ export const VARIANT_PAGES = [
   'printable-calendar-maker', 'daily-planner-printable', 'daily-menu-planner-printable', 'monthly-menu-planner-printable',
   'health-log-sheet-printable', 'emergency-info-card-printable', 'doctor-visit-sheet-printable', 'caregiver-daily-log-printable',
   'monthly-household-budget-sheet-printable', 'warranty-service-record-printable', 'udhaar-credit-ledger-printable', 'daily-cash-sales-sheet-printable', 'stock-count-sheet-printable', 'pet-vaccination-tracker-printable', 'pet-sitter-instructions-printable',
+  'lock-a-file-with-password',
 ];
 
 export interface CollectionSpec {
@@ -81,7 +82,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'solar-system-explorer',
   ] },
   { id: 'sharing', icon: 'grid', tools: [
-    'qr-code-generator', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
+    'password-protected-document-maker', 'qr-code-generator', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
   ] },
   { id: 'dev', icon: 'file-code', tools: [
     'json-formatter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',
