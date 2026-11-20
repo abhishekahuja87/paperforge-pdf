@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/study-planner',
+    tool: 'Study Planner',
+    title: 'Fits small phone screens',
+    summary: 'Subject rows now wrap on narrow phones, so the Remove button no longer slides off the screen.',
+  },
+  {
+    date: '2026-11-20',
     path: '/sign-pdf',
     tool: 'Documents, photos and sheets',
     title: 'New: sign PDF, document scanner, signature maker, photo tools, stamp maker, Secret Santa, ID cards, UPI stand, menu card and question paper',
