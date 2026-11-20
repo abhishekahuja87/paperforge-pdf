@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/fill-pdf',
+    tool: 'New tools',
+    title: 'New: Fill PDF, photo name and date strip, WhatsApp link, barcode generator, random name picker and team generator',
+    summary: 'Type text, ticks and dates onto any PDF, add a name and date strip to an exam photo and keep it under a size in KB, make a WhatsApp chat link and QR code, print Code 128 and EAN-13 barcode labels, and pick random names or split a group into teams. All in your browser.',
+  },
+  {
+    date: '2026-11-20',
     path: '/image-resizer',
     tool: 'Photo tools',
     title: 'Take a photo straight from your phone camera',

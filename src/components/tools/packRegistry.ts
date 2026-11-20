@@ -20,6 +20,7 @@ import { BIZCARD_COMPONENTS } from './bizcards/registry';
 import { HIRING_COMPONENTS } from './hiring/registry';
 import { KIDS_COMPONENTS } from './kids/registry';
 import { DOCS_COMPONENTS } from './docs/registry';
+import { TOOLKIT_COMPONENTS } from './toolkit/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -47,4 +48,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...HIRING_COMPONENTS,
   ...KIDS_COMPONENTS,
   ...DOCS_COMPONENTS,
+  ...TOOLKIT_COMPONENTS,
 };

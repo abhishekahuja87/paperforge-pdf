@@ -1,0 +1,456 @@
+{
+  "guideSteps": {
+    "photo-name-date-strip": [
+      [
+        "Add your photo",
+        "Choose a photo from your phone or computer, or tap Take a photo to use the camera."
+      ],
+      [
+        "Type the name and date",
+        "Enter your name and the date in the way your form asks, such as 20/11/2026. Pick a white, yellow or black strip."
+      ],
+      [
+        "Set the size",
+        "Choose the width in pixels and, if the form has a limit, the size in KB. The tool lowers the quality until the file fits."
+      ],
+      [
+        "Download the JPG",
+        "Check the preview, download the JPG and upload it to your form."
+      ]
+    ],
+    "fill-pdf": [
+      [
+        "Choose the PDF",
+        "Open the PDF form or document from your phone or computer."
+      ],
+      [
+        "Choose what to add",
+        "Pick Text, Tick or Cross. For text, type it and set the size and colour. Tap Today's date to fill the date."
+      ],
+      [
+        "Tap to place it",
+        "Tap the page where it should go. Drag anything you added to move it, or remove it from the list."
+      ],
+      [
+        "Download",
+        "Download the filled PDF and check every page before you send it."
+      ]
+    ],
+    "whatsapp-link-generator": [
+      [
+        "Enter the number",
+        "Choose the country code and type the WhatsApp number without the country code."
+      ],
+      [
+        "Add a message",
+        "Optionally type the first message people will see ready to send, such as Hi, I want to order."
+      ],
+      [
+        "Copy the link",
+        "Copy the wa.me link or use Test the link to check it opens the chat."
+      ],
+      [
+        "Download the QR code",
+        "Download the QR code as a PNG and print it for your shop or add it to a poster."
+      ]
+    ],
+    "barcode-generator": [
+      [
+        "Choose the type",
+        "Pick Code 128 for any text or number, or EAN-13 for a 12 or 13 digit retail number."
+      ],
+      [
+        "Type the value",
+        "Enter the SKU, number or text. The barcode appears straight away, and a mistake is explained in plain words."
+      ],
+      [
+        "Adjust and download",
+        "Set the bar height and whether the number shows, then download the PNG."
+      ],
+      [
+        "Print a label sheet",
+        "Add an item name or price, choose 12, 21 or 24 labels, and download an A4 PDF to print."
+      ]
+    ],
+    "random-name-picker": [
+      [
+        "Add the names",
+        "Type or paste the names, one per line or separated by commas."
+      ],
+      [
+        "Choose how many",
+        "Set how many names to pick, and keep Do not pick the same name twice on if you want a fair round."
+      ],
+      [
+        "Press Pick now",
+        "Watch the short spin. The picked names appear in the big box."
+      ],
+      [
+        "Pick again",
+        "Pick the next winner, or press Start over to use the whole list again."
+      ]
+    ],
+    "random-team-generator": [
+      [
+        "Add the names",
+        "Paste the names, one per line or separated by commas."
+      ],
+      [
+        "Choose teams or order",
+        "Pick Random teams or A shuffled order. For teams, choose a number of teams or people per team."
+      ],
+      [
+        "Press the button",
+        "Make teams, or shuffle the order for seats, turns or presentations."
+      ],
+      [
+        "Copy the result",
+        "Copy the teams or the numbered list, or press the button again for a new shuffle."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "photoNameDateStripGuide": {
+      "title": "Photo Name and Date Strip: Add Your Name and Date Under a Photo for Forms",
+      "subtitle": "Add a name and date strip under or above a photo, set the width, keep the JPG under a size in KB and download it for exam and application forms.",
+      "faq": [
+        [
+          "What does this tool do?",
+          "It puts a strip with your name and the date under or above a photo, then saves the result as a JPG at the width and size you choose."
+        ],
+        [
+          "Which strip colour should I use?",
+          "Use the colour your form asks for. White with dark text is the most common, and yellow and black are there for forms that ask for a different strip. If your form does not say, white is a safe start."
+        ],
+        [
+          "How do I keep the file under 50 KB?",
+          "Type 50 in the size box. The tool saves the photo at a high quality first, then lowers the quality, and then the pixel size, until the file is under your limit. Check that the face is still clear."
+        ],
+        [
+          "Does the strip cover the face?",
+          "No. The strip is added outside the photo, so the picture is not cropped or covered. The photo gets taller by the strip height."
+        ],
+        [
+          "Can I use the phone camera?",
+          "Yes. On a phone or tablet, tap Take a photo. A plain background, even light and a straight-on face give the best result."
+        ],
+        [
+          "Will my form accept this?",
+          "Forms differ in the strip size, colour, wording and date format, and some ask for a printed board in the picture instead. Read your form's instructions and check the preview before you upload."
+        ],
+        [
+          "Is my photo uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "fillPdfGuide": {
+      "title": "Fill PDF: Type Text, Ticks and Dates onto a PDF Form Online",
+      "subtitle": "Type text, ticks, crosses and dates onto any PDF page: tap to place, drag to move, then download the filled PDF. It all happens in your browser.",
+      "faq": [
+        [
+          "What does Fill PDF do?",
+          "It lets you put typed text, tick marks and crosses on any PDF page, so you can complete a form without printing and scanning it."
+        ],
+        [
+          "Does it work on scanned forms?",
+          "Yes. A scanned form is a picture of a page, and the text and marks are placed on top of it wherever you tap."
+        ],
+        [
+          "Does it fill the form fields inside the file?",
+          "No. It writes on the page itself. That works for every PDF, including ones with no fields, but it does not read or fill the form's own fields."
+        ],
+        [
+          "Can I type Hindi or the rupee sign?",
+          "Not yet. Only letters, digits and standard keyboard symbols are supported. Write Rs. for rupees."
+        ],
+        [
+          "Can I move something after I place it?",
+          "Yes. Drag it on the page, or remove it from the list below the page and add it again."
+        ],
+        [
+          "Is this a signature?",
+          "No. It places plain text and marks. To add a picture of your signature, use the Sign PDF tool on the file afterwards. It is not a certified digital signature."
+        ],
+        [
+          "Is my PDF uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "whatsappLinkGeneratorGuide": {
+      "title": "WhatsApp Link Generator: Make a wa.me Chat Link and QR Code with a Message",
+      "subtitle": "Make a wa.me WhatsApp link and a QR code that opens a chat with your number and a ready-typed first message. It runs in your browser.",
+      "faq": [
+        [
+          "What is a wa.me link?",
+          "It is a web address that opens a WhatsApp chat with a number. Tapping it on a phone opens WhatsApp, and on a computer it opens WhatsApp Web or the desktop app."
+        ],
+        [
+          "Do I include the country code?",
+          "Pick the country in the list and type the number without it. The tool joins them and removes spaces, dashes and a leading zero."
+        ],
+        [
+          "What does the first message do?",
+          "It is placed in the message box when the chat opens, so the person only has to press send. They can still edit it."
+        ],
+        [
+          "Can I use it for a business?",
+          "Yes. Put the link in a social media bio, a website button or a printed QR code so customers can message you in one tap."
+        ],
+        [
+          "Why does the link not open?",
+          "Check the number has the right country code and no extra digits. Use Test the link, and make sure the number is on WhatsApp."
+        ],
+        [
+          "Can anyone with the link message me?",
+          "Yes. Anyone who has the link or QR code can start a chat with that number, so share it only where you want to be contacted."
+        ],
+        [
+          "Is my number uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "barcodeGeneratorGuide": {
+      "title": "Barcode Generator: Make Code 128 and EAN-13 Barcodes and Print a Label Sheet",
+      "subtitle": "Make Code 128 and EAN-13 barcodes, download a PNG or print an A4 sheet of labels with an item name or price. It all happens in your browser.",
+      "faq": [
+        [
+          "Which barcode type should I use?",
+          "Use Code 128 for stock codes, file numbers and any text with letters. Use EAN-13 only for 13 digit retail numbers."
+        ],
+        [
+          "What happens to the last EAN-13 digit?",
+          "If you type 12 digits the tool adds the check digit. If you type 13, it checks the last digit and tells you the right one if it is wrong."
+        ],
+        [
+          "Can I sell products with these EAN numbers?",
+          "Numbers for products sold in shops and online marketplaces are issued through GS1. Use your own EAN-style numbers only for internal use."
+        ],
+        [
+          "Will a scanner read it?",
+          "Code 128 and EAN-13 are standard types read by normal scanners and phone scanner apps. Print at 100% size, keep the bars black on white, and test one label first."
+        ],
+        [
+          "How many labels fit on a sheet?",
+          "You can print 12, 21 or 24 labels on an A4 page. Each label has the barcode, and an optional item name or price above it."
+        ],
+        [
+          "Can I use letters and symbols?",
+          "Yes in Code 128, for standard English letters, digits and symbols. Accents and emoji are not supported."
+        ],
+        [
+          "Is my data uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "randomNamePickerGuide": {
+      "title": "Random Name Picker: Pick a Winner or a Student at Random from a List",
+      "subtitle": "Paste a list of names, pick one or several at random with a short spin, and avoid repeats. Fair random numbers, no sign-up, and nothing is saved.",
+      "faq": [
+        [
+          "How does the picker choose?",
+          "It uses your browser's secure random number generator and picks without any pattern, so every name has the same chance."
+        ],
+        [
+          "Can the same name be picked twice?",
+          "Not by default. Turn off Do not pick the same name twice if you want every pick to use the whole list."
+        ],
+        [
+          "Can I pick more than one name?",
+          "Yes. Set how many to pick, up to 20, and they are chosen together from the names that are left."
+        ],
+        [
+          "What if two people have the same name?",
+          "Both are kept in the list as separate entries, so add a letter or surname to tell them apart."
+        ],
+        [
+          "Can I use it for a raffle or giveaway?",
+          "Yes, for a simple draw among names you hold. It does not collect entries, so it cannot prove a draw to others."
+        ],
+        [
+          "How long can the list be?",
+          "Up to 500 names, one per line or separated by commas."
+        ],
+        [
+          "Are my names uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "randomTeamGeneratorGuide": {
+      "title": "Random Team Generator: Split a Class or Group into Teams or Shuffle the Order",
+      "subtitle": "Split a class or group into fair random teams by number of teams or people per team, or shuffle names into a numbered order. Nothing is saved or sent.",
+      "faq": [
+        [
+          "How are the teams made?",
+          "The names are shuffled with secure random numbers and dealt out one by one, so team sizes never differ by more than one."
+        ],
+        [
+          "Can I choose the team size?",
+          "Yes. Choose People per team and the tool works out how many teams are needed."
+        ],
+        [
+          "What is the shuffled order for?",
+          "It gives a random numbered list, useful for presentation turns, seating, queue order or who goes first."
+        ],
+        [
+          "Can I keep some people together?",
+          "Not in this tool. Every shuffle is fully random. Shuffle again if a team does not suit you."
+        ],
+        [
+          "What if the team count does not divide evenly?",
+          "Some teams get one extra person. For 7 names in 3 teams you get teams of 3, 2 and 2."
+        ],
+        [
+          "How many names can I use?",
+          "Up to 500 names, one per line or separated by commas."
+        ],
+        [
+          "Are my names uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "photo-name-date-strip": {
+      "sections": [
+        {
+          "heading": "What the photo name and date strip is",
+          "paragraphs": [
+            "Some exam, recruitment and application forms ask for a photo with your name and the date written below it. This tool adds that strip for you, so you do not need an editing app or a printed board.",
+            "It runs in your browser. The photo is read on your device, drawn on a canvas with the strip, and saved as a JPG."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Writing a name strip by hand is slow and the result is often crooked or too small to read. A clear strip with matching text, the right date and a file size under the limit saves a rejected upload and a second attempt."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Take the photo in good light against a plain wall, and keep the face straight and centred. Type the name exactly as it appears on your documents, and use the date format the form shows. Always check the form's own rules, because requirements change between exams and years."
+          ]
+        }
+      ]
+    },
+    "fill-pdf": {
+      "sections": [
+        {
+          "heading": "What Fill PDF is",
+          "paragraphs": [
+            "Fill PDF puts text and marks directly on the pages of a PDF. You choose the text, tap where it should go, and the file is saved with your additions.",
+            "The page is shown in your browser, and the new PDF is made on your device with the original pages unchanged underneath."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Many forms arrive as PDFs or scans with no fillable fields. Printing, writing and scanning again costs time and paper and often gives a poor copy. Typing on the page gives a clean file you can send straight away."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Zoom in on your screen to place text accurately, keep the size close to the printed text, and use the date button to avoid typos. Download the file and look at each page before you send it, because the position on screen is only a preview."
+          ]
+        }
+      ]
+    },
+    "whatsapp-link-generator": {
+      "sections": [
+        {
+          "heading": "What the WhatsApp link generator is",
+          "paragraphs": [
+            "WhatsApp lets you build a chat link in the form wa.me followed by the number, with an optional message. This tool builds that link from your number and message and draws a QR code for it.",
+            "The number and message are used in your browser to build the link and QR code. Nothing is sent to a server."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A chat link saves customers from saving your number and starting a chat by hand. A small shop, a tutor or a home business can put it on a card, a menu or a shop board and get orders and questions in one scan."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the first message short and clear, and say what the person wants, such as the item or class. Test the link on your own phone before you print the QR code, and print it large enough to scan from a short distance."
+          ]
+        }
+      ]
+    },
+    "barcode-generator": {
+      "sections": [
+        {
+          "heading": "What the barcode generator is",
+          "paragraphs": [
+            "A barcode turns a number or text into bars that a scanner can read. This tool draws Code 128, which handles any standard text, and EAN-13, which is the 13 digit format used on retail products.",
+            "The bars are drawn on your device from the exact standard patterns, and the check digit or checksum is worked out for you."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Shelf labels, stock bags, file boxes and assets are quicker to count and find when each has a scannable code. A sheet of labels on plain paper is cheap to print at home or in a nearby shop."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the barcode large, black on a white background, and leave blank space on both sides. Avoid shrinking it when you print, and test a printed label with a real scanner or a phone scanner before you label everything."
+          ]
+        }
+      ]
+    },
+    "random-name-picker": {
+      "sections": [
+        {
+          "heading": "What the random name picker is",
+          "paragraphs": [
+            "The random name picker chooses one or more names from a list you paste. A short spin shows names flicking by before the final names are shown."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Teachers use it to call on a student, groups to decide who goes first, and small organisers to draw a winner. A fair, visible random pick avoids arguments about who was chosen."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Check the list for spelling and duplicates before you pick. Keep no-repeat on when everyone should get one turn, and press Start over to begin a new round. For public draws, show the screen while you pick."
+          ]
+        }
+      ]
+    },
+    "random-team-generator": {
+      "sections": [
+        {
+          "heading": "What the random team generator is",
+          "paragraphs": [
+            "The random team generator splits a list of names into teams, or puts them in a random numbered order. You choose the number of teams or the people per team."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Picking teams by hand takes time and can feel unfair. A random split is quick and easy to accept for class activities, sports days, quizzes and office games."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Paste the full list once, make the teams, and copy the result to share it. Press the button again for a new split. For mixed-ability groups, shuffle until the teams look balanced to you."
+          ]
+        }
+      ]
+    }
+  }
+}

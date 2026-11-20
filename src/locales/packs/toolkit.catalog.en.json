@@ -1,0 +1,28 @@
+{
+  "toolCatalog": {
+    "photo-name-date-strip": [
+      "Photo Name and Date Strip: Add Your Name and Date Under a Photo for Forms",
+      "Add a name and date strip to a photo, set the width and keep the JPG under a size in KB. Works on a phone camera photo. Free and private."
+    ],
+    "fill-pdf": [
+      "Fill PDF: Type Text, Ticks and Dates onto a PDF Form Online",
+      "Open any PDF, tap the page to type text, ticks and crosses, drag them into place and download the filled PDF. Free and private."
+    ],
+    "whatsapp-link-generator": [
+      "WhatsApp Link Generator: Make a wa.me Chat Link and QR Code with a Message",
+      "Make a WhatsApp chat link and QR code for your number with a ready-typed first message. Free, private and no sign-up."
+    ],
+    "barcode-generator": [
+      "Barcode Generator: Make Code 128 and EAN-13 Barcodes and Print a Label Sheet",
+      "Make a Code 128 or EAN-13 barcode, download it as a PNG or print a sheet of labels on A4. Free and private."
+    ],
+    "random-name-picker": [
+      "Random Name Picker: Pick a Winner or a Student at Random from a List",
+      "Paste a list of names and pick one or more at random, without repeats. Fair, quick and private. Works on a phone."
+    ],
+    "random-team-generator": [
+      "Random Team Generator: Split a Class or Group into Teams or Shuffle the Order",
+      "Split a list of names into fair random teams, by number of teams or people per team, or shuffle the order. Free and private."
+    ]
+  }
+}
