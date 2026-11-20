@@ -116,4 +116,9 @@ export const RECORDS_COMPONENTS: Record<string, LazyExoticComponent<ComponentTyp
   mkInvoiceTracker: screen('MkInvoiceTrackerPage'),
   mkFreelanceProjectTracker: screen('MkFreelanceProjectTrackerPage'),
   mkClientContactList: screen('MkClientContactListPage'),
+  recIdCard: screen('DcIdCardMakerPage'),
+  recUpiStand: screen('DcUpiPaymentQrStandPage'),
+  recWifiSign: screen('DcWifiPasswordSignPage'),
+  recMenuCard: screen('DcRestaurantMenuCardPage'),
+  recQuestionPaper: screen('DcQuestionPaperTemplatePage'),
 };

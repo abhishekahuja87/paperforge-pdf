@@ -994,3 +994,14 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 - Name tags: paste two columns from Excel (name, class): each tag shows two lines. A list longer than one page makes more pages (up to 12).
 - Paper maker, Planner, Meal planner, Care sheets: pick Ocean + Serif; calendars get a blue header band, titles turn blue, text is in Times. Classic or an older ink tone looks as before. Shared paper links with no theme still open.
 - Courier on the meal planner and care sheets: typed dishes and medicines still wrap inside their cells.
+
+### Documents, photos and shop sheets: 13 pages (20 Nov)
+- /signature-maker: draw with a finger, Undo, Clear, change ink and thickness; Type it shows a script name; download PNG (see-through and white background); the picture is trimmed to the ink.
+- /sign-pdf: open a PDF, draw or upload a signature (turn on "see-through" for a photo on white paper), tap the page to place it, size slider, this page / last page / every page; the downloaded PDF shows it in the right place on a phone and a computer. A password PDF gives a clear message.
+- /document-scanner: Take a photo opens the camera on a phone; Choose pictures takes several; check Clean colour, Clean gray, Black and white; rotate, trim, reorder, remove; PDF in A4 and in picture size; a very large photo still works.
+- /passport-photo-sheet-maker: crop with zoom and move; 35x45, 2x2, custom size; 4x6, 5x7 and A4 fill; print the PDF at 100% and measure a photo with a ruler.
+- /photo-grid-splitter: 3x3 square and 3x1; the zip has numbered JPGs; numbering runs 1 at the bottom right to the highest at the top left.
+- /photo-collage-maker: 2 to 9 photos, grid and one-big layouts, gap, rounded corners, story and A4 sizes.
+- /secret-santa-generator: 4 names with a pair rule, nobody draws themselves or a banned partner; each name opens once; impossible rules show a message.
+- /stamp-maker: round and rectangle, curved text fits, worn ink, PNG is see-through.
+- /id-card-maker-printable (8 cards on A4, logo in the band, typed and blank), /upi-payment-qr-stand-printable (scan the printed code with a real UPI app; name and amount match), /wifi-password-sign-printable (scan with a phone camera and join), /restaurant-menu-card-printable (sections, leaders, two columns, a long menu goes onto a second page), /question-paper-template-printable (marks add up, MCQ options, =b answer key page, long paper paginates).
