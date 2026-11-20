@@ -98,6 +98,8 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'learn-the-clock': ['teach kids time', 'read analog clock', 'clock for children'],
   'kids-money-shop': ['play shop kids', 'indian rupee notes for kids', 'counting money for kids', 'giving change'],
   'tambola-ticket-generator': ['housie tickets', 'bingo tickets printable', 'tambola number caller', 'tambola party'],
+  'password-protected-document-maker': ['send salary slip safely', 'share bank details safely', 'send id proof securely', 'confidential letter with password', 'encrypted letter', 'safe way to send documents', 'password protected letter maker', 'document without cloud upload', 'private notes with password', 'secure offer letter'],
+  'lock-a-file-with-password': ['send pdf with password', 'encrypt word document', 'lock excel with password', 'password protect any file', 'share file without google drive', 'safe file sharing without upload', 'password protected attachment'],
   'qr-code-generator': ['make a qr code', 'qr code for link', 'qr code for text', 'free qr code', 'qr with logo', 'upi qr code'],
   'bulk-qr-code-generator': ['many qr codes at once', 'qr codes from csv', 'qr code sheet'],
   'wifi-qr-code-generator': ['share wifi with qr', 'guest wifi qr'],

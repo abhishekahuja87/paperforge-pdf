@@ -982,8 +982,8 @@
       "description": "Games and practice for children and family fun: learn to tell the time on a clock you can move, practise sums step by step, play shop with rupee notes and coins, explore shadows and the solar system, and print tambola tickets with a number caller."
     },
     "sharing": {
-      "name": "QR codes and contacts",
-      "description": "Make QR codes for links, text, Wi-Fi and contacts, and convert contact (.vcf) files to CSV or Excel, even very large ones, without uploading them."
+      "name": "Share privately: documents, QR codes, contacts",
+      "description": "Write a document or pick a file and lock it with a password so you can send it without uploading it anywhere, make QR codes for links, text, Wi-Fi and contacts, and convert contact (.vcf) files to CSV or Excel, even very large ones."
     },
     "dev": {
       "name": "Developer and data tools",
