@@ -1034,3 +1034,9 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 - Offline: open a few tools online, then turn on airplane mode and open the app: home and the visited tools open and work (merge, compress, calculators); a tool never opened offline falls back to the home page. Ads simply do not show.
 - After a new deploy, reload once online: the new version appears (pages are network first). DevTools > Application > Service Workers shows /sw.js activated; the cache holds only same-site files (no googlesyndication, no googletagmanager).
 - Google Search Console: pages still fetch normally with "Test live URL" (the service worker does not affect crawlers).
+
+### Why trust us page and 11 new guides (20 Nov)
+- /why-trust-us opens from the footer ("Why trust us") and from About; one H1, no horizontal scroll at 360 px; the links at the bottom work; after a build the page is in dist/why-trust-us/index.html and in the sitemap.
+- Run the two-minute test on the page yourself: open Merge PDF, go offline, merge two PDFs, it still works.
+- /guides lists 45 guides; open each new one (sign PDF, fill PDF, scan, passport photos, name and date strip, WhatsApp link, barcode labels, UPI stand, Secret Santa, random teams, certificates and name tags): the "Try it" buttons open the right tools; every step matches the tool as it is today.
+- The "reduce a photo" and "passport photo and signature" guides now point to the Image Resizer presets and KB buttons, not to pages that no longer exist.

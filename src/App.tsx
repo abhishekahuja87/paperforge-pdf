@@ -43,6 +43,7 @@ const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => (
 const DisplayStudioPage = lazy(() => import('./pages/DisplayStudioPage').then((m) => ({ default: m.DisplayStudioPage })));
 const PosInvoiceStudioPage = lazy(() => import('./pages/PosInvoiceStudioPage').then((m) => ({ default: m.PosInvoiceStudioPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
+const TrustPage = lazy(() => import('./pages/TrustPage').then((m) => ({ default: m.TrustPage })));
 const EditorialPolicyPage = lazy(() => import('./pages/EditorialPolicyPage').then((m) => ({ default: m.EditorialPolicyPage })));
 const WhatsNewPage = lazy(() => import('./pages/WhatsNewPage').then((m) => ({ default: m.WhatsNewPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
@@ -139,6 +140,7 @@ export const App: React.FC = () => {
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/editorial-policy" element={<EditorialPolicyPage />} />
+              <Route path="/why-trust-us" element={<TrustPage />} />
               <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />

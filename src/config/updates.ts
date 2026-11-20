@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/why-trust-us',
+    tool: 'Guides and trust',
+    title: 'New "Why trust us" page and 11 guides for the newest tools',
+    summary: 'A plain page on who runs the site, what stays on your device, what is collected and a two-minute test you can run yourself. New guides cover signing and filling PDFs, scanning, passport photos, name and date strips, WhatsApp links, barcode labels, UPI stands, Secret Santa, random teams and printable certificates. Two older guides no longer point to resizer pages that were merged.',
+  },
+  {
+    date: '2026-11-20',
     path: '/',
     tool: 'Home page',
     title: 'Install the app, pin tools and see the ones you used lately',
