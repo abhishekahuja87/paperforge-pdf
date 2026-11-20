@@ -927,3 +927,11 @@ Checked: JSON parses and the config was read in Node; the styled home page and a
 ### Money topics (18 Nov)
 - [ ] Home has Tax, salary and GST (6 tools) and Loans and investing (9 tools) in place of one money topic; colours emerald and teal; tiles show EMI Calculator, SIP Calculator and so on (text before the colon); page titles show the longer names.
 - [ ] Search "emi", "fixed deposit maturity", "provident fund" find the right tools. Checked in Node; the styled page and a build were not run.
+
+### Health and care sheets (20 Nov)
+- [ ] The Printables topic shows one new tile, Medicine Schedule Chart Printable; the other four pages are not on the home page or under More tools but are in the sitemap, footer and search.
+- [ ] Each of the five addresses opens the same maker on its sheet; the five buttons change the address and keep name, doctor, medicines, paper and ink; Back returns to the previous sheet.
+- [ ] Medicine chart: type three medicines (one with 1/2 and one with a long name), set Large print, add two tick weeks. Plan page shows the amounts under the right part of the day, the note, and the reminder line; tick pages show a row per medicine and time with seven boxes and dates; the PDF matches the preview.
+- [ ] Health log: toggling columns re-spaces the table; rows and pages work (up to 20 pages). Emergency card: cards give 8 per A4 with cut lines, the fridge sheet one big card; long text wraps and ends with a dot dot dot. Visit sheet: each section can be switched off and the others grow. Caregiver log: 1 to 31 pages, correct weekday and date on each.
+- [ ] Print this page prints only the sheet shown at actual size. Search "medicine chart", "bp log", "emergency card" finds the tools.
+Checked in Node and an unstyled browser: all five layouts rendered and read by eye (plan, tick chart, cards, fridge sheet, log, visit, caregiver), the link flow with a router stand-in. Full tsc, vite build and the styled page were not run.

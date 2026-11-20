@@ -36,6 +36,7 @@ export const SIZE_PRESET_PATTERN = /^resize-image-to-(\d+)kb$/;
 export const VARIANT_PAGES = [
   'dot-grid-paper-generator', 'graph-paper-generator', 'cornell-notes-template', 'hexagon-graph-paper-generator', 'calligraphy-practice-sheet-generator', 'cross-stitch-pattern-grid-generator',
   'printable-calendar-maker', 'daily-planner-printable', 'daily-menu-planner-printable', 'monthly-menu-planner-printable',
+  'health-log-sheet-printable', 'emergency-info-card-printable', 'doctor-visit-sheet-printable', 'caregiver-daily-log-printable',
 ];
 
 export interface CollectionSpec {
@@ -65,7 +66,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'sports-court-size-guide', 'exercise-library', 'bmi-calculator',
   ] },
   { id: 'printables', icon: 'layers', tools: [
-    'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker',
+    'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',

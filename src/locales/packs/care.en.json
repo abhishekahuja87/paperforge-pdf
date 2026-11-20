@@ -1,0 +1,389 @@
+{
+  "guideSteps": {
+    "medicine-schedule-chart-printable": [
+      [
+        "Type the medicines",
+        "Copy each medicine name and strength from the prescription, and write the amount under Morning, Afternoon, Evening or Night. Leave a part of the day empty if the medicine is not taken then."
+      ],
+      [
+        "Add a food note",
+        "For each medicine choose before food, after food, with food, empty stomach or at bedtime, as the doctor or pharmacist told you."
+      ],
+      [
+        "Choose the tick charts",
+        "Pick how many weekly tick charts to print after the plan. Each week gets a row for every medicine and time, with a box for each day."
+      ],
+      [
+        "Print and keep",
+        "Check the preview, switch on Large print for easier reading, then download the PDF or print it and stick the plan where the medicines are kept."
+      ]
+    ],
+    "health-log-sheet-printable": [
+      [
+        "Choose the columns",
+        "Tick only what you measure, such as BP, pulse, fasting sugar, weight, temperature or SpO2. A date column and a notes column help the doctor read the log."
+      ],
+      [
+        "Set rows and pages",
+        "Choose how many rows fit on a page and how many pages to print, up to 20. Fewer, taller rows are easier to write in."
+      ],
+      [
+        "Add a name",
+        "Type the name of the person the log is for so the printed sheet is not mixed up with someone else's."
+      ],
+      [
+        "Download or print",
+        "Print it, keep it near the measuring device and take the filled sheets to the next appointment."
+      ]
+    ],
+    "emergency-info-card-printable": [
+      [
+        "Choose cards or a sheet",
+        "Wallet cards print eight to a page with cutting lines. The fridge sheet is one large card in big type that a paramedic or neighbour can read quickly."
+      ],
+      [
+        "Fill in the details",
+        "Type the name, blood group, allergies, health conditions, medicines taken, doctor and two people to call. Leave out anything you do not want printed."
+      ],
+      [
+        "Check the preview",
+        "Make sure the phone numbers and allergy names are spelled correctly. Long lines are wrapped and shortened with a dot dot dot if they do not fit."
+      ],
+      [
+        "Print, cut and carry",
+        "Print on thick paper if you can, cut along the box, fold or laminate it, and keep one in the wallet, one in the bag and a sheet on the fridge."
+      ]
+    ],
+    "doctor-visit-sheet-printable": [
+      [
+        "Add names and date",
+        "Type the person's name, the doctor or clinic and the visit date if you know it."
+      ],
+      [
+        "Pick the sections",
+        "Keep the sections you need: the problem, current medicines, allergies, questions, what the doctor said, and tests with the next visit date."
+      ],
+      [
+        "Set the question lines",
+        "Choose how many numbered lines to leave for questions, from 2 to 14."
+      ],
+      [
+        "Print and fill in before the visit",
+        "Write the problem and your questions before you go, so nothing is forgotten once you are in the room, and use the blank spaces to note what the doctor says."
+      ]
+    ],
+    "caregiver-daily-log-printable": [
+      [
+        "Choose the days",
+        "Pick the first day and how many days to print. Every day gets its own page."
+      ],
+      [
+        "Choose the parts of the day",
+        "Use 2 to 6 rows, such as Morning, Afternoon, Evening and Night, to match the care routine."
+      ],
+      [
+        "Add a name",
+        "Type the name of the person being cared for so every page is clearly labelled."
+      ],
+      [
+        "Print and fill in each shift",
+        "Whoever is on duty writes food and drink, medicines given, toilet and bath, mood and health, and their initials, then leaves notes in the handover box for the next person."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "medicineGuide": {
+      "title": "Medicine Schedule Chart Printable: Daily Pill Planner and Weekly Tick Chart",
+      "subtitle": "Make a printable medicine chart: type the medicines and when to take them, in large print, with weekly tick boxes. Free, no sign-up, nothing is uploaded.",
+      "faq": [
+        [
+          "How do I make a medicine chart for an elderly parent?",
+          "Type each medicine and strength from the prescription, write the amount under Morning, Afternoon, Evening or Night, and switch on Large print. Print the plan for the shelf where the medicines are kept, then print weekly tick charts so each dose can be ticked off."
+        ],
+        [
+          "How do I write 1-0-1 from a prescription?",
+          "In the common Indian shorthand the three numbers are morning, afternoon and night. So 1-0-1 means one in the morning, none in the afternoon and one at night: put 1 under Morning and 1 under Night. If the prescription is unclear, ask the doctor or pharmacist before you fill in the chart."
+        ],
+        [
+          "What do OD, BD and TDS mean on a prescription?",
+          "OD is once a day, BD is twice a day, TDS is three times a day and HS is at bedtime. They are standard short forms, but the pharmacist can confirm what your prescription means for the exact timings."
+        ],
+        [
+          "Can I use it for medicines that are taken only once a week?",
+          "Yes. Put the amount in the part of the day it is taken and write the weekday in the Note box or in the name, for example \"Folic acid, Sundays\". On the tick chart you tick only that day."
+        ],
+        [
+          "How many medicines can the chart hold?",
+          "Up to eight, with four parts of the day each. The weekly tick chart gets a row for every medicine and time that has an amount, so a busy schedule can still fit on one page."
+        ],
+        [
+          "Does this tell me what or how much to take?",
+          "No. It only organises what the doctor prescribed. It does not check doses, interactions or timings, and a printed reminder on the page says so. Always follow the doctor or pharmacist."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The chart is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "healthLogGuide": {
+      "title": "Health Log Sheet Printable: Blood Pressure, Sugar and Weight Tracker",
+      "subtitle": "Print a blank health log with the columns you choose: BP, pulse, sugar, weight, temperature, SpO2 and notes. Free, no sign-up, made in your browser.",
+      "faq": [
+        [
+          "What can I track on the health log?",
+          "Date, time, blood pressure, pulse, fasting sugar, sugar after a meal, weight, temperature, SpO2 and a notes column. Tick only the columns you measure, and the others are left out so the rest get more room."
+        ],
+        [
+          "Does the sheet say what a normal reading is?",
+          "No. It is a blank log with units in the headings, such as mmHg for blood pressure and mg/dL for sugar. What counts as a good reading depends on the person, so ask the doctor which values to watch for."
+        ],
+        [
+          "How do I make readings easier to compare?",
+          "Measure at the same time of day and under the same conditions each time, for example resting for a few minutes before a blood pressure reading, and note anything unusual in the Notes column. Readings taken in the same way are easier for a doctor to compare."
+        ],
+        [
+          "How many rows and pages can I print?",
+          "Between 8 and 40 rows on a page and up to 20 pages in one PDF. One reading a day for a month fits on a single page with 31 rows."
+        ],
+        [
+          "Can I print one for a whole family?",
+          "Print a separate sheet for each person with the name typed at the top, so the pages are never mixed up."
+        ],
+        [
+          "Should I bring the filled log to the doctor?",
+          "Yes, it helps. A written record of dates and readings is usually more useful than memory, and the notes column is a place to record symptoms or missed medicines."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "emergencyCardGuide": {
+      "title": "Emergency Info Card Printable: Wallet Card or Fridge Sheet",
+      "subtitle": "Print an emergency information card with allergies, conditions, medicines and contacts, as cut-out wallet cards or a large fridge sheet. Free and private.",
+      "faq": [
+        [
+          "What should go on an emergency information card?",
+          "The name, blood group, allergies, health conditions, regular medicines, the doctor and two people to call. Keep it to facts a stranger helping you would need, and leave out anything you do not want a passer-by to read."
+        ],
+        [
+          "What is the difference between wallet cards and the fridge sheet?",
+          "Wallet cards print eight to an A4 page with a box to cut along, a little larger than a bank card at about 90 by 58 mm. The fridge sheet is one large card in big type for a place where family, a neighbour or a paramedic can read it quickly."
+        ],
+        [
+          "Where should I keep the card?",
+          "One in the wallet, one in the bag or scooter box, and a sheet on the fridge or near the front door. Tell the family where they are. Phones also have a Medical ID or emergency information screen that can be reached from the lock screen, and a paper card is a useful backup."
+        ],
+        [
+          "Which number do I call in an emergency in India?",
+          "112 is the national emergency number. Local ambulance numbers vary by state, so write the ones that work where you live in the Call fields if you want them on the card."
+        ],
+        [
+          "What if my text is too long for the box?",
+          "Long entries are wrapped onto two lines and made a little smaller, then shortened with a dot dot dot. Keep each entry short, for example the names of the two or three most important medicines."
+        ],
+        [
+          "Should I keep the card up to date?",
+          "Yes. Reprint it when a medicine, an allergy or a phone number changes, and throw the old one away so nobody reads wrong information."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The card is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "doctorVisitGuide": {
+      "title": "Doctor Visit Sheet Printable: Notes and Questions to Ask",
+      "subtitle": "Print a one-page sheet to prepare for a doctor visit: the problem, current medicines, allergies, questions to ask and space for what the doctor says. Free.",
+      "faq": [
+        [
+          "How do I prepare for a doctor visit?",
+          "Write the main problem and when it started, list the medicines taken now and any allergies, and write your questions down before you go. This sheet has a section for each, with space to write what the doctor says."
+        ],
+        [
+          "What questions should I ask the doctor?",
+          "That depends on the visit. Common ones are what the problem is called, what the tests are for, how the medicine should be taken, what side effects to watch for and when to come back. Write the ones that matter to you in the numbered lines."
+        ],
+        [
+          "Why list medicines and allergies every time?",
+          "A doctor often needs to know everything the person already takes before prescribing, and a written list is less likely to miss something than memory. Include any supplements or home remedies."
+        ],
+        [
+          "Can I leave out sections I do not need?",
+          "Yes. Turn off any section and the others grow to use the page. You can also choose how many numbered question lines to print, from 2 to 14."
+        ],
+        [
+          "Can I use it for a child or a parent?",
+          "Yes. Type their name at the top, and fill in the sheet on their behalf. Bring the filled sheet and the prescriptions or medicine strips to the visit."
+        ],
+        [
+          "Does it give medical advice?",
+          "No. It is only a place to organise what you want to say and to note what you are told. It does not diagnose or suggest treatment."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "caregiverLogGuide": {
+      "title": "Caregiver Daily Log Printable: Day Sheet and Handover Notes",
+      "subtitle": "Print a daily care log with rows for food, medicines given, toilet, mood and initials, plus handover notes. One page a day, up to 31 days. Free.",
+      "faq": [
+        [
+          "What is a caregiver daily log for?",
+          "It is a shared written record of the day when more than one person looks after someone: family members taking turns, or a hired helper. Everyone can see what has been eaten, which medicines were given and how the person was."
+        ],
+        [
+          "What does each page record?",
+          "For every part of the day: food and drink, medicines given, toilet and bath, mood and health, and the initials of whoever did it. At the bottom there is a handover box for the next person."
+        ],
+        [
+          "How many days can I print?",
+          "From 1 to 31 days in one PDF, one page for each day, starting on the date you choose. The date and weekday are printed on every page."
+        ],
+        [
+          "Can I change the parts of the day?",
+          "You can choose between 2 and 6 rows, labelled Morning, Afternoon, Evening, Night, Late night and Early morning, to match how the day is organised."
+        ],
+        [
+          "Why write down which medicines were given?",
+          "If two people share the care, a written tick prevents a missed dose or a double dose when each assumes the other has given it. Pair it with a medicine chart so the plan and the record sit together."
+        ],
+        [
+          "Is this a medical record?",
+          "No. It is a home care notebook for the family. It does not replace the doctor's records, and anything worrying should be reported to the doctor."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "medicine-schedule-chart-printable": {
+      "sections": [
+        {
+          "heading": "What the medicine chart makes",
+          "paragraphs": [
+            "It makes two kinds of page. The plan is one sheet with the medicines down the side and Morning, Afternoon, Evening and Night across, with the amount to take written in each box and a note such as after food. The weekly tick chart has a row for each medicine and time, with a box for every day of the week.",
+            "Large print makes the names and amounts bigger, which helps elderly eyes. Everything is made in your browser, so nothing about the medicines is uploaded."
+          ]
+        },
+        {
+          "heading": "Who it helps",
+          "paragraphs": [
+            "It helps families looking after a parent on several medicines, people recovering from an illness, and anyone who finds it hard to remember whether a tablet has been taken. A paper chart on the fridge or beside the medicine box works even when nobody has a smartphone.",
+            "It also helps when several relatives share care: they all see the same plan and the same ticks."
+          ]
+        },
+        {
+          "heading": "Using it safely",
+          "paragraphs": [
+            "Copy the medicines exactly from the prescription, and ask the doctor or pharmacist if anything is unclear. The chart only organises what has been prescribed; it does not check doses or interactions. When the doctor changes a medicine, print a new plan and remove the old one so nobody follows outdated instructions.",
+            "Pair the chart with the other sheets on this site: the emergency card, the health log and the doctor visit sheet."
+          ]
+        }
+      ]
+    },
+    "health-log-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the health log is",
+          "paragraphs": [
+            "It is a blank table you can print, with the columns you choose: date, time, blood pressure, pulse, sugar before and after meals, weight, temperature, SpO2 and notes. The headings carry the usual units, such as mmHg and mg/dL.",
+            "There are no printed target values, because what is normal depends on the person. The doctor can tell you which readings matter."
+          ]
+        },
+        {
+          "heading": "Why keep a written log",
+          "paragraphs": [
+            "A doctor sees a patient for a few minutes. A sheet with dates and readings shows how things have been between visits, which is more useful than remembering. Writing the reading also makes missed days obvious.",
+            "Keep the sheet next to the measuring device so it is filled in straight away."
+          ]
+        },
+        {
+          "heading": "Making it work",
+          "paragraphs": [
+            "Choose only the columns you need so each one is wide enough to write in. Measure at the same time each day, note anything unusual in the Notes column, and bring the filled sheets to the appointment. Print a new sheet for each person, with their name at the top."
+          ]
+        }
+      ]
+    },
+    "emergency-info-card-printable": {
+      "sections": [
+        {
+          "heading": "What the emergency card is",
+          "paragraphs": [
+            "It is a small card with the information a helper needs if you cannot speak for yourself: name, blood group, allergies, health conditions, regular medicines, the doctor and two people to call. You can print eight wallet-size cards on one A4 page, or one large sheet for the fridge.",
+            "It is drawn in your browser, so the details you type are not uploaded anywhere."
+          ]
+        },
+        {
+          "heading": "Who needs one",
+          "paragraphs": [
+            "Anyone with an allergy, diabetes, heart or blood pressure problems, epilepsy or a long list of medicines, children with allergies, and elderly people living alone or travelling. It is also useful for anyone who does not carry a phone with a medical ID.",
+            "A paper card does not need a battery or a screen unlock, which is why it is a good backup."
+          ]
+        },
+        {
+          "heading": "Keeping it useful",
+          "paragraphs": [
+            "Keep the entries short and accurate. Print it on thicker paper and laminate it if you can. Put one in the wallet, one in the bag and a sheet on the fridge, and reprint when a medicine or number changes. In an emergency in India, 112 is the national number to call."
+          ]
+        }
+      ]
+    },
+    "doctor-visit-sheet-printable": {
+      "sections": [
+        {
+          "heading": "What the visit sheet is",
+          "paragraphs": [
+            "It is a one-page sheet to fill in before and during a doctor visit. It has space for the main problem and since when, the medicines taken now, allergies, numbered questions, what the doctor said, and tests with the next visit date.",
+            "You can turn off any section you do not need, and the rest grow to use the page."
+          ]
+        },
+        {
+          "heading": "Why prepare",
+          "paragraphs": [
+            "Appointments are short and it is easy to forget the important question once you are sitting down. Writing the problem and the questions in advance makes the visit calmer, and writing down the answers helps you follow the advice afterwards.",
+            "It helps most when you accompany a parent or a child, because you can write down what is said for the rest of the family."
+          ]
+        },
+        {
+          "heading": "How to use it",
+          "paragraphs": [
+            "Fill in the first sections at home. Bring the sheet with the prescriptions or medicine strips. During the visit, write the doctor's answers in the blank spaces. This sheet only organises information; it does not diagnose anything."
+          ]
+        }
+      ]
+    },
+    "caregiver-daily-log-printable": {
+      "sections": [
+        {
+          "heading": "What the caregiver log is",
+          "paragraphs": [
+            "It is a printable day sheet for looking after someone at home. Each page has rows for parts of the day, with columns for food and drink, medicines given, toilet and bath, mood and health, and initials, plus a handover box at the bottom.",
+            "You choose the first date and up to 31 days, and every page gets its own date and weekday."
+          ]
+        },
+        {
+          "heading": "When it helps",
+          "paragraphs": [
+            "It helps when family members take turns, when a helper comes in for part of the day, or when a person is recovering after a hospital stay. A shared sheet on the table means nobody has to rely on a phone call to find out what has already happened.",
+            "It is especially useful for medicines, where a written tick avoids a missed or a double dose."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the sheet in one fixed place. Whoever is on duty fills in their row and initials it, and uses the handover box for anything the next person should know. Report anything worrying to the doctor rather than waiting for the next visit."
+          ]
+        }
+      ]
+    }
+  }
+}

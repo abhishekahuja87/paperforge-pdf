@@ -4,6 +4,7 @@ import { STUDENTS_COMPONENTS } from './students/registry';
 import { FREELANCERS_COMPONENTS } from './freelancers/registry';
 import { PAPER_COMPONENTS } from './paper/registry';
 import { PLANNER_COMPONENTS } from './planner/registry';
+import { CARE_COMPONENTS } from './care/registry';
 import { QR_COMPONENTS } from './qr/registry';
 import { VCARD_COMPONENTS } from './vcard/registry';
 import { FLASHCARD_COMPONENTS } from './flashcards/registry';
@@ -27,6 +28,7 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...FREELANCERS_COMPONENTS,
   ...PAPER_COMPONENTS,
   ...PLANNER_COMPONENTS,
+  ...CARE_COMPONENTS,
   ...QR_COMPONENTS,
   ...VCARD_COMPONENTS,
   ...FLASHCARD_COMPONENTS,
