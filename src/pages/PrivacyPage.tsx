@@ -30,6 +30,9 @@ export const PrivacyPage: React.FC = () => {
           The site stores your language choice and tool-visit counts in your browser’s local storage. The counts are used to show labels such as “Frequent” or “Favorite.” These preferences stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
         </p>
         <p>
+          The home page can show a “Your tools” row. The tools you pin or open are remembered as a short list of tool names in this browser’s local storage and are never sent to MyDailyUtils; the Clear button removes them. The site also installs a small service worker so it can be added to a home screen and open offline: it keeps copies of this site’s own pages and files in your browser’s cache, never files you choose and never content from other sites such as advertising or analytics. Clearing site data removes both.
+        </p>
+        <p>
           Some tools keep what you type in this browser’s local storage on your device so it is there when you return. Nothing is sent to MyDailyUtils. The Offer Poster Maker saves the shop name, tagline, heading and the WhatsApp, Facebook and Instagram details automatically (product photos are not saved). Group settle-up saves its group title, people’s names and expenses automatically. The Resume Builder, Quotation Generator and Rent Receipt Generator save your details (for example names, contact details, address, a landlord’s PAN number and your terms) only when you tick their “remember” box. Untick the box or clear this site’s browser data to remove them. Do not use these on a shared computer.
         </p>
         <p>

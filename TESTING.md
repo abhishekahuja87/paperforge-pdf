@@ -1025,3 +1025,12 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 - /random-name-picker: 10 names, pick 1 then 3; no repeats until Start over; "Everyone has been picked" message; duplicate names are separate entries.
 - /random-team-generator: 7 names into 3 teams gives 3, 2, 2; people per team 3 gives 3 teams; shuffled order is numbered; Copy result pastes cleanly.
 - Home page lists the six tools; /sitemap.xml after a build lists them with dates.
+
+### Install app, Your tools and offline (20 Nov)
+- After deploy, in Chrome on Android: open the home page, the install bar shows Install (or the browser menu shows Install app); install, open the icon: it opens full screen with the orange wrench icon and no address bar. Long-press the icon: shortcuts Merge PDF, Image Resizer, Sign PDF.
+- iPhone Safari: the home page bar says tap Share then Add to Home Screen; Add; the icon is correct. Chrome on iPhone shows no bar.
+- Hide the bar with the X: it stays hidden for 30 days. Not shown inside the installed app.
+- Open three tools, go home: "Your tools" shows them under Recently used. On a tool page tap Pin (star turns filled): the tool moves to Pinned on the home page; tap again to unpin; Clear empties both; a private window does not break anything; search hides the row.
+- Offline: open a few tools online, then turn on airplane mode and open the app: home and the visited tools open and work (merge, compress, calculators); a tool never opened offline falls back to the home page. Ads simply do not show.
+- After a new deploy, reload once online: the new version appears (pages are network first). DevTools > Application > Service Workers shows /sw.js activated; the cache holds only same-site files (no googlesyndication, no googletagmanager).
+- Google Search Console: pages still fetch normally with "Test live URL" (the service worker does not affect crawlers).

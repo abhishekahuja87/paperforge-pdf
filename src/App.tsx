@@ -4,6 +4,7 @@ import { FocusModeProvider } from './lib/focusMode';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/common/ScrollToTop';
+import { VisitTracker } from './components/common/VisitTracker';
 import { PACK_TOOLS } from './config/packs';
 import { PageLoader } from './components/common/PageLoader';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
@@ -59,6 +60,7 @@ export const App: React.FC = () => {
     <Router>
       <FocusModeProvider>
       <ScrollToTop />
+      <VisitTracker />
       <div className="min-h-screen flex flex-col bg-[var(--theme-background)] text-stone-900">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-stone-900 focus:shadow-lg">Skip to main content</a>
         <Header />
