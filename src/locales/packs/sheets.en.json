@@ -1,0 +1,3008 @@
+{
+  "guideSteps": {
+    "exam-timetable-planner-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Riya Sharma, Class 9\" to print at the top right of every page."
+      ],
+      [
+        "Add the subjects",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Copy the dates from the school date sheet, write the chapters for each paper, and tick Revised when you finish."
+      ]
+    ],
+    "revision-planner-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Riya Sharma, Class 9\" to print at the top right of every page."
+      ],
+      [
+        "Add the topics",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write each topic, set a date to finish it, and tick a round each time you revise it. Mark Sure? with a tick, a question mark or a cross."
+      ]
+    ],
+    "assignment-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Riya Sharma, Class 9\" to print at the top right of every page."
+      ],
+      [
+        "Add the subjects or assignments",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write each assignment when it is given, note the due date, and tick Done when you have submitted it. Write the marks when they come back."
+      ]
+    ],
+    "weekly-study-timetable-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Riya Sharma, Class 9\" to print at the top right of every page."
+      ],
+      [
+        "Add the time slots",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Edit the time slots to match your day, then write the subject or activity in each box. Include school, tuition, play and rest."
+      ]
+    ],
+    "reading-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Riya Sharma, Class 9\" to print at the top right of every page."
+      ],
+      [
+        "Add the book titles",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write each book when you start it, add the finishing date, and score it. A line of notes helps you remember what you liked."
+      ]
+    ],
+    "chapter-syllabus-checklist-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Riya Sharma, Class 9\" to print at the top right of every page."
+      ],
+      [
+        "Add the chapters",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "List the chapters from your textbook index, then tick a box for each stage as you finish it."
+      ]
+    ],
+    "wedding-shagun-register-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Sharma wedding\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Ask a trusted person to write each name and amount as the gifts come in, so the family has a clear record to thank and to return the gesture later."
+      ]
+    ],
+    "guest-list-rsvp-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Sharma wedding\" to print at the top right of every page."
+      ],
+      [
+        "Add the guest names",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "List every guest, tick Invited when the card or call is done, write the reply, and add the number of people so you can tell the caterer."
+      ]
+    ],
+    "wedding-planning-checklist-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Sharma wedding\" to print at the top right of every page."
+      ],
+      [
+        "Add the tasks",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Edit the task list to suit your family, assign each task to a person, set a date, and tick Done when it is complete."
+      ]
+    ],
+    "event-budget-planner-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Sharma wedding\" to print at the top right of every page."
+      ],
+      [
+        "Add the items",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "List each cost with its vendor and estimate, write each advance as you pay it, and keep the balance column up to date."
+      ]
+    ],
+    "party-planning-checklist-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Sharma wedding\" to print at the top right of every page."
+      ],
+      [
+        "Add the tasks",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Edit the list for your party, assign helpers, set dates, and tick Done as each job is finished."
+      ]
+    ],
+    "festival-gift-list-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Sharma wedding\" to print at the top right of every page."
+      ],
+      [
+        "Add the names",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "List who you will give gifts to, write an idea and a budget for each, and tick Bought and Given as you go."
+      ]
+    ],
+    "kitty-party-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Sharma wedding\" to print at the top right of every page."
+      ],
+      [
+        "Add the members",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "List the members, tick or write the amount in each month as it is paid, and write the month each member hosts."
+      ]
+    ],
+    "baby-feeding-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Aarav\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the time of each feed, the type, how much or how long, and any note. Print a page for each day."
+      ]
+    ],
+    "baby-sleep-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Aarav\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the date, when the baby fell asleep and woke up, add up the hours, and mark whether it was a nap or night sleep."
+      ]
+    ],
+    "baby-diaper-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Aarav\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Tick Wet or Soiled for each change and write a short note if you want to remember something."
+      ]
+    ],
+    "kids-chore-chart-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Aarav\" to print at the top right of every page."
+      ],
+      [
+        "Add the chores",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Edit the chores for each child, print the sheet for the week, and let the child tick or colour a box each day."
+      ]
+    ],
+    "pocket-money-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Aarav\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the date and amount each time money comes in, write what it was spent on, and work out the balance after every entry."
+      ]
+    ],
+    "birthday-anniversary-list-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Aarav\" to print at the top right of every page."
+      ],
+      [
+        "Add the names",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write each name with the date and occasion, add a gift idea, and tick Remind when you have set a reminder on your phone."
+      ]
+    ],
+    "vehicle-service-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "After each service, write the date, the odometer reading, what was done, where, the cost and the next due date or reading."
+      ]
+    ],
+    "fuel-mileage-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "At each fill-up, write the odometer and the fuel and amount. Subtract the last odometer for the distance, and divide by litres for the mileage."
+      ]
+    ],
+    "vehicle-document-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Add the documents",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "List each paper, write its number and dates from the document itself, and write the date you renewed it."
+      ]
+    ],
+    "home-maintenance-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write each repair or servicing job when it is done, with who did it and what it cost, and note when it is next due."
+      ]
+    ],
+    "home-service-contacts-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Add the services",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Edit the services, then write the name, phone number, area and rate of the people you trust, and the date you last called them."
+      ]
+    ],
+    "home-inventory-list-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Add the items",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Walk through each room and write the items, the quantity, the purchase date and the value. Note the brand or model for appliances."
+      ]
+    ],
+    "rent-payment-record-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Add the months",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the rent due each month, then the date, the amount and the mode when it is paid, with the receipt number if you give one."
+      ]
+    ],
+    "utility-bill-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Honda City\" to print at the top right of every page."
+      ],
+      [
+        "Add the months",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the amount of each bill in its column, add the total for the month, and write the date they were paid."
+      ]
+    ],
+    "habit-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Edit the habits",
+        "Type your own habits one per line, up to 20, and choose the month, the year and how many months to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Print the sheet and write on it by hand, or download the PDF."
+      ]
+    ],
+    "monthly-expense-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write each purchase on the day you make it, with the category and how you paid. Add the amounts at the end of the month."
+      ]
+    ],
+    "savings-goal-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the goal and the target at the top. Each time you save, write the date, the amount and the new total."
+      ]
+    ],
+    "travel-packing-list-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Add the items",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Edit the list for your trip, then tick each item as it goes into the bag. Use the second column for extra items."
+      ]
+    ],
+    "travel-itinerary-planner-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write a row for each day: where you will be, where you will stay, how you will travel, the booking reference and the cost."
+      ]
+    ],
+    "grocery-shopping-list-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Add the items",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write what the kitchen needs, with quantities, and tick each item at the shop. Use the second column for extras."
+      ]
+    ],
+    "subscription-tracker-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Add the services",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "List every recurring payment, write the cost and how often it is billed, and note the date you would cancel or renew."
+      ]
+    ],
+    "workout-log-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the date and each exercise with the sets, reps and weight or time. Notes help you remember how it felt."
+      ]
+    ],
+    "customer-order-register-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write each order with the customer's name and phone, the amount, the advance taken and the delivery date. Tick Done when it is delivered and paid."
+      ]
+    ],
+    "petty-cash-voucher-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Add the business name",
+        "Optionally type the name of your business to print on each voucher, and choose how many pages."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Print the sheet and write on it by hand, or download the PDF."
+      ]
+    ],
+    "meeting-minutes-template-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Choose the pages and action rows",
+        "Pick how many pages to print and how many rows the action table should have."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Print the sheet and write on it by hand, or download the PDF."
+      ]
+    ],
+    "weekly-timesheet-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Add the days",
+        "Type them one per line if you want them printed, then choose the rows and pages. You can edit them later."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Write the in and out times each day, subtract the break, and add the hours. Sign it with your supervisor at the end of the week."
+      ]
+    ],
+    "visitor-register-printable": [
+      [
+        "Add a heading",
+        "Optionally type a name such as \"Priya\" to print at the top right of every page."
+      ],
+      [
+        "Choose the rows and pages",
+        "Pick how many rows fit on a page and how many pages to print."
+      ],
+      [
+        "Pick paper and ink",
+        "Choose the paper size, margins and ink tone. The preview shows the page as it will print."
+      ],
+      [
+        "Print and fill in",
+        "Ask each visitor to write their name, number, purpose and sign in and out. Print a new page when one is full."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "examTimetablePlannerGuide": {
+      "title": "Exam Timetable Planner Printable: Date Sheet and Syllabus Tracker",
+      "subtitle": "Print an exam timetable planner: date, day, subject, time, syllabus to cover and a tick box for each paper. Free, no sign-up, made in your browser.",
+      "faq": [
+        [
+          "What columns does the exam timetable planner have?",
+          "It has these columns: Date, Day, Subject, Time, Chapters to cover, Revised. 14 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the subjects, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Where do I get the exam dates?",
+          "From your school or board date sheet. This sheet only holds the dates for you, so copy them in by hand once they are announced."
+        ],
+        [
+          "How is it different from a study planner?",
+          "The timetable lists the papers and dates. A study planner or revision planner divides the days before them into topics, so many students use both."
+        ],
+        [
+          "Can I stick it on a wall?",
+          "Yes. Print it on A4, or choose A3 for a larger sheet, and fix it above the study table where you see it every day."
+        ],
+        [
+          "Should I list papers in order?",
+          "Write them in date order. If two papers fall close together, use the chapters column to note what to revise first."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "revisionPlannerGuide": {
+      "title": "Revision Planner Printable: Topic-wise Study Tracker for Exams",
+      "subtitle": "Print a revision planner: list topics, set a target date and tick three revision rounds with a confidence mark. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the revision planner have?",
+          "It has these columns: No., Subject and topic, Target date, Round 1, Round 2, Round 3, Sure?. 20 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the topics, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What are the three revision rounds?",
+          "Each topic has three boxes, one for each time you go over it. Many students read the first time, revise a few days later and test themselves in the last round."
+        ],
+        [
+          "How do I use the Sure? column?",
+          "Mark a tick if you are confident, a question mark if you are partly sure and a cross if you need more time. The marks show where to spend the last days."
+        ],
+        [
+          "Can I use it for one subject?",
+          "Yes. Type the subject at the top and list its chapters, or print a page for every subject."
+        ],
+        [
+          "Does it tell me how much to study?",
+          "No. It holds your own plan. You choose the topics, the dates and how many rounds to do."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "assignmentTrackerGuide": {
+      "title": "Assignment Tracker Printable: Homework and Project Deadline Log",
+      "subtitle": "Print an assignment tracker: subject, task, date given, due date, a done tick and marks. Keep homework and projects on time. Free and private.",
+      "faq": [
+        [
+          "What columns does the assignment tracker have?",
+          "It has these columns: No., Subject, Assignment or project, Given on, Due on, Done, Marks. 18 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the subjects or assignments, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Is it for school or college?",
+          "Both. School students use it for homework and projects, and college students use it for assignments, lab files and submissions."
+        ],
+        [
+          "Why write the date given?",
+          "It shows how long you have had a task. If a long project was given a month ago, the sheet tells you to start now."
+        ],
+        [
+          "Can parents use it?",
+          "Yes. A parent can keep the sheet for a younger child and check the Done column each evening."
+        ],
+        [
+          "What should I do about late work?",
+          "Write a note in the Marks column or use the margin. The sheet is a personal record, so use it the way that helps you most."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "weeklyStudyTimetableGuide": {
+      "title": "Weekly Study Timetable Printable: Student Routine Chart",
+      "subtitle": "Print a weekly study timetable: time slots down the side and the seven days across. Plan school, tuition, study and rest. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the weekly study timetable have?",
+          "It has these columns: Time, Mon, Tue, Wed, Thu, Fri, Sat, Sun. 12 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the time slots, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "How many hours should I study?",
+          "That depends on your age, class and goals, so the sheet does not suggest a number. Plan what is realistic for you and adjust it after a week."
+        ],
+        [
+          "Can I change the time slots?",
+          "Yes. Type your own slots, one per line, up to 16. Use short slots for young children and long blocks for school time."
+        ],
+        [
+          "Is it good for children?",
+          "Yes. Many families print it for the whole house, let the child colour the boxes and fix it on the study wall."
+        ],
+        [
+          "What if my timetable changes each term?",
+          "Print a new sheet when the school timetable changes. The old one can be filed for reference."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "readingLogGuide": {
+      "title": "Reading Log Printable: Book Tracker for Students and Readers",
+      "subtitle": "Print a reading log: title, author, dates started and finished, pages, a star rating and notes. Free, no sign-up, made in your browser.",
+      "faq": [
+        [
+          "What columns does the reading log have?",
+          "It has these columns: No., Book title, Author, Started, Finished, Pages, Rating, Notes. 16 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the book titles, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What can I write in the Rating column?",
+          "Use stars, a score out of five or ten, or a word. It is only for you, so use whatever you will remember."
+        ],
+        [
+          "Is it good for a school reading challenge?",
+          "Yes. A teacher can ask students to keep the log and sign it each month. Print one page per month or one for the term."
+        ],
+        [
+          "Can I use it for library books?",
+          "Yes. Add the due date in the Notes column to remember when to return them."
+        ],
+        [
+          "Can adults use it?",
+          "Yes. Many readers keep a reading log to track books and avoid buying the same title twice."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "chapterSyllabusChecklistGuide": {
+      "title": "Chapter and Syllabus Checklist Printable: Subject Progress Tracker",
+      "subtitle": "Print a syllabus checklist: every chapter in a subject with boxes for read, notes made, practised and revised. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the chapter and syllabus checklist have?",
+          "It has these columns: No., Chapter or topic, Read, Notes, Practice, Revised, Tested. 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the chapters, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What do the columns mean?",
+          "They are stages for each chapter: read it, make notes, practise questions, revise and test yourself. Use as many as help you and ignore the rest."
+        ],
+        [
+          "How do I get the chapter list?",
+          "Copy it from the index of your textbook or the syllabus from your school or board. This sheet does not include any syllabus."
+        ],
+        [
+          "Can I use it for a whole class?",
+          "A teacher can print it for each subject and tick the stages as the class completes them."
+        ],
+        [
+          "How do I know when I am ready for the exam?",
+          "A page with mostly full boxes shows coverage. How well you know it is for you or your teacher to judge, using tests and practice."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "weddingShagunRegisterGuide": {
+      "title": "Wedding Shagun Register Printable: Gift and Money Record for Weddings",
+      "subtitle": "Print a wedding shagun register: name, relation, city, amount or gift and remarks, so you can thank everyone and return the gesture. Free and private.",
+      "faq": [
+        [
+          "What columns does the wedding shagun register have?",
+          "It has these columns: No., Name, Relation, City or place, Amount (Rs.), Gift, Remarks. 18 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Why keep a shagun register?",
+          "In many families the gifts received are returned on similar occasions, so a written record avoids mistakes and helps the family thank everyone."
+        ],
+        [
+          "Who should keep it?",
+          "A trusted relative or friend sits near the gift table and writes in the register as each gift arrives. Keep the sheet and the cash together."
+        ],
+        [
+          "Does it add up the amounts?",
+          "No. It is a printed record you fill by hand. Add the amounts at the end with a calculator."
+        ],
+        [
+          "Can I use it for other functions?",
+          "Yes. Type the function at the top for a baby naming, a housewarming, a birthday or an anniversary and print a new sheet."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "guestListRsvpTrackerGuide": {
+      "title": "Guest List and RSVP Tracker Printable: Wedding and Party Invitations",
+      "subtitle": "Print a guest list and RSVP tracker: name, phone, group, invitation sent, reply and headcount. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the guest list and rsvp tracker have?",
+          "It has these columns: No., Guest name, Phone, Group or side, Invited, Reply, People, Notes. 20 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the guest names, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What does RSVP mean?",
+          "It is a request to reply. The Reply column is where you write yes, no or maybe once a guest answers."
+        ],
+        [
+          "How do I count the total?",
+          "Add the People column for those who said yes. Keep a few extra for those who may come without telling you, and tell your caterer."
+        ],
+        [
+          "Can I split the list by family?",
+          "Yes. Use the Group or side column for the bride's or groom's side, family, friends or colleagues."
+        ],
+        [
+          "How many guests fit on a page?",
+          "Up to 30. Print more pages for a larger list."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "weddingPlanningChecklistGuide": {
+      "title": "Wedding Planning Checklist Printable: Task List with Dates and Budget",
+      "subtitle": "Print a wedding planning checklist: tasks, who is responsible, due date, budget and a done tick. Edit the task list to suit your family. Free and private.",
+      "faq": [
+        [
+          "What columns does the wedding planning checklist have?",
+          "It has these columns: No., Task, Who, Due date, Budget (Rs.), Done. 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the tasks, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Does it include every wedding task?",
+          "No. It starts with common items, and you can replace them with your own, since every family and region has different rituals and customs."
+        ],
+        [
+          "Who should hold the checklist?",
+          "One person coordinates, and other family members take tasks. Put a name in the Who column so each job has an owner."
+        ],
+        [
+          "How far ahead should I start?",
+          "That is for you and your family to decide. The Due date column lets you work back from the wedding date."
+        ],
+        [
+          "Can I add a budget?",
+          "Yes. The Budget column holds the amount for each task. For a full budget, use the event budget planner."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "eventBudgetPlannerGuide": {
+      "title": "Event Budget Planner Printable: Wedding and Party Expense Sheet",
+      "subtitle": "Print an event budget planner: item, vendor, estimate, advance paid, balance and date paid. For weddings, parties and functions. Free and private.",
+      "faq": [
+        [
+          "What columns does the event budget planner have?",
+          "It has these columns: No., Item, Vendor or person, Estimate (Rs.), Advance (Rs.), Balance (Rs.), Paid on, Notes. 20 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the items, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Does it calculate totals?",
+          "No. It is a sheet to fill in by hand. Add each column at the bottom with a calculator or write the totals in the notes."
+        ],
+        [
+          "What goes in the Advance column?",
+          "The amount paid in advance to the vendor. Write the date paid in the next column so you can match it with the receipt."
+        ],
+        [
+          "Can I use it for a small party?",
+          "Yes. Reduce the rows to five or ten, and use the items that apply to your party."
+        ],
+        [
+          "Should I keep receipts?",
+          "Yes. Staple the vendor's receipt to the sheet or file it, so the written figures and the paper agree."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "partyPlanningChecklistGuide": {
+      "title": "Party Planning Checklist Printable: Birthday and Home Party Planner",
+      "subtitle": "Print a party planning checklist: venue, food, decor, games, return gifts and more, with who and when. Edit the list. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the party planning checklist have?",
+          "It has these columns: No., Task, Who, By when, Done. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the tasks, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What kind of party is it for?",
+          "Any, from a child's birthday to a house warming or an anniversary dinner. Edit the tasks to suit the occasion."
+        ],
+        [
+          "Can children help?",
+          "Yes. Older children can take tasks like decorating or making a playlist, and tick them off themselves."
+        ],
+        [
+          "How do I plan the food?",
+          "Write the menu and quantities in the notes of the Food task, or keep a separate list. The checklist is for tasks, not recipes."
+        ],
+        [
+          "Is there a place for the guest list?",
+          "Use the guest list and RSVP tracker for that. It has columns for phone, invitation and headcount."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "festivalGiftListGuide": {
+      "title": "Festival Gift List Printable: Diwali, Eid and Christmas Gift Planner",
+      "subtitle": "Print a festival gift list: name, relation, gift idea, budget, bought and given. For Diwali, Eid, Christmas and other occasions. Free and private.",
+      "faq": [
+        [
+          "What columns does the festival gift list have?",
+          "It has these columns: No., Name, Relation, Gift idea, Budget (Rs.), Bought, Given, Notes. 20 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the names, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Why write a gift list?",
+          "It stops forgetting someone, keeps spending within your plan and helps you avoid giving the same gift two years running."
+        ],
+        [
+          "Can I use it for any festival?",
+          "Yes. Write the occasion at the top for Diwali, Eid, Christmas, Rakhi or a wedding season and print a new sheet for each."
+        ],
+        [
+          "How do I track spending?",
+          "Write the budget per person, and add the amounts at the end to see the total against your plan."
+        ],
+        [
+          "Can I keep the old lists?",
+          "Yes. File the sheets by year, and next time you can see what each person was given."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "kittyPartyTrackerGuide": {
+      "title": "Kitty Party Tracker Printable: Member Payment and Hosting Chart",
+      "subtitle": "Print a kitty party tracker: members down the side, twelve months across to tick payments, and a column for the hosting date. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the kitty party tracker have?",
+          "It has these columns: No., Member, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec, Hosts on. 20 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the members, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What is a kitty party?",
+          "A regular get-together of a group of friends or neighbours, where members often contribute a fixed amount each time and one member hosts or receives the pot in turn."
+        ],
+        [
+          "Is this for chit funds?",
+          "It is only a record sheet for a friendly group. Formal chit funds and committees are regulated, so follow the rules and paperwork that apply to you."
+        ],
+        [
+          "Can I change the month names?",
+          "The months are Jan to Dec. If your group starts in another month, mark the first column when you write the amounts."
+        ],
+        [
+          "Who should hold the sheet?",
+          "The group's treasurer or host. Keep a copy for each member or share a photo after each meeting."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "babyFeedingLogGuide": {
+      "title": "Baby Feeding Log Printable: Daily Feed Tracker for New Parents",
+      "subtitle": "Print a baby feeding log: time, type of feed, amount or minutes and notes, one page for each day. Records only. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the baby feeding log have?",
+          "It has these columns: Time, Type of feed, Amount or minutes, Notes. 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What should I write in the Type column?",
+          "Whatever is useful to you, such as breast, bottle, formula or solid food, and the side or the food."
+        ],
+        [
+          "How many feeds should there be?",
+          "Every baby is different and the sheet does not set a number. Ask your paediatrician what is right for your baby."
+        ],
+        [
+          "Can I use it for twins?",
+          "Yes. Print a separate sheet for each baby and write the name at the top."
+        ],
+        [
+          "Can I show it to the doctor?",
+          "Yes. Many parents bring a few days of the log to a check-up, so the doctor can see the pattern at a glance."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "babySleepLogGuide": {
+      "title": "Baby Sleep Log Printable: Nap and Night Sleep Tracker",
+      "subtitle": "Print a baby sleep log: date, time asleep, time awake, total and notes for naps and nights. Records only. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the baby sleep log have?",
+          "It has these columns: Date, Asleep at, Awake at, Total, Nap or night, Notes. 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "How much should my baby sleep?",
+          "The sheet does not say, because it varies by age and child. Ask your paediatrician. The log gives them a clear record to look at."
+        ],
+        [
+          "Can I track a whole week on one page?",
+          "Yes. Each row is one sleep, so a page holds about 24 sleeps, which is a few days for a newborn and a week or more for an older baby."
+        ],
+        [
+          "How do I add up the Total?",
+          "Subtract the time asleep from the time awake and write the hours and minutes."
+        ],
+        [
+          "Can I use it for a toddler?",
+          "Yes. It works for any age, and for a child who is working on a bedtime routine."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "babyDiaperLogGuide": {
+      "title": "Baby Diaper Log Printable: Nappy Change Tracker",
+      "subtitle": "Print a baby diaper log: time, wet or soiled ticks and notes for each change, one page for each day. Records only. Free and private.",
+      "faq": [
+        [
+          "What columns does the baby diaper log have?",
+          "It has these columns: Time, Wet, Soiled, Colour or type, Notes. 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Why would I log diapers?",
+          "Doctors sometimes ask how many wet and soiled diapers a baby has had. A written log lets you answer without guessing."
+        ],
+        [
+          "What counts as normal?",
+          "The sheet does not say. Ask your paediatrician what to expect and what to watch for."
+        ],
+        [
+          "What is the Colour or type column for?",
+          "A short word to describe what you saw, so you can mention it to the doctor if they ask."
+        ],
+        [
+          "Can I use it for cloth nappies?",
+          "Yes. Use the notes to write when a change was a cloth nappy or a wash day."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "kidsChoreChartGuide": {
+      "title": "Kids Chore Chart Printable: Weekly Responsibility Chart for Children",
+      "subtitle": "Print a kids chore chart: chores down the side, seven days across and a box for each tick. Edit the chores for each child. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the kids chore chart have?",
+          "It has these columns: Chore, Mon, Tue, Wed, Thu, Fri, Sat, Sun, Done. 10 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the chores, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What chores suit which age?",
+          "That depends on your child and your family. Start small and pick jobs your child can manage, and change the list as they grow."
+        ],
+        [
+          "Can I use it as a reward chart?",
+          "Yes. Add a line at the bottom for a reward the family agrees on, or count ticks at the end of the week."
+        ],
+        [
+          "Should each child have their own sheet?",
+          "Yes. Type the chores for one child, print, and repeat for the next, so each has a list that fits their age."
+        ],
+        [
+          "How many chores are too many?",
+          "The sheet allows up to 16, but a short list is easier to finish. Four to six chores is often enough for a young child."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "pocketMoneyTrackerGuide": {
+      "title": "Pocket Money Tracker Printable: Children's Savings and Spending Log",
+      "subtitle": "Print a pocket money tracker: date, money received, what it was spent on, amount spent and balance. Teach children saving and spending. Free and private.",
+      "faq": [
+        [
+          "What columns does the pocket money tracker have?",
+          "It has these columns: Date, Received (Rs.), Spent on, Spent (Rs.), Balance (Rs.). 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "How much pocket money should a child get?",
+          "That is a family decision. The sheet only records what you give and how it is used."
+        ],
+        [
+          "Does it teach saving?",
+          "It helps. Writing a goal at the top and watching the balance grow shows a child how saving works."
+        ],
+        [
+          "Who should fill it in?",
+          "The child, as far as they can, with a parent checking. Older children can keep it on their own."
+        ],
+        [
+          "Can it be used with a bank or digital wallet?",
+          "Yes. Write the amount in the same way. The sheet does not connect to any account."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "birthdayAnniversaryListGuide": {
+      "title": "Birthday and Anniversary List Printable: Important Dates Tracker",
+      "subtitle": "Print a birthday and anniversary list: name, date, relation, gift idea and reminder. Never forget a date again. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the birthday and anniversary list have?",
+          "It has these columns: No., Name, Date, Occasion, Relation, Gift idea, Remind. 24 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the names, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Why use paper when my phone has reminders?",
+          "Many people use both. The sheet is a clear list that anyone in the family can read, and it does not depend on a phone or a password."
+        ],
+        [
+          "Can I sort it by month?",
+          "Write the dates in order, or print twelve pages, one for each month, and keep them in a folder."
+        ],
+        [
+          "Can I add relatives' children?",
+          "Yes. Add as many rows as you need, up to 36, and print another page if you need more."
+        ],
+        [
+          "How do I keep it up to date?",
+          "Add a name when a new baby or couple joins the family, and review the sheet every January."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "vehicleServiceLogGuide": {
+      "title": "Vehicle Service Log Printable: Car and Bike Maintenance Record",
+      "subtitle": "Print a vehicle service log: date, odometer reading, work done, workshop, cost and next due, for a car, bike or scooter. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the vehicle service log have?",
+          "It has these columns: No., Date, Odometer (km), Work done, Workshop, Cost (Rs.), Next due. 18 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "How often should I service my vehicle?",
+          "Follow the schedule in your owner's manual or the advice of your workshop. This sheet only records what was done and when."
+        ],
+        [
+          "Can I use it for more than one vehicle?",
+          "Print a separate sheet for each vehicle and write the name and registration number at the top."
+        ],
+        [
+          "Is it useful when selling a vehicle?",
+          "Yes. A tidy service history helps show that the vehicle was looked after."
+        ],
+        [
+          "Should I keep the bills?",
+          "Yes. Staple them to the sheet or keep them in one folder with it."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "fuelMileageLogGuide": {
+      "title": "Fuel and Mileage Log Printable: Petrol, Diesel and CNG Fill-up Tracker",
+      "subtitle": "Print a fuel and mileage log: date, odometer, litres, amount, distance and km per litre. Track fuel use for a car or bike. Free and private.",
+      "faq": [
+        [
+          "What columns does the fuel and mileage log have?",
+          "It has these columns: No., Date, Odometer (km), Fuel (litres), Amount (Rs.), Distance (km), Mileage (km/l), Notes. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "How do I work out mileage?",
+          "Fill the tank, note the odometer, and at the next fill-up divide the kilometres driven by the litres put in. Write the result in the Mileage column."
+        ],
+        [
+          "Does it work for CNG or an EV?",
+          "Yes. Write kg or kWh in the notes or change the unit in your mind. The columns are the same."
+        ],
+        [
+          "Can it help me spot a problem?",
+          "A sudden drop in mileage can be worth mentioning to your mechanic. The sheet only helps you notice it."
+        ],
+        [
+          "How many fill-ups fit on a page?",
+          "Up to 30 rows, which is several months for most drivers."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "vehicleDocumentTrackerGuide": {
+      "title": "Vehicle Document Tracker Printable: Insurance, PUC and Licence Renewal Log",
+      "subtitle": "Print a vehicle document tracker: document, number, issue date, expiry date, renewed on and notes. Keep papers in order. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the vehicle document tracker have?",
+          "It has these columns: Document, Number, Issued on, Expires on, Renewed on, Where kept, Notes. 10 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the documents, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "How long is each document valid?",
+          "That depends on the document and the rules where you live, so the sheet does not list any. Write the dates printed on your own papers."
+        ],
+        [
+          "Should I write the numbers here?",
+          "Only if you are comfortable keeping them on paper. Store the sheet safely, since policy and licence numbers are private."
+        ],
+        [
+          "Can I add other papers?",
+          "Yes. Add up to 16 rows, for example a fastag, a parking permit or an extended warranty."
+        ],
+        [
+          "What about digital copies?",
+          "Many people keep photos in a locked folder as well. The sheet is a quick index of what you have and when it expires."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "homeMaintenanceLogGuide": {
+      "title": "Home Maintenance Log Printable: Repair and Servicing Record for Your House",
+      "subtitle": "Print a home maintenance log: date, area, work done, who did it, cost and next due. Record repairs and servicing for a house or flat. Free and private.",
+      "faq": [
+        [
+          "What columns does the home maintenance log have?",
+          "It has these columns: No., Date, Area or item, Work done, Done by, Cost (Rs.), Next due. 18 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What should I record?",
+          "Repairs, painting, plumbing and electrical work, appliance servicing, pest control and anything else you pay for in the house."
+        ],
+        [
+          "Is it useful for tenants and landlords?",
+          "Yes. A written record helps settle who paid for what, and shows what was repaired during a tenancy."
+        ],
+        [
+          "Does it say how often to service things?",
+          "No. Follow the maker's guidance and your technician's advice. The sheet holds the dates."
+        ],
+        [
+          "Can I use it for a rented flat?",
+          "Yes. Write the flat or the address at the top, and keep a copy for the landlord if you share costs."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "homeServiceContactsGuide": {
+      "title": "Home Service Contacts Printable: Plumber, Electrician and Helper Phone List",
+      "subtitle": "Print a home service contact list: service, name, phone, area, rate and last used for plumbers, electricians, technicians and helpers. Free and private.",
+      "faq": [
+        [
+          "What columns does the home service contacts have?",
+          "It has these columns: Service, Name, Phone, Area or shop, Rate or visit charge, Last used, Notes. 16 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the services, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Why keep a paper list?",
+          "When there is a power cut or a leak you may not have a phone signal or battery. A sheet on the fridge always works."
+        ],
+        [
+          "Is it safe to write phone numbers?",
+          "They are only on your printed copy. Do not share the sheet publicly, since it holds private numbers."
+        ],
+        [
+          "Can I use it for a society?",
+          "Yes. A committee can print the list of society vendors and fix it on the notice board."
+        ],
+        [
+          "What goes in the Rate column?",
+          "The visit charge or the usual rate you were quoted, so you can compare when you call again."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "homeInventoryListGuide": {
+      "title": "Home Inventory List Printable: Household Items and Value Record",
+      "subtitle": "Print a home inventory list: room, item, quantity, purchase date, value and notes. A record of your belongings for moves and claims. Free and private.",
+      "faq": [
+        [
+          "What columns does the home inventory list have?",
+          "It has these columns: No., Room, Item, Qty, Bought on, Value (Rs.), Brand or model, Notes. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the items, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Why make a home inventory?",
+          "It helps if you move, share a house, lose something or need to describe your belongings after a burglary, fire or flood."
+        ],
+        [
+          "Does it help with insurance?",
+          "It is a useful record to hold. What an insurer accepts is for the insurer, so ask them what proof they need."
+        ],
+        [
+          "Where should I keep it?",
+          "Somewhere safe and away from the items, such as with important papers, and keep a photo in a secure place."
+        ],
+        [
+          "Should I add photos?",
+          "Photos of valuables and bills are a good addition. Staple the bills to the sheet or keep them in a folder."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "rentPaymentRecordGuide": {
+      "title": "Rent Payment Record Printable: Monthly Rent Register for Tenants and Landlords",
+      "subtitle": "Print a rent payment record: month, rent due, date paid, amount, mode and receipt number. For tenants and landlords. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the rent payment record have?",
+          "It has these columns: Month, Rent due (Rs.), Paid on, Amount paid (Rs.), Mode, Receipt no., Balance (Rs.), Notes. 12 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the months, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Is this a rent receipt?",
+          "No. It is a register of payments. For a receipt use the rent receipt generator."
+        ],
+        [
+          "Does it handle tax or rent law?",
+          "No. It does not include any tax or tenancy rules. Follow your agreement and the rules where you live."
+        ],
+        [
+          "Who should keep it?",
+          "Both. A tenant can keep a copy of payments made, and a landlord can keep a copy of payments received."
+        ],
+        [
+          "Can I change the months?",
+          "Yes. Type your own list of months, for example starting from April, one per line."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "utilityBillTrackerGuide": {
+      "title": "Utility Bill Tracker Printable: Monthly Electricity, Water and Gas Bill Record",
+      "subtitle": "Print a utility bill tracker: twelve months with electricity, water, gas, internet and mobile columns and a total. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the utility bill tracker have?",
+          "It has these columns: Month, Electricity, Water, Gas, Internet, Mobile, Other, Total, Paid on. 12 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the months, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Why track bills month by month?",
+          "Seeing twelve months together shows when a bill rises, such as electricity in summer, and helps you plan."
+        ],
+        [
+          "Can I change the columns?",
+          "The columns are fixed, but you can use Other for anything else, such as cable, society charges or DTH."
+        ],
+        [
+          "Does it calculate the total?",
+          "No. Add the amounts by hand and write the total."
+        ],
+        [
+          "Can I use it for a shop or office?",
+          "Yes. Write the shop name at the top and use the columns for its own bills."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "habitTrackerGuide": {
+      "title": "Habit Tracker Printable: Monthly Daily Habit Chart",
+      "subtitle": "Print a monthly habit tracker: habits down the side and a box for each day. Track exercise, reading, water and more. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What does the habit tracker include?",
+          "It is a landscape monthly grid with a row for each habit and a narrow box for every day. A final column holds the total number of days."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "How many habits should I track?",
+          "Fewer is better. Three to five habits are easier to keep than twenty, and you can add more once the first ones are steady."
+        ],
+        [
+          "How do I fill the boxes?",
+          "Put a tick or colour a box when you keep the habit. Leave it empty on a missed day without worry."
+        ],
+        [
+          "Can I track a habit for 30 days?",
+          "Yes. Pick a month and print it. The sheet has a column for every day of that month."
+        ],
+        [
+          "What does the Days column do?",
+          "It is where you count your ticks at the end of the month."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "monthlyExpenseTrackerGuide": {
+      "title": "Monthly Expense Tracker Printable: Daily Spending Log by Category",
+      "subtitle": "Print a monthly expense tracker: date, item, category, amount and payment mode. Know where your money goes. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the monthly expense tracker have?",
+          "It has these columns: Date, Item, Category, Amount (Rs.), Paid by. 30 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What categories should I use?",
+          "Whatever suits you, such as food, travel, bills, health, school or fun. Keep them few and consistent so they are easy to add up."
+        ],
+        [
+          "How is it different from the monthly budget sheet?",
+          "The budget sheet plans how much to spend. The expense tracker records what you actually spent, and you can compare the two."
+        ],
+        [
+          "Does it add the total?",
+          "No. Add the Amount column by hand and write the total at the top."
+        ],
+        [
+          "Is it private?",
+          "Yes. It is drawn in your browser and your entries are not stored or sent anywhere."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "savingsGoalTrackerGuide": {
+      "title": "Savings Goal Tracker Printable: Money Saving Chart for a Target",
+      "subtitle": "Print a savings goal tracker: goal, target, date, amount saved and total so far. Watch a goal grow, one deposit at a time. Free and private.",
+      "faq": [
+        [
+          "What columns does the savings goal tracker have?",
+          "It has these columns: No., Date, Saved (Rs.), Total so far (Rs.), Left to go (Rs.), Notes. 26 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What goals suit this?",
+          "A phone, a trip, a school fee, a festival, an emergency fund or anything with a number attached."
+        ],
+        [
+          "Does it say how much to save?",
+          "No. You choose the target and the amounts. Small regular deposits add up and the sheet shows the progress."
+        ],
+        [
+          "Does it connect to my bank?",
+          "No. It is a paper sheet you fill by hand."
+        ],
+        [
+          "Can I save with a friend?",
+          "Yes. Keep a shared sheet and write both names or initials in the Notes column."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "travelPackingListGuide": {
+      "title": "Travel Packing List Printable: Trip Checklist with Tick Boxes",
+      "subtitle": "Print a travel packing list: items in two columns with a tick box beside each. Edit the list for any trip. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the travel packing list have?",
+          "It has these columns: Item, Packed, Item, Packed. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the items, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "What should I pack?",
+          "The list is only a start. Edit it for your destination, the weather, the length of the trip and your own needs."
+        ],
+        [
+          "Can I use it for a family?",
+          "Yes. Print a sheet for each person, or use one for shared items such as first-aid supplies and chargers."
+        ],
+        [
+          "Why use two columns?",
+          "Two columns fit a long list on one page and give you a second set of tick boxes for items you add."
+        ],
+        [
+          "Can I keep the list for next time?",
+          "Yes. File the sheet and reuse it, adjusting a few items for each trip."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "travelItineraryPlannerGuide": {
+      "title": "Travel Itinerary Planner Printable: Day-wise Trip Plan with Bookings",
+      "subtitle": "Print a travel itinerary planner: day, date, place, stay, travel, booking reference and cost. Plan a trip on one page. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the travel itinerary planner have?",
+          "It has these columns: Day, Date, Place or activity, Stay, Travel, Booking ref., Cost (Rs.), Notes. 10 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Can I use it for a long trip?",
+          "Yes. Print more pages, with sixteen days to a page."
+        ],
+        [
+          "Should I write booking numbers here?",
+          "If you do, keep the sheet safe. Booking references can be private. Keep a copy with your tickets."
+        ],
+        [
+          "Does it find hotels or flights?",
+          "No. It is a planning sheet for what you have chosen."
+        ],
+        [
+          "How is it different from the packing list?",
+          "The itinerary plans the journey. The packing list is for the bag. Print both for a trip."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "groceryShoppingListGuide": {
+      "title": "Grocery Shopping List Printable: Weekly Shopping Checklist",
+      "subtitle": "Print a grocery shopping list: items and quantities with a tick box, in two columns. Edit the list for your kitchen. Free and made in your browser.",
+      "faq": [
+        [
+          "What columns does the grocery shopping list have?",
+          "It has these columns: Item, Qty, Got it, Item, Qty, Got it. 26 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the items, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "How do I plan a month of shopping?",
+          "Write the staples that last a month in one column and the weekly fresh items in the other. Many families keep a standard list and edit it."
+        ],
+        [
+          "Can I share it with the family?",
+          "Yes. Fix it on the fridge and let everyone add what is finished."
+        ],
+        [
+          "Is it good for a kirana order?",
+          "Yes. Many families hand the written list to the shopkeeper. Write clearly and add quantities."
+        ],
+        [
+          "Does it track prices?",
+          "No. Use the expense tracker or the daily cash sheet for amounts."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "subscriptionTrackerGuide": {
+      "title": "Subscription Tracker Printable: Recurring Payment and Renewal List",
+      "subtitle": "Print a subscription tracker: service, cost, how often, billing date, paid through and cancel by. See every recurring payment on one page. Free and private.",
+      "faq": [
+        [
+          "What columns does the subscription tracker have?",
+          "It has these columns: Service, Cost (Rs.), Every, Billing date, Paid through, Cancel by, Notes. 14 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the services, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "Why track subscriptions?",
+          "Small recurring payments are easy to forget. A written list helps you see the total and cancel what you no longer use."
+        ],
+        [
+          "What goes in the Every column?",
+          "How often it is charged, such as monthly, quarterly or yearly."
+        ],
+        [
+          "Should I write passwords here?",
+          "No. Never write passwords on the sheet. It is for the service name, cost and dates only."
+        ],
+        [
+          "Can I list gym and school fees?",
+          "Yes. Any payment that repeats can go on the list."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "workoutLogGuide": {
+      "title": "Workout Log Printable: Gym and Home Exercise Tracker",
+      "subtitle": "Print a workout log: date, exercise, sets, reps, weight and notes. Keep track of your gym or home workouts. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the workout log have?",
+          "It has these columns: Date, Exercise, Sets, Reps, Weight (kg), Time or distance, Notes. 22 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Does it plan my workouts?",
+          "No. It only records what you do. Ask a trainer or your doctor about the right plan for you."
+        ],
+        [
+          "Why keep a workout log?",
+          "Seeing last week's weights and reps helps you aim a little higher and shows progress over time."
+        ],
+        [
+          "Can I use it for running or yoga?",
+          "Yes. Use the Time or distance column and leave Sets and Reps blank."
+        ],
+        [
+          "Is it safe to exercise?",
+          "Check with your doctor before starting a new programme if you have any health concerns. The sheet gives no health advice."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "customerOrderRegisterGuide": {
+      "title": "Customer Order Register Printable: Order Book for Tailors, Bakers and Small Shops",
+      "subtitle": "Print a customer order register: date, customer, phone, item, amount, advance, balance and delivery date. For tailors, bakers, home shops. Free and private.",
+      "faq": [
+        [
+          "What columns does the customer order register have?",
+          "It has these columns: No., Date, Customer, Phone, Order or item, Amount (Rs.), Advance (Rs.), Balance (Rs.), Delivery, Done. 18 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Who is it for?",
+          "Tailors, boutiques, bakers, caterers, printers, repair shops and home businesses that take orders in advance."
+        ],
+        [
+          "How do I use the Balance column?",
+          "Subtract the advance from the amount and write what is still to be paid. Cut it when the customer pays."
+        ],
+        [
+          "Is it a bill?",
+          "No. It is an order book for your own records. Give customers a bill or receipt where required."
+        ],
+        [
+          "Is customer data safe?",
+          "The page is drawn in your browser and nothing is uploaded. Keep the printed register somewhere safe, as it holds phone numbers."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "pettyCashVoucherGuide": {
+      "title": "Petty Cash Voucher Printable: Small Expense Payment Slip",
+      "subtitle": "Print petty cash vouchers, four to a page: number, date, paid to, purpose, amount in figures and words, and three signature lines. Free and private.",
+      "faq": [
+        [
+          "What does the petty cash voucher include?",
+          "It is a portrait page with four petty cash vouchers. Each has a number, a date, the payee, the purpose, the amount in figures and words, and lines for the approver, the payer and the receiver."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What is a petty cash voucher?",
+          "A slip that records a small cash payment, such as for tea, courier or stationery, with who was paid, why and who approved."
+        ],
+        [
+          "Does it replace a bill?",
+          "No. Staple the shop's bill to the voucher when there is one. The voucher shows who paid and who approved."
+        ],
+        [
+          "Can I add my business name?",
+          "Yes. Type it in the business name field and it prints at the top right of each voucher."
+        ],
+        [
+          "How many vouchers print on a page?",
+          "Four. Print more pages as you need, up to twelve at a time."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "meetingMinutesTemplateGuide": {
+      "title": "Meeting Minutes Template Printable: Notes, Decisions and Action Items",
+      "subtitle": "Print a meeting minutes template: meeting details, attendees, agenda and discussion lines and an action table with who and by when. Free and private.",
+      "faq": [
+        [
+          "What does the meeting minutes template include?",
+          "It is a portrait page with room for the meeting details, a list of who was present, ruled lines for the agenda and discussion, and a table of actions."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "What should minutes include?",
+          "The date, who was present, the main points and decisions, and who will do what by when. Keep them short and clear."
+        ],
+        [
+          "Can a society committee use it?",
+          "Yes. Many resident committees and associations keep minutes. Follow your bye-laws for the format they need."
+        ],
+        [
+          "How do I use the action table?",
+          "Write each task agreed in the meeting, who will do it and the date, and tick Done at the next meeting."
+        ],
+        [
+          "How many action rows are there?",
+          "You can choose from three to ten rows, and print as many pages as you need."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "weeklyTimesheetGuide": {
+      "title": "Weekly Timesheet Printable: Employee and Freelancer Hours Log",
+      "subtitle": "Print a weekly timesheet: date, in time, out time, break, total hours and task. Add a rate and a signature. Free, private and made in your browser.",
+      "faq": [
+        [
+          "What columns does the weekly timesheet have?",
+          "It has these columns: Day and date, In, Out, Break, Hours, Task or project, Supervisor sign. 7 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "Yes. You can type the days, one per line, and they are printed on the sheet. Everything else is left blank to fill in by hand."
+        ],
+        [
+          "How do I work out the hours?",
+          "Subtract the in time from the out time, then subtract the break. Write the result in hours and minutes."
+        ],
+        [
+          "Does it follow labour law?",
+          "No. It is a personal record. Pay, overtime and working hours are covered by your contract and the law where you work."
+        ],
+        [
+          "Can a freelancer use it?",
+          "Yes. Write the client or project name in the Task column and use the hours to prepare an invoice."
+        ],
+        [
+          "Can I use it for a domestic helper?",
+          "Yes. Write the days and hours worked, and ask both sides to sign at the end of the week."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "visitorRegisterGuide": {
+      "title": "Visitor Register Printable: Visitor Log Book for Offices, Shops and Societies",
+      "subtitle": "Print a visitor register: date, name, phone, whom they met, purpose, in and out times and a signature. For offices, shops and societies. Free and private.",
+      "faq": [
+        [
+          "What columns does the visitor register have?",
+          "It has these columns: No., Date, Visitor name, Phone, Whom to meet, Purpose, In, Out, Signature. 20 rows are printed on a page by default, and you can change the number of rows and pages."
+        ],
+        [
+          "Can I type into it before printing?",
+          "The sheet prints blank for writing by hand. You choose the heading, the rows and the number of pages, and the PDF matches the preview."
+        ],
+        [
+          "Is it a legal requirement?",
+          "Requirements vary by place and premises, so check with your landlord, association or local rules. The sheet is a simple log."
+        ],
+        [
+          "Why record the phone number?",
+          "It is useful if you need to contact a visitor. Keep the register private and do not leave it open for others to read."
+        ],
+        [
+          "Who keeps it?",
+          "The receptionist, the security guard or the shop owner. A society can keep one at the gate."
+        ],
+        [
+          "How long should I keep old pages?",
+          "As long as your own rules say. File them by month, and decide when to discard them."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. The sheet is drawn and the PDF is built in your browser, and nothing you type is sent to {{siteName}} or saved on this device. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "exam-timetable-planner-printable": {
+      "sections": [
+        {
+          "heading": "What the exam timetable planner is",
+          "paragraphs": [
+            "It is a one-page exam date sheet with a row for each paper. Each row has the date, the day, the subject, the time, the chapters to cover and a box to tick when the subject has been revised.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A written timetable removes last-minute confusion. Seeing the gaps between papers shows which subject needs the earliest start, and the tick box shows how far revision has come."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the dates as soon as the school announces them and put the sheet where you study. Pair it with the revision planner and the chapter checklist so each paper has a plan."
+          ]
+        }
+      ]
+    },
+    "revision-planner-printable": {
+      "sections": [
+        {
+          "heading": "What the revision planner is",
+          "paragraphs": [
+            "It is a one-page revision tracker with a row for each topic. Each row has a target date, three boxes for revision rounds and a column to mark how sure you feel.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Revision works better when it is spread out and visible. A sheet that shows which topics have had one round and which have had three makes it easy to choose what to do next."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start by listing every topic in a subject, then set target dates working back from the exam. Tick a round when you finish it and review the Sure? marks once a week."
+          ]
+        }
+      ]
+    },
+    "assignment-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the assignment tracker is",
+          "paragraphs": [
+            "It is a one-page assignment log with a row for each task. Each row has the subject, the assignment, the date it was given, the due date, a done tick and the marks.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Deadlines slip when they live only in memory. A single sheet that lists every pending assignment makes the next one obvious and shows when the week is crowded."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in a row the moment an assignment is given. At the start of each day look down the Due on column, and at the end of the week review the marks to see where you did well."
+          ]
+        }
+      ]
+    },
+    "weekly-study-timetable-printable": {
+      "sections": [
+        {
+          "heading": "What the weekly study timetable is",
+          "paragraphs": [
+            "It is a landscape timetable with time slots down the left and the seven days across. Every box is blank for the subject, the tuition or the activity.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A weekly routine takes the daily decision out of studying. When the slots are written down, a student knows what comes next, and a parent can see at a glance that rest and play are in the plan too."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start with the fixed items, such as school hours and tuition, then add study blocks and rest. Review it after a week and change the slots that did not work."
+          ]
+        }
+      ]
+    },
+    "reading-log-printable": {
+      "sections": [
+        {
+          "heading": "What the reading log is",
+          "paragraphs": [
+            "It is a landscape log with a row for each book. Each row holds the title, the author, the dates, the number of pages, a rating and a few lines of notes.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Writing down what you read makes reading feel like progress. A full page is a small reward, and the ratings and notes become a list to share when someone asks what to read next."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the sheet in your bag or by your bed. Write the title when you start the book, and add the finish date and notes when you are done."
+          ]
+        }
+      ]
+    },
+    "chapter-syllabus-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the chapter and syllabus checklist is",
+          "paragraphs": [
+            "It is a one-page syllabus tracker. Every chapter has a row with boxes for read, notes made, practice done, revised and tested.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Syllabus anxiety comes from not knowing what is left. A sheet that shows every chapter and its stage turns a large subject into a clear list, and each tick is a small win."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Make one sheet for each subject. Start with the chapters you find hardest, and look at the sheet before each study session to decide what to do next."
+          ]
+        }
+      ]
+    },
+    "wedding-shagun-register-printable": {
+      "sections": [
+        {
+          "heading": "What the wedding shagun register is",
+          "paragraphs": [
+            "It is a landscape register with a row for each guest. Each row holds the name, the relation, the place, the amount or gift, and a remark such as a card or an envelope.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A function is busy and memory fails. A written list protects the family from mix-ups, supports thank-you calls afterwards and helps when the family attends the same occasion in the guest's home."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print several pages and number them. Keep the register with the family elder or the person in charge, and store it safely, since it is private."
+          ]
+        }
+      ]
+    },
+    "guest-list-rsvp-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the guest list and rsvp tracker is",
+          "paragraphs": [
+            "It is a landscape guest list with a row for each person or family. Columns hold the phone number, the group, whether an invitation has gone out, the reply and the number of people.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Big events fall apart on headcount. A written list shows who has been invited, who has replied and how many seats and plates to plan for."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start with a rough list and tick off invitations as they go out. Update the reply column as answers come in and total the people a week before the event."
+          ]
+        }
+      ]
+    },
+    "wedding-planning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the wedding planning checklist is",
+          "paragraphs": [
+            "It is a one-page checklist with a row for each wedding task. Columns hold the task, the person responsible, the due date, the budget and a done box.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A wedding has hundreds of small jobs spread over many people. A shared sheet shows who is doing what and what is still open, which saves repeated phone calls."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Edit the list so it matches your family's plans, hand a copy to each person who is helping, and review the sheet together once a week."
+          ]
+        }
+      ]
+    },
+    "event-budget-planner-printable": {
+      "sections": [
+        {
+          "heading": "What the event budget planner is",
+          "paragraphs": [
+            "It is a landscape budget sheet with a row for each cost. Columns hold the item, the vendor, the estimate, the advance paid, the balance, the date paid and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Event money disappears in small payments. Writing each estimate, advance and balance in one place shows how much is committed, how much is left to pay and which vendors are waiting."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the estimates first. As you pay advances, write the amount and date, then compute the balance. Put the sheet and receipts in one folder."
+          ]
+        }
+      ]
+    },
+    "party-planning-checklist-printable": {
+      "sections": [
+        {
+          "heading": "What the party planning checklist is",
+          "paragraphs": [
+            "It is a one-page checklist for planning a party. Each row has a task, a person, a date and a box to tick when it is done.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Parties are enjoyable when the work is shared. A written list means no job is forgotten and no one person carries everything."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the tasks a few weeks early, give each helper a copy, and check the sheet each evening in the last week."
+          ]
+        }
+      ]
+    },
+    "festival-gift-list-printable": {
+      "sections": [
+        {
+          "heading": "What the festival gift list is",
+          "paragraphs": [
+            "It is a landscape gift list with a row for each person. Columns hold the name, the relation, a gift idea, a budget, and ticks for bought and given.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Festival shopping is easy to overspend and easy to forget. A written list shows the total cost before you shop and ensures nobody is missed."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start the list early. Write the budget first, then ideas, and tick Bought as you shop and Given on the day."
+          ]
+        }
+      ]
+    },
+    "kitty-party-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the kitty party tracker is",
+          "paragraphs": [
+            "It is a landscape chart with a row for each member and a column for each month. A last column holds the date a member hosts or collects.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Group money is simple until someone asks who paid in which month. A written chart settles it in seconds and keeps friendships easy."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "List members at the start of the year, tick payments at each meeting and write the hosting order. Take a photo of the sheet after every meeting."
+          ]
+        }
+      ]
+    },
+    "baby-feeding-log-printable": {
+      "sections": [
+        {
+          "heading": "What the baby feeding log is",
+          "paragraphs": [
+            "It is a daily feeding log with a row for each feed. Columns hold the time, the type of feed, the amount or minutes and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "The first weeks are a blur of tiredness. A written log means you do not have to remember when the last feed was, and a partner or grandparent can pick up where you left off."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "This is a record sheet only. It gives no feeding, sleep or health advice, so ask your paediatrician about any concern. Print a stack of pages and keep a pen beside the chair."
+          ]
+        }
+      ]
+    },
+    "baby-sleep-log-printable": {
+      "sections": [
+        {
+          "heading": "What the baby sleep log is",
+          "paragraphs": [
+            "It is a sleep diary with a row for each sleep. Columns hold the date, the time asleep, the time awake, the total, nap or night, and notes.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Tired parents rarely remember the pattern. A written log shows when the baby tends to sleep and wake, which helps you plan the day."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "This is a record sheet only. It gives no feeding, sleep or health advice, so ask your paediatrician about any concern."
+          ]
+        }
+      ]
+    },
+    "baby-diaper-log-printable": {
+      "sections": [
+        {
+          "heading": "What the baby diaper log is",
+          "paragraphs": [
+            "It is a daily diaper log with a row for each change. Columns hold the time, ticks for wet and soiled, a short description and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A log makes the doctor's question easy to answer. It also helps when several people care for the baby and need to know what has happened."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "This is a record sheet only. It gives no feeding, sleep or health advice, so ask your paediatrician about any concern."
+          ]
+        }
+      ]
+    },
+    "kids-chore-chart-printable": {
+      "sections": [
+        {
+          "heading": "What the kids chore chart is",
+          "paragraphs": [
+            "It is a landscape weekly chart with a row for each chore and a column for each day, plus a final column to tick when a chore is done for the week.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Children like to see progress. A chart on the fridge makes the jobs visible, shows what has been done and gives you a calm way to remind them."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Sit down with your child and choose the chores together. Fix the chart where they will see it, and review it each weekend."
+          ]
+        }
+      ]
+    },
+    "pocket-money-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the pocket money tracker is",
+          "paragraphs": [
+            "It is a simple money diary with a row for each entry. Columns hold the date, the money received, what it was spent on, the amount spent and the balance.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Handling money is a skill. A child who writes down what comes in and goes out starts to see where it went, and learns to wait for something bigger."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Begin with a small goal such as a book or a toy. Write it at the top, and compare the balance with the price every week."
+          ]
+        }
+      ]
+    },
+    "birthday-anniversary-list-printable": {
+      "sections": [
+        {
+          "heading": "What the birthday and anniversary list is",
+          "paragraphs": [
+            "It is a one-page list of birthdays and anniversaries. Columns hold the name, the date, the occasion, the relation, a gift idea and a reminder box.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "The dates that matter most are the ones that are easy to miss. A written list on the fridge or in a diary keeps everyone remembered."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the dates you know, ask relatives for the rest, and set a phone reminder a week before. Tick Remind once you have done so."
+          ]
+        }
+      ]
+    },
+    "vehicle-service-log-printable": {
+      "sections": [
+        {
+          "heading": "What the vehicle service log is",
+          "paragraphs": [
+            "It is a landscape service log with a row for each visit. Columns hold the date, the odometer reading, the work done, the workshop, the cost and the next due date.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A vehicle's history is easy to forget. A written log shows when the last service was, what was replaced and what is due next."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the sheet in the glove box or at home. Write the entry as you leave the workshop, and set a reminder for the next due date."
+          ]
+        }
+      ]
+    },
+    "fuel-mileage-log-printable": {
+      "sections": [
+        {
+          "heading": "What the fuel and mileage log is",
+          "paragraphs": [
+            "It is a landscape fuel log with a row for each fill-up. Columns hold the date, the odometer, the litres, the amount, the distance, the mileage and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Fuel is a large running cost and small changes hide in the average. A written log shows how much you spend and how the vehicle is running."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Use the same pump and fill the tank fully each time for a cleaner figure. Write the entry at the pump and work out the mileage at home."
+          ]
+        }
+      ]
+    },
+    "vehicle-document-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the vehicle document tracker is",
+          "paragraphs": [
+            "It is a landscape table with a row for each vehicle paper. Columns hold the number, the issue date, the expiry date, the renewal date, where it is kept and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Expired papers are an easy mistake to make. A page that lists every expiry date turns scattered reminders into one sheet you can check once a month."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the dates straight from the documents. Put the sheet in a file with the papers, and set a phone reminder some weeks before each date."
+          ]
+        }
+      ]
+    },
+    "home-maintenance-log-printable": {
+      "sections": [
+        {
+          "heading": "What the home maintenance log is",
+          "paragraphs": [
+            "It is a landscape log with a row for each job. Columns hold the date, the area or item, the work done, who did it, the cost and the next due date.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Homes need steady care, and the details are easy to forget. A log tells you who fixed the geyser, what it cost and when it was done."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Write the entry on the day of the job. Staple the bill to the sheet, and set a reminder for the next due date."
+          ]
+        }
+      ]
+    },
+    "home-service-contacts-printable": {
+      "sections": [
+        {
+          "heading": "What the home service contacts is",
+          "paragraphs": [
+            "It is a landscape contact sheet with a row for each service. Columns hold the name, the phone, the area or shop, the usual rate, the date last used and notes.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "The best plumber is the one whose number you can find in a hurry. A single list of trusted people saves time in an emergency and when you move home."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Write a name when someone does a good job. Keep one copy on the fridge and one in a drawer, and share the sheet with family members."
+          ]
+        }
+      ]
+    },
+    "home-inventory-list-printable": {
+      "sections": [
+        {
+          "heading": "What the home inventory list is",
+          "paragraphs": [
+            "It is a landscape inventory with a row for each item. Columns hold the room, the item, the quantity, the purchase date, the value, the brand or model and notes.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "It is hard to list your belongings from memory after a loss. A sheet written in calm times saves a lot of stress later."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Go through the house room by room and start with high-value items. Update the sheet when you buy something big or sell something."
+          ]
+        }
+      ]
+    },
+    "rent-payment-record-printable": {
+      "sections": [
+        {
+          "heading": "What the rent payment record is",
+          "paragraphs": [
+            "It is a landscape register with a row for each month. Columns hold the rent due, the date paid, the amount, the mode of payment, the receipt number and the balance.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Rent is a monthly habit and small disagreements grow when nobody can show what was paid. A shared record keeps both sides clear and calm."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in a row on the day of payment, and ask the other person to initial it in the notes. Keep it with the rental agreement."
+          ]
+        }
+      ]
+    },
+    "utility-bill-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the utility bill tracker is",
+          "paragraphs": [
+            "It is a landscape tracker with a row for each month and a column for each bill. A last column holds the date of payment.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Bills arrive from many places and are paid on different days. One sheet shows what you have paid and what the home costs to run."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in each bill as you pay it. At the end of the year, compare months to see which bills grew and which you can reduce."
+          ]
+        }
+      ]
+    },
+    "habit-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the habit tracker is",
+          "paragraphs": [
+            "It is a landscape monthly grid with a row for each habit and a narrow box for every day. A final column holds the total number of days.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Seeing a chain of ticks is motivating, and a gap is a gentle prompt. A habit chart makes progress visible without an app or a notification."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Pick a few habits, edit the list, and put the sheet where you will see it each morning or evening. Review it on the last day of the month."
+          ]
+        }
+      ]
+    },
+    "monthly-expense-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the monthly expense tracker is",
+          "paragraphs": [
+            "It is a daily spending log with a row for each purchase. Columns hold the date, the item, the category, the amount and how it was paid.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Money feels smaller when it is not written down. A month of entries shows patterns that a bank statement does not, such as small daily spends that add up."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the sheet in your wallet or on the fridge. Write each entry when you pay, and sort the amounts by category at month end."
+          ]
+        }
+      ]
+    },
+    "savings-goal-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the savings goal tracker is",
+          "paragraphs": [
+            "It is a one-page record with a row for each deposit. Columns hold the date, the amount saved, the total so far, how much is left and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A goal on paper feels real. Each entry is a small win and the Left to go column shows how close you are."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Write the goal where you will see it every day. Add a line each time you save, and tick it off when the target is reached."
+          ]
+        }
+      ]
+    },
+    "travel-packing-list-printable": {
+      "sections": [
+        {
+          "heading": "What the travel packing list is",
+          "paragraphs": [
+            "It is a one-page checklist with items down two columns and a tick box beside each. Edit the first column and write extra items in the second.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Packing is easiest when it is done from a list. A sheet prevents the usual forgotten charger and lets someone else check the bag."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Pack in layers: start with documents and essentials, then clothes, then extras. Keep the list in your travel folder for the next trip."
+          ]
+        }
+      ]
+    },
+    "travel-itinerary-planner-printable": {
+      "sections": [
+        {
+          "heading": "What the travel itinerary planner is",
+          "paragraphs": [
+            "It is a landscape trip plan with a row for each day. Columns hold the date, the place or activity, the stay, the travel, a booking reference, the cost and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A one-page plan makes a trip easier to share and easier to follow. Everyone can see where they will be and what has been booked."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the fixed bookings first, then the activities. Put one copy in your bag and give another to someone at home."
+          ]
+        }
+      ]
+    },
+    "grocery-shopping-list-printable": {
+      "sections": [
+        {
+          "heading": "What the grocery shopping list is",
+          "paragraphs": [
+            "It is a one-page shopping list with items and quantities in two columns, each with a tick box.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A written list avoids repeat trips and impulse buys. Putting the list on the fridge lets everyone add to it as things run out."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Edit the list once for your family and print a new page every week. Group items by the aisle or the shop to save time."
+          ]
+        }
+      ]
+    },
+    "subscription-tracker-printable": {
+      "sections": [
+        {
+          "heading": "What the subscription tracker is",
+          "paragraphs": [
+            "It is a landscape list with a row for each recurring payment. Columns hold the service, the cost, how often it repeats, the billing date, how far it is paid and a cancel-by date.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Subscriptions grow quietly. A page that lists them all, with the total cost of a year, makes it easy to choose what to keep."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Go through your bank and card statements to fill the list. Review it every few months and mark what you will cancel."
+          ]
+        }
+      ]
+    },
+    "workout-log-printable": {
+      "sections": [
+        {
+          "heading": "What the workout log is",
+          "paragraphs": [
+            "It is a landscape workout log with a row for each exercise. Columns hold the date, the exercise, the sets, the reps, the weight, the time or distance and a note.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Progress is slow and easy to miss. Writing down each session shows small gains over weeks and keeps you honest on days you skip."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Take the sheet to the gym on a clipboard. Write each set as you finish it, and compare with the previous page before the next session."
+          ]
+        }
+      ]
+    },
+    "customer-order-register-printable": {
+      "sections": [
+        {
+          "heading": "What the customer order register is",
+          "paragraphs": [
+            "It is a landscape order book with a row for each order. Columns hold the date, the customer, the phone, the item, the amount, the advance, the balance, the delivery date and a tick when done.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Orders get lost between the shop and the memory. A written register shows what is due this week, what is paid and what is still owed."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Print a few pages, number them and keep them at the counter. Check the Delivery column each morning."
+          ]
+        }
+      ]
+    },
+    "petty-cash-voucher-printable": {
+      "sections": [
+        {
+          "heading": "What the petty cash voucher is",
+          "paragraphs": [
+            "It is a portrait page with four petty cash vouchers. Each has a number, a date, the payee, the purpose, the amount in figures and words, and lines for the approver, the payer and the receiver.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Small payments add up and are hard to track. A voucher for each one makes the cash book easy to match, and makes it clear who approved the spend."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Cut the page into four slips or keep them as a sheet. Number them in order, and file them with the bills."
+          ]
+        }
+      ]
+    },
+    "meeting-minutes-template-printable": {
+      "sections": [
+        {
+          "heading": "What the meeting minutes template is",
+          "paragraphs": [
+            "It is a portrait page with room for the meeting details, a list of who was present, ruled lines for the agenda and discussion, and a table of actions.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Meetings are only useful when decisions are remembered. Written minutes settle disagreements about what was agreed and give everyone the same list of tasks."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Write the details before the meeting starts and the actions as they are agreed. Share a photo or copy with everyone afterwards."
+          ]
+        }
+      ]
+    },
+    "weekly-timesheet-printable": {
+      "sections": [
+        {
+          "heading": "What the weekly timesheet is",
+          "paragraphs": [
+            "It is a landscape timesheet with a row for each day. Columns hold the day and date, the in and out times, the break, the hours, the task and a supervisor's signature.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "Hours are easy to dispute when nothing is written. A signed weekly sheet gives an employee, a helper or a freelancer a clear record, and gives the employer a clear basis for pay."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Fill in the times each day and add them up on Saturday. Keep one copy for yourself and give another to the person who pays."
+          ]
+        }
+      ]
+    },
+    "visitor-register-printable": {
+      "sections": [
+        {
+          "heading": "What the visitor register is",
+          "paragraphs": [
+            "It is a landscape register with a row for each visitor. Columns hold the date, the name, the phone number, whom they came to meet, the purpose, the in and out times and a signature.",
+            "It is drawn in your browser, and nothing you type is uploaded."
+          ]
+        },
+        {
+          "heading": "Why keep one",
+          "paragraphs": [
+            "A visitor log tells you who was in the building and when. It helps with security, with follow-up and with a clear record when something goes wrong."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Keep the sheet at the entrance with a pen. Check that visitors write the out time, and file the pages by month."
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -39,6 +39,7 @@ export const VARIANT_PAGES = [
   'health-log-sheet-printable', 'emergency-info-card-printable', 'doctor-visit-sheet-printable', 'caregiver-daily-log-printable',
   'monthly-household-budget-sheet-printable', 'warranty-service-record-printable', 'udhaar-credit-ledger-printable', 'daily-cash-sales-sheet-printable', 'stock-count-sheet-printable', 'pet-vaccination-tracker-printable', 'pet-sitter-instructions-printable',
   'lock-a-file-with-password',
+  'revision-planner-printable', 'assignment-tracker-printable', 'weekly-study-timetable-printable', 'reading-log-printable', 'chapter-syllabus-checklist-printable', 'guest-list-rsvp-tracker-printable', 'wedding-planning-checklist-printable', 'event-budget-planner-printable', 'party-planning-checklist-printable', 'festival-gift-list-printable', 'kitty-party-tracker-printable', 'baby-sleep-log-printable', 'baby-diaper-log-printable', 'kids-chore-chart-printable', 'pocket-money-tracker-printable', 'birthday-anniversary-list-printable', 'fuel-mileage-log-printable', 'vehicle-document-tracker-printable', 'home-maintenance-log-printable', 'home-service-contacts-printable', 'home-inventory-list-printable', 'rent-payment-record-printable', 'utility-bill-tracker-printable', 'monthly-expense-tracker-printable', 'savings-goal-tracker-printable', 'travel-packing-list-printable', 'travel-itinerary-planner-printable', 'grocery-shopping-list-printable', 'subscription-tracker-printable', 'workout-log-printable', 'petty-cash-voucher-printable', 'meeting-minutes-template-printable', 'weekly-timesheet-printable', 'visitor-register-printable',
   'student-marks-register-printable', 'weekly-lesson-plan-printable', 'class-timetable-printable', 'homework-diary-printable', 'parent-teacher-meeting-sheet-printable', 'washroom-cleaning-checklist-printable', 'lift-cleaning-checklist-printable', 'room-cleaning-checklist-printable', 'pantry-kitchen-cleaning-checklist-printable', 'society-common-area-cleaning-checklist-printable', 'washroom-hourly-cleaning-log-printable', 'water-tank-cleaning-record-printable', 'deep-cleaning-planner-printable',
 ];
 
@@ -63,21 +64,21 @@ export const COLLECTIONS: CollectionSpec[] = [
     'emi-calculator', 'sip-calculator', 'lumpsum-calculator', 'fd-calculator', 'rd-calculator', 'ppf-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator',
   ] },
   { id: 'everyday', icon: 'hash', tools: [
-    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words',
+    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'vehicle-service-log-printable',
   ] },
   { id: 'sports', icon: 'dumbbell', tools: [
     'sports-court-size-guide', 'exercise-library', 'bmi-calculator',
   ] },
   { id: 'printables', icon: 'layers', tools: [
-    'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable', 'milk-maid-attendance-calendar-printable', 'pet-health-record-card-printable', 'weekly-cleaning-schedule-printable',
+    'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable', 'milk-maid-attendance-calendar-printable', 'pet-health-record-card-printable', 'weekly-cleaning-schedule-printable', 'wedding-shagun-register-printable', 'baby-feeding-log-printable', 'habit-tracker-printable',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',
-    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable', 'tuition-fee-register-printable', 'office-cleaning-checklist-printable',
+    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable', 'tuition-fee-register-printable', 'office-cleaning-checklist-printable', 'customer-order-register-printable',
   ] },
   { id: 'present', icon: 'presentation', tools: ['display-studio'] },
   { id: 'study', icon: 'type', tools: [
-    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable',
+    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable',
   ] },
   { id: 'kids', icon: 'clock', tools: [
     'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'solar-system-explorer',

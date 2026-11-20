@@ -1,0 +1,164 @@
+{
+  "toolCatalog": {
+    "exam-timetable-planner-printable": [
+      "Exam Timetable Planner Printable: Date Sheet and Syllabus Tracker",
+      "Printable exam timetable with date, day, subject, time and syllabus columns, and a box to tick when each paper is revised."
+    ],
+    "revision-planner-printable": [
+      "Revision Planner Printable: Topic-wise Study Tracker for Exams",
+      "Printable revision planner with a row for each topic, a target date, three revision rounds and a confidence mark."
+    ],
+    "assignment-tracker-printable": [
+      "Assignment Tracker Printable: Homework and Project Deadline Log",
+      "Printable assignment tracker with subject, task, given date, due date, done tick and marks columns."
+    ],
+    "weekly-study-timetable-printable": [
+      "Weekly Study Timetable Printable: Student Routine Chart",
+      "Printable weekly timetable with time slots down the side and Monday to Sunday across, for study, school, tuition and rest."
+    ],
+    "reading-log-printable": [
+      "Reading Log Printable: Book Tracker for Students and Readers",
+      "Printable reading log with title, author, dates, pages, rating and notes, for school reading challenges and personal book lists."
+    ],
+    "chapter-syllabus-checklist-printable": [
+      "Chapter and Syllabus Checklist Printable: Subject Progress Tracker",
+      "Printable syllabus checklist with a row for each chapter and boxes for read, notes made, practised and revised."
+    ],
+    "wedding-shagun-register-printable": [
+      "Wedding Shagun Register Printable: Gift and Money Record for Weddings",
+      "Printable shagun and gift register with name, relation, place, amount, gift and remarks columns, to record what was received."
+    ],
+    "guest-list-rsvp-tracker-printable": [
+      "Guest List and RSVP Tracker Printable: Wedding and Party Invitations",
+      "Printable guest list with name, phone, group, invitation sent, reply and number of people columns."
+    ],
+    "wedding-planning-checklist-printable": [
+      "Wedding Planning Checklist Printable: Task List with Dates and Budget",
+      "Printable wedding checklist with a list of common tasks, who is responsible, due date, budget and a done tick."
+    ],
+    "event-budget-planner-printable": [
+      "Event Budget Planner Printable: Wedding and Party Expense Sheet",
+      "Printable event budget with item, vendor, estimate, advance paid, balance and payment date columns."
+    ],
+    "party-planning-checklist-printable": [
+      "Party Planning Checklist Printable: Birthday and Home Party Planner",
+      "Printable party checklist with common tasks, who will do them, a date and a done box, for birthdays and home parties."
+    ],
+    "festival-gift-list-printable": [
+      "Festival Gift List Printable: Diwali, Eid and Christmas Gift Planner",
+      "Printable gift list with name, relation, gift idea, budget, bought and given columns, for festivals and occasions."
+    ],
+    "kitty-party-tracker-printable": [
+      "Kitty Party Tracker Printable: Member Payment and Hosting Chart",
+      "Printable kitty party and committee chart with member names, twelve month columns for payments and a hosting date."
+    ],
+    "baby-feeding-log-printable": [
+      "Baby Feeding Log Printable: Daily Feed Tracker for New Parents",
+      "Printable baby feeding log with time, type of feed, amount or duration and notes, one page for each day."
+    ],
+    "baby-sleep-log-printable": [
+      "Baby Sleep Log Printable: Nap and Night Sleep Tracker",
+      "Printable baby sleep log with date, time asleep, time awake, total hours and notes for naps and night sleep."
+    ],
+    "baby-diaper-log-printable": [
+      "Baby Diaper Log Printable: Nappy Change Tracker",
+      "Printable diaper and nappy log with time, wet and soiled ticks and notes, one page for each day."
+    ],
+    "kids-chore-chart-printable": [
+      "Kids Chore Chart Printable: Weekly Responsibility Chart for Children",
+      "Printable weekly chore chart with chores down the side and Monday to Sunday across, so children can tick each job."
+    ],
+    "pocket-money-tracker-printable": [
+      "Pocket Money Tracker Printable: Children's Savings and Spending Log",
+      "Printable pocket money log with date, money received, what it was spent on, amount spent and balance."
+    ],
+    "birthday-anniversary-list-printable": [
+      "Birthday and Anniversary List Printable: Important Dates Tracker",
+      "Printable list of birthdays and anniversaries with name, date, relation, gift idea and a reminder column."
+    ],
+    "vehicle-service-log-printable": [
+      "Vehicle Service Log Printable: Car and Bike Maintenance Record",
+      "Printable vehicle service log with date, odometer, work done, workshop, cost and next service due."
+    ],
+    "fuel-mileage-log-printable": [
+      "Fuel and Mileage Log Printable: Petrol, Diesel and CNG Fill-up Tracker",
+      "Printable fuel log with date, odometer, litres, amount, distance and mileage columns to track fuel use."
+    ],
+    "vehicle-document-tracker-printable": [
+      "Vehicle Document Tracker Printable: Insurance, PUC and Licence Renewal Log",
+      "Printable tracker for vehicle papers with document, number, issue date, expiry, renewed on and notes."
+    ],
+    "home-maintenance-log-printable": [
+      "Home Maintenance Log Printable: Repair and Servicing Record for Your House",
+      "Printable home maintenance log with date, area, work done, who did it, cost and next due."
+    ],
+    "home-service-contacts-printable": [
+      "Home Service Contacts Printable: Plumber, Electrician and Helper Phone List",
+      "Printable contact sheet for plumbers, electricians, technicians, maids and helpers with phone, area, rate and last used."
+    ],
+    "home-inventory-list-printable": [
+      "Home Inventory List Printable: Household Items and Value Record",
+      "Printable home inventory with room, item, quantity, purchase date, value and notes for valuables and appliances."
+    ],
+    "rent-payment-record-printable": [
+      "Rent Payment Record Printable: Monthly Rent Register for Tenants and Landlords",
+      "Printable rent register with month, rent due, paid on, amount, mode and receipt number for twelve months."
+    ],
+    "utility-bill-tracker-printable": [
+      "Utility Bill Tracker Printable: Monthly Electricity, Water and Gas Bill Record",
+      "Printable utility bill tracker with a row for each month and columns for electricity, water, gas, internet, mobile and total."
+    ],
+    "habit-tracker-printable": [
+      "Habit Tracker Printable: Monthly Daily Habit Chart",
+      "Printable monthly habit tracker with a row for each habit and a box for every day of the month."
+    ],
+    "monthly-expense-tracker-printable": [
+      "Monthly Expense Tracker Printable: Daily Spending Log by Category",
+      "Printable expense tracker with date, item, category, amount and payment mode, for personal or family spending."
+    ],
+    "savings-goal-tracker-printable": [
+      "Savings Goal Tracker Printable: Money Saving Chart for a Target",
+      "Printable savings tracker with date, amount saved, total so far and notes, with a goal and target at the top."
+    ],
+    "travel-packing-list-printable": [
+      "Travel Packing List Printable: Trip Checklist with Tick Boxes",
+      "Printable packing list with two columns of items and a tick box for each, for trips, holidays and hostel moves."
+    ],
+    "travel-itinerary-planner-printable": [
+      "Travel Itinerary Planner Printable: Day-wise Trip Plan with Bookings",
+      "Printable itinerary with day, date, place, stay, travel, booking reference and cost columns for a trip."
+    ],
+    "grocery-shopping-list-printable": [
+      "Grocery Shopping List Printable: Weekly Shopping Checklist",
+      "Printable grocery list with item, quantity and a tick box in two columns, for weekly and monthly shopping."
+    ],
+    "subscription-tracker-printable": [
+      "Subscription Tracker Printable: Recurring Payment and Renewal List",
+      "Printable subscription tracker with service, cost, billing date, paid through and cancel by columns."
+    ],
+    "workout-log-printable": [
+      "Workout Log Printable: Gym and Home Exercise Tracker",
+      "Printable workout log with date, exercise, sets, reps, weight and notes, for the gym or home exercise."
+    ],
+    "customer-order-register-printable": [
+      "Customer Order Register Printable: Order Book for Tailors, Bakers and Small Shops",
+      "Printable order register with date, customer, phone, item, amount, advance, balance and delivery date."
+    ],
+    "petty-cash-voucher-printable": [
+      "Petty Cash Voucher Printable: Small Expense Payment Slip",
+      "Printable petty cash voucher with number, date, paid to, purpose, amount, approver and receiver, four to a page."
+    ],
+    "meeting-minutes-template-printable": [
+      "Meeting Minutes Template Printable: Notes, Decisions and Action Items",
+      "Printable meeting minutes with meeting, date, place, attendees, agenda and discussion lines and an action table."
+    ],
+    "weekly-timesheet-printable": [
+      "Weekly Timesheet Printable: Employee and Freelancer Hours Log",
+      "Printable weekly timesheet with date, in time, out time, break, hours and task for employees, helpers and freelancers."
+    ],
+    "visitor-register-printable": [
+      "Visitor Register Printable: Visitor Log Book for Offices, Shops and Societies",
+      "Printable visitor register with date, name, phone, whom to meet, purpose, in time, out time and signature."
+    ]
+  }
+}

@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/habit-tracker-printable',
+    tool: 'More printable sheets',
+    title: 'New: 40 printable sheets for study, events, baby, vehicle, home and daily life',
+    summary: 'Exam timetable, revision planner, wedding shagun register, guest list, baby feeding log, vehicle service log, rent record, habit tracker, packing list, order register, petty cash voucher, meeting minutes and more. Type a few details, print or download the PDF.',
+  },
+  {
+    date: '2026-11-20',
     path: '/office-cleaning-checklist-printable',
     tool: 'Cleaning checklists and schedules',
     title: 'New: printable cleaning checklists, rosters and logs',
