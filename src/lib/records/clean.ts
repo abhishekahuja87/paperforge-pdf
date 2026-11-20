@@ -1,5 +1,5 @@
 import { addDays, longDate, monthName, parseIso } from '../planner/dates';
-import { INK, clamp, flag, line, lines, makePages, num, ruled, str, table, text, titleBar } from './draw';
+import { INK, clamp, flag, lines, makePages, num, ruled, str, table, text, titleBar } from './draw';
 import { monthGrid } from './grid';
 import type { Family, SheetDef } from './types';
 
