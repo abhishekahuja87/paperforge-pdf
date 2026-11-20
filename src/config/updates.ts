@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-20',
+    path: '/milk-maid-attendance-calendar-printable',
+    tool: 'Printable sheets',
+    title: 'New: 14 colour themes and 3 fonts for the printable sheets',
+    summary: 'Pick a colour theme (blue, green, maroon, night and more, with coloured title rules, header bands and striped rows) and a font (sans, serif or typewriter) on the household, school, event, certificate, label and notice sheets. Certificates also get band, sidebar, tinted and ribbon borders, notices get letterhead styles and labels get a header band.',
+  },
+  {
+    date: '2026-11-20',
     path: '/math-worksheet-generator-printable',
     tool: 'Worksheets, puzzles, certificates and labels',
     title: 'New: 46 printable makers: worksheets, puzzles, certificates, labels, notices and society sheets',

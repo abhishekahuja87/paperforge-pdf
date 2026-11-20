@@ -978,3 +978,11 @@ Checked in Node and an unstyled browser: all 40 layouts rendered and about eight
 - [ ] Certificates: eight pages, four borders, 30 names give 30 pages, long names shrink to fit, wording and signature labels change. Labels: every sheet, repeat on and off, address slashes make lines, door sign custom text, seating chart 24 tables. Notices: text wraps, 14 paragraphs fit, gate pass four to a page.
 - [ ] Download PDF matches the preview; Print prints only the sheet.
 Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts rendered and read by eye; certificate, label, notice and tracker layouts rendered. Full tsc, vite build and the styled page were not run.
+
+### Colour themes and fonts for printable sheets (20 Nov)
+- Open any records sheet (for example /exam-timetable-printable). Under "Colour, font and lines" pick Ocean, then Serif: the title, rule, table header and striped rows turn blue, text is in Times; the preview matches the downloaded PDF.
+- Pick Classic and Sans: output is the same as before this change.
+- Typewriter (Courier): typed text still fits cells and wraps inside the page, nothing runs off the edge.
+- Certificates: try each border (band, sidebar, tinted, ribbon) with a coloured theme; names stay centred.
+- Notice templates: letterhead line, band and box; name tags: header band and filled border.
+- Night theme: print preview still readable, no large black areas other than bands.
