@@ -157,10 +157,11 @@ async function main() {
     written += 1;
   }
   // The sitemap is built from the same page list, so it can never drift from the real pages.
-  const entries = pages.map((page) => `  <url><loc>${escapeHtml(new URL(page.path, SHELL_SITE.url).toString())}</loc></url>`);
+  // <lastmod> is written only where the updates log records a real change; pages without one say nothing rather than guess.
+  const entries = pages.map((page) => `  <url><loc>${escapeHtml(new URL(page.path, SHELL_SITE.url).toString())}</loc>${page.lastmod ? `<lastmod>${page.lastmod}</lastmod>` : ''}</url>`);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`;
   await writeFile(join(distDir, 'sitemap.xml'), sitemap, 'utf8');
-  console.log(`prerender-shell: wrote ${written} static pages and sitemap.xml (${entries.length} URLs) to ${distDir}`);
+  console.log(`prerender-shell: wrote ${written} static pages and sitemap.xml (${entries.length} URLs, ${pages.filter((page) => page.lastmod).length} with lastmod) to ${distDir}`);
 }
 
 main().catch((error) => {
