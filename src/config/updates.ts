@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-21',
+    path: '/workout-planner',
+    tool: 'Workout Planner and Gym Display',
+    title: 'Slideshow keeps the picture in view on phones',
+    summary: 'On a phone the exercise picture always stays on screen and the muscles and steps fold away until you tap to read them. Picking a quick start now shows it as loaded and scrolls to the plan.',
+  },
+  {
+    date: '2026-11-21',
     path: '/classroom-quiz-display',
     tool: 'Classroom Quiz Display',
     title: 'New: show quizzes and timed exams on the class screen',

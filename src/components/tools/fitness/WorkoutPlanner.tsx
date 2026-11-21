@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Copy, LayoutGrid, Play, Trash2 } from 'lucide-react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Check, Copy, LayoutGrid, Play, Trash2 } from 'lucide-react';
 import { calcCard, Note } from '../../finance/ui';
 import { EXERCISES } from '../../../lib/fitness/exercises';
 import {
@@ -43,6 +43,8 @@ export const WorkoutPlanner: React.FC = () => {
   const [show, setShow] = useState<ShowOptions>(DEFAULT_SHOW);
   const [work, setWork] = useState(40);
   const [rest, setRest] = useState(15);
+  const [activeStart, setActiveStart] = useState<string | null>(null);
+  const listsRef = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState<'slides' | 'board' | null>(null);
 
   useEffect(() => {
@@ -58,16 +60,21 @@ export const WorkoutPlanner: React.FC = () => {
   const applyStart = (start: QuickStart) => {
     setPrevious(plan);
     setPlan((current) => planFromStart(start, current));
+    setActiveStart(start.id);
     setNotice(`Loaded ${start.label}. Change anything below.`);
+    // On a phone the lists are below the buttons, so bring them into view to show what was picked.
+    window.setTimeout(() => listsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
   };
   const clearAll = () => {
     setPrevious(plan);
     setPlan((current) => ({ ...current, blocks: { warmup: [], main: [], cooldown: [] } }));
+    setActiveStart(null);
     setNotice('Cleared the exercises.');
   };
   const undo = () => {
     if (previous) setPlan(previous);
     setPrevious(null);
+    setActiveStart(null);
     setNotice('Undone.');
   };
   const copyText = async () => {
@@ -94,8 +101,8 @@ export const WorkoutPlanner: React.FC = () => {
           <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {QUICK_STARTS.map((start) => (
               <li key={start.id}>
-                <button type="button" onClick={() => applyStart(start)} className="h-full w-full rounded-xl border border-orange-200 bg-white p-3 text-left transition hover:border-orange-400 hover:bg-orange-50">
-                  <span className="block text-sm font-bold text-stone-900">{start.label}</span>
+                <button type="button" aria-pressed={activeStart === start.id} onClick={() => applyStart(start)} className={`h-full w-full rounded-xl border p-3 text-left transition ${activeStart === start.id ? 'border-orange-500 bg-orange-50 ring-2 ring-orange-200' : 'border-orange-200 bg-white hover:border-orange-400 hover:bg-orange-50'}`}>
+                  <span className="flex items-center justify-between gap-2 text-sm font-bold text-stone-900">{start.label}{activeStart === start.id && <span className="inline-flex items-center gap-1 rounded-full bg-orange-700 px-2 py-0.5 text-[10px] font-bold text-white"><Check className="h-3 w-3" aria-hidden="true" />Loaded</span>}</span>
                   <span className="mt-0.5 block text-[11px] leading-4 text-stone-500">{start.blurb}</span>
                 </button>
               </li>
@@ -111,9 +118,11 @@ export const WorkoutPlanner: React.FC = () => {
         )}
       </section>
 
-      {BLOCKS.map((block) => (
-        <WorkoutBlockEditor key={block.id} label={block.label} hint={block.hint} items={plan.blocks[block.id]} onChange={(items) => setBlock(block.id, items)} startGroup={START_GROUP[block.id]} />
-      ))}
+      <div ref={listsRef} className="scroll-mt-[69px] space-y-4">
+        {BLOCKS.map((block) => (
+          <WorkoutBlockEditor key={block.id} label={block.label} hint={block.hint} items={plan.blocks[block.id]} onChange={(items) => setBlock(block.id, items)} startGroup={START_GROUP[block.id]} />
+        ))}
+      </div>
 
       <section className={`${calcCard} space-y-4`}>
         <h2 className="text-sm font-black text-stone-900">What the screen shows</h2>

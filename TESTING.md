@@ -777,6 +777,7 @@ Not run: `tsc` (project), `vite build`, browser, real phone or projector. Only `
 - [ ] "Create questions" with 5 multiple choice and with true or false; "Try a sample quiz" fills 3 questions; Undo restores.
 - [ ] A question: write text, 2 to 6 options (Add an option, remove down to 2), tick the correct one, add a picture to the question and to an option (shrunk, thumbnail shows), remove the picture, explanation.
 - [ ] Move up/down, copy and remove a question. An incomplete question lists a problem under "How to play" and blocks Start.
+- [ ] Phone: Create questions, Try a sample quiz and Add these questions scroll to the Questions list.
 - [ ] Paste questions: numbered questions, A) B) C) D), "Answer: B", "Explanation: ..." are read correctly; the correct option is selected.
 - [ ] Save quiz file, reload, Open a quiz file: everything including pictures comes back. A random JSON file shows a friendly message.
 - [ ] Learn: click, space or right arrow shows the answer (correct option green, others faded, explanation), the next click moves on; left arrow goes back; the Next button is orange.
@@ -796,6 +797,8 @@ Not run: `tsc` (project), `vite build`, browser, real phone or TV.
 - [ ] In every part: "Add your own" with a name and a note adds an entry with "No picture".
 - [ ] Start slideshow: intro, then each exercise with picture (library items only), countdown, rest, end screen; custom entries show text only.
 - [ ] Arrow keys, space and Escape work; buttons hide after a few seconds and return on touch or mouse move; closing returns to the planner.
+- [ ] Phone, slideshow on an exercise with long steps: the picture is never cut or pushed off the screen; name, note and timer stay visible; "Show muscles and steps" opens them (and pauses) and "Hide details" folds them; on a computer or TV they always show.
+- [ ] Phone, tapping Mix day (or any quick start): the button shows "Loaded" and the page scrolls to the Warm-up, Main and Cool-down lists; Undo and Clear remove the "Loaded" mark.
 - [ ] Display options (date, name, gym, pictures, muscles, steps, timer, next, light screen) change the slideshow.
 - [ ] "Show all on one screen": three parts side by side (stacked on a phone), small flipping pictures for library items only, no steps text; tapping a time button counts down that exercise and ticks it at 0; the circle ticks/unticks; session clock starts, pauses; restart icon clears ticks and clock; Escape and Close leave.
 - [ ] Reload: the plan is still there. "Copy plan as text" pastes a readable list.

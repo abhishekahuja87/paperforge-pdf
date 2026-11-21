@@ -54,6 +54,9 @@ export const QuizMaker: React.FC = () => {
   const [playQuiz, setPlayQuiz] = useState<Quiz | null>(null);
   const [freshKey, setFreshKey] = useState<string | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
+  const questionsRef = useRef<HTMLElement>(null);
+  // On a phone the questions are below the buttons, so bring them into view to show what was added.
+  const showQuestions = () => { window.setTimeout(() => questionsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80); };
 
   useEffect(() => {
     try {
@@ -98,14 +101,19 @@ export const QuizMaker: React.FC = () => {
     const made = Array.from({ length: total }, () => (blankType === 'tf' ? trueFalseQuestion() : blankQuestion(4)));
     change({ ...quiz, questions: [...quiz.questions, ...made] }, `Added ${total} empty ${total === 1 ? 'question' : 'questions'}. Fill them in below.`);
     setFreshKey(made[0]?.key ?? null);
+    showQuestions();
   };
-  const loadSample = () => change({ ...quiz, title: 'Sample quiz', subject: 'Maths', questions: sampleQuestions() }, 'Loaded a sample quiz. Change anything below.');
+  const loadSample = () => {
+    change({ ...quiz, title: 'Sample quiz', subject: 'Maths', questions: sampleQuestions() }, 'Loaded a sample quiz. Change anything below.');
+    showQuestions();
+  };
   const importPasted = () => {
     const found = parseQuizText(pasted);
     if (found.length === 0) { setNotice('No questions found. Start each question with a number, add options A) B) C) D), then a line like Answer: B.'); return; }
     change({ ...quiz, questions: [...quiz.questions, ...found] }, `Added ${found.length} ${found.length === 1 ? 'question' : 'questions'} from your text. Check the correct answers.`);
     setPasted('');
     setPasteOpen(false);
+    showQuestions();
   };
   const clearAll = () => change({ ...quiz, questions: [] }, 'Cleared all questions.');
   const undo = () => { if (previous) setQuiz(previous); setPrevious(null); setNotice('Undone.'); };
@@ -189,7 +197,7 @@ export const QuizMaker: React.FC = () => {
         )}
       </section>
 
-      <section className="space-y-2 rounded-2xl border border-stone-200 bg-white/70 p-3 sm:p-4" aria-label="Questions">
+      <section ref={questionsRef} className="scroll-mt-[69px] space-y-2 rounded-2xl border border-stone-200 bg-white/70 p-3 sm:p-4" aria-label="Questions">
         <div className="flex items-baseline justify-between gap-3">
           <h2 className="text-base font-black tracking-tight text-stone-900">Questions <span className="text-xs font-semibold text-stone-500">({count})</span></h2>
           {count > 0 && <button type="button" onClick={clearAll} className="inline-flex items-center gap-1 text-xs font-semibold text-stone-600 underline"><Trash2 className="h-3.5 w-3.5" aria-hidden="true" />Clear all</button>}
