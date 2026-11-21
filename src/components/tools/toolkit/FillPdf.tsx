@@ -103,7 +103,7 @@ export const FillPdf: React.FC = () => {
   };
 
   const fieldsChanged = fields.some((field) => { const entry = entries[field.name]; return entry !== undefined && (entry.value !== field.value || entry.checked !== field.checked); });
-  const setEntry = (name: string, patch: Partial<FieldEntry>) => setEntries((all) => ({ ...all, [name]: { value: '', checked: false, ...all[name], ...patch } }));
+  const setEntry = (name: string, patch: Partial<FieldEntry>) => setEntries((all) => ({ ...all, [name]: { ...(all[name] ?? { value: '', checked: false }), ...patch } }));
 
   const save = async () => {
     if (!bytes || (items.length === 0 && !fieldsChanged)) return;
