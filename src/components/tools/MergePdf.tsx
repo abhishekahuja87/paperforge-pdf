@@ -233,7 +233,7 @@ export const MergePdf: React.FC = () => {
               <a
                 href={downloadUrl}
                 download={downloadName}
-                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-emerald-800 px-3 py-2 text-xs font-bold text-white transition hover:bg-emerald-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-orange-700 px-3 py-2 text-xs font-bold text-white transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 focus-visible:ring-offset-2"
               >
                 <Download className="h-3.5 w-3.5" aria-hidden="true" />
                 {t('save')}

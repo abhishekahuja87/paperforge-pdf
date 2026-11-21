@@ -22,7 +22,7 @@ const marking = text.marking as unknown as MarkingText;
 
 type Saving = '' | 'png' | 'pdf';
 
-const tabClass = (on: boolean) => `min-h-11 flex-1 rounded-xl px-4 text-sm font-semibold ${on ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`;
+const tabClass = (on: boolean) => `min-h-11 flex-1 rounded-xl px-4 text-sm font-semibold ${on ? 'bg-orange-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`;
 
 const CourtGuide: React.FC = () => {
   const [tab, setTab] = useState<'sizes' | 'fit'>('sizes');
@@ -83,8 +83,8 @@ const CourtGuide: React.FC = () => {
           <div className="mt-3"><CourtDiagram variant={variant} margin={margin} label={`${copy.name}: ${copy.variants[variant.id]}`} clearCaption={ui.clearCaption} annotate={annotate} /></div>
           <p className="mt-1 text-[11px] text-slate-500">{ui.drawingNote}</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <button type="button" disabled={saving !== ''} onClick={() => save('png')} className="inline-flex min-h-11 items-center rounded-xl bg-emerald-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-emerald-800 disabled:opacity-60">{saving === 'png' ? ui.preparing : ui.saveImage}</button>
-            <button type="button" disabled={saving !== ''} onClick={() => save('pdf')} className="inline-flex min-h-11 items-center rounded-xl border border-emerald-700 px-5 py-2.5 text-sm font-bold text-emerald-800 hover:bg-emerald-50 disabled:opacity-60">{saving === 'pdf' ? ui.preparing : ui.savePdf}</button>
+            <button type="button" disabled={saving !== ''} onClick={() => save('png')} className="inline-flex min-h-11 items-center rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60">{saving === 'png' ? ui.preparing : ui.saveImage}</button>
+            <button type="button" disabled={saving !== ''} onClick={() => save('pdf')} className="inline-flex min-h-11 items-center rounded-xl border border-orange-700 px-5 py-2.5 text-sm font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-60">{saving === 'pdf' ? ui.preparing : ui.savePdf}</button>
           </div>
           <p className="mt-1 text-[11px] text-slate-500">{ui.saveHint}</p>
           {failed && <p role="alert" className="mt-1 text-xs text-rose-700">{ui.saveFailed}</p>}
