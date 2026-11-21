@@ -36,7 +36,7 @@ export const HomeToolCard: React.FC<{
   );
 };
 
-/** Vertical tile used in the "Most used" row: icon, title and a short description. */
+/** Tile for the "Our popular tools" row: icon and title side by side, then a one-line description, the same shape as the Workspace cards. */
 export const HomePopularTile: React.FC<{ tool: ToolItem }> = ({ tool }) => {
   const { i18n } = useTranslation();
   const copy = getToolCopy(tool, i18n.language);
@@ -44,15 +44,15 @@ export const HomePopularTile: React.FC<{ tool: ToolItem }> = ({ tool }) => {
   return (
     <Link
       to={tool.path}
-      className="group flex min-w-0 flex-row items-center gap-3 rounded-xl border border-stone-200/80 bg-white/90 p-2.5 transition sm:flex-col sm:items-start sm:gap-1 duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+      className="group flex min-w-0 flex-col gap-1.5 rounded-xl border border-stone-200/80 bg-white/90 p-3 transition duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700"
     >
-      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${HOME_COLLECTION_STYLES[topic] ?? HOME_COLLECTION_STYLES.other} ${HOME_COLLECTION_HOVER[topic] ?? HOME_COLLECTION_HOVER.other}`}>
-        <ToolIcon name={tool.icon} className="h-4 w-4" />
-      </span>
-      <div lang={copy.language} className="min-w-0">
-        <h3 className="line-clamp-2 text-[13px] font-bold leading-tight text-stone-900 group-hover:text-orange-800">{homeTitle(copy.title)}</h3>
-        <span className="mt-0.5 line-clamp-1 block text-[11px] leading-snug text-stone-500">{copy.description}</span>
+      <div className="flex items-center gap-2.5">
+        <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${HOME_COLLECTION_STYLES[topic] ?? HOME_COLLECTION_STYLES.other} ${HOME_COLLECTION_HOVER[topic] ?? HOME_COLLECTION_HOVER.other}`}>
+          <ToolIcon name={tool.icon} className="h-4 w-4" />
+        </span>
+        <h3 lang={copy.language} className="min-w-0 line-clamp-2 text-[13px] font-extrabold leading-tight text-stone-900 group-hover:text-orange-800">{homeTitle(copy.title)}</h3>
       </div>
+      <p lang={copy.language} className="line-clamp-1 text-[11px] leading-snug text-stone-500">{copy.description}</p>
     </Link>
   );
 };
