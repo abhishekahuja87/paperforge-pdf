@@ -216,4 +216,19 @@ export const HUBS: Hub[] = [
       ] },
     ],
   },
+  {
+    path: '/display-and-presentation-tools',
+    collection: 'present',
+    title: 'Free Display and Presentation Tools: Run a Slideshow on a TV or Shop Screen',
+    subtitle: 'Turn PDFs, Word files and pictures into a fullscreen slideshow for a TV, a kiosk or a screen in your shop.',
+    description: 'Free display and presentation tool: play PDFs, Word files and images as a fullscreen slideshow with timing, captions, transitions, loop, shuffle and a clock. Runs in your browser.',
+    sections: [
+      { heading: 'What you can do here', paragraphs: [
+        'Add PDFs, Word files and pictures, put the slides in your order, set how long each one stays, choose fade or zoom, and play them fullscreen on a TV, a kiosk or a screen at the counter. You can loop or shuffle the slides and show a clock and the date while the screen stays awake.',
+      ] },
+      { heading: 'Good to know', paragraphs: [
+        'This topic has one tool today, and more will be added here as the site grows. The files you add are used in your browser and are not uploaded to MyDailyUtils.',
+      ] },
+    ],
+  },
 ];

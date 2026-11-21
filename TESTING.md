@@ -1081,3 +1081,6 @@ Not run. Home: heading reads "Browse 250+ tools and templates". /free-no-limits 
 
 ### Related tools in the same box (21 Nov)
 Not run. On a tool page, Related tools is a white rounded box with the same small heading and + sign as the questions, the same width as the other sections, open by default, and it folds with the page Collapse all button. Tiles are two across on a phone-wide screen and larger, one column on very narrow phones.
+
+### Topic pages with task tables (21 Nov)
+Not run. Open each of the 13 topic pages from the hero tiles (including /display-and-presentation-tools). Check: smaller headline; "What can I do here?" table (stacked rows on a phone, three columns from sm up) and every tool link opens the right tool; "Ideas for your situation" cards; the full tool list at the bottom. Read the rows against the tools for accuracy. Hero tiles now use each topic's colour (the same as the sections below) and brighten on hover.

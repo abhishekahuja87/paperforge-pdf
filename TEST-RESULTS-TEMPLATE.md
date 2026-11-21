@@ -140,6 +140,14 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | M4 | Read the 8 new topic pages | Text is accurate and tool lists complete | | |
 | M5 | "Browse N+ tools" number | Matches roughly the number of tools you have | | |
 
+## N. Topic pages
+| # | Check | Expected | Result | Notes |
+|---|---|---|---|---|
+| N1 | Open all 13 topic pages from the hero tiles | Each opens its own page (also Display) | | |
+| N2 | Task table on a phone and a computer | Readable; every tool link opens the right tool | | |
+| N3 | Read the rows for your own areas (PDF, photos, printables) | Every row is true to the tool | | |
+| N4 | Hero tile colours | Same colour per topic as the sections below | | |
+
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin
 - [ ] Search Console: resubmit the sitemap
