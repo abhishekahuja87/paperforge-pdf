@@ -780,6 +780,7 @@ Not run: `tsc` (project), `vite build`, browser, real phone or TV.
 - [ ] Start slideshow: intro, then each exercise with picture (library items only), countdown, rest, end screen; custom entries show text only.
 - [ ] Arrow keys, space and Escape work; buttons hide after a few seconds and return on touch or mouse move; closing returns to the planner.
 - [ ] Display options (date, name, gym, pictures, muscles, steps, timer, next, light screen) change the slideshow.
+- [ ] "Show all on one screen": three parts side by side (stacked on a phone), small flipping pictures for library items only, no steps text; tapping a time button counts down that exercise and ticks it at 0; the circle ticks/unticks; session clock starts, pauses; restart icon clears ticks and clock; Escape and Close leave.
 - [ ] Reload: the plan is still there. "Copy plan as text" pastes a readable list.
 - [ ] On a phone: fullscreen works or the overlay still fills the screen; screen stays awake.
 

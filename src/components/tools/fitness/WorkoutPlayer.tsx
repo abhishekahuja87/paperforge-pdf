@@ -22,7 +22,7 @@ const GROUP_LABEL = new Map(GROUPS.map((group) => [group.id, group.label]));
 const blockLabel = (id: string): string => BLOCKS.find((block) => block.id === id)?.label ?? '';
 
 /** Two photos per exercise fade into each other, like the Exercise Library. Still start photo when the device asks for reduced motion. */
-const CSS = `
+export const FLIP_CSS = `
 .mdu-wk-b { animation: mdu-wk-fade 3s ease-in-out infinite; }
 @keyframes mdu-wk-fade { 0%, 30% { opacity: 0; } 50%, 80% { opacity: 1; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .mdu-wk-b { animation: none; opacity: 0; } }
@@ -188,7 +188,7 @@ export const WorkoutPlayer: React.FC<Props> = ({ plan, timing, show, onClose }) 
       onPointerDown={reveal}
       className={`fixed inset-0 z-[100] flex flex-col ${surface}`}
     >
-      <style>{CSS}</style>
+      <style>{FLIP_CSS}</style>
       <div className={`h-1.5 w-full ${dark ? 'bg-white/10' : 'bg-stone-200'}`}><div className="h-full bg-orange-500 transition-[width] duration-300" style={{ width: `${progress}%` }} /></div>
       {header.length > 0 && slide.kind !== 'intro' && <p className={`px-5 pt-3 text-xs font-semibold sm:text-sm ${muted}`}>{header.join('  ·  ')}</p>}
       <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4 sm:px-10">{renderBody()}</div>

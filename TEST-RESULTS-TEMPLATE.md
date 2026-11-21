@@ -157,6 +157,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | O4 | Start slideshow | Intro, exercises, rest, end; pictures only for list items | | |
 | O5 | Arrow keys, space, Escape, buttons | Move, pause, close; buttons hide then return | | |
 | O6 | Display options and timings | Slideshow follows them | | |
+| O6b | Show all on one screen | Three parts, small pictures, time buttons, tick-off, session clock; fits one screen on a TV | | |
 | O7 | Reload; Copy plan as text | Plan is kept; text pastes well | | |
 | O8 | On a phone | Fills the screen and stays awake | | |
 
