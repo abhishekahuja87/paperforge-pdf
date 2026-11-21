@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { InfoPageLayout } from '../components/layout/InfoPageLayout';
+import { PromiseTags } from '../components/common/PromiseTags';
 import { HomeToolCard } from '../components/home/HomeVariantTools';
 import { COLLECTIONS } from '../config/homeSections';
 import { TOOLS, type ToolItem } from '../config/tools';
@@ -19,7 +20,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
   const intro = hub.sections.slice(0, 1);
   const rest = hub.sections.slice(1);
   return (
-    <InfoPageLayout title={hub.title} subtitle={hub.subtitle} description={hub.description} contentLanguage="en" compact>
+    <InfoPageLayout title={hub.title} subtitle={hub.subtitle} description={hub.description} contentLanguage="en" compact leftAligned headerExtra={<PromiseTags />}>
       {intro.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>

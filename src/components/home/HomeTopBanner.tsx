@@ -3,7 +3,8 @@ import { ArrowRight, Baby, Briefcase, Calculator, Code2, Dumbbell, FileText, Gra
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { COLLECTIONS } from '../../config/homeSections';
-import { HERO_TAGS, HERO_TILES, type HeroTile } from '../../config/heroTiles';
+import { HERO_TILES, type HeroTile } from '../../config/heroTiles';
+import { PromiseTags } from '../common/PromiseTags';
 import { TOOLS } from '../../config/tools';
 import { HOME_COLLECTION_BORDER, HOME_COLLECTION_HOVER, HOME_COLLECTION_STYLES } from '../../lib/homePageVariants';
 
@@ -17,8 +18,6 @@ const ICONS: Record<HeroTile['icon'], LucideIcon> = {
   briefcase: Briefcase, display: Presentation, school: GraduationCap, kids: Baby, share: Share2, code: Code2,
 };
 
-const tag = 'inline-flex items-center rounded-full border border-orange-200 bg-white/80 px-2.5 py-1 text-[11px] font-bold text-stone-700';
-
 export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChange }) => {
   const { t } = useTranslation();
   // Every working tool page: the main tools plus the ready-made sheets and templates (the same list that fills the sitemap), rounded down to ten.
@@ -29,16 +28,13 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChan
   }, []);
 
   return (
-    <section className="relative overflow-hidden px-4 py-5 sm:py-8" aria-label={t('findTool')}>
+    <section className="relative overflow-hidden py-5 sm:py-8" aria-label={t('findTool')}>
       <div aria-hidden="true" className="pointer-events-none absolute -left-16 top-0 h-56 w-56 rounded-full bg-amber-200/50 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-12 bottom-0 h-64 w-64 rounded-full bg-orange-200/50 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] lg:items-stretch lg:gap-10">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] lg:items-stretch lg:gap-10">
         <div className="flex flex-col justify-center text-center lg:text-left">
-          <ul className="flex flex-wrap justify-center gap-1.5 lg:justify-start" aria-label={t('homeTags', { defaultValue: 'What to expect' })}>
-            {HERO_TAGS.map((text) => <li key={text} className={tag}>{text}</li>)}
-            <li><Link to="/free-no-limits" className={`${tag} gap-1 text-orange-800 hover:border-orange-400`}>{t('homeTagsMore', { defaultValue: 'Why is it free?' })}<ArrowRight className="h-3 w-3" aria-hidden="true" /></Link></li>
-          </ul>
+          <PromiseTags className="justify-center lg:justify-start" />
 
           <h1 className="mt-3 text-2xl font-black leading-[1.1] tracking-[-0.03em] text-stone-900 sm:text-4xl">
             {t('homeHeading')}
