@@ -1102,3 +1102,6 @@ Not run. On /pdf-tools and the other topic pages the header looks like a tool pa
 
 ### Jump-link scroll gap (21 Nov)
 Not run. On a phone, tap a topic chip (for example PDF tools) under the search box: the topic panel stops with the same small gap below the sticky header as the gap between two panels (about 12 px), not a larger one.
+
+### Your tools columns (21 Nov)
+Not run. Pin a few tools and open a few more: the Your tools box (Pinned, Recently used) now shows tiles in the same 4 columns, same size and spacing as the topic sections below (1 column on phones, 3 on tablets).

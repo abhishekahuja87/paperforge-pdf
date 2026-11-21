@@ -24,13 +24,13 @@ export const HomeMyTools: React.FC = () => {
       {pinnedTools.length > 0 && (
         <div>
           <p className="mb-1.5 text-[11px] font-bold uppercase tracking-wide text-stone-500">{t('myTools.pinnedHeading', { defaultValue: 'Pinned' })}</p>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{pinnedTools.map((tool) => <HomeToolCard key={tool.id} tool={tool} compact />)}</div>
+          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-3 lg:grid-cols-4">{pinnedTools.map((tool) => <HomeToolCard key={tool.id} tool={tool} compact />)}</div>
         </div>
       )}
       {recentTools.length > 0 && (
         <div>
           <p className="mb-1.5 text-[11px] font-bold uppercase tracking-wide text-stone-500">{t('myTools.recentHeading', { defaultValue: 'Recently used' })}</p>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{recentTools.map((tool) => <HomeToolCard key={tool.id} tool={tool} compact />)}</div>
+          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-3 lg:grid-cols-4">{recentTools.map((tool) => <HomeToolCard key={tool.id} tool={tool} compact />)}</div>
         </div>
       )}
       <p className="text-[10px] text-stone-500">{t('myTools.note', { defaultValue: 'Saved only in this browser. Clear removes the list.' })}</p>
