@@ -149,6 +149,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
     tasks: [
       { task: "Find the size of a court or ground", tool: "sports-court-size-guide", name: "Sports Court and Ground Size Guide", note: "Drawn to scale in metres and feet, with a marking plan." },
       { task: "Find an exercise and how to do it", tool: "exercise-library", name: "Exercise Library", note: "Gym and home exercises with moving pictures." },
+      { task: "Plan today's workout and show it on a screen", tool: "workout-planner", name: "Workout Planner and Gym Display", note: "Warm-up, main and cool-down with your own entries." },
       { task: "Check your BMI", tool: "bmi-calculator", name: "BMI Calculator", note: "Indian and WHO categories." },
     ],
     situations: [
@@ -276,6 +277,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Show PDFs, Word files and pictures as a slideshow", tool: "display-studio", name: "Display and Presentation", note: "Fullscreen for a TV, kiosk or shop screen." },
       { task: "Reorder or skip slides", tool: "display-studio", name: "Display and Presentation", note: "Put slides in your order, or skip some." },
       { task: "Add captions and set the time on each slide", tool: "display-studio", name: "Display and Presentation", note: "Fade or zoom transitions." },
+      { task: "Show today's gym or class workout on a screen", tool: "workout-planner", name: "Workout Planner and Gym Display", note: "Pictures, timers and your own exercises." },
       { task: "Loop or shuffle a playlist", tool: "display-studio", name: "Display and Presentation", note: "Keeps playing." },
       { task: "Show a clock and date and keep the screen awake", tool: "display-studio", name: "Display and Presentation", note: "Useful for a counter or reception." },
     ],

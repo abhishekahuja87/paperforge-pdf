@@ -80,6 +80,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'time-zone-converter': ['meeting time converter', 'ist to est', 'ist to utc', 'world clock', 'time difference between cities'],
   'number-to-words': ['amount in words', 'number in words for cheque', 'rupees in words', 'write number in english'],
   'sports-court-size-guide': ['badminton court size', 'tennis court dimensions', 'football pitch size', 'cricket pitch length', 'volleyball court size', 'kabaddi court size'],
+  'workout-planner': ['daily workout plan', 'gym slideshow', 'warm up and cool down plan', 'push pull legs', 'workout timer', 'gym tv display'],
   'exercise-library': ['how to do a squat', 'home workout', 'exercise instructions', 'bodyweight exercises', 'gym exercises'],
   'solar-system-explorer': ['planets in order', 'planet sizes', 'solar system for kids', 'distance of planets from sun'],
   'printable-paper-maker': ['graph paper pdf', 'dot grid printable', 'lined paper', 'cornell notes', 'isometric paper', 'free printable paper'],

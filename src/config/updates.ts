@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-21',
+    path: '/workout-planner',
+    tool: 'Workout Planner and Gym Display',
+    title: 'New: plan today’s workout and show it on a screen',
+    summary: 'Pick warm-up, main and cool-down exercises from quick starts or the list, add your own with a note, and show them as a fullscreen slideshow with pictures and a timer.',
+  },
+  {
+    date: '2026-11-21',
     path: '/pdf-tools',
     tool: 'Topic pages',
     title: 'Topic pages now list what you can do, task by task',
