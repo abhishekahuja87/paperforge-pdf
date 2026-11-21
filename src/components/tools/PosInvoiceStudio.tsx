@@ -57,7 +57,7 @@ const labelClass = 'block min-w-0 text-xs font-semibold text-slate-600';
 const secondaryButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50 disabled:cursor-not-allowed disabled:opacity-50';
 const primaryButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50';
 const shareButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg bg-orange-700 px-3 py-2 text-xs font-semibold text-white transition hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50';
-const backupButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg bg-emerald-700 px-3 py-2 text-xs font-semibold text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50';
+const backupButtonClass = 'inline-flex items-center justify-center gap-1.5 rounded-lg bg-orange-700 px-3 py-2 text-xs font-semibold text-white transition hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50';
 const OKLCH_PATTERN = /oklch\(([^)]+)\)/gi;
 
 function oklchToRgba(value: string): string {

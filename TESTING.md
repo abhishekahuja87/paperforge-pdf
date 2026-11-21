@@ -1093,3 +1093,6 @@ Not run. Desktop: the hero's left and right edges line up exactly with the logo 
 
 ### Popular tiles (21 Nov)
 Not run. "Our popular tools" tiles: icon and title side by side, one-line description below, same shape and height as the Workspace cards; no tile is taller than the Workspace cards.
+
+### Orange action buttons (21 Nov)
+Not run. In Merge, Split, Compress, Rotate, Crop, Watermark, Protect, Unlock, Flatten, Organize, Delete Pages, Page Numbers, N-Up, Images to PDF, Sanitize, Sample PDF, Court Guide and the POS backup buttons: the Save / Download button is orange (same as the main action button) while the "Ready" panel and check marks stay green. Download again in the Master Document Studio is an orange outline.

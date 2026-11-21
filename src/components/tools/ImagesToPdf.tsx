@@ -322,7 +322,7 @@ export const ImagesToPdf: React.FC = () => {
                 className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition ${
                   isOutOfSync
                     ? 'bg-slate-200 text-slate-500 cursor-not-allowed opacity-75'
-                    : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                    : 'bg-orange-700 hover:bg-orange-800 text-white'
                 }`}
               >
                 <Download className="w-4 h-4" />

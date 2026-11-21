@@ -145,7 +145,7 @@ export const FlattenPdf: React.FC = () => {
             <a
               href={downloadUrl}
               download={downloadName || generatePdfFilename(file.name, 'flattened')}
-              className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
+              className="w-full sm:w-auto px-6 py-3 bg-orange-700 hover:bg-orange-800 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
             >
               <Download className="w-5 h-5" />
               <span>Download Flattened PDF</span>
