@@ -11,7 +11,6 @@ import { fileToLogo, type Logo } from '../../../lib/paper/image';
 import { generateFileName } from '../../../lib/pdf/naming';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
-const MAX_BYTES = 40 * 1024 * 1024;
 
 /** Place a drawn, typed or uploaded signature on a PDF page. Done in the browser; the file is never uploaded. */
 export const SignPdf: React.FC = () => {
@@ -36,7 +35,6 @@ export const SignPdf: React.FC = () => {
   const openFile = async (file: File | undefined) => {
     if (!file) return;
     setMessage('');
-    if (file.size > MAX_BYTES) { setMessage('That file is over 40 MB. Compress it first, then sign.'); return; }
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });

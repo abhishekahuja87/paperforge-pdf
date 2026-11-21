@@ -3,6 +3,7 @@ import { HomeTopBanner } from '../components/home/HomeTopBanner';
 import { HomeToolsGrid } from '../components/home/HomeToolsGrid';
 import { InstallBar } from '../components/home/InstallBar';
 import { HomeMyTools } from '../components/home/HomeMyTools';
+import { FreeNoLimitsStrip } from '../components/home/FreeNoLimitsStrip';
 import { PageMetadata } from '../components/common/PageMetadata';
 import { buildHomeJsonLd } from '../lib/structuredData';
 
@@ -20,6 +21,7 @@ export const HomePage2: React.FC = () => {
       {query.trim() === '' && (
         <div className="mx-auto max-w-6xl space-y-3 px-4">
           <InstallBar />
+          <FreeNoLimitsStrip />
           <HomeMyTools />
         </div>
       )}

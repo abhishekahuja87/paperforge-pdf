@@ -108,6 +108,20 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | I9 | /why-trust-us page | Claims are true for you (independent, Bangalore, no sign-up, ad-supported); links work | | |
 | I10 | Open Sign PDF and sign a PDF | Works; downloaded file shows the signature | | |
 
+## K. No-limit tools and the free promise
+| # | Check | Expected | Result | Notes |
+|---|---|---|---|---|
+| K1 | Make PDF Fillable: text box, tick box, drop-down, download, type into them in two viewers | Fields work and sit where drawn | | |
+| K2 | Make PDF Fillable on a rotated page | Fields are in the right place | | |
+| K3 | Smart Split: every N, blank pages, bookmarks, by size | Parts listed first, ZIP opens, ranges correct | | |
+| K4 | Bulk Image Tools with 30+ photos, watermark, WebP | ZIP downloads, sizes shown, no crash | | |
+| K5 | Bates Numbering, 3 PDFs, keep counting | Unbroken numbers, tokens filled, ZIP opens | | |
+| K6 | Social Image Sizes, Fill and Fit | Correct pixel sizes, crop moves | | |
+| K7 | GIF Maker, 5 pictures | GIF plays on WhatsApp and browser, no watermark | | |
+| K8 | Green badge on tools, none on scanner / Digitize | As described | | |
+| K9 | Home strip, /free-no-limits, footer link, guides | All load and read well | | |
+| K10 | Sign, Fill, Redact, Compare with a large file | No size or page message | | |
+
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin
 - [ ] Search Console: resubmit the sitemap

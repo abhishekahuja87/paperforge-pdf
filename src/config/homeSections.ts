@@ -54,10 +54,10 @@ export interface CollectionSpec {
 export const COLLECTIONS: CollectionSpec[] = [
   { id: 'pdf', icon: 'file-text', tools: [
     'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'digitize-documents', 'pdf-to-images', 'extract-text', 'add-page-numbers',
-    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'redact-pdf', 'compare-pdf-and-text',
+    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text',
   ] },
   { id: 'images', icon: 'image', tools: [
-    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location',
+    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location', 'bulk-image-tools', 'social-image-resizer', 'gif-maker',
   ] },
   { id: 'tax', icon: 'receipt', tools: [
     'income-tax-calculator', 'salary-calculator', 'hra-calculator', 'gst-calculator', 'gratuity-calculator', 'epf-calculator',

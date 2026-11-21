@@ -34,6 +34,7 @@ export const Footer: React.FC = () => {
           <Link to="/terms" className={linkClass}>{t('terms')}</Link>
           <Link to="/whats-new" className={linkClass}>{t('whatsNew')}</Link>
           <Link to="/editorial-policy" className={linkClass}>{t('editorialPolicy')}</Link>
+          <Link to="/free-no-limits" className={linkClass}>{t('freeNoLimits', { defaultValue: 'Free, no limits' })}</Link>
           <Link to="/why-trust-us" className={linkClass}>{t('whyTrustUs', { defaultValue: 'Why trust us' })}</Link>
           <Link to="/contact" className="font-bold text-orange-300 transition hover:text-orange-200">{t('requestShort')}</Link>
         </nav>

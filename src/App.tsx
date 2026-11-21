@@ -45,6 +45,7 @@ const DisplayStudioPage = lazy(() => import('./pages/DisplayStudioPage').then((m
 const PosInvoiceStudioPage = lazy(() => import('./pages/PosInvoiceStudioPage').then((m) => ({ default: m.PosInvoiceStudioPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
 const HubPage = lazy(() => import('./pages/HubPage').then((m) => ({ default: m.HubPage })));
+const FreeNoLimitsPage = lazy(() => import('./pages/FreeNoLimitsPage').then((m) => ({ default: m.FreeNoLimitsPage })));
 const TrustPage = lazy(() => import('./pages/TrustPage').then((m) => ({ default: m.TrustPage })));
 const EditorialPolicyPage = lazy(() => import('./pages/EditorialPolicyPage').then((m) => ({ default: m.EditorialPolicyPage })));
 const WhatsNewPage = lazy(() => import('./pages/WhatsNewPage').then((m) => ({ default: m.WhatsNewPage })));
@@ -143,6 +144,7 @@ export const App: React.FC = () => {
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/editorial-policy" element={<EditorialPolicyPage />} />
               <Route path="/why-trust-us" element={<TrustPage />} />
+              <Route path="/free-no-limits" element={<FreeNoLimitsPage />} />
               {HUBS.map((hub) => <Route key={hub.path} path={hub.path} element={<HubPage hub={hub} />} />)}
               <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/about" element={<AboutPage />} />

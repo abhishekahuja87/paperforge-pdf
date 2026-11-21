@@ -6,7 +6,6 @@ import { Toggle, card, heading } from '../paper/controls';
 import { diffTokens, tokenize, type DiffUnit } from '../../../lib/safeshare/diff';
 import { extractTextFromPdf } from '../../../lib/pdf/extractText';
 
-const MAX_BYTES = 30 * 1024 * 1024;
 type Source = 'text' | 'pdf';
 interface Side { text: string; name: string }
 
@@ -34,7 +33,6 @@ export const ComparePdf: React.FC = () => {
   const pick = async (file: File | undefined, set: (side: Side) => void) => {
     if (!file) return;
     setMessage('');
-    if (file.size > MAX_BYTES) { setMessage('That file is over 30 MB. Compress it first, then compare.'); return; }
     setBusy(true);
     try {
       const pages = await extractTextFromPdf(await file.arrayBuffer());

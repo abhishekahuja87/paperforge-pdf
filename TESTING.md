@@ -1043,10 +1043,21 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 
 ### Safe sharing: Redact PDF, Compare PDF and Text, Remove Location from Photos (21 Nov)
 Not run in the build environment (no packages, no browser). Please check on a real phone and a computer.
-- /redact-pdf: open a text PDF, type a word that appears twice, tap Find and cover (boxes appear on every match; remove one); draw a box with a finger in Draw mode; Scroll mode moves the page; download, open the file, try to select or search the covered text (must not be possible); pages without boxes still have selectable text; turn off "Keep other pages as normal text" and every page becomes a picture; a scanned PDF still works with hand-drawn boxes; a password PDF and a PDF over 60 pages show the message; document title and author are empty in the result.
+- /redact-pdf: open a text PDF, type a word that appears twice, tap Find and cover (boxes appear on every match; remove one); draw a box with a finger in Draw mode; Scroll mode moves the page; download, open the file, try to select or search the covered text (must not be possible); pages without boxes still have selectable text; turn off "Keep other pages as normal text" and every page becomes a picture; a scanned PDF still works with hand-drawn boxes; a password PDF shows the message; a long PDF (100+ pages) works, slowly on a phone; document title and author are empty in the result.
 - /compare-pdf-and-text: paste two texts with one changed word (Word by word marks only that word); lines mode with "Show only the changed lines"; two PDFs with text; a scanned PDF shows the OCR message; two long unrelated texts show the "too long" message instead of freezing; identical texts say "No difference found".
 - /remove-photo-location: a phone JPG with location on shows coordinates, phone, time and the map link (check the spot is right); a photo with location off says no hidden details; a PNG shows the "only JPG details" line; the clean copy has no location (open it in the tool again) and looks upright; several photos with Clean all (allow multiple downloads); camera button on a phone.
 - /guides lists the three new guides; the home page lists the three tools under PDF tools and Image tools.
 
 ### QR scanner, Fill PDF fields, Hindi OCR, Related tools and collection pages (21 Nov, second batch)
 A fill-in results sheet covering these and every earlier pending check is in `TEST-RESULTS-TEMPLATE.md` (repo root). Not run in the build environment: no packages could be installed and no browser was available, so nothing in this batch has been built or opened. Run `pnpm install` first (new packages `qr-scanner` and `@tesseract.js-data/hin`).
+
+### No-limit tools and the free promise (21 Nov, third batch)
+Not run in the build environment: no packages, no build, no browser. Test on a real phone and a computer; sheet K in `TEST-RESULTS-TEMPLATE.md`.
+- /make-pdf-fillable: draw a text box, a tick box and a drop-down; download; open in a phone viewer and a computer viewer and type into them; repeat on a page rotated 90 degrees (fields must sit where drawn); two fields with the same name must be refused.
+- /smart-split-pdf: every N pages; blank-page mode on a scanned batch with blank separators; bookmarks on a PDF with a table of contents; by size (parts under the limit); read the list before downloading; ZIP opens.
+- /bulk-image-tools: 30+ photos to WebP with a watermark; ZIP size matches the before and after line; check the phone does not run out of memory with about 100 photos.
+- /pdf-bates-numbering: three PDFs with keep counting on; check numbers run unbroken; header/footer tokens {page}, {pages}, {file}, {date}; rotated page.
+- /social-image-resizer: Fill and Fit, move the crop, ZIP of sizes with the right pixel sizes.
+- /gif-maker: 5 pictures, 1 second each; GIF plays in WhatsApp and a browser; loop on and off.
+- Promise: green badge shows on those tools and on Merge/Compress/Split but NOT on Document Scanner or Digitize Documents; home strip and /free-no-limits load; footer link works; Sign, Fill, Redact and Compare accept a large file with no size message.
+

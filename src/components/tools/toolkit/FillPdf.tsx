@@ -10,7 +10,6 @@ import { generateFileName } from '../../../lib/pdf/naming';
 import { applyFormFields, readFormFields, type FieldEntry, type FormFieldInfo } from '../../../lib/toolkit/formFields';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
-const MAX_BYTES = 40 * 1024 * 1024;
 
 type Mode = 'text' | 'tick' | 'cross';
 interface Item { id: number; page: number; kind: Mode; text: string; x: number; y: number; size: number; color: string }
@@ -44,7 +43,6 @@ export const FillPdf: React.FC = () => {
   const openFile = async (file: File | undefined) => {
     if (!file) return;
     setMessage('');
-    if (file.size > MAX_BYTES) { setMessage('That file is over 40 MB. Compress it first, then fill it.'); return; }
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
