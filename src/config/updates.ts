@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-21',
+    path: '/',
+    tool: 'Home page',
+    title: 'New home page top: clearer headline and quick links',
+    summary: 'The top of the home page now says what the site offers, shows the free, no limits tag once, and links straight to PDF, photo, QR and everyday tools.',
+  },
+  {
+    date: '2026-11-21',
     path: '/free-no-limits',
     tool: 'Whole site',
     title: 'One clear promise tag on every tool',

@@ -1063,3 +1063,6 @@ Not run in the build environment: no packages, no build, no browser. Test on a r
 
 ### One promise pill (21 Nov, fourth batch)
 Not run in the build environment. Check on a phone: every tool page shows ONE orange pill under the back link (full wording on PDF/photo tools such as Merge, Fill, Smart Split, Bulk Images; "Stays in your browser" on calculators, text tools, sheet makers, the scanner and Digitize Documents); tapping it opens /free-no-limits or /why-trust-us; no green box anywhere; the home page shows the pill and the tool count only, no green strip; Fill PDF, Redact, Compare, Remove Location, Sign and Passport Photo no longer repeat "stays in your browser / never uploaded" under the tool.
+
+### Home page top (21 Nov, fifth batch)
+Not run in the build environment. On a phone and a computer: headline "Free PDF, photo and everyday tools. No limits. Nothing uploaded."; one orange pill above it; search box; four quick-link buttons (PDF, Photo, QR and sharing, Everyday) that open the collection pages; request link underneath; nothing overflows at 360 px width; search still filters the tool list. Page title and meta description in the browser tab / view-source (description now mentions no limits).
