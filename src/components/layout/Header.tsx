@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
   if (focusActive) {
     return (
       <header className="print:hidden sticky top-0 z-50 border-b border-stone-200 bg-[var(--theme-surface)]/95 backdrop-blur-md">
-        <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-4">
+        <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4">
           <Link to="/" aria-label={siteConfig.name} className="flex items-center gap-2">
             <img src="/favicon.svg" alt="" className="h-6 w-6 rounded-md" />
             <span className="text-xs font-bold text-stone-700">{siteConfig.shortName}</span>
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="print:hidden sticky top-0 z-50 bg-[var(--theme-surface)]/95 backdrop-blur-md border-b border-stone-200">
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link to="/" aria-label={siteConfig.name} className="flex items-center space-x-2 group">
           <div className="w-8 h-8 rounded-lg bg-orange-700 flex items-center justify-center text-white shadow-sm">
             <img src="/favicon.svg" alt="" className="h-8 w-8 rounded-lg" />
