@@ -4,9 +4,10 @@ import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider, card, heading } from '../paper/controls';
+import { Slider, Toggle, card, heading } from '../paper/controls';
 import { saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { applyFormFields, readFormFields, type FieldEntry, type FormFieldInfo } from '../../../lib/toolkit/formFields';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 const MAX_BYTES = 40 * 1024 * 1024;
@@ -29,6 +30,9 @@ export const FillPdf: React.FC = () => {
   const [size, setSize] = useState(12);
   const [color, setColor] = useState<keyof typeof COLORS>('black');
   const [items, setItems] = useState<Item[]>([]);
+  const [fields, setFields] = useState<FormFieldInfo[]>([]);
+  const [entries, setEntries] = useState<Record<string, FieldEntry>>({});
+  const [flatten, setFlatten] = useState(true);
   const [pageWidth, setPageWidth] = useState(595);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -47,6 +51,9 @@ export const FillPdf: React.FC = () => {
       const doc = await task.promise;
       setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1); setItems([]);
       void task.destroy();
+      const found = await readFormFields(data);
+      setFields(found);
+      setEntries(Object.fromEntries(found.map((field) => [field.name, { value: field.value, checked: field.checked }])));
     } catch {
       setMessage('Could not open that PDF. If it has a password, unlock it first.');
     }
@@ -97,12 +104,16 @@ export const FillPdf: React.FC = () => {
     setItems((list) => list.map((item) => (item.id === id ? { ...item, ...at } : item)));
   };
 
+  const fieldsChanged = fields.some((field) => { const entry = entries[field.name]; return entry !== undefined && (entry.value !== field.value || entry.checked !== field.checked); });
+  const setEntry = (name: string, patch: Partial<FieldEntry>) => setEntries((all) => ({ ...all, [name]: { value: '', checked: false, ...all[name], ...patch } }));
+
   const save = async () => {
-    if (!bytes || items.length === 0) return;
+    if (!bytes || (items.length === 0 && !fieldsChanged)) return;
     setBusy(true); setMessage('');
     try {
       const { PDFDocument, StandardFonts, rgb } = await import('pdf-lib');
       const doc = await PDFDocument.load(bytes.slice(0), { ignoreEncryption: false });
+      if (fieldsChanged) await applyFormFields(doc, fields, entries, flatten);
       const font = await doc.embedFont(StandardFonts.Helvetica);
       for (const item of items) {
         const target = doc.getPage(Math.min(item.page, doc.getPageCount()) - 1);
@@ -126,7 +137,7 @@ export const FillPdf: React.FC = () => {
       }
       saveBlob(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-filled`, 'pdf'));
     } catch {
-      setMessage('Could not fill this PDF. If it is protected, unlock it first, then try again.');
+      setMessage('Could not fill this PDF. If it is protected, unlock it first. A form field may also contain a character it cannot hold: use plain letters and digits there, then try again.');
     } finally { setBusy(false); }
   };
 
@@ -143,9 +154,36 @@ export const FillPdf: React.FC = () => {
         {name && <p className="text-xs text-slate-600">{name}.pdf · {pages} page{pages === 1 ? '' : 's'}</p>}
       </div>
 
+      {bytes && fields.length > 0 && (
+        <div className={`${card} space-y-3`}>
+          <h2 className={heading}>Fill the form fields in this PDF</h2>
+          <p className="text-[11px] text-slate-500">This PDF has {fields.length} fillable field{fields.length === 1 ? '' : 's'}. Type into them here. You can still add text and marks anywhere with the steps below.</p>
+          <div className="max-h-96 space-y-2 overflow-auto pr-1">
+            {fields.map((field) => {
+              const entry = entries[field.name] ?? { value: field.value, checked: field.checked };
+              return field.kind === 'check' ? (
+                <Toggle key={field.name} label={field.name} checked={entry.checked} onChange={(checked) => setEntry(field.name, { checked })} />
+              ) : field.kind === 'choice' ? (
+                <label key={field.name} className="block text-xs font-semibold text-slate-700">{field.name}
+                  <select value={entry.value} onChange={(event) => setEntry(field.name, { value: event.target.value })} className={fieldClass}>
+                    <option value="">Choose…</option>
+                    {field.options.map((option) => <option key={option} value={option}>{option}</option>)}
+                  </select>
+                </label>
+              ) : (
+                <label key={field.name} className="block text-xs font-semibold text-slate-700">{field.name}
+                  <input value={entry.value} maxLength={field.maxLength ?? 300} onChange={(event) => setEntry(field.name, { value: event.target.value })} className={fieldClass} />
+                </label>
+              );
+            })}
+          </div>
+          <Toggle label="Lock the filled fields into the page" hint="Recommended: every phone and computer viewer then shows what you typed. Turn off to keep the fields editable." checked={flatten} onChange={setFlatten} />
+        </div>
+      )}
+
       {bytes && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>2. What to add</h2>
+          <h2 className={heading}>{fields.length > 0 ? 'Add text or marks anywhere' : '2. What to add'}</h2>
           <ChoiceButtons label="Add" value={mode} onChange={(v) => setMode(v as Mode)} options={[{ value: 'text', label: 'Text' }, { value: 'tick', label: 'Tick' }, { value: 'cross', label: 'Cross' }]} />
           {mode === 'text' && (
             <div className="flex flex-wrap items-end gap-2">
@@ -204,11 +242,11 @@ export const FillPdf: React.FC = () => {
               ))}
             </ul>
           )}
-          <button type="button" disabled={items.length === 0 || busy} onClick={() => void save()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Saving...' : 'Download filled PDF'}</button>
+          <button type="button" disabled={(items.length === 0 && !fieldsChanged) || busy} onClick={() => void save()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Saving...' : 'Download filled PDF'}</button>
         </div>
       )}
       {message && <p role="status" className="text-xs text-red-700">{message}</p>}
-      <Note>Your PDF stays in your browser and is never uploaded. This writes plain text and marks onto the page; it does not fill the form fields inside the file and is not a certified signature. Check the downloaded file before you send it.</Note>
+      <Note>Your PDF stays in your browser and is never uploaded. It fills the form's own fields when the PDF has them, and can also write plain text and marks on the page. It is not a certified signature. Check the downloaded file before you send it.</Note>
     </section>
   );
 };

@@ -1038,7 +1038,7 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 ### Why trust us page and 11 new guides (20 Nov)
 - /why-trust-us opens from the footer ("Why trust us") and from About; one H1, no horizontal scroll at 360 px; the links at the bottom work; after a build the page is in dist/why-trust-us/index.html and in the sitemap.
 - Run the two-minute test on the page yourself: open Merge PDF, go offline, merge two PDFs, it still works.
-- /guides lists 48 guides (14 from toolGuides.ts); open each new one (sign PDF, fill PDF, scan, passport photos, name and date strip, WhatsApp link, barcode labels, UPI stand, Secret Santa, random teams, certificates and name tags): the "Try it" buttons open the right tools; every step matches the tool as it is today.
+- /guides lists 49 guides (15 from toolGuides.ts); open each new one (sign PDF, fill PDF, scan, passport photos, name and date strip, WhatsApp link, barcode labels, UPI stand, Secret Santa, random teams, certificates and name tags): the "Try it" buttons open the right tools; every step matches the tool as it is today.
 - The "reduce a photo" and "passport photo and signature" guides now point to the Image Resizer presets and KB buttons, not to pages that no longer exist.
 
 ### Safe sharing: Redact PDF, Compare PDF and Text, Remove Location from Photos (21 Nov)
@@ -1047,3 +1047,6 @@ Not run in the build environment (no packages, no browser). Please check on a re
 - /compare-pdf-and-text: paste two texts with one changed word (Word by word marks only that word); lines mode with "Show only the changed lines"; two PDFs with text; a scanned PDF shows the OCR message; two long unrelated texts show the "too long" message instead of freezing; identical texts say "No difference found".
 - /remove-photo-location: a phone JPG with location on shows coordinates, phone, time and the map link (check the spot is right); a photo with location off says no hidden details; a PNG shows the "only JPG details" line; the clean copy has no location (open it in the tool again) and looks upright; several photos with Clean all (allow multiple downloads); camera button on a phone.
 - /guides lists the three new guides; the home page lists the three tools under PDF tools and Image tools.
+
+### QR scanner, Fill PDF fields, Hindi OCR, Related tools and collection pages (21 Nov, second batch)
+A fill-in results sheet covering these and every earlier pending check is in `TEST-RESULTS-TEMPLATE.md` (repo root). Not run in the build environment: no packages could be installed and no browser was available, so nothing in this batch has been built or opened. Run `pnpm install` first (new packages `qr-scanner` and `@tesseract.js-data/hin`).

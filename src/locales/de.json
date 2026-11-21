@@ -1,5 +1,6 @@
 {
   "digitize": {
+    "language": "Sprache des Textes", "languageEnglish": "Englisch", "languageHindi": "Hindi und Englisch",
     "targetExceeded": "Mindestens eine PDF überschreitet die Zielgröße.", "editorLanguage": "Einige Bearbeitungsfunktionen sind derzeit auf Englisch.",
     "title": "Dokumente digitalisieren", "subtitle": "Verwandeln Sie alte Dokumentbilder in durchsuchbare PDFs. Ordnen und bearbeiten Sie Seiten vor dem Export.",
     "choose": "Bilder auswählen oder hier ablegen", "hint": "PNG, JPG oder WebP · mehrere Bilder", "invalidFile": "{{name}}: Wählen Sie ein PNG-, JPG- oder WebP-Bild.",

@@ -27,4 +27,8 @@ export const TOOLKIT_TOOLS: PackTool[] = [
     id: 'random-team-generator', kind: 'teamMaker', guideKey: 'randomTeamGeneratorGuide', category: 'everyday', icon: 'layers', tier: 'popular',
     keywords: ['random team generator', 'team splitter', 'split into random teams', 'group maker for class', 'random group generator', 'make teams from a list', 'team picker', 'shuffle names order', 'random seating order', 'random order generator', 'divide students into groups', 'team maker online'],
   }, toolkit.toolCatalog),
+  definePackTool({
+    id: 'qr-code-scanner', kind: 'qrScanner', guideKey: 'qrCodeScannerGuide', category: 'everyday', icon: 'binary', tier: 'popular',
+    keywords: ['qr code scanner online', 'scan qr code from image', 'read qr code from screenshot', 'qr code reader online', 'scan qr code without app', 'upi qr scanner', 'check qr code before scanning', 'scan wifi qr code', 'qr code decoder', 'scan qr from gallery', 'scan qr from photo', 'what is inside this qr code'],
+  }, toolkit.toolCatalog),
 ];

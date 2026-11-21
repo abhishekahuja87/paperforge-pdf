@@ -3114,7 +3114,7 @@
         {
           "heading": "Getting better recognition",
           "paragraphs": [
-            "Text recognition is English only and runs on the pages as you edit them. It works best on straight, evenly lit, high-contrast images, so crop away borders and rotate pages upright before exporting. Each page is rendered for recognition at up to 2x scale, capped near 4000 pixels on the longest side, so very small text in a low-resolution photo will not improve by exporting. Always read through the result: OCR can misread characters, tables and handwriting, and the page image itself stays unchanged underneath the invisible text."
+            "Text recognition covers English, or Hindi and English together (choose Text language before you create the file), and runs on the pages as you edit them. It works best on straight, evenly lit, high-contrast images, so crop away borders and rotate pages upright before exporting. Each page is rendered for recognition at up to 2x scale, capped near 4000 pixels on the longest side, so very small text in a low-resolution photo will not improve by exporting. Always read through the result: OCR can misread characters, tables and handwriting, and the page image itself stays unchanged underneath the invisible text."
           ]
         },
         {

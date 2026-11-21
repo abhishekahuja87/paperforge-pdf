@@ -8,6 +8,7 @@ import { VisitTracker } from './components/common/VisitTracker';
 import { PACK_TOOLS } from './config/packs';
 import { PageLoader } from './components/common/PageLoader';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
+import { HUBS } from './content/hubs';
 
 // Lazy-loaded route components for optimal bundle splitting
 const HomePage = lazy(() => import('./pages/HomePage2').then((m) => ({ default: m.HomePage2 })));
@@ -43,6 +44,7 @@ const Base64ToolPage = lazy(() => import('./pages/Base64ToolPage').then((m) => (
 const DisplayStudioPage = lazy(() => import('./pages/DisplayStudioPage').then((m) => ({ default: m.DisplayStudioPage })));
 const PosInvoiceStudioPage = lazy(() => import('./pages/PosInvoiceStudioPage').then((m) => ({ default: m.PosInvoiceStudioPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
+const HubPage = lazy(() => import('./pages/HubPage').then((m) => ({ default: m.HubPage })));
 const TrustPage = lazy(() => import('./pages/TrustPage').then((m) => ({ default: m.TrustPage })));
 const EditorialPolicyPage = lazy(() => import('./pages/EditorialPolicyPage').then((m) => ({ default: m.EditorialPolicyPage })));
 const WhatsNewPage = lazy(() => import('./pages/WhatsNewPage').then((m) => ({ default: m.WhatsNewPage })));
@@ -141,6 +143,7 @@ export const App: React.FC = () => {
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/editorial-policy" element={<EditorialPolicyPage />} />
               <Route path="/why-trust-us" element={<TrustPage />} />
+              {HUBS.map((hub) => <Route key={hub.path} path={hub.path} element={<HubPage hub={hub} />} />)}
               <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />

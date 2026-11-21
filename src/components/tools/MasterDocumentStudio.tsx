@@ -133,6 +133,8 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
   const [downloadUrl, setDownloadUrl] = useState('');
   const [downloadName, setDownloadName] = useState('');
   const [separate, setSeparate] = useState(false);
+  const [ocrLanguage, setOcrLanguage] = useState<'eng' | 'hin+eng'>('eng');
+  const ocrLanguages = (): string[] => (ocrLanguage === 'hin+eng' ? ['hin', 'eng'] : ['eng']);
   const [ocrProgress, setOcrProgress] = useState('');
   const cancelOcr = useRef<AbortController | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -379,7 +381,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
           const result = await exportMasterPdf(group, sourceMap, settings);
           const searchable = await makeSearchable(result.bytes, (page, total) => {
             setOcrProgress(t('digitize.progress', { document: index + 1, documents: groups.length, page, total }));
-          }, controller.signal);
+          }, controller.signal, ocrLanguages());
           if (result.targetBytes !== null && searchable.byteLength > result.targetBytes) exceededTarget = true;
           if (zip) zip.file(`${index + 1}-${pdfFileName(group[0].page.sourceName.replace(/\.[^.]+$/, ''))}`, searchable);
           else output = searchable;
@@ -453,7 +455,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
       numberPosition: 'none',
     });
     const bytes = digitize
-      ? await (await import('../../lib/documentStudio/searchable')).makeSearchable(result.bytes, () => {}, new AbortController().signal)
+      ? await (await import('../../lib/documentStudio/searchable')).makeSearchable(result.bytes, () => {}, new AbortController().signal, ocrLanguages())
       : result.bytes;
     const blob = new Blob([arrayBufferFromBytes(bytes)], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
@@ -873,7 +875,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                   </div>}
                 </div>
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
-                {digitize ? <label className="text-xs font-semibold text-slate-700">{t('digitize.output')} <select value={separate ? 'separate' : 'merged'} onChange={(event) => { setSeparate(event.target.value === 'separate'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="merged">{t('digitize.merged')}</option><option value="separate">{t('digitize.separate')}</option></select></label> : <p className="max-w-xl text-[10px] text-slate-500">Create the finished PDF from the pages above, then download it to your device. Your source files stay in this browser.</p>}
+                {digitize ? <><label className="text-xs font-semibold text-slate-700">{t('digitize.language')} <select value={ocrLanguage} onChange={(event) => { setOcrLanguage(event.target.value as 'eng' | 'hin+eng'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="eng">{t('digitize.languageEnglish')}</option><option value="hin+eng">{t('digitize.languageHindi')}</option></select></label><label className="text-xs font-semibold text-slate-700">{t('digitize.output')} <select value={separate ? 'separate' : 'merged'} onChange={(event) => { setSeparate(event.target.value === 'separate'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="merged">{t('digitize.merged')}</option><option value="separate">{t('digitize.separate')}</option></select></label></> : <p className="max-w-xl text-[10px] text-slate-500">Create the finished PDF from the pages above, then download it to your device. Your source files stay in this browser.</p>}
                 <div className="flex flex-wrap gap-2">
                   {downloadUrl && <a href={downloadUrl} download={downloadName} className="inline-flex items-center gap-2 rounded-lg border border-emerald-300 bg-emerald-50 px-4 py-2.5 text-xs font-bold text-emerald-800 hover:bg-emerald-100"><Download className="h-4 w-4" />Download again</a>}
                   <button type="button" onClick={() => void handleExport()} disabled={isExporting || outputItems.length === 0} className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50">

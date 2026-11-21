@@ -6,9 +6,11 @@ export async function makeSearchable(
   bytes: Uint8Array,
   onProgress: (page: number, total: number) => void,
   signal: AbortSignal,
+  /** Tesseract language codes: ['eng'] or ['hin', 'eng'] (Hindi and English together). */
+  languages: string[] = ['eng'],
 ): Promise<Uint8Array> {
   const assetBase = new URL(`${import.meta.env.BASE_URL}ocr-assets/`, document.baseURI);
-  const worker = await createWorker('eng', OEM.LSTM_ONLY, {
+  const worker = await createWorker(languages, OEM.LSTM_ONLY, {
     workerPath: new URL('worker.min.js', assetBase).href,
     corePath: assetBase.href,
     langPath: assetBase.href.replace(/\/$/, ''),

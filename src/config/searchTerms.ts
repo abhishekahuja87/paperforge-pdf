@@ -28,6 +28,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'image-compressor': ['reduce image size', 'compress jpg', 'compress png', 'photo under 100kb', 'make photo smaller', 'reduce photo size for form'],
   'image-converter': ['jpg to png', 'png to jpg', 'webp to jpg', 'heic to jpg', 'convert photo format'],
   'image-resizer': ['resize photo', 'passport photo size', 'signature size', 'exam photo size', 'photo to 20kb', 'resize image in kb', 'change image dimensions', 'resize in pixels'],
+  'qr-code-scanner': ['scan qr', 'qr reader', 'read qr from image', 'upi qr scan', 'wifi qr'],
   'redact-pdf': ['hide text in pdf', 'black out pdf', 'hide aadhaar in pdf', 'cover account number in pdf'],
   'compare-pdf-and-text': ['diff checker', 'compare two documents', 'compare two texts', 'what changed in pdf'],
   'remove-photo-location': ['remove exif', 'remove gps from photo', 'photo metadata', 'where was this photo taken'],
