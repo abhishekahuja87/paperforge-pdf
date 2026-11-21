@@ -11,9 +11,11 @@ interface InfoPageLayoutProps {
   children: React.ReactNode;
   contentLanguage?: string;
   noindex?: boolean;
+  /** A smaller headline, for pages that carry a lot of content under it. */
+  compact?: boolean;
 }
 
-export const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ title, subtitle, description, children, contentLanguage = 'en', noindex = false }) => {
+export const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ title, subtitle, description, children, contentLanguage = 'en', noindex = false, compact = false }) => {
   const { t } = useTranslation();
   return (
   <div className="min-h-full bg-[var(--theme-background)] px-4 py-8 sm:py-10">
@@ -24,7 +26,7 @@ export const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ title, subtitle,
           <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
           {t('allTools')}
         </Link>
-        <h1 lang={contentLanguage} className="text-3xl font-black leading-[1.08] tracking-[-0.04em] text-stone-900 sm:text-4xl">{title}</h1>
+        <h1 lang={contentLanguage} className={compact ? 'text-2xl font-black leading-[1.12] tracking-[-0.03em] text-stone-900 sm:text-3xl' : 'text-3xl font-black leading-[1.08] tracking-[-0.04em] text-stone-900 sm:text-4xl'}>{title}</h1>
         <p lang={contentLanguage} className="mx-auto mt-3 max-w-lg text-sm leading-6 text-stone-600">{subtitle}</p>
       </header>
       <div lang={contentLanguage} className="info-page-content space-y-7 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-5 text-sm leading-7 text-stone-700 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-8">

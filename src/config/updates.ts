@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-21',
+    path: '/pdf-tools',
+    tool: 'Topic pages',
+    title: 'Topic pages now list what you can do, task by task',
+    summary: 'Every topic page has a table of tasks with the right tool, ideas for different situations, and the full tool list. Display and presentation also has its own page.',
+  },
+  {
+    date: '2026-11-21',
     path: '/',
     tool: 'Home page',
     title: 'Home page top rebuilt with a tile for every topic',

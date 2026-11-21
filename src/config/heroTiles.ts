@@ -1,6 +1,6 @@
 /**
  * Topic tiles on the home page hero. One per group in COLLECTIONS (src/config/homeSections.ts), each linking to its own page:
- * a collection page from src/content/hubs.ts, or the tool itself for a group that has a single tool.
+ * a collection page from src/content/hubs.ts (every group has one, even a group with a single tool, so all tiles behave the same).
  */
 export interface HeroTile {
   /** Id of the matching COLLECTIONS entry; it supplies the tool count. */
@@ -23,7 +23,7 @@ export const HERO_TILES: HeroTile[] = [
   { collection: 'kids', label: 'Kids learning', to: '/kids-learning-tools', icon: 'kids' },
   { collection: 'sports', label: 'Sports and fitness', to: '/sports-and-fitness-tools', icon: 'sport' },
   { collection: 'dev', label: 'Developer tools', to: '/developer-and-data-tools', icon: 'code' },
-  { collection: 'present', label: 'Display and slides', to: '/display-studio', icon: 'display' },
+  { collection: 'present', label: 'Display and slides', to: '/display-and-presentation-tools', icon: 'display' },
 ];
 
 /** The small tags above the headline. All of them are true for every tool and are explained on /free-no-limits. */

@@ -15,6 +15,7 @@ import { getTopics } from '../config/topics';
 import { EDITORIAL } from '../content/editorial';
 import { TRUST } from '../content/trust';
 import { FREE_NO_LIMITS } from '../content/freeNoLimits';
+import { HUB_EXTRAS } from '../content/hubExtras';
 import { HUBS } from '../content/hubs';
 import { COLLECTIONS } from '../config/homeSections';
 import { UPDATES, formatUpdateDate } from '../config/updates';
@@ -387,7 +388,12 @@ function buildShellPages(): ShellPage[] {
     ...HUBS.map((hub) => {
       const ids = COLLECTIONS.find((collection) => collection.id === hub.collection)?.tools ?? [];
       const listed = ids.map((id) => TOOLS.find((tool) => tool.id === id)).filter((tool): tool is ToolItem => Boolean(tool && tool.isAvailable));
-      return info(hub.path, hub.title, hub.subtitle, hub.description, [...hub.sections, { heading: `All ${listed.length} tools`, paragraphs: listed.map((tool) => `${tool.title}: ${tool.description}`) }]);
+      const extras = HUB_EXTRAS[hub.path];
+      const taskSections = extras ? [
+        { heading: 'What can I do here?', paragraphs: extras.tasks.map((row) => `${row.task}: ${row.name}. ${row.note}`) },
+        { heading: 'Ideas for your situation', paragraphs: extras.situations.map((item) => `${item.who}: ${item.text}`) },
+      ] : [];
+      return info(hub.path, hub.title, hub.subtitle, hub.description, [...hub.sections.slice(0, 1), ...taskSections, ...hub.sections.slice(1), { heading: `All ${listed.length} tools`, paragraphs: listed.map((tool) => `${tool.title}: ${tool.description}`) }]);
     }),
     info('/whats-new', "What's new", 'Improvements to the tools, newest first.',
       'A dated list of what has been added or improved on MyDailyUtils tools and calculators.',
