@@ -18,7 +18,7 @@ export const HomePage2: React.FC = () => {
       />
       <HomeTopBanner query={query} onQueryChange={setQuery} />
       {query.trim() === '' && (
-        <div className="mx-auto max-w-6xl space-y-3 px-4">
+        <div className="mx-auto max-w-7xl space-y-3 px-4">
           <InstallBar />
           <HomeMyTools />
         </div>

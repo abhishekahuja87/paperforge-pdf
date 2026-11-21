@@ -38,7 +38,7 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
 
   if (isSearching) {
     return (
-      <section className="mx-auto max-w-6xl px-4 pb-8" aria-label={t('searchResults')}>
+      <section className="mx-auto max-w-7xl px-4 pb-8" aria-label={t('searchResults')}>
         {results.length === 0 ? (
           <p className="rounded-xl border border-stone-200 bg-white p-6 text-center text-sm text-stone-500">
             {t('noResults', { query })}
@@ -56,7 +56,7 @@ export const HomeToolsGrid: React.FC<HomeToolsGridProps> = ({ query }) => {
   }
 
   return (
-    <div className="mx-auto max-w-6xl space-y-7 px-4 pb-8">
+    <div className="mx-auto max-w-7xl space-y-7 px-4 pb-8">
       <nav aria-label={t('homeSections.jumpTo')} className="-mt-2 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] sm:hidden">
         {collections.map((group) => (
           <a key={group.id} href={`#topic-${group.id}`} className="shrink-0 whitespace-nowrap rounded-full border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-stone-700 transition hover:border-orange-300 hover:text-orange-800">
