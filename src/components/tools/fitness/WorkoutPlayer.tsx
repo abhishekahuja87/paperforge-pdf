@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react';
 import { EXERCISES, GROUPS, imageUrl } from '../../../lib/fitness/exercises';
 import { BLOCKS, buildSlides, formatClock, formatPlanDate, type Slide, type Timing, type WorkoutPlan } from '../../../lib/fitness/workout';
 
@@ -36,6 +36,7 @@ export const WorkoutPlayer: React.FC<Props> = ({ plan, timing, show, onClose }) 
   const [remaining, setRemaining] = useState(slides[0]?.seconds ?? 0);
   const [paused, setPaused] = useState(false);
   const [controls, setControls] = useState(true);
+  const [notesAt, setNotesAt] = useState<number | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const lastTick = useRef(Date.now());
   const hideTimer = useRef<number | undefined>(undefined);
@@ -149,29 +150,47 @@ export const WorkoutPlayer: React.FC<Props> = ({ plan, timing, show, onClose }) 
     const exercise = slide.item.exerciseId ? BY_ID.get(slide.item.exerciseId) : undefined;
     const showPictures = show.pictures && exercise !== undefined;
     const works = exercise ? [...exercise.muscles, ...exercise.secondary.map((muscle) => `${muscle} (helps)`)].join(', ') : '';
+    const hasNotes = Boolean(exercise) && ((show.muscles && works !== '') || show.steps);
+    const notesOpen = notesAt === index;
+    // On a phone the picture stays in view and the written details fold away until they are wanted; on a big screen everything shows.
     return (
-      <div className={`grid min-h-0 flex-1 items-center gap-6 ${showPictures ? 'lg:grid-cols-2' : ''}`}>
+      <div className={`flex min-h-0 flex-1 flex-col gap-3 lg:grid lg:items-center lg:gap-6 ${showPictures ? 'lg:grid-cols-2' : ''}`}>
         {showPictures && exercise && (
-          <div className="relative mx-auto aspect-[3/2] w-full max-w-3xl overflow-hidden rounded-2xl bg-stone-200">
+          <div className="relative mx-auto aspect-[3/2] w-[min(100%,calc(32vh*1.5))] shrink-0 overflow-hidden rounded-2xl bg-stone-200 lg:w-full lg:max-w-3xl">
             <img src={imageUrl(exercise.id, 0)} alt={`${exercise.name}: start position`} className="absolute inset-0 h-full w-full object-cover" />
             <img src={imageUrl(exercise.id, 1)} alt="" aria-hidden="true" className="mdu-wk-b absolute inset-0 h-full w-full object-cover" />
           </div>
         )}
-        <div className={`min-w-0 space-y-3 ${showPictures ? '' : 'mx-auto max-w-4xl text-center'}`}>
+        <div className={`min-h-0 min-w-0 flex-1 space-y-3 overflow-y-auto lg:flex-none lg:overflow-visible ${showPictures ? '' : 'mx-auto max-w-4xl text-center'}`}>
           <p className={`flex flex-wrap items-center gap-2 text-sm font-bold ${showPictures ? '' : 'justify-center'}`}>
             <span className={`rounded-full px-3 py-1 ${chip}`}>{blockLabel(slide.block)}</span>
             <span className={muted}>Exercise {slide.number} of {slide.total}</span>
             {exercise && <span className={muted}>· {GROUP_LABEL.get(exercise.group)}</span>}
           </p>
-          <h2 className="text-[clamp(2rem,5.5vw,4.6rem)] font-black leading-[1.05] tracking-tight">{slide.item.name}</h2>
-          {slide.item.detail.trim() && <p className={`text-[clamp(1.2rem,3vw,2.4rem)] font-bold ${accent}`}>{slide.item.detail.trim()}</p>}
-          {show.muscles && works && <p className={`text-[clamp(0.9rem,1.5vw,1.2rem)] ${muted}`}>Works: {works}</p>}
-          {show.steps && exercise && (
-            <ol className={`list-decimal space-y-1 pl-5 text-left text-[clamp(0.85rem,1.4vw,1.15rem)] leading-snug ${muted}`}>
-              {exercise.steps.slice(0, 4).map((step, number) => <li key={number}>{step}</li>)}
-            </ol>
+          <h2 className="text-[clamp(1.7rem,5.5vw,4.6rem)] font-black leading-[1.05] tracking-tight">{slide.item.name}</h2>
+          {slide.item.detail.trim() && <p className={`text-[clamp(1.1rem,3vw,2.4rem)] font-bold ${accent}`}>{slide.item.detail.trim()}</p>}
+          {show.timer && <p className="text-[clamp(2.6rem,11vw,8rem)] font-black leading-none tabular-nums">{formatClock(remaining)}</p>}
+          {hasNotes && (
+            <button
+              type="button"
+              aria-expanded={notesOpen}
+              onClick={() => { setNotesAt(notesOpen ? null : index); if (!notesOpen) setPaused(true); }}
+              className={`inline-flex min-h-10 items-center gap-1.5 rounded-full px-4 text-sm font-bold lg:hidden ${dark ? 'bg-white/10 hover:bg-white/20' : 'bg-stone-100 hover:bg-stone-200'}`}
+            >
+              {notesOpen ? 'Hide details' : 'Show muscles and steps'}
+              <ChevronDown className={`h-4 w-4 transition-transform ${notesOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+            </button>
           )}
-          {show.timer && <p className="text-[clamp(3.5rem,11vw,8rem)] font-black leading-none tabular-nums">{formatClock(remaining)}</p>}
+          {hasNotes && exercise && (
+            <div className={`space-y-3 ${notesOpen ? '' : 'hidden lg:block'}`}>
+              {show.muscles && works && <p className={`text-[clamp(0.9rem,1.5vw,1.2rem)] ${muted}`}>Works: {works}</p>}
+              {show.steps && (
+                <ol className={`list-decimal space-y-1 pl-5 text-left text-[clamp(0.85rem,1.4vw,1.15rem)] leading-snug ${muted}`}>
+                  {exercise.steps.slice(0, 4).map((step, number) => <li key={number}>{step}</li>)}
+                </ol>
+              )}
+            </div>
+          )}
           {show.next && slide.next && <p className={`text-[clamp(0.9rem,1.6vw,1.3rem)] ${muted}`}>Next: <span className="font-bold">{slide.next.name}</span></p>}
         </div>
       </div>
@@ -191,7 +210,7 @@ export const WorkoutPlayer: React.FC<Props> = ({ plan, timing, show, onClose }) 
       <style>{FLIP_CSS}</style>
       <div className={`h-1.5 w-full ${dark ? 'bg-white/10' : 'bg-stone-200'}`}><div className="h-full bg-orange-500 transition-[width] duration-300" style={{ width: `${progress}%` }} /></div>
       {header.length > 0 && slide.kind !== 'intro' && <p className={`px-5 pt-3 text-xs font-semibold sm:text-sm ${muted}`}>{header.join('  ·  ')}</p>}
-      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4 sm:px-10">{renderBody()}</div>
+      <div className={`flex min-h-0 flex-1 flex-col px-5 py-4 sm:px-10 ${slide.kind === 'exercise' ? 'overflow-hidden lg:overflow-y-auto' : 'overflow-y-auto'}`}>{renderBody()}</div>
       <div className={`flex items-center justify-center gap-3 px-4 pb-5 transition-opacity duration-500 ${controls ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
         <button type="button" aria-label="Previous" onClick={() => go(index - 1)} disabled={index === 0} className={`flex h-12 w-12 items-center justify-center rounded-full ${dark ? 'bg-white/10 hover:bg-white/20' : 'bg-stone-100 hover:bg-stone-200'} disabled:opacity-40`}><ChevronLeft className="h-6 w-6" aria-hidden="true" /></button>
         <button type="button" aria-label={paused ? 'Resume' : 'Pause'} onClick={() => setPaused((value) => !value)} className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-700 text-white hover:bg-orange-800">{paused ? <Play className="h-6 w-6" aria-hidden="true" /> : <Pause className="h-6 w-6" aria-hidden="true" />}</button>
