@@ -6,10 +6,10 @@ export interface FreeSection {
 
 export const FREE_NO_LIMITS = {
   path: '/free-no-limits',
-  title: 'Free PDF and photo tools with no limits, no sign-up and no upload',
-  subtitle: 'Most online PDF and photo tools cap your files, count your uses or ask you to pay. These do not.',
+  title: 'Why MyDailyUtils is free: no limits, no sign-up, nothing uploaded',
+  subtitle: 'Every tool here is free to use, with no daily limit, no account and no watermark. This page explains how that works.',
   description:
-    'Merge, split, compress, fill, redact, compare and number PDFs, and resize, convert and watermark photos in bulk, free. No daily limit, no file-count limit, no sign-up, no watermark and no upload.',
+    'How MyDailyUtils stays free with no sign-up, no limits and no upload: tools run in your browser and advertising pays the bills. See what is free, from PDF and photo tools to calculators and printables.',
   sections: [
     {
       heading: 'Why is it free?',
@@ -20,12 +20,12 @@ export const FREE_NO_LIMITS = {
     {
       heading: 'What “no limits” means here',
       paragraphs: [
-        'There is no daily limit, no cap on how many files or pages you use at once, no sign-up, no trial, no watermark on your results and no paid plan. Your files are handled inside your browser, so nothing is uploaded and nothing is waiting in a queue.',
+        'There is no daily limit, no cap on how many files or pages you use at once, no sign-up, no trial, no watermark on your results and no paid plan. Files you choose and numbers you type are handled inside your browser, so nothing is uploaded and nothing waits in a queue.',
         'The one honest limit is your own device. Very large files use your phone or computer’s memory, so a huge scan may be slow on an older phone. Nothing on our side stops you.',
       ],
     },
     {
-      heading: 'Things many sites charge for or cap, free here',
+      heading: 'Things many sites charge for or cap, free here (PDF and photo tools)',
       paragraphs: [
         'Make a PDF fillable: draw text boxes, tick boxes and drop-downs on any PDF, then fill and save it. Fill any form and keep the file.',
         'Smart split: cut a PDF every few pages, at blank separator pages, at bookmarks, or into parts under a size you choose, then download all parts in one ZIP.',

@@ -1075,3 +1075,6 @@ Not run. Desktop: left and right hero columns are the same height (tiles stretch
 
 ### Hero polish 2 (21 Nov)
 Not run. Headline "Free online tools and calculators / for PDFs, photos, money and everyday work." (smaller on phones); "Browse N+ free tools" is large above the tiles and N matches the topic pages; "Why is it free?" opens /free-no-limits which starts with that answer; wider hero and grid on desktop (4 tile columns at xl); Display tile is a normal tile; on a phone the search box and the request box run edge to edge.
+
+### Free page and count (21 Nov)
+Not run. Home: heading reads "Browse 250+ tools and templates". /free-no-limits now has a whole-site title ("Why MyDailyUtils is free...") and starts with "Why is it free?". Linked from the hero tag, the footer, the full-wording pill on file tools and the sitemap.
