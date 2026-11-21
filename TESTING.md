@@ -1099,3 +1099,6 @@ Not run. In Merge, Split, Compress, Rotate, Crop, Watermark, Protect, Unlock, Fl
 
 ### Topic page header symmetry (21 Nov)
 Not run. On /pdf-tools and the other topic pages the header looks like a tool page: "All tools" link and one pill (Free · No limits · Stays on your device) on the same line, then the headline and the subtitle, all left-aligned; no separate tag row.
+
+### Jump-link scroll gap (21 Nov)
+Not run. On a phone, tap a topic chip (for example PDF tools) under the search box: the topic panel stops with the same small gap below the sticky header as the gap between two panels (about 12 px), not a larger one.

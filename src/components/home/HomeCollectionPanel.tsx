@@ -21,7 +21,7 @@ export const HomeCollectionPanel: React.FC<{ collection: HomeCollection; newIds:
   const foldedCount = Math.max(0, collection.tools.length - COLLECTION_PREVIEW);
 
   return (
-    <section id={`topic-${collection.id}`} className={`scroll-mt-20 rounded-2xl border ${HOME_COLLECTION_BORDER[collection.id] ?? HOME_COLLECTION_BORDER.other} bg-[var(--theme-surface)] p-3 sm:p-4`}>
+    <section id={`topic-${collection.id}`} className={`scroll-mt-[69px] rounded-2xl border ${HOME_COLLECTION_BORDER[collection.id] ?? HOME_COLLECTION_BORDER.other} bg-[var(--theme-surface)] p-3 sm:p-4`}>
       <HomeCollectionHeading collection={collection} count={collection.tools.length + collection.presets.length} />
       <div id={listId} className="grid grid-cols-1 gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
         {collection.tools.map((tool, index) => (
