@@ -24,6 +24,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'inspect-pdf': ['pdf page size', 'pdf properties', 'pdf page count', 'check pdf metadata'],
   'generate-sample-pdf': ['dummy pdf', 'test pdf file', 'sample pdf for upload test'],
   'digitize-documents': ['scan to searchable pdf', 'ocr pdf', 'photo of document to pdf', 'scanned pdf to text', 'document scanner', 'make scanned pdf searchable'],
+  'classroom-quiz-display': ['quiz maker for teachers', 'mcq quiz on projector', 'mock exam timer', 'exam timer for class', 'quiz with answers', 'classroom quiz'],
   'display-studio': ['slideshow from pdf', 'present pdf fullscreen', 'digital signage', 'shop display screen', 'classroom slideshow', 'auto advance slides'],
   'image-compressor': ['reduce image size', 'compress jpg', 'compress png', 'photo under 100kb', 'make photo smaller', 'reduce photo size for form'],
   'image-converter': ['jpg to png', 'png to jpg', 'webp to jpg', 'heic to jpg', 'convert photo format'],

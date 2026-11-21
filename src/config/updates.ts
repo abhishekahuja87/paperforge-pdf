@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-21',
+    path: '/classroom-quiz-display',
+    tool: 'Classroom Quiz Display',
+    title: 'New: show quizzes and timed exams on the class screen',
+    summary: 'Type multiple-choice questions with the correct answer, pictures and explanations, then play them in learn mode, a mock exam or a real exam with a timer.',
+  },
+  {
+    date: '2026-11-21',
     path: '/workout-planner',
     tool: 'Workout Planner and Gym Display',
     title: 'Show the whole workout on one screen',

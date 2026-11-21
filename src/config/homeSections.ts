@@ -84,7 +84,7 @@ export const COLLECTIONS: CollectionSpec[] = [
   ] },
   { id: 'present', icon: 'presentation', tools: ['display-studio'] },
   { id: 'study', icon: 'type', tools: [
-    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'question-paper-template-printable',
+    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'question-paper-template-printable', 'classroom-quiz-display',
   ] },
   { id: 'kids', icon: 'clock', tools: [
     'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'solar-system-explorer', 'math-worksheet-generator-printable', 'maze-generator-printable',
