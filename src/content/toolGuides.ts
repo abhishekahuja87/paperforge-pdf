@@ -242,4 +242,71 @@ export const TOOL_GUIDES: Guide[] = [
       ] },
     ],
   },
+  {
+    slug: "how-to-hide-details-in-a-pdf-before-sharing",
+    title: "How to hide names and numbers in a PDF before you share it",
+    description: "Black out account numbers, ID numbers, names and addresses in a PDF so the covered text is really removed, not just hidden behind a box.",
+    tools: ["redact-pdf", "compress-pdf", "sanitize-pdf"],
+    sections: [
+      { heading: "Why a black box is not always enough", paragraphs: [
+        "Bank statements, rent agreements, ID copies and bills often have details you do not want to send on: an account number, an ID number, a phone number or a full address. A black rectangle drawn in an ordinary PDF editor is only a shape on top of the page, and the text underneath can still be selected, copied and searched.",
+        "Redact PDF rebuilds every page that has a black box as a picture with the box painted in, so the covered words are no longer in the file.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Redact PDF and choose your file. Type a word or number in the find box and tap Find and cover to black it out on every page, or draw boxes with your finger. Choose Scroll when you want to move the page instead of drawing.",
+        "Go through every page. A name or address that runs over two lines needs a box drawn by hand, and a scanned page has no text to search, so draw those boxes too. Remove any box you do not want, then download.",
+      ] },
+      { heading: "Check before you send", paragraphs: [
+        "Open the downloaded file and try to select the text under a box. If nothing can be selected, it is gone. Keep your original for yourself and send only the redacted copy.",
+        "Pages without a box stay as normal text by default. The redacted file can be larger, so use Compress PDF if you need a smaller one. Sanitize PDF removes hidden file details such as the author name from other documents.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "The PDF is read and rebuilt in your browser. Nothing is uploaded to MyDailyUtils. Rules for official filings differ, so check what the office you are sending it to asks for.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-compare-two-versions-of-a-document",
+    title: "How to see what changed between two versions of a document",
+    description: "Paste two texts or open two PDFs and see what was added and removed, by line or by word, so a changed clause or number does not slip past you.",
+    tools: ["compare-pdf-and-text", "extract-text", "digitize-documents"],
+    sections: [
+      { heading: "When this helps", paragraphs: [
+        "A landlord sends a new agreement, a shop sends a revised quote, or a colleague sends back your draft with changes. Reading two long versions one after the other makes it easy to miss a changed date, amount or clause.",
+        "Compare PDF and Text marks the removed parts in red with a line through them and the new parts in green, so you can look only at what moved.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open the tool and choose Pasted text or Two PDF files. Add the old version first and the new version second. Pick Whole lines for agreements and lists, or Word by word to find one changed number inside a paragraph.",
+        "Turn on Show only the changed lines to hide everything that stayed the same.",
+      ] },
+      { heading: "What it cannot see", paragraphs: [
+        "It compares the words, not the layout, fonts or pictures. A scanned PDF is a picture, so turn it into text first with Scan to Searchable PDF (OCR), or use Extract Text if the PDF already has text. Very long, very different documents may be too large to compare on a phone, so compare a few pages at a time.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your text and files stay in your browser. Nothing is uploaded to MyDailyUtils.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-remove-location-from-a-photo",
+    title: "How to see and remove the location hidden in your photos",
+    description: "Check what a photo reveals, such as the place, the phone and the time, and save a clean copy before you send or post it.",
+    tools: ["remove-photo-location", "image-resizer", "screenshot-redactor"],
+    sections: [
+      { heading: "What a photo can give away", paragraphs: [
+        "Photos from phones often carry hidden details inside the file: where you took the picture, the phone model, the date and time, and sometimes the app that edited it. If you send the original file, a stranger can read them. A photo taken at home or outside your child's school can show where that is.",
+        "Many apps remove these details when you post, but not all of them do, and not always when you send a file as a document or by email.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Remove Location and EXIF Data from Photos and choose one or more photos, or take one with your camera. Each photo lists what it carries. If a place is stored you can open it on a map to see how exact it is.",
+        "Tap Download clean copy, or Clean all when you picked several, and share the clean file. Your original stays on your phone.",
+      ] },
+      { heading: "Good to know", paragraphs: [
+        "The tool lists the details stored in JPG photos, which is what phones save. PNG and WebP pictures can still be cleaned. If the photo also shows a name, a car number or a letter in the picture itself, use the Screenshot Redactor to blur it, and the Image Resizer if a form needs a smaller file.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your photos are read and cleaned in your browser. Nothing is uploaded to MyDailyUtils. The map link opens Google Maps only if you tap it.",
+      ] },
+    ],
+  },
 ];
