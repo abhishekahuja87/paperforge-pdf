@@ -14,6 +14,8 @@ import { GUIDES } from '../content/guides';
 import { getTopics } from '../config/topics';
 import { EDITORIAL } from '../content/editorial';
 import { TRUST } from '../content/trust';
+import { HUBS } from '../content/hubs';
+import { COLLECTIONS } from '../config/homeSections';
 import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
@@ -380,6 +382,11 @@ function buildShellPages(): ShellPage[] {
       ]),
     info('/editorial-policy', EDITORIAL.title, EDITORIAL.subtitle, EDITORIAL.description, EDITORIAL.sections),
     info('/why-trust-us', TRUST.title, TRUST.subtitle, TRUST.description, TRUST.sections),
+    ...HUBS.map((hub) => {
+      const ids = COLLECTIONS.find((collection) => collection.id === hub.collection)?.tools ?? [];
+      const listed = ids.map((id) => TOOLS.find((tool) => tool.id === id)).filter((tool): tool is ToolItem => Boolean(tool && tool.isAvailable));
+      return info(hub.path, hub.title, hub.subtitle, hub.description, [...hub.sections, { heading: `All ${listed.length} tools`, paragraphs: listed.map((tool) => `${tool.title}: ${tool.description}`) }]);
+    }),
     info('/whats-new', "What's new", 'Improvements to the tools, newest first.',
       'A dated list of what has been added or improved on MyDailyUtils tools and calculators.',
       UPDATES.map((update) => ({ heading: `${formatUpdateDate(update.date)}: ${update.tool} - ${update.title}`, paragraphs: [update.summary] }))),

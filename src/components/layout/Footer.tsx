@@ -24,6 +24,10 @@ export const Footer: React.FC = () => {
         {/* Company links: always visible, compact */}
         <nav aria-label={t('company')} className="flex flex-wrap justify-center gap-x-4 gap-y-1.5 sm:justify-start">
           <Link to="/guides" className={linkClass}>{t('guides')}</Link>
+          <Link to="/pdf-tools" className={linkClass}>{t('hubPdf', { defaultValue: 'PDF tools' })}</Link>
+          <Link to="/photo-and-image-tools" className={linkClass}>{t('hubImages', { defaultValue: 'Photo tools' })}</Link>
+          <Link to="/qr-and-sharing-tools" className={linkClass}>{t('hubSharing', { defaultValue: 'QR tools' })}</Link>
+          <Link to="/everyday-tools" className={linkClass}>{t('hubEveryday', { defaultValue: 'Everyday tools' })}</Link>
           <Link to="/about" className={linkClass}>{t('about')}</Link>
           <Link to="/contact" className={linkClass}>{t('contact')}</Link>
           <Link to="/privacy" className={linkClass}>{t('privacyPolicy')}</Link>

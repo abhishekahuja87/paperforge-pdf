@@ -19,6 +19,34 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-21',
+    path: '/qr-code-scanner',
+    tool: 'New tool',
+    title: 'New: QR Code Scanner that shows what is inside before you open or pay',
+    summary: 'Read a QR code from a photo, a screenshot or your camera and see the website, UPI payee, Wi-Fi details or contact in plain words. Nothing opens or is paid by itself.',
+  },
+  {
+    date: '2026-11-21',
+    path: '/fill-pdf',
+    tool: 'Fill PDF',
+    title: 'Fill PDF now fills the form fields inside a PDF',
+    summary: 'If a PDF has fillable fields they are listed so you can type, tick and choose from lists, and the answers can be locked into the page so every viewer shows them. You can still tap anywhere to add text and marks.',
+  },
+  {
+    date: '2026-11-21',
+    path: '/digitize-documents',
+    tool: 'Scan to Searchable PDF (OCR)',
+    title: 'Hindi and English text recognition',
+    summary: 'Choose Hindi and English under Text language to make scans of Hindi documents searchable. Hindi is a larger download, and the result should be checked for mistakes.',
+  },
+  {
+    date: '2026-11-21',
+    path: '/pdf-tools',
+    tool: 'Collections and related tools',
+    title: 'Collection pages and a Related tools row under every tool',
+    summary: 'New pages list all PDF, photo, QR and everyday tools in one place, and each tool now suggests what people open next.',
+  },
+  {
+    date: '2026-11-21',
     path: '/redact-pdf',
     tool: 'New tools',
     title: 'New: Redact PDF, Compare PDF and Text, and Remove Location from Photos',

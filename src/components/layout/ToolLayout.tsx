@@ -4,6 +4,7 @@ import { PageMetadata } from '../common/PageMetadata';
 import { ArrowLeft, Maximize2, ShieldCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ToolArticle } from '../common/ToolArticle';
+import { RelatedTools } from '../common/RelatedTools';
 import { PinToolButton } from '../common/PinToolButton';
 import { ADS_CONFIG } from '../../config/ads';
 import { metaDescription, toolPageTitle } from '../../config/site';
@@ -133,6 +134,8 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
             </div>
           </GuideRegistryContext.Provider>
         )}
+
+        {!focusOn && <RelatedTools id={pathname.replace(/^\/+|\/+$/g, '')} />}
 
         {!focusOn && (
         <section

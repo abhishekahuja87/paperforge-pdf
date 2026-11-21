@@ -9,9 +9,11 @@ const require = createRequire(import.meta.url);
 const workerDir = dirname(require.resolve('tesseract.js/package.json'));
 const coreDir = dirname(require.resolve('tesseract.js-core/package.json'));
 const dataDir = dirname(require.resolve('@tesseract.js-data/eng/package.json'));
+const hindiDataDir = dirname(require.resolve('@tesseract.js-data/hin/package.json'));
 const ocrAssets: Record<string, string> = {
   'worker.min.js': join(workerDir, 'dist', 'worker.min.js'),
   'eng.traineddata.gz': join(dataDir, '4.0.0_best_int', 'eng.traineddata.gz'),
+  'hin.traineddata.gz': join(hindiDataDir, '4.0.0_best_int', 'hin.traineddata.gz'),
   ...Object.fromEntries(
     ['tesseract-core-lstm.wasm.js', 'tesseract-core-simd-lstm.wasm.js', 'tesseract-core-relaxedsimd-lstm.wasm.js']
       .map((name) => [name, join(coreDir, name)]),

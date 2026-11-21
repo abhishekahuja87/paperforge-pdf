@@ -38,16 +38,16 @@ export const TOOL_GUIDES: Guide[] = [
     tools: ["fill-pdf", "sign-pdf", "compress-pdf"],
     sections: [
       { heading: "Why typing on the page works", paragraphs: [
-        "Many forms are PDFs without fillable boxes, or scans of paper. Fill PDF puts your text straight on the page wherever you tap, so it works for any PDF, including a photo of a form turned into a PDF.",
+        "Some forms have fillable boxes inside the file, and many are plain PDFs or scans of paper. Fill PDF fills the form's own boxes when there are some, and also puts your text straight on the page wherever you tap, so it works for any PDF, including a photo of a form turned into a PDF.",
       ] },
       { heading: "Steps", paragraphs: [
-        "Open Fill PDF and choose the file. Pick Text, Tick or Cross. For text, type it and set the size and colour, then tap the page where it should go. Tap Today's date to fill in the date quickly. Drag anything you placed to move it, or remove it from the list. Download the filled PDF.",
+        "Open Fill PDF and choose the file. If it has fillable fields they are listed first: type into them, tick boxes and choose from lists, and keep Lock the filled fields on so every viewer shows your answers. Then, for anything else, pick Text, Tick or Cross. For text, type it and set the size and colour, then tap the page where it should go. Tap Today's date to fill in the date quickly. Drag anything you placed to move it, or remove it from the list. Download the filled PDF.",
       ] },
       { heading: "Getting the placing right", paragraphs: [
         "Take your time with the first item. Zoom your screen so the lines are easy to see, and keep the size close to the printed text on the form, usually 10 to 12 points. Check each page of the downloaded file in your phone's viewer, because the preview on screen is only a guide.",
       ] },
       { heading: "What it does not do", paragraphs: [
-        "It writes on the page; it does not read or fill the form's own fields. Only letters, digits and standard keyboard symbols are supported, so write Rs. instead of the rupee sign, and Hindi or other scripts cannot be added yet. It is not a signature. To add one, run the filled file through Sign PDF.",
+        "Only letters, digits and standard keyboard symbols are supported, in the form fields and on the page, so write Rs. instead of the rupee sign, and Hindi or other scripts cannot be added yet. It is not a signature. To add one, run the filled file through Sign PDF.",
       ] },
       { heading: "Privacy", paragraphs: [
         "Your PDF stays in your browser and is never uploaded to MyDailyUtils.",
@@ -306,6 +306,30 @@ export const TOOL_GUIDES: Guide[] = [
       ] },
       { heading: "Privacy", paragraphs: [
         "Your photos are read and cleaned in your browser. Nothing is uploaded to MyDailyUtils. The map link opens Google Maps only if you tap it.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-scan-a-qr-code-safely",
+    title: "How to scan a QR code safely and see what is inside first",
+    description: "Read a QR code from a photo, screenshot or camera, check the website, UPI payee or Wi-Fi details, and only then decide to open or pay.",
+    tools: ["qr-code-scanner", "qr-code-generator", "wifi-qr-code-generator"],
+    sections: [
+      { heading: "Why look before you act", paragraphs: [
+        "A QR code is just a picture of some text, so a safe-looking code and a harmful one look the same. Many phone cameras open a link straight away. The QR Code Scanner shows what is inside first, in plain words, and does nothing until you choose.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open the QR Code Scanner. For a code sent to you, save the picture or take a screenshot and tap Choose a photo or screenshot. For a code in front of you, tap Take photo, or Scan with live camera and allow camera access. Fill the frame with the code and hold steady.",
+        "The result shows the kind of code and its details: for a web link the website name, for a UPI code the payee name and UPI ID, for a Wi-Fi code the network name and password.",
+      ] },
+      { heading: "What to check", paragraphs: [
+        "For a link, read the website name and open it only if it is what you expect. For a payment code, make sure the name and UPI ID match the person or shop. A UPI PIN is only needed to send money, so if someone asks you to scan a code or enter your PIN to receive money, treat it as a warning sign. The tool never makes a payment.",
+      ] },
+      { heading: "If it will not read", paragraphs: [
+        "Use a clearer or larger picture, remove glare, and fill the frame with the code. It reads one code at a time. If the live camera does not start, allow camera access in your browser settings or use a photo instead. To make your own codes, use the QR Code Generator or the Wi-Fi QR Code Generator.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "The picture and camera feed stay in your browser. Nothing is uploaded to MyDailyUtils. The page still loads advertising and other resources from the network.",
       ] },
     ],
   },

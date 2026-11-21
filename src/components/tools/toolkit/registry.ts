@@ -7,4 +7,5 @@ export const TOOLKIT_COMPONENTS: Record<string, LazyExoticComponent<ComponentTyp
   barcodeMaker: lazy(() => import('./BarcodeMaker')),
   randomPicker: lazy(() => import('./RandomPicker')),
   teamMaker: lazy(() => import('./TeamMaker')),
+  qrScanner: lazy(() => import('./QrScanner')),
 };

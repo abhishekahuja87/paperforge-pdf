@@ -24,12 +24,12 @@
         "Open the PDF form or document from your phone or computer."
       ],
       [
-        "Choose what to add",
-        "Pick Text, Tick or Cross. For text, type it and set the size and colour. Tap Today's date to fill the date."
+        "Fill the form fields",
+        "If the PDF has fillable fields, type into them, tick boxes and pick from lists. Keep Lock the filled fields on so every viewer shows your answers."
       ],
       [
-        "Tap to place it",
-        "Tap the page where it should go. Drag anything you added to move it, or remove it from the list."
+        "Add text or marks anywhere",
+        "Pick Text, Tick or Cross, then tap the page where it should go. Drag anything you added to move it. Tap Today's date to fill the date."
       ],
       [
         "Download",
@@ -107,6 +107,24 @@
         "Copy the result",
         "Copy the teams or the numbered list, or press the button again for a new shuffle."
       ]
+    ],
+    "qr-code-scanner": [
+      [
+        "Choose how to scan",
+        "Pick a photo or screenshot, take a photo with your camera, or start the live camera."
+      ],
+      [
+        "Point at the code",
+        "Fill the frame with the QR code and keep steady. Avoid glare and shadows."
+      ],
+      [
+        "Read what it says",
+        "The tool shows what is inside in plain words: a UPI payee, a Wi-Fi name, a website, a phone number or a contact."
+      ],
+      [
+        "Decide what to do",
+        "Copy the text, or open a link only if the website name looks right. Nothing opens or is paid by itself."
+      ]
     ]
   },
   "pageGuides": {
@@ -145,8 +163,8 @@
       ]
     },
     "fillPdfGuide": {
-      "title": "Fill PDF: Type Text, Ticks and Dates onto a PDF Form Online",
-      "subtitle": "Type text, ticks, crosses and dates onto any PDF page: tap to place, drag to move, then download the filled PDF. It all happens in your browser.",
+      "title": "Fill PDF: Fill Form Fields and Type Text, Ticks and Dates onto a PDF Online",
+      "subtitle": "Fill the form's own fields, or tap anywhere on a PDF page to add text, ticks, crosses and dates. Then download the filled PDF. It all happens in your browser.",
       "faq": [
         [
           "What does Fill PDF do?",
@@ -158,7 +176,7 @@
         ],
         [
           "Does it fill the form fields inside the file?",
-          "No. It writes on the page itself. That works for every PDF, including ones with no fields, but it does not read or fill the form's own fields."
+          "Yes. If the PDF has fillable fields, they are listed so you can type into them, tick boxes and choose from lists. For a PDF with no fields, or a scan, tap the page to place text and marks instead. You can use both in the same file."
         ],
         [
           "Can I type Hindi or the rupee sign?",
@@ -313,6 +331,40 @@
           "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
         ]
       ]
+    },
+    "qrCodeScannerGuide": {
+      "title": "QR Code Scanner Online: Read a QR Code and Check It Before You Open It",
+      "subtitle": "Scan a QR code from a photo, a screenshot or your camera and see what is inside, in plain words, before you open a link or pay. Nothing is uploaded.",
+      "faq": [
+        [
+          "What does the QR Code Scanner do?",
+          "It reads a QR code from a picture or your camera and shows what it contains: a website, a UPI payment request, Wi-Fi details, a phone number, a contact card or plain text."
+        ],
+        [
+          "Can I scan a QR code from a screenshot or my gallery?",
+          "Yes. Choose the photo or screenshot and it reads the code in it. This is the way to read a QR code that was sent to you on WhatsApp or by email."
+        ],
+        [
+          "Does the live camera work on my phone?",
+          "On most modern phone browsers, yes, after you allow camera access, and the page must be secure (https). If the live camera will not start, use Choose a photo or Take photo instead."
+        ],
+        [
+          "Does it open links or make payments by itself?",
+          "No. It only shows what is inside. A link opens only if you tap Open the link, and a UPI code is only explained: you pay, if you choose to, from your own UPI app."
+        ],
+        [
+          "How can I check a UPI QR code?",
+          "Read the name and UPI ID it shows and make sure they match the person or shop you mean to pay. A UPI PIN is only needed to send money, so if someone asks you to scan a code or enter your PIN to receive money, treat it as a warning sign."
+        ],
+        [
+          "Why can it not read my QR code?",
+          "The picture may be blurred, too small, cut off, dark, or have glare on it. Fill the frame with the code, hold steady, and try a clearer picture. It reads one code at a time."
+        ],
+        [
+          "Is my picture or camera feed uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you scan or choose is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -344,7 +396,7 @@
         {
           "heading": "What Fill PDF is",
           "paragraphs": [
-            "Fill PDF puts text and marks directly on the pages of a PDF. You choose the text, tap where it should go, and the file is saved with your additions.",
+            "Fill PDF fills in the form fields of a PDF when it has them, and also lets you put text and marks directly on any page. You type, tap where it should go, and the file is saved with your additions.",
             "The page is shown in your browser, and the new PDF is made on your device with the original pages unchanged underneath."
           ]
         },
@@ -448,6 +500,31 @@
           "heading": "Using it well",
           "paragraphs": [
             "Paste the full list once, make the teams, and copy the result to share it. Press the button again for a new split. For mixed-ability groups, shuffle until the teams look balanced to you."
+          ]
+        }
+      ]
+    },
+    "qr-code-scanner": {
+      "sections": [
+        {
+          "heading": "What the QR Code Scanner is",
+          "paragraphs": [
+            "A QR code is a square picture that holds a small piece of text: a web address, a payment request, Wi-Fi details or a contact. This tool reads that text from a photo, a screenshot or your live camera and lays it out in plain words.",
+            "It is built for the moment before you act: you see what the code says first, then decide whether to open it or pay."
+          ]
+        },
+        {
+          "heading": "Why check before you scan",
+          "paragraphs": [
+            "A QR code looks the same whether it leads to a shop's menu or to a look-alike page. Seeing the website name, or the name and UPI ID on a payment code, lets you spot a mismatch before you type a password or approve a payment.",
+            "The tool never opens a link or starts a payment on its own. You stay in control of each step."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "For a code someone sent you, save the picture or take a screenshot and use Choose a photo. For a code in front of you, fill the frame, hold steady and avoid glare. Copy the text if you need it somewhere else.",
+            "If a code will not read, try a clearer or larger picture. To make your own codes, use the QR Code Generator or the WhatsApp Link Generator."
           ]
         }
       ]

@@ -5,8 +5,8 @@
       "Add a name and date strip to a photo, set the width and keep the JPG under a size in KB. Works on a phone camera photo. Free and private."
     ],
     "fill-pdf": [
-      "Fill PDF: Type Text, Ticks and Dates onto a PDF Form Online",
-      "Open any PDF, tap the page to type text, ticks and crosses, drag them into place and download the filled PDF. Free and private."
+      "Fill PDF: Fill Form Fields and Type Text, Ticks and Dates onto a PDF",
+      "Open any PDF, fill its form fields, or tap the page to type text, ticks and crosses, then download the filled PDF. Free, private and works on a phone."
     ],
     "whatsapp-link-generator": [
       "WhatsApp Link Generator: Make a wa.me Chat Link and QR Code with a Message",
@@ -23,6 +23,10 @@
     "random-team-generator": [
       "Random Team Generator: Split a Class or Group into Teams or Shuffle the Order",
       "Split a list of names into fair random teams, by number of teams or people per team, or shuffle the order. Free and private."
+    ],
+    "qr-code-scanner": [
+      "QR Code Scanner: Read a QR Code from a Photo or Camera and Check It First",
+      "Scan a QR code from a photo, screenshot or camera and see what is inside: UPI payee, Wi-Fi, link or contact. Free and private."
     ]
   }
 }

@@ -1,5 +1,6 @@
 {
   "digitize": {
+    "language": "Text language", "languageEnglish": "English", "languageHindi": "Hindi and English",
     "targetExceeded": "At least one PDF exceeds the requested size goal.",
     "editorLanguage": "Some editing controls are currently in English.",
     "title": "Scan to Searchable PDF (OCR)",
@@ -16,7 +17,7 @@
     "cancelled": "Digitization cancelled.",
     "create": "Create searchable PDF",
     "finished": "{{name}} is ready.",
-    "note": "English text recognition only. OCR runs on edited pages in your browser; the OCR engine and English model are downloaded from this site. Check the output for recognition errors. Password protection is unavailable because the existing protection tool removes searchable text.",
+    "note": "Text recognition in English, or Hindi and English together (choose above). OCR runs on edited pages in your browser; the OCR engine and language model are downloaded from this site the first time you use them, and Hindi is a larger download. Check the output for recognition errors, especially on handwriting and small print. Password protection is unavailable because the existing protection tool removes searchable text.",
     "step1": "Upload images",
     "step1Detail": "Choose your document photos or scans.",
     "step2": "Arrange and edit",
@@ -24,7 +25,7 @@
     "step3": "Create searchable PDFs",
     "step3Detail": "Choose one PDF or separate PDFs and download.",
     "q1": "Is the text always accurate?",
-    "a1": "No. OCR depends on image quality and recognizes English only. Check the resulting PDF.",
+    "a1": "No. OCR depends on image quality and recognizes English, or Hindi and English together if you choose that. Check the resulting PDF.",
     "q2": "Are my images uploaded?",
     "a2": "No. Processing happens in your browser. The OCR engine and language data are downloaded from this site.",
     "q3": "How do separate PDFs work?",
@@ -741,7 +742,7 @@
     "digitize-documents": {
       "title": "Scan to Searchable PDF (OCR)",
       "useCase": "Searchable archives",
-      "description": "Turn photos and scans of paper documents into PDFs with a searchable English text layer. Arrange pages, rotate, crop and black out details, set page size and margins, add page numbers, a watermark or a file-size goal, then download one PDF or separate PDFs in a ZIP.",
+      "description": "Turn photos and scans of paper documents into PDFs with a searchable text layer in English, or Hindi and English together. Arrange pages, rotate, crop and black out details, set page size and margins, add page numbers, a watermark or a file-size goal, then download one PDF or separate PDFs in a ZIP.",
       "highlights": [
         "Image 2 searchable PDF",
         "English OCR",

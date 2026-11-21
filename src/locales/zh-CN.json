@@ -1,5 +1,6 @@
 {
   "digitize": {
+    "language": "文字语言", "languageEnglish": "英语", "languageHindi": "印地语和英语",
     "targetExceeded": "至少一个 PDF 超过了目标大小。", "editorLanguage": "部分编辑控件目前仅提供英文。",
     "title": "文档数字化", "subtitle": "将旧文档图片转换为可搜索的 PDF。导出前整理并编辑页面。",
     "choose": "选择图片或拖放到此处", "hint": "PNG、JPG 或 WebP · 可选多张", "invalidFile": "{{name}}：请选择 PNG、JPG 或 WebP 图片。",
