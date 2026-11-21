@@ -1090,3 +1090,6 @@ Not run. Desktop: logo and header buttons line up with the hero's left and right
 
 ### Alignment and topic page header (21 Nov)
 Not run. Desktop: the hero's left and right edges line up exactly with the logo and header buttons, the tool grid and the footer. Topic pages (e.g. /pdf-tools): back link, headline and subtitle are left-aligned like a tool page, with the tags row under the subtitle.
+
+### Popular tiles (21 Nov)
+Not run. "Our popular tools" tiles: icon and title side by side, one-line description below, same shape and height as the Workspace cards; no tile is taller than the Workspace cards.
