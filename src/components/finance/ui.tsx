@@ -100,7 +100,7 @@ export const Note: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 export const CalcFooter: React.FC = () => (
   <p className="mt-5 border-t border-slate-100 pt-4 text-center text-[10px] text-slate-400">
-    Calculated in your browser; nothing you type is sent anywhere. Results are estimates for planning, not financial, tax or legal advice.
+    Results are estimates for planning, not financial, tax or legal advice.
   </p>
 );
 

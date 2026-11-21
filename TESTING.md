@@ -1061,3 +1061,5 @@ Not run in the build environment: no packages, no build, no browser. Test on a r
 - /gif-maker: 5 pictures, 1 second each; GIF plays in WhatsApp and a browser; loop on and off.
 - Promise: green badge shows on those tools and on Merge/Compress/Split but NOT on Document Scanner or Digitize Documents; home strip and /free-no-limits load; footer link works; Sign, Fill, Redact and Compare accept a large file with no size message.
 
+### One promise pill (21 Nov, fourth batch)
+Not run in the build environment. Check on a phone: every tool page shows ONE orange pill under the back link (full wording on PDF/photo tools such as Merge, Fill, Smart Split, Bulk Images; "Stays in your browser" on calculators, text tools, sheet makers, the scanner and Digitize Documents); tapping it opens /free-no-limits or /why-trust-us; no green box anywhere; the home page shows the pill and the tool count only, no green strip; Fill PDF, Redact, Compare, Remove Location, Sign and Passport Photo no longer repeat "stays in your browser / never uploaded" under the tool.

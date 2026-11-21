@@ -244,7 +244,7 @@ export const FillPdf: React.FC = () => {
         </div>
       )}
       {message && <p role="status" className="text-xs text-red-700">{message}</p>}
-      <Note>Your PDF stays in your browser and is never uploaded. It fills the form's own fields when the PDF has them, and can also write plain text and marks on the page. It is not a certified signature. Check the downloaded file before you send it.</Note>
+      <Note>It fills the form's own fields when the PDF has them, and can also write plain text and marks on the page. It is not a certified signature. Check the downloaded file before you send it.</Note>
     </section>
   );
 };

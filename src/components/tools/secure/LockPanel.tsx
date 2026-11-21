@@ -71,7 +71,7 @@ export const LockPanel: React.FC<Props> = ({ prepare, noun }) => {
     <div className={`${card} space-y-4`}>
       <div>
         <h2 className={heading}>Lock it with a password</h2>
-        <p className="mt-1 text-xs text-slate-600">The {noun} is locked here, in your browser, with AES-256 encryption. Nothing is uploaded. You get one file that opens in any browser for someone who has the password.</p>
+        <p className="mt-1 text-xs text-slate-600">The {noun} is locked here with AES-256 encryption. You get one file that opens in any browser for someone who has the password.</p>
       </div>
       <div>
         <label className="block text-xs font-semibold text-slate-700" htmlFor="sec-password">Password</label>

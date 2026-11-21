@@ -71,7 +71,6 @@ export const ComparePdf: React.FC = () => {
           </div>
         )}
         {busy && <p className="text-xs text-slate-600">Reading the PDF…</p>}
-        <p className="text-[11px] text-slate-500">Your text and files stay on your device. Nothing is uploaded.</p>
       </div>
 
       <div className={`${card} space-y-3`}>

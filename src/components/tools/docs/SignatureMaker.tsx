@@ -50,7 +50,7 @@ export const SignatureMaker: React.FC = () => {
         </div>
         {message && <p role="status" className="text-xs text-red-700">{message}</p>}
       </div>
-      <Note>Made in your browser. Nothing is uploaded or saved. A picture of your signature is not a legally binding e-signature on its own; use it where a plain image of your signature is accepted.</Note>
+      <Note>Nothing is saved. A picture of your signature is not a legally binding e-signature on its own; use it where a plain image of your signature is accepted.</Note>
     </section>
   );
 };

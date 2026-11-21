@@ -108,7 +108,7 @@ export const BarcodeMaker: React.FC = () => {
           <p className="text-[11px] text-slate-500">Print at 100% (actual size) on plain paper or label sheets, then test one with a scanner before you print a full roll.</p>
         </div>
       )}
-      <Note>Barcodes are drawn in your browser and nothing is uploaded. EAN-13 numbers for products sold in shops are issued through GS1, so use EAN-13 for your own pretend or internal numbers only, and Code 128 for shelf, stock and file labels.</Note>
+      <Note>EAN-13 numbers for products sold in shops are issued through GS1, so use EAN-13 for your own pretend or internal numbers only, and Code 128 for shelf, stock and file labels.</Note>
     </section>
   );
 };

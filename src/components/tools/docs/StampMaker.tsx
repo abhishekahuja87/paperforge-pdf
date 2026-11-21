@@ -119,7 +119,7 @@ export const StampMaker: React.FC = () => {
         </div>
         <button type="button" onClick={() => void download()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download PNG</button>
       </div>
-      <Note>Made in your browser; nothing is uploaded. This is a picture of a stamp for your own invoices, notices and letters. It is not an official government or company seal, and offices that need a registered stamp will not accept a printed picture.</Note>
+      <Note>This is a picture of a stamp for your own invoices, notices and letters. It is not an official government or company seal, and offices that need a registered stamp will not accept a printed picture.</Note>
     </section>
   );
 };

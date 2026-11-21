@@ -26,7 +26,6 @@ export const LogoPicker: React.FC<{ logo: Logo | null; onChange: (logo: Logo | n
         if (file) pickFile(file);
       }} />
       {error && <p role="status" className="text-[11px] text-red-700">{error}</p>}
-      <p className="text-[11px] text-slate-500">The picture stays in your browser. It is printed at the top of the sheet.</p>
     </div>
   );
 };

@@ -247,7 +247,7 @@ export const CompressPdf: React.FC = () => {
                 ))}
               </div>
               <p className="text-[11px] leading-relaxed text-slate-500">
-                The tool first tries a lossless clean-up. If the file is still too big, it turns each page into a picture and picks the sharpest quality that fits. Pictures cannot be selected or searched as text, so keep the original if you need the text. Everything stays in your browser.
+                The tool first tries a lossless clean-up. If the file is still too big, it turns each page into a picture and picks the sharpest quality that fits. Pictures cannot be selected or searched as text, so keep the original if you need the text.
               </p>
             </div>
           )}

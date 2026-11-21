@@ -203,7 +203,7 @@ export const MealPlanner: React.FC<{ initialKind?: MealKind }> = ({ initialKind 
           </div>
         </div>
       </div>
-      <div className="print:hidden"><Note>Everything is made in your browser and nothing is uploaded. The dishes you type stay on this page and are printed on the sheet; the same menu repeats every week.</Note></div>
+      <div className="print:hidden"><Note>The dishes you type are printed on the sheet; the same menu repeats every week.</Note></div>
     </section>
   );
 };

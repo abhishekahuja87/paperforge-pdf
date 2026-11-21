@@ -92,7 +92,7 @@ export const BulkImageTools: React.FC = () => {
             <button type="button" onClick={() => setFiles([])} className="inline-flex min-h-9 items-center gap-1 font-semibold text-red-700"><Trash2 className="h-4 w-4" aria-hidden="true" />Clear all</button>
           </div>
         )}
-        <p className="text-[11px] text-slate-500">Free, no sign-up, no limit on how many pictures. They stay on your device.</p>
+        <p className="text-[11px] text-slate-500">Add as many pictures as you like.</p>
       </div>
 
       <div className={`${card} space-y-3`}>

@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-21',
+    path: '/free-no-limits',
+    tool: 'Whole site',
+    title: 'One clear promise tag on every tool',
+    summary: 'Every tool page now shows a single tag: free, no limits and stays on your device for file tools, and stays in your browser for the rest. Repeated privacy lines were removed.',
+  },
+  {
+    date: '2026-11-21',
     path: '/make-pdf-fillable',
     tool: 'New tool',
     title: 'New: Make PDF Fillable, free with no limit',

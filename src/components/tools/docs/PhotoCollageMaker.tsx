@@ -124,7 +124,7 @@ export const PhotoCollageMaker: React.FC = () => {
         </div>
       )}
       {message && <p role="status" className="text-xs text-slate-700">{message}</p>}
-      <Note>Photos are joined in your browser and never uploaded. Photos are cropped to fill their space; the centre of each photo is kept.</Note>
+      <Note>Photos are cropped to fill their space; the centre of each photo is kept.</Note>
     </section>
   );
 };

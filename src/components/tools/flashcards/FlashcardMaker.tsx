@@ -183,7 +183,7 @@ export const FlashcardMaker: React.FC = () => {
           </div>
         </div>
       </div>
-      <Note>Your cards are never uploaded. The pages are drawn and the PDF is built on your device. Text is placed as high-resolution images (300 dpi) so any language your browser can display prints correctly.</Note>
+      <Note>Text is placed as high-resolution images (300 dpi) so any language your browser can display prints correctly.</Note>
     </section>
   );
 };

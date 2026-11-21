@@ -3,7 +3,8 @@
  * may carry the badge. Tools with a built-in cap (the document scanner and Digitize Documents limit picture size, for example) are left out.
  */
 export const PROMISE = {
-  badge: 'Free · No limits · Nothing uploaded',
+  badge: 'Free · No limits · Stays on your device',
+  stays: 'Stays in your browser',
   short: 'No daily limit, no file-count limit, no sign-up, no watermark, and your file never leaves your device.',
   note: 'Very large files are limited only by your own device’s memory.',
 } as const;

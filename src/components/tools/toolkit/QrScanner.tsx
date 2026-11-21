@@ -83,7 +83,7 @@ export const QrScanner: React.FC = () => {
         </div>
         <video ref={video} playsInline muted className={`${live ? 'block' : 'hidden'} aspect-square w-full max-w-sm rounded-xl bg-black object-cover`} />
         {busy && <p className="text-xs text-slate-600">Reading the picture…</p>}
-        <p className="text-[11px] text-slate-500">The camera and pictures stay on your device. Nothing is uploaded. Live scanning needs a secure (https) page and your permission.</p>
+        <p className="text-[11px] text-slate-500">Live scanning needs a secure (https) page and your permission.</p>
       </div>
 
       {found.length > 0 && (

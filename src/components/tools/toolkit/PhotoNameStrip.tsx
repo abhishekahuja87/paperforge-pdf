@@ -141,7 +141,7 @@ export const PhotoNameStrip: React.FC = () => {
         <button type="button" disabled={!bitmap || busy} onClick={() => void save()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Saving...' : 'Download JPG'}</button>
         {message && <p role="status" className="text-xs text-slate-700">{message}</p>}
       </div>
-      <Note>Your photo is edited in your browser and is never uploaded. Forms differ on the strip size, colour, wording and date format, so follow your own form's instructions and check the result before you upload it.</Note>
+      <Note>Forms differ on the strip size, colour, wording and date format, so follow your own form's instructions and check the result before you upload it.</Note>
     </section>
   );
 };

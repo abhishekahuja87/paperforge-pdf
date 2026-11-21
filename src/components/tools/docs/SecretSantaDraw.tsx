@@ -83,7 +83,6 @@ export const SecretSantaDraw: React.FC = () => {
         <button type="button" onClick={run} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Shuffle className="h-4 w-4" aria-hidden="true" />Draw the names</button>
         {message && <p role="status" className="text-xs text-red-700">{message}</p>}
       </div>
-      <Note>Names are drawn on your phone with your browser's random number generator and are never uploaded.</Note>
     </section>
   );
 };
