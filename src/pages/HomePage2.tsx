@@ -13,7 +13,7 @@ export const HomePage2: React.FC = () => {
     <div className="min-h-full space-y-3 bg-[var(--theme-background)] pb-12">
       <PageMetadata
         title="Free Online Tools & Calculators | PDF, Images, Tax & More"
-        description="Free online tools for everyday tasks: income tax, EMI and SIP calculators, age and date tools, unit converter, PDF and image tools, text and password utilities. Files and numbers are processed in your browser."
+        description="Free PDF, photo and everyday tools with no limits or sign-up: merge, split, fill and compress PDFs, resize photos, scan QR codes, tax and EMI calculators. Files stay on your device."
         jsonLd={buildHomeJsonLd()}
       />
       <HomeTopBanner query={query} onQueryChange={setQuery} />

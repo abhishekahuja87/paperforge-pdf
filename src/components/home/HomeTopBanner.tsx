@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ArrowRight, Layers, Search } from 'lucide-react';
+import { ArrowRight, Calculator, FileText, Image as ImageIcon, QrCode, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getCollections } from '../../lib/homePageVariants';
@@ -16,6 +16,12 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
 }) => {
   const { t } = useTranslation();
   // Rounded down to the nearest ten so the headline stays true as tools are added.
+  const browse = [
+    { to: '/pdf-tools', icon: FileText, label: t('homeBrowse.pdf', { defaultValue: 'PDF tools' }) },
+    { to: '/photo-and-image-tools', icon: ImageIcon, label: t('homeBrowse.photo', { defaultValue: 'Photo tools' }) },
+    { to: '/qr-and-sharing-tools', icon: QrCode, label: t('homeBrowse.qr', { defaultValue: 'QR and sharing' }) },
+    { to: '/everyday-tools', icon: Calculator, label: t('homeBrowse.everyday', { defaultValue: 'Everyday tools' }) },
+  ];
   const toolTotal = useMemo(() => Math.floor(getCollections().reduce((sum, group) => sum + group.tools.length, 0) / 10) * 10, []);
 
   return (
@@ -24,6 +30,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
       <div aria-hidden="true" className="pointer-events-none absolute -right-12 bottom-0 h-64 w-64 rounded-full bg-orange-200/50 blur-3xl" />
 
       <div className="relative mx-auto max-w-3xl text-center">
+        <div className="mb-3 flex justify-center"><PromisePill /></div>
         <h1 className="text-2xl font-black leading-[1.1] tracking-[-0.03em] text-stone-900 sm:text-3xl">
           {t('homeHeading')}
           <span className="block text-orange-600">{t('homeHeadingAccent')}</span>
@@ -44,7 +51,21 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
           />
         </label>
 
-        <p className="mt-3 text-xs text-stone-600">
+        <nav aria-label={t('homeBrowse.label', { count: toolTotal, defaultValue: 'Browse {{count}}+ tools' })} className="mx-auto mt-4 max-w-lg">
+          <p className="mb-2 text-[11px] font-bold uppercase tracking-wide text-stone-500">{t('homeBrowse.label', { count: toolTotal, defaultValue: 'Browse {{count}}+ tools' })}</p>
+          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {browse.map(({ to, icon: Icon, label }) => (
+              <li key={to}>
+                <Link to={to} className="flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-orange-200 bg-white px-2 py-2 text-xs font-bold text-stone-800 shadow-sm transition hover:border-orange-400 hover:bg-orange-50">
+                  <Icon className="h-4 w-4 shrink-0 text-orange-600" aria-hidden="true" />
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <p className="mt-4 text-xs text-stone-600">
           {t('requestPrompt')}{' '}
           <Link
             to="/contact"
@@ -55,13 +76,6 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
           </Link>
         </p>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
-          <PromisePill />
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-white/80 px-2.5 py-1 text-[11px] font-bold text-stone-700">
-            <Layers className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
-            {t('homeHero.count', { count: toolTotal, defaultValue: '{{count}}+ tools' })}
-          </span>
-        </div>
       </div>
     </section>
   );

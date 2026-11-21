@@ -823,9 +823,9 @@
     "free": "Free, no sign-up",
     "count": "{{count}}+ tools"
   },
-  "homeHeading": "Simple tools that work",
-  "homeHeadingAccent": "right in your browser.",
-  "homeDescription": "Calculators, converters, and text, image and PDF tools.",
+  "homeHeading": "Free PDF, photo and everyday tools.",
+  "homeHeadingAccent": "No limits. Nothing uploaded.",
+  "homeDescription": "Merge, split, fill and redact PDFs, resize photos in bulk, scan QR codes safely and work out tax, EMI and more. No sign-up, no watermark, no daily limit.",
   "findTool": "Find a tool",
   "searchTools": "Search tools",
   "searchPlaceholder": "Search tools by name or what they do",
