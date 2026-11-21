@@ -32,8 +32,8 @@
         "Set the date, workout name, gym name, seconds per exercise and rest. Switch pictures, muscles, steps, countdown and next exercise on or off."
       ],
       [
-        "Start the slideshow",
-        "Tap Start slideshow. It fills the screen and moves on by itself. Use the arrow keys, space bar or the buttons to go back, pause or close."
+        "Start a view",
+        "Tap Start slideshow for one big exercise at a time, or Show all on one screen to see warm-up, main and cool-down together with small pictures and a timer on each exercise."
       ]
     ]
   },
@@ -74,7 +74,7 @@
     },
     "fitnessWorkoutPlanner": {
       "title": "Workout Planner and Gym Display",
-      "subtitle": "Plan today’s warm-up, main workout and cool-down, add your own exercises, and show them as a fullscreen slideshow with pictures and timers. Free, no sign-up.",
+      "subtitle": "Plan today’s warm-up, main workout and cool-down, add your own exercises, and show them as a slideshow or all on one screen with pictures and timers. Free.",
       "faq": [
         [
           "Can I use an exercise that is not in the list?",
@@ -90,11 +90,11 @@
         ],
         [
           "Can I show it on a gym TV or a phone?",
-          "Yes. Open the page on the screen you want to use, build or load the plan and tap Start slideshow. It goes fullscreen where the browser allows it and tries to keep the screen awake. Press Escape or the close button to leave."
+          "Yes. Open the page on the screen you want, build or load the plan and choose Start slideshow for one exercise at a time, or Show all on one screen for the whole plan at once. Both go fullscreen where the browser allows it and try to keep the screen awake. Press Escape or Close to leave."
         ],
         [
-          "Can I change the date and the time on each exercise?",
-          "Yes. The date can be any day and shows at the top of the screen when switched on. Seconds per exercise and rest between exercises are yours to set, and the slideshow moves on by itself."
+          "What does the one-screen view show?",
+          "The three parts side by side, each exercise with a small picture (library exercises only), your note and a time button. Tap the time to count down, tap the circle to tick an exercise off, and use the session clock for the whole workout. There are no long descriptions, so it all fits on one screen."
         ],
         [
           "Is this medical advice? Is the plan right for me?",
@@ -159,7 +159,7 @@
         {
           "heading": "Showing it on a screen",
           "paragraphs": [
-            "The slideshow shows one exercise at a time with the date, the plan name and, if you want, the muscles, the steps and a countdown. The next exercise appears at the bottom so people can get ready. It suits a gym TV, a class screen or a phone on a stand.",
+            "The slideshow shows one exercise at a time with the date, the plan name and, if you want, the muscles, the steps and a countdown. The one-screen view shows the whole plan at once with small pictures, a timer on each exercise and a session clock, which suits a gym wall TV. Both work on a phone on a stand too.",
             "This page gives general information and not medical advice. Keep a light start, good form and a rest day between hard sessions for the same muscles, and stop if something hurts."
           ]
         }

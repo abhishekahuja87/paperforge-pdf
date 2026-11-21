@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Copy, Play, Trash2 } from 'lucide-react';
+import { Copy, LayoutGrid, Play, Trash2 } from 'lucide-react';
 import { calcCard, Note } from '../../finance/ui';
 import { EXERCISES } from '../../../lib/fitness/exercises';
 import {
@@ -8,6 +8,7 @@ import {
 } from '../../../lib/fitness/workout';
 import { QUICK_STARTS, type QuickStart } from '../../../lib/fitness/workoutStarts';
 import { WorkoutBlockEditor } from './WorkoutBlockEditor';
+import { WorkoutBoard } from './WorkoutBoard';
 import { DEFAULT_SHOW, WorkoutPlayer, type ShowOptions } from './WorkoutPlayer';
 
 const STORAGE_KEY = 'mdu-workout-plan-v1';
@@ -42,7 +43,7 @@ export const WorkoutPlanner: React.FC = () => {
   const [show, setShow] = useState<ShowOptions>(DEFAULT_SHOW);
   const [work, setWork] = useState(40);
   const [rest, setRest] = useState(15);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState<'slides' | 'board' | null>(null);
 
   useEffect(() => {
     try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(plan)); } catch { /* the plan still works without saving */ }
@@ -51,7 +52,7 @@ export const WorkoutPlanner: React.FC = () => {
   const timing = useMemo(() => ({ work: clampSeconds(work, 5, 600, 40), rest: clampSeconds(rest, 0, 300, 15) }), [work, rest]);
   const count = planItemCount(plan);
   const duration = useMemo(() => formatDuration(totalSeconds(buildSlides(plan, timing))), [plan, timing]);
-  const close = useCallback(() => setPlaying(false), []);
+  const close = useCallback(() => setPlaying(null), []);
 
   const setBlock = (id: BlockId, items: WorkoutItem[]) => setPlan((current) => ({ ...current, blocks: { ...current.blocks, [id]: items } }));
   const applyStart = (start: QuickStart) => {
@@ -130,16 +131,20 @@ export const WorkoutPlanner: React.FC = () => {
         </div>
         <p className="text-sm font-semibold text-stone-800">{count === 0 ? 'Add some exercises to start.' : `${count} ${count === 1 ? 'exercise' : 'exercises'}, about ${duration} on screen.`}</p>
         <div className="flex flex-wrap gap-2">
-          <button type="button" onClick={() => setPlaying(true)} disabled={count === 0} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500">
+          <button type="button" onClick={() => setPlaying('slides')} disabled={count === 0} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500">
             <Play className="h-4 w-4" aria-hidden="true" />Start slideshow
+          </button>
+          <button type="button" onClick={() => setPlaying('board')} disabled={count === 0} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500">
+            <LayoutGrid className="h-4 w-4" aria-hidden="true" />Show all on one screen
           </button>
           <button type="button" onClick={() => void copyText()} disabled={count === 0} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-orange-300 px-4 py-2.5 text-sm font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-50"><Copy className="h-4 w-4" aria-hidden="true" />Copy plan as text</button>
           <button type="button" onClick={clearAll} disabled={count === 0} className="inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-100 disabled:opacity-50"><Trash2 className="h-4 w-4" aria-hidden="true" />Clear exercises</button>
         </div>
-        <Note>Your plan is saved only in this browser. The slideshow fills the screen and tries to keep it awake; use the arrow keys, space bar or the buttons to move, pause and close. This is general information, not medical advice: start light, keep good form and stop if something hurts.</Note>
+        <Note>Your plan is saved only in this browser. The slideshow and the one-screen view fill the screen and try to keep it awake; use the arrow keys, space bar or the buttons to move, pause and close. This is general information, not medical advice: start light, keep good form and stop if something hurts.</Note>
       </section>
 
-      {playing && <WorkoutPlayer plan={plan} timing={timing} show={show} onClose={close} />}
+      {playing === 'slides' && <WorkoutPlayer plan={plan} timing={timing} show={show} onClose={close} />}
+      {playing === 'board' && <WorkoutBoard plan={plan} timing={timing} show={show} onClose={close} />}
     </div>
   );
 };

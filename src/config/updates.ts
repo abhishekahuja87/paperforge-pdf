@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-21',
     path: '/workout-planner',
     tool: 'Workout Planner and Gym Display',
+    title: 'Show the whole workout on one screen',
+    summary: 'A second view next to the slideshow: warm-up, main and cool-down side by side with small pictures, a timer on each exercise, tick-off and a session clock.',
+  },
+  {
+    date: '2026-11-21',
+    path: '/workout-planner',
+    tool: 'Workout Planner and Gym Display',
     title: 'New: plan today’s workout and show it on a screen',
     summary: 'Pick warm-up, main and cool-down exercises from quick starts or the list, add your own with a note, and show them as a fullscreen slideshow with pictures and a timer.',
   },
