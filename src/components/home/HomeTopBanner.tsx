@@ -32,14 +32,14 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChan
       <div aria-hidden="true" className="pointer-events-none absolute -left-16 top-0 h-56 w-56 rounded-full bg-amber-200/50 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-12 bottom-0 h-64 w-64 rounded-full bg-orange-200/50 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-10">
-        <div className="text-center lg:text-left">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-stretch lg:gap-10">
+        <div className="flex flex-col justify-center text-center lg:text-left">
           <ul className="flex flex-wrap justify-center gap-1.5 lg:justify-start" aria-label={t('homeTags', { defaultValue: 'What to expect' })}>
             {HERO_TAGS.map((text) => <li key={text} className={tag}>{text}</li>)}
-            <li><Link to="/free-no-limits" className={`${tag} gap-1 text-orange-800 hover:border-orange-400`}>{t('homeTagsMore', { defaultValue: 'What is free' })}<ArrowRight className="h-3 w-3" aria-hidden="true" /></Link></li>
+            <li><Link to="/why-trust-us" className={`${tag} gap-1 text-orange-800 hover:border-orange-400`}>{t('homeTagsMore', { defaultValue: 'Why is it free?' })}<ArrowRight className="h-3 w-3" aria-hidden="true" /></Link></li>
           </ul>
 
-          <h1 className="mt-3 text-3xl font-black leading-[1.08] tracking-[-0.03em] text-stone-900 sm:text-4xl lg:text-[2.6rem]">
+          <h1 className="mt-3 text-3xl font-black leading-[1.08] tracking-[-0.03em] text-stone-900 sm:text-4xl">
             {t('homeHeading')}
             <span className="block text-orange-600">{t('homeHeadingAccent')}</span>
           </h1>
@@ -71,16 +71,16 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChan
           </p>
         </div>
 
-        <nav aria-label={t('homeBrowse.label', { count: toolTotal, defaultValue: 'Browse {{count}}+ tools' })}>
+        <nav className="flex flex-col" aria-label={t('homeBrowse.label', { count: toolTotal, defaultValue: 'Browse {{count}}+ tools' })}>
           <p className="mb-2 text-center text-[11px] font-bold uppercase tracking-wide text-stone-500 lg:text-left">
             {t('homeBrowse.label', { count: toolTotal, defaultValue: 'Browse {{count}}+ tools' })}
           </p>
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-            {HERO_TILES.map((tile) => {
+          <ul className="grid flex-1 grid-cols-2 gap-2 sm:grid-cols-3 lg:auto-rows-fr">
+            {HERO_TILES.map((tile, index) => {
               const Icon = ICONS[tile.icon];
               return (
-                <li key={tile.to}>
-                  <Link to={tile.to} className="flex min-h-14 items-center gap-2.5 rounded-xl border border-orange-200 bg-white px-3 py-2 shadow-sm transition hover:border-orange-400 hover:bg-orange-50">
+                <li key={tile.to} className={index === HERO_TILES.length - 1 ? 'col-span-2 sm:col-span-3' : undefined}>
+                  <Link to={tile.to} className="flex h-full min-h-14 items-center gap-2.5 rounded-xl border border-orange-200 bg-white px-3 py-2 shadow-sm transition hover:border-orange-400 hover:bg-orange-50">
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-700"><Icon className="h-4 w-4" aria-hidden="true" /></span>
                     <span className="min-w-0">
                       <span className="block text-xs font-bold leading-4 text-stone-900">{tile.label}</span>
