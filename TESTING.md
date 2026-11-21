@@ -1087,3 +1087,6 @@ Not run. Open each of the 13 topic pages from the hero tiles (including /display
 
 ### Header width and popular tools (21 Nov)
 Not run. Desktop: logo and header buttons line up with the hero's left and right edges; footer too. Home: row is called "Our popular tools" with 12 tiles (merge, compress, fillable, smart split, redact, tax, EMI, bulk photos, social sizes, sign, remove location, resume); tiles and the Workspaces cards are noticeably smaller; nothing is cut off. The 404 page's popular list still looks sensible.
+
+### Alignment and topic page header (21 Nov)
+Not run. Desktop: the hero's left and right edges line up exactly with the logo and header buttons, the tool grid and the footer. Topic pages (e.g. /pdf-tools): back link, headline and subtitle are left-aligned like a tool page, with the tags row under the subtitle.
