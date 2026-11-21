@@ -769,6 +769,23 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
 - [ ] Search the home page for "random text generator" and "random word generator": the tool is found.
 
+### Classroom Quiz Display
+
+Not run: `tsc` (project), `vite build`, browser, real phone or projector. Only `lib/classroom/quiz.ts` was type-checked and tested in Node.
+
+- [ ] /classroom-quiz-display opens empty; Start is disabled until there are valid questions.
+- [ ] "Create questions" with 5 multiple choice and with true or false; "Try a sample quiz" fills 3 questions; Undo restores.
+- [ ] A question: write text, 2 to 6 options (Add an option, remove down to 2), tick the correct one, add a picture to the question and to an option (shrunk, thumbnail shows), remove the picture, explanation.
+- [ ] Move up/down, copy and remove a question. An incomplete question lists a problem under "How to play" and blocks Start.
+- [ ] Paste questions: numbered questions, A) B) C) D), "Answer: B", "Explanation: ..." are read correctly; the correct option is selected.
+- [ ] Save quiz file, reload, Open a quiz file: everything including pictures comes back. A random JSON file shows a friendly message.
+- [ ] Learn: click, space or right arrow shows the answer (correct option green, others faded, explanation), the next click moves on; left arrow goes back; the Next button is orange.
+- [ ] Mock exam: timer counts down per question (turns red in the last 5 seconds), then the answer shows for the set seconds, then the next question by itself; Pause works; last slide says it was the last question.
+- [ ] Real exam: timer per question, no answers while it runs, final "Answer key" lists every question with the correct option and explanation.
+- [ ] Show options (name, subject, date, number, timer, explanations, light screen) and Shuffle questions/options change the screen; the correct answer is still right after shuffling options.
+- [ ] Copy question paper and Copy answer key paste readable text.
+- [ ] Phone: forms are usable; the quiz fills the screen. Escape or Close leaves.
+
 ### Workout Planner and Gym Display
 
 Not run: `tsc` (project), `vite build`, browser, real phone or TV.

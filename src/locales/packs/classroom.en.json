@@ -1,0 +1,86 @@
+{
+  "guideSteps": {
+    "classroom-quiz-display": [
+      [
+        "Add your questions",
+        "Choose how many questions and a type, then fill them in. You can also paste questions from a document, open a quiz file, or try the sample quiz first."
+      ],
+      [
+        "Set the options and the answer",
+        "Each question has 2 to 6 options and one correct answer. Add a picture to the question or to any option, and write an explanation to show with the answer."
+      ],
+      [
+        "Pick how to play",
+        "Learn moves when you click. Mock exam has a timer on each question and shows the answer after it. Real exam has the timer too but keeps answers for the end."
+      ],
+      [
+        "Start on the screen",
+        "Open the page on the classroom monitor and tap Start. It fills the screen. Use the arrow keys, space bar or the buttons to go back, pause or close."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "classroomQuizDisplay": {
+      "title": "Classroom Quiz Display",
+      "subtitle": "Type multiple-choice questions with answers, pictures and explanations, then show them on the class screen in learn, mock exam or real exam mode. Free, no sign-up.",
+      "faq": [
+        [
+          "What are the three ways to play?",
+          "Learn is manual: one click shows the answer and the next click moves to the next question. Mock exam is automatic: each question has a timer, then the answer and explanation show before the next one. Real exam is automatic too, but no answers show until the end, when the full answer key appears."
+        ],
+        [
+          "Can I add pictures?",
+          "Yes. Add a picture to a question, to any option, or both. Pictures are shrunk in your browser so the quiz stays small. A question without a picture simply shows its text."
+        ],
+        [
+          "How many options can a question have?",
+          "From 2 to 6. Two options suit true or false questions. You tick the one correct option, and you can write an explanation that shows with the answer."
+        ],
+        [
+          "Can I paste questions from a Word file or a message?",
+          "Yes. Choose Paste questions from a document, then paste text where each question starts with a number, the options start with A) B) C) D), and a line such as Answer: B follows. An Explanation: line is optional. Check the correct answers after adding."
+        ],
+        [
+          "Can I shuffle the questions or keep a copy?",
+          "You can shuffle the questions and the options when you start. You can also copy the question paper or the answer key as text, and save the whole quiz as a file to open later or on another computer."
+        ],
+        [
+          "Does it work on a projector or a smart board?",
+          "Yes. Open the page on the computer or phone connected to the screen and start the quiz. It goes fullscreen where the browser allows it and tries to keep the screen awake. Press Escape or Close to leave."
+        ],
+        [
+          "Is my quiz uploaded or stored?",
+          "No. Your quiz stays in your browser and is saved on this device only. Nothing you type is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "classroom-quiz-display": {
+      "sections": [
+        {
+          "heading": "A quiz for the whole class to see",
+          "paragraphs": [
+            "A quiz on the classroom screen keeps everyone on the same question. The question appears large with its options, and the correct answer is marked when you reveal it, with a short explanation so the class learns why.",
+            "You type the questions once. Each has two to six options, one correct answer, an optional picture on the question or the options, and an optional explanation."
+          ]
+        },
+        {
+          "heading": "Learn, mock exam and real exam",
+          "paragraphs": [
+            "Learn mode is for teaching. You click to show the answer and click again for the next question, so the pace is yours.",
+            "Mock exam mode is for practice with a clock. Each question has a timer, then the answer and the explanation show for a few seconds before the next question starts by itself.",
+            "Real exam mode keeps the same timer but shows no answers while the exam runs. When the last question ends, the answer key shows every correct answer with its explanation, ready for marking."
+          ]
+        },
+        {
+          "heading": "Tips for using it in class",
+          "paragraphs": [
+            "Use pictures for diagrams, maps and shapes, and keep the text short so it can be read from the back of the room. Shuffle the options when a quiz is repeated with another class, and set more seconds for questions that need working out.",
+            "Save the quiz file when you finish. You can open it on another computer, and you can copy the question paper and the answer key as text for printing from a document."
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -161,6 +161,19 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | O7 | Reload; Copy plan as text | Plan is kept; text pastes well | | |
 | O8 | On a phone | Fills the screen and stays awake | | |
 
+## P. Classroom Quiz Display
+| # | Check | Expected | Result | Notes |
+|---|---|---|---|---|
+| P1 | Open /classroom-quiz-display, create 5 questions, try the sample | Questions appear; Start disabled until valid; Undo works | | |
+| P2 | Edit a question: options, correct answer, pictures, explanation | 2 to 6 options; pictures show as thumbnails | | |
+| P3 | Paste questions from a document | Questions, options, answers and explanations read correctly | | |
+| P4 | Save a quiz file, reload, open the file | Same quiz comes back with pictures | | |
+| P5 | Learn mode | Click shows answer, click goes on; green correct option | | |
+| P6 | Mock exam | Timer, then answer and explanation, then next by itself | | |
+| P7 | Real exam | Timer, no answers, answer key at the end | | |
+| P8 | Shuffle, show options, copy paper and key | Work; answers stay right after shuffling | | |
+| P9 | On a phone and on a TV or projector | Usable and fills the screen | | |
+
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin
 - [ ] Search Console: resubmit the sitemap
