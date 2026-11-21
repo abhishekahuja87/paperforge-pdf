@@ -24,7 +24,7 @@ export const TOOL_GUIDES: Guide[] = [
         "The Signature Maker saves your signature as a PNG with a see-through background, which you can use in documents and forms. Draw it slowly with a steady hand, and use Undo until it looks right. The picture is trimmed to the ink, so it sits neatly on a line.",
       ] },
       { heading: "If the file will not open", paragraphs: [
-        "A PDF with a password cannot be signed until it is unlocked. Use Unlock PDF first, with the password you were given, then sign the unlocked copy. Files over 40 MB should be made smaller with Compress PDF first.",
+        "A PDF with a password cannot be signed until it is unlocked. Use Unlock PDF first, with the password you were given, then sign the unlocked copy. There is no size limit set by the tool, but a very large file may be slow on a phone, so use Compress PDF first if it struggles.",
       ] },
       { heading: "Privacy", paragraphs: [
         "The PDF and your signature stay in your browser. Nothing is uploaded to MyDailyUtils. Check the downloaded file on every page before you send it.",
@@ -330,6 +330,141 @@ export const TOOL_GUIDES: Guide[] = [
       ] },
       { heading: "Privacy", paragraphs: [
         "The picture and camera feed stay in your browser. Nothing is uploaded to MyDailyUtils. The page still loads advertising and other resources from the network.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-make-a-pdf-fillable-for-free",
+    title: "How to make any PDF fillable for free, with no sign-up",
+    description: "Add text boxes, tick boxes and drop-down lists to a PDF or a scanned form, then fill it in and save it, free and with no limit.",
+    tools: ["make-pdf-fillable", "fill-pdf", "sign-pdf"],
+    sections: [
+      { heading: "Why make a PDF fillable", paragraphs: [
+        "Many forms arrive as a flat PDF or a scan with blank lines and no way to type into them. Making the PDF fillable adds real form fields, so you or anyone you send it to can type, tick and choose on screen instead of printing and writing by hand.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Make PDF Fillable and choose the PDF. Pick Text box, Tick box or Drop-down list, then drag on the page where the field should go. For a tick box, tap the spot. Give each field its own name. For a drop-down, type the choices separated by commas. Turn on several lines for long answers. Download the fillable PDF.",
+      ] },
+      { heading: "Check it", paragraphs: [
+        "Open the downloaded file in your PDF viewer or in the Fill PDF tool and type into every field. Different viewers draw fields slightly differently, and rotated pages are the most likely to need a second look, so test the file before you send it to others.",
+      ] },
+      { heading: "Limits", paragraphs: [
+        "There is no limit set by the tool on pages or file size and no fee. If a PDF already has fields, Fill PDF lists them for you to fill in. A password-protected PDF must be unlocked first.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your files are handled in your browser. Nothing is uploaded to MyDailyUtils, and there is no sign-up, daily limit or watermark. Very large files are limited only by your device's memory. The page still loads advertising and other resources from the network.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-split-a-large-pdf-into-smaller-files",
+    title: "How to split a large PDF into smaller files, by pages, blanks, bookmarks or size",
+    description: "Cut one big PDF into parts every few pages, at blank separator pages, at bookmarks or under a file size, then download all parts in one ZIP.",
+    tools: ["smart-split-pdf", "split-pdf", "compress-pdf"],
+    sections: [
+      { heading: "When this helps", paragraphs: [
+        "A scanned batch of many documents, a long report with chapters, or a file too large for an email or a form upload are all easier to handle in parts.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Smart Split PDF and choose the file. Pick how to split: every N pages, at blank separator pages, at bookmarks, or by a largest file size. Press Show the parts and read the list of parts and their page ranges. When it looks right, download all parts together as one ZIP.",
+      ] },
+      { heading: "Which way to choose", paragraphs: [
+        "Use blank pages when you scanned several documents with a blank sheet between them. Use bookmarks when the PDF has a table of contents. Use file size when a site or email limits attachments, such as 5 MB. A single page larger than your limit stays as its own part.",
+      ] },
+      { heading: "If the result is not right", paragraphs: [
+        "Blank-page detection can miss a nearly blank page with a stamp or shadow, so check the list before downloading. For a few chosen pages only, the Split PDF tool is quicker. To make a part smaller, use Compress PDF.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your files are handled in your browser. Nothing is uploaded to MyDailyUtils, and there is no sign-up, daily limit or watermark. Very large files are limited only by your device's memory. The page still loads advertising and other resources from the network.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-resize-and-convert-many-photos-at-once",
+    title: "How to resize, convert and watermark many photos at once",
+    description: "Resize, convert and compress a whole batch of photos in one go, add a text watermark and download everything as one ZIP, free.",
+    tools: ["bulk-image-tools", "image-resizer", "image-compressor"],
+    sections: [
+      { heading: "When this helps", paragraphs: [
+        "Resizing photos one by one for a form, a shop listing or an album takes a long time. The Bulk Image Tools do the same change to every photo together.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Bulk Image Tools and choose as many photos as you like. Pick a format, a largest width or height, a quality, and optionally a text watermark and a name prefix. Press the button and wait while each photo is done. Download all results as one ZIP. The tool shows the total size before and after.",
+      ] },
+      { heading: "Choosing settings", paragraphs: [
+        "JPG at a quality around 80 gives small files for most photos. PNG keeps sharp edges but is larger. WebP is small and works in current browsers. If you need one exact file size for a form, use the Image Compressor on a single photo.",
+      ] },
+      { heading: "Very large batches", paragraphs: [
+        "There is no limit on the number of photos, but each is held in your device's memory while it is processed. If your phone slows down, do a few hundred at a time.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your files are handled in your browser. Nothing is uploaded to MyDailyUtils, and there is no sign-up, daily limit or watermark. Very large files are limited only by your device's memory. The page still loads advertising and other resources from the network.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-add-bates-numbers-and-page-stamps-to-pdfs",
+    title: "How to add Bates numbers, headers and footers to many PDFs",
+    description: "Stamp running numbers, file names and dates on every page of several PDFs, keeping one unbroken count from file to file, free.",
+    tools: ["pdf-bates-numbering", "add-page-numbers", "merge-pdf"],
+    sections: [
+      { heading: "What Bates numbering is", paragraphs: [
+        "Bates numbering gives every page in a set of documents its own running identifier, such as CASE-000123, so pages can be referred to exactly. It is also useful for exhibits, audit files and any bundle of PDFs that must be cited page by page.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Bates Numbering and add the PDFs in the order the numbers should run. Choose a prefix, a start number, how many digits and where the number goes. Turn on keep counting from one file to the next for one unbroken series. Optionally type header or footer text. {page}, {pages}, {file} and {date} are filled in for each page. Press the button. One file downloads as a PDF, several as a ZIP.",
+      ] },
+      { heading: "Check before you share", paragraphs: [
+        "Open the result and look at the first and last page of each file. If the stamp overlaps text, move it to another corner. Keep your original files in case you need to redo the numbering.",
+      ] },
+      { heading: "Simple page numbers", paragraphs: [
+        "For plain page numbers on one PDF, the Add Page Numbers tool is simpler.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your files are handled in your browser. Nothing is uploaded to MyDailyUtils, and there is no sign-up, daily limit or watermark. Very large files are limited only by your device's memory. The page still loads advertising and other resources from the network.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-resize-one-image-for-instagram-whatsapp-and-youtube",
+    title: "How to resize one picture for Instagram, YouTube and other social sizes",
+    description: "Turn one picture into square, portrait, story, banner, cover and thumbnail sizes together and download them as a ZIP, free.",
+    tools: ["social-image-resizer", "image-resizer", "photo-grid-splitter"],
+    sections: [
+      { heading: "When this helps", paragraphs: [
+        "Each place wants a different shape: a square post, a tall story, a wide thumbnail, a banner. Cropping by hand for each is slow.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Social Image Sizes and choose a picture. Tick the sizes you need, or type your own width and height. Choose Fill to crop the edges and cover the whole size, or Fit to keep the whole picture on a colour you choose. Move the crop sliders until the important part is in view. Download all sizes together as a ZIP.",
+      ] },
+      { heading: "Choosing Fill or Fit", paragraphs: [
+        "Fill gives a full-bleed picture but cuts some of it off, so keep faces and text near the middle. Fit never cuts anything but adds bars of colour. Always check each preview before downloading.",
+      ] },
+      { heading: "Sizes change", paragraphs: [
+        "Apps change their recommended sizes from time to time. The presets are common sizes, so check the size the app currently asks for and use a custom size when it differs.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your files are handled in your browser. Nothing is uploaded to MyDailyUtils, and there is no sign-up, daily limit or watermark. Very large files are limited only by your device's memory. The page still loads advertising and other resources from the network.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-make-a-gif-from-photos-with-no-watermark",
+    title: "How to make an animated GIF from photos with no watermark",
+    description: "Put pictures in order, set the timing and download an animated GIF with no watermark, no sign-up and no limit.",
+    tools: ["gif-maker", "image-resizer", "image-compressor"],
+    sections: [
+      { heading: "When this helps", paragraphs: [
+        "A short slideshow, a before and after, or a simple animation for a chat or a post is easy to share as a GIF.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open GIF Maker and add the pictures. The first one sets the shape of the GIF. Use the arrows to reorder or remove pictures. Choose how long each stays on screen, the width, and whether it plays again and again. Press Make the GIF, watch the preview and download it.",
+      ] },
+      { heading: "Keeping the file small", paragraphs: [
+        "GIFs get large quickly. Use a smaller width, fewer pictures or longer times per picture. GIF uses 256 colours, so photos can look slightly grainy; that is the format, not a fault.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your files are handled in your browser. Nothing is uploaded to MyDailyUtils, and there is no sign-up, daily limit or watermark. Very large files are limited only by your device's memory. The page still loads advertising and other resources from the network.",
       ] },
     ],
   },

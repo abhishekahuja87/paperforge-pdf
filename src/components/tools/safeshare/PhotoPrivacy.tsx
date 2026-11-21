@@ -6,7 +6,6 @@ import { CameraButton } from '../../common/CameraButton';
 import { canvasToBlob, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { hasHiddenDetails, prettyTaken, readPhotoFacts, type PhotoFacts } from '../../../lib/safeshare/exif';
 
-const MAX_BYTES = 30 * 1024 * 1024;
 interface Item { id: number; file: File; url: string; facts: PhotoFacts; cleanedKb: number | null }
 
 const Row: React.FC<{ label: string; value: string; warn?: boolean }> = ({ label, value, warn }) => (
@@ -30,7 +29,6 @@ export const PhotoPrivacy: React.FC = () => {
     const added: Item[] = [];
     for (const file of files) {
       if (!file.type.startsWith('image/')) { setMessage(`${file.name} is not a picture. Choose JPG, PNG or WebP photos.`); continue; }
-      if (file.size > MAX_BYTES) { setMessage(`${file.name} is over 30 MB. Resize it first.`); continue; }
       const facts = readPhotoFacts(await file.arrayBuffer());
       const url = URL.createObjectURL(file);
       urls.current.push(url);

@@ -18,6 +18,12 @@ export const TRUST = {
       ],
     },
     {
+      heading: 'Free means free',
+      paragraphs: [
+        'There is no paid plan, no trial and no sign-up. The PDF and photo tools set no daily limit and no limit on how many files or pages you use, and results carry no watermark. The only limit is your own device’s memory for very large files. The full list is on the free, no limits page.',
+      ],
+    },
+    {
       heading: 'What stays on your device',
       paragraphs: [
         'The PDF, image, scanner, signature, sheet-maker, calculator and text tools do their work in your browser. The file you choose, the photo you take and the numbers you type are used on your device to make the result. They are not sent to MyDailyUtils for processing.',

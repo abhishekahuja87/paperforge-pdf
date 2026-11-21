@@ -14,6 +14,7 @@ import { GUIDES } from '../content/guides';
 import { getTopics } from '../config/topics';
 import { EDITORIAL } from '../content/editorial';
 import { TRUST } from '../content/trust';
+import { FREE_NO_LIMITS } from '../content/freeNoLimits';
 import { HUBS } from '../content/hubs';
 import { COLLECTIONS } from '../config/homeSections';
 import { UPDATES, formatUpdateDate } from '../config/updates';
@@ -382,6 +383,7 @@ function buildShellPages(): ShellPage[] {
       ]),
     info('/editorial-policy', EDITORIAL.title, EDITORIAL.subtitle, EDITORIAL.description, EDITORIAL.sections),
     info('/why-trust-us', TRUST.title, TRUST.subtitle, TRUST.description, TRUST.sections),
+    info(FREE_NO_LIMITS.path, FREE_NO_LIMITS.title, FREE_NO_LIMITS.subtitle, FREE_NO_LIMITS.description, FREE_NO_LIMITS.sections),
     ...HUBS.map((hub) => {
       const ids = COLLECTIONS.find((collection) => collection.id === hub.collection)?.tools ?? [];
       const listed = ids.map((id) => TOOLS.find((tool) => tool.id === id)).filter((tool): tool is ToolItem => Boolean(tool && tool.isAvailable));

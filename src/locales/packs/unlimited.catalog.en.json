@@ -1,0 +1,28 @@
+{
+  "toolCatalog": {
+    "make-pdf-fillable": [
+      "Make PDF Fillable: Add Text Boxes, Tick Boxes and Drop-downs, Free and No Limits",
+      "Turn any PDF into a fillable form: draw text boxes, tick boxes and drop-down lists. Free, no sign-up, no page limit, and your file is never uploaded."
+    ],
+    "smart-split-pdf": [
+      "Smart Split PDF: Split by Pages, Blank Pages, Bookmarks or File Size, Free and No Limits",
+      "Split a PDF every N pages, at blank separator pages, at bookmarks, or into parts under a size. Free, no page limit, no upload. Download all parts as a ZIP."
+    ],
+    "bulk-image-tools": [
+      "Bulk Image Resizer, Converter and Watermark: Process Many Photos to a ZIP, Free and No Limits",
+      "Resize, convert, compress and watermark any number of photos at once and download one ZIP. Free, no sign-up, no limit on how many. Nothing is uploaded."
+    ],
+    "pdf-bates-numbering": [
+      "Bates Numbering and Page Stamps for PDF: Number Pages Across Many Files, Free and No Limits",
+      "Stamp running Bates numbers, headers and footers on one or many PDFs. Numbers continue across files. Free, no sign-up, no page limit. Nothing is uploaded."
+    ],
+    "social-image-resizer": [
+      "One Image to Many Sizes: Post, Story, Thumbnail, Banner and Profile Sizes, Free and No Limits",
+      "Turn one picture into many common sizes at once: post, story, thumbnail, banner and profile. Crop or fit, then download a ZIP. Free, no limit, nothing uploaded."
+    ],
+    "gif-maker": [
+      "GIF Maker: Turn Photos into an Animated GIF, Free, No Watermark, No Limit",
+      "Make an animated GIF from your pictures: set the order, the time on each one and the size. Free, no watermark, no sign-up, no limit. Nothing is uploaded."
+    ]
+  }
+}

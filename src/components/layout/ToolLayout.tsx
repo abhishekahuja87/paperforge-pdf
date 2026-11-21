@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AdBanner } from '../common/AdBanner';
 import { PageMetadata } from '../common/PageMetadata';
-import { ArrowLeft, Maximize2, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, Infinity as InfinityIcon, Maximize2, ShieldCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ToolArticle } from '../common/ToolArticle';
 import { RelatedTools } from '../common/RelatedTools';
 import { PinToolButton } from '../common/PinToolButton';
 import { ADS_CONFIG } from '../../config/ads';
+import { PROMISE, hasNoLimitBadge } from '../../config/promise';
 import { metaDescription, toolPageTitle } from '../../config/site';
 import { buildToolJsonLd } from '../../lib/structuredData';
 import { useTranslation } from 'react-i18next';
@@ -92,6 +93,12 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                 <ShieldCheck className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
                 {t('privacyPill')}
               </span>
+              {hasNoLimitBadge(pathname.replace(/^\/+|\/+$/g, '')) && (
+                <Link to="/free-no-limits" className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-900 print:hidden">
+                  <InfinityIcon className="h-3.5 w-3.5 text-emerald-700" aria-hidden="true" />
+                  {PROMISE.badge}
+                </Link>
+              )}
             </div>
             <div className="flex items-start justify-between gap-3">
               <h1 lang={contentLanguage} className="text-2xl font-black leading-tight tracking-[-0.03em] text-stone-900 sm:text-3xl">{title}</h1>

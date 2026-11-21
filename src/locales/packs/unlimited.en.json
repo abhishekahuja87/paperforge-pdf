@@ -1,0 +1,470 @@
+{
+  "guideSteps": {
+    "make-pdf-fillable": [
+      [
+        "Choose the PDF",
+        "Open any PDF: a typed document, a form or a scan."
+      ],
+      [
+        "Draw the fields",
+        "Pick Text box, Tick box or Drop-down list, then drag on the page (or tap, for a tick box) where the field should go."
+      ],
+      [
+        "Name them",
+        "Give each field its own name. For a drop-down, type the choices separated by commas. Turn on several lines for long answers."
+      ],
+      [
+        "Download",
+        "Download the fillable PDF and try it in your PDF viewer or in the Fill PDF tool."
+      ]
+    ],
+    "smart-split-pdf": [
+      [
+        "Choose the PDF",
+        "Open the PDF you want to cut up."
+      ],
+      [
+        "Pick how to split",
+        "Every N pages, at blank separator pages, at bookmarks, or by a largest file size."
+      ],
+      [
+        "Check the parts",
+        "Press Show the parts and read the list of parts and their page ranges before anything is made."
+      ],
+      [
+        "Download",
+        "Download all the parts together as one ZIP of PDFs."
+      ]
+    ],
+    "bulk-image-tools": [
+      [
+        "Add your pictures",
+        "Choose as many photos as you like in one go. You can add more any time."
+      ],
+      [
+        "Choose what to do",
+        "Pick a format, a largest width or height, a quality, and an optional watermark and name prefix."
+      ],
+      [
+        "Process them all",
+        "Press the button. The tool works through the photos one by one and shows its progress."
+      ],
+      [
+        "Download the ZIP",
+        "Download all the results together. The tool tells you the total size before and after."
+      ]
+    ],
+    "pdf-bates-numbering": [
+      [
+        "Add the PDFs",
+        "Add one or many PDFs and put them in the order the numbers should run."
+      ],
+      [
+        "Set the number",
+        "Choose a prefix, a start number, how many digits and where it goes. Turn on keep counting from one file to the next if you want one unbroken series."
+      ],
+      [
+        "Add a header or footer",
+        "Optionally type text such as Page {page} of {pages}. {page}, {pages}, {file} and {date} are filled in for each page."
+      ],
+      [
+        "Stamp and download",
+        "Press the button. One file downloads as a PDF, several as a ZIP."
+      ]
+    ],
+    "social-image-resizer": [
+      [
+        "Choose a picture",
+        "Pick the picture you want to use."
+      ],
+      [
+        "Choose the sizes",
+        "Tick the sizes you need, such as square, portrait, vertical story, thumbnail, banner and profile, or type your own width and height."
+      ],
+      [
+        "Set how it fits",
+        "Fill crops the edges to cover the size, and you can move the crop. Fit keeps the whole picture on a colour you choose."
+      ],
+      [
+        "Download",
+        "Download all the sizes together as a ZIP."
+      ]
+    ],
+    "gif-maker": [
+      [
+        "Add the pictures",
+        "Add the pictures for your animation. The first one sets the shape of the GIF."
+      ],
+      [
+        "Put them in order",
+        "Use the arrows to move a picture earlier or later, or remove one."
+      ],
+      [
+        "Set the timing",
+        "Choose how long each picture stays on screen, the width, and whether it plays again and again."
+      ],
+      [
+        "Make and download",
+        "Press Make the GIF, watch the preview and download it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "makePdfFillableGuide": {
+      "title": "Make a PDF Fillable Online: Add Form Fields for Free, No Limits",
+      "subtitle": "Draw text boxes, tick boxes and drop-down lists on any PDF and download a fillable form. Free, no sign-up, no page or file limit. Nothing is uploaded.",
+      "faq": [
+        [
+          "What does Make PDF Fillable do?",
+          "It adds real form fields to a PDF: text boxes, tick boxes and drop-down lists. The person who gets the file can click or tap them and type their answers, without printing."
+        ],
+        [
+          "Does it work on a scanned form?",
+          "Yes. A scan is a picture of a page, and the fields are placed on top of it where you draw them."
+        ],
+        [
+          "Can I use it on a phone?",
+          "Yes. Drag with your finger to draw a box and tap to place a tick box. A larger screen makes it easier to place fields exactly."
+        ],
+        [
+          "Is there a limit or a charge?",
+          "No charge, no sign-up, no watermark and no limit on how often you use it. There is no limit on pages or on how many fields you add. Very large files are limited only by the memory of your own device."
+        ],
+        [
+          "Will the fields work in other PDF viewers?",
+          "They are standard PDF form fields, which most modern PDF viewers can fill in. Open the file in the viewer your recipients use to check, and keep the original in case you want to change the fields."
+        ],
+        [
+          "Can I add more fields later?",
+          "Yes. Open the fillable PDF here again and add new fields, giving each a new name. This tool adds fields; to type your answers, use Fill PDF."
+        ],
+        [
+          "Is my file uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "smartSplitPdfGuide": {
+      "title": "Smart Split PDF Online: Split at Blank Pages, Bookmarks or by Size, Free",
+      "subtitle": "Split a PDF every N pages, at blank pages, at bookmarks or into parts under a file size. See the parts first, then download a ZIP. Free, no limit, no upload.",
+      "faq": [
+        [
+          "What does Smart Split PDF do?",
+          "It works out where to cut a PDF for you: every few pages, after each blank page, at each bookmark, or so that every part stays under a size you set. You see the plan first and then download the parts."
+        ],
+        [
+          "How does it find blank pages?",
+          "It looks at each page and treats it as blank when almost nothing is printed on it. Choose Completely empty, Almost empty or Faint marks allowed. Blank separator pages are left out of the parts."
+        ],
+        [
+          "How does splitting at bookmarks work?",
+          "A new part starts at each top-level bookmark, and the file is named after that bookmark. If the PDF has no bookmarks, the tool tells you."
+        ],
+        [
+          "How accurate is splitting by size?",
+          "It is an estimate. Images and fonts shared between pages are counted for each part, so parts are meant to stay under your limit and may come out a little smaller. A single page that is bigger than the limit gets a part of its own."
+        ],
+        [
+          "How is this different from Split PDF?",
+          "Split PDF lets you pick the pages and ranges yourself. Smart Split PDF decides the cuts from the document, which saves time on long scans and big files."
+        ],
+        [
+          "Is there a limit or a charge?",
+          "No charge, no sign-up, no watermark and no limit on how often you use it. There is no limit on the number of pages or parts. Very large files are limited only by the memory of your own device."
+        ],
+        [
+          "Is my file uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "bulkImageToolsGuide": {
+      "title": "Bulk Image Resizer, Converter and Watermark Online: Many Photos at Once, Free",
+      "subtitle": "Resize, convert to JPG, PNG or WebP, compress and watermark many photos at once, then download a ZIP. Free, no sign-up, no limit. Nothing is uploaded.",
+      "faq": [
+        [
+          "What does the Bulk Image tool do?",
+          "It applies the same settings to many pictures at once: change the format, shrink the size, lower the file size and add a text watermark. All results come back together as one ZIP."
+        ],
+        [
+          "Is there a limit or a charge?",
+          "No charge, no sign-up, no watermark and no limit on how often you use it. There is no limit on how many pictures you add. Very large files are limited only by the memory of your own device."
+        ],
+        [
+          "Will it work on hundreds of photos?",
+          "Yes, but your device does the work. A phone may slow down with a very large set, so for hundreds of big photos use a computer or process them in a few batches."
+        ],
+        [
+          "Which formats can I use?",
+          "JPG, PNG and WebP pictures can be added and saved as any of the three, or kept as they are. If a photo from your camera will not open, convert it to JPG first."
+        ],
+        [
+          "How do I make the files smaller?",
+          "Set a largest width or height, such as 1600 pixels, and lower the quality a little. The tool shows the total size before and after."
+        ],
+        [
+          "How does the watermark work?",
+          "Type your text and choose bottom right, centre or repeated across the picture. It is drawn on every photo in the same way."
+        ],
+        [
+          "Is my file uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "batesNumberPdfGuide": {
+      "title": "Bates Numbering for PDF Online: Number Pages Across Many Files, Free",
+      "subtitle": "Stamp a running Bates number on every page of one or many PDFs, plus headers and footers with page, total, file name and date. Free, no limit, no upload.",
+      "faq": [
+        [
+          "What is Bates numbering?",
+          "It is a running number stamped on every page of a set of documents, often with a short prefix, so that each page can be identified and referred to exactly. It is common when document sets are shared or reviewed."
+        ],
+        [
+          "Do the numbers continue from one file to the next?",
+          "Yes, when Keep counting from one file to the next is on. File one might run ABC-000001 to ABC-000040 and file two continues at ABC-000041. Turn it off to start again in each file."
+        ],
+        [
+          "What can I put in a header or footer?",
+          "Any plain text, with {page}, {pages}, {file} and {date} replaced on each page, for example Page {page} of {pages} or Confidential - {file}."
+        ],
+        [
+          "Does it change the content of my PDF?",
+          "The stamp is drawn on top of each page. The original text and images are not altered, but the stamp becomes part of the page, so keep your original file."
+        ],
+        [
+          "Which characters can I stamp?",
+          "Letters, digits and standard keyboard symbols. Other scripts and the rupee sign are not supported in stamps."
+        ],
+        [
+          "Is there a limit or a charge?",
+          "No charge, no sign-up, no watermark and no limit on how often you use it. There is no limit on the number of files or pages. Very large files are limited only by the memory of your own device."
+        ],
+        [
+          "Is my file uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "socialImageSizesGuide": {
+      "title": "Resize One Image to Many Sizes Online: Post, Story, Thumbnail and Banner, Free",
+      "subtitle": "Make one picture into many common sizes at once, cropped to fill or fitted whole, then download a ZIP. Free, no limit, and nothing is uploaded.",
+      "faq": [
+        [
+          "What does this tool do?",
+          "It makes several versions of one picture at different sizes and shapes, so you do not have to resize and crop it again for each place you post it."
+        ],
+        [
+          "What is the difference between Fill and Fit?",
+          "Fill covers the whole size and crops anything that does not fit, and you can move the crop left, right, up or down. Fit shows the whole picture and fills the rest with the background colour you pick."
+        ],
+        [
+          "Are these the official sizes?",
+          "They are sizes people commonly ask for, not official rules. Sites change their sizes from time to time, so check the size shown on the site you are posting to, and use your own width and height if it differs."
+        ],
+        [
+          "Can I add my own size?",
+          "Yes. Type a width and height in pixels and it is added to the list."
+        ],
+        [
+          "Will a small picture look sharp when made bigger?",
+          "No. Making a small picture larger cannot add detail, so it will look soft. Start from the largest version of the picture you have."
+        ],
+        [
+          "Is there a limit or a charge?",
+          "No charge, no sign-up, no watermark and no limit on how often you use it. There is no limit on sizes or on how many pictures you do. Very large files are limited only by the memory of your own device."
+        ],
+        [
+          "Is my file uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "gifMakerGuide": {
+      "title": "GIF Maker Online: Make an Animated GIF from Photos, Free, No Watermark",
+      "subtitle": "Make an animated GIF from your pictures: put them in order, set the time on each and the width, then download. Free, no watermark, no sign-up and no limit.",
+      "faq": [
+        [
+          "What does the GIF Maker do?",
+          "It joins several pictures into one animated GIF that plays through them in order. You choose the order, how long each picture is shown and how wide the GIF is."
+        ],
+        [
+          "Does it add a watermark?",
+          "No. The GIF is exactly your pictures, with no watermark and no logo added."
+        ],
+        [
+          "Why do my photos look flatter as a GIF?",
+          "A GIF can show only 256 colours at once, so smooth photographs lose some shading. Plain graphics, drawings and screenshots look best."
+        ],
+        [
+          "Can I make a GIF from a video?",
+          "Not yet. This tool makes a GIF from pictures. To use frames from a video, save them as pictures first."
+        ],
+        [
+          "How do I keep the file small?",
+          "Use a smaller width, such as 320 or 480 pixels, fewer pictures, and a shorter time on each. Bigger widths and more pictures make a larger file and take longer to build."
+        ],
+        [
+          "Is there a limit or a charge?",
+          "No charge, no sign-up, no watermark and no limit on how often you use it. There is no limit on the number of pictures. Very large files are limited only by the memory of your own device."
+        ],
+        [
+          "Is my file uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "make-pdf-fillable": {
+      "sections": [
+        {
+          "heading": "What Make PDF Fillable is",
+          "paragraphs": [
+            "Make PDF Fillable puts form fields on any PDF. You draw a text box where a name should go, a tick box beside a choice, or a drop-down list for a set of answers, and download the result as a fillable form.",
+            "The original pages are not changed. The fields sit on top of them, so a scan, a typed form or a design from another program all work."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Many forms are plain PDFs that people print, write on and scan again. A fillable form saves that effort for the person filling it in and gives you answers that are clear to read. Creating fillable fields is often a paid feature of desktop PDF software; here it is free, with no limit on pages.",
+            "It suits event sign-ups, school and club forms, price lists, checklists, feedback sheets and any form you send out more than once."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Draw the fields slightly smaller than the space on the page, give each field a short, clear name, and group tick boxes by name such as Option1 and Option2. For a long answer turn on several lines.",
+            "Test the file before you send it: open it, type in every field, and check that nothing overlaps the printed text. Use Fill PDF to try it, then share the original fillable version."
+          ]
+        }
+      ]
+    },
+    "smart-split-pdf": {
+      "sections": [
+        {
+          "heading": "What Smart Split PDF is",
+          "paragraphs": [
+            "Smart Split PDF cuts one PDF into several without you counting pages. It can cut every few pages, after each blank sheet, at each bookmark, or into pieces that each stay under a size.",
+            "You see the list of parts and their page ranges before anything is made, and then download them all as a ZIP."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A batch scan often comes out as one long PDF with a blank sheet between documents. A large report may need to be split to fit an email or an upload limit. Doing this by hand means opening, counting and saving again and again.",
+            "Smart splitting is a paid feature in some PDF tools and is often limited by pages or by number of files per day. Here there is no such limit."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "For scanned batches, scan with a blank sheet between documents and choose At blank pages. If a separator page has a faint mark, use Faint marks allowed and check the list of parts. For email limits, use By file size and set a limit a little below the real one.",
+            "Read the list of parts before downloading, and open one or two of the parts to check them."
+          ]
+        }
+      ]
+    },
+    "bulk-image-tools": {
+      "sections": [
+        {
+          "heading": "What the Bulk Image tool is",
+          "paragraphs": [
+            "The Bulk Image tool resizes, converts, compresses and watermarks many photos at once. You choose the settings one time and every picture gets them, then you download the results as a single ZIP.",
+            "It runs in your browser, so the pictures never leave your device."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Sizing a whole album for a website, a form or an email one photo at a time takes far too long. Many online tools limit how many pictures you can process, how big each can be, or how many times a day, and some add a watermark of their own.",
+            "Here there is no daily limit, no limit on the number of pictures and no watermark except the one you choose."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Choose the format and the largest width first, then lower the quality only until the pictures still look good. Use a name prefix such as trip- to keep results easy to find.",
+            "Look at two or three of the results before you use the whole set. Keep the originals, because shrinking a picture cannot be undone."
+          ]
+        }
+      ]
+    },
+    "pdf-bates-numbering": {
+      "sections": [
+        {
+          "heading": "What Bates numbering is",
+          "paragraphs": [
+            "Bates numbering puts a unique, running number on every page of a group of documents, such as ABC-000001, ABC-000002 and so on. This tool does that for one PDF or many, and can add a header and a footer as well.",
+            "Numbers continue from one file to the next in the order you set, so a whole set shares one unbroken series."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "When a set of documents is shared, every page needs a way to be named exactly: page ABC-000127 is only ever one page. Page stamping like this is usually a feature of paid PDF software.",
+            "It is also useful for office files: numbering a set of statements, adding a confidential label to every page, or stamping the file name and date."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Choose a prefix that means something to you, set enough digits for the whole set, and check the first stamp shown on the page before you run it. Put the numbers in the corner that is clear on every page, usually the bottom right.",
+            "Stamp copies, not originals. Open the result and look at a few pages, including any rotated ones, before you share it."
+          ]
+        }
+      ]
+    },
+    "social-image-resizer": {
+      "sections": [
+        {
+          "heading": "What the tool is",
+          "paragraphs": [
+            "One Image to Many Sizes turns a single picture into all the shapes you need: a square post, a tall portrait, a vertical story, a wide thumbnail, a banner, a profile picture or any size you type. You download them together as a ZIP.",
+            "Each size is made at its exact pixel size and you can choose whether to crop the picture or keep all of it."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "Posting the same picture in several places usually means opening an editor, resizing, cropping and exporting again and again. Design apps often put automatic multi-size resizing behind a paid plan.",
+            "Here you set it up once and get every size in one go, with no sign-up and no limit."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Start from a large, sharp picture and keep the important part, such as a face or a product, near the middle, because tall and wide sizes crop the edges. Use the crop sliders to move the picture until each preview looks right.",
+            "Choose Fit when you cannot lose any of the picture, such as a logo or a poster, and pick a background colour that matches it."
+          ]
+        }
+      ]
+    },
+    "gif-maker": {
+      "sections": [
+        {
+          "heading": "What the GIF Maker is",
+          "paragraphs": [
+            "The GIF Maker turns a set of pictures into one animated GIF. You put the pictures in order, choose how long each stays on screen, pick a width, and download the result.",
+            "It builds the GIF in your browser, so your pictures are never uploaded."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A short animation is a good way to show steps, before and after pictures, a product from several sides or a simple slideshow in a chat. Many GIF sites add their own watermark, limit the number of frames or ask you to sign up.",
+            "Here there is no watermark, no sign-up and no limit on the number of pictures."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Use pictures of the same shape, because the first picture sets the size and others are fitted inside it. Keep the width small for chats and messages, and give each picture enough time to be read, usually one to two seconds.",
+            "GIFs suit plain graphics and screenshots best, because of the 256-colour limit. For photographs, keep the number of pictures small."
+          ]
+        }
+      ]
+    }
+  }
+}

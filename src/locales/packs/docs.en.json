@@ -296,7 +296,7 @@
         ],
         [
           "Why can I not open my PDF?",
-          "A PDF with a password cannot be opened until it is unlocked. Use the Unlock PDF tool first, then sign it. Very large files over 40 MB should be compressed first."
+          "A PDF with a password cannot be opened until it is unlocked. Use the Unlock PDF tool first, then sign it. There is no size limit set by the tool, but a very large file may be slow on a phone, so compress it first if it struggles."
         ],
         [
           "Is my information uploaded or stored?",

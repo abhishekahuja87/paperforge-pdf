@@ -10,8 +10,6 @@ import { generateFileName } from '../../../lib/pdf/naming';
 import { safeRenderScale } from '../../../lib/pdf/renderScale';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
-const MAX_BYTES = 40 * 1024 * 1024;
-const MAX_PAGES = 60;
 
 /** A black box on one page, as fractions (0 to 1) of the page width and height so it works at any zoom. */
 interface Box { id: number; page: number; x: number; y: number; w: number; h: number }
@@ -41,14 +39,12 @@ export const RedactPdf: React.FC = () => {
   const openFile = async (file: File | undefined) => {
     if (!file) return;
     setMessage('');
-    if (file.size > MAX_BYTES) { setMessage('That file is over 40 MB. Compress it first, then black out the details.'); return; }
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
       const count = doc.numPages;
       void task.destroy();
-      if (count > MAX_PAGES) { setMessage(`This PDF has ${count} pages. Split it first: this tool handles up to ${MAX_PAGES} pages at a time on a phone.`); return; }
       setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(count); setPage(1); setBoxes([]);
     } catch {
       setMessage('Could not open that PDF. If it has a password, unlock it first.');
@@ -162,7 +158,7 @@ export const RedactPdf: React.FC = () => {
       saveBlob(new Blob([(await out.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-redacted`, 'pdf'));
       setMessage('Saved. Pages with black boxes are now pictures, so the covered text is gone for good. Open the file and try to select text under a box to check.');
     } catch {
-      setMessage('Could not make the redacted PDF. If the file is protected, unlock it first. For a very large PDF, split it and try again.');
+      setMessage('Could not make the redacted PDF. If the file is protected, unlock it first. A very large PDF may need more memory than your device has: split it with Smart Split PDF and try again.');
     } finally { void task.destroy(); setBusy(false); }
   };
 
