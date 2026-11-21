@@ -1,0 +1,624 @@
+{
+  "guideSteps": {
+    "interval-circuit-timer": [
+      [
+        "Pick a ready timer",
+        "Tap Tabata, HIIT, Circuit, Every minute, Boxing rounds or Study sprints, or start from the default numbers."
+      ],
+      [
+        "Set work, rest and rounds",
+        "Change the seconds of work and rest, the number of rounds and sets, the rest between sets and the get ready time. Add a name for each round if you like."
+      ],
+      [
+        "Choose beeps and countdown",
+        "Keep the beep for the last three seconds and at each change, and the big countdown, or switch them off."
+      ],
+      [
+        "Start the timer",
+        "Tap Start timer. Green shows work and blue shows rest. Use the arrow keys, space bar or the buttons to skip, pause or close."
+      ]
+    ],
+    "yoga-class-display": [
+      [
+        "Pick a sequence",
+        "Start from Morning stretch, Desk break or Cool-down stretch, or add your own poses one by one or paste many lines at once."
+      ],
+      [
+        "Set names, cues and seconds",
+        "Each pose has a name, an optional cue such as \"Breathe slowly\" and a hold time in seconds. Move poses up or down to change the order."
+      ],
+      [
+        "Choose the screen",
+        "Set the get ready time, the soft beep, the big countdown and a light or dark screen."
+      ],
+      [
+        "Start the class",
+        "Tap Start class. Each pose shows its name, cue, countdown and the next pose. Use the arrow keys, space bar or buttons to go back, pause or close."
+      ]
+    ],
+    "exam-hall-display": [
+      [
+        "Pick the exam length",
+        "Choose a ready length such as a three-hour exam, class test, short test or quick quiz, or type your own minutes and warning time."
+      ],
+      [
+        "Add the details",
+        "Write the exam name, the subject or class and the rules students must see, one per line."
+      ],
+      [
+        "Choose when it starts",
+        "Start when you press the button, or at a set time, in which case the screen counts down to the start."
+      ],
+      [
+        "Show it on the screen",
+        "Tap Start the exam screen. It shows the clock, the time left and the rules. It turns amber for the last minutes and red with \"Pens down\" at the end."
+      ]
+    ],
+    "menu-board-display": [
+      [
+        "Pick a sample or start empty",
+        "Start from a cafe menu, daily specials or a price list, then replace the names and prices with your own, or paste many lines at once."
+      ],
+      [
+        "Add items, sections and prices",
+        "Each item has a name, a price, an optional note and an optional section such as Hot drinks or Snacks."
+      ],
+      [
+        "Choose how it looks",
+        "Set how many items show on each screen, how many seconds each screen stays, a rupee or other symbol before prices and a screen colour."
+      ],
+      [
+        "Show it on the screen",
+        "Open the page on the TV, tap Show on screen and leave it. It loops through the sections and pages until you close it."
+      ]
+    ],
+    "queue-token-display": [
+      [
+        "Set the heading and number style",
+        "Type a heading such as Counter 2 or the doctor’s room, an optional letter before the number and how many digits to show."
+      ],
+      [
+        "Call numbers",
+        "Press Call next number as each person is called. Go back one if you pressed too soon, or jump to any number."
+      ],
+      [
+        "Show the big screen",
+        "Tap Show on the big screen. It shows the current number in huge digits, the next three numbers and the ones called earlier."
+      ],
+      [
+        "Keep it running",
+        "On the big screen use the Next button, the right arrow or the space bar to call the next number. The count is saved on the device, so it survives a reload."
+      ]
+    ],
+    "daily-timings-board": [
+      [
+        "Pick a sample",
+        "Start from Temple or prayer hall, Clinic or office hours, Community hall, or Event programme, or add your own times."
+      ],
+      [
+        "Add times and activities",
+        "Each row has a time, what happens and an optional note such as the room. You can enter them in any order, because the board sorts them."
+      ],
+      [
+        "Choose the style",
+        "Show times as 12-hour or 24-hour, show or hide the clock, and choose a light or dark screen."
+      ],
+      [
+        "Show it on the screen",
+        "Tap Show on screen. The activity that is on now turns green, the next one is marked, and earlier ones fade."
+      ]
+    ],
+    "spelling-bee-display": [
+      [
+        "Pick a word list",
+        "Start from Animals, School words or Tricky spellings, or add your own words with a meaning or clue. You can also paste a list at once."
+      ],
+      [
+        "Choose the game",
+        "Spell it shows the clue first and then reveals the word with its letters. Read it shows the word first and then reveals the meaning."
+      ],
+      [
+        "Set the pace",
+        "Click to reveal and move on, or tick Move on by itself and set the seconds to think and the seconds to show the answer. Shuffle the words if you like."
+      ],
+      [
+        "Start the bee",
+        "Tap Start the bee. Click, press space or the right arrow to reveal and move on; the left arrow goes back."
+      ]
+    ],
+    "notice-board-display": [
+      [
+        "Pick a sample",
+        "Start from Welcome board, Birthdays and wishes or Notices, or add your own messages one by one."
+      ],
+      [
+        "Write the messages",
+        "Each message has a heading, an optional line or two of text, a colour and an optional picture."
+      ],
+      [
+        "Set the time",
+        "Choose how many seconds each message stays on the screen."
+      ],
+      [
+        "Show it on the screen",
+        "Tap Show on screen. The messages loop full screen until you close it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "screensIntervalTimer": {
+      "title": "Interval and Circuit Timer",
+      "subtitle": "A free full-screen interval timer for work and rest rounds, sets and named exercises. Tabata, HIIT, circuit, EMOM, boxing and study sprints, with beeps.",
+      "faq": [
+        [
+          "What is the difference between Tabata, HIIT and a circuit?",
+          "They are all ways of splitting time into work and rest. Tabata is 20 seconds of work and 10 seconds of rest for 8 rounds. HIIT usually uses longer work periods, for example 40 seconds of work and 20 seconds of rest. A circuit moves through a list of exercises, one per round, and then repeats. Pick a ready timer and change the numbers to suit your group."
+        ],
+        [
+          "Can I name each round?",
+          "Yes. Type one exercise name per line in the names box and the timer shows each name in turn, repeating the list when it reaches the end. The next name also shows at the bottom so people can get ready."
+        ],
+        [
+          "Can I use it for something other than exercise?",
+          "Yes. Study sprints of 25 minutes with a 5 minute break, cooking steps, speaking practice, boxing rounds, music practice and classroom activities all use the same work and rest pattern."
+        ],
+        [
+          "Does it work on a gym TV, a projector or a phone?",
+          "Yes. Open the page on the device connected to the screen and tap Start timer. It goes fullscreen where the browser allows it, tries to keep the screen awake and uses very large numbers so they can be read from across a room. The beeps need the volume on."
+        ],
+        [
+          "Why is the screen green and blue?",
+          "Green means work and blue means rest, so people can tell what to do without reading the numbers. The countdown turns red in the last three seconds of work."
+        ],
+        [
+          "Is this medical advice? Is the timer right for me?",
+          "No. This is general information and not medical advice. Choose work and rest times that suit your level, warm up first, and stop if you feel pain, dizziness or chest discomfort. If you have a health condition or have not exercised for a long time, talk to a doctor or a qualified trainer first."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensYogaDisplay": {
+      "title": "Yoga and Stretch Class Display",
+      "subtitle": "Build a yoga or stretching sequence with pose names, cues and hold timers and show it full screen for a class. Ready morning, desk and cool-down sequences.",
+      "faq": [
+        [
+          "Can I use my own poses?",
+          "Yes. Add any pose or stretch by name with a cue and a hold time, or paste a list with one pose per line in the form name, cue, seconds. The ready sequences are only a starting point."
+        ],
+        [
+          "Are there pictures of the poses?",
+          "No. The display shows the pose name, your cue and a large timer, so the teacher leads the pose and the screen keeps the time. This keeps it fast and works for any style of yoga, stretching or mobility class."
+        ],
+        [
+          "Who is this for?",
+          "Yoga teachers, fitness instructors, physiotherapy and wellness classes, school PE and assembly stretch breaks, offices that run a desk stretch break, and anyone doing a home sequence with a laptop or TV."
+        ],
+        [
+          "Can I make a long and a short version?",
+          "Yes. Change the hold time for each pose or remove poses. The total time shows before you start. The page saves your last sequence on this device so you can come back to it."
+        ],
+        [
+          "Does it work on a studio TV or a phone?",
+          "Yes. Open it on the device connected to the screen and tap Start class. It goes fullscreen where the browser allows it and tries to keep the screen awake. Press Escape or Close to leave."
+        ],
+        [
+          "Is this medical advice?",
+          "No. This is general information and not medical advice. Move gently, never force a stretch, and stop if something hurts. If you are pregnant, injured, recovering or have a health condition, check with a doctor or a qualified teacher before you begin."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensExamHall": {
+      "title": "Exam Hall Display",
+      "subtitle": "A free full-screen exam timer for a hall or classroom with a big clock, time left, start and end times, rules and a last-minutes warning. Works on any screen.",
+      "faq": [
+        [
+          "How do I use it in an exam hall?",
+          "Open the page on the computer connected to the projector or TV, choose the length and rules, and tap Start the exam screen. Students see the current time, the time left, when the exam started and ends, and the rules. You can start it with a button or at a set time."
+        ],
+        [
+          "What happens near the end?",
+          "For the last minutes you choose (for example 15), the screen turns amber and says how many minutes remain. When time is up it turns red and shows \"Pens down\". An optional beep marks the start, the warning and the end."
+        ],
+        [
+          "Can I show the instructions to students?",
+          "Yes. Type one rule per line, for example write your roll number first, no mobile phones, raise your hand for help. They show under the clock for the whole exam."
+        ],
+        [
+          "Which exams is it for?",
+          "School and college tests, board exam practice, entrance exam mock tests, tuition and coaching centre tests, driving or skill tests, and any timed assessment where a room needs one shared clock."
+        ],
+        [
+          "Can I start it at a fixed time such as 10:00 AM?",
+          "Yes. Choose Start at a set time and enter the time. Until then the screen counts down to the start. The page follows the clock of the device, so check it against the hall clock before you begin."
+        ],
+        [
+          "Is there a quiz version with questions?",
+          "Yes. The Classroom Quiz Display shows questions, options, answers and explanations in learn, mock exam and real exam modes with a timer on each question."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensMenuBoard": {
+      "title": "Menu and Price Board Display",
+      "subtitle": "A free digital menu board for a cafe, restaurant, salon or shop. Add items with prices, group them in sections and loop them full screen on any TV or monitor.",
+      "faq": [
+        [
+          "How do I put my menu on a TV?",
+          "Connect a computer, phone or smart TV browser to the screen, open this page, add your items and tap Show on screen. The menu goes fullscreen and loops by itself, with several items on each screen."
+        ],
+        [
+          "Can I use it for something other than food?",
+          "Yes. Salons, laundries, repair shops, tuition centres, gyms and service businesses can show a price list. Leave the section empty and the board uses your heading."
+        ],
+        [
+          "Can I show today’s specials?",
+          "Yes. Start from the Daily specials sample, change the dishes and notes each morning, and show it on the counter screen. The page remembers your last list on that device."
+        ],
+        [
+          "Can I use my own currency?",
+          "Yes. Choose a symbol such as ₹, $, € or £ to put before prices that are only numbers, or choose no symbol and type prices exactly as you want them, for example \"From 99\" or \"Ask us\"."
+        ],
+        [
+          "How many items can I show?",
+          "Up to 300 items. Choose 3 to 10 items on each screen so the text stays large enough to read from the queue, and the board moves through all of them."
+        ],
+        [
+          "Is it a replacement for printed menus?",
+          "It works well next to them. A screen is quick to change when a price or a dish changes, and a printed menu stays on the table. Check every price before you put the board on display."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensQueueToken": {
+      "title": "Queue Token Display",
+      "subtitle": "A free now serving token display. Press Next to call the next number and show it huge on a screen, with a chime, counter name, letter prefix and recent numbers.",
+      "faq": [
+        [
+          "How does the token display work?",
+          "Give people numbered slips or tell them their number. Press Next each time you call someone and the screen shows the new number in very large digits with a chime. The next three numbers show underneath so people know when their turn is close."
+        ],
+        [
+          "Where can I use it?",
+          "Clinics and doctors’ waiting rooms, pharmacies, bank and post office counters, government service desks, repair shops, salons, canteens, passport photo studios, temples and any place with a queue."
+        ],
+        [
+          "Can I use letters and several counters?",
+          "Yes. Add a letter before the number, for example A, so tokens read A12, and set the heading to the counter or room. For several counters, open the page on each device and give each its own letter and heading."
+        ],
+        [
+          "Does it show on a second screen by itself?",
+          "No. Nothing is sent anywhere, so the screen that shows the number must be the device you control. Connect that device to the TV or monitor and use its keyboard or buttons to call numbers."
+        ],
+        [
+          "What if I press Next by mistake?",
+          "Use Go back one, or the left arrow on the big screen. You can also type the right number in Jump to number, or start again from 1 at the start of a new day."
+        ],
+        [
+          "Can I turn off the chime?",
+          "Yes. Untick the chime in the settings. A light screen is also available for bright rooms."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensTimingsBoard": {
+      "title": "Daily Timings Board",
+      "subtitle": "A free digital timings board for a temple, clinic, hall, office or event. Add times and activities and the screen highlights what is on now and what is next.",
+      "faq": [
+        [
+          "What is a timings board for?",
+          "It shows the day’s schedule on a screen and highlights what is on now and what is next. It suits a temple or prayer hall, a clinic or office with opening hours, a community hall or society with activities, and an event with a programme."
+        ],
+        [
+          "Does it update by itself?",
+          "Yes. The board follows the clock of the device, so the activity that is on turns green and the next one is marked without anyone touching it. Earlier activities fade."
+        ],
+        [
+          "Do I have to enter the times in order?",
+          "No. The board sorts the rows by time for you. Rows without a valid time go to the end."
+        ],
+        [
+          "Can I show 24-hour or 12-hour times?",
+          "Yes. Choose 12-hour (2:30 PM) or 24-hour (14:30) in the settings."
+        ],
+        [
+          "Can I change the timings for different days?",
+          "Edit the rows before you show the board. The page keeps your last list on that device, so you only change what is different for the day."
+        ],
+        [
+          "Does it need the internet?",
+          "The board works from the page once it has loaded and uses the clock of your device. It does not look up any times, so check that the device clock is right."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensSpellingBee": {
+      "title": "Spelling and Vocabulary Bee Display",
+      "subtitle": "A free spelling bee and vocabulary game for the classroom screen. Add words with clues, show a clue and reveal the word or its meaning. Manual or automatic.",
+      "faq": [
+        [
+          "How does the spelling bee work?",
+          "In Spell it, the screen shows a clue such as a meaning. Students write or say the spelling, then the teacher clicks to reveal the word, which is shown with its letters spaced out. In Read it, the word shows first and a click reveals its meaning or a sentence."
+        ],
+        [
+          "Can I use my own words?",
+          "Yes. Type each word with a meaning, clue or sentence, or paste a list with one word per line in the form word, clue. Ready lists for animals, school words and tricky spellings are included as examples."
+        ],
+        [
+          "Can it run by itself?",
+          "Yes. Tick Move on by itself, then set the seconds to think and the seconds to show the answer. Or leave it off and click to reveal, which gives you control of the pace."
+        ],
+        [
+          "Which classes is it for?",
+          "It works for primary and middle school spelling practice, vocabulary revision in any subject (science terms, maths words, new words in a language class), tuition classes and family spelling games."
+        ],
+        [
+          "Can I shuffle the words?",
+          "Yes. Tick Shuffle the words and the order changes every time you start. Your list itself is not changed."
+        ],
+        [
+          "Is it a replacement for a test?",
+          "It is a classroom game and practice tool. For graded questions with options and answers use the Classroom Quiz Display."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensNoticeBoard": {
+      "title": "Notice and Greeting Board Display",
+      "subtitle": "A free digital notice board for an office, school, shop or home. Rotate welcome messages, birthday wishes, notices and reminders with colours and pictures.",
+      "faq": [
+        [
+          "What can I show on it?",
+          "Welcome messages, birthday and anniversary wishes, notices, holiday closures, meeting reminders, thank-you messages, safety reminders and event announcements. Each message can have its own colour and a picture."
+        ],
+        [
+          "Where would I use it?",
+          "Office reception and break rooms, school entrances and staff rooms, shops, clinics, community halls, societies, hostels, events and family celebrations on a TV."
+        ],
+        [
+          "Can I add a picture?",
+          "Yes. Add a picture to any message, for example a photo of the birthday person or a logo. The picture is shrunk in your browser and shown above the heading."
+        ],
+        [
+          "Does it loop?",
+          "Yes. The messages play one after the other and start again from the first when they reach the end, until you close the screen."
+        ],
+        [
+          "How is this different from Display Studio?",
+          "Display Studio turns PDFs, Word files and pictures you already have into a slideshow. This tool is for typed messages with a heading, text, colour and optional picture, which you can change in a few seconds."
+        ],
+        [
+          "How many messages can I add?",
+          "Up to 300. A short loop of five to ten messages works best for a screen that people pass quickly."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "interval-circuit-timer": {
+      "sections": [
+        {
+          "heading": "A timer people can read from across the room",
+          "paragraphs": [
+            "An interval timer splits a session into rounds of work and rest. This one fills the screen with a huge countdown, changes colour between work and rest, beeps in the last three seconds and shows the name of the next round, so a group can follow it without looking at a phone.",
+            "It suits a home workout on a laptop, a gym or studio TV, a school PT lesson on a classroom screen, a boxing club, or anyone who wants a clean timer without an account."
+          ]
+        },
+        {
+          "heading": "Ready timers for common formats",
+          "paragraphs": [
+            "Tabata is 20 seconds of work and 10 seconds of rest for 8 rounds, which takes 4 minutes. HIIT in this tool starts at 40 seconds of work and 20 seconds of rest for 10 rounds. A circuit gives each station its own name and repeats the list for a number of sets. Every minute on the minute gives you a new round at the start of each minute. Boxing rounds use 3 minutes of work and 1 minute of rest.",
+            "Every number can be changed, so you can turn any of them into your own format and the timer shows the total time before you start."
+          ]
+        },
+        {
+          "heading": "Beyond the gym",
+          "paragraphs": [
+            "Teachers use work and rest rounds for station activities, spelling practice and quick group tasks. Students use 25 minute study sprints with 5 minute breaks. Musicians use them for practice blocks, and cooks for timed steps.",
+            "This page gives general information and not medical advice. Warm up, pick times that suit your level and stop if something hurts."
+          ]
+        }
+      ]
+    },
+    "yoga-class-display": {
+      "sections": [
+        {
+          "heading": "A sequence the whole class can follow",
+          "paragraphs": [
+            "A class runs more smoothly when the teacher can focus on the students and not on a clock. This display shows the current pose in large text, the cue you wrote, a countdown for the hold and the name of the next pose, so students know what is coming.",
+            "You can build a sequence in a minute: start from a ready one, change the order, edit the cues and set the seconds for each pose."
+          ]
+        },
+        {
+          "heading": "Where it helps",
+          "paragraphs": [
+            "Yoga studios and community classes can put it on a TV or projector. Schools can use a stretch break between lessons. Offices can run a five minute desk break on a shared screen. Physiotherapy and wellness groups can show a home exercise sequence at a steady pace.",
+            "Morning stretch, Desk break and Cool-down stretch are included as examples of gentle sequences. Replace the poses and cues with your own to match your class."
+          ]
+        },
+        {
+          "heading": "Keeping it safe and calm",
+          "paragraphs": [
+            "Use a soft beep or no sound for a quiet class, and a light screen for a bright room. Leave enough time between poses and keep holds comfortable.",
+            "This page gives general information and not medical advice. Teach within your training and stop if something hurts."
+          ]
+        }
+      ]
+    },
+    "exam-hall-display": {
+      "sections": [
+        {
+          "heading": "One clock for the whole room",
+          "paragraphs": [
+            "In an exam hall everyone needs to see the same time. This display fills a projector or TV with the current time, the time left in very large digits and the time the exam ends, so invigilators do not have to announce the time again and again.",
+            "You can add the rules for the day, such as writing the roll number first or keeping phones away, so they stay in view for the whole exam."
+          ]
+        },
+        {
+          "heading": "Warnings that do not need an announcement",
+          "paragraphs": [
+            "The screen changes colour for the last minutes of the exam and again when time is up, so students and invigilators notice without a shout. An optional beep marks the start, the beginning of the warning and the end.",
+            "The warning time is your choice. Fifteen minutes suits a long paper, five minutes suits a short test."
+          ]
+        },
+        {
+          "heading": "Good for tests of any size",
+          "paragraphs": [
+            "Use it for a class test, a mock exam, a coaching centre test series, an interview round or an online examination room. Pair it with the Classroom Quiz Display when you want questions shown on the screen as well.",
+            "Check the device clock against the hall clock before you begin."
+          ]
+        }
+      ]
+    },
+    "menu-board-display": {
+      "sections": [
+        {
+          "heading": "A digital menu board without the software",
+          "paragraphs": [
+            "A menu screen by the counter helps customers decide before they reach the front of the queue. This page turns any TV or monitor with a browser into a menu board: type the items and prices, choose how many show at once and leave it running.",
+            "Items are grouped into sections such as hot drinks, cold drinks and snacks, with each section shown on its own screen and long sections split across pages."
+          ]
+        },
+        {
+          "heading": "Easy to keep up to date",
+          "paragraphs": [
+            "Change a price, add today’s special or remove a sold-out dish in a moment, and the screen shows the new list the next time you start it. The page saves your list in the browser, so it is ready the next morning.",
+            "You can paste a whole list from a message or a document, with one item per line in the form name, price, note."
+          ]
+        },
+        {
+          "heading": "For cafes, shops and service businesses",
+          "paragraphs": [
+            "Cafes and tea stalls, bakeries, tiffin services, salons, tailors, photo studios, repair shops, coaching classes and canteens can all use the same board. Pick a colour that matches your shop and leave the board looping all day.",
+            "Prices are shown exactly as you type them, so read them through once before you put the board on display."
+          ]
+        }
+      ]
+    },
+    "queue-token-display": {
+      "sections": [
+        {
+          "heading": "A simple numbered queue",
+          "paragraphs": [
+            "A token screen keeps a queue calm. People know their number and when it is called, and staff do not have to shout names across the room.",
+            "Press Next and the whole screen changes to the new number, with a chime to catch attention. The next three numbers and the numbers called before are shown, so someone who missed a call can see where the queue is."
+          ]
+        },
+        {
+          "heading": "Made for small businesses",
+          "paragraphs": [
+            "You do not need a ticket machine or a subscription. Hand out numbered slips from a notebook, or just tell people their number, and run the display from a laptop, a tablet or a phone connected to a TV.",
+            "Clinics, pharmacies, document service centres, salons and workshops can each set their own heading, letter and digits."
+          ]
+        },
+        {
+          "heading": "Tips for a busy counter",
+          "paragraphs": [
+            "Use big digits and a dark screen for a hall, and a light screen for a bright shop front. Start again from 1 each morning. If you work with two staff at one desk, agree who presses Next.",
+            "The count is saved in the browser, so a refresh does not lose your place."
+          ]
+        }
+      ]
+    },
+    "daily-timings-board": {
+      "sections": [
+        {
+          "heading": "What is on now, at a glance",
+          "paragraphs": [
+            "People walk past a notice board and want one answer: what is happening now and what is next. This board follows the clock, turns the current activity green and marks the next one, so they do not have to read the whole list.",
+            "It sorts the times for you, so you can add a late change at the bottom without worrying about the order."
+          ]
+        },
+        {
+          "heading": "Places that use a timings board",
+          "paragraphs": [
+            "Temples, gurdwaras, churches, mosques and prayer halls can show prayer and opening times. Clinics, shops and offices can show hours and breaks. Community halls, societies and clubs can show the day’s activities. Events and conferences can show the programme.",
+            "Samples for each are included. Replace the times with your own."
+          ]
+        },
+        {
+          "heading": "Keeping the board correct",
+          "paragraphs": [
+            "The times are shown exactly as you type them. Check them once before the board goes on display, and update them when timings change for a festival, a holiday or a season.",
+            "The board uses the clock of the device it runs on, so make sure that clock is correct."
+          ]
+        }
+      ]
+    },
+    "spelling-bee-display": {
+      "sections": [
+        {
+          "heading": "Spelling practice the whole class can see",
+          "paragraphs": [
+            "A spelling bee is more fun when everyone can see the clue and the answer. This display shows a clue in large text, waits for the class to try, then reveals the word with its letters spread out so students can check their own spelling.",
+            "The other way round also works: show the word and reveal its meaning, which suits vocabulary lessons."
+          ]
+        },
+        {
+          "heading": "Easy word lists",
+          "paragraphs": [
+            "Add words one by one or paste a list from a worksheet. Each word has a meaning, clue or sentence. Ready lists are included for younger classes, everyday school words and spellings that many people get wrong.",
+            "Your last list is saved on the device, so you can run it again with another class and shuffle the order."
+          ]
+        },
+        {
+          "heading": "Manual or automatic",
+          "paragraphs": [
+            "In manual mode the teacher clicks to reveal and move on, which is best when students answer aloud or on paper. In automatic mode the screen waits for the thinking time, shows the answer for a few seconds and moves to the next word.",
+            "The same tool works for science terms, maths vocabulary, foreign language words and general knowledge cards."
+          ]
+        }
+      ]
+    },
+    "notice-board-display": {
+      "sections": [
+        {
+          "heading": "A notice board that is quick to change",
+          "paragraphs": [
+            "Paper notices fade and pile up. A screen that rotates a few big messages is easy to read and easy to change: type a new heading, pick a colour and the next loop shows it.",
+            "Because each message fills the screen, it can be read from a distance. Colours help the important notice stand out from the greeting."
+          ]
+        },
+        {
+          "heading": "Greetings and announcements",
+          "paragraphs": [
+            "Wish a colleague a happy birthday on the reception screen, welcome a visiting guest, announce a holiday closure, remind staff about a meeting or thank volunteers after an event. Add a photo or a logo where it helps.",
+            "Samples are included for a welcome board, birthday wishes and notices. Replace the text with your own."
+          ]
+        },
+        {
+          "heading": "For offices, schools and homes",
+          "paragraphs": [
+            "Offices and shops use it for reception and break rooms. Schools use it at the entrance and in the staff room. Families use it on a TV for a birthday or an anniversary party.",
+            "Your messages and pictures are saved in your browser. If the browser is full, pictures may not be kept, so keep a copy of important ones."
+          ]
+        }
+      ]
+    }
+  }
+}
