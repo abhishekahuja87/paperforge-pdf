@@ -84,4 +84,136 @@ export const HUBS: Hub[] = [
       ] },
     ],
   },
+  {
+    path: "/tax-and-salary-calculators",
+    collection: "tax",
+    title: "Free Tax, Salary and GST Calculators",
+    subtitle: "Income tax, take-home salary, HRA, GST, gratuity and EPF estimates in one place. No sign-up, and nothing you type is sent anywhere.",
+    description: "Free calculators for income tax, salary in hand, HRA, GST, gratuity and EPF. Quick estimates in your browser with no sign-up.",
+    sections: [
+      { heading: "What you can work out here", paragraphs: [
+        "Compare the old and new income tax regime for your figures, turn a yearly salary package into monthly pay in hand, see how much of your HRA may be exempt, add or remove GST from a price, and estimate gratuity and EPF.",
+      ] },
+      { heading: "How to use the results", paragraphs: [
+        "These are estimates for planning. Tax and payroll rules change, and your employer, your tax filing or a qualified adviser decides the figures that count. Check the rules that apply to you and keep your own records before you act on any result.",
+      ] },
+      { heading: "Private by design", paragraphs: [
+        "The numbers you type are used in your browser and are not sent to MyDailyUtils. Read how to check this on the Why trust us page.",
+      ] },
+    ],
+  },
+  {
+    path: "/loan-and-investment-calculators",
+    collection: "invest",
+    title: "Free Loan, EMI, SIP and Savings Calculators",
+    subtitle: "Work out loan instalments, SIP and lump-sum growth, FD, RD and PPF returns, CAGR, interest and inflation.",
+    description: "Free calculators for EMI, SIP, lump sum, FD, RD, PPF, CAGR, simple and compound interest and inflation. Quick, private and no sign-up.",
+    sections: [
+      { heading: "What you can work out here", paragraphs: [
+        "See the monthly instalment and total interest on a loan, how a regular SIP or a one-time investment could grow over the years, what a fixed or recurring deposit may return, and how inflation reduces what money can buy.",
+      ] },
+      { heading: "Reading the numbers", paragraphs: [
+        "Every result depends on the rate and period you enter. Rates on loans and deposits change, and market returns are not guaranteed, so treat the answers as a way to compare options, not as a promise. Check the exact terms with your bank or adviser.",
+      ] },
+      { heading: "Private by design", paragraphs: [
+        "Calculations run in your browser. The amounts you enter are not sent anywhere.",
+      ] },
+    ],
+  },
+  {
+    path: "/sports-and-fitness-tools",
+    collection: "sports",
+    title: "Free Sports and Fitness Tools",
+    subtitle: "Court and ground sizes with set-out measurements, an exercise library with how-to steps, and a BMI calculator.",
+    description: "Free sports and fitness tools: sports court and ground size guide, exercise library with how-to steps and a BMI calculator.",
+    sections: [
+      { heading: "What you can do here", paragraphs: [
+        "Look up the size and markings of common courts and grounds, browse exercises with simple step-by-step instructions, and work out a BMI figure from height and weight.",
+      ] },
+      { heading: "A note on health", paragraphs: [
+        "BMI and exercise guides are general information. They are not medical advice and do not diagnose anything. If you have a health condition, an injury or a doubt, speak to a doctor or a qualified trainer first.",
+      ] },
+    ],
+  },
+  {
+    path: "/printables-and-templates",
+    collection: "printables",
+    title: "Free Printable Sheets, Planners and Templates",
+    subtitle: "Make and print paper, planners, meal plans, flashcards, registers, certificates, labels and more as a PDF.",
+    description: "Free printable sheets and templates: planners, meal plans, flashcards, registers, certificates, name tags, trackers and more. Make a PDF in your browser.",
+    sections: [
+      { heading: "What you can make", paragraphs: [
+        "Lined, grid and dotted paper, monthly and weekly planners, meal plans, flashcards, health and care sheets, household registers, certificates, name tags, trackers, worksheets and puzzles. Type your details, choose a look and download a PDF.",
+      ] },
+      { heading: "Printing tips", paragraphs: [
+        "Choose Actual size or 100% in the print window and turn off Fit to page, because printers add their own unprintable border. Print one page first to check.",
+      ] },
+      { heading: "Your details stay with you", paragraphs: [
+        "The sheets are built in your browser. What you type is not sent to MyDailyUtils.",
+      ] },
+    ],
+  },
+  {
+    path: "/jobs-and-business-tools",
+    collection: "work",
+    title: "Free Jobs, Freelancing and Small Business Tools",
+    subtitle: "Resume, invoices, quotations, rent receipts, price tags, visiting cards, posters and registers for work and shops.",
+    description: "Free tools for work: resume builder, GST invoice, quotation, rent receipt, freelance rate and margin calculators, price tags, visiting cards and posters.",
+    sections: [
+      { heading: "What you can do here", paragraphs: [
+        "Build a resume, write a job description, check a file before an online application, price your freelance work, make a quotation, invoice or rent receipt, work out margin and markup, and design price tags, posters, visiting cards, ID cards and stamps for a shop or business.",
+      ] },
+      { heading: "Check before you send", paragraphs: [
+        "Invoices, receipts and quotations made here are documents you fill in yourself. Check amounts, tax details and names before you send them, and follow the rules that apply to your business.",
+      ] },
+      { heading: "Your details stay with you", paragraphs: [
+        "Everything is made in your browser. Your business and customer details are not sent to MyDailyUtils.",
+      ] },
+    ],
+  },
+  {
+    path: "/student-and-writing-tools",
+    collection: "study",
+    title: "Free Tools for Students and Writing",
+    subtitle: "GPA and grade calculators, a citation generator, study planner, word counter, case converter and printable school sheets.",
+    description: "Free student tools: GPA and CGPA calculator, final grade calculator, citation generator, study planner, word counter, case converter and printable exam sheets.",
+    sections: [
+      { heading: "What you can do here", paragraphs: [
+        "Work out a GPA or the score you need on a final exam, make citations, plan study time, count words and characters, change text case, and print class registers, exam timetables, OMR sheets and question paper layouts.",
+      ] },
+      { heading: "Check with your school", paragraphs: [
+        "Grading scales and citation rules differ between schools and publishers. Use the results as a guide and follow your own institution's instructions.",
+      ] },
+    ],
+  },
+  {
+    path: "/kids-learning-tools",
+    collection: "kids",
+    title: "Free Kids Learning Tools and Worksheets",
+    subtitle: "Learn the clock, practise sums with carrying and borrowing, multiplication and division, play a money shop, and print worksheets and mazes.",
+    description: "Free learning tools for kids: learn the clock, maths practice, money shop, tambola tickets, solar system and shadow explorers, worksheets and mazes.",
+    sections: [
+      { heading: "What children can do here", paragraphs: [
+        "Practise telling the time, add and subtract with carrying and borrowing, work through long multiplication and division, run a pretend shop with money, explore the solar system and shadows, and print maths worksheets and mazes.",
+      ] },
+      { heading: "For parents and teachers", paragraphs: [
+        "Tools show each step so a child can follow the method. Sit with younger children, and use the printable sheets for offline practice.",
+      ] },
+    ],
+  },
+  {
+    path: "/developer-and-data-tools",
+    collection: "dev",
+    title: "Free Developer and Data Tools",
+    subtitle: "Format JSON, encode Base64 and URLs, convert timestamps and colours, and generate UUIDs, passwords and placeholder text.",
+    description: "Free developer tools: JSON formatter, Base64 and URL encoder, timestamp and colour converters, UUID, password and lorem ipsum generators.",
+    sections: [
+      { heading: "What you can do here", paragraphs: [
+        "Tidy and check JSON, encode and decode Base64 and URLs, convert Unix timestamps and colour codes, and generate UUIDs, random passwords and placeholder text.",
+      ] },
+      { heading: "Keys and data stay with you", paragraphs: [
+        "Everything runs on your device in your browser, so text, tokens and data you paste are not sent to MyDailyUtils. Still, avoid pasting live secrets into any website you have not checked.",
+      ] },
+    ],
+  },
 ];

@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-21',
     path: '/',
     tool: 'Home page',
+    title: 'Home page top rebuilt with a tile for every topic',
+    summary: 'The top now says what the whole site offers, shows what to expect in small tags, and has a tile for each of the 13 topics with its tool count. Eight new topic pages list the tools for tax and salary, loans and investing, sports, printables, jobs and business, students, kids and developers.',
+  },
+  {
+    date: '2026-11-21',
+    path: '/',
+    tool: 'Home page',
     title: 'New home page top: clearer headline and quick links',
     summary: 'The top of the home page now says what the site offers, shows the free, no limits tag once, and links straight to PDF, photo, QR and everyday tools.',
   },

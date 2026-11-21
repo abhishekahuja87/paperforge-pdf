@@ -131,6 +131,15 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L4 | Tap the pills | Open /free-no-limits (full) or /why-trust-us (short) | | |
 | L5 | Fill PDF, Redact, Compare, Passport Photo | No extra "never uploaded" line under the tool | | |
 
+## M. Home hero and topic pages
+| # | Check | Expected | Result | Notes |
+|---|---|---|---|---|
+| M1 | Home page on a computer | Two columns, tiles on the right, little empty space | | |
+| M2 | Home page on a phone | Tags, headline, search, tiles in 2 columns; no sideways scroll | | |
+| M3 | Tap each of the 13 tiles | Opens its page; tool counts look right | | |
+| M4 | Read the 8 new topic pages | Text is accurate and tool lists complete | | |
+| M5 | "Browse N+ tools" number | Matches roughly the number of tools you have | | |
+
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin
 - [ ] Search Console: resubmit the sitemap

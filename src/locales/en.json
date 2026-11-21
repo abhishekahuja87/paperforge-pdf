@@ -823,9 +823,9 @@
     "free": "Free, no sign-up",
     "count": "{{count}}+ tools"
   },
-  "homeHeading": "Free PDF, photo and everyday tools.",
-  "homeHeadingAccent": "No limits. Nothing uploaded.",
-  "homeDescription": "Merge, split, fill and redact PDFs, resize photos in bulk, scan QR codes safely and work out tax, EMI and more. No sign-up, no watermark, no daily limit.",
+  "homeHeading": "Free tools for everyday life and work.",
+  "homeHeadingAccent": "Open one and it just works.",
+  "homeDescription": "PDF and photo tools, tax, salary and loan calculators, QR codes, printable sheets, resume and business tools, study and kids learning, developer tools and more. Pick a topic or search, and use it right here in your browser.",
   "findTool": "Find a tool",
   "searchTools": "Search tools",
   "searchPlaceholder": "Search tools by name or what they do",
