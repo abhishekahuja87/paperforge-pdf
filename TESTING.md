@@ -1069,3 +1069,6 @@ Not run in the build environment. On a phone and a computer: headline "Free PDF,
 
 ### Home hero v2 and eight topic pages (21 Nov, sixth batch)
 Not run in the build environment. Desktop (1280 px+): hero is two columns (tags, headline, description, search and request link on the left; 13 tiles on the right), no wide empty bands. Phone: tags, headline, search, then the tiles in 2 columns. Check the label "Browse N+ tools" (N is the number of tool pages rounded down to ten), each tile's count, and that every tile opens its page: /pdf-tools, /photo-and-image-tools, /tax-and-salary-calculators, /loan-and-investment-calculators, /everyday-tools, /qr-and-sharing-tools, /printables-and-templates, /jobs-and-business-tools, /student-and-writing-tools, /kids-learning-tools, /sports-and-fitness-tools, /developer-and-data-tools, and /display-studio (the tool itself). Each new page lists all its tools. Search still filters the home page tool list.
+
+### Hero polish (21 Nov)
+Not run. Desktop: left and right hero columns are the same height (tiles stretch to the left column); the last tile (Display and slides) is a full-width bar; headline is one size smaller; the last tag reads "Why is it free?" and opens /why-trust-us. Phone: last tile spans both columns.
