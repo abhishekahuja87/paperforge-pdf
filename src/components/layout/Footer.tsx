@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="print:hidden bg-stone-900 text-stone-300 text-xs border-t border-stone-800 mt-auto">
-      <div className="max-w-6xl mx-auto px-4 py-4 space-y-3">
+      <div className="max-w-7xl mx-auto px-4 py-4 space-y-3">
         {/* Company links: always visible, compact */}
         <nav aria-label={t('company')} className="flex flex-wrap justify-center gap-x-4 gap-y-1.5 sm:justify-start">
           <Link to="/guides" className={linkClass}>{t('guides')}</Link>

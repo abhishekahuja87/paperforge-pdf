@@ -9,9 +9,13 @@ import type { ToolIconName } from './tools';
  */
 
 /** "Most used" tiles. Reorder with real traffic (Search Console or Analytics) when you have it. */
+/**
+ * The "Our popular tools" row on the home page (the name MOST_USED is kept for the code). Mix of the everyday favourites and the tools
+ * that many other sites charge for or limit (fillable PDFs, smart split, redaction, bulk photos), which are free and unlimited here.
+ */
 export const MOST_USED = [
-  'merge-pdf', 'compress-pdf', 'split-pdf', 'image-compressor', 'image-to-pdf',
-  'income-tax-calculator', 'emi-calculator', 'sip-calculator', 'age-calculator', 'qr-code-generator', 'resume-builder',
+  'merge-pdf', 'compress-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'redact-pdf', 'income-tax-calculator',
+  'emi-calculator', 'bulk-image-tools', 'social-image-resizer', 'sign-pdf', 'remove-photo-location', 'resume-builder',
 ];
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
