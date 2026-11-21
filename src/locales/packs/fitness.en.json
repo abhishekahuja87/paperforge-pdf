@@ -17,6 +17,24 @@
         "Plan your session",
         "Choose one or two exercises per area, warm up first and finish with a stretch. Start light and stop if anything hurts."
       ]
+    ],
+    "workout-planner": [
+      [
+        "Start from a quick plan",
+        "Tap Mix day, Push day, Pull day, Leg day, Full body, Home or Cardio and core to fill all three parts, or start empty and build your own."
+      ],
+      [
+        "Edit warm-up, main and cool-down",
+        "Add exercises from the list, move them up or down, change the note on each one, or remove them. If an exercise is not in the list, add it with your own name and a note. It shows as text without a picture."
+      ],
+      [
+        "Choose what the screen shows",
+        "Set the date, workout name, gym name, seconds per exercise and rest. Switch pictures, muscles, steps, countdown and next exercise on or off."
+      ],
+      [
+        "Start the slideshow",
+        "Tap Start slideshow. It fills the screen and moves on by itself. Use the arrow keys, space bar or the buttons to go back, pause or close."
+      ]
     ]
   },
   "pageGuides": {
@@ -53,6 +71,40 @@
           "No. Searching and filtering happen in your browser and nothing you type is sent to {{siteName}}. The page still loads the exercise pictures, advertising and other resources from the network."
         ]
       ]
+    },
+    "fitnessWorkoutPlanner": {
+      "title": "Workout Planner and Gym Display",
+      "subtitle": "Plan today’s warm-up, main workout and cool-down, add your own exercises, and show them as a fullscreen slideshow with pictures and timers. Free, no sign-up.",
+      "faq": [
+        [
+          "Can I use an exercise that is not in the list?",
+          "Yes. Every part (warm-up, main workout and cool-down) has an Add your own form. Type a name and a note, such as a reason or a count, and it joins the plan. It shows on the slideshow as text, because there is no picture for it."
+        ],
+        [
+          "When does a picture show on the slideshow?",
+          "Only for exercises picked from the list, which has two pictures for each. Your own entries show the name and note without a picture. You can also switch pictures off for every slide."
+        ],
+        [
+          "What are the quick starts?",
+          "Ready plans such as Mix day, Push day, Pull day, Leg day, Full body, Home and Cardio and core. Tap one to fill all three parts, then change anything. Undo brings back what you had before."
+        ],
+        [
+          "Can I show it on a gym TV or a phone?",
+          "Yes. Open the page on the screen you want to use, build or load the plan and tap Start slideshow. It goes fullscreen where the browser allows it and tries to keep the screen awake. Press Escape or the close button to leave."
+        ],
+        [
+          "Can I change the date and the time on each exercise?",
+          "Yes. The date can be any day and shows at the top of the screen when switched on. Seconds per exercise and rest between exercises are yours to set, and the slideshow moves on by itself."
+        ],
+        [
+          "Is this medical advice? Is the plan right for me?",
+          "No. This is general information and not medical advice. If you are injured, pregnant, recovering, have a heart, joint or blood-pressure condition, or have not exercised for a long time, talk to a doctor or a qualified trainer first. Start light and stop if something hurts."
+        ],
+        [
+          "Is my plan uploaded or stored?",
+          "No. The plan stays in your browser, saved on this device only, and nothing you type is sent to {{siteName}}. The page still loads the exercise pictures, advertising and other resources from the network."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -84,6 +136,31 @@
           "paragraphs": [
             "Good form matters more than heavy weight. Learn each movement with a light weight or none at all, control the weight on the way down, and breathe steadily instead of holding your breath. Ask a trainer to check your form on the big lifts such as squats and deadlifts.",
             "Stop and rest if you feel sharp pain, dizziness or chest discomfort, and speak to a doctor about it. The photos and steps come from an open dataset, so they are a starting point and not a replacement for personal coaching."
+          ]
+        }
+      ]
+    },
+    "workout-planner": {
+      "sections": [
+        {
+          "heading": "One plan for the whole session",
+          "paragraphs": [
+            "A good session has three parts: a warm-up that raises your heart rate and loosens the joints, a main workout with cardio or muscle exercises, and a cool-down with slower stretches. The planner keeps these as three separate lists so nothing is forgotten.",
+            "Pick a quick start for a day type such as push, pull, legs or a mix, then adjust it. You can reorder exercises, rename the plan and add a short note to each exercise, for example a count or a reason for a swap."
+          ]
+        },
+        {
+          "heading": "Your own exercises are welcome",
+          "paragraphs": [
+            "The list holds about 140 common exercises with two pictures each, but every gym has machines and moves that are not in it. Each part has an Add your own form for a name and a note.",
+            "Your entries sit in the plan next to the others. They show on the slideshow without a picture, so the screen stays honest about what it has."
+          ]
+        },
+        {
+          "heading": "Showing it on a screen",
+          "paragraphs": [
+            "The slideshow shows one exercise at a time with the date, the plan name and, if you want, the muscles, the steps and a countdown. The next exercise appears at the bottom so people can get ready. It suits a gym TV, a class screen or a phone on a stand.",
+            "This page gives general information and not medical advice. Keep a light start, good form and a rest day between hard sessions for the same muscles, and stop if something hurts."
           ]
         }
       ]

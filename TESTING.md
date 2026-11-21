@@ -769,6 +769,20 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
 - [ ] Search the home page for "random text generator" and "random word generator": the tool is found.
 
+### Workout Planner and Gym Display
+
+Not run: `tsc` (project), `vite build`, browser, real phone or TV.
+
+- [ ] /workout-planner opens with three empty parts: Warm-up, Main workout, Cool-down; Start slideshow is disabled.
+- [ ] Each quick start (Mix day, Push, Pull, Legs, Full body, Home, Cardio and core) fills all three parts; Undo restores the earlier plan.
+- [ ] In every part: add from the list (group chips, search), move up/down, edit the note, remove.
+- [ ] In every part: "Add your own" with a name and a note adds an entry with "No picture".
+- [ ] Start slideshow: intro, then each exercise with picture (library items only), countdown, rest, end screen; custom entries show text only.
+- [ ] Arrow keys, space and Escape work; buttons hide after a few seconds and return on touch or mouse move; closing returns to the planner.
+- [ ] Display options (date, name, gym, pictures, muscles, steps, timer, next, light screen) change the slideshow.
+- [ ] Reload: the plan is still there. "Copy plan as text" pastes a readable list.
+- [ ] On a phone: fullscreen works or the overlay still fills the screen; screen stays awake.
+
 ### Exercise library (trial)
 
 Not run: `tsc`, `vite build`, browser.

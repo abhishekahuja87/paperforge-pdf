@@ -148,6 +148,18 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | N3 | Read the rows for your own areas (PDF, photos, printables) | Every row is true to the tool | | |
 | N4 | Hero tile colours | Same colour per topic as the sections below | | |
 
+## O. Workout Planner and Gym Display
+| # | Check | Expected | Result | Notes |
+|---|---|---|---|---|
+| O1 | Open /workout-planner | Three empty parts; Start slideshow disabled | | |
+| O2 | Tap each quick start, then Undo | All three parts fill; Undo restores | | |
+| O3 | In every part add from the list and add your own (name and note) | Both work; own entry shows "No picture" | | |
+| O4 | Start slideshow | Intro, exercises, rest, end; pictures only for list items | | |
+| O5 | Arrow keys, space, Escape, buttons | Move, pause, close; buttons hide then return | | |
+| O6 | Display options and timings | Slideshow follows them | | |
+| O7 | Reload; Copy plan as text | Plan is kept; text pastes well | | |
+| O8 | On a phone | Fills the screen and stays awake | | |
+
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin
 - [ ] Search Console: resubmit the sitemap
