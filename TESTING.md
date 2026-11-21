@@ -1078,3 +1078,6 @@ Not run. Headline "Free online tools and calculators / for PDFs, photos, money a
 
 ### Free page and count (21 Nov)
 Not run. Home: heading reads "Browse 250+ tools and templates". /free-no-limits now has a whole-site title ("Why MyDailyUtils is free...") and starts with "Why is it free?". Linked from the hero tag, the footer, the full-wording pill on file tools and the sitemap.
+
+### Related tools in the same box (21 Nov)
+Not run. On a tool page, Related tools is a white rounded box with the same small heading and + sign as the questions, the same width as the other sections, open by default, and it folds with the page Collapse all button. Tiles are two across on a phone-wide screen and larger, one column on very narrow phones.
