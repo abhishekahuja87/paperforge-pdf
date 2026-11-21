@@ -12,6 +12,12 @@ export const FREE_NO_LIMITS = {
     'Merge, split, compress, fill, redact, compare and number PDFs, and resize, convert and watermark photos in bulk, free. No daily limit, no file-count limit, no sign-up, no watermark and no upload.',
   sections: [
     {
+      heading: 'Why is it free?',
+      paragraphs: [
+        'There is no paid plan and no hidden catch. The work happens on your device, so it costs us very little to run, and the site is paid for by advertising shown through Google AdSense, not by your files or your data. Every tool on the site works this way, not only the PDF and photo tools. Read the full explanation on the why-trust-us page, including a two-minute test you can run to see the tools working offline.',
+      ],
+    },
+    {
       heading: 'What “no limits” means here',
       paragraphs: [
         'There is no daily limit, no cap on how many files or pages you use at once, no sign-up, no trial, no watermark on your results and no paid plan. Your files are handled inside your browser, so nothing is uploaded and nothing is waiting in a queue.',
@@ -28,12 +34,6 @@ export const FREE_NO_LIMITS = {
         'Multi-size images: turn one picture into square, portrait, story, banner, cover and thumbnail sizes together.',
         'GIF maker: turn pictures into an animated GIF with no watermark.',
         'Redact, compare and sign PDFs, merge and compress without page or size caps, and remove hidden location from photos.',
-      ],
-    },
-    {
-      heading: 'Why we can offer it',
-      paragraphs: [
-        'The work happens on your device, so it costs us almost nothing to run. The site is paid for by advertising shown through Google AdSense, not by your files or by plans. Read the full explanation on the why-trust-us page, including a two-minute test you can run to see the tools working offline.',
       ],
     },
     {

@@ -1072,3 +1072,6 @@ Not run in the build environment. Desktop (1280 px+): hero is two columns (tags,
 
 ### Hero polish (21 Nov)
 Not run. Desktop: left and right hero columns are the same height (tiles stretch to the left column); the last tile (Display and slides) is a full-width bar; headline is one size smaller; the last tag reads "Why is it free?" and opens /why-trust-us. Phone: last tile spans both columns.
+
+### Hero polish 2 (21 Nov)
+Not run. Headline "Free online tools and calculators / for PDFs, photos, money and everyday work." (smaller on phones); "Browse N+ free tools" is large above the tiles and N matches the topic pages; "Why is it free?" opens /free-no-limits which starts with that answer; wider hero and grid on desktop (4 tile columns at xl); Display tile is a normal tile; on a phone the search box and the request box run edge to edge.
