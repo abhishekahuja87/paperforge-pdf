@@ -1096,3 +1096,6 @@ Not run. "Our popular tools" tiles: icon and title side by side, one-line descri
 
 ### Orange action buttons (21 Nov)
 Not run. In Merge, Split, Compress, Rotate, Crop, Watermark, Protect, Unlock, Flatten, Organize, Delete Pages, Page Numbers, N-Up, Images to PDF, Sanitize, Sample PDF, Court Guide and the POS backup buttons: the Save / Download button is orange (same as the main action button) while the "Ready" panel and check marks stay green. Download again in the Master Document Studio is an orange outline.
+
+### Topic page header symmetry (21 Nov)
+Not run. On /pdf-tools and the other topic pages the header looks like a tool page: "All tools" link and one pill (Free · No limits · Stays on your device) on the same line, then the headline and the subtitle, all left-aligned; no separate tag row.
