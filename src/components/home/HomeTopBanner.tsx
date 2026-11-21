@@ -20,17 +20,11 @@ const tag = 'inline-flex items-center rounded-full border border-orange-200 bg-w
 
 export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChange }) => {
   const { t } = useTranslation();
-  // The tools the tiles lead to (each is listed on its topic page), counted once even if two topics share it, and rounded down to ten.
+  // Every working tool page: the main tools plus the ready-made sheets and templates (the same list that fills the sitemap), rounded down to ten.
   const { counts, toolTotal } = useMemo(() => {
     const available = new Set(TOOLS.filter((tool) => tool.isAvailable).map((tool) => tool.id));
-    const shown = new Set<string>();
-    const perGroup = new Map<string, number>();
-    for (const collection of COLLECTIONS) {
-      const ids = collection.tools.filter((id) => available.has(id));
-      perGroup.set(collection.id, ids.length);
-      ids.forEach((id) => shown.add(id));
-    }
-    return { counts: perGroup, toolTotal: Math.floor(shown.size / 10) * 10 };
+    const perGroup = new Map(COLLECTIONS.map((collection) => [collection.id, collection.tools.filter((id) => available.has(id)).length]));
+    return { counts: perGroup, toolTotal: Math.floor(available.size / 10) * 10 };
   }, []);
 
   return (
@@ -77,9 +71,9 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChan
           </p>
         </div>
 
-        <nav className="flex flex-col" aria-label={`Browse ${toolTotal}+ free tools`}>
+        <nav className="flex flex-col" aria-label={`Browse ${toolTotal}+ tools and templates`}>
           <p className="mb-3 text-center text-xl font-black tracking-tight text-stone-900 lg:text-left lg:text-2xl">
-            {t('homeBrowse.heading', { defaultValue: 'Browse' })} <span className="text-orange-600">{toolTotal}+</span> {t('homeBrowse.tools', { defaultValue: 'free tools' })}
+            {t('homeBrowse.heading', { defaultValue: 'Browse' })} <span className="text-orange-600">{toolTotal}+</span> {t('homeBrowse.tools', { defaultValue: 'tools and templates' })}
             <span className="mt-0.5 block text-xs font-semibold tracking-normal text-stone-500">{t('homeBrowse.hint', { defaultValue: 'Pick a topic to see everything in it' })}</span>
           </p>
           <ul className="grid flex-1 grid-cols-2 gap-2 sm:grid-cols-3 lg:auto-rows-fr xl:grid-cols-4">
