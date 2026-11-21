@@ -13,6 +13,7 @@ import sheets from './packs/sheets.catalog.en.json';
 import makers from './packs/makers.catalog.en.json';
 import docs from './packs/docs.catalog.en.json';
 import toolkit from './packs/toolkit.catalog.en.json';
+import safeshare from './packs/safeshare.catalog.en.json';
 import qr from './packs/qr.catalog.en.json';
 import vcard from './packs/vcard.catalog.en.json';
 import flashcards from './packs/flashcards.catalog.en.json';
@@ -31,7 +32,7 @@ import kids from './packs/kids.catalog.en.json';
  * description). The long per-tool text (guide steps, FAQs, articles) is in ./content and loads on demand.
  * To add a pack: create ./packs/<name>.catalog.en.json and add it to CATALOGS here.
  */
-const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit];
+const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
 type Catalog = (typeof base)['toolCatalog'] & UnionToIntersection<(typeof CATALOGS)[number]['toolCatalog']>;

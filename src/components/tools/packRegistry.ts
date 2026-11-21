@@ -21,6 +21,7 @@ import { HIRING_COMPONENTS } from './hiring/registry';
 import { KIDS_COMPONENTS } from './kids/registry';
 import { DOCS_COMPONENTS } from './docs/registry';
 import { TOOLKIT_COMPONENTS } from './toolkit/registry';
+import { SAFESHARE_COMPONENTS } from './safeshare/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -49,4 +50,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...KIDS_COMPONENTS,
   ...DOCS_COMPONENTS,
   ...TOOLKIT_COMPONENTS,
+  ...SAFESHARE_COMPONENTS,
 };

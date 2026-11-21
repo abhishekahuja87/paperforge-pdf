@@ -1,0 +1,239 @@
+{
+  "guideSteps": {
+    "redact-pdf": [
+      [
+        "Choose the PDF",
+        "Open the PDF from your phone or computer. Up to 60 pages at a time."
+      ],
+      [
+        "Cover what is private",
+        "Type a word or number and tap Find and cover to black it out on every page, or draw boxes with your finger. Remove any box you do not want."
+      ],
+      [
+        "Check every page",
+        "Move through the pages and make sure each box covers all of what it should, including a name that runs onto a second line."
+      ],
+      [
+        "Download",
+        "Download the redacted PDF. Try to select text under a box to confirm it is gone."
+      ]
+    ],
+    "compare-pdf-and-text": [
+      [
+        "Choose what to compare",
+        "Pick Pasted text or Two PDF files."
+      ],
+      [
+        "Add both versions",
+        "Paste the old and new text, or open the old and new PDF."
+      ],
+      [
+        "Pick the detail",
+        "Choose Whole lines for contracts and lists, or Word by word for a changed number or name."
+      ],
+      [
+        "Read the changes",
+        "Red with a line through is only in the old version, green is only in the new one. Show only the changed lines to skip the rest."
+      ]
+    ],
+    "remove-photo-location": [
+      [
+        "Choose your photos",
+        "Pick one or more photos, or take one with your camera."
+      ],
+      [
+        "See what they reveal",
+        "Each photo shows the place it was taken, the phone, the time and the app that edited it, if any of that is stored inside."
+      ],
+      [
+        "Download a clean copy",
+        "Tap Download clean copy, or Clean all if you picked several. The original stays untouched on your phone."
+      ],
+      [
+        "Share the clean copy",
+        "Send or post the clean file. It looks the same but carries no place, phone or time."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "redactPdfGuide": {
+      "title": "Redact PDF Online: Black Out Names and Numbers for Good",
+      "subtitle": "Draw black boxes or find a word on every page. The covered text is removed from the file, not just hidden, so it cannot be copied back. Done in your browser.",
+      "faq": [
+        [
+          "What does Redact PDF do?",
+          "It covers names, numbers and addresses in a PDF with black boxes and removes what was underneath, so the file can be shared without them."
+        ],
+        [
+          "Is it really removed or only covered?",
+          "Really removed. Each page with a black box is rebuilt as a picture with the boxes painted in, so there is no hidden text left to select, copy or search. Covering text with a black shape in an ordinary PDF editor often leaves the text underneath."
+        ],
+        [
+          "Does it work on scanned PDFs?",
+          "Yes. Draw the boxes by hand. Find and cover needs real text in the file, so it cannot read a scanned page."
+        ],
+        [
+          "What happens to the other pages?",
+          "By default pages without a box stay exactly as they were, with searchable text. Turn the option off to turn every page into a picture."
+        ],
+        [
+          "Will the file get bigger or lose quality?",
+          "Pages with boxes become pictures, so they can be larger and the text is no longer selectable. Run the result through Compress PDF if it is too big to send."
+        ],
+        [
+          "Is this enough for an official filing?",
+          "Rules differ between offices and courts. This tool removes the covered content from the file, but check what the office or person you are sending it to requires, and read the result page by page before you send it."
+        ],
+        [
+          "Is my PDF uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "comparePdfAndTextGuide": {
+      "title": "Compare PDF and Text Online: See What Changed Between Two Versions",
+      "subtitle": "Paste two texts or open two PDFs and see exactly what was added and removed, by line or by word. A free diff checker that runs in your browser.",
+      "faq": [
+        [
+          "What does Compare PDF and Text do?",
+          "It puts two versions side by side in one view and marks what was removed and what was added, so you can spot a changed clause, price or date without reading everything twice."
+        ],
+        [
+          "Can it compare two PDF files?",
+          "Yes. It reads the text of each PDF and compares that text. Fonts, images and layout are not compared."
+        ],
+        [
+          "Does it work on scanned PDFs?",
+          "Only after the scan has text. A scan is a picture, so run it through Scan to Searchable PDF (OCR) first, then compare."
+        ],
+        [
+          "What is the difference between lines and words?",
+          "Whole lines is best for lists, code and agreements where a line changes as a unit. Word by word is best for finding one changed number or name inside a long paragraph."
+        ],
+        [
+          "Why does it say the texts are too long?",
+          "Comparing very long, very different texts takes more memory than a phone has. Compare a few pages at a time, or text that is closer to each other."
+        ],
+        [
+          "Does it find changes in formatting?",
+          "No. It compares the words and lines only. Bold, colours and spacing are ignored, and extra spaces at the start of a line count as a change."
+        ],
+        [
+          "Is my text or PDF uploaded or stored?",
+          "Everything is done in your browser on your own device, and nothing you add is sent to {{siteName}} or saved on this site. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "removePhotoLocationGuide": {
+      "title": "Remove Location and EXIF Data from Photos: See What a Photo Reveals",
+      "subtitle": "See the place, phone model and time stored inside a photo, then save a clean copy with all of it removed. Works on a phone. Nothing is uploaded.",
+      "faq": [
+        [
+          "What is hidden inside my photo?",
+          "Many phones save the place where a photo was taken, the phone model, the date and time and the app that edited it inside the file. This is called EXIF data. Anyone who gets the original file can read it."
+        ],
+        [
+          "Do WhatsApp and social apps remove it?",
+          "Many apps strip it when you post, but not all, and not when you send the original file as a document or by email. Cleaning the photo first means you do not have to find out."
+        ],
+        [
+          "Does the clean copy look different?",
+          "No. The picture is redrawn without the hidden details, and it is saved at high quality. The file size can change a little."
+        ],
+        [
+          "Which photos can it read?",
+          "It shows the details stored in JPG photos, which is what phones save. PNG and WebP pictures can still be cleaned, but the tool will not list what they held."
+        ],
+        [
+          "Is the original photo changed?",
+          "No. Your original stays where it is. You download a new clean copy and share that one."
+        ],
+        [
+          "Can I clean many photos at once?",
+          "Yes. Choose several, check each one, then use Clean all. Your browser may ask you to allow multiple downloads."
+        ],
+        [
+          "Is my photo uploaded or stored?",
+          "Your photos are read and cleaned in your browser on your own device, and nothing is sent to {{siteName}} or saved on this site. The map link is the only thing that opens elsewhere, and only if you tap it. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "redact-pdf": {
+      "sections": [
+        {
+          "heading": "What Redact PDF is",
+          "paragraphs": [
+            "Redact PDF lets you black out the parts of a document that should not be shared: an account number, a phone number, a name, an address. You draw a box, or type a word and cover it on every page at once.",
+            "The covered area is not just painted over. Each page that has a black box is rebuilt as a picture with the box in it, so the words under the box are no longer in the file."
+          ]
+        },
+        {
+          "heading": "Why a black box is not always enough",
+          "paragraphs": [
+            "In many PDF editors a black rectangle is a shape laid on top of the text. The text is still inside the file, and anyone can select it, copy it or search for it. Documents that were shared this way have leaked details that their owners thought were hidden.",
+            "Because this tool replaces the page itself, there is nothing left to copy. You can check it yourself: open the result and try to select the text under a box."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Search first, then look at every page. Find and cover matches text on one line, so a name or address split over two lines needs a box drawn by hand. Scanned pages have no text to search, so draw those boxes by hand too.",
+            "Keep a copy of the original for yourself, send only the redacted file, and read the result from first page to last before you share it."
+          ]
+        }
+      ]
+    },
+    "compare-pdf-and-text": {
+      "sections": [
+        {
+          "heading": "What Compare PDF and Text is",
+          "paragraphs": [
+            "It shows the differences between two versions of the same thing: two drafts of an agreement, two quotes, an old and a new notice, or two pasted texts. Removed parts are red with a line through them and new parts are green.",
+            "You can compare whole lines or word by word, and hide everything that did not change."
+          ]
+        },
+        {
+          "heading": "Why it helps",
+          "paragraphs": [
+            "A single changed number, date or clause is easy to miss when you read two long documents one after the other. A comparison points at exactly what moved, so you can ask about the changes instead of rereading everything.",
+            "It also helps with your own work: check what an editor changed in your text, or what differs between two copies of a list."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "For PDFs, the tool compares the text it can read, so layout, images and fonts do not count. Use Word by word to find a changed figure inside a long paragraph, and Whole lines for lists and clauses.",
+            "If a PDF is a scan, run it through Scan to Searchable PDF (OCR) first. If two files look the same but show many changes, check that both are the same language and have the same page order."
+          ]
+        }
+      ]
+    },
+    "remove-photo-location": {
+      "sections": [
+        {
+          "heading": "What the tool shows",
+          "paragraphs": [
+            "Photos from phones and cameras carry extra information inside the file: the place where you took it, the phone model, the date and time, and sometimes the app that edited it. This tool reads that information and lists it in plain words, so you can see what you would be giving away.",
+            "If a photo has a place stored, you can open that spot on a map to see how exactly it shows your home, school or office."
+          ]
+        },
+        {
+          "heading": "Why it matters",
+          "paragraphs": [
+            "A photo of a pet, a parcel or a room for sale can point strangers to the front door of the place it was taken in. People who share the original file, send it as a document, or post it on a site that keeps it as it is can give away more than they mean to.",
+            "A clean copy keeps the picture and drops the hidden details, so the same photo is safe to send."
+          ]
+        },
+        {
+          "heading": "Using it well",
+          "paragraphs": [
+            "Check the photo first, then download the clean copy and share that one instead of the original. Keep your original if you want the place and time for yourself.",
+            "For many photos, pick them all and use Clean all. If you also need a smaller file for a form, run the clean copy through the Image Resizer afterwards."
+          ]
+        }
+      ]
+    }
+  }
+}

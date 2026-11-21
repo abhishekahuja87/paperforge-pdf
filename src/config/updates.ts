@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-21',
+    path: '/redact-pdf',
+    tool: 'New tools',
+    title: 'New: Redact PDF, Compare PDF and Text, and Remove Location from Photos',
+    summary: 'Black out names and numbers in a PDF so the covered text is really removed, see what changed between two PDFs or texts, and check what a photo reveals (place, phone, time) before saving a clean copy. All in your browser, nothing uploaded.',
+  },
+  {
     date: '2026-11-20',
     path: '/why-trust-us',
     tool: 'Guides and trust',

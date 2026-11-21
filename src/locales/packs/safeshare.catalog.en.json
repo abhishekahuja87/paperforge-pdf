@@ -1,0 +1,16 @@
+{
+  "toolCatalog": {
+    "redact-pdf": [
+      "Redact PDF: Black Out Names and Numbers So They Are Really Gone",
+      "Black out Aadhaar, PAN and account numbers or names in a PDF. Draw boxes or find a word on every page. Covered text is removed for good. Free and private."
+    ],
+    "compare-pdf-and-text": [
+      "Compare PDF and Text: See What Changed Between Two Versions",
+      "Paste two texts or choose two PDFs and see what was added and removed, line by line or word by word. A free diff checker that stays on your device."
+    ],
+    "remove-photo-location": [
+      "Remove Location and EXIF Data from Photos: See What Your Photo Reveals",
+      "See the place, phone model and time hidden inside a photo, then download a clean copy with all of it removed. Works on a phone. Free and private."
+    ]
+  }
+}
