@@ -37,7 +37,6 @@ export const UrlEncoderDecoder: React.FC = () => {
       <div className="mt-3"><CopyButton text={output} label="Copy result" /></div>
       {params && params.rows.length > 0 && <SimpleTable caption={`Query parameters for ${params.host}${params.path}`} head={['Parameter', 'Value']} rows={params.rows} />}
       <p className="mt-4 text-xs text-slate-500">&quot;A value or query part&quot; also encodes characters like / ? &amp; = so the text is safe inside a query string. &quot;A whole URL&quot; keeps those characters so the link still works. When decoding a value, + is read as a space.</p>
-      <p className="mt-2 text-center text-[10px] text-slate-400">Converted in your browser; your text is never uploaded.</p>
     </section>
   );
 };

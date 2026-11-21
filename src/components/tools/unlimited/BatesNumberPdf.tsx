@@ -110,7 +110,7 @@ export const BatesNumberPdf: React.FC = () => {
             ))}
           </ol>
         )}
-        <p className="text-[11px] text-slate-500">Free, no sign-up, no limit on files or pages. Your PDFs stay on your device. The order here is the order of the numbers.</p>
+        <p className="text-[11px] text-slate-500">The order here is the order of the numbers.</p>
       </div>
 
       <div className={`${card} space-y-3`}>

@@ -278,7 +278,7 @@ export const ResumeBuilder: React.FC = () => {
           </div>
         </div>
       </div>
-      <p className="mt-5 border-t border-slate-100 pt-4 text-center text-[10px] text-slate-400 print:hidden">Your resume is built in your browser and is not uploaded. It is only kept on this device if you tick "Remember my resume".</p>
+      <p className="mt-5 border-t border-slate-100 pt-4 text-center text-[10px] text-slate-400 print:hidden">Your resume is only kept on this device if you tick "Remember my resume".</p>
     </section>
   );
 };

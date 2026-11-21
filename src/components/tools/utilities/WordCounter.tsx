@@ -57,7 +57,7 @@ export const WordCounter: React.FC = () => {
         <button type="button" onClick={() => setText('')} disabled={!text} className="min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50">Clear</button>
         <CopyButton text={text} label="Copy text" />
       </div>
-      <p className="mt-4 text-center text-[10px] text-slate-400">Counted in your browser; your text is never uploaded. Reading time assumes 200 words a minute, speaking 130. SMS limits differ for non-English characters.</p>
+      <p className="mt-4 text-center text-[10px] text-slate-400">Reading time assumes 200 words a minute, speaking 130. SMS limits differ for non-English characters.</p>
     </section>
   );
 };

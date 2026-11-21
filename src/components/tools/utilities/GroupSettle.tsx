@@ -201,7 +201,7 @@ export const GroupSettle: React.FC = () => {
         )}
       </div>
       <div className="flex items-center justify-between gap-3 text-[11px] text-slate-500 print:hidden">
-        <span>Saved on this device only, so you can come back during a trip. Nothing is uploaded.</span>
+        <span>Saved on this device only, so you can come back during a trip.</span>
         <button type="button" onClick={reset} className={small}>Clear all</button>
       </div>
     </div>

@@ -76,7 +76,6 @@ export const PhotoPrivacy: React.FC = () => {
           </label>
           <CameraButton onPhoto={(file) => void add([file])} />
         </div>
-        <p className="text-[11px] text-slate-500">The photos are read on your device. Nothing is uploaded.</p>
       </div>
 
       {items.map((item) => {

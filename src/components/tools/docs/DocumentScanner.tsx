@@ -124,7 +124,7 @@ export const DocumentScanner: React.FC = () => {
         </div>
       )}
       {message && <p role="status" className="text-xs text-slate-700">{message}</p>}
-      <Note>Your pictures are processed in your browser and are never uploaded. The clean-up lifts shadows and whitens paper; it does not read the text (use Scan to Searchable PDF for that). Check the result before you send an important document.</Note>
+      <Note>The clean-up lifts shadows and whitens paper; it does not read the text (use Scan to Searchable PDF for that). Check the result before you send an important document.</Note>
     </section>
   );
 };

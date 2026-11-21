@@ -139,7 +139,7 @@ export const MakePdfFillable: React.FC = () => {
           <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { void openFile(event.target.files?.[0]); event.target.value = ''; }} />
         </label>
         {name && <p className="text-xs text-slate-600">{name}.pdf · {pages} page{pages === 1 ? '' : 's'}</p>}
-        <p className="text-[11px] text-slate-500">Free, no sign-up, no page or file limit. Your PDF stays on your device.</p>
+        <p className="text-[11px] text-slate-500">Draw fields on any page, then download the fillable PDF.</p>
       </div>
 
       {bytes && (

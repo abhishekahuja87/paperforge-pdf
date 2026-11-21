@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { ArrowRight, Gift, Layers, Search, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Layers, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getCollections } from '../../lib/homePageVariants';
+import { PromisePill } from '../common/PromisePill';
 
 interface HomeTopBannerProps {
   query: string;
@@ -16,11 +17,6 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
   const { t } = useTranslation();
   // Rounded down to the nearest ten so the headline stays true as tools are added.
   const toolTotal = useMemo(() => Math.floor(getCollections().reduce((sum, group) => sum + group.tools.length, 0) / 10) * 10, []);
-  const trust = [
-    { icon: ShieldCheck, text: t('homeHero.private', { defaultValue: 'Files stay in your browser' }) },
-    { icon: Gift, text: t('homeHero.free', { defaultValue: 'Free, no sign-up' }) },
-    { icon: Layers, text: t('homeHero.count', { count: toolTotal, defaultValue: '{{count}}+ tools' }) },
-  ];
 
   return (
     <section className="relative overflow-hidden px-4 py-5 sm:py-6" aria-label={t('findTool')}>
@@ -59,14 +55,13 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({
           </Link>
         </p>
 
-        <ul className="mt-4 flex flex-wrap justify-center gap-2">
-          {trust.map(({ icon: Icon, text }) => (
-            <li key={text} className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-white/80 px-3 py-1.5 text-xs font-bold text-stone-700">
-              <Icon className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
-              {text}
-            </li>
-          ))}
-        </ul>
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
+          <PromisePill />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-white/80 px-2.5 py-1 text-[11px] font-bold text-stone-700">
+            <Layers className="h-3.5 w-3.5 text-orange-600" aria-hidden="true" />
+            {t('homeHero.count', { count: toolTotal, defaultValue: '{{count}}+ tools' })}
+          </span>
+        </div>
       </div>
     </section>
   );

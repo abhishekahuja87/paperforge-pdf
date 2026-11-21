@@ -67,7 +67,7 @@ export const WhatsappLinkMaker: React.FC = () => {
           )}
         </div>
       )}
-      <Note>The link and QR code are made in your browser. Your number and message are not sent anywhere or saved. Anyone with the link can start a chat with that number, so share it only where you want to be contacted.</Note>
+      <Note>Your number and message are not saved. Anyone with the link can start a chat with that number, so share it only where you want to be contacted.</Note>
     </section>
   );
 };

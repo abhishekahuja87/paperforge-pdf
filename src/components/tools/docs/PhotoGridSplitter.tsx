@@ -112,7 +112,7 @@ export const PhotoGridSplitter: React.FC = () => {
         )}
       </div>
       {message && <p role="status" className="text-xs text-red-700">{message}</p>}
-      <Note>Your picture is cut in your browser and never uploaded. Each piece is {TILE} pixels wide. Phones that cannot open a zip can use the Files app to extract it.</Note>
+      <Note>Each piece is {TILE} pixels wide. Phones that cannot open a zip can use the Files app to extract it.</Note>
     </section>
   );
 };

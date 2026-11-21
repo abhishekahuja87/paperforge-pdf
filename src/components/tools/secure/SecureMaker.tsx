@@ -232,7 +232,7 @@ export const SecureMaker: React.FC<{ initial: Mode }> = ({ initial }) => {
         </div>
       </div>
       {mode === 'doc' ? <WriteDocument /> : <LockFile />}
-      <div className="mt-4"><Note>Everything happens in your browser. The document, the file and the password are never sent to us or to anyone else. What you type is not saved on this device either; if you close the tab it is gone, so keep a copy of the locked file. Locking protects the file while it travels. It cannot stop a person who has the password from copying or sharing what they read.</Note></div>
+      <div className="mt-4"><Note>The password is never sent anywhere. What you type is not saved on this device either; if you close the tab it is gone, so keep a copy of the locked file. Locking protects the file while it travels. It cannot stop a person who has the password from copying or sharing what they read.</Note></div>
     </section>
   );
 };

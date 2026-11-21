@@ -122,6 +122,15 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | K9 | Home strip, /free-no-limits, footer link, guides | All load and read well | | |
 | K10 | Sign, Fill, Redact, Compare with a large file | No size or page message | | |
 
+## L. One promise pill
+| # | Check | Expected | Result | Notes |
+|---|---|---|---|---|
+| L1 | Merge, Fill PDF, Smart Split, Bulk Images | One orange pill "Free · No limits · Stays on your device" | | |
+| L2 | A calculator, Word Counter, Document Scanner | One orange pill "Stays in your browser", same look | | |
+| L3 | Home page | Pill and tool count only; no green strip | | |
+| L4 | Tap the pills | Open /free-no-limits (full) or /why-trust-us (short) | | |
+| L5 | Fill PDF, Redact, Compare, Passport Photo | No extra "never uploaded" line under the tool | | |
+
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin
 - [ ] Search Console: resubmit the sitemap

@@ -84,7 +84,7 @@ export const PasswordGenerator: React.FC = () => {
         )}
         <div className="mt-3"><ChoiceButtons label="How many to generate" value={count} onChange={setCount} options={[{ value: '1', label: '1' }, { value: '5', label: '5' }, { value: '10', label: '10' }]} /></div>
       </div>
-      <p className="mt-4 text-center text-[10px] text-slate-400">Generated in your browser with the secure random generator; nothing is sent or stored. The guess-time estimate assumes 10 billion guesses a second against a fast, unprotected target and is only a guide.</p>
+      <p className="mt-4 text-center text-[10px] text-slate-400">Generated with the secure random generator; nothing is stored. The guess-time estimate assumes 10 billion guesses a second against a fast, unprotected target and is only a guide.</p>
     </section>
   );
 };

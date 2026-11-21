@@ -97,7 +97,7 @@ export const BulkQrGenerator: React.FC = () => {
         ))}
       </div>
       <div className="print:hidden">
-        <Note>Always scan a couple of codes with a phone before you print or share them all. Everything is made in your browser, and nothing you paste is uploaded.</Note>
+        <Note>Always scan a couple of codes with a phone before you print or share them all.</Note>
         <CalcFooter />
       </div>
     </section>

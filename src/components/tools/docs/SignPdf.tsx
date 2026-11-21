@@ -142,7 +142,7 @@ export const SignPdf: React.FC = () => {
         </div>
       )}
       {message && <p role="status" className="text-xs text-red-700">{message}</p>}
-      <Note>Your PDF and signature stay in your browser and are never uploaded. This places a picture of your signature on the page; it is not a certified digital signature, so use it only where a plain signature image is accepted.</Note>
+      <Note>This places a picture of your signature on the page; it is not a certified digital signature, so use it only where a plain signature image is accepted.</Note>
     </section>
   );
 };

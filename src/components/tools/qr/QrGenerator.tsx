@@ -250,7 +250,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
             </div>
             <button type="button" disabled={!qr} onClick={() => window.print()} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print the sheet</button>
           </div>
-          <Note>Everything is made in your browser. What you type is never uploaded, and the code does not expire or depend on this website.</Note>
+          <Note>The code does not expire or depend on this website.</Note>
         </div>
       </div>
 

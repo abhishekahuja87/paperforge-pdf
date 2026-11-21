@@ -143,7 +143,7 @@ export const VcardConverter: React.FC = () => {
           </div>
         </div>
       </>)}
-      <Note>Your contacts are read and converted on this device. They are never uploaded. Embedded photos are skipped to keep files small.</Note>
+      <Note>Embedded photos are skipped to keep files small.</Note>
     </section>
   );
 };

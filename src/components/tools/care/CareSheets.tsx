@@ -255,7 +255,7 @@ export const CareSheets: React.FC<{ initialKind?: CareKind }> = ({ initialKind }
           </div>
         </div>
       </div>
-      <div className="print:hidden"><Note>Everything is made in your browser and nothing is uploaded or saved. Health details you type stay on this page and are printed on the sheet. These sheets help you organise; they are not medical advice.</Note></div>
+      <div className="print:hidden"><Note>Health details you type are printed on the sheet. These sheets help you organise; they are not medical advice.</Note></div>
     </section>
   );
 };

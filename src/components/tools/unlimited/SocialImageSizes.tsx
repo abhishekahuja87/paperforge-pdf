@@ -92,7 +92,7 @@ export const SocialImageSizes: React.FC = () => {
           <input type="file" accept="image/*" className="sr-only" onChange={(event) => { void open(event.target.files?.[0]); event.target.value = ''; }} />
         </label>
         {file && bitmap && <p className="text-xs text-slate-600">{file.name} · {bitmap.width} × {bitmap.height} px</p>}
-        <p className="text-[11px] text-slate-500">Free, no sign-up, no limit. The picture stays on your device.</p>
+        <p className="text-[11px] text-slate-500">Tick the sizes you need and download them together.</p>
       </div>
 
       {bitmap && (

@@ -160,7 +160,7 @@ export const PassportPhotoMaker: React.FC = () => {
         )}
       </div>
       {message && <p role="status" className="text-xs text-red-700">{message}</p>}
-      <Note>Your photo stays in your browser and is never uploaded. Photos are laid out at 300 dpi.</Note>
+      <Note>Photos are laid out at 300 dpi.</Note>
     </section>
   );
 };

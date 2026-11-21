@@ -78,7 +78,7 @@ export const GifMaker: React.FC = () => {
             ))}
           </ol>
         )}
-        <p className="text-[11px] text-slate-500">Free, no sign-up, no limit on pictures. They stay on your device. The first picture sets the shape of the GIF.</p>
+        <p className="text-[11px] text-slate-500">The first picture sets the shape of the GIF.</p>
       </div>
 
       <div className={`${card} space-y-3`}>

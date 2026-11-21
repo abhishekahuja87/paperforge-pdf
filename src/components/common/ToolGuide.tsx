@@ -1,6 +1,5 @@
 import React, { useContext, useLayoutEffect } from 'react';
-import { ShieldCheck, HelpCircle } from 'lucide-react';
-import { siteConfig } from '../../config/site';
+import { HelpCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { useContent } from '../../locales/contentLoader';
@@ -23,7 +22,6 @@ interface ToolGuideProps {
   toolName: string;
   steps?: GuideStep[];
   faqs: GuideFaq[];
-  privacyNote?: string;
   appearance?: 'standard' | 'workshop';
   contentLanguage?: string;
 }
@@ -32,7 +30,6 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
   toolName,
   steps = [],
   faqs,
-  privacyNote,
   appearance = 'workshop',
   contentLanguage = 'en',
 }) => {
@@ -101,12 +98,6 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
               <AccordionList items={items} lang={contentLanguage} />
             </section>
           )}
-          {privacyNote && (
-            <section aria-label={t('privacy')} className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
-              <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-900">{t('privacy')}</h2>
-              <p lang={contentLanguage} className="mt-1 text-xs leading-relaxed text-emerald-900">{privacyNote}</p>
-            </section>
-          )}
         </div>
       </div>
     );
@@ -153,15 +144,6 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
         </div>
       </section>
 
-      {/* Local Processing Guarantee Note */}
-      <section className={`flex items-start space-x-2.5 rounded-xl border p-3.5 ${isWorkshop ? 'border-emerald-200 bg-emerald-50' : 'border-emerald-200/80 bg-emerald-50/70'}`}>
-        <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-        <div className="text-xs text-emerald-900 leading-relaxed">
-          <strong className="font-semibold text-emerald-950">Local File Processing: </strong>
-          {privacyNote ||
-            `This tool processes your files in your browser; they are never uploaded to ${siteConfig.name} servers for processing.`}
-        </div>
-      </section>
     </div>
   );
 };

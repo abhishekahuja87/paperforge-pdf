@@ -303,7 +303,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
           </div>
         </div>
       </div>
-      <div className="print:hidden"><Note>Your settings stay in this browser. Nothing is uploaded and the PDF is built on your device. Printers add their own small unprintable border, so choose "Actual size" or "100%" in the print window and turn off "Fit to page".</Note></div>
+      <div className="print:hidden"><Note>Printers add their own small unprintable border, so choose "Actual size" or "100%" in the print window and turn off "Fit to page".</Note></div>
     </section>
   );
 };

@@ -36,7 +36,7 @@ export const UuidGenerator: React.FC = () => {
         <button type="button" onClick={regenerate} className="inline-flex min-h-10 items-center gap-1.5 rounded-lg bg-orange-600 px-3 py-2 text-xs font-bold text-white hover:bg-orange-700"><RefreshCw className="h-3.5 w-3.5" aria-hidden="true" />Generate new</button>
         <CopyButton text={shown.join('\n')} label="Copy all" />
       </div>
-      <p className="mt-4 text-center text-[10px] text-slate-400">Version 4 (random) UUIDs made in your browser with its secure random generator; nothing is sent or stored.</p>
+      <p className="mt-4 text-center text-[10px] text-slate-400">Version 4 (random) UUIDs from the secure random generator; nothing is stored.</p>
     </section>
   );
 };

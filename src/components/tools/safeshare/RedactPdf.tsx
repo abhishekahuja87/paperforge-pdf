@@ -172,7 +172,6 @@ export const RedactPdf: React.FC = () => {
           <FileUp className="h-4 w-4" aria-hidden="true" />{bytes ? 'Choose another PDF' : 'Choose a PDF'}
           <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { void openFile(event.target.files?.[0]); event.target.value = ''; }} />
         </label>
-        <p className="text-[11px] text-slate-500">Your file stays on your device. Nothing is uploaded.</p>
       </div>
 
       {bytes && (

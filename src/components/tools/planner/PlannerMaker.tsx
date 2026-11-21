@@ -165,7 +165,7 @@ export const PlannerMaker: React.FC<{ initialKind?: PlannerKind }> = ({ initialK
           </div>
         </div>
       </div>
-      <div className="print:hidden"><Note>Dates are worked out in your browser and nothing is uploaded. Public holidays and school terms differ by country and year, so they are not printed; write them in by hand. Month and day names appear in the language you choose, for languages that use the Latin alphabet.</Note></div>
+      <div className="print:hidden"><Note>Public holidays and school terms differ by country and year, so they are not printed; write them in by hand. Month and day names appear in the language you choose, for languages that use the Latin alphabet.</Note></div>
     </section>
   );
 };
