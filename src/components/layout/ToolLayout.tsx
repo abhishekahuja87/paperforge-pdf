@@ -129,11 +129,10 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                   {seoContent}
                 </div>
               )}
+              <RelatedTools id={pathname.replace(/^\/+|\/+$/g, '')} />
             </div>
           </GuideRegistryContext.Provider>
         )}
-
-        {!focusOn && <RelatedTools id={pathname.replace(/^\/+|\/+$/g, '')} />}
 
         {!focusOn && (
         <section
