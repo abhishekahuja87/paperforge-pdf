@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/digitize-documents',
+    tool: 'Scan to Searchable PDF',
+    title: 'Simpler flow: choose images, press one button, save',
+    summary: 'The separate editor step is gone. Choose your images, pick the text language and press one button, then rename and save the file like in every other PDF tool. Cropping and arranging pages is in Master Document Studio.',
+  },
+  {
+    date: '2026-11-22',
     path: '/organize-pdf',
     tool: 'PDF tools',
     title: 'Clearer buttons in every PDF tool',
