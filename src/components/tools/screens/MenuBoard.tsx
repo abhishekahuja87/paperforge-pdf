@@ -5,17 +5,19 @@ import { isRecord, num, oneOf, str } from '../../../lib/screens/read';
 import { THEMES, buildMenuSlides, clampInt, type Theme } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { useScrollTo } from '../../../lib/screens/useScrollTo';
+import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { makeRow, readRows, RowsEditor, type Column, type FormRow } from './RowsEditor';
 import { TimedPlayer } from './TimedPlayer';
 import { FIELD, LABEL, ORANGE } from './ui';
 
-interface Saved { shop: string; rows: FormRow[]; perPage: number; seconds: number; currency: string; theme: Theme }
+interface Saved { shop: string; rows: FormRow[]; perPage: number; seconds: number; currency: string; theme: Theme; logo: string }
 const COLUMNS: Column[] = [
   { key: 'section', label: 'Section', placeholder: 'For example Tea', size: 'mid' },
   { key: 'name', label: 'Item', placeholder: 'For example Masala chai', size: 'wide' },
   { key: 'price', label: 'Price', placeholder: '20', size: 'narrow' },
   { key: 'note', label: 'Note (optional)', placeholder: 'For example Fresh', size: 'mid' },
+  { key: 'image', label: 'Picture (optional)', type: 'image', size: 'mid' },
 ];
 const item = (section: string, name: string, price: string, note = '') => ({ section, name, price, note });
 const MENUS: Array<Preset & { shop: string; items: Array<{ section: string; name: string; price: string; note: string }> }> = [
@@ -29,15 +31,15 @@ const MENUS: Array<Preset & { shop: string; items: Array<{ section: string; name
     item('', 'Item one', '100'), item('', 'Item two', '150'), item('', 'Item three', '200'), item('', 'Item four', '250')] },
 ];
 const CURRENCIES: Array<[string, string]> = [['', 'No symbol'], ['₹', '₹ rupee'], ['$', '$ dollar'], ['€', '€ euro'], ['£', '£ pound']];
-const read = (value: unknown): Saved | null => (isRecord(value) ? { shop: str(value.shop, 'Our Menu'), rows: readRows(value.rows, ['section', 'name', 'price', 'note']) ?? [], perPage: num(value.perPage, 6), seconds: num(value.seconds, 10), currency: str(value.currency, '₹'), theme: oneOf(value.theme, THEMES.map((entry) => entry.id), 'dark') } : null);
+const read = (value: unknown): Saved | null => (isRecord(value) ? { shop: str(value.shop, 'Our Menu'), rows: readRows(value.rows, ['section', 'name', 'price', 'note', 'image']) ?? [], perPage: num(value.perPage, 6), seconds: num(value.seconds, 10), currency: str(value.currency, '₹'), theme: oneOf(value.theme, THEMES.map((entry) => entry.id), 'dark'), logo: str(value.logo) } : null);
 
 export const MenuBoard: React.FC = () => {
-  const [saved, setSaved] = usePersisted<Saved>('mdu-menu-v1', { shop: 'Our Menu', rows: [], perPage: 6, seconds: 10, currency: '₹', theme: 'dark' }, read);
+  const [saved, setSaved] = usePersisted<Saved>('mdu-menu-v1', { shop: 'Our Menu', rows: [], perPage: 6, seconds: 10, currency: '₹', theme: 'dark', logo: '' }, read);
   const [active, setActive] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
   const { ref, scroll } = useScrollTo<HTMLDivElement>();
   const close = useCallback(() => setPlaying(false), []);
-  const items = useMemo(() => saved.rows.filter((row) => (row.name ?? '').trim()).map((row) => ({ section: row.section ?? '', name: row.name ?? '', price: /^\d/.test((row.price ?? '').trim()) ? `${saved.currency}${(row.price ?? '').trim()}` : (row.price ?? ''), note: row.note ?? '' })), [saved.rows, saved.currency]);
+  const items = useMemo(() => saved.rows.filter((row) => (row.name ?? '').trim()).map((row) => ({ section: row.section ?? '', name: row.name ?? '', price: /^\d/.test((row.price ?? '').trim()) ? `${saved.currency}${(row.price ?? '').trim()}` : (row.price ?? ''), note: row.note ?? '', image: row.image ?? '' })), [saved.rows, saved.currency]);
   const slides = useMemo(() => buildMenuSlides(items, saved.shop, clampInt(saved.perPage, 2, 12, 6), clampInt(saved.seconds, 3, 300, 10)).map((slide) => ({ ...slide, theme: saved.theme })), [items, saved.shop, saved.perPage, saved.seconds, saved.theme]);
   const update = (patch: Partial<Saved>) => setSaved({ ...saved, ...patch });
 
@@ -48,7 +50,7 @@ export const MenuBoard: React.FC = () => {
         <label className={LABEL}>Shop or board name<input type="text" value={saved.shop} onChange={(event) => update({ shop: event.target.value })} className={FIELD} /></label>
       </section>
       <div ref={ref} className="scroll-mt-[69px]">
-        <RowsEditor title="Items" columns={COLUMNS} rows={saved.rows} onChange={(rows) => { update({ rows }); setActive(null); }} blank={{ section: '', name: '', price: '', note: '' }} addLabel="Add an item" empty="No items yet. Pick a sample above, add an item, or paste many at once." bulk={{ keys: ['name', 'price', 'note'], hint: 'One item per line: name | price | note. Items you paste go in no section, so set the Section afterwards if you use sections.', example: 'Masala chai | 20\nSamosa | 15 | Served hot' }} />
+        <RowsEditor title="Items" columns={COLUMNS} rows={saved.rows} onChange={(rows) => { update({ rows }); setActive(null); }} blank={{ section: '', name: '', price: '', note: '', image: '' }} addLabel="Add an item" empty="No items yet. Pick a sample above, add an item, or paste many at once." bulk={{ keys: ['name', 'price', 'note'], hint: 'One item per line: name | price | note. Items you paste go in no section, so set the Section afterwards if you use sections.', example: 'Masala chai | 20\nSamosa | 15 | Served hot' }} />
       </div>
       <section className={`${calcCard} space-y-4`}>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -63,11 +65,12 @@ export const MenuBoard: React.FC = () => {
             <select value={saved.theme} onChange={(event) => update({ theme: oneOf(event.target.value, THEMES.map((entry) => entry.id), 'dark') })} className={FIELD}>{THEMES.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}</select>
           </label>
         </div>
+        <LogoField logo={saved.logo} onChange={(logo) => update({ logo })} label="Shop logo in the corner (optional)" />
         <p className="text-sm font-semibold text-stone-800">{items.length === 0 ? 'Add some items to start.' : `${items.length} ${items.length === 1 ? 'item' : 'items'} on ${slides.length} ${slides.length === 1 ? 'screen' : 'screens'}, about ${slides.length * clampInt(saved.seconds, 3, 300, 10)} seconds for one round. It keeps looping.`}</p>
         <button type="button" onClick={() => setPlaying(true)} disabled={items.length === 0} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Show on screen</button>
-        <Note>Open this page on the screen by your counter and tap Show on screen. The board loops until you close it. Your menu is saved only in this browser. Prices are shown exactly as typed, so check them before you show the board.</Note>
+        <Note>Open this page on the screen by your counter and tap Show on screen. The board loops until you close it. Your menu is saved only in this browser. Prices are shown exactly as typed, so check them before you show the board. Pictures are shrunk in your browser and kept on this device.</Note>
       </section>
-      {playing && <TimedPlayer slides={slides} label="Menu and price board" loop showTimer={false} sound={false} light={saved.theme === 'light'} onClose={close} />}
+      {playing && <TimedPlayer slides={slides} label="Menu and price board" loop showTimer={false} sound={false} light={saved.theme === 'light'} logo={saved.logo || undefined} onClose={close} />}
     </div>
   );
 };

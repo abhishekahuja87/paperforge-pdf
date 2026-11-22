@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { beep } from '../../../lib/screens/beep';
 import { formatClock, type Theme, type TimedSlide } from '../../../lib/screens/timed';
+import { FLIP_CSS } from '../shared/flipCss';
 import { ScreenShell } from './ScreenShell';
 
 interface Props {
@@ -13,6 +14,8 @@ interface Props {
   sound: boolean;
   /** Default colours when a slide has no theme of its own. */
   light: boolean;
+  /** Optional logo or picture shown in a corner. */
+  logo?: string;
   onClose: () => void;
 }
 
@@ -22,7 +25,7 @@ const SURFACE: Record<Theme, string> = {
 const TONE_SURFACE = { work: 'bg-green-700 text-white', rest: 'bg-blue-800 text-white', info: '', reveal: 'bg-orange-600 text-white' } as const;
 
 /** One player for every timed show: it follows a list of slides, counts down each one, and waits for a click when a slide has no time. */
-export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, showTimer, sound, light, onClose }) => {
+export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, showTimer, sound, light, logo, onClose }) => {
   const [index, setIndex] = useState(0);
   const [remaining, setRemaining] = useState(slides[0]?.seconds ?? 0);
   const [paused, setPaused] = useState(false);
@@ -90,19 +93,28 @@ export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, show
   );
 
   return (
-    <ScreenShell surface={`${surface} transition-colors duration-300`} label={label} onClose={onClose} bar={bar} onKey={onKey} onScreenClick={manual ? () => go(index + 1) : undefined}>
+    <ScreenShell surface={`${surface} transition-colors duration-300`} label={label} onClose={onClose} bar={bar} onKey={onKey} onScreenClick={manual ? () => go(index + 1) : undefined} logo={logo}>
+      <style>{FLIP_CSS}</style>
       <div className="h-1.5 w-full bg-black/20"><div className="h-full bg-white/80 transition-[width] duration-300" style={{ width: `${progress}%` }} /></div>
       <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4 sm:px-10">
         <div className="m-auto flex w-full max-w-6xl flex-col items-center gap-4 text-center">
           {slide.chip && <p className={`text-[clamp(0.95rem,2vw,1.6rem)] font-bold uppercase tracking-wider ${muted}`}>{slide.chip}</p>}
-          {slide.image && <img src={slide.image} alt="" className="max-h-[34vh] max-w-full rounded-2xl bg-white object-contain" />}
+          {slide.video && <video key={slide.video} src={slide.video} autoPlay muted loop playsInline className="max-h-[38vh] max-w-full rounded-2xl bg-black" />}
+          {slide.image && !slide.video && (slide.image2
+            ? <span className="relative block aspect-[3/2] w-[min(100%,calc(34vh*1.5))] overflow-hidden rounded-2xl bg-stone-200"><img src={slide.image} alt="" className="absolute inset-0 h-full w-full object-cover" /><img src={slide.image2} alt="" aria-hidden="true" className="mdu-wk-b absolute inset-0 h-full w-full object-cover" /></span>
+            : <img src={slide.image} alt="" className="max-h-[34vh] max-w-full rounded-2xl bg-white object-contain" />)}
           <h2 className={`break-words font-black leading-[1.05] tracking-tight ${slide.rows ? 'text-[clamp(1.8rem,5vw,4rem)]' : 'text-[clamp(2.2rem,8vw,7rem)]'}`}>{slide.title}</h2>
           {slide.rows && (
             <ul className="w-full max-w-4xl space-y-2 text-left">
               {slide.rows.map((row, position) => (
                 <li key={position} className="border-b border-current/20 pb-2">
-                  <p className="flex items-baseline justify-between gap-4 text-[clamp(1.2rem,3.4vw,2.6rem)] font-bold leading-tight"><span className="min-w-0 break-words">{row.left}</span>{row.right && <span className="shrink-0 tabular-nums">{row.right}</span>}</p>
-                  {row.sub && <p className={`text-[clamp(0.9rem,1.8vw,1.4rem)] ${muted}`}>{row.sub}</p>}
+                  <div className="flex items-center gap-3">
+                    {row.image && <img src={row.image} alt="" className="h-[clamp(2.6rem,7vw,5rem)] w-[clamp(3.4rem,9vw,6.5rem)] shrink-0 rounded-lg bg-white object-cover" />}
+                    <div className="min-w-0 flex-1">
+                      <p className="flex items-baseline justify-between gap-4 text-[clamp(1.2rem,3.4vw,2.6rem)] font-bold leading-tight"><span className="min-w-0 break-words">{row.left}</span>{row.right && <span className="shrink-0 tabular-nums">{row.right}</span>}</p>
+                      {row.sub && <p className={`text-[clamp(0.9rem,1.8vw,1.4rem)] ${muted}`}>{row.sub}</p>}
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>

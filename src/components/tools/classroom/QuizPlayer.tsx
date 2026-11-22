@@ -201,7 +201,7 @@ export const QuizPlayer: React.FC<Props> = ({ quiz, mode, timing, show, onClose 
         )}
       </div>
       <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4 sm:px-10">{renderBody()}</div>
-      <div className={`flex items-center justify-center gap-3 px-4 pb-5 transition-opacity duration-500 ${controls ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
+      <div className={`order-first flex items-center justify-center gap-3 px-4 pt-3 transition-opacity duration-500 sm:order-last sm:pb-5 sm:pt-0 ${controls ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
         <button type="button" aria-label="Previous" onClick={() => go(index - 1)} disabled={index === 0} className={`flex h-12 w-12 items-center justify-center rounded-full ${btn} disabled:opacity-40`}><ChevronLeft className="h-6 w-6" aria-hidden="true" /></button>
         {auto && <button type="button" aria-label={paused ? 'Resume' : 'Pause'} onClick={() => setPaused((value) => !value)} className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-700 text-white hover:bg-orange-800">{paused ? <Play className="h-6 w-6" aria-hidden="true" /> : <Pause className="h-6 w-6" aria-hidden="true" />}</button>}
         <button type="button" aria-label="Next" onClick={() => go(index + 1)} disabled={index >= slides.length - 1} className={`flex h-12 w-12 items-center justify-center rounded-full ${auto ? btn : 'bg-orange-700 text-white hover:bg-orange-800'} disabled:opacity-40`}><ChevronRight className="h-6 w-6" aria-hidden="true" /></button>

@@ -178,7 +178,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | # | Check | Expected | Result | Notes |
 |---|---|---|---|---|
 | Q1 | Interval timer: Tabata, Circuit, beeps | Right rounds and times; green/blue; beeps | | |
-| Q2 | Yoga class display: sample, edit, paste many, start | Name, cue, countdown, next pose | | |
+| Q2 | Step-by-step routine display: sample, add from picture list, own step, paste many, start | Name, cue, picture, countdown, next step | | |
 | Q3 | Exam hall display: press start and set time | Clock, time left, amber warning, red Pens down | | |
 | Q4 | Menu board: sample, paging, symbol, loop | Sections and pages loop; prices correct | | |
 | Q5 | Queue token display: next, back, jump, big screen | Number huge, next three, chime, count kept | | |
@@ -187,6 +187,8 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | Q8 | Notice board: colours, picture, loop | Messages rotate | | |
 | Q9 | Quick start buttons on a phone (all eight) | "Loaded" mark and scroll to the list | | |
 | Q10 | All eight on a TV or projector | Large and readable, fullscreen, buttons fade | | |
+| Q11 | Pictures, video and logo (menu, spelling bee, notices, routine, logo on all) | Show correctly; video gone after reload, pictures stay | | |
+| Q12 | Phone full screen on the quiz, workout slideshow and the big-screen tools | Buttons at the top, not hidden by the browser's message | | |
 
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin

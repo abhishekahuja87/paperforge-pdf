@@ -44,7 +44,7 @@
       "faq": [
         [
           "Where do the pictures and instructions come from?",
-          "They come from the free-exercise-db project, an open dataset released into the public domain. Each exercise has a photo of the start position and a photo of the end position. This page fades between the two so the movement is easy to follow. We chose about 140 common exercises from the larger dataset."
+          "They come from the free-exercise-db project, an open dataset released into the public domain. Each exercise has a photo of the start position and a photo of the end position. This page fades between the two so the movement is easy to follow. We chose about 180 common exercises from the larger dataset."
         ],
         [
           "Is this medical advice? Are these exercises right for me?",
@@ -113,7 +113,7 @@
         {
           "heading": "What the library covers",
           "paragraphs": [
-            "The library lists about 140 common exercises in eight groups: chest, back, shoulders, arms, legs and glutes, core, cardio and stretching. For every exercise you see the muscles it mainly works, the muscles that help, the equipment it needs, a level from beginner to advanced and numbered steps.",
+            "The library lists about 180 common exercises in eight groups: chest, back, shoulders, arms, legs and glutes, core, cardio and stretching. For every exercise you see the muscles it mainly works, the muscles that help, the equipment it needs, a level from beginner to advanced and numbered steps.",
             "Each picture shows two positions and fades between them in a loop, so you can see the start, the movement and the finish without playing a video. If your device is set to reduce motion, the pictures stay still and show the start position."
           ]
         },
@@ -152,7 +152,7 @@
         {
           "heading": "Your own exercises are welcome",
           "paragraphs": [
-            "The list holds about 140 common exercises with two pictures each, but every gym has machines and moves that are not in it. Each part has an Add your own form for a name and a note.",
+            "The list holds about 180 common exercises with two pictures each, but every gym has machines and moves that are not in it. Each part has an Add your own form for a name and a note.",
             "Your entries sit in the plan next to the others. They show on the slideshow without a picture, so the screen stays honest about what it has."
           ]
         },

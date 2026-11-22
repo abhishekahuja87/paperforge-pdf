@@ -8,8 +8,8 @@ export const SCREENS_TOOLS: PackTool[] = [
     keywords: ['interval timer', 'tabata timer', 'hiit timer', 'circuit training timer', 'emom timer', 'boxing round timer', 'work and rest timer', 'workout timer full screen', 'gym interval timer for tv', 'study sprint timer', 'round timer with beep', 'exercise interval timer online'],
   }, screens.toolCatalog),
   definePackTool({
-    id: 'yoga-class-display', kind: 'screenYoga', guideKey: 'screensYogaDisplay', category: 'display', icon: 'dumbbell', tier: 'more',
-    keywords: ['yoga class display', 'yoga sequence timer', 'stretching timer', 'yoga flow on tv', 'stretch break timer', 'pose timer for yoga', 'yoga class screen', 'morning stretch routine timer', 'desk stretch timer', 'yoga timer with poses', 'mobility routine timer', 'warm up and cool down display'],
+    id: 'step-by-step-routine-display', kind: 'screenRoutine', guideKey: 'screensRoutineDisplay', category: 'display', icon: 'clock', tier: 'popular',
+    keywords: ['step by step routine display', 'routine timer on screen', 'yoga sequence timer', 'stretching routine with pictures', 'timed steps on tv', 'stretch break timer', 'morning routine timer', 'station rotation timer', 'classroom activity steps timer', 'exercise routine display', 'process steps on screen', 'checklist timer display'],
   }, screens.toolCatalog),
   definePackTool({
     id: 'exam-hall-display', kind: 'screenExamHall', guideKey: 'screensExamHall', category: 'display', icon: 'clock', tier: 'popular',

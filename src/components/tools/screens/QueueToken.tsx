@@ -5,15 +5,16 @@ import { beep } from '../../../lib/screens/beep';
 import { callNext, formatToken, type TokenState } from '../../../lib/screens/clock';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';
 import { usePersisted } from '../../../lib/screens/usePersisted';
+import { LogoField } from './LogoField';
 import { ScreenShell } from './ScreenShell';
 import { CHECK, FIELD, LABEL, ORANGE, OUTLINE } from './ui';
 
-interface Saved { state: TokenState; width: number; sound: boolean; light: boolean }
-const DEFAULTS: Saved = { state: { prefix: '', current: 0, last: [], counter: '' }, width: 2, sound: true, light: false };
+interface Saved { state: TokenState; width: number; sound: boolean; light: boolean; logo: string }
+const DEFAULTS: Saved = { state: { prefix: '', current: 0, last: [], counter: '' }, width: 2, sound: true, light: false, logo: '' };
 const read = (value: unknown): Saved | null => {
   if (!isRecord(value) || !isRecord(value.state)) return null;
   const last = Array.isArray(value.state.last) ? value.state.last.filter((entry): entry is number => typeof entry === 'number').slice(0, 6) : [];
-  return { state: { prefix: str(value.state.prefix), current: Math.max(0, num(value.state.current, 0)), last, counter: str(value.state.counter) }, width: Math.min(5, Math.max(1, num(value.width, 2))), sound: bool(value.sound, true), light: bool(value.light, false) };
+  return { state: { prefix: str(value.state.prefix), current: Math.max(0, num(value.state.current, 0)), last, counter: str(value.state.counter) }, width: Math.min(5, Math.max(1, num(value.width, 2))), sound: bool(value.sound, true), light: bool(value.light, false), logo: str(value.logo) };
 };
 
 /** A "now serving" display for a clinic, shop, office or bank counter. The staff press Next; the screen shows the number. */
@@ -74,10 +75,11 @@ export const QueueToken: React.FC = () => {
           <label className={CHECK}><input type="checkbox" checked={saved.sound} onChange={(event) => setSaved({ ...saved, sound: event.target.checked })} className="h-4 w-4 accent-orange-700" />Chime when the next number is called</label>
           <label className={CHECK}><input type="checkbox" checked={saved.light} onChange={(event) => setSaved({ ...saved, light: event.target.checked })} className="h-4 w-4 accent-orange-700" />Light screen</label>
         </div>
+        <LogoField logo={saved.logo} onChange={(logo) => setSaved({ ...saved, logo })} label="Logo in the corner (optional, for example your clinic or shop)" />
         <Note>Give people numbered slips or tell them their number, then press Next as each person is called. On the big screen the right arrow, space bar or Next button calls the next number and the left arrow goes back. The numbers are saved only in this browser, so the count survives a reload. Nothing is sent anywhere, so it cannot show on a second screen by itself: open this page on the device that is connected to the display.</Note>
       </section>
       {full && (
-        <ScreenShell surface={surface} label="Now serving display" onClose={close} bar={bar} onKey={onKey}>
+        <ScreenShell surface={surface} label="Now serving display" onClose={close} bar={bar} onKey={onKey} logo={saved.logo || undefined}>
           <div className="m-auto flex w-full max-w-6xl flex-col items-center gap-4 px-6 text-center">
             <p className={`text-[clamp(1.4rem,4vw,3.4rem)] font-bold uppercase tracking-widest ${dark ? 'text-orange-300' : 'text-orange-700'}`}>{state.counter.trim() || 'Now serving'}</p>
             <p className="text-[clamp(6rem,30vw,26rem)] font-black leading-none tabular-nums" aria-live="polite">{state.current === 0 ? '—' : show(state.current)}</p>

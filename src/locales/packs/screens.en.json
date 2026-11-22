@@ -18,24 +18,6 @@
         "Tap Start timer. Green shows work and blue shows rest. Use the arrow keys, space bar or the buttons to skip, pause or close."
       ]
     ],
-    "yoga-class-display": [
-      [
-        "Pick a sequence",
-        "Start from Morning stretch, Desk break or Cool-down stretch, or add your own poses one by one or paste many lines at once."
-      ],
-      [
-        "Set names, cues and seconds",
-        "Each pose has a name, an optional cue such as \"Breathe slowly\" and a hold time in seconds. Move poses up or down to change the order."
-      ],
-      [
-        "Choose the screen",
-        "Set the get ready time, the soft beep, the big countdown and a light or dark screen."
-      ],
-      [
-        "Start the class",
-        "Tap Start class. Each pose shows its name, cue, countdown and the next pose. Use the arrow keys, space bar or buttons to go back, pause or close."
-      ]
-    ],
     "exam-hall-display": [
       [
         "Pick the exam length",
@@ -143,6 +125,24 @@
         "Show it on the screen",
         "Tap Show on screen. The messages loop full screen until you close it."
       ]
+    ],
+    "step-by-step-routine-display": [
+      [
+        "Pick a ready routine or start empty",
+        "Start from Morning stretch, Desk break, Cool-down stretch, Breathing and relaxing, Kids’ morning routine or Classroom stations, or build your own from scratch."
+      ],
+      [
+        "Add steps with pictures or your own",
+        "Add a stretch or exercise from the picture list, or add your own step such as \"Add the flour\" or \"Station 2\". Each step has a name, an optional cue, seconds and an optional picture of your own."
+      ],
+      [
+        "Set the screen",
+        "Choose the get ready time, the soft beep, the big countdown, a light or dark screen and an optional logo in the corner."
+      ],
+      [
+        "Start the routine",
+        "Tap Start routine. Each step shows its name, cue, picture, countdown and the next step. Use the arrow keys, space bar or buttons to go back, pause or close."
+      ]
     ]
   },
   "pageGuides": {
@@ -164,7 +164,7 @@
         ],
         [
           "Does it work on a gym TV, a projector or a phone?",
-          "Yes. Open the page on the device connected to the screen and tap Start timer. It goes fullscreen where the browser allows it, tries to keep the screen awake and uses very large numbers so they can be read from across a room. The beeps need the volume on."
+          "Yes. Open the page on the device connected to the screen and tap Start timer. It goes fullscreen where the browser allows it, tries to keep the screen awake and uses very large numbers so they can be read from across a room. The beeps need the volume on. You can add your gym logo to the corner of the screen."
         ],
         [
           "Why is the screen green and blue?",
@@ -180,47 +180,13 @@
         ]
       ]
     },
-    "screensYogaDisplay": {
-      "title": "Yoga and Stretch Class Display",
-      "subtitle": "Build a yoga or stretching sequence with pose names, cues and hold timers and show it full screen for a class. Ready morning, desk and cool-down sequences.",
-      "faq": [
-        [
-          "Can I use my own poses?",
-          "Yes. Add any pose or stretch by name with a cue and a hold time, or paste a list with one pose per line in the form name, cue, seconds. The ready sequences are only a starting point."
-        ],
-        [
-          "Are there pictures of the poses?",
-          "No. The display shows the pose name, your cue and a large timer, so the teacher leads the pose and the screen keeps the time. This keeps it fast and works for any style of yoga, stretching or mobility class."
-        ],
-        [
-          "Who is this for?",
-          "Yoga teachers, fitness instructors, physiotherapy and wellness classes, school PE and assembly stretch breaks, offices that run a desk stretch break, and anyone doing a home sequence with a laptop or TV."
-        ],
-        [
-          "Can I make a long and a short version?",
-          "Yes. Change the hold time for each pose or remove poses. The total time shows before you start. The page saves your last sequence on this device so you can come back to it."
-        ],
-        [
-          "Does it work on a studio TV or a phone?",
-          "Yes. Open it on the device connected to the screen and tap Start class. It goes fullscreen where the browser allows it and tries to keep the screen awake. Press Escape or Close to leave."
-        ],
-        [
-          "Is this medical advice?",
-          "No. This is general information and not medical advice. Move gently, never force a stretch, and stop if something hurts. If you are pregnant, injured, recovering or have a health condition, check with a doctor or a qualified teacher before you begin."
-        ],
-        [
-          "Is my information uploaded or stored?",
-          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
-        ]
-      ]
-    },
     "screensExamHall": {
       "title": "Exam Hall Display",
       "subtitle": "A free full-screen exam timer for a hall or classroom with a big clock, time left, start and end times, rules and a last-minutes warning. Works on any screen.",
       "faq": [
         [
           "How do I use it in an exam hall?",
-          "Open the page on the computer connected to the projector or TV, choose the length and rules, and tap Start the exam screen. Students see the current time, the time left, when the exam started and ends, and the rules. You can start it with a button or at a set time."
+          "Open the page on the computer connected to the projector or TV, choose the length and rules, and tap Start the exam screen. Students see the current time, the time left, when the exam started and ends, and the rules. You can start it with a button or at a set time. You can add your school or centre logo to the corner of the screen."
         ],
         [
           "What happens near the end?",
@@ -273,8 +239,8 @@
           "Up to 300 items. Choose 3 to 10 items on each screen so the text stays large enough to read from the queue, and the board moves through all of them."
         ],
         [
-          "Is it a replacement for printed menus?",
-          "It works well next to them. A screen is quick to change when a price or a dish changes, and a printed menu stays on the table. Check every price before you put the board on display."
+          "Can I add pictures of dishes or my logo?",
+          "Yes. Each item can have its own small picture, shown beside its name and price, and you can add your shop logo to the corner of the screen. Pictures are shrunk in your browser and kept only on this device. You can use the board with no pictures at all."
         ],
         [
           "Is my information uploaded or stored?",
@@ -292,7 +258,7 @@
         ],
         [
           "Where can I use it?",
-          "Clinics and doctors’ waiting rooms, pharmacies, bank and post office counters, government service desks, repair shops, salons, canteens, passport photo studios, temples and any place with a queue."
+          "Clinics and doctors’ waiting rooms, pharmacies, bank and post office counters, government service desks, repair shops, salons, canteens, passport photo studios, temples and any place with a queue. You can add your clinic or shop logo to the corner of the screen."
         ],
         [
           "Can I use letters and several counters?",
@@ -322,7 +288,7 @@
       "faq": [
         [
           "What is a timings board for?",
-          "It shows the day’s schedule on a screen and highlights what is on now and what is next. It suits a temple or prayer hall, a clinic or office with opening hours, a community hall or society with activities, and an event with a programme."
+          "It shows the day’s schedule on a screen and highlights what is on now and what is next. It suits a temple or prayer hall, a clinic or office with opening hours, a community hall or society with activities, and an event with a programme. You can add a logo to the corner, for example your temple, clinic or society."
         ],
         [
           "Does it update by itself?",
@@ -375,8 +341,8 @@
           "Yes. Tick Shuffle the words and the order changes every time you start. Your list itself is not changed."
         ],
         [
-          "Is it a replacement for a test?",
-          "It is a classroom game and practice tool. For graded questions with options and answers use the Classroom Quiz Display."
+          "Can I add pictures to the words?",
+          "Yes. Each word can have a picture clue, for example a photo of an animal or an object. In Spell it the picture shows with the clue, and the word is revealed under it. You can also add your school logo to the corner of the screen."
         ],
         [
           "Is my information uploaded or stored?",
@@ -397,8 +363,8 @@
           "Office reception and break rooms, school entrances and staff rooms, shops, clinics, community halls, societies, hostels, events and family celebrations on a TV."
         ],
         [
-          "Can I add a picture?",
-          "Yes. Add a picture to any message, for example a photo of the birthday person or a logo. The picture is shrunk in your browser and shown above the heading."
+          "Can I add pictures and videos?",
+          "Yes. Each message can have a picture, such as a photo of the birthday person or a logo, or a short video that plays muted and loops during that message. You can also add a logo to the corner of the screen. Pictures are kept in your browser. A video comes from your device and is not uploaded, but it is not kept when you reload the page, so add it again next time."
         ],
         [
           "Does it loop?",
@@ -411,6 +377,40 @@
         [
           "How many messages can I add?",
           "Up to 300. A short loop of five to ten messages works best for a screen that people pass quickly."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensRoutineDisplay": {
+      "title": "Step-by-Step Routine Display",
+      "subtitle": "A free full-screen routine timer for any step-by-step activity. Stretches come with pictures; add your own steps, cues, pictures and times for anything else.",
+      "faq": [
+        [
+          "What can I use it for?",
+          "Any activity that is a list of steps with a time on each: a stretch or yoga sequence, a warm-up or cool-down, a home exercise routine, a breathing or relaxation break, a classroom station rotation, a kids’ morning routine, recipe or cooking steps, a lab procedure, a workshop or shop checklist and a presentation practice run."
+        ],
+        [
+          "Does it have pictures?",
+          "Yes for stretches and exercises. The list has 182 exercises and stretches, 64 of them stretches, each with two pictures that fade into each other. These come from the free-exercise-db project, which is in the public domain. There are no yoga pose pictures, because we did not find a yoga picture set that is clearly free to use, but you can add your own picture to any step."
+        ],
+        [
+          "Can I add my own pictures to steps?",
+          "Yes. Every step can have a picture of your own, for example a photo of a pose, a diagram, a product or a step in a recipe. The picture is shrunk in your browser and shown above the step name."
+        ],
+        [
+          "Can I use it for yoga?",
+          "Yes. Type the pose names and cues, set the hold time and add your own pose photos or leave them out. The ready stretch sequences are a good start for gentle mobility work. For yoga classes the screen keeps the time and the teacher leads the pose."
+        ],
+        [
+          "Can I paste a list of steps?",
+          "Yes. Choose Paste many at once and put one step per line in the form name, cue, seconds. The cue and seconds are optional."
+        ],
+        [
+          "Is this medical advice?",
+          "No. For exercises and stretches this is general information and not medical advice. Move gently, never force a stretch, and stop if something hurts. If you are pregnant, injured, recovering or have a health condition, check with a doctor or a qualified teacher first."
         ],
         [
           "Is my information uploaded or stored?",
@@ -441,31 +441,6 @@
           "paragraphs": [
             "Teachers use work and rest rounds for station activities, spelling practice and quick group tasks. Students use 25 minute study sprints with 5 minute breaks. Musicians use them for practice blocks, and cooks for timed steps.",
             "This page gives general information and not medical advice. Warm up, pick times that suit your level and stop if something hurts."
-          ]
-        }
-      ]
-    },
-    "yoga-class-display": {
-      "sections": [
-        {
-          "heading": "A sequence the whole class can follow",
-          "paragraphs": [
-            "A class runs more smoothly when the teacher can focus on the students and not on a clock. This display shows the current pose in large text, the cue you wrote, a countdown for the hold and the name of the next pose, so students know what is coming.",
-            "You can build a sequence in a minute: start from a ready one, change the order, edit the cues and set the seconds for each pose."
-          ]
-        },
-        {
-          "heading": "Where it helps",
-          "paragraphs": [
-            "Yoga studios and community classes can put it on a TV or projector. Schools can use a stretch break between lessons. Offices can run a five minute desk break on a shared screen. Physiotherapy and wellness groups can show a home exercise sequence at a steady pace.",
-            "Morning stretch, Desk break and Cool-down stretch are included as examples of gentle sequences. Replace the poses and cues with your own to match your class."
-          ]
-        },
-        {
-          "heading": "Keeping it safe and calm",
-          "paragraphs": [
-            "Use a soft beep or no sound for a quiet class, and a light screen for a bright room. Leave enough time between poses and keep holds comfortable.",
-            "This page gives general information and not medical advice. Teach within your training and stop if something hurts."
           ]
         }
       ]
@@ -616,6 +591,31 @@
           "paragraphs": [
             "Offices and shops use it for reception and break rooms. Schools use it at the entrance and in the staff room. Families use it on a TV for a birthday or an anniversary party.",
             "Your messages and pictures are saved in your browser. If the browser is full, pictures may not be kept, so keep a copy of important ones."
+          ]
+        }
+      ]
+    },
+    "step-by-step-routine-display": {
+      "sections": [
+        {
+          "heading": "Any routine, one step at a time",
+          "paragraphs": [
+            "A routine is easier to follow when the screen shows the current step, how long is left and what comes next. This display does exactly that for any list of steps: a morning stretch, a desk break, a class station rotation, a recipe or a workshop procedure.",
+            "You can start from a ready routine or build your own in a minute: type the step names, write a cue if you like, set the seconds and add a picture where it helps."
+          ]
+        },
+        {
+          "heading": "Pictures from a free exercise list",
+          "paragraphs": [
+            "Stretches and exercises can be added from a list of 182 entries, each with two pictures that fade into each other so people can see the movement. The list has 64 stretches, including neck, shoulder, back, hip, hamstring and calf stretches, chair stretches for a desk break and floor stretches for a cool-down.",
+            "The pictures come from the free-exercise-db project and are in the public domain. For anything not in the list, such as a yoga pose, a kitchen step or a lab setup, add a picture of your own or show the step without one."
+          ]
+        },
+        {
+          "heading": "Where it helps",
+          "paragraphs": [
+            "Teachers use it for station rotations and brain breaks, yoga and fitness instructors for a class on a studio TV, offices for a five minute stretch break, parents for a kids’ morning routine, and cooks and workshops for timed steps.",
+            "This page gives general information and not medical advice. Warm up, move gently and stop if something hurts."
           ]
         }
       ]

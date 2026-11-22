@@ -11,11 +11,13 @@ interface Props {
   /** Called for keys other than Escape, so each tool can add its own. */
   onKey?: (event: KeyboardEvent) => void;
   onScreenClick?: () => void;
+  /** An optional logo or picture (a data URL) shown small in the bottom left corner. */
+  logo?: string;
   children: React.ReactNode;
 }
 
 /** Full-screen layer for a classroom monitor, gym TV or shop screen: asks for full screen, keeps the screen awake, closes on Escape, hides its buttons when idle. */
-export const ScreenShell: React.FC<Props> = ({ surface, label, onClose, bar, onKey, onScreenClick, children }) => {
+export const ScreenShell: React.FC<Props> = ({ surface, label, onClose, bar, onKey, onScreenClick, logo, children }) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [controls, setControls] = useState(true);
   const hideTimer = useRef<number | undefined>(undefined);
@@ -72,7 +74,9 @@ export const ScreenShell: React.FC<Props> = ({ surface, label, onClose, bar, onK
       className={`fixed inset-0 z-[100] flex flex-col ${surface} ${onScreenClick ? 'cursor-pointer' : ''}`}
     >
       <div className="flex min-h-0 flex-1 flex-col">{children}</div>
-      <div className={`flex flex-wrap items-center justify-center gap-3 px-4 pb-5 transition-opacity duration-500 ${controls ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
+      {logo && <img src={logo} alt="" className="pointer-events-none absolute bottom-3 left-3 z-10 max-h-[9vh] max-w-[24vw] rounded-lg bg-white object-contain p-1 shadow" />}
+      {/* On a phone the browser shows its own "full screen" message along the bottom for several seconds, so the buttons sit at the top there. */}
+      <div className={`order-first flex flex-wrap items-center justify-center gap-3 px-4 pt-3 transition-opacity duration-500 sm:order-last sm:pb-5 sm:pt-0 ${controls ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
         {bar}
         <button type="button" aria-label="Close" onClick={onClose} className="ml-2 flex h-12 items-center gap-1.5 rounded-full bg-black/20 px-4 text-sm font-bold hover:bg-black/30"><X className="h-4 w-4" aria-hidden="true" />Close</button>
       </div>

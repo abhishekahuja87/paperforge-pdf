@@ -4,12 +4,13 @@ import { calcCard, Note } from '../../finance/ui';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';
 import { buildIntervalSlides, clampInt, formatDuration, totalSeconds, type IntervalConfig } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
+import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { TimedPlayer } from './TimedPlayer';
 import { CHECK, FIELD, LABEL, ORANGE } from './ui';
 
-interface Settings { prepare: number; work: number; rest: number; rounds: number; sets: number; setRest: number; names: string; sound: boolean; timer: boolean }
-const DEFAULTS: Settings = { prepare: 10, work: 40, rest: 20, rounds: 8, sets: 1, setRest: 60, names: '', sound: true, timer: true };
+interface Settings { prepare: number; work: number; rest: number; rounds: number; sets: number; setRest: number; names: string; sound: boolean; timer: boolean; logo: string }
+const DEFAULTS: Settings = { prepare: 10, work: 40, rest: 20, rounds: 8, sets: 1, setRest: 60, names: '', sound: true, timer: true, logo: '' };
 
 const PRESETS: Array<Preset & { values: Partial<Settings> }> = [
   { id: 'tabata', label: 'Tabata', blurb: '20 seconds work, 10 seconds rest, 8 rounds.', values: { work: 20, rest: 10, rounds: 8, sets: 1 } },
@@ -22,7 +23,7 @@ const PRESETS: Array<Preset & { values: Partial<Settings> }> = [
 
 const readSettings = (value: unknown): Settings | null => (isRecord(value) ? {
   prepare: num(value.prepare, DEFAULTS.prepare), work: num(value.work, DEFAULTS.work), rest: num(value.rest, DEFAULTS.rest), rounds: num(value.rounds, DEFAULTS.rounds), sets: num(value.sets, DEFAULTS.sets),
-  setRest: num(value.setRest, DEFAULTS.setRest), names: str(value.names), sound: bool(value.sound, true), timer: bool(value.timer, true),
+  setRest: num(value.setRest, DEFAULTS.setRest), names: str(value.names), sound: bool(value.sound, true), timer: bool(value.timer, true), logo: str(value.logo),
 } : null);
 
 export const IntervalTimer: React.FC = () => {
@@ -63,11 +64,12 @@ export const IntervalTimer: React.FC = () => {
           <label className={CHECK}><input type="checkbox" checked={s.sound} onChange={(event) => set('sound', event.target.checked)} className="h-4 w-4 accent-orange-700" />Beep for the last 3 seconds and at each change</label>
           <label className={CHECK}><input type="checkbox" checked={s.timer} onChange={(event) => set('timer', event.target.checked)} className="h-4 w-4 accent-orange-700" />Show the big countdown</label>
         </div>
+        <LogoField logo={s.logo} onChange={(logo) => set('logo', logo)} label="Logo or picture in the corner (optional, for example your gym)" />
         <p className="text-sm font-semibold text-stone-800">{config.rounds * config.sets} work rounds, about {formatDuration(totalSeconds(slides))} in all.</p>
         <button type="button" onClick={() => setPlaying(true)} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Start timer</button>
         <Note>Green is work, blue is rest. Your settings are saved only in this browser. The timer fills the screen and tries to keep it awake; the sound needs the volume on. Use the arrow keys, space bar or the buttons to skip, pause and close. Exercise at a level that suits you and stop if something hurts.</Note>
       </section>
-      {playing && <TimedPlayer slides={slides} label="Interval timer" showTimer={s.timer} sound={s.sound} light={false} onClose={close} />}
+      {playing && <TimedPlayer slides={slides} label="Interval timer" showTimer={s.timer} sound={s.sound} light={false} logo={s.logo || undefined} onClose={close} />}
     </div>
   );
 };

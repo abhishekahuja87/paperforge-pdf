@@ -227,10 +227,10 @@ export const HUBS: Hub[] = [
         'Add PDFs, Word files and pictures, put the slides in your order, set how long each one stays, choose fade or zoom, and play them fullscreen on a TV, a kiosk or a screen at the counter. You can loop or shuffle the slides and show a clock and the date while the screen stays awake.',
       ] },
       { heading: 'Good to know', paragraphs: [
-        'Other tools here put your own text on a big screen. Show a menu or price list in a shop, call queue numbers in a clinic, run an exam hall clock, time Tabata or circuit rounds in a gym, lead a yoga sequence, show temple or hall timings that highlight what is on now, play a spelling bee, or rotate notices and birthday wishes. Everything runs in your browser. What you type is kept on your device and is not uploaded to MyDailyUtils.',
+        'Other tools here put your own text on a big screen. Show a menu or price list in a shop, call queue numbers in a clinic, run an exam hall clock, time Tabata or circuit rounds in a gym, lead a timed routine with pictures, show temple or hall timings that highlight what is on now, play a spelling bee, or rotate notices and birthday wishes. Everything runs in your browser. What you type is kept on your device and is not uploaded to MyDailyUtils.',
       ] },
       { heading: 'Ideas for who uses it', paragraphs: [
-        'Shops and cafes use the menu board. Clinics, pharmacies and service counters use the queue token screen. Teachers and tuition centres use the exam hall display, the spelling bee and the Classroom Quiz Display. Gyms, yoga teachers and schools use the interval timer and the yoga display. Temples, societies and offices use the timings board and the notice board.',
+        'Shops and cafes use the menu board. Clinics, pharmacies and service counters use the queue token screen. Teachers and tuition centres use the exam hall display, the spelling bee and the Classroom Quiz Display. Gyms, yoga teachers and schools use the interval timer and the routine display. Temples, societies and offices use the timings board and the notice board.',
       ] },
     ],
   },

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react';
 import { EXERCISES, GROUPS, imageUrl } from '../../../lib/fitness/exercises';
 import { BLOCKS, buildSlides, formatClock, formatPlanDate, type Slide, type Timing, type WorkoutPlan } from '../../../lib/fitness/workout';
+import { FLIP_CSS } from '../shared/flipCss';
 
 export interface ShowOptions {
   date: boolean;
@@ -20,13 +21,6 @@ export const DEFAULT_SHOW: ShowOptions = { date: true, title: true, place: true,
 const BY_ID = new Map(EXERCISES.map((exercise) => [exercise.id, exercise]));
 const GROUP_LABEL = new Map(GROUPS.map((group) => [group.id, group.label]));
 const blockLabel = (id: string): string => BLOCKS.find((block) => block.id === id)?.label ?? '';
-
-/** Two photos per exercise fade into each other, like the Exercise Library. Still start photo when the device asks for reduced motion. */
-export const FLIP_CSS = `
-.mdu-wk-b { animation: mdu-wk-fade 3s ease-in-out infinite; }
-@keyframes mdu-wk-fade { 0%, 30% { opacity: 0; } 50%, 80% { opacity: 1; } 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .mdu-wk-b { animation: none; opacity: 0; } }
-`;
 
 interface Props { plan: WorkoutPlan; timing: Timing; show: ShowOptions; onClose: () => void }
 
@@ -211,7 +205,7 @@ export const WorkoutPlayer: React.FC<Props> = ({ plan, timing, show, onClose }) 
       <div className={`h-1.5 w-full ${dark ? 'bg-white/10' : 'bg-stone-200'}`}><div className="h-full bg-orange-500 transition-[width] duration-300" style={{ width: `${progress}%` }} /></div>
       {header.length > 0 && slide.kind !== 'intro' && <p className={`px-5 pt-3 text-xs font-semibold sm:text-sm ${muted}`}>{header.join('  ·  ')}</p>}
       <div className={`flex min-h-0 flex-1 flex-col px-5 py-4 sm:px-10 ${slide.kind === 'exercise' ? 'overflow-hidden lg:overflow-y-auto' : 'overflow-y-auto'}`}>{renderBody()}</div>
-      <div className={`flex items-center justify-center gap-3 px-4 pb-5 transition-opacity duration-500 ${controls ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
+      <div className={`order-first flex items-center justify-center gap-3 px-4 pt-3 transition-opacity duration-500 sm:order-last sm:pb-5 sm:pt-0 ${controls ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
         <button type="button" aria-label="Previous" onClick={() => go(index - 1)} disabled={index === 0} className={`flex h-12 w-12 items-center justify-center rounded-full ${dark ? 'bg-white/10 hover:bg-white/20' : 'bg-stone-100 hover:bg-stone-200'} disabled:opacity-40`}><ChevronLeft className="h-6 w-6" aria-hidden="true" /></button>
         <button type="button" aria-label={paused ? 'Resume' : 'Pause'} onClick={() => setPaused((value) => !value)} className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-700 text-white hover:bg-orange-800">{paused ? <Play className="h-6 w-6" aria-hidden="true" /> : <Pause className="h-6 w-6" aria-hidden="true" />}</button>
         <button type="button" aria-label="Next" onClick={() => go(index + 1)} disabled={index >= slides.length - 1} className={`flex h-12 w-12 items-center justify-center rounded-full ${dark ? 'bg-white/10 hover:bg-white/20' : 'bg-stone-100 hover:bg-stone-200'} disabled:opacity-40`}><ChevronRight className="h-6 w-6" aria-hidden="true" /></button>
