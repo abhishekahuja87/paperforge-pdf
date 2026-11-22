@@ -1,0 +1,393 @@
+{
+  "guideSteps": {
+    "resize-pdf-page-size": [
+      [
+        "Choose the PDF",
+        "Open the PDF you want to change. It can be any size and any number of pages."
+      ],
+      [
+        "Pick the paper",
+        "Choose A4, A3, A5, A6, Letter, Legal or Tabloid, and whether pages stay portrait or landscape as they are."
+      ],
+      [
+        "Choose the fit",
+        "Fit shows the whole page, Fill covers the sheet and may trim the edges, Stretch fills the sheet exactly. Add a margin if you need one."
+      ],
+      [
+        "Resize and save",
+        "Tap Resize PDF, then Save PDF. Text and pictures stay sharp."
+      ]
+    ],
+    "pdf-booklet-maker": [
+      [
+        "Choose the PDF",
+        "Open the PDF to turn into a booklet. Blank pages are added at the end if needed."
+      ],
+      [
+        "Pick the paper",
+        "Choose the paper you will print on, such as A4 or Letter. The booklet is half that size when folded."
+      ],
+      [
+        "Check the order",
+        "The list shows which pages go on the front and back of each sheet. Choose right-to-left for Urdu or Arabic books."
+      ],
+      [
+        "Make and print",
+        "Tap Make booklet and Save PDF. Print double-sided, flip on the short edge, at 100%, then fold and staple."
+      ]
+    ],
+    "grayscale-pdf": [
+      [
+        "Choose the PDF",
+        "Open the colour PDF. A page count and size are shown."
+      ],
+      [
+        "Pick the colours",
+        "Choose Shades of grey for photos and mixed pages, or Black and white only for text pages and drawings."
+      ],
+      [
+        "Pick the quality",
+        "Smaller file, Balanced or Sharper. Higher quality looks better but makes a bigger file."
+      ],
+      [
+        "Convert and save",
+        "Tap Convert, then Save PDF. Note that the text becomes part of the picture and cannot be selected."
+      ]
+    ],
+    "extract-images-from-pdf": [
+      [
+        "Choose the PDF",
+        "Open the PDF that has the pictures you want."
+      ],
+      [
+        "Choose what to include",
+        "Every picture, skip tiny icons, or only large pictures."
+      ],
+      [
+        "Look at the preview",
+        "Tap Find pictures. A preview shows what was found and how many."
+      ],
+      [
+        "Save the ZIP",
+        "Tap Save all pictures as ZIP. Photos keep their original JPG quality."
+      ]
+    ],
+    "audio-cutter-and-joiner": [
+      [
+        "Add your audio",
+        "Choose one or more files: MP3, M4A, WAV, OGG or a voice note. Put them in the order you want."
+      ],
+      [
+        "Choose the part",
+        "Move the start and end sliders or type exact times. The wave shows what you keep."
+      ],
+      [
+        "Add fades",
+        "Choose a fade in and out, or make it as loud as possible. Tap Play to listen."
+      ],
+      [
+        "Save",
+        "Tap Cut audio, then Save WAV."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "resizePdfPageSizeGuide": {
+      "title": "Resize PDF Page Size Online: Make Any PDF A4, Letter or A5, Free",
+      "subtitle": "Change the paper size of every page in a PDF. Fit, fill or stretch, with a margin. Free, no sign-up, no page limit. Nothing is uploaded.",
+      "faq": [
+        [
+          "What does Resize PDF Page Size do?",
+          "It redraws every page on a sheet of the paper size you choose, such as A4 or Letter, so the whole file has one standard size."
+        ],
+        [
+          "Will the text become blurry?",
+          "No. Pages are placed on the new sheet as they are, not turned into pictures, so text stays sharp and can still be selected."
+        ],
+        [
+          "Which option should I choose: Fit, Fill or Stretch?",
+          "Fit keeps the whole page and may leave empty space at the sides. Fill covers the whole sheet and may trim the edges. Stretch fills the sheet exactly but can make the page look squeezed. Fit is the safe choice."
+        ],
+        [
+          "What happens to a landscape page?",
+          "With Keep each page as it is, a wide page goes on a landscape sheet and a tall page on a portrait sheet. You can also force every page to portrait or landscape."
+        ],
+        [
+          "Can I make a PDF smaller in file size with this?",
+          "No. Changing the paper size does not change how big the file is. Use Compress PDF for that."
+        ],
+        [
+          "Can I add a margin?",
+          "Yes. Set a margin in millimetres and the page is placed inside it, which helps when a printer cuts off the edges."
+        ],
+        [
+          "Is my file uploaded anywhere?",
+          "No. Resize PDF Page Size runs in your browser on your own device, so your file is not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "pdfBookletMakerGuide": {
+      "title": "PDF Booklet Maker Online: Print and Fold a Booklet, Free and Private",
+      "subtitle": "Arrange a PDF into booklet order, two pages to a sheet, then print double-sided and fold. Free, no sign-up, no page limit. Nothing is uploaded.",
+      "faq": [
+        [
+          "What does the booklet maker do?",
+          "It reorders the pages and puts two on each landscape sheet, so that after printing on both sides and folding in half, the pages read in the right order."
+        ],
+        [
+          "How do I print the booklet?",
+          "Print on both sides of the paper and flip on the short edge. Print at 100% or Actual size, not Fit to page. Then fold the stack in half and staple along the fold."
+        ],
+        [
+          "How many pages can a booklet have?",
+          "Any number, but the count is rounded up to a multiple of 4 because each sheet holds four pages. Blank pages are added at the end. Very thick booklets do not fold well, so 40 pages or fewer is practical."
+        ],
+        [
+          "Which paper should I choose?",
+          "Choose the paper in your printer. A4 sheets make an A5 booklet, and Letter sheets make a half-letter booklet."
+        ],
+        [
+          "My printer cannot print on both sides. What can I do?",
+          "Print the odd-numbered pages first, put the stack back in the printer the right way round, then print the even pages. Test with a 4-page file first."
+        ],
+        [
+          "Does it work for right-to-left books?",
+          "Yes. Turn on Right-to-left book so the cover is on the other side."
+        ],
+        [
+          "Is my file uploaded anywhere?",
+          "No. The booklet maker runs in your browser on your own device, so your file is not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "grayscalePdfGuide": {
+      "title": "Grayscale PDF Online: Convert to Black and White for Printing, Free and Private",
+      "subtitle": "Convert a colour PDF to greys or black and white to save ink. Free, no sign-up, no page limit. Nothing is uploaded.",
+      "faq": [
+        [
+          "What does Grayscale PDF do?",
+          "It removes the colour from every page, either leaving shades of grey or making it pure black and white, so the file prints without colour ink."
+        ],
+        [
+          "Can I still select the text afterwards?",
+          "No. Each page is redrawn as a picture, so the text can no longer be selected or searched. Keep your original file if you need that."
+        ],
+        [
+          "Grey or black and white: which is better?",
+          "Shades of grey keeps photos and shading. Black and white only is best for text pages and line drawings, and looks cleaner when photocopied, but photos will look harsh."
+        ],
+        [
+          "Will the file be bigger or smaller?",
+          "It depends on the quality you choose and the original. A text PDF can become larger because it turns into pictures. Use Compress PDF afterwards if size matters."
+        ],
+        [
+          "What quality should I choose?",
+          "Balanced is fine for reading and printing. Choose Sharper for small text or fine drawings, and Smaller file for a quick copy."
+        ],
+        [
+          "Does it work on scanned PDFs?",
+          "Yes. A scan is already a picture, so it simply loses its colour."
+        ],
+        [
+          "Is my file uploaded anywhere?",
+          "No. Grayscale PDF runs in your browser on your own device, so your file is not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "extractImagesFromPdfGuide": {
+      "title": "Extract Images from PDF Online: Save the Original Pictures, Free and Private",
+      "subtitle": "Pull the photos and pictures out of a PDF at their original quality and save them as one ZIP. Free, no sign-up, no limit. Nothing is uploaded.",
+      "faq": [
+        [
+          "What does it extract?",
+          "It saves the pictures stored inside the PDF, such as photos and logos, exactly as they were put there, without taking a screenshot of the page."
+        ],
+        [
+          "Is the quality kept?",
+          "Yes. Photos stored as JPG are saved untouched. Other pictures are saved as PNG."
+        ],
+        [
+          "Why did it find no pictures?",
+          "Some PDFs draw their pictures in ways this tool cannot read, and some pages are drawings, not pictures. If a page is a scan, use PDF to Images to save the whole page."
+        ],
+        [
+          "What about a scanned PDF?",
+          "A scan usually holds one picture per page, so each page can be extracted. Pages scanned in black and white with special compression may not be readable."
+        ],
+        [
+          "Does it extract text or drawings?",
+          "No. Use Extract Text for text, and PDF to Images to save a page as it looks."
+        ],
+        [
+          "Why were some pictures skipped?",
+          "Pictures that use masks, CMYK colours or unusual compression cannot be read and are left out. The count is shown."
+        ],
+        [
+          "Is my file uploaded anywhere?",
+          "No. Extract Images from PDF runs in your browser on your own device, so your file is not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "audioCutterAndJoinerGuide": {
+      "title": "Audio Cutter and Joiner Online: Trim and Merge Audio, Free and Private",
+      "subtitle": "Trim an audio file, join several into one, add fades and save as WAV. Free, no sign-up, no limits. Your audio is not uploaded.",
+      "faq": [
+        [
+          "What can I do with it?",
+          "Cut a part out of a recording, join several recordings into one, and add a fade in and fade out. For example, trim a voice note or make a ringtone."
+        ],
+        [
+          "Which files can I open?",
+          "Most audio files your browser can play, such as MP3, M4A, WAV, OGG, AAC and voice notes. If a file cannot be read, try another format."
+        ],
+        [
+          "Why is the result a WAV file?",
+          "WAV plays everywhere and keeps full quality, but it is larger than MP3: about 10 MB for each minute. It is saved in your browser, which cannot make MP3 files without extra software."
+        ],
+        [
+          "Can I use the result as a phone ringtone?",
+          "Most phones accept WAV or need MP3 or M4A for ringtones. If yours does not take WAV, convert the saved file with your phone's own tools."
+        ],
+        [
+          "How long can the audio be?",
+          "Up to 30 minutes in total, because the sound is held in your device's memory while you work."
+        ],
+        [
+          "Is there a way to listen before I save?",
+          "Yes. Tap Play the part you keep to hear it, including the fades, before you make the file."
+        ],
+        [
+          "Is my file uploaded anywhere?",
+          "No. The audio cutter runs in your browser on your own device, so your file is not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "resize-pdf-page-size": {
+      "sections": [
+        {
+          "heading": "What Resize PDF Page Size is",
+          "paragraphs": [
+            "Resize PDF Page Size puts every page of a PDF onto the same paper size, such as A4 or US Letter. It is useful when a file has mixed sizes, was made for another country, or must match a form or a printer.",
+            "Pages are placed onto the new sheet as they are, so text stays sharp and selectable."
+          ]
+        },
+        {
+          "heading": "Fit, fill or stretch",
+          "paragraphs": [
+            "Fit shows the whole page inside the new sheet. Fill covers the sheet and trims whatever does not fit. Stretch makes the page match the sheet exactly, which can distort it.",
+            "You can keep each page portrait or landscape as it is, or make all pages the same way up, and add a margin so a printer does not cut anything off."
+          ]
+        },
+        {
+          "heading": "Private and without limits",
+          "paragraphs": [
+            "The file is read and changed on your own device. Nothing is uploaded, and there is no limit on pages or file size set by this site, only by your device's memory.",
+            "If a page was rotated in the original file, it is placed upright on the new sheet."
+          ]
+        }
+      ]
+    },
+    "pdf-booklet-maker": {
+      "sections": [
+        {
+          "heading": "What the booklet maker does",
+          "paragraphs": [
+            "A booklet is made by folding sheets in half, so pages cannot be printed in their normal order. The first and last pages share a sheet, then the second and second-to-last, and so on.",
+            "This tool works that order out for you and lays two pages on each landscape sheet."
+          ]
+        },
+        {
+          "heading": "Printing it right",
+          "paragraphs": [
+            "Choose double-sided printing and flip on the short edge. Print at actual size so the pages are not shrunk again. After printing, fold the whole stack in half and staple along the fold.",
+            "The page list shows what is on every printed side, so you can check the order before you print."
+          ]
+        },
+        {
+          "heading": "Private, with no limits",
+          "paragraphs": [
+            "The PDF is read and arranged on your own device and is never uploaded. This site sets no limit on pages or file size.",
+            "Pages are placed as they are, so text stays sharp. Rotated pages are turned upright."
+          ]
+        }
+      ]
+    },
+    "grayscale-pdf": {
+      "sections": [
+        {
+          "heading": "What Grayscale PDF does",
+          "paragraphs": [
+            "Grayscale PDF converts a colour document to shades of grey, or to pure black and white. It is useful before printing, so you do not use colour ink for pages that do not need it.",
+            "You choose the quality, and every page is processed one by one on your device."
+          ]
+        },
+        {
+          "heading": "Know the trade-off",
+          "paragraphs": [
+            "To remove the colour reliably, each page is drawn as a picture and saved back into a new PDF. That means the text can no longer be selected or searched.",
+            "For that reason, keep your original file. Use this copy for printing or sharing, not for editing."
+          ]
+        },
+        {
+          "heading": "Private, with no limits",
+          "paragraphs": [
+            "The conversion happens in your browser. Your PDF is not uploaded, and this site sets no limit on pages or file size.",
+            "Very long files take time because each page is redrawn, so a progress count is shown."
+          ]
+        }
+      ]
+    },
+    "extract-images-from-pdf": {
+      "sections": [
+        {
+          "heading": "What Extract Images does",
+          "paragraphs": [
+            "A PDF stores its photos and pictures inside the file. This tool finds them and saves each one separately, at the quality it has in the PDF, instead of making a lower-quality screenshot of a page.",
+            "Everything is collected into a single ZIP."
+          ]
+        },
+        {
+          "heading": "What you get",
+          "paragraphs": [
+            "Photos stored as JPG are copied out untouched. Other pictures are saved as PNG, and transparent areas stay transparent where the PDF has them.",
+            "You can skip tiny icons and bullets, and a preview shows the first pictures before you save."
+          ]
+        },
+        {
+          "heading": "Private, with no limits",
+          "paragraphs": [
+            "The PDF is read on your own device and is never uploaded. This site sets no limit on pages or file size.",
+            "Pictures that need unusual handling are counted and left out, so you know if something was missed."
+          ]
+        }
+      ]
+    },
+    "audio-cutter-and-joiner": {
+      "sections": [
+        {
+          "heading": "What the audio cutter does",
+          "paragraphs": [
+            "Audio Cutter and Joiner lets you trim a recording to the part you want and join several recordings one after another. A picture of the sound wave shows what you are keeping.",
+            "Add a fade in and fade out so the start and end do not sound abrupt, or raise the volume as far as it can go without distortion."
+          ]
+        },
+        {
+          "heading": "Listen, then save",
+          "paragraphs": [
+            "Play the part you keep, with the fades, before saving. Change the start and end with the sliders or by typing exact times such as 1:02.5.",
+            "The result is saved as a WAV file, which keeps full quality and plays on every device."
+          ]
+        },
+        {
+          "heading": "Private, with no upload",
+          "paragraphs": [
+            "Your audio is decoded and edited on your own device and is never uploaded, so private voice notes and recordings stay with you.",
+            "Because everything is held in memory while you work, the total length is limited to 30 minutes."
+          ]
+        }
+      ]
+    }
+  }
+}
