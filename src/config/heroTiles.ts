@@ -12,19 +12,19 @@ export interface HeroTile {
 
 export const HERO_TILES: HeroTile[] = [
   { collection: 'pdf', label: 'PDF tools', to: '/pdf-tools', icon: 'file' },
-  { collection: 'images', label: 'Photo and images', to: '/photo-and-image-tools', icon: 'image' },
-  { collection: 'tax', label: 'Tax and salary', to: '/tax-and-salary-calculators', icon: 'receipt' },
-  { collection: 'invest', label: 'Loans and investing', to: '/loan-and-investment-calculators', icon: 'trend' },
+  { collection: 'images', label: 'Photo and image tools', to: '/photo-and-image-tools', icon: 'image' },
+  { collection: 'tax', label: 'Tax and salary calculators', to: '/tax-and-salary-calculators', icon: 'receipt' },
+  { collection: 'invest', label: 'Loan and investment calculators', to: '/loan-and-investment-calculators', icon: 'trend' },
   { collection: 'everyday', label: 'Everyday tools', to: '/everyday-tools', icon: 'calculator' },
-  { collection: 'sharing', label: 'QR and sharing', to: '/qr-and-sharing-tools', icon: 'share' },
-  { collection: 'printables', label: 'Printables', to: '/printables-and-templates', icon: 'print' },
-  { collection: 'work', label: 'Jobs and business', to: '/jobs-and-business-tools', icon: 'briefcase' },
-  { collection: 'study', label: 'Students', to: '/student-and-writing-tools', icon: 'school' },
-  { collection: 'kids', label: 'Kids learning', to: '/kids-learning-tools', icon: 'kids' },
-  { collection: 'sports', label: 'Sports and fitness', to: '/sports-and-fitness-tools', icon: 'sport' },
-  { collection: 'media', label: 'Audio and video', to: '/audio-and-video-tools', icon: 'audio' },
-  { collection: 'dev', label: 'Developer tools', to: '/developer-and-data-tools', icon: 'code' },
-  { collection: 'present', label: 'Display and slides', to: '/display-and-presentation-tools', icon: 'display' },
+  { collection: 'sharing', label: 'QR and sharing tools', to: '/qr-and-sharing-tools', icon: 'share' },
+  { collection: 'printables', label: 'Printables and templates', to: '/printables-and-templates', icon: 'print' },
+  { collection: 'work', label: 'Jobs and business tools', to: '/jobs-and-business-tools', icon: 'briefcase' },
+  { collection: 'study', label: 'Student and writing tools', to: '/student-and-writing-tools', icon: 'school' },
+  { collection: 'kids', label: 'Kids learning tools', to: '/kids-learning-tools', icon: 'kids' },
+  { collection: 'sports', label: 'Sports and fitness tools', to: '/sports-and-fitness-tools', icon: 'sport' },
+  { collection: 'media', label: 'Audio and video tools', to: '/audio-and-video-tools', icon: 'audio' },
+  { collection: 'dev', label: 'Developer and data tools', to: '/developer-and-data-tools', icon: 'code' },
+  { collection: 'present', label: 'Display and presentation tools', to: '/display-and-presentation-tools', icon: 'display' },
 ];
 
 /** The small tags above the headline. All of them are true for every tool and are explained on /free-no-limits. */

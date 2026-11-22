@@ -270,3 +270,25 @@ Two kids pages (`addition-with-carrying-for-kids`, `subtraction-with-borrowing-f
 ## Parked ideas (not started)
 - Offline client-side DICOM viewer (discussed 22 Nov). v1 scope: uncompressed, RLE and baseline JPEG; series list, scroll, window/level, zoom, PNG/PDF export, anonymise; lossless JPEG and JPEG 2000 later; no 3D/MPR. Needs sample scans to test compressed formats; clear "not for diagnosis" note; no medical interpretation in guide text. Awaiting scope, sample files and placement.
 - Edit PDF (add text, highlight, draw, shapes), the biggest paid-elsewhere gap.
+
+## Sections: final names and addresses (22 Nov)
+Each section has one name, used on the home page, the Browse tiles, the header menu, the footer and its own page. The addresses are already public, so they do not change; new tools go into one of these sections. Names live in `src/locales/en.json` (`homeCollections.<id>.name`), addresses in `src/content/hubs.ts`, tiles in `src/config/heroTiles.ts`.
+
+| Id | Name | Address |
+|---|---|---|
+| pdf | PDF tools | /pdf-tools |
+| images | Photo and image tools | /photo-and-image-tools |
+| tax | Tax and salary calculators | /tax-and-salary-calculators |
+| invest | Loan and investment calculators | /loan-and-investment-calculators |
+| everyday | Everyday tools | /everyday-tools |
+| sharing | QR and sharing tools | /qr-and-sharing-tools |
+| printables | Printables and templates | /printables-and-templates |
+| work | Jobs and business tools | /jobs-and-business-tools |
+| study | Student and writing tools | /student-and-writing-tools |
+| kids | Kids learning tools | /kids-learning-tools |
+| sports | Sports and fitness tools | /sports-and-fitness-tools |
+| media | Audio and video tools | /audio-and-video-tools |
+| dev | Developer and data tools | /developer-and-data-tools |
+| present | Display and presentation tools | /display-and-presentation-tools |
+
+Where tools go: PDF files, PDF tools. Photos, image tools. Tax, pay, GST, EPF, tax calculators. Loans, savings, investing. Calculators and quick helpers (dates, units, pickers, team makers), everyday. QR, barcodes, links and private sharing, sharing. Paper sheets and household records, printables. Business documents, registers and shop items, jobs and business. School tools and sheets, students. Games and learning for children, kids. Gym and sports, sports. Audio and video, media. Developer data tools, dev. Content for a big screen (slides, boards, timers, quizzes), present.

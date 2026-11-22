@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/',
+    tool: 'All sections',
+    title: 'One name for every section',
+    summary: 'Each section now has a single name that matches its web address, on the home page, the Browse tiles, the menu and the footer. The Classroom Quiz Display moved to Display and presentation, the Vehicle Service Log to Printables, and the WhatsApp Link and Barcode generators to QR and sharing.',
+  },
+  {
+    date: '2026-11-22',
     path: '/audio-and-video-tools',
     tool: 'Audio and video tools',
     title: 'New topic: Audio and video',

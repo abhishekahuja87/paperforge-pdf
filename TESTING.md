@@ -1211,3 +1211,6 @@ Not run. On a laptop (1366x768 and 1920x1080) and a phone, open: Addition, Subtr
 
 ### Audio and video topic (22 Nov)
 Not run. Home page: the "More tools" section is gone (it only held the Audio Cutter and Joiner); a new Audio and video tile (music icon, yellow) sits in the Browse tiles and links to /audio-and-video-tools, which lists the Audio Cutter and Joiner with its task list and guide text; the same tool is listed under an Audio and video heading in All tools by topic; the topic's icon badge and border are yellow on the home page and the tile; /audio-and-video-tools is in the sitemap; the Photo and images page no longer lists the audio cutter.
+
+### Final section names (22 Nov)
+Not run. The 14 section names are identical on the home page headings, the Browse tiles, the header tools menu, the footer and each section page's address (see the table in README.md). Browse shows 14 tiles with no clipped text on a phone. No "More tools" section appears. Classroom Quiz Display is under Display and presentation (not Student and writing); Vehicle Service Log is under Printables; WhatsApp Link Generator and Barcode Generator are under QR and sharing; each section page's task table lists only tools in that section. Section addresses did not change.
