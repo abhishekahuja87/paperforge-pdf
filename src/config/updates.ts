@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/merge-pdf',
+    tool: 'PDF tools',
+    title: 'Rename your file before you save it, in every PDF tool',
+    summary: 'Every PDF tool now ends with the same green banner: tap the pencil to change the file name, then Save. Small files show their size in KB, the merge list is easier to use on a phone, and the back link on a tool goes to its collection.',
+  },
+  {
+    date: '2026-11-22',
     path: '/spinner-wheel-display',
     tool: 'Spinner Wheel',
     title: 'New: spinner wheel, lucky draw, team scoreboard and classroom seating plan',

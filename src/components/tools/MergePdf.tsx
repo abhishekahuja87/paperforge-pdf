@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {
   ArrowDown,
   ArrowUp,
-  Check,
-  Download,
   FileText,
   Files,
   Loader2,
@@ -12,6 +10,9 @@ import {
 import { mergePdfFiles } from '../../lib/pdf/merge';
 import { getPdfPageCount, parsePageRanges } from '../../lib/pdf/split';
 import { generatePdfFilename } from '../../lib/pdf/naming';
+import { formatFileSize } from '../../lib/pdf/fileName';
+import { SaveResult } from '../common/SaveResult';
+import { UploadNote } from '../common/UploadNote';
 import { FileDropZone } from '../common/FileDropZone';
 import { useTranslation } from 'react-i18next';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
@@ -149,7 +150,7 @@ export const MergePdf: React.FC = () => {
                 {files.map((file, index) => (
                   <li
                     key={`${file.name}-${index}`}
-                    className="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-2 rounded-xl border border-stone-200 bg-white px-2.5 py-2.5 transition hover:border-orange-200 sm:gap-3 sm:px-3"
+                    className="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)_auto] items-start gap-2 rounded-xl border border-stone-200 bg-white px-2.5 py-2.5 transition hover:border-orange-200 sm:gap-3 sm:px-3"
                   >
                     <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-50 text-xs font-bold tabular-nums text-orange-800">
                       {index + 1}
@@ -159,10 +160,10 @@ export const MergePdf: React.FC = () => {
                       <span className="min-w-0">
                         <span className="block truncate text-xs font-semibold text-stone-800" title={file.name}>{file.name}</span>
                         <span className="mt-0.5 block text-[10px] text-stone-400">
-                          {(file.size / (1024 * 1024)).toFixed(2)} MB
+                          {formatFileSize(file.size)}
                           {pageCounts.has(file) ? ` · ${pageCounts.get(file)} ${pageCounts.get(file) === 1 ? 'page' : 'pages'}` : ''}
                         </span>
-                        <label className="mt-1 flex items-center gap-1.5 text-[10px] text-stone-500">
+                        <label className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[10px] text-stone-500">
                           {t('pagesToUse', { defaultValue: 'Pages to use' })}
                           <input
                             type="text"
@@ -170,7 +171,7 @@ export const MergePdf: React.FC = () => {
                             value={ranges.get(file) ?? ''}
                             onChange={(event) => setRange(file, event.target.value)}
                             placeholder={t('allPages', { defaultValue: 'all, or e.g. 1-3, 5' })}
-                            className="w-32 rounded-md border border-stone-200 px-2 py-1 text-[11px] text-stone-800"
+                            className="w-full max-w-[10rem] rounded-md border border-stone-200 px-2 py-1 text-[11px] text-stone-800 sm:w-32"
                           />
                           {(ranges.get(file) ?? '').trim() && pagesFrom(file) !== null && (
                             <span className={pagesFrom(file) === 0 ? 'font-semibold text-rose-700' : ''}>{pagesFrom(file) === 0 ? 'no pages match' : `${pagesFrom(file)} selected`}</span>
@@ -178,7 +179,7 @@ export const MergePdf: React.FC = () => {
                         </label>
                       </span>
                     </span>
-                    <span className="flex items-center gap-0.5">
+                    <span className="-mt-1 flex items-center gap-0.5">
                       <button
                         type="button"
                         onClick={() => moveFile(index, 'up')}
@@ -215,31 +216,9 @@ export const MergePdf: React.FC = () => {
               </ol>
             </div>
           ) : (
-            <div className="flex items-center justify-center gap-2 py-1 text-[11px] text-stone-400">
-              <Files className="h-4 w-4" aria-hidden="true" />
-              {t('empty')}
-            </div>
+            <UploadNote>{t('empty')}</UploadNote>
           )}
-
-          {downloadUrl && (
-            <div role="status" className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-800">
-                <Check className="h-4 w-4" aria-hidden="true" />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-xs font-bold text-emerald-950">{t('ready')}</span>
-                <span className="block truncate text-[10px] text-emerald-800">{downloadName}</span>
-              </span>
-              <a
-                href={downloadUrl}
-                download={downloadName}
-                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-orange-700 px-3 py-2 text-xs font-bold text-white transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 focus-visible:ring-offset-2"
-              >
-                <Download className="h-3.5 w-3.5" aria-hidden="true" />
-                {t('save')}
-              </a>
-            </div>
-          )}
+          {downloadUrl && <SaveResult href={downloadUrl} name={downloadName} label={t('ready')} saveLabel={t('save')} />}
 
           {files.length > 0 && <button
             type="button"

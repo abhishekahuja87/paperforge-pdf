@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { SaveResult } from '../common/SaveResult';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
   ArrowUp, 
   ArrowDown, 
   Trash2, 
-  Download, 
   Sparkles, 
   RefreshCw, 
   AlertCircle,
@@ -282,18 +282,10 @@ export const ImagesToPdf: React.FC = () => {
             </div>
           )}
 
-          {/* Out of Sync Warning */}
-          {isOutOfSync && (
-            <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200/80 text-amber-800 text-xs flex items-center justify-between">
-              <span>Settings or image order changed. Re-generate to update your download file.</span>
-              <span className="font-semibold text-amber-900 flex items-center gap-1">
-                <RefreshCw className="w-3 h-3 animate-spin" /> Unsaved
-              </span>
-            </div>
-          )}
 
           {/* Action Buttons */}
-          <div className="pt-2 flex flex-col sm:flex-row gap-3">
+          {downloadUrl && <SaveResult href={downloadUrl} name={downloadName} label="Your assembled PDF is ready" saveLabel="Save PDF" outdated={isOutOfSync} />}
+          <div className="pt-2 flex flex-col gap-3">
             <button
               onClick={handleConvert}
               disabled={status === 'processing'}
@@ -315,20 +307,6 @@ export const ImagesToPdf: React.FC = () => {
               </span>
             </button>
 
-            {downloadUrl && (
-              <a
-                href={downloadUrl}
-                download={downloadName}
-                className={`flex-1 inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xs transition ${
-                  isOutOfSync
-                    ? 'bg-slate-200 text-slate-500 cursor-not-allowed opacity-75'
-                    : 'bg-orange-700 hover:bg-orange-800 text-white'
-                }`}
-              >
-                <Download className="w-4 h-4" />
-                <span>{isOutOfSync ? 'Download Outdated File' : 'Download Assembled PDF'}</span>
-              </a>
-            )}
           </div>
         </div>
       )}

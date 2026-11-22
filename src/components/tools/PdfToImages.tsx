@@ -11,6 +11,7 @@ import {
 import { convertPdfToImages } from '../../lib/pdf/pdfToImages';
 import type { PageImageResult } from '../../lib/pdf/pdfToImages';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
+import { formatFileSize } from '../../lib/pdf/fileName';
 
 export const PdfToImages: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
@@ -69,7 +70,7 @@ export const PdfToImages: React.FC = () => {
               <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
               <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
               <span className="text-xs text-slate-400 shrink-0">
-                ({(file.size / (1024 * 1024)).toFixed(2)} MB)
+                ({formatFileSize(file.size)})
               </span>
             </div>
 

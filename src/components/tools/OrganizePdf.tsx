@@ -4,7 +4,6 @@ import { generatePdfFilename } from '../../lib/pdf/naming';
 import {
   RotateCw,
   Trash2,
-  Download,
   AlertCircle,
   FileText,
   Loader2,
@@ -14,6 +13,7 @@ import {
 import { loadPdfThumbnails, exportOrganizedPdf } from '../../lib/pdf/organize';
 import type { PageThumbnailItem } from '../../lib/pdf/organize';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
+import { SaveResult } from '../common/SaveResult';
 
 export const OrganizePdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
@@ -242,7 +242,7 @@ export const OrganizePdf: React.FC = () => {
 
           {/* Action Buttons */}
           {!isLoading && pages.length > 0 && (
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <div className="mt-8 flex flex-col gap-3 items-stretch">
               {!downloadUrl ? (
                 <button
                   type="button"
@@ -260,14 +260,7 @@ export const OrganizePdf: React.FC = () => {
                   )}
                 </button>
               ) : (
-                <a
-                  href={downloadUrl}
-                  download={generatePdfFilename(file.name, 'organized')}
-                  className="w-full sm:w-auto px-6 py-3 bg-orange-700 hover:bg-orange-800 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
-                >
-                  <Download className="w-5 h-5" />
-                  <span>Download Organized PDF</span>
-                </a>
+                <SaveResult href={downloadUrl} name={generatePdfFilename(file.name, 'organized')} label="Your organized PDF is ready" saveLabel="Save PDF" />
               )}
 
               {downloadUrl && (

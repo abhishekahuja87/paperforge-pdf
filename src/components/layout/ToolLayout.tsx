@@ -13,6 +13,7 @@ import { buildToolJsonLd } from '../../lib/structuredData';
 import { useTranslation } from 'react-i18next';
 import { useFocusMode } from '../../lib/focusMode';
 import { GuideRegistryContext } from '../common/guideRegistry';
+import { hubForTool } from '../../lib/hubForTool';
 import { ShareBarContext } from '../common/shareBarContext';
 import { ShareToolBar } from '../common/ShareToolBar';
 
@@ -40,6 +41,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const isWorkshop = appearance === 'workshop';
+  const parent = hubForTool(pathname.replace(/^\/+|\/+$/g, ''));
   const { active: focusOn, setFocus, registerToolPage } = useFocusMode();
   const [guideShowsArticle, setGuideShowsArticle] = useState(false);
   const [hasLinkBar, setHasLinkBar] = useState(false);
@@ -88,9 +90,9 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         ) : isWorkshop ? (
           <header className={`mx-auto w-full space-y-2 ${wide ? 'max-w-6xl' : 'max-w-3xl'}`}>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-              <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800 print:hidden">
+              <Link to={parent?.path ?? '/'} className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800 print:hidden">
                 <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-                {t('allTools')}
+                {parent ? parent.label : t('allTools')}
               </Link>
               <PromisePill toolId={pathname.replace(/^\/+|\/+$/g, '')} />
             </div>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Link2, MessageSquarePlus, Share2 } from 'lucide-react';
 import { copyText } from '../../lib/browserTools';
 
 /** A slim row under a tool: share the page with a friend, and tell us about a problem or an idea. Nothing about the person's work is included in the link. */
 export const ShareToolBar: React.FC<{ title: string }> = ({ title }) => {
   const [copied, setCopied] = useState(false);
+  const { pathname } = useLocation();
   const canShare = typeof navigator !== 'undefined' && typeof navigator.share === 'function';
   const url = () => `${window.location.origin}${window.location.pathname}`;
   const share = async () => {
@@ -25,7 +26,7 @@ export const ShareToolBar: React.FC<{ title: string }> = ({ title }) => {
           {canShare ? <Share2 className="h-3.5 w-3.5" aria-hidden="true" /> : <Link2 className="h-3.5 w-3.5" aria-hidden="true" />}
           {copied ? 'Link copied' : canShare ? 'Share this tool' : 'Copy link'}
         </button>
-        <Link to="/contact" className={button}><MessageSquarePlus className="h-3.5 w-3.5" aria-hidden="true" />Report a problem or suggest an idea</Link>
+        <Link to={`/contact?tool=${encodeURIComponent(title)}&path=${encodeURIComponent(pathname)}`} className={button}><MessageSquarePlus className="h-3.5 w-3.5" aria-hidden="true" />Report a problem or suggest an idea</Link>
       </div>
     </div>
   );
