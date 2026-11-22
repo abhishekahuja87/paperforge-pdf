@@ -13,7 +13,7 @@ const num = (value: PDFObject | undefined, fallback: number): number => (value i
 function filtersOf(dict: PDFDict): string[] {
   const value = dict.lookup(PDFName.of('Filter'));
   if (value instanceof PDFName) return [name(value)];
-  if (value instanceof PDFArray) return value.asArray().map((item) => name(value.context.lookup(item)));
+  if (value instanceof PDFArray) return Array.from({ length: value.size() }, (_, index) => name(value.lookup(index)));
   return [];
 }
 
