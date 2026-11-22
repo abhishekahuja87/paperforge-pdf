@@ -172,7 +172,7 @@ export const CompressPdf: React.FC = () => {
               <tr><th scope="row" className="py-1 pr-3 font-medium">Government and job portals</th><td className="py-1">about 100 KB to 2 MB per file</td></tr>
             </tbody>
           </table>
-          <p className="mt-1">Follow the limit of whoever you are sending to.</p>
+          <p className="mt-1">Limits differ by use case, so follow the one that applies to you.</p>
         </UploadNote>
       )}
       {!file && errorMessage && (
