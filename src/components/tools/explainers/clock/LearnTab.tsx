@@ -15,7 +15,7 @@ const QUICK: { label: string; m: number }[] = [
 export const LearnTab: React.FC = () => {
   const [time, setTime] = useState<ClockTime>({ h: 3, m: 0 });
   const [shown, setShown] = useState(false);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(5);
   const [numbers, setNumbers] = useState(true);
 
   const chip = 'min-h-11 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50';
@@ -24,10 +24,10 @@ export const LearnTab: React.FC = () => {
     <div className="grid gap-4 md:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] md:items-start">
       <div className={card}>
         <div className="mx-auto max-w-sm">
-          <ClockFace time={time} onChange={setTime} step={step} numbers={numbers} label="Clock you can move. Drag the short red hand for hours and the long blue hand for minutes." />
+          <ClockFace time={time} onChange={setTime} step={step} numbers={numbers} label="Clock you can move. Drag the red dot for hours and the blue dot for minutes." />
         </div>
         <p className="mt-3 text-center text-sm font-semibold text-slate-700">
-          Drag the <span style={{ color: HOUR_COLOUR }}>short red hand</span> for the hour and the <span style={{ color: MINUTE_COLOUR }}>long blue hand</span> for the minutes.
+          Drag the <span style={{ color: HOUR_COLOUR }}>red dot</span> for the hour and the <span style={{ color: MINUTE_COLOUR }}>blue dot</span> for the minutes, or tap the buttons below.
         </p>
       </div>
 
@@ -68,15 +68,12 @@ export const LearnTab: React.FC = () => {
             </label>
             <div className="flex items-end"><Toggle label="Show the numbers" checked={numbers} onChange={setNumbers} /></div>
           </div>
-          <details className="mt-3">
-            <summary className="cursor-pointer text-xs font-semibold text-slate-600">Move the hands with buttons instead</summary>
-            <div className="mt-2 grid grid-cols-2 gap-2">
-              <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, h: (c.h + 11) % 12 }))}>Hour back</button>
-              <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, h: (c.h + 1) % 12 }))}>Hour forward</button>
-              <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, m: (c.m + 60 - step) % 60 }))}>Minutes back</button>
-              <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, m: (c.m + step) % 60 }))}>Minutes forward</button>
-            </div>
-          </details>
+          <div className="mt-3 grid grid-cols-2 gap-2" role="group" aria-label="Move the hands with buttons">
+            <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, h: (c.h + 11) % 12 }))}>Hour −</button>
+            <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, h: (c.h + 1) % 12 }))}>Hour +</button>
+            <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, m: (c.m + 60 - step) % 60 }))}>Minutes −</button>
+            <button type="button" className={chip} onClick={() => setTime((c) => ({ ...c, m: (c.m + step) % 60 }))}>Minutes +</button>
+          </div>
         </div>
       </div>
     </div>

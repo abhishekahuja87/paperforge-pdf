@@ -19,6 +19,20 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/learn-the-clock',
+    tool: 'Learn the Clock',
+    title: 'Easier to move the clock hands',
+    summary: 'Round red and blue dots on the hands show where to grab, the hand nearest your finger moves, five-minute steps are the default, and the hour and minute buttons are always visible.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/subtraction-with-borrowing-for-kids',
+    tool: 'Carrying and borrowing lessons',
+    title: 'The lesson board no longer pushes the buttons off screen',
+    summary: 'On a computer the working board is now limited in height, so Back, Play and Next stay in view without scrolling. Applies to adding, subtracting, multiplying and dividing lessons.',
+  },
+  {
+    date: '2026-11-22',
     path: '/resize-pdf-page-size',
     tool: 'Resize PDF Page Size',
     title: 'New: Resize PDF Page Size',

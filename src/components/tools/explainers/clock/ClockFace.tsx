@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { hourAngle, minuteAngle, pointAngle, type ClockTime } from '../../../../lib/kids/clockTime';
+import { hourAngle, minuteAngle, pickHand, pointAngle, type ClockTime } from '../../../../lib/kids/clockTime';
 
 export const HOUR_COLOUR = '#dc2626';
 export const MINUTE_COLOUR = '#2563eb';
@@ -35,7 +35,7 @@ export const ClockFace: React.FC<ClockFaceProps> = ({ time, onChange, step = 1, 
     const rect = svg.getBoundingClientRect();
     const dx = event.clientX - (rect.left + rect.width / 2);
     const dy = event.clientY - (rect.top + rect.height / 2);
-    if (first) drag.current = Math.hypot(dx, dy) / (rect.width / 2) < 0.52 ? 'hour' : 'minute';
+    if (first) drag.current = pickHand((dx / rect.width) * 200, (dy / rect.width) * 200, latest.current);
     const angle = pointAngle(dx, dy);
     const current = latest.current;
     if (drag.current === 'minute') {
@@ -80,6 +80,13 @@ export const ClockFace: React.FC<ClockFaceProps> = ({ time, onChange, step = 1, 
         <>
           <line x1="100" y1="100" x2={polar(hourAngle(time), 46).x} y2={polar(hourAngle(time), 46).y} stroke={HOUR_COLOUR} strokeWidth="8" strokeLinecap="round" />
           <line x1="100" y1="100" x2={polar(minuteAngle(time), 74).x} y2={polar(minuteAngle(time), 74).y} stroke={MINUTE_COLOUR} strokeWidth="5" strokeLinecap="round" />
+          {interactive && (
+            <>
+              {/* Round handles on the tips show where to grab, and are bigger than the thin hands. */}
+              <circle cx={polar(hourAngle(time), 46).x} cy={polar(hourAngle(time), 46).y} r="11" fill={HOUR_COLOUR} stroke="#fff" strokeWidth="3" />
+              <circle cx={polar(minuteAngle(time), 74).x} cy={polar(minuteAngle(time), 74).y} r="11" fill={MINUTE_COLOUR} stroke="#fff" strokeWidth="3" />
+            </>
+          )}
         </>
       )}
       <circle cx="100" cy="100" r="6" fill="#0f172a" />

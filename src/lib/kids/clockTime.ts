@@ -86,3 +86,22 @@ export function readOptions(answer: ClockTime, level: ClockLevel): ClockTime[] {
 
 /** Angle in degrees, clockwise from 12 o'clock, of a point relative to the centre. */
 export const pointAngle = (dx: number, dy: number) => ((Math.atan2(dx, -dy) * 180) / Math.PI + 360) % 360;
+
+/**
+ * Which hand a touch is meant for. `x` and `y` are in clock units from the centre (the face has a radius of 100).
+ * The hand the finger is closest to wins; where the hands lie on top of each other, or the finger is far from both,
+ * the middle of the clock moves the hour hand and the outer part moves the minute hand.
+ */
+export function pickHand(x: number, y: number, t: ClockTime): 'hour' | 'minute' {
+  const r = Math.hypot(x, y);
+  const gap = (angle: number, length: number) => {
+    const rad = (angle * Math.PI) / 180;
+    const ux = Math.sin(rad); const uy = -Math.cos(rad);
+    const along = Math.max(0, Math.min(length, x * ux + y * uy));
+    return Math.hypot(x - ux * along, y - uy * along);
+  };
+  const hour = gap(hourAngle(t), 46);
+  const minute = gap(minuteAngle(t), 74);
+  if (Math.abs(hour - minute) < 8 || Math.min(hour, minute) > 30) return r < 40 ? 'hour' : 'minute';
+  return hour < minute ? 'hour' : 'minute';
+}
