@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { RotateCcw, Shuffle } from 'lucide-react';
+import { Maximize, RotateCcw, Shuffle } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { Toggle, card, heading } from '../paper/controls';
 import { fieldClass } from '../utilities/common';
 import { parseList, randomInt, shuffled } from '../../../lib/toolkit/pick';
+import { THEME_STYLES } from '../../../lib/screens/themes';
+import type { Theme } from '../../../lib/screens/timed';
+import { ScreenShell } from '../screens/ScreenShell';
+import { ThemePicker } from '../shared/ThemePicker';
 
 /** Pick one or more names fairly, with a short spin, and keep the ones already picked out of the next round. */
 export const RandomPicker: React.FC = () => {
@@ -14,6 +18,8 @@ export const RandomPicker: React.FC = () => {
   const [shown, setShown] = useState('');
   const [spinning, setSpinning] = useState(false);
   const [message, setMessage] = useState('');
+  const [full, setFull] = useState(false);
+  const [theme, setTheme] = useState<Theme>('dark');
   const timer = useRef<number | null>(null);
   useEffect(() => () => { if (timer.current) window.clearInterval(timer.current); }, []);
 
@@ -67,6 +73,27 @@ export const RandomPicker: React.FC = () => {
         {message && <p role="status" className="text-xs text-red-700">{message}</p>}
         {picked.length > 0 && <p className="text-left text-xs text-slate-600"><span className="font-semibold">Picked so far:</span> {picked.join(', ')}</p>}
       </div>
+      <div className={`${card} space-y-3`}>
+        <h2 className={heading}>3. Show it to the class</h2>
+        <p className="text-xs text-slate-600">Fill a projector or TV with the name, and pick with the space bar or the button.</p>
+        <ThemePicker name="picker-theme" label="Screen colour" value={theme} onChange={setTheme} />
+        <button type="button" onClick={() => setFull(true)} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-orange-300 bg-white px-5 py-2 text-sm font-bold text-orange-800 hover:bg-orange-50"><Maximize className="h-4 w-4" aria-hidden="true" />Show on the big screen</button>
+      </div>
+      {full && (
+        <ScreenShell
+          surface={THEME_STYLES[theme].surface}
+          label="Random name picker"
+          onClose={() => setFull(false)}
+          onKey={(event) => { if (event.key === ' ' || event.key === 'Enter' || event.key === 'ArrowRight') { event.preventDefault(); if (!spinning) pick(); } }}
+          bar={<button type="button" disabled={spinning} onClick={pick} className="flex h-14 items-center gap-2 rounded-full bg-orange-700 px-8 text-base font-bold text-white hover:bg-orange-800 disabled:opacity-50">{spinning ? 'Picking…' : 'Pick'}</button>}
+        >
+          <div className="m-auto flex w-full max-w-6xl flex-col items-center gap-4 px-6 text-center">
+            <p aria-live="polite" className="max-w-full break-words text-[clamp(3rem,13vw,11rem)] font-black leading-none">{shown || '?'}</p>
+            {message && <p role="status" className="text-[clamp(1rem,2.4vw,1.8rem)] opacity-80">{message}</p>}
+            <p className="text-[clamp(0.9rem,2vw,1.5rem)] opacity-80">{pool.length} {pool.length === 1 ? 'name' : 'names'} left</p>
+          </div>
+        </ScreenShell>
+      )}
       <Note>Names are picked with your browser's secure random numbers, so every name has the same chance. Everything stays on this page and nothing is saved or sent.</Note>
     </section>
   );

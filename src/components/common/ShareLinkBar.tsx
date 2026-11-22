@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link2, Share2 } from 'lucide-react';
 import { copyText } from '../../lib/browserTools';
 import { useShareUrl } from '../../lib/shareState';
+import { ShareBarContext } from './shareBarContext';
 
 /** "Copy link to this calculation" bar, shown under a calculator. Must be inside a ShareProvider. */
 export const ShareLinkBar: React.FC = () => {
   const buildUrl = useShareUrl();
+  const markShown = useContext(ShareBarContext);
+  useEffect(() => { markShown(true); return () => markShown(false); }, [markShown]);
   const [state, setState] = useState<'idle' | 'copied' | 'manual'>('idle');
   const [manualUrl, setManualUrl] = useState('');
   const canShare = typeof navigator !== 'undefined' && typeof navigator.share === 'function';

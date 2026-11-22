@@ -143,6 +143,78 @@
         "Start the routine",
         "Tap Start routine. Each step shows its name, cue, picture, countdown and the next step. Use the arrow keys, space bar or buttons to go back, pause or close."
       ]
+    ],
+    "spinner-wheel-display": [
+      [
+        "Type your choices",
+        "Put one choice on each line, such as student names, prizes or things to do. Up to 40 choices fit on the wheel. Try the sample list to see how it looks."
+      ],
+      [
+        "Choose how it behaves",
+        "Turn on Take a choice off the wheel after it wins if nobody should be picked twice. Switch the sound on or off and pick a screen colour."
+      ],
+      [
+        "Spin the wheel",
+        "Tap Spin the wheel. The wheel turns for a few seconds and the winner is shown under it."
+      ],
+      [
+        "Show it on the big screen",
+        "Tap Show on the big screen to fill a projector or TV. Press the space bar, the right arrow or the Spin button to spin again."
+      ]
+    ],
+    "lucky-draw-display": [
+      [
+        "Choose your tickets",
+        "Pick Ticket numbers and set the first and last number, with optional letters before them, or pick A list of names and type one name per line."
+      ],
+      [
+        "Add the prizes",
+        "Type one prize per line in the order they are drawn, for example the third prize first. This is optional."
+      ],
+      [
+        "Show the big screen",
+        "Tap Show on the big screen, choose a colour and add a logo for your event if you like."
+      ],
+      [
+        "Draw the winners",
+        "Tap Draw, press the space bar or the right arrow. The numbers roll and stop on a winner. Each ticket can win only once until you press Start again."
+      ]
+    ],
+    "team-scoreboard-display": [
+      [
+        "Add the teams",
+        "Tap 4 house teams, 2 teams or 6 groups, or add teams one by one and type their names. Up to 12 teams fit."
+      ],
+      [
+        "Set the points",
+        "Choose how many points each tap adds and whether the highest score should be shown first. Pick a screen colour and add a logo if you like."
+      ],
+      [
+        "Show the big screen",
+        "Tap Show on the big screen. Each team has a large score card with a colour stripe."
+      ],
+      [
+        "Keep score",
+        "Tap a team to add points, or press the number keys 1 to 9. Use the minus button to take points off. Scores are kept if you refresh."
+      ]
+    ],
+    "classroom-seating-plan-display": [
+      [
+        "Type the names",
+        "Put one student on each line. First names or roll numbers work well. Choose a heading for the plan."
+      ],
+      [
+        "Choose the layout",
+        "Pick how many seats are in each row and whether to mix the names up, keep your order or sort A to Z."
+      ],
+      [
+        "Make the plan",
+        "Tap Make the plan. The seats are numbered from the front row. Tap Make a new plan for a different mix."
+      ],
+      [
+        "Fix, show or copy",
+        "Tap one seat and then another to swap two students. Tap Show on the board for the projector, or Copy as text to paste it somewhere else."
+      ]
     ]
   },
   "pageGuides": {
@@ -417,6 +489,142 @@
           "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
         ]
       ]
+    },
+    "screensSpinnerWheel": {
+      "title": "Spinner Wheel",
+      "subtitle": "A free spinner wheel for the classroom, a party or a decision. Type your choices, spin, and show the wheel on a big screen. Winners can leave the wheel.",
+      "faq": [
+        [
+          "Is the spinner fair?",
+          "Yes. The winner is chosen first with your browser’s secure random numbers, so every choice has exactly the same chance. The wheel is then turned so the pointer stops on that choice. The spin is only the show."
+        ],
+        [
+          "How many choices can I add?",
+          "Up to 40. After that the slices become too thin to read. Long names are shortened on the wheel, but the full name is shown as the winner."
+        ],
+        [
+          "Can I stop the same name coming up twice?",
+          "Yes. Turn on Take a choice off the wheel after it wins. Each winner is removed for the rest of the session, and Put removed names back puts them all on the wheel again."
+        ],
+        [
+          "What is it good for?",
+          "Calling on students in class, choosing a game or an activity, deciding who goes first, picking a prize at a party, choosing what to cook or where to eat, and settling small family arguments."
+        ],
+        [
+          "How is this different from the Random Name Picker?",
+          "The Random Name Picker is a quick list tool that picks several names at once. The wheel shows one pick at a time with a spin that a whole room can watch, and it has a big-screen mode for a projector or TV."
+        ],
+        [
+          "Does it work on a phone, a projector or a smart TV?",
+          "Yes. Open the page on the device connected to the screen and tap Show on the big screen. It goes fullscreen where the browser allows and tries to keep the screen awake. If a person has asked their device to reduce motion, the spin is shortened."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensLuckyDraw": {
+      "title": "Lucky Draw and Raffle Display",
+      "subtitle": "A free lucky draw and raffle display for events and shops. Draw ticket numbers or names one by one, with prizes, no repeats and a big-screen reveal.",
+      "faq": [
+        [
+          "Can the same ticket win twice?",
+          "No. A ticket that has been drawn is taken out of the pool, so it cannot win again until you press Start again."
+        ],
+        [
+          "Is the draw fair?",
+          "Yes. Each winner is chosen with your browser’s secure random numbers, and every ticket left in the pool has the same chance. The rolling numbers are only for show."
+        ],
+        [
+          "How many tickets can I use?",
+          "Up to 5,000 numbered tickets from a range, or up to 500 names from a list. Tickets can have letters before them and zeros in front, such as A007."
+        ],
+        [
+          "Can I give a prize to each draw?",
+          "Yes. Type the prizes one per line in the order they will be drawn. The prize name is shown above the number while it rolls, so the room knows what is being drawn."
+        ],
+        [
+          "Where can I use it?",
+          "Society and school events, Diwali and New Year parties, shop anniversary offers, office get-togethers, sports days, wedding games and online community events shared on a screen."
+        ],
+        [
+          "Are there any rules about prize draws?",
+          "This tool only picks names and numbers. Rules about raffles, lotteries and prize competitions differ by place, and some do not allow draws where people pay to enter. This is general information, not legal advice, so check your local rules or ask the organisers or an adviser before you run one."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensScoreboard": {
+      "title": "Team Scoreboard Display",
+      "subtitle": "A free scoreboard for team games, quizzes, house points and sports days. Tap to add points and show big scores on a projector or TV.",
+      "faq": [
+        [
+          "How do I add points quickly during a game?",
+          "On the big screen, tap a team card to add the points per tap, or press the number key for that team (1 to 9). The small minus button takes points off if you tap by mistake."
+        ],
+        [
+          "Can I change how many points each tap adds?",
+          "Yes. Set Points for each tap to any whole number from 1 to 1000, so one tap can be 1 point in a quiz or 10 in a sports event."
+        ],
+        [
+          "What happens when two teams have the same score?",
+          "They share the same place. For example, two teams on 20 points are both second if one team is ahead of them."
+        ],
+        [
+          "Will the scores survive a refresh?",
+          "Yes. The team names and scores are saved in this browser, so a refresh or a closed tab does not lose them. Press Reset scores to start a new game with the same teams."
+        ],
+        [
+          "Where can I use it?",
+          "Classroom games and quizzes, house points in a school, sports days, tuition revision games, society cultural events, office games, family game nights and festival competitions."
+        ],
+        [
+          "Does it work for sports match scores?",
+          "It adds and subtracts whole points for any number of teams, so it works for simple scores. It is not a timer and does not follow the rules of a particular sport, so keep the official score for matches that need one."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
+    },
+    "screensSeatingPlan": {
+      "title": "Classroom Seating Plan",
+      "subtitle": "A free classroom seating plan maker. Type the names, mix them up or sort A to Z, swap seats by tapping and show the plan on the board.",
+      "faq": [
+        [
+          "Can I choose who sits where?",
+          "Yes. Make the plan first, then tap one seat and a second seat to swap the two students. You can swap as many times as you like."
+        ],
+        [
+          "Is the mix random?",
+          "Yes. The Mix them up order uses your browser’s secure random numbers, so every order is equally likely. Tap Make a new plan for another mix."
+        ],
+        [
+          "How do I keep the same order as my list?",
+          "Choose Keep my order and the names fill the rows left to right, starting from the front. Choose A to Z to sort the names by alphabet first."
+        ],
+        [
+          "What if the last row is not full?",
+          "The empty seats are shown as dashed boxes in the last row, so the plan always lines up in columns."
+        ],
+        [
+          "Can I print it?",
+          "This tool shows the plan on the screen and copies it as text with one line per row. You can also project it on the board. To print, paste the text into a document or take a screenshot."
+        ],
+        [
+          "Does it keep the names private?",
+          "The names stay in your browser. They are saved on this device so you can come back, so use first names or roll numbers if other people share the device."
+        ],
+        [
+          "Is my information uploaded or stored?",
+          "No. Everything you type stays in your browser and is saved on this device only. Nothing is sent to {{siteName}}. The page still loads advertising and other resources from the network."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -616,6 +824,106 @@
           "paragraphs": [
             "Teachers use it for station rotations and brain breaks, yoga and fitness instructors for a class on a studio TV, offices for a five minute stretch break, parents for a kids’ morning routine, and cooks and workshops for timed steps.",
             "This page gives general information and not medical advice. Warm up, move gently and stop if something hurts."
+          ]
+        }
+      ]
+    },
+    "spinner-wheel-display": {
+      "sections": [
+        {
+          "heading": "A wheel everyone can watch",
+          "paragraphs": [
+            "Picking a name from a list is quick, but a wheel makes it an event. The whole class watches the wheel slow down and the winner appears, which keeps attention on the screen and makes the choice feel fair.",
+            "The wheel in this tool is drawn in your browser and works without any account or download."
+          ]
+        },
+        {
+          "heading": "Fair by design",
+          "paragraphs": [
+            "A spinner is only fair if the result is not decided by how hard someone pressed a button. Here the winner is picked with secure random numbers before the wheel moves, and the wheel is turned to match.",
+            "That means each slice has the same chance whatever its size on screen, and there is no way to steer the result."
+          ]
+        },
+        {
+          "heading": "Ideas for the classroom and home",
+          "paragraphs": [
+            "Teachers use a wheel to call on students, pick a reading partner, choose a revision topic or start a quiz round. Add the whole class once and the list is saved on the device for next time.",
+            "At home, use it for chores, a game to play, a film to watch or a place to eat. Turn on removal to make sure everyone gets a turn."
+          ]
+        }
+      ]
+    },
+    "lucky-draw-display": {
+      "sections": [
+        {
+          "heading": "A draw everyone can see",
+          "paragraphs": [
+            "A lucky draw feels fair when the whole room can see it. Put the draw on a projector or TV, roll the numbers and read the winner out loud.",
+            "This tool shows the ticket number in very large digits with the prize above it and the winners so far below it."
+          ]
+        },
+        {
+          "heading": "Tickets, names and prizes",
+          "paragraphs": [
+            "Run it on ticket numbers if you hand out printed or numbered tickets, with letters in front if you have more than one colour or series. Run it on a list of names if everyone who came is in the draw.",
+            "Add the prizes in order and each draw shows the prize it is for. Start with the small prizes and finish with the big one."
+          ]
+        },
+        {
+          "heading": "Tips for the day",
+          "paragraphs": [
+            "Test the screen and the sound before guests arrive. Keep the ticket stubs in a bag so a winner can be checked. If a winner is not present, press Draw again to pick another ticket.",
+            "The tickets and winners stay in your browser and are not sent anywhere, so you can run the draw without a connection once the page has loaded."
+          ]
+        }
+      ]
+    },
+    "team-scoreboard-display": {
+      "sections": [
+        {
+          "heading": "Scores everyone can see",
+          "paragraphs": [
+            "A scoreboard turns a classroom game into a contest. When the scores are big and on a screen, teams cheer, pay attention and understand what is happening without anyone reading out numbers.",
+            "This display gives each team a large card with a colour stripe, so teams can find themselves from the back of the room."
+          ]
+        },
+        {
+          "heading": "Fast to use, hard to break",
+          "paragraphs": [
+            "You are usually running the game and keeping score at the same time, so the controls are simple: tap a team to add points, or press its number key. A small minus button fixes mistakes.",
+            "The scores are saved on the device, so a refresh, a sleeping laptop or a closed tab does not lose the game."
+          ]
+        },
+        {
+          "heading": "Ideas for using it",
+          "paragraphs": [
+            "Use it with the Classroom Quiz Display for team quizzes, with the Spinner Wheel to choose who answers next, or alone for house points through the term.",
+            "For a long event, turn on Show the highest score first so the leading team moves to the top as the scores change."
+          ]
+        }
+      ]
+    },
+    "classroom-seating-plan-display": {
+      "sections": [
+        {
+          "heading": "A fresh seating plan in a minute",
+          "paragraphs": [
+            "Changing seats breaks up groups, helps new students settle and gives everyone a different view of the board. Typing the names once and pressing a button is faster than moving name cards.",
+            "Choose how many seats are in each row to match your room, whether that is benches of four or desks in rows of six."
+          ]
+        },
+        {
+          "heading": "Mix, sort or keep your order",
+          "paragraphs": [
+            "A random mix is simple and feels fair to students. Sorting A to Z helps a substitute teacher learn names. Keeping your own order lets you place students who need to sit near the front.",
+            "If you want the mix with a few changes, make the plan and then swap the seats that need to move."
+          ]
+        },
+        {
+          "heading": "On the board and on paper",
+          "paragraphs": [
+            "Show the plan on the projector at the start of the lesson so students find their seats without a queue. The plan is large, with a clear front-of-class label.",
+            "Copy it as text if you want it in a message, a class group or a document."
           ]
         }
       ]

@@ -13,6 +13,8 @@ import { buildToolJsonLd } from '../../lib/structuredData';
 import { useTranslation } from 'react-i18next';
 import { useFocusMode } from '../../lib/focusMode';
 import { GuideRegistryContext } from '../common/guideRegistry';
+import { ShareBarContext } from '../common/shareBarContext';
+import { ShareToolBar } from '../common/ShareToolBar';
 
 interface ToolLayoutProps {
   title: string;
@@ -40,6 +42,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   const isWorkshop = appearance === 'workshop';
   const { active: focusOn, setFocus, registerToolPage } = useFocusMode();
   const [guideShowsArticle, setGuideShowsArticle] = useState(false);
+  const [hasLinkBar, setHasLinkBar] = useState(false);
 
   // Tell the focus mode this is a tool page, so only tool pages are ever put into focus.
   useEffect(() => {
@@ -116,7 +119,9 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
 
         {/* Main Tool Functional Area */}
-        <div lang={controlsLanguage} className={isWorkshop ? `tool-workshop-controls mx-auto w-full ${wide ? 'max-w-6xl' : 'max-w-3xl'}` : 'w-full'}>{children}</div>
+        <div lang={controlsLanguage} className={isWorkshop ? `tool-workshop-controls mx-auto w-full ${wide ? 'max-w-6xl' : 'max-w-3xl'}` : 'w-full'}><ShareBarContext.Provider value={setHasLinkBar}>{children}</ShareBarContext.Provider></div>
+
+        {!focusOn && !hasLinkBar && isWorkshop && <div className={`mx-auto w-full ${wide ? 'max-w-6xl' : 'max-w-3xl'}`}><ShareToolBar title={title} /></div>}
 
         {/* Everything foldable sits in one accordion. A guide lists the written sections together with its
             questions; with no guide, the article shows on its own. */}

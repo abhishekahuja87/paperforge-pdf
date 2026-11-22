@@ -19,6 +19,27 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/spinner-wheel-display',
+    tool: 'Spinner Wheel',
+    title: 'New: spinner wheel, lucky draw, team scoreboard and classroom seating plan',
+    summary: 'Four new big-screen tools for class and events: spin a wheel to pick a name or prize, draw raffle winners one by one, keep team scores, and make a seating plan. The Random Name Picker also got a big-screen mode.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/random-name-picker',
+    tool: 'Random Name Picker',
+    title: 'Show the picked name on the big screen',
+    summary: 'A new Show on the big screen button fills a projector or TV with the name, with a choice of six colours. Pick with the space bar or the button.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/display-and-presentation-tools',
+    tool: 'All tools',
+    title: 'Share this tool and report a problem from any tool page',
+    summary: 'A slim row under every tool lets you share it with one tap (or copy its link) and send a problem or an idea through the contact form.',
+  },
+  {
+    date: '2026-11-22',
     path: '/display-and-presentation-tools',
     tool: 'Display tools',
     title: 'Six simple screen colours on the display tools, the quiz and the workout slideshow',

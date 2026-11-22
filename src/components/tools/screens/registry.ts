@@ -9,4 +9,8 @@ export const SCREENS_COMPONENTS: Record<string, LazyExoticComponent<ComponentTyp
   screenTimings: lazy(() => import('./TimingsBoard')),
   screenBee: lazy(() => import('./SpellingBee')),
   screenNotices: lazy(() => import('./NoticeBoard')),
+  screenWheel: lazy(() => import('./SpinnerWheel')),
+  screenDraw: lazy(() => import('./LuckyDraw')),
+  screenScores: lazy(() => import('./Scoreboard')),
+  screenSeating: lazy(() => import('./SeatingPlan')),
 };

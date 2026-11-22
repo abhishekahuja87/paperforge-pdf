@@ -188,6 +188,10 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | Q9 | Quick start buttons on a phone (all eight) | "Loaded" mark and scroll to the list | | |
 | Q10 | All eight on a TV or projector | Large and readable, fullscreen, buttons fade | | |
 | Q11 | Pictures, video and logo (menu, spelling bee, notices, routine, logo on all) | Show correctly; video gone after reload, pictures stay | | |
+| Q14 | Spinner wheel: winner always matches the slice under the pointer | Yes, on phone and TV | | |
+| Q15 | Lucky draw: no repeats, prizes in order, big screen | Works | | |
+| Q16 | Team scoreboard and classroom seating plan | Work, saved after reload | | |
+| Q17 | Share row under tools (share sheet on phone, copy link on desktop, contact link) | Works, not doubled on calculators | | |
 | Q13 | Screen colours (six) on exam hall, token, timings, bee, menu, routine, quiz and workout slideshow and board | Readable on all six, remembered after reload where saved, an older saved light screen still opens as Light | | |
 | Q12 | Phone full screen on the quiz, workout slideshow and the big-screen tools | Buttons at the top, not hidden by the browser's message | | |
 
