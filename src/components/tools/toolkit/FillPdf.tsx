@@ -64,8 +64,8 @@ export const FillPdf: React.FC = () => {
       setFields(found);
       setEntries(Object.fromEntries(found.map((field) => [field.name, { value: field.value, checked: field.checked }])));
     } catch {
-      setMessage('Could not open that PDF. If it has a password, unlock it first.');
-    }
+      setMessage('Could not open that PDF. The file may be damaged.');
+    } finally { setReading(false); }
   };
 
   const render = useCallback(async () => {

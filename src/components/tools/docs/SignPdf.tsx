@@ -54,8 +54,8 @@ export const SignPdf: React.FC = () => {
       setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1);
       void task.destroy();
     } catch {
-      setMessage('Could not open that PDF. If it has a password, unlock it first.');
-    }
+      setMessage('Could not open that PDF. The file may be damaged.');
+    } finally { setReading(false); }
   };
 
   const render = useCallback(async () => {

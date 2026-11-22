@@ -59,8 +59,8 @@ export const RedactPdf: React.FC = () => {
       void task.destroy();
       setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(count); setPage(1); setBoxes([]);
     } catch {
-      setMessage('Could not open that PDF. If it has a password, unlock it first.');
-    }
+      setMessage('Could not open that PDF. The file may be damaged.');
+    } finally { setReading(false); }
   };
 
   const render = useCallback(async () => {
