@@ -202,6 +202,21 @@ export const HUBS: Hub[] = [
     ],
   },
   {
+    path: "/audio-and-video-tools",
+    collection: "media",
+    title: "Free Audio and Video Tools",
+    subtitle: "Cut and join audio files and voice notes, add fades and save them, free and without uploading your recordings.",
+    description: "Free audio tools: cut and trim audio, join several files into one, add fade in and fade out and save as WAV. Works with MP3, M4A, WAV, OGG and voice notes in your browser.",
+    sections: [
+      { heading: "What you can do here", paragraphs: [
+        "Open one or more audio files, put them in order, choose the part to keep on a sound wave, add a fade in and out, listen to the result and save it. More audio and video tools will be added here.",
+      ] },
+      { heading: "Your recordings stay with you", paragraphs: [
+        "Audio is read and edited on your own device in your browser, so private voice notes and recordings are not sent to MyDailyUtils.",
+      ] },
+    ],
+  },
+  {
     path: "/developer-and-data-tools",
     collection: "dev",
     title: "Free Developer and Data Tools",

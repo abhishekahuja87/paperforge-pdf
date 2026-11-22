@@ -26,6 +26,7 @@ export const HOME_COLLECTION_STYLES: Record<string, string> = {
   kids: 'bg-rose-100 text-rose-800',
   sharing: 'bg-violet-100 text-violet-800',
   dev: 'bg-slate-100 text-slate-800',
+  media: 'bg-yellow-100 text-yellow-900',
   other: 'bg-stone-100 text-stone-800',
 };
 
@@ -44,6 +45,7 @@ export const HOME_COLLECTION_BORDER: Record<string, string> = {
   kids: 'border-rose-200',
   sharing: 'border-violet-200',
   dev: 'border-slate-300',
+  media: 'border-yellow-300',
   other: 'border-stone-200',
 };
 
@@ -62,6 +64,7 @@ export const HOME_COLLECTION_HOVER: Record<string, string> = {
   kids: 'group-hover:bg-rose-700 group-hover:text-white',
   sharing: 'group-hover:bg-violet-700 group-hover:text-white',
   dev: 'group-hover:bg-slate-700 group-hover:text-white',
+  media: 'group-hover:bg-yellow-700 group-hover:text-white',
   other: 'group-hover:bg-stone-700 group-hover:text-white',
 };
 
