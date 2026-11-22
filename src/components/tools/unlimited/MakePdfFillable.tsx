@@ -1,12 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Download, FileUp, Trash2 } from 'lucide-react';
+import { FileDropZone } from '../../common/FileDropZone';
+import { PdfFileBar } from '../../common/PdfFileBar';
+import { MainActionButton } from '../../common/MainActionButton';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
+import { useProtectedPdf } from '../../common/ProtectedPdfGate';
+import { useResultFile } from '../../../lib/useResultFile';
+import {Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Toggle, card, heading } from '../paper/controls';
-import { saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { displayRectToPage, displaySize, normRotation } from '../../../lib/unlimited/geometry';
 
@@ -19,6 +24,10 @@ const KIND_LABEL: Record<Kind, string> = { text: 'Text box', check: 'Tick box', 
 
 /** Turn any PDF into a fillable form: draw text boxes, tick boxes and drop-down lists on the page. Done in your browser; no limit on pages or file size beyond your device. */
 export const MakePdfFillable: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
+  const saved = useResultFile();
+  const [fileSize, setFileSize] = useState(0);
+  const [reading, setReading] = useState(false);
   const [bytes, setBytes] = useState<ArrayBuffer | null>(null);
   const [name, setName] = useState('');
   const [pages, setPages] = useState(0);
@@ -32,16 +41,18 @@ export const MakePdfFillable: React.FC = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
   const nextId = useRef(1);
 
+  const startOver = () => { saved.clear(); setBytes(null); setName(''); setPages(0); setMessage(''); };
+
   const openFile = async (file: File | undefined) => {
     if (!file) return;
-    setMessage('');
+    setMessage(''); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
-      setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1); setFields([]);
+      setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1); setFields([]);
       void task.destroy();
-    } catch { setMessage('Could not open that PDF. If it has a password, unlock it first.'); }
+    } catch { setMessage('Could not open that PDF. The file may be damaged.'); } finally { setReading(false); }
   };
 
   const render = useCallback(async () => {
@@ -121,8 +132,8 @@ export const MakePdfFillable: React.FC = () => {
           field.addToPage(target, { ...look, font });
         }
       }
-      saveBlob(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-fillable`, 'pdf'));
-      setMessage('Saved. Open the file in a PDF viewer to type in the boxes, or use the Fill PDF tool.');
+      saved.set(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-fillable`, 'pdf'), { key: settingsKey });
+      setMessage('Open the saved file in a PDF viewer to type in the boxes, or use the Fill PDF tool.');
     } catch {
       setMessage('Could not add the fields. If the PDF is protected, unlock it first. Field names should be plain letters and digits, and a drop-down needs at least one option.');
     } finally { setBusy(false); }
@@ -130,21 +141,21 @@ export const MakePdfFillable: React.FC = () => {
 
   const here = fields.filter((field) => field.page === page);
   const shown = draft ? { x: Math.min(draft.x0, draft.x1), y: Math.min(draft.y0, draft.y1), w: Math.abs(draft.x1 - draft.x0), h: Math.abs(draft.y1 - draft.y0) } : null;
+  const settingsKey = JSON.stringify(fields);
+  const outdated = saved.isOutdated(settingsKey);
+
   return (
     <section className="mx-auto min-w-0 space-y-4">
-      <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. Choose the PDF</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <FileUp className="h-4 w-4" aria-hidden="true" />{bytes ? 'Choose another PDF' : 'Choose a PDF'}
-          <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { void openFile(event.target.files?.[0]); event.target.value = ''; }} />
-        </label>
-        {name && <p className="text-xs text-slate-600">{name}.pdf · {pages} page{pages === 1 ? '' : 's'}</p>}
-        <p className="text-[11px] text-slate-500">Draw fields on any page, then download the fillable PDF.</p>
-      </div>
+      {passwordDialog}
+      {!bytes ? (
+        <FileDropZone accept=".pdf,application/pdf" readingPdf={reading} disabled={reading} onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void openFile(prepared); }); }} />
+      ) : (
+        <PdfFileBar name={`${name}.pdf`} size={fileSize} pages={pages} onChange={startOver} />
+      )}
 
       {bytes && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>2. Draw the fields</h2>
+          <h2 className={heading}>Draw the fields</h2>
           <ChoiceButtons label="Add a" value={kind} onChange={(value) => setKind(value as Kind)} options={(['text', 'check', 'choice'] as Kind[]).map((value) => ({ value, label: KIND_LABEL[value] }))} />
           <p className="text-xs text-slate-600">{kind === 'check' ? 'Tap the page where the tick box should go.' : 'Drag across the page to draw the box.'}</p>
           <label className="text-xs font-semibold text-slate-700">Page
@@ -162,7 +173,7 @@ export const MakePdfFillable: React.FC = () => {
 
       {fields.length > 0 && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>3. Name them and download</h2>
+          <h2 className={heading}>Name the fields</h2>
           <ul className="space-y-2">
             {fields.map((field) => (
               <li key={field.id} className="space-y-2 rounded-lg border border-slate-200 p-3">
@@ -181,8 +192,16 @@ export const MakePdfFillable: React.FC = () => {
               </li>
             ))}
           </ul>
-          <button type="button" disabled={busy} onClick={() => void save()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Saving…' : 'Download fillable PDF'}</button>
           <p className="text-[11px] text-slate-500">Then fill it in with <Link to="/fill-pdf" className="font-semibold text-orange-800 underline">Fill PDF</Link>, or send it to someone to fill in.</p>
+        </div>
+      )}
+      {bytes && (fields.length > 0) && (!saved.result || outdated) && (
+        <MainActionButton onClick={() => void save()} busy={busy} busyLabel="Creating...">Create fillable PDF</MainActionButton>
+      )}
+      {saved.result && (
+        <div className="space-y-3">
+          <SaveResult href={saved.result.url} name={saved.result.name} label="Your fillable PDF is ready" saveLabel="Save PDF" outdated={outdated} />
+          {!outdated && <StartOverButton onClick={startOver}>Make another fillable PDF</StartOverButton>}
         </div>
       )}
       {message && <Note>{message}</Note>}

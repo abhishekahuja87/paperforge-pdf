@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { usePdfPageCount } from '../../lib/pdf/pageCount';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
-import { FileText, Loader2, CheckCircle2 } from 'lucide-react';
+import { Loader2, CheckCircle2 } from 'lucide-react';
 import { unlockPdf } from '../../lib/pdf/unlock';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
-import { formatFileSize } from '../../lib/pdf/fileName';
 import { UploadNote } from '../common/UploadNote';
 
 export const UnlockPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
+  const pageTotal = usePdfPageCount(file);
   const [password, setPassword] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
@@ -84,23 +86,7 @@ export const UnlockPdf: React.FC = () => {
       ) : (
         <div className="space-y-4">
           {/* Selected File Card */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-              <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
-              <span className="text-xs text-slate-400 shrink-0">
-                ({formatFileSize(file.size)})
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={resetState}
-              className="text-xs text-slate-500 hover:text-red-500 font-medium px-2 py-1 rounded cursor-pointer transition"
-            >
-              Change
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={file.size} pages={pageTotal} onChange={resetState} />
 
           {/* Password Input Field */}
           {!isUnlocked && (

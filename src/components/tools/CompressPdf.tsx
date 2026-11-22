@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { UploadNote } from '../common/UploadNote';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
-  FileText, 
+  
   Minimize2, 
-  X, 
+  
   AlertCircle, 
   Sparkles, 
   RefreshCw,
@@ -182,26 +183,7 @@ export const CompressPdf: React.FC = () => {
       {file && (
         <div className="space-y-5">
           {/* File Card */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
-                <FileText className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <p className="text-xs font-semibold text-slate-800 truncate">{file.name}</p>
-                <p className="text-[11px] text-slate-500">
-                  Total pages: <strong className="text-slate-700">{pageCount}</strong> &bull; Original Size: <strong className="text-slate-700">{formatBytes(file.size)}</strong>
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={handleReset}
-              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md transition cursor-pointer"
-              title="Remove file"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={file.size} pages={pageCount} onChange={handleReset} />
 
           <div role="group" aria-label="Compression goal" className="grid grid-cols-2 gap-2">
             {([['clean', 'Clean up only', 'Keeps text selectable'], ['target', 'Reduce to a size', 'Fit a limit like 200 KB']] as const).map(([value, title, hint]) => (

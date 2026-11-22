@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { FileUp } from 'lucide-react';
+import { FileDropZone } from '../../common/FileDropZone';
+import { PdfFileBar } from '../../common/PdfFileBar';
+import { useProtectedPdf } from '../../common/ProtectedPdfGate';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Toggle, card, heading } from '../paper/controls';
@@ -9,19 +11,18 @@ import { extractTextFromPdf } from '../../../lib/pdf/extractText';
 type Source = 'text' | 'pdf';
 interface Side { text: string; name: string }
 
-const PdfPicker: React.FC<{ label: string; side: Side; onPick: (file: File | undefined) => void }> = ({ label, side, onPick }) => (
+const PdfPicker: React.FC<{ label: string; side: Side; busy: boolean; onPick: (file: File | undefined) => void; onClear: () => void }> = ({ label, side, busy, onPick, onClear }) => (
   <div className="space-y-1.5">
     <p className="text-xs font-semibold text-slate-700">{label}</p>
-    <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-      <FileUp className="h-4 w-4" aria-hidden="true" />{side.name ? 'Change PDF' : 'Choose a PDF'}
-      <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { onPick(event.target.files?.[0]); event.target.value = ''; }} />
-    </label>
-    <p className="break-all text-[11px] text-slate-500">{side.name || 'No file chosen'}</p>
+    {side.name
+      ? <PdfFileBar name={side.name} onChange={onClear} />
+      : <FileDropZone accept=".pdf,application/pdf" readingPdf={busy} disabled={busy} onFiles={(files) => onPick(files[0])} />}
   </div>
 );
 
 /** Shows what changed between two versions of a document or text: what was removed, what was added and what stayed the same. */
 export const ComparePdf: React.FC = () => {
+  const { openWithPassword, dialog: passwordDialog } = useProtectedPdf();
   const [source, setSource] = useState<Source>('text');
   const [unit, setUnit] = useState<DiffUnit>('lines');
   const [onlyChanges, setOnlyChanges] = useState(false);
@@ -35,11 +36,13 @@ export const ComparePdf: React.FC = () => {
     setMessage('');
     setBusy(true);
     try {
-      const pages = await extractTextFromPdf(await file.arrayBuffer());
+      const opened = await openWithPassword(file);
+      if (!opened) return;
+      const pages = await extractTextFromPdf(await opened.file.arrayBuffer(), opened.password || undefined);
       const text = pages.map((p) => p.text).join('\n\n').trim();
       if (!text) setMessage(`${file.name} has no text to read. It may be a scan. Run it through Scan to Searchable PDF (OCR) first, then compare.`);
       set({ text, name: file.name });
-    } catch { setMessage('Could not read that PDF. If it has a password, unlock it first.'); } finally { setBusy(false); }
+    } catch { setMessage('Could not read that PDF. The file may be damaged.'); } finally { setBusy(false); }
   };
 
   const result = useMemo(() => {
@@ -52,8 +55,9 @@ export const ComparePdf: React.FC = () => {
 
   return (
     <section className="mx-auto min-w-0 space-y-4">
+      {passwordDialog}
       <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. What do you want to compare?</h2>
+        <h2 className={heading}>What do you want to compare?</h2>
         <ChoiceButtons label="Compare" value={source} onChange={(value) => setSource(value as Source)} options={[{ value: 'text', label: 'Pasted text' }, { value: 'pdf', label: 'Two PDF files' }]} />
         {source === 'text' ? (
           <div className="grid gap-3 sm:grid-cols-2">
@@ -66,15 +70,14 @@ export const ComparePdf: React.FC = () => {
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
-            <PdfPicker label="Old version (PDF)" side={before} onPick={(file) => void pick(file, setBefore)} />
-            <PdfPicker label="New version (PDF)" side={after} onPick={(file) => void pick(file, setAfter)} />
+            <PdfPicker label="Old version (PDF)" side={before} busy={busy} onPick={(file) => void pick(file, setBefore)} onClear={() => setBefore({ text: '', name: '' })} />
+            <PdfPicker label="New version (PDF)" side={after} busy={busy} onPick={(file) => void pick(file, setAfter)} onClear={() => setAfter({ text: '', name: '' })} />
           </div>
         )}
-        {busy && <p className="text-xs text-slate-600">Reading the PDF…</p>}
       </div>
 
       <div className={`${card} space-y-3`}>
-        <h2 className={heading}>2. What changed</h2>
+        <h2 className={heading}>What changed</h2>
         <ChoiceButtons label="Compare by" value={unit} onChange={(value) => setUnit(value as DiffUnit)} options={[{ value: 'lines', label: 'Whole lines' }, { value: 'words', label: 'Word by word' }]} />
         {unit === 'lines' && <Toggle label="Show only the changed lines" checked={onlyChanges} onChange={setOnlyChanges} />}
         {!result && <p className="text-xs text-slate-600">Add both versions to see the differences.</p>}

@@ -1,11 +1,16 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { CalendarDays, Download, FileUp, Trash2 } from 'lucide-react';
+import { FileDropZone } from '../../common/FileDropZone';
+import { PdfFileBar } from '../../common/PdfFileBar';
+import { MainActionButton } from '../../common/MainActionButton';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
+import { useProtectedPdf } from '../../common/ProtectedPdfGate';
+import { useResultFile } from '../../../lib/useResultFile';
+import {CalendarDays, Trash2 } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Slider, Toggle, card, heading } from '../paper/controls';
-import { saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { applyFormFields, readFormFields, type FieldEntry, type FormFieldInfo } from '../../../lib/toolkit/formFields';
 
@@ -20,6 +25,10 @@ const hexToRgb = (hex: string): [number, number, number] => [parseInt(hex.slice(
 
 /** Type text, ticks and crosses onto any PDF page: forms, applications, declarations. Done in the browser; the file is never uploaded. */
 export const FillPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
+  const saved = useResultFile();
+  const [fileSize, setFileSize] = useState(0);
+  const [reading, setReading] = useState(false);
   const [bytes, setBytes] = useState<ArrayBuffer | null>(null);
   const [name, setName] = useState('');
   const [pages, setPages] = useState(0);
@@ -40,21 +49,23 @@ export const FillPdf: React.FC = () => {
   const nextId = useRef(1);
   const [view, setView] = useState({ w: 1, h: 1 });
 
+  const startOver = () => { saved.clear(); setBytes(null); setName(''); setPages(0); setMessage(''); };
+
   const openFile = async (file: File | undefined) => {
     if (!file) return;
-    setMessage('');
+    setMessage(''); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
-      setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1); setItems([]);
+      setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1); setItems([]);
       void task.destroy();
       const found = await readFormFields(data);
       setFields(found);
       setEntries(Object.fromEntries(found.map((field) => [field.name, { value: field.value, checked: field.checked }])));
     } catch {
-      setMessage('Could not open that PDF. If it has a password, unlock it first.');
-    }
+      setMessage('Could not open that PDF. The file may be damaged.');
+    } finally { setReading(false); }
   };
 
   const render = useCallback(async () => {
@@ -133,7 +144,7 @@ export const FillPdf: React.FC = () => {
           }
         }
       }
-      saveBlob(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-filled`, 'pdf'));
+      saved.set(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-filled`, 'pdf'), { key: settingsKey });
     } catch {
       setMessage('Could not fill this PDF. If it is protected, unlock it first. A form field may also contain a character it cannot hold: use plain letters and digits there, then try again.');
     } finally { setBusy(false); }
@@ -141,16 +152,17 @@ export const FillPdf: React.FC = () => {
 
   const scale = view.w / pageWidth;
   const here = items.filter((item) => item.page === page);
+  const settingsKey = JSON.stringify([items, entries, flatten]);
+  const outdated = saved.isOutdated(settingsKey);
+
   return (
     <section className="mx-auto min-w-0 space-y-4">
-      <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. Choose the PDF</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <FileUp className="h-4 w-4" aria-hidden="true" />{bytes ? 'Choose another PDF' : 'Choose a PDF'}
-          <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { void openFile(event.target.files?.[0]); event.target.value = ''; }} />
-        </label>
-        {name && <p className="text-xs text-slate-600">{name}.pdf · {pages} page{pages === 1 ? '' : 's'}</p>}
-      </div>
+      {passwordDialog}
+      {!bytes ? (
+        <FileDropZone accept=".pdf,application/pdf" readingPdf={reading} disabled={reading} onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void openFile(prepared); }); }} />
+      ) : (
+        <PdfFileBar name={`${name}.pdf`} size={fileSize} pages={pages} onChange={startOver} />
+      )}
 
       {bytes && fields.length > 0 && (
         <div className={`${card} space-y-3`}>
@@ -181,7 +193,7 @@ export const FillPdf: React.FC = () => {
 
       {bytes && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>{fields.length > 0 ? 'Add text or marks anywhere' : '2. What to add'}</h2>
+          <h2 className={heading}>{fields.length > 0 ? 'Add text or marks anywhere' : 'What to add'}</h2>
           <ChoiceButtons label="Add" value={mode} onChange={(v) => setMode(v as Mode)} options={[{ value: 'text', label: 'Text' }, { value: 'tick', label: 'Tick' }, { value: 'cross', label: 'Cross' }]} />
           {mode === 'text' && (
             <div className="flex flex-wrap items-end gap-2">
@@ -198,7 +210,7 @@ export const FillPdf: React.FC = () => {
 
       {bytes && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>3. Tap the page to place it</h2>
+          <h2 className={heading}>Tap the page to place it</h2>
           <p className="text-[11px] text-slate-500">Tap an empty spot to add. Drag something you added to move it.</p>
           <label className="text-xs font-semibold text-slate-700">Page
             <select value={page} onChange={(event) => setPage(Number(event.target.value))} className="ml-2 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs">
@@ -240,7 +252,15 @@ export const FillPdf: React.FC = () => {
               ))}
             </ul>
           )}
-          <button type="button" disabled={(items.length === 0 && !fieldsChanged) || busy} onClick={() => void save()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Saving...' : 'Download filled PDF'}</button>
+        </div>
+      )}
+      {bytes && (items.length > 0 || fieldsChanged) && (!saved.result || outdated) && (
+        <MainActionButton onClick={() => void save()} busy={busy} busyLabel="Filling...">Fill PDF</MainActionButton>
+      )}
+      {saved.result && (
+        <div className="space-y-3">
+          <SaveResult href={saved.result.url} name={saved.result.name} label="Your filled PDF is ready" saveLabel="Save PDF" outdated={outdated} />
+          {!outdated && <StartOverButton onClick={startOver}>Fill another PDF</StartOverButton>}
         </div>
       )}
       {message && <p role="status" className="text-xs text-red-700">{message}</p>}

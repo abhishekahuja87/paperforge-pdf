@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { usePdfPageCount } from '../../lib/pdf/pageCount';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { FileDropZone } from '../common/FileDropZone';
 import { generateFileName } from '../../lib/pdf/naming';
 import {
-  FileText,
   Download,
   Loader2,
   AlertCircle,
@@ -11,16 +12,20 @@ import {
 import { convertPdfToImages } from '../../lib/pdf/pdfToImages';
 import type { PageImageResult } from '../../lib/pdf/pdfToImages';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
-import { formatFileSize } from '../../lib/pdf/fileName';
+import { SaveResult, StartOverButton } from '../common/SaveResult';
+import { useResultFile } from '../../lib/useResultFile';
 
 export const PdfToImages: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
+  const pageTotal = usePdfPageCount(file);
   const [pages, setPages] = useState<PageImageResult[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const saved = useResultFile();
 
   const resetState = () => {
+    saved.clear();
     setFile(null);
     setPages([]);
     setError(null);
@@ -47,6 +52,14 @@ export const PdfToImages: React.FC = () => {
       const buffer = await file.arrayBuffer();
       const imgs = await convertPdfToImages(buffer, 2.0, 'image/png');
       setPages(imgs);
+      // One picture is saved as it is; several are packed into one ZIP so a single Save button covers them all.
+      if (imgs.length === 1) {
+        saved.set(await (await fetch(imgs[0]!.dataUrl)).blob(), generateFileName('pdf-page', 'png', { base: file.name, details: 'page-1' }));
+      } else {
+        const zip = new (await import('jszip')).default();
+        imgs.forEach((image) => zip.file(`page-${String(image.pageNumber).padStart(3, '0')}.png`, image.dataUrl.split(',')[1] ?? '', { base64: true }));
+        saved.set(await zip.generateAsync({ type: 'blob' }), generateFileName('pdf-pages', 'zip', { base: file.name }));
+      }
     } catch {
       setError('Failed to convert PDF pages into images. Please verify the document is not corrupted or password-protected.');
     } finally {
@@ -65,23 +78,7 @@ export const PdfToImages: React.FC = () => {
         />
       ) : (
         <div className="space-y-5">
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-              <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
-              <span className="text-xs text-slate-400 shrink-0">
-                ({formatFileSize(file.size)})
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={resetState}
-              className="text-xs text-slate-500 hover:text-red-500 font-medium px-2 py-1 rounded cursor-pointer transition"
-            >
-              Change
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={file.size} pages={pageTotal} onChange={resetState} />
 
           {!pages.length && (
             <div className="pt-2 flex justify-center">
@@ -99,25 +96,28 @@ export const PdfToImages: React.FC = () => {
                 ) : (
                   <>
                     <ImageIcon className="w-5 h-5" />
-                    <span>Convert Pages to PNG</span>
+                    <span>Convert pages to PNG</span>
                   </>
                 )}
               </button>
             </div>
           )}
 
+          {pages.length > 0 && saved.result && (
+            <div className="space-y-3 pt-2">
+              <SaveResult
+                href={saved.result.url}
+                name={saved.result.name}
+                label={pages.length === 1 ? 'Your page image is ready' : `Your ${pages.length} page images are ready (ZIP)`}
+                saveLabel={pages.length === 1 ? 'Save image' : 'Save ZIP'}
+              />
+              <StartOverButton onClick={resetState}>Convert another PDF</StartOverButton>
+            </div>
+          )}
+
           {pages.length > 0 && (
-            <div className="space-y-4 pt-2">
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-semibold text-slate-700">Converted {pages.length} Pages</span>
-                <button
-                  type="button"
-                  onClick={resetState}
-                  className="text-xs font-medium text-slate-500 hover:text-indigo-600 cursor-pointer"
-                >
-                  Convert Another File
-                </button>
-              </div>
+            <div className="space-y-3 pt-2">
+              <p className="text-xs font-semibold text-stone-600">Or save one page at a time</p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto p-1">
                 {pages.map((p) => (
@@ -135,7 +135,7 @@ export const PdfToImages: React.FC = () => {
                       <a
                         href={p.dataUrl}
                         download={generateFileName('pdf-page', 'png', { base: file.name, details: `page-${p.pageNumber}` })}
-                        className="text-indigo-600 hover:text-indigo-800 font-semibold inline-flex items-center space-x-1 cursor-pointer"
+                        className="text-orange-800 hover:text-orange-900 font-semibold inline-flex items-center space-x-1 cursor-pointer"
                       >
                         <Download className="w-3.5 h-3.5" />
                         <span>Save</span>

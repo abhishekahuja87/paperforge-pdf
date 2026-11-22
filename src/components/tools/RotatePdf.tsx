@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
-  FileText, 
+  
   RotateCw, 
-  X, 
+  
   AlertCircle, 
   Sparkles,
   RefreshCw 
@@ -14,7 +15,6 @@ import { rotatePdf, type RotationAngle, type RotationScope } from '../../lib/pdf
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { useTranslation } from 'react-i18next';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
-import { formatFileSize } from '../../lib/pdf/fileName';
 
 export const RotatePdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
@@ -128,27 +128,7 @@ export const RotatePdf: React.FC = () => {
       {file && (
         <div className="space-y-5">
           {/* File Card */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
-                <FileText className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <p className="text-xs font-semibold text-slate-800 truncate">{file.name}</p>
-                <p className="text-[11px] text-slate-500">
-                  {t('rotateControls.pages')} <strong className="text-slate-700">{pageCount}</strong> &bull; {formatFileSize(file.size)}
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={handleReset}
-              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md transition cursor-pointer"
-              title={t('rotateControls.remove')}
-              aria-label={t('rotateControls.remove')}
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={file.size} pages={pageCount} onChange={handleReset} />
 
           {/* Rotation Angle Selection */}
           <div className="space-y-1.5">

@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { usePdfPageCount } from '../../lib/pdf/pageCount';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import {
-  FileText,
+  
   Loader2,
-  CheckCircle2,
+  
   AlertCircle,
 } from 'lucide-react';
 import { flattenPdf } from '../../lib/pdf/flatten';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
-import { formatFileSize } from '../../lib/pdf/fileName';
 
 export const FlattenPdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
+  const pageTotal = usePdfPageCount(file);
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   // Free the generated file when it is replaced or the page is left.
   useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [downloadName, setDownloadName] = useState<string>('');
-  const [flattenedCount, setFlattenedCount] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const resetState = () => {
     setFile(null);
-    setFlattenedCount(null);
     setError(null);
     if (downloadUrl) {
       URL.revokeObjectURL(downloadUrl);
@@ -53,14 +53,13 @@ export const FlattenPdf: React.FC = () => {
       setError(null);
 
       const buffer = await file.arrayBuffer();
-      const { pdfBytes, fieldCount } = await flattenPdf(buffer);
+      const { pdfBytes } = await flattenPdf(buffer);
 
       const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
 
       setDownloadUrl(url);
       setDownloadName(generatePdfFilename(file.name, 'flattened'));
-      setFlattenedCount(fieldCount);
     } catch (err) {
       setError(err instanceof Error && err.message.includes('password-protected')
         ? err.message
@@ -83,35 +82,7 @@ export const FlattenPdf: React.FC = () => {
       ) : (
         <div className="space-y-4">
           {/* Selected File Card */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-              <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
-              <span className="text-xs text-slate-400 shrink-0">
-                ({formatFileSize(file.size)})
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={resetState}
-              className="text-xs text-slate-500 hover:text-red-500 font-medium px-2 py-1 rounded cursor-pointer transition"
-            >
-              Change
-            </button>
-          </div>
-
-          {/* Success Banner */}
-          {flattenedCount !== null && (
-            <div className="p-3.5 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center space-x-2 text-emerald-800 text-sm">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span>
-                {flattenedCount > 0
-                  ? `Successfully flattened ${flattenedCount} interactive form field${flattenedCount === 1 ? '' : 's'}.`
-                  : 'Document layers flattened and form fields locked permanently.'}
-              </span>
-            </div>
-          )}
+          <PdfFileBar name={file.name} size={file.size} pages={pageTotal} onChange={resetState} />
         </div>
       )}
 

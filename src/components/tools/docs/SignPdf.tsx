@@ -1,12 +1,18 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Download, FileUp } from 'lucide-react';
+import { FileDropZone } from '../../common/FileDropZone';
+import { PdfFileBar } from '../../common/PdfFileBar';
+import { MainActionButton } from '../../common/MainActionButton';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
+import { useProtectedPdf } from '../../common/ProtectedPdfGate';
+import { useResultFile } from '../../../lib/useResultFile';
+import { } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons } from '../utilities/common';
 import { Slider, Toggle, card, heading } from '../paper/controls';
 import { SignaturePad } from './SignaturePad';
-import { saveBlob, whiteToTransparent } from '../../../lib/images/canvas';
+import { whiteToTransparent } from '../../../lib/images/canvas';
 import { fileToLogo, type Logo } from '../../../lib/paper/image';
 import { generateFileName } from '../../../lib/pdf/naming';
 
@@ -14,6 +20,10 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 /** Place a drawn, typed or uploaded signature on a PDF page. Done in the browser; the file is never uploaded. */
 export const SignPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
+  const saved = useResultFile();
+  const [fileSize, setFileSize] = useState(0);
+  const [reading, setReading] = useState(false);
   const [bytes, setBytes] = useState<ArrayBuffer | null>(null);
   const [name, setName] = useState('');
   const [pages, setPages] = useState(0);
@@ -32,18 +42,20 @@ export const SignPdf: React.FC = () => {
 
   const active = source === 'draw' ? sig : uploaded;
 
+  const startOver = () => { saved.clear(); setBytes(null); setName(''); setPages(0); setMessage(''); };
+
   const openFile = async (file: File | undefined) => {
     if (!file) return;
-    setMessage('');
+    setMessage(''); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
-      setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1);
+      setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1);
       void task.destroy();
     } catch {
-      setMessage('Could not open that PDF. If it has a password, unlock it first.');
-    }
+      setMessage('Could not open that PDF. The file may be damaged.');
+    } finally { setReading(false); }
   };
 
   const render = useCallback(async () => {
@@ -86,26 +98,27 @@ export const SignPdf: React.FC = () => {
         const h = w / active.ratio;
         target.drawImage(png, { x: Math.max(0, Math.min(width - w, pos.x * width - w / 2)), y: Math.max(0, Math.min(height - h, height - pos.y * height - h / 2)), width: w, height: h });
       }
-      saveBlob(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-signed`, 'pdf'));
+      saved.set(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-signed`, 'pdf'), { key: settingsKey });
     } catch {
       setMessage('Could not sign this PDF. If it is protected, unlock it first, then try again.');
     } finally { setBusy(false); }
   };
 
   const sigW = (size / 100) * view.w;
+  const settingsKey = JSON.stringify([pos, size, where, page, active?.src.length ?? 0]);
+  const outdated = saved.isOutdated(settingsKey);
+
   return (
     <section className="mx-auto min-w-0 space-y-4">
-      <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. Choose the PDF</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <FileUp className="h-4 w-4" aria-hidden="true" />{bytes ? 'Choose another PDF' : 'Choose a PDF'}
-          <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { void openFile(event.target.files?.[0]); event.target.value = ''; }} />
-        </label>
-        {name && <p className="text-xs text-slate-600">{name}.pdf · {pages} page{pages === 1 ? '' : 's'}</p>}
-      </div>
+      {passwordDialog}
+      {!bytes ? (
+        <FileDropZone accept=".pdf,application/pdf" readingPdf={reading} disabled={reading} onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void openFile(prepared); }); }} />
+      ) : (
+        <PdfFileBar name={`${name}.pdf`} size={fileSize} pages={pages} onChange={startOver} />
+      )}
 
       <div className={`${card} space-y-3`}>
-        <h2 className={heading}>2. Your signature</h2>
+        <h2 className={heading}>Your signature</h2>
         <ChoiceButtons label="Signature" value={source} onChange={(v) => setSource(v as 'draw' | 'upload')} options={[{ value: 'draw', label: 'Draw or type' }, { value: 'upload', label: 'Use a picture' }]} />
         {source === 'draw' ? <SignaturePad onChange={setSig} /> : (
           <div className="space-y-2">
@@ -122,7 +135,7 @@ export const SignPdf: React.FC = () => {
 
       {bytes && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>3. Place it</h2>
+          <h2 className={heading}>Place it</h2>
           <p className="text-[11px] text-slate-500">Tap or click on the page where the signature should go.</p>
           <div className="flex flex-wrap items-center gap-3">
             <label className="text-xs font-semibold text-slate-700">Page
@@ -137,8 +150,16 @@ export const SignPdf: React.FC = () => {
             <canvas ref={canvas} className="block h-auto w-full" />
             {active && <img src={active.src} alt="" aria-hidden="true" className="pointer-events-none absolute" style={{ width: `${size}%`, left: `${pos.x * 100}%`, top: `${pos.y * 100}%`, transform: 'translate(-50%, -50%)', opacity: 0.95, maxWidth: sigW ? undefined : '100%' }} />}
           </div>
-          <button type="button" disabled={!active || busy} onClick={() => void apply()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Signing...' : 'Download signed PDF'}</button>
-          {!active && <p className="text-[11px] text-slate-500">Add your signature in step 2 first.</p>}
+          {!active && <p className="text-[11px] text-slate-500">Add your signature above first.</p>}
+        </div>
+      )}
+      {bytes && (Boolean(active)) && (!saved.result || outdated) && (
+        <MainActionButton onClick={() => void apply()} busy={busy} busyLabel="Signing...">Sign PDF</MainActionButton>
+      )}
+      {saved.result && (
+        <div className="space-y-3">
+          <SaveResult href={saved.result.url} name={saved.result.name} label="Your signed PDF is ready" saveLabel="Save PDF" outdated={outdated} />
+          {!outdated && <StartOverButton onClick={startOver}>Sign another PDF</StartOverButton>}
         </div>
       )}
       {message && <p role="status" className="text-xs text-red-700">{message}</p>}

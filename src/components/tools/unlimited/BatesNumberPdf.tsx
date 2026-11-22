@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { ArrowDown, ArrowUp, Download, FileUp, Trash2 } from 'lucide-react';
+import { ArrowDown, ArrowUp, Trash2 } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Toggle, card, heading } from '../paper/controls';
-import { saveBlob } from '../../../lib/images/canvas';
+import { FileDropZone } from '../../common/FileDropZone';
+import { MainActionButton } from '../../common/MainActionButton';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
+import { useProtectedPdf } from '../../common/ProtectedPdfGate';
+import { formatFileSize } from '../../../lib/pdf/fileName';
+import { useResultFile } from '../../../lib/useResultFile';
 import { fillTemplate, formatBates, type StampSpot } from '../../../lib/unlimited/bates';
 import { displaySize, displayToPage, normRotation } from '../../../lib/unlimited/geometry';
 
@@ -18,6 +23,8 @@ const today = () => new Date().toLocaleDateString('en-GB');
 
 /** Number every page across one or many PDFs (Bates numbers) and add header and footer text. No limit on files or pages; done in your browser. */
 export const BatesNumberPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
+  const saved = useResultFile();
   const [files, setFiles] = useState<File[]>([]);
   const [stampNumber, setStampNumber] = useState(true);
   const [spot, setSpot] = useState<StampSpot>('bottom-right');
@@ -35,6 +42,18 @@ export const BatesNumberPdf: React.FC = () => {
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState('');
   const [message, setMessage] = useState('');
+
+  const settingsKey = JSON.stringify([files.map((file) => `${file.name}:${file.size}`), stampNumber, spot, prefix, start, digits, suffix, header, headerSpot, footer, footerSpot, size, color, continueAcross]);
+  const outdated = saved.isOutdated(settingsKey);
+  const addFiles = async (chosen: File[]) => {
+    const accepted: File[] = [];
+    for (const file of chosen.filter((item) => /pdf$/i.test(item.type) || /\.pdf$/i.test(item.name))) {
+      const ready = await prepare(file);
+      if (ready) accepted.push(ready);
+    }
+    if (accepted.length) { setMessage(''); setFiles((list) => [...list, ...accepted]); }
+  };
+  const startOver = () => { saved.clear(); setFiles([]); setMessage(''); };
 
   const startNumber = Math.max(0, Math.floor(Number(start)) || 0);
   const sample = formatBates(prefix, startNumber, Number(digits) || 1, suffix);
@@ -79,42 +98,38 @@ export const BatesNumberPdf: React.FC = () => {
           if (footer.trim()) put(fillTemplate(footer, values), footerSpot);
         });
         const out = await doc.save();
-        if (files.length === 1) { saveBlob(new Blob([out as BlobPart], { type: 'application/pdf' }), `${base}-stamped.pdf`); setMessage(stampNumber ? `Saved. Numbers ${sample} to ${formatBates(prefix, counter - 1, Number(digits) || 1, suffix)}.` : 'Saved.'); return; }
+        if (files.length === 1) { saved.set(new Blob([out as BlobPart], { type: 'application/pdf' }), `${base}-stamped.pdf`, { key: settingsKey, detail: stampNumber ? `Numbers ${sample} to ${formatBates(prefix, counter - 1, Number(digits) || 1, suffix)}` : undefined }); return; }
         zip.file(`${base}-stamped.pdf`, out);
         await tick();
       }
       setProgress('Making the ZIP…');
-      saveBlob(await zip.generateAsync({ type: 'blob' }), 'stamped-pdfs.zip');
-      setMessage(stampNumber ? `Saved a ZIP of ${files.length} PDFs. Numbers ${sample} to ${formatBates(prefix, counter - 1, Number(digits) || 1, suffix)} (${stamped} pages).` : `Saved a ZIP of ${files.length} PDFs.`);
+      saved.set(await zip.generateAsync({ type: 'blob' }), 'stamped-pdfs.zip', { key: settingsKey, detail: stampNumber ? `Numbers ${sample} to ${formatBates(prefix, counter - 1, Number(digits) || 1, suffix)} (${stamped} pages)` : undefined });
     } catch { setMessage('Could not stamp one of the files. If a PDF is protected, unlock it first, then try again.'); }
     finally { setBusy(false); setProgress(''); }
   };
 
   return (
     <section className="mx-auto min-w-0 space-y-4">
-      <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. Add the PDFs</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <FileUp className="h-4 w-4" aria-hidden="true" />Add PDFs
-          <input type="file" accept="application/pdf,.pdf" multiple className="sr-only" onChange={(event) => { setFiles((list) => [...list, ...Array.from(event.target.files ?? []).filter((file) => /pdf$/i.test(file.type) || /\.pdf$/i.test(file.name))]); event.target.value = ''; }} />
-        </label>
-        {files.length > 0 && (
+      {passwordDialog}
+      <FileDropZone accept=".pdf,application/pdf" multiple onFiles={(chosen) => { void addFiles(chosen); }} />
+      {files.length > 0 && (
+        <div className="space-y-2">
           <ol className="space-y-1">
             {files.map((file, index) => (
-              <li key={`${file.name}-${index}`} className="flex items-center gap-1 rounded-lg border border-slate-200 px-2 py-1 text-xs text-slate-700">
-                <span className="min-w-0 flex-1 break-all">{index + 1}. {file.name}</span>
-                <button type="button" onClick={() => move(index, -1)} disabled={index === 0} aria-label={`Move ${file.name} up`} className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-slate-100 disabled:opacity-30"><ArrowUp className="h-4 w-4" aria-hidden="true" /></button>
-                <button type="button" onClick={() => move(index, 1)} disabled={index === files.length - 1} aria-label={`Move ${file.name} down`} className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-slate-100 disabled:opacity-30"><ArrowDown className="h-4 w-4" aria-hidden="true" /></button>
-                <button type="button" onClick={() => setFiles((list) => list.filter((_, i) => i !== index))} aria-label={`Remove ${file.name}`} className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-lg text-red-700 hover:bg-slate-100"><Trash2 className="h-4 w-4" aria-hidden="true" /></button>
+              <li key={`${file.name}-${index}`} className="flex items-center gap-1 rounded-lg border border-stone-200 bg-white px-2 py-1 text-xs text-stone-700">
+                <span className="min-w-0 flex-1 break-all">{index + 1}. {file.name} <span className="text-stone-400">({formatFileSize(file.size)})</span></span>
+                <button type="button" onClick={() => move(index, -1)} disabled={index === 0} aria-label={`Move ${file.name} up`} className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-stone-100 disabled:opacity-30"><ArrowUp className="h-4 w-4" aria-hidden="true" /></button>
+                <button type="button" onClick={() => move(index, 1)} disabled={index === files.length - 1} aria-label={`Move ${file.name} down`} className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-stone-100 disabled:opacity-30"><ArrowDown className="h-4 w-4" aria-hidden="true" /></button>
+                <button type="button" onClick={() => setFiles((list) => list.filter((_, i) => i !== index))} aria-label={`Remove ${file.name}`} className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-lg text-red-700 hover:bg-stone-100"><Trash2 className="h-4 w-4" aria-hidden="true" /></button>
               </li>
             ))}
           </ol>
-        )}
-        <p className="text-[11px] text-slate-500">The order here is the order of the numbers.</p>
-      </div>
+          <p className="text-[11px] text-stone-500">The order here is the order of the numbers.</p>
+        </div>
+      )}
 
       <div className={`${card} space-y-3`}>
-        <h2 className={heading}>2. What to stamp</h2>
+        <h2 className={heading}>What to stamp</h2>
         <Toggle label="Running page number (Bates number)" checked={stampNumber} onChange={setStampNumber} />
         {stampNumber && (
           <>
@@ -138,8 +153,16 @@ export const BatesNumberPdf: React.FC = () => {
           <label className="text-xs font-semibold text-slate-700">Text size (pt)<input type="number" min={5} max={24} value={size} onChange={(event) => setSize(event.target.value)} className={fieldClass} /></label>
           <div><p className="mb-1.5 text-xs font-semibold text-slate-700">Colour</p><ChoiceButtons label="Colour" value={color} onChange={(value) => setColor(value as keyof typeof COLORS)} options={[{ value: 'black', label: 'Black' }, { value: 'grey', label: 'Grey' }, { value: 'blue', label: 'Blue' }]} /></div>
         </div>
-        <button type="button" disabled={busy || files.length === 0} onClick={() => void run()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? progress || 'Working…' : files.length > 1 ? 'Stamp all and download ZIP' : 'Stamp and download'}</button>
       </div>
+      {files.length > 0 && (!saved.result || outdated) && (
+        <MainActionButton onClick={() => void run()} busy={busy} busyLabel={progress || 'Working...'}>{files.length > 1 ? 'Stamp all PDFs' : 'Stamp PDF'}</MainActionButton>
+      )}
+      {saved.result && (
+        <div className="space-y-3">
+          <SaveResult href={saved.result.url} name={saved.result.name} label={saved.result.name.endsWith('.zip') ? 'Your stamped PDFs are ready (ZIP)' : 'Your stamped PDF is ready'} saveLabel={saved.result.name.endsWith('.zip') ? 'Save ZIP' : 'Save PDF'} detail={saved.result.detail} outdated={outdated} />
+          {!outdated && <StartOverButton onClick={startOver}>Stamp other PDFs</StartOverButton>}
+        </div>
+      )}
       {message && <Note>{message}</Note>}
     </section>
   );

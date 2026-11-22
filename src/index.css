@@ -25,6 +25,14 @@
   --color-indigo-950: var(--theme-workshop-indigo-950);
 }
 
+/* Checkboxes and radio buttons use the site orange everywhere, never the browser's default blue. */
+@layer base {
+  input[type='checkbox'],
+  input[type='radio'] {
+    accent-color: var(--color-orange-700);
+  }
+}
+
 @keyframes display-slide-fade {
   from { opacity: 0.25; }
   to { opacity: 1; }

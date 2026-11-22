@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { usePdfPageCount } from '../../lib/pdf/pageCount';
+import { PdfFileBar } from '../common/PdfFileBar';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 import { FileDropZone } from '../common/FileDropZone';
 import { generateFileName } from '../../lib/pdf/naming';
 import {
@@ -11,10 +14,12 @@ import {
 } from 'lucide-react';
 import { extractTextFromPdf } from '../../lib/pdf/extractText';
 import type { ExtractedPageText } from '../../lib/pdf/extractText';
-import { formatFileSize } from '../../lib/pdf/fileName';
 
 export const ExtractText: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
+  const { openWithPassword, dialog: passwordDialog } = useProtectedPdf();
+  const [password, setPassword] = useState('');
+  const pageTotal = usePdfPageCount(file);
   const [pages, setPages] = useState<ExtractedPageText[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -22,12 +27,13 @@ export const ExtractText: React.FC = () => {
 
   const resetState = () => {
     setFile(null);
+    setPassword('');
     setPages([]);
     setError(null);
     setCopied(false);
   };
 
-  const handleFileChange = (selected: File) => {
+  const handleFileChange = (selected: File, typed = '') => {
     if (selected) {
       if (selected.type !== 'application/pdf' && !selected.name.toLowerCase().endsWith('.pdf')) {
         setError('Please select a valid PDF file.');
@@ -35,6 +41,7 @@ export const ExtractText: React.FC = () => {
       }
       resetState();
       setFile(selected);
+      setPassword(typed);
     }
   };
 
@@ -46,7 +53,7 @@ export const ExtractText: React.FC = () => {
       setError(null);
 
       const buffer = await file.arrayBuffer();
-      const extracted = await extractTextFromPdf(buffer);
+      const extracted = await extractTextFromPdf(buffer, password || undefined);
       setPages(extracted);
     } catch {
       setError('Failed to extract text from PDF. Please verify the document is not corrupted or password-protected.');
@@ -78,33 +85,18 @@ export const ExtractText: React.FC = () => {
 
   return (
     <div className="mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
+      {passwordDialog}
 
       {/* Upload Drop Zone matching MergePdf identically */}
       {!file ? (
         <FileDropZone
           accept=".pdf,application/pdf"
-          onFiles={(files) => { void handleFileChange(files[0]); }}
+          onFiles={(files) => { void openWithPassword(files[0]).then((opened) => { if (opened) handleFileChange(opened.file, opened.password); }); }}
         />
       ) : (
         <div className="space-y-5">
           {/* Selected File Card */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-              <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
-              <span className="text-xs text-slate-400 shrink-0">
-                ({formatFileSize(file.size)})
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={resetState}
-              className="text-xs text-slate-500 hover:text-red-500 font-medium px-2 py-1 rounded cursor-pointer transition"
-            >
-              Change
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={file.size} pages={pageTotal} onChange={resetState} />
 
           {/* Action Button before extraction */}
           {!pages.length && (

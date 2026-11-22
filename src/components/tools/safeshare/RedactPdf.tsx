@@ -1,11 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Download, FileUp, Search, Trash2 } from 'lucide-react';
+import { FileDropZone } from '../../common/FileDropZone';
+import { PdfFileBar } from '../../common/PdfFileBar';
+import { MainActionButton } from '../../common/MainActionButton';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
+import { useProtectedPdf } from '../../common/ProtectedPdfGate';
+import { useResultFile } from '../../../lib/useResultFile';
+import {Search, Trash2 } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons } from '../utilities/common';
 import { Toggle, card, heading } from '../paper/controls';
-import { saveBlob, canvasToBlob, makeCanvas } from '../../../lib/images/canvas';
+import { canvasToBlob, makeCanvas } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { safeRenderScale } from '../../../lib/pdf/renderScale';
 
@@ -22,6 +28,10 @@ const multiply = (m1: Matrix, m2: Matrix): Matrix => [
 
 /** Black out names, numbers and addresses in a PDF so they are really gone, not just covered. Done in your browser. */
 export const RedactPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
+  const saved = useResultFile();
+  const [fileSize, setFileSize] = useState(0);
+  const [reading, setReading] = useState(false);
   const [bytes, setBytes] = useState<ArrayBuffer | null>(null);
   const [name, setName] = useState('');
   const [pages, setPages] = useState(0);
@@ -36,19 +46,21 @@ export const RedactPdf: React.FC = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
   const nextId = useRef(1);
 
+  const startOver = () => { saved.clear(); setBytes(null); setName(''); setPages(0); setMessage(''); };
+
   const openFile = async (file: File | undefined) => {
     if (!file) return;
-    setMessage('');
+    setMessage(''); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
       const count = doc.numPages;
       void task.destroy();
-      setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(count); setPage(1); setBoxes([]);
+      setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(count); setPage(1); setBoxes([]);
     } catch {
-      setMessage('Could not open that PDF. If it has a password, unlock it first.');
-    }
+      setMessage('Could not open that PDF. The file may be damaged.');
+    } finally { setReading(false); }
   };
 
   const render = useCallback(async () => {
@@ -155,8 +167,8 @@ export const RedactPdf: React.FC = () => {
         pdfPage.cleanup();
       }
       out.setTitle(''); out.setAuthor(''); out.setSubject(''); out.setKeywords([]); out.setProducer(''); out.setCreator('');
-      saveBlob(new Blob([(await out.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-redacted`, 'pdf'));
-      setMessage('Saved. Pages with black boxes are now pictures, so the covered text is gone for good. Open the file and try to select text under a box to check.');
+      saved.set(new Blob([(await out.save()) as BlobPart], { type: 'application/pdf' }), generateFileName(`${name || 'document'}-redacted`, 'pdf'), { key: settingsKey });
+      setMessage('Pages with black boxes are now pictures, so the covered text is gone for good. Open the saved file and try to select text under a box to check.');
     } catch {
       setMessage('Could not make the redacted PDF. If the file is protected, unlock it first. A very large PDF may need more memory than your device has: split it with Smart Split PDF and try again.');
     } finally { void task.destroy(); setBusy(false); }
@@ -164,20 +176,22 @@ export const RedactPdf: React.FC = () => {
 
   const here = boxes.filter((box) => box.page === page);
   const shown = draft ? { x: Math.min(draft.x0, draft.x1), y: Math.min(draft.y0, draft.y1), w: Math.abs(draft.x1 - draft.x0), h: Math.abs(draft.y1 - draft.y0) } : null;
+  const settingsKey = JSON.stringify([boxes, keepText]);
+  const outdated = saved.isOutdated(settingsKey);
+
   return (
     <section className="mx-auto min-w-0 space-y-4">
-      <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. Choose the PDF</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <FileUp className="h-4 w-4" aria-hidden="true" />{bytes ? 'Choose another PDF' : 'Choose a PDF'}
-          <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { void openFile(event.target.files?.[0]); event.target.value = ''; }} />
-        </label>
-      </div>
+      {passwordDialog}
+      {!bytes ? (
+        <FileDropZone accept=".pdf,application/pdf" readingPdf={reading} disabled={reading} onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void openFile(prepared); }); }} />
+      ) : (
+        <PdfFileBar name={`${name}.pdf`} size={fileSize} pages={pages} onChange={startOver} />
+      )}
 
       {bytes && (
         <>
           <div className={`${card} space-y-3`}>
-            <h2 className={heading}>2. Black out what must stay private</h2>
+            <h2 className={heading}>Black out what must stay private</h2>
             <label className="block text-xs font-semibold text-slate-700">Find a word or number on every page
               <span className="mt-1.5 flex gap-2">
                 <input value={term} onChange={(event) => setTerm(event.target.value)} placeholder="for example an account number or a name" className="min-w-0 flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900" />
@@ -211,12 +225,20 @@ export const RedactPdf: React.FC = () => {
           </div>
 
           <div className={`${card} space-y-3`}>
-            <h2 className={heading}>3. Download</h2>
+            <h2 className={heading}>Download</h2>
             <Toggle label="Keep other pages as normal text" hint="Pages without black boxes stay searchable and sharp. Turn off to turn every page into a picture." checked={keepText} onChange={setKeepText} />
             <p className="text-xs text-slate-600">{boxes.length} black box{boxes.length === 1 ? '' : 'es'} on {new Set(boxes.map((box) => box.page)).size} page{new Set(boxes.map((box) => box.page)).size === 1 ? '' : 's'}.</p>
-            <button type="button" disabled={busy || boxes.length === 0} onClick={() => void save()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Working…' : 'Download redacted PDF'}</button>
           </div>
         </>
+      )}
+      {bytes && (boxes.length > 0) && (!saved.result || outdated) && (
+        <MainActionButton onClick={() => void save()} busy={busy} busyLabel="Working...">Redact PDF</MainActionButton>
+      )}
+      {saved.result && (
+        <div className="space-y-3">
+          <SaveResult href={saved.result.url} name={saved.result.name} label="Your redacted PDF is ready" saveLabel="Save PDF" outdated={outdated} />
+          {!outdated && <StartOverButton onClick={startOver}>Redact another PDF</StartOverButton>}
+        </div>
       )}
       {message && <Note>{message}</Note>}
     </section>

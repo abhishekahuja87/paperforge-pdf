@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
-  FileText, 
+  
   Grid, 
-  X, 
+  
   AlertCircle, 
   Sparkles, 
   RefreshCw,
-  Printer,
-  Presentation,
+  
+  
   Check
 } from 'lucide-react';
 import { getPdfPageCount } from '../../lib/pdf/split';
 import { createNUpPdf, type NUpLayout, type NUpPaperSize } from '../../lib/pdf/nUp';
 import { generatePdfFilename } from '../../lib/pdf/naming';
-import { useTranslation } from 'react-i18next';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
-import { formatFileSize } from '../../lib/pdf/fileName';
 
 export const NUpPdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
-  const { t, i18n } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
 
@@ -135,59 +133,12 @@ export const NUpPdf: React.FC = () => {
         <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800">{errorMessage}</p>
       )}
 
-      <details lang={i18n.language} className="rounded-xl border border-stone-200 bg-white p-3">
-        <summary className="cursor-pointer text-xs font-semibold text-stone-700">{t('toolInfo.more')}</summary>
-        <div className="mt-3">
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-              <Grid className="w-4 h-4 text-indigo-600" />
-              {t('toolInfo.nup.0')}
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-              <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
-                <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-                  <Printer className="w-3.5 h-3.5 text-indigo-600" /> {t('toolInfo.nup.1')}
-                </span>
-                <p className="text-[11px] text-slate-500 leading-snug">
-                  {t('toolInfo.nup.2')}
-                </p>
-              </div>
-              <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
-                <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-                  <Presentation className="w-3.5 h-3.5 text-emerald-600" /> {t('toolInfo.nup.3')}
-                </span>
-                <p className="text-[11px] text-slate-500 leading-snug">
-                  {t('toolInfo.nup.4')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
+
 
       {file && (
         <div className="space-y-5">
           {/* File Card */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
-                <FileText className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <p className="text-xs font-semibold text-slate-800 truncate">{file.name}</p>
-                <p className="text-[11px] text-slate-500">
-                  Total pages: <strong className="text-slate-700">{pageCount}</strong> &bull; {formatFileSize(file.size)}
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={handleReset}
-              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md transition cursor-pointer"
-              title="Remove file"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={file.size} pages={pageCount} onChange={handleReset} />
 
           {/* Layout Selector */}
           <div className="space-y-1.5">

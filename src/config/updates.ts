@@ -19,6 +19,27 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/pdf-to-images',
+    tool: 'PDF tools',
+    title: 'Every PDF tool now looks and works the same',
+    summary: 'The same upload box, the same file bar with pages and size and a Change button, one main button, and the green Save banner with a grey button to start again, in all PDF tools including Smart Split, Redact, Fill, Sign, Compare, Bates numbers and PDF to Images (one Save for all pages).',
+  },
+  {
+    date: '2026-11-22',
+    path: '/sanitize-pdf',
+    tool: 'PDF tools',
+    title: 'Password-protected PDFs now ask for the password',
+    summary: 'Sanitize, Protect, Extract Text, Compare and the other PDF tools now open a box asking for the password, like Merge does, instead of showing an error.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/document-scanner',
+    tool: 'Document Scanner',
+    title: 'Photos keep their colours, and the same Save banner',
+    summary: 'New photos start with the Original look instead of grey. The PDF is made with one button, then you rename and save it like in every other PDF tool.',
+  },
+  {
+    date: '2026-11-22',
     path: '/digitize-documents',
     tool: 'Scan to Searchable PDF',
     title: 'Simpler flow: choose images, press one button, save',

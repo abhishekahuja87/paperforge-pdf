@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import {
   RotateCw,
   Trash2,
   AlertCircle,
-  FileText,
+  
   Loader2,
   MoveLeft,
   MoveRight,
@@ -138,23 +139,7 @@ export const OrganizePdf: React.FC = () => {
       ) : (
         <div className="space-y-5">
           {/* Selected File Card */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-              <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
-              <span className="text-xs text-slate-400 shrink-0">
-                ({pages.length} {pages.length === 1 ? 'page' : 'pages'})
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={resetState}
-              className="text-xs text-slate-500 hover:text-red-500 font-medium px-2 py-1 rounded cursor-pointer transition"
-            >
-              Change
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={file.size} pages={pages.length} onChange={resetState} />
 
           {/* Loading Previews Spinner */}
           {isLoading && (
