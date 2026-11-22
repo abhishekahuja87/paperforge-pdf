@@ -130,6 +130,8 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'vcard-qr-code-generator': ['contact qr', 'save contact by scanning'],
   'vcard-to-csv-converter': ['vcf to csv', 'vcf to excel', 'contacts to excel', 'export phone contacts', 'google contacts to csv'],
   'json-formatter': ['json beautifier', 'json validator', 'minify json', 'pretty print json', 'fix json'],
+  'json-to-csv-converter': ['json to excel', 'json to spreadsheet', 'api to csv', 'flatten json'],
+  'json-viewer': ['json tree', 'json explorer', 'nested json viewer', 'json path'],
   'base64-tool': ['base64 encode', 'base64 decode', 'sha256 hash', 'md5 hash', 'text to base64'],
   'url-encoder-decoder': ['encode url', 'decode url', 'percent encoding', 'query string encode'],
   'timestamp-converter': ['unix time to date', 'epoch to human date', 'current unix timestamp'],

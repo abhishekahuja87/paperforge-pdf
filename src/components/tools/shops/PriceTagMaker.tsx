@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { Printer } from 'lucide-react';
 import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
 import { fieldClass } from '../utilities/common';
@@ -63,7 +64,7 @@ export const PriceTagMaker: React.FC = () => {
           <label className="block text-xs font-semibold text-slate-700">Copies of each tag (1 to {MAX_COPIES})<input value={copies} inputMode="numeric" onChange={(event) => setCopies(event.target.value)} className={fieldClass} /></label>
           <label className="block text-xs font-semibold text-slate-700">Text before the price<input value={prefix} onChange={(event) => setPrefix(event.target.value)} className={fieldClass} placeholder="Rs " /></label>
           <label className="block text-xs font-semibold text-slate-700">Shop name on the tag (optional)<input value={shop} onChange={(event) => setShop(event.target.value)} className={fieldClass} /></label>
-          <label className="block text-xs font-semibold text-slate-700">Colour<input type="color" value={accent} onChange={(event) => setAccent(event.target.value)} className="mt-1.5 block h-11 w-full rounded-lg border border-slate-200 bg-white p-1" /></label>
+          <label className="block text-xs font-semibold text-slate-700">Colour<ColorField value={accent} onChange={setAccent} label="Colour" className="mt-1.5 block h-11 w-full" /></label>
         </div>
         <div className="mt-3"><Toggle label="Show the saving" checked={showSave} onChange={setShowSave} hint="Adds a line such as Save 20% when the old price is higher than the price." /></div>
         {skippedCodes > 0 && <p role="alert" className="mt-2 text-xs text-rose-800">{skippedCodes} {skippedCodes === 1 ? 'code cannot' : 'codes cannot'} be drawn as a barcode (letters, digits and simple symbols only, up to 40 characters). Those tags print without a code.</p>}

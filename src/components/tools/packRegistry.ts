@@ -25,6 +25,7 @@ import { DOCS_COMPONENTS } from './docs/registry';
 import { TOOLKIT_COMPONENTS } from './toolkit/registry';
 import { SAFESHARE_COMPONENTS } from './safeshare/registry';
 import { UNLIMITED_COMPONENTS } from './unlimited/registry';
+import { DEVTOOLS_COMPONENTS } from './devtools/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -57,4 +58,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...TOOLKIT_COMPONENTS,
   ...SAFESHARE_COMPONENTS,
   ...UNLIMITED_COMPONENTS,
+  ...DEVTOOLS_COMPONENTS,
 };

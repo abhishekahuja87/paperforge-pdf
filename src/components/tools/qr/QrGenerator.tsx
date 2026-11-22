@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { Link } from 'react-router-dom';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { Download, Printer, ShieldCheck, AlertTriangle } from 'lucide-react';
@@ -191,8 +192,8 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
             <h2 className={heading}>Look and reliability</h2>
             <div className="mt-3 space-y-3">
               <div className="grid grid-cols-2 gap-3">
-                <label className="block text-xs font-semibold text-slate-700">Code colour<input type="color" value={style.fg} onChange={(e) => set('fg', e.target.value)} className="mt-1.5 block h-10 w-full rounded-lg border border-slate-200" /></label>
-                <label className="block text-xs font-semibold text-slate-700">Background<input type="color" value={style.bg} onChange={(e) => set('bg', e.target.value)} className="mt-1.5 block h-10 w-full rounded-lg border border-slate-200" /></label>
+                <label className="block text-xs font-semibold text-slate-700">Code colour<ColorField value={style.fg} onChange={(hex) => set('fg', hex)} label="Code colour" className="mt-1.5 block h-10 w-full" /></label>
+                <label className="block text-xs font-semibold text-slate-700">Background<ColorField value={style.bg} onChange={(hex) => set('bg', hex)} label="Background" className="mt-1.5 block h-10 w-full" /></label>
               </div>
               {contrast < 4 && <Note>Low contrast ({contrast.toFixed(1)}:1). Many phones will struggle to read this. Use a darker code on a lighter background.</Note>}
               {inverted && contrast >= 4 && <Note>Light code on a dark background is an inverted code. Some older scanners cannot read it. Test with more than one phone.</Note>}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { Download, ImagePlus } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
@@ -123,7 +124,7 @@ export const SocialImageSizes: React.FC = () => {
                 <Slider label="Move the crop up or down" value={Math.round(focusY * 100)} min={0} max={100} step={1} unit="%" onChange={(value) => setFocusY(value / 100)} />
               </>
             ) : (
-              <label className="text-xs font-semibold text-slate-700">Background colour<input type="color" value={background} onChange={(event) => setBackground(event.target.value)} className="ml-2 h-9 w-14 align-middle" /></label>
+              <label className="text-xs font-semibold text-slate-700">Background colour<ColorField value={background} onChange={setBackground} label="Background colour" className="ml-2 h-9 w-14 align-middle" /></label>
             )}
             <ChoiceButtons label="Save as" value={format} onChange={(value) => setFormat(value as 'jpg' | 'png')} options={[{ value: 'jpg', label: 'JPG (smaller)' }, { value: 'png', label: 'PNG (sharper)' }]} />
             {targets.length > 0 && (

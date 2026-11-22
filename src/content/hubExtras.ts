@@ -270,6 +270,8 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   "/developer-and-data-tools": {
     tasks: [
       { task: "Format and validate JSON", tool: "json-formatter", name: "JSON Formatter", note: "Also minify." },
+      { task: "Explore big nested JSON", tool: "json-viewer", name: "JSON Viewer", note: "Tree, search and table." },
+      { task: "Turn JSON into a spreadsheet", tool: "json-to-csv-converter", name: "JSON to CSV Converter", note: "Choose columns and separator." },
       { task: "Encode Base64 or make a hash", tool: "base64-tool", name: "Base64 and Hash", note: "SHA hashes too." },
       { task: "Encode or decode a URL", tool: "url-encoder-decoder", name: "URL Encoder and Decoder", note: "Percent-encoding." },
       { task: "Convert a Unix timestamp", tool: "timestamp-converter", name: "Unix Timestamp Converter", note: "Epoch time to a date and back." },

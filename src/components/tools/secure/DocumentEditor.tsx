@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { Bold, Image as ImageIcon, Italic, Link2, Quote, Undo2 } from 'lucide-react';
 import { docCss, FONT_CHOICES, type DocStyle } from '../../../lib/secure/docStyle';
 import { sdSanitize } from '../../../lib/secure/sanitizeCore.js';
@@ -49,6 +50,7 @@ const selectClass = 'h-9 rounded-md border border-slate-200 bg-white px-2 text-x
 /** Word-style editor in the browser: styles, fonts, colours, lists, links, pictures and tables, drawn on a sheet of paper. */
 export const DocumentEditor: React.FC<Props> = ({ editorRef, style, header, footer, watermark, onChange }) => {
   const saved = useRef<Range | null>(null);
+  const [otherColor, setOtherColor] = useState('#111827');
   const [words, setWords] = useState(0);
   const [block, setBlockState] = useState<BlockChoice>('p');
   const [on, setOn] = useState({ bold: false, italic: false, underline: false, strike: false, ul: false, ol: false });
@@ -211,7 +213,7 @@ export const DocumentEditor: React.FC<Props> = ({ editorRef, style, header, foot
           <div className="space-y-2 border-t border-slate-100 p-2.5 text-xs">
             <div className="flex flex-wrap items-center gap-1.5"><span className="w-20 font-semibold text-slate-600">Text colour</span>
               {TEXT_COLORS.map((colour) => <button key={colour} type="button" aria-label={`Text colour ${colour}`} onMouseDown={(event) => event.preventDefault()} onClick={() => exec('foreColor', colour)} className="h-7 w-7 rounded-full border border-slate-300" style={{ background: colour }} />)}
-              <label className="ml-1 inline-flex items-center gap-1 font-semibold text-slate-600">Other <input type="color" aria-label="Pick a text colour" defaultValue="#111827" onChange={(event) => exec('foreColor', event.target.value)} className="h-7 w-9 rounded border border-slate-300" /></label>
+              <label className="ml-1 inline-flex items-center gap-1 font-semibold text-slate-600">Other <ColorField value={otherColor} label="Pick a text colour" className="h-7 w-9" onChange={(hex) => { setOtherColor(hex); exec('foreColor', hex); }} /></label>
             </div>
             <div className="flex flex-wrap items-center gap-1.5"><span className="w-20 font-semibold text-slate-600">Highlight</span>
               {MARKS.map((colour) => <button key={colour} type="button" aria-label={`Highlight ${colour}`} onMouseDown={(event) => event.preventDefault()} onClick={() => act(() => { document.execCommand('styleWithCSS', false, 'true'); if (!document.execCommand('hiliteColor', false, colour)) document.execCommand('backColor', false, colour); })} className="h-7 w-7 rounded-md border border-slate-300" style={{ background: colour }} />)}

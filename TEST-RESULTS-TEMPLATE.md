@@ -216,3 +216,11 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 ## Anything else you noticed
 (slow screens, confusing words, things you expected that were missing)
 
+
+## K. 22 Nov additions
+| # | What to try | Result | Notes |
+|---|---|---|---|
+| K1 | Colour picker in Colour Converter, Watermark, QR, Resume and Document Editor (phone and computer) | | |
+| K2 | Timestamp converter: live clock, zones, unit detection, add/subtract, batch | | |
+| K3 | JSON to CSV: sample, file with several lists, open result in Excel | | |
+| K4 | JSON Viewer: expand/collapse, search, copy path, table and text views, a large file | | |

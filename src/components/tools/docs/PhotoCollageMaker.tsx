@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { ArrowDown, ArrowUp, Download, ImagePlus, Trash2 } from 'lucide-react';
 import { CameraButton } from '../../common/CameraButton';
 import { Note } from '../../finance/ui';
@@ -115,7 +116,7 @@ export const PhotoCollageMaker: React.FC = () => {
           <ChoiceButtons label="Layout" value={layout} onChange={(v) => setLayout(v as 'grid' | 'feature')} options={[{ value: 'grid', label: 'Even grid' }, { value: 'feature', label: 'One big photo (3 or more)' }]} />
           <Slider label="Space between photos" value={gap} min={0} max={60} step={2} unit="px" onChange={setGap} />
           <Slider label="Rounded corners" value={round} min={0} max={80} step={4} unit="px" onChange={setRound} />
-          <label className="flex items-center gap-2 text-xs font-semibold text-slate-700">Background<input type="color" value={bg} onChange={(event) => setBg(event.target.value)} className="h-9 w-14 rounded border border-slate-300" /></label>
+          <label className="flex items-center gap-2 text-xs font-semibold text-slate-700">Background<ColorField value={bg} onChange={setBg} label="Background" className="h-9 w-14" /></label>
           <canvas ref={view} className="mx-auto block h-auto max-h-[65vh] w-auto max-w-full rounded border border-slate-300" aria-label="Collage preview" />
           <div className="flex flex-wrap gap-2">
             <button type="button" onClick={async () => saveBlob(await canvasToBlob(draw(), 'image/jpeg', 0.92), generateFileName('collage', 'jpg'))} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download JPG</button>

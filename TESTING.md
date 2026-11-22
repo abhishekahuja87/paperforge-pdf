@@ -1182,3 +1182,15 @@ Not run. On a phone, tap a topic chip (for example PDF tools) under the search b
 
 ### Your tools columns (21 Nov)
 Not run. Pin a few tools and open a few more: the Your tools box (Pinned, Recently used) now shows tiles in the same 4 columns, same size and spacing as the topic sections below (1 column on phones, 3 on tablets).
+
+### Advanced colour picker (22 Nov)
+Not run. Every place that asks for a colour (Colour Converter, Watermark, Image Resizer, QR and Bulk QR, Resume, Price Tag, Screenshot Redactor, Photo Collage, Visiting Card, Display Studio, Social Image Sizes, Job Description, Document Editor text colour) shows the same swatch button. Tap it: a sheet opens with the colour area, hue slider, hex box, RGB boxes, Recently used and Ready colours. Cancel or Escape keeps the old colour; Done keeps the new one and adds it to Recently used. "Pick from screen" appears only in Chrome and Edge on a computer. Check it on a phone (drag works, sheet fits, no page scroll behind it). In the Document Editor the text you selected is recoloured.
+
+### Unix Timestamp Converter upgrade (22 Nov)
+Not run. Live clock (seconds and milliseconds, Copy). Paste 10, 13, 16 and 19 digit values: the unit note says seconds, milliseconds, microseconds, nanoseconds. Zone picker changes the time shown; the table has ISO, RFC 2822, relative, weekday, day of year, ISO week and quarter. Date to timestamp respects the chosen zone. Add or subtract (including 31 Jan + 1 month = 28/29 Feb). Time between two timestamps. Batch: paste several, Copy as CSV.
+
+### JSON to CSV Converter (22 Nov)
+Not run. /json-to-csv-converter: use the sample, a .json file and pasted text. A file with several lists asks which one. Nested objects become dotted columns; the three list modes work; unticking columns removes them; separator, quote-all, header, empty text and BOM options change the file. Open it in Excel (Hindi text correct) and Google Sheets. A cell beginning with = shows a leading apostrophe unless formula-safe is off. Invalid JSON shows the error and the "Remove comments and trailing commas" button when it applies. After Save, changing any option marks the saved file outdated.
+
+### JSON Viewer (22 Nov)
+Not run. /json-viewer: sample, file, paste. Tree: arrows open/close, Expand all, Collapse all, Level 1 to 4. Search jumps between matches, opens parents, Enter and Shift+Enter move. Tap a row: path (e.g. $.branches[0].city) with Copy path and Copy value. A list of over 100 items shows "Show more". Sort keys A to Z. Table view with filter and the link to JSON to CSV. Text view with 2, 4 and minified, Copy and Save. Try a 20 MB file on a phone and note any slowness.

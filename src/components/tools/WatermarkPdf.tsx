@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ColorField } from '../common/ColorPicker';
 import { PdfFileBar } from '../common/PdfFileBar';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { FileDropZone } from '../common/FileDropZone';
@@ -201,12 +202,7 @@ export const WatermarkPdf: React.FC = () => {
             <div className="space-y-1">
               <label className="block text-xs font-semibold text-slate-700" htmlFor="WatermarkPdf-215">Color</label>
               <div className="flex items-center space-x-2">
-                <input id="WatermarkPdf-215"
-                  type="color"
-                  value={colorHex}
-                  onChange={(e) => setColorHex(e.target.value)}
-                  className="w-8 h-8 rounded border border-slate-300 cursor-pointer p-0.5 bg-white"
-                />
+                <ColorField value={colorHex} onChange={setColorHex} label="Watermark colour" className="w-9 h-9" />
                 <input aria-label="Watermark colour as a hex code"
                   type="text"
                   value={colorHex}

@@ -1,4 +1,5 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { Download, FileText, LayoutGrid } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { Toggle, card, heading } from '../paper/controls';
@@ -191,7 +192,7 @@ export const VisitingCardMaker: React.FC = () => {
         {spec.colour && (
           <label className="mt-3 flex items-center gap-3 text-xs font-semibold text-slate-700">
             Colour
-            <input type="color" value={accent} onChange={(event) => setAccent(event.target.value)} className="h-10 w-14 cursor-pointer rounded border border-slate-200 bg-white" aria-label="Card colour" />
+            <ColorField value={accent} onChange={setAccent} label="Card colour" className="h-10 w-14" />
             <button type="button" onClick={() => setAccent(spec.accent)} className="text-xs font-semibold text-orange-700 underline">Reset</button>
           </label>
         )}

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ColorField } from '../common/ColorPicker';
 import {
   ArrowDown,
   ArrowUp,
@@ -485,7 +486,7 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
                   <label className="text-xs font-semibold text-slate-700">
                     Screen background
                     <span className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-1.5">
-                      <input type="color" aria-label="Screen background color" value={background} onChange={(event) => setBackground(event.target.value)} className="h-8 w-10 cursor-pointer border-0 bg-transparent p-0" />
+                      <ColorField value={background} onChange={setBackground} label="Screen background color" className="h-8 w-10" />
                       <span className="font-normal text-slate-500">{background}</span>
                     </span>
                   </label>
