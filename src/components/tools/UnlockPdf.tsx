@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
-import { FileText, Download, Loader2, CheckCircle2 } from 'lucide-react';
+import { FileText, Loader2, CheckCircle2 } from 'lucide-react';
 import { unlockPdf } from '../../lib/pdf/unlock';
+import { SaveResult } from '../common/SaveResult';
+import { formatFileSize } from '../../lib/pdf/fileName';
+import { UploadNote } from '../common/UploadNote';
 
 export const UnlockPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -86,7 +89,7 @@ export const UnlockPdf: React.FC = () => {
               <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
               <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
               <span className="text-xs text-slate-400 shrink-0">
-                ({(file.size / (1024 * 1024)).toFixed(2)} MB)
+                ({formatFileSize(file.size)})
               </span>
             </div>
 
@@ -132,11 +135,11 @@ export const UnlockPdf: React.FC = () => {
         </div>
       )}
 
-      {file && <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900">The unlocked copy is rebuilt from page images, so its text can no longer be selected or searched and links and form fields are lost.</p>}
+      {file && <div className="mt-4"><UploadNote tone="warning">The unlocked copy is rebuilt from page images, so its text can no longer be selected or searched and links and form fields are lost.</UploadNote></div>}
 
       {/* Action Buttons */}
       {file && (
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <div className="mt-8 flex flex-col gap-3 items-stretch">
           {!downloadUrl ? (
             <button
               type="button"
@@ -154,14 +157,7 @@ export const UnlockPdf: React.FC = () => {
               )}
             </button>
           ) : (
-            <a
-              href={downloadUrl}
-              download={downloadName || generatePdfFilename(file.name, 'unlocked')}
-              className="w-full sm:w-auto px-6 py-3 bg-orange-700 hover:bg-orange-800 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
-            >
-              <Download className="w-5 h-5" />
-              <span>Download Unlocked PDF</span>
-            </a>
+            <SaveResult href={downloadUrl} name={downloadName || generatePdfFilename(file.name, 'unlocked')} label="Your unlocked PDF is ready" saveLabel="Save PDF" />
           )}
 
           {downloadUrl && (

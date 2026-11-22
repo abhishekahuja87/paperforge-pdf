@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { extractTextFromPdf } from '../../lib/pdf/extractText';
 import type { ExtractedPageText } from '../../lib/pdf/extractText';
+import { formatFileSize } from '../../lib/pdf/fileName';
 
 export const ExtractText: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -92,7 +93,7 @@ export const ExtractText: React.FC = () => {
               <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
               <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
               <span className="text-xs text-slate-400 shrink-0">
-                ({(file.size / (1024 * 1024)).toFixed(2)} MB)
+                ({formatFileSize(file.size)})
               </span>
             </div>
 

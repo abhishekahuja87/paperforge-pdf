@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import {
-  Download,
   AlertCircle,
   FileText,
   RefreshCw,
@@ -11,6 +10,9 @@ import {
   Copy,
 } from 'lucide-react';
 import { protectPdf } from '../../lib/pdf/protect';
+import { SaveResult } from '../common/SaveResult';
+import { formatFileSize } from '../../lib/pdf/fileName';
+import { UploadNote } from '../common/UploadNote';
 
 export const ProtectPdf: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -125,7 +127,7 @@ export const ProtectPdf: React.FC = () => {
                     {pageCount ? `Total pages: ${pageCount} • ` : ''}
                     {file.size < 1024 * 1024
                       ? `${(file.size / 1024).toFixed(1)} KB`
-                      : `${(file.size / (1024 * 1024)).toFixed(2)} MB`}
+                      : `${formatFileSize(file.size)}`}
                   </p>
                 </div>
               </div>
@@ -138,7 +140,7 @@ export const ProtectPdf: React.FC = () => {
               </button>
             </div>
 
-            <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900">To add the password, each page is turned into an image. The protected file looks the same, but its text cannot be selected or searched and links and form fields are lost. Keep your original.</p>
+            <UploadNote tone="warning">To add the password, each page is turned into an image. The protected file looks the same, but its text cannot be selected or searched and links and form fields are lost. Keep your original.</UploadNote>
 
             {/* Security Options */}
             <div className="space-y-4 pt-2">
@@ -211,7 +213,7 @@ export const ProtectPdf: React.FC = () => {
             )}
 
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <div className="pt-2 flex flex-col gap-3 items-stretch">
               {!downloadUrl ? (
                 <button
                   type="button"
@@ -232,14 +234,7 @@ export const ProtectPdf: React.FC = () => {
                   )}
                 </button>
               ) : (
-                <a
-                  href={downloadUrl}
-                  download={generatePdfFilename(file.name, 'protected')}
-                  className="w-full sm:w-auto px-6 py-3 bg-orange-700 hover:bg-orange-800 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
-                >
-                  <Download className="w-5 h-5" />
-                  <span>Download Protected PDF</span>
-                </a>
+                <SaveResult href={downloadUrl} name={generatePdfFilename(file.name, 'protected')} label="Your protected PDF is ready" saveLabel="Save PDF" />
               )}
 
               {downloadUrl && (

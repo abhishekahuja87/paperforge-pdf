@@ -3,13 +3,14 @@ import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import {
   FileText,
-  Download,
   Loader2,
   CheckCircle2,
   AlertCircle,
 } from 'lucide-react';
 import { flattenPdf } from '../../lib/pdf/flatten';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
+import { SaveResult } from '../common/SaveResult';
+import { formatFileSize } from '../../lib/pdf/fileName';
 
 export const FlattenPdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
@@ -87,7 +88,7 @@ export const FlattenPdf: React.FC = () => {
               <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
               <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
               <span className="text-xs text-slate-400 shrink-0">
-                ({(file.size / (1024 * 1024)).toFixed(2)} MB)
+                ({formatFileSize(file.size)})
               </span>
             </div>
 
@@ -124,7 +125,7 @@ export const FlattenPdf: React.FC = () => {
 
       {/* Action Buttons */}
       {file && (
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <div className="mt-8 flex flex-col gap-3 items-stretch">
           {!downloadUrl ? (
             <button
               type="button"
@@ -142,14 +143,7 @@ export const FlattenPdf: React.FC = () => {
               )}
             </button>
           ) : (
-            <a
-              href={downloadUrl}
-              download={downloadName || generatePdfFilename(file.name, 'flattened')}
-              className="w-full sm:w-auto px-6 py-3 bg-orange-700 hover:bg-orange-800 text-white font-medium rounded-xl shadow-sm transition flex items-center justify-center space-x-2 cursor-pointer"
-            >
-              <Download className="w-5 h-5" />
-              <span>Download Flattened PDF</span>
-            </a>
+            <SaveResult href={downloadUrl} name={downloadName || generatePdfFilename(file.name, 'flattened')} label="Your flattened PDF is ready" saveLabel="Save PDF" />
           )}
 
           {downloadUrl && (
