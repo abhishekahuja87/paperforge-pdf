@@ -165,14 +165,14 @@ export const CompressPdf: React.FC = () => {
       )}
       {!file && (
         <UploadNote>
-          <p className="font-semibold text-stone-800">Typical size limits</p>
+          <p className="font-semibold text-stone-600">Typical size limits</p>
           <table className="mt-1 w-full text-left">
-            <tbody className="divide-y divide-stone-200">
+            <tbody>
               <tr><th scope="row" className="py-1 pr-3 font-medium">Email attachment</th><td className="py-1">about 20–25 MB in total</td></tr>
               <tr><th scope="row" className="py-1 pr-3 font-medium">Government and job portals</th><td className="py-1">about 100 KB to 2 MB per file</td></tr>
             </tbody>
           </table>
-          <p className="mt-1 text-stone-600">Follow the limit of whoever you are sending to.</p>
+          <p className="mt-1">Follow the limit of whoever you are sending to.</p>
         </UploadNote>
       )}
       {!file && errorMessage && (
