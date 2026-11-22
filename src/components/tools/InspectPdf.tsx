@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
+import { UploadNote } from '../common/UploadNote';
+import { PdfFileBar } from '../common/PdfFileBar';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
-  FileText, 
-  X, 
+  
+  
   AlertCircle, 
-  ShieldCheck, 
-  Terminal,
-  FileCode2
+  
+  
 } from 'lucide-react';
 import { inspectPdf, type PdfInspectionReport } from '../../lib/pdf/inspect';
-import { useTranslation } from 'react-i18next';
 
 export const InspectPdf: React.FC = () => {
-  const { t, i18n } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [report, setReport] = useState<PdfInspectionReport | null>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
@@ -47,13 +46,6 @@ export const InspectPdf: React.FC = () => {
     setErrorMessage('');
   };
 
-  const formatBytes = (bytes: number) => {
-    if (bytes === 0) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return `${(bytes / Math.pow(k, i)).toFixed(2)} ${sizes[i]}`;
-  };
 
   return (
     <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 space-y-4">
@@ -68,65 +60,19 @@ export const InspectPdf: React.FC = () => {
         />
       )}
 
-      <details lang={i18n.language} className="rounded-xl border border-stone-200 bg-white p-3">
-        <summary className="cursor-pointer text-xs font-semibold text-stone-700">{t('toolInfo.more')}</summary>
-        <div className="mt-3">
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-              <Terminal className="w-4 h-4 text-indigo-600" />
-              {t('toolInfo.inspect.0')}
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-              <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
-                <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-                  <FileCode2 className="w-3.5 h-3.5 text-indigo-600" /> {t('toolInfo.inspect.1')}
-                </span>
-                <p className="text-[11px] text-slate-500 leading-snug">
-                  {t('toolInfo.inspect.2')}
-                </p>
-              </div>
-              <div className="p-2.5 rounded-lg bg-white border border-slate-200/80">
-                <span className="font-semibold text-slate-800 flex items-center gap-1.5 mb-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> {t('toolInfo.inspect.3')}
-                </span>
-                <p className="text-[11px] text-slate-500 leading-snug">
-                  {t('toolInfo.inspect.4')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
+      {!file && <UploadNote>A quick look at the file's structure and settings, not a full security check.</UploadNote>}
+
 
       {file && report && (
         <div className="space-y-5">
           {/* File Header */}
-          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
-            <div className="flex items-center space-x-3 overflow-hidden">
-              <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
-                <FileText className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <p className="text-xs font-semibold text-slate-800 truncate">{file.name}</p>
-                <p className="text-[11px] text-slate-500">
-                  Size: <strong className="text-slate-700">{formatBytes(report.fileSize)}</strong> &bull; Spec: <strong className="text-indigo-600">{report.pdfHeaderVersion}</strong>
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={handleReset}
-              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md transition cursor-pointer"
-              title="Inspect another file"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+          <PdfFileBar name={file.name} size={report.fileSize} pages={report.pageCount} onChange={handleReset} />
 
           {/* Quick Metrics Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             <div className="p-3 bg-slate-50 border border-slate-200/80 rounded-xl text-center">
-              <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Total Pages</span>
-              <strong className="text-base text-slate-800 font-mono">{report.pageCount}</strong>
+              <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold">PDF Version</span>
+              <strong className="text-base text-slate-800 font-mono">{report.pdfHeaderVersion}</strong>
             </div>
             <div className="p-3 bg-slate-50 border border-slate-200/80 rounded-xl text-center">
               <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Encrypted</span>

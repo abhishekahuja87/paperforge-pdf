@@ -1,8 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Camera, Download, ImagePlus, RotateCcw, RotateCw, Trash2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, RotateCcw, RotateCw, Trash2 } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons } from '../utilities/common';
 import { Slider, card, heading } from '../paper/controls';
+import { FileDropZone } from '../../common/FileDropZone';
+import { MainActionButton } from '../../common/MainActionButton';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
+import { useResultFile } from '../../../lib/useResultFile';
 import { canvasToBlob, loadBitmap, saveBlob } from '../../../lib/images/canvas';
 import { FILTERS, renderScan, type ScanFilter, type ScanPage } from '../../../lib/images/scan';
 import { generateFileName } from '../../../lib/pdf/naming';
@@ -13,6 +17,7 @@ const blankCrop = { top: 0, right: 0, bottom: 0, left: 0 };
 
 /** Photograph or choose pages, straighten and clean them, and save one PDF. Everything is done in the browser. */
 export const DocumentScanner: React.FC = () => {
+  const saved = useResultFile();
   const [pages, setPages] = useState<ScanPage[]>([]);
   const [current, setCurrent] = useState(0);
   const [size, setSize] = useState<'a4' | 'fit'>('a4');
@@ -21,14 +26,14 @@ export const DocumentScanner: React.FC = () => {
   const preview = useRef<HTMLCanvasElement>(null);
   const page = pages[Math.min(current, pages.length - 1)];
 
-  const add = async (files: FileList | null) => {
-    if (!files) return;
+  const add = async (files: File[]) => {
+    if (files.length === 0) return;
     setMessage('');
     const next: ScanPage[] = [];
-    for (const file of Array.from(files)) {
+    for (const file of files) {
       if (pages.length + next.length >= MAX_PAGES) { setMessage(`Up to ${MAX_PAGES} pages at a time.`); break; }
       if (file.size > 30 * 1024 * 1024) { setMessage('One picture was over 30 MB and was skipped.'); continue; }
-      try { next.push({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, bitmap: await loadBitmap(file), rotate: 0, crop: { ...blankCrop }, filter: 'clean' }); } catch { setMessage('One file could not be read as a picture.'); }
+      try { next.push({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, bitmap: await loadBitmap(file), rotate: 0, crop: { ...blankCrop }, filter: 'original' }); } catch { setMessage('One file could not be read as a picture.'); }
     }
     if (next.length) { setPages((all) => [...all, ...next]); setCurrent(pages.length); }
   };
@@ -44,6 +49,10 @@ export const DocumentScanner: React.FC = () => {
   }, [page]);
 
   const thumbs = useMemo(() => pages.map((item) => { const c = renderScan({ ...item, filter: 'original' }, 120); return c.toDataURL('image/jpeg', 0.6); }), [pages.map((p) => `${p.id}${p.rotate}${JSON.stringify(p.crop)}`).join('|')]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const settingsKey = JSON.stringify([size, pages.map((item) => [item.id, item.rotate, item.crop, item.filter])]);
+  const outdated = saved.isOutdated(settingsKey);
+  const startOver = () => { saved.clear(); setPages([]); setCurrent(0); setMessage(''); };
 
   const savePdf = async () => {
     setBusy(true); setMessage('');
@@ -61,7 +70,7 @@ export const DocumentScanner: React.FC = () => {
         sheet.drawImage(jpg, { x: (pw - canvas.width * fit) / 2, y: (ph - canvas.height * fit) / 2, width: canvas.width * fit, height: canvas.height * fit });
       }
       doc.setTitle('Scanned document'); doc.setCreator('MyDailyUtils');
-      saveBlob(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName('scan', 'pdf'));
+      saved.set(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName('scan', 'pdf'), { key: settingsKey });
     } catch {
       setMessage('Could not build the PDF. Try fewer or smaller pictures.');
     } finally { setBusy(false); }
@@ -69,18 +78,8 @@ export const DocumentScanner: React.FC = () => {
 
   return (
     <section className="mx-auto min-w-0 space-y-4">
+      <FileDropZone accept="image/*" multiple onFiles={(files) => { void add(files); }} />
       <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. Add pages</h2>
-        <div className="flex flex-wrap gap-2">
-          <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800">
-            <Camera className="h-4 w-4" aria-hidden="true" />Take a photo
-            <input type="file" accept="image/*" capture="environment" className="sr-only" onChange={(event) => { void add(event.target.files); event.target.value = ''; }} />
-          </label>
-          <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-            <ImagePlus className="h-4 w-4" aria-hidden="true" />Choose pictures
-            <input type="file" accept="image/*" multiple className="sr-only" onChange={(event) => { void add(event.target.files); event.target.value = ''; }} />
-          </label>
-        </div>
         <p className="text-[11px] text-slate-500">Lay the page flat in good light and fill the frame. Take one photo per page; add more at any time.</p>
         {pages.length > 0 && (
           <ul className="flex gap-2 overflow-x-auto pb-1" aria-label="Pages">
@@ -93,7 +92,7 @@ export const DocumentScanner: React.FC = () => {
 
       {page && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>2. Clean up page {Math.min(current, pages.length - 1) + 1}</h2>
+          <h2 className={heading}>Clean up page {Math.min(current, pages.length - 1) + 1}</h2>
           <div className="mx-auto max-w-xl overflow-hidden rounded-lg border border-slate-300 bg-slate-100"><canvas ref={preview} className="block h-auto max-h-[60vh] w-full object-contain" /></div>
           <div className="flex flex-wrap gap-2">
             <button type="button" onClick={() => update({ rotate: (((page.rotate + 270) % 360) as ScanPage['rotate']) })} className="inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 text-xs font-semibold"><RotateCcw className="h-4 w-4" aria-hidden="true" />Turn left</button>
@@ -110,17 +109,23 @@ export const DocumentScanner: React.FC = () => {
             <Slider label="Trim left" value={page.crop.left} min={0} max={40} step={1} unit="%" onChange={(left) => update({ crop: { ...page.crop, left } })} />
             <Slider label="Trim right" value={page.crop.right} min={0} max={40} step={1} unit="%" onChange={(right) => update({ crop: { ...page.crop, right } })} />
           </div>
+          <button type="button" onClick={async () => { saveBlob(await canvasToBlob(renderScan(page, 2400), 'image/jpeg', 0.88), generateFileName('scan-page', 'jpg')); }} className="inline-flex min-h-10 items-center rounded-lg border border-slate-300 bg-white px-3 text-xs font-semibold text-slate-700 hover:bg-slate-50">Save this page as a picture</button>
         </div>
       )}
 
       {pages.length > 0 && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>3. Save</h2>
+          <h2 className={heading}>PDF settings</h2>
           <ChoiceButtons label="Page size" value={size} onChange={(v) => setSize(v as 'a4' | 'fit')} options={[{ value: 'a4', label: 'A4 pages' }, { value: 'fit', label: 'Same size as the picture' }]} />
-          <div className="flex flex-wrap gap-2">
-            <button type="button" disabled={busy} onClick={() => void savePdf()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building...' : `Download PDF (${pages.length} page${pages.length === 1 ? '' : 's'})`}</button>
-            <button type="button" onClick={async () => { if (page) saveBlob(await canvasToBlob(renderScan(page, 2400), 'image/jpeg', 0.88), generateFileName('scan-page', 'jpg')); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800">This page as a picture</button>
-          </div>
+        </div>
+      )}
+      {pages.length > 0 && (!saved.result || outdated) && (
+        <MainActionButton onClick={() => void savePdf()} busy={busy} busyLabel="Creating PDF...">{`Create PDF (${pages.length} page${pages.length === 1 ? '' : 's'})`}</MainActionButton>
+      )}
+      {saved.result && (
+        <div className="space-y-3">
+          <SaveResult href={saved.result.url} name={saved.result.name} label="Your scanned PDF is ready" saveLabel="Save PDF" outdated={outdated} />
+          {!outdated && <StartOverButton onClick={startOver}>Scan another document</StartOverButton>}
         </div>
       )}
       {message && <p role="status" className="text-xs text-slate-700">{message}</p>}

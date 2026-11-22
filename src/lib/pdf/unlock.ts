@@ -17,6 +17,28 @@ export interface UnlockPdfOptions {
   password?: string;
 }
 
+/** Throws PASSWORD_REQUIRED or INVALID_PASSWORD when the password does not open the PDF. Nothing is rendered or kept. */
+export async function checkPdfPassword(fileBuffer: ArrayBuffer, password: string): Promise<void> {
+  const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(fileBuffer.slice(0)) });
+  let problem: 'required' | 'invalid' | null = null;
+  loadingTask.onPassword = (updatePassword: (pwd: string) => void, reason: number) => {
+    if (reason === pdfjsLib.PasswordResponses.NEED_PASSWORD && password) {
+      updatePassword(password);
+      return;
+    }
+    problem = password ? 'invalid' : 'required';
+    void loadingTask.destroy();
+  };
+  try {
+    const doc = await loadingTask.promise;
+    void doc.destroy();
+  } catch (err: unknown) {
+    if (problem === 'required') throw new Error('PASSWORD_REQUIRED: Please enter the password to open this PDF.');
+    if (problem === 'invalid') throw new Error('INVALID_PASSWORD: The password you entered is incorrect.');
+    throw err;
+  }
+}
+
 export async function unlockPdf(options: UnlockPdfOptions): Promise<Uint8Array> {
   const { fileBuffer, password = '' } = options;
 

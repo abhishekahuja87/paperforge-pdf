@@ -16,12 +16,6 @@
   "exploreTools": "Explorer les outils",
   "featured": "Nos outils à découvrir",
   "base64Upload": { "choose": "Choisissez un fichier ou déposez-le ici", "change": "Changer {{name}}", "hint": "Tout fichier · jusqu’à 100 Mo", "memory": "Web Crypto lit le fichier sélectionné dans la mémoire du navigateur ; les fichiers jusqu’à 100 Mo sont pris en charge." },
-  "toolInfo": {
-    "more": "En savoir plus sur cet outil",
-    "sanitize": ["Vérifiez avant de partager", "Informations du document", "Supprimez les informations et métadonnées sélectionnées pouvant identifier le document ou son auteur.", "Miniatures de pages", "Supprimez les miniatures intégrées prises en charge qui peuvent montrer un ancien contenu.", "Autres données cachées", "Supprimez certaines données d’édition et actions JavaScript prises en charge. Tout contenu caché ne peut pas être supprimé ; vérifiez le résultat."],
-    "nup": ["Mises en page multiples", "Économiser du papier", "Placez deux ou quatre pages par feuille pour réduire le nombre de feuilles imprimées.", "Diapositives et documents", "Disposez les pages de présentation sur des feuilles pour les documents et guides de révision."],
-    "inspect": ["Inspection PDF", "Structure du document", "Examinez la version, les métadonnées et la géométrie des pages pour rechercher les problèmes du fichier.", "Indicateurs de fonctions", "Vérifiez les indicateurs de certaines actions JavaScript et de fichiers intégrés. Ce n’est pas un audit de sécurité complet."]
-  },
   "jsonUpload": { "choose": "Choisissez un fichier JSON ou déposez-le ici", "hint": "Ou collez du JSON ci-dessous" },
   "sampleControls": {
     "templates": {

@@ -1,6 +1,8 @@
 {
   "digitize": {
-    "language": "Text language", "languageEnglish": "English", "languageHindi": "Hindi and English",
+    "language": "Text language",
+    "languageEnglish": "English",
+    "languageHindi": "Hindi and English",
     "targetExceeded": "At least one PDF exceeds the requested size goal.",
     "editorLanguage": "Some editing controls are currently in English.",
     "title": "Scan to Searchable PDF (OCR)",
@@ -42,32 +44,6 @@
     "change": "Change {{name}}",
     "hint": "Any file · up to 100 MB",
     "memory": "Web Crypto reads the selected file into browser memory; files up to 100 MB are supported."
-  },
-  "toolInfo": {
-    "more": "More about this tool",
-    "sanitize": [
-      "Review before sharing",
-      "Document information",
-      "Remove selected document information and metadata that may identify the document or its author.",
-      "Page thumbnails",
-      "Remove supported embedded page thumbnails that may show older content.",
-      "Other hidden data",
-      "Remove selected editing data and supported JavaScript actions. Not all hidden content can be removed; review the output."
-    ],
-    "nup": [
-      "Multi-page layouts",
-      "Save paper",
-      "Place two or four pages per sheet to reduce the number of printed sheets.",
-      "Slides and handouts",
-      "Arrange presentation pages on sheets for handouts and revision guides."
-    ],
-    "inspect": [
-      "PDF inspection",
-      "Document structure",
-      "Review the PDF version, metadata and page geometry to help investigate file issues.",
-      "Feature indicators",
-      "Check indicators for selected JavaScript actions and embedded files. This is not a full security audit."
-    ]
   },
   "jsonUpload": {
     "choose": "Choose a JSON file or drop it here",
@@ -996,5 +972,10 @@
       "name": "More tools",
       "description": "Other tools on the site."
     }
+  },
+  "fileBar": {
+    "pages_one": "{{count}} page",
+    "pages_other": "{{count}} pages",
+    "change": "Change"
   }
 }

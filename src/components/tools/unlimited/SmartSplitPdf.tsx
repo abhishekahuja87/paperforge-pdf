@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Download, FileUp } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { card, heading } from '../paper/controls';
-import { saveBlob } from '../../../lib/images/canvas';
+import { FileDropZone } from '../../common/FileDropZone';
+import { UploadNote } from '../../common/UploadNote';
+import { PdfFileBar } from '../../common/PdfFileBar';
+import { MainActionButton } from '../../common/MainActionButton';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
+import { useProtectedPdf } from '../../common/ProtectedPdfGate';
+import { useResultFile } from '../../../lib/useResultFile';
 import { rangeLabel, rangesBySize, rangesEvery, rangesFromStarts, type PageRange } from '../../../lib/unlimited/split';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
@@ -17,8 +22,12 @@ const tick = () => new Promise<void>((resolve) => window.setTimeout(resolve, 0))
 
 /** Cut a PDF into parts by every N pages, at blank separator pages, at bookmarks, or to keep each part under a size. No limit on pages or file size beyond your device. */
 export const SmartSplitPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
+  const saved = useResultFile();
   const [bytes, setBytes] = useState<ArrayBuffer | null>(null);
   const [name, setName] = useState('');
+  const [size, setSize] = useState(0);
+  const [reading, setReading] = useState(false);
   const [pages, setPages] = useState(0);
   const [mode, setMode] = useState<Mode>('every');
   const [every, setEvery] = useState('5');
@@ -31,19 +40,21 @@ export const SmartSplitPdf: React.FC = () => {
 
   const openFile = async (file: File | undefined) => {
     if (!file) return;
-    setMessage(''); setParts([]);
+    setMessage(''); setParts([]); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
       const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
-      setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages);
+      setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setSize(file.size); setPages(doc.numPages);
       void task.destroy();
-    } catch { setMessage('Could not open that PDF. If it has a password, unlock it first.'); }
+    } catch { setMessage('Could not open that PDF. The file may be damaged.'); } finally { setReading(false); }
   };
+
+  const startOver = () => { saved.clear(); setBytes(null); setName(''); setPages(0); setParts([]); setMessage(''); };
 
   const plan = async () => {
     if (!bytes) return;
-    setBusy(true); setMessage(''); setParts([]); setProgress('');
+    setBusy(true); setMessage(''); setParts([]); setProgress(''); saved.clear();
     const task = pdfjsLib.getDocument({ data: new Uint8Array(bytes.slice(0)) });
     try {
       const doc = await task.promise;
@@ -129,28 +140,25 @@ export const SmartSplitPdf: React.FC = () => {
         zip.file(`${String(index + 1).padStart(width, '0')} ${label}.pdf`, await out.save());
         if (index % 3 === 0) await tick();
       }
-      saveBlob(await zip.generateAsync({ type: 'blob' }), `${safeName(name || 'document')}-split.zip`);
-      setMessage(`Saved a ZIP with ${parts.length} PDFs.`);
+      saved.set(await zip.generateAsync({ type: 'blob' }), `${safeName(name || 'document')}-split.zip`);
     } catch { setMessage('Could not make the parts. For a very large PDF, close other tabs and try again.'); }
     finally { setBusy(false); setProgress(''); }
   };
 
   return (
     <section className="mx-auto min-w-0 space-y-4">
-      <div className={`${card} space-y-3`}>
-        <h2 className={heading}>1. Choose the PDF</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <FileUp className="h-4 w-4" aria-hidden="true" />{bytes ? 'Choose another PDF' : 'Choose a PDF'}
-          <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={(event) => { void openFile(event.target.files?.[0]); event.target.value = ''; }} />
-        </label>
-        {name && <p className="text-xs text-slate-600">{name}.pdf · {pages} page{pages === 1 ? '' : 's'}</p>}
-        <p className="text-[11px] text-slate-500">Pick how to cut the PDF, check the parts, then download them as one ZIP.</p>
-      </div>
+      {passwordDialog}
+      {!bytes && <UploadNote>Pick how to cut the PDF, check the parts, then save them as one ZIP.</UploadNote>}
+      {!bytes ? (
+        <FileDropZone accept=".pdf,application/pdf" readingPdf={reading} disabled={reading} onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void openFile(prepared); }); }} />
+      ) : (
+        <PdfFileBar name={`${name}.pdf`} size={size} pages={pages} onChange={startOver} />
+      )}
 
       {bytes && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>2. How to split</h2>
-          <ChoiceButtons label="Split" value={mode} onChange={(value) => { setMode(value as Mode); setParts([]); setMessage(''); }} options={[{ value: 'every', label: 'Every N pages' }, { value: 'blank', label: 'At blank pages' }, { value: 'bookmarks', label: 'At bookmarks' }, { value: 'size', label: 'By file size' }]} />
+          <h2 className={heading}>How to split</h2>
+          <ChoiceButtons label="Split" value={mode} onChange={(value) => { setMode(value as Mode); setParts([]); setMessage(''); saved.clear(); }} options={[{ value: 'every', label: 'Every N pages' }, { value: 'blank', label: 'At blank pages' }, { value: 'bookmarks', label: 'At bookmarks' }, { value: 'size', label: 'By file size' }]} />
           {mode === 'every' && <label className="block text-xs font-semibold text-slate-700">Pages in each part<input type="number" min={1} value={every} onChange={(event) => setEvery(event.target.value)} className={`${fieldClass} w-28`} /></label>}
           {mode === 'blank' && (
             <>
@@ -160,17 +168,23 @@ export const SmartSplitPdf: React.FC = () => {
           )}
           {mode === 'bookmarks' && <p className="text-xs text-slate-600">A new part starts at each top-level bookmark, and each file is named after its bookmark.</p>}
           {mode === 'size' && <label className="block text-xs font-semibold text-slate-700">Largest part (MB)<input type="number" min={0.05} step={0.5} value={megabytes} onChange={(event) => setMegabytes(event.target.value)} className={`${fieldClass} w-28`} /></label>}
-          <button type="button" disabled={busy} onClick={() => void plan()} className="inline-flex min-h-11 items-center rounded-xl border border-orange-300 bg-orange-50 px-4 py-2 text-sm font-bold text-orange-900 disabled:opacity-50">{busy && progress ? progress : 'Show the parts'}</button>
         </div>
       )}
+      {bytes && parts.length === 0 && <MainActionButton onClick={() => void plan()} busy={busy} busyLabel={progress || 'Working...'}>Show the parts</MainActionButton>}
 
       {parts.length > 0 && (
         <div className={`${card} space-y-3`}>
-          <h2 className={heading}>3. {parts.length} parts</h2>
+          <h2 className={heading}>{parts.length} parts</h2>
           <ol className="max-h-72 space-y-1 overflow-auto text-xs text-slate-700">
             {parts.map((part, index) => <li key={`${part.from}-${part.to}`} className="rounded-lg border border-slate-200 px-3 py-1.5">Part {index + 1}: {part.title ? `${part.title} (${rangeLabel(part)})` : rangeLabel(part)}</li>)}
           </ol>
-          <button type="button" disabled={busy} onClick={() => void download()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy && progress ? progress : 'Download all parts (ZIP)'}</button>
+        </div>
+      )}
+      {parts.length > 0 && !saved.result && <MainActionButton onClick={() => void download()} busy={busy} busyLabel={progress || 'Working...'}>Split PDF into {parts.length} files</MainActionButton>}
+      {saved.result && (
+        <div className="space-y-3">
+          <SaveResult href={saved.result.url} name={saved.result.name} label={`Your ${parts.length} PDFs are ready (ZIP)`} saveLabel="Save ZIP" />
+          <StartOverButton onClick={startOver}>Split another PDF</StartOverButton>
         </div>
       )}
       {message && <Note>{message}</Note>}

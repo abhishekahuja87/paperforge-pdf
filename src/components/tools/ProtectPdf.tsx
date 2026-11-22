@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { PdfFileBar } from '../common/PdfFileBar';
+import { useProtectedPdf } from '../common/ProtectedPdfGate';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import {
   AlertCircle,
-  FileText,
+  
   RefreshCw,
   ShieldCheck,
   Printer,
@@ -11,10 +13,10 @@ import {
 } from 'lucide-react';
 import { protectPdf } from '../../lib/pdf/protect';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
-import { formatFileSize } from '../../lib/pdf/fileName';
 import { UploadNote } from '../common/UploadNote';
 
 export const ProtectPdf: React.FC = () => {
+  const { prepare, dialog: passwordDialog } = useProtectedPdf();
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
   const [userPassword, setUserPassword] = useState<string>('');
@@ -106,6 +108,7 @@ export const ProtectPdf: React.FC = () => {
 
   return (
     <div className="mx-auto w-full space-y-4">
+      {passwordDialog}
       <div className="min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6">
         {!file && error && <p role="alert" className="mb-3 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs text-rose-800">{error}</p>}
 
@@ -113,32 +116,12 @@ export const ProtectPdf: React.FC = () => {
         {!file ? (
           <FileDropZone
           accept=".pdf,application/pdf"
-          onFiles={(files) => { void handleFileSelect(files[0]); }}
+          onFiles={(files) => { void prepare(files[0]).then((prepared) => { if (prepared) void handleFileSelect(prepared); }); }}
         />
         ) : (
           <div className="space-y-5">
             {/* File Info Card */}
-            <div className="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl border border-slate-100">
-              <div className="flex items-center space-x-3 overflow-hidden">
-                <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-                <div className="truncate">
-                  <p className="text-sm font-medium text-slate-700 truncate">{file.name}</p>
-                  <p className="text-xs text-slate-400">
-                    {pageCount ? `Total pages: ${pageCount} • ` : ''}
-                    {file.size < 1024 * 1024
-                      ? `${(file.size / 1024).toFixed(1)} KB`
-                      : `${formatFileSize(file.size)}`}
-                  </p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={resetState}
-                className="text-xs text-slate-500 hover:text-red-500 font-medium px-2 py-1 rounded transition cursor-pointer"
-              >
-                Change
-              </button>
-            </div>
+            <PdfFileBar name={file.name} size={file.size} pages={pageCount} onChange={resetState} />
 
             <UploadNote tone="warning">To add the password, each page is turned into an image. The protected file looks the same, but its text cannot be selected or searched and links and form fields are lost. Keep your original.</UploadNote>
 

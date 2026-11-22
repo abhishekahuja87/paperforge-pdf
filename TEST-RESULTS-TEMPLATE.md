@@ -188,6 +188,10 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | Q9 | Quick start buttons on a phone (all eight) | "Loaded" mark and scroll to the list | | |
 | Q10 | All eight on a TV or projector | Large and readable, fullscreen, buttons fade | | |
 | Q11 | Pictures, video and logo (menu, spelling bee, notices, routine, logo on all) | Show correctly; video gone after reload, pictures stay | | |
+| Q25 | Same layout in all PDF tools: upload box, file bar (pages, size, Change), main button, banner, grey another button | Identical | | |
+| Q26 | Password-protected PDF in Sanitize, Protect, Flatten, Smart Split, Redact, Fill, Sign, Bates, Extract text, Compare | Password box appears | | |
+| Q27 | Checkboxes (Protect, Sanitize, N-up, Numbers, Watermark) | Orange, not blue | | |
+| Q28 | Flatten shows one banner; PDF to images has Save ZIP and grey button; Document scanner starts on Original and ends with banner | As described | | |
 | Q24 | Scan to searchable PDF: one page flow, banner with rename, grey start-over, no separate editor | Same as the other PDF tools; text is searchable | | |
 | Q21 | Main buttons named for the action; grey "another" button after a result; banner turns amber when settings change | Same in all PDF tools | | |
 | Q22 | Rotate angle options on a small phone; Organize "N pages" | Fit; no "remaining" | | |

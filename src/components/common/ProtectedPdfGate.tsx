@@ -21,7 +21,7 @@ export async function isPasswordProtectedPdf(file: File): Promise<boolean> {
   }
 }
 
-type Pending = { file: File; error: string; busy: boolean };
+type Pending = { file: File; error: string; busy: boolean; /** Only check the password; keep the original file instead of making an unlocked copy. */ verifyOnly: boolean };
 
 const PasswordDialog: React.FC<{ pending: Pending; onSubmit: (password: string) => void; onCancel: () => void }> = ({ pending, onSubmit, onCancel }) => {
   const dialogRef = useDialog<HTMLFormElement>(onCancel);
@@ -49,11 +49,11 @@ const PasswordDialog: React.FC<{ pending: Pending; onSubmit: (password: string) 
           PDF password
           <input autoFocus type="password" autoComplete="off" value={password} onChange={(event) => setPassword(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
         </label>
-        <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-relaxed text-amber-900">To work on it, the pages are redrawn as images in an unlocked copy. Its text will not be selectable and links and form fields are lost. Your original file is not changed.</p>
+        {!pending.verifyOnly && <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-relaxed text-amber-900">To work on it, the pages are redrawn as images in an unlocked copy. Its text will not be selectable and links and form fields are lost. Your original file is not changed.</p>}
         {pending.error && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-700">{pending.error}</p>}
         <div className="mt-5 flex justify-end gap-2">
           <button type="button" disabled={pending.busy} onClick={onCancel} className="rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 disabled:opacity-50">Skip file</button>
-          <button type="submit" disabled={pending.busy} className="rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50">{pending.busy ? 'Unlocking…' : 'Unlock and continue'}</button>
+          <button type="submit" disabled={pending.busy} className="rounded-lg bg-orange-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-orange-800 disabled:opacity-50">{pending.busy ? (pending.verifyOnly ? 'Checking…' : 'Unlocking…') : (pending.verifyOnly ? 'Open' : 'Unlock and continue')}</button>
         </div>
       </form>
     </div>
@@ -67,17 +67,30 @@ const PasswordDialog: React.FC<{ pending: Pending; onSubmit: (password: string) 
  */
 export function useProtectedPdf() {
   const [pending, setPending] = useState<Pending | null>(null);
-  const resolver = useRef<((file: File | null) => void) | null>(null);
+  const resolver = useRef<((value: File | string | null) => void) | null>(null);
 
   const prepare = useCallback(async (file: File): Promise<File | null> => {
     if (!(await isPasswordProtectedPdf(file))) return file;
     return new Promise<File | null>((resolve) => {
-      resolver.current = resolve;
-      setPending({ file, error: '', busy: false });
+      resolver.current = resolve as (value: File | string | null) => void;
+      setPending({ file, error: '', busy: false, verifyOnly: false });
     });
   }, []);
 
-  const finish = (result: File | null) => {
+  /**
+   * For tools that can read a protected PDF themselves once they have the password (for example text extraction).
+   * Resolves to the original file and the password, or null if the person skips it. An ordinary file comes back with an empty password.
+   */
+  const openWithPassword = useCallback(async (file: File): Promise<{ file: File; password: string } | null> => {
+    if (!(await isPasswordProtectedPdf(file))) return { file, password: '' };
+    const password = await new Promise<string | null>((resolve) => {
+      resolver.current = resolve as (value: File | string | null) => void;
+      setPending({ file, error: '', busy: false, verifyOnly: true });
+    });
+    return password === null ? null : { file, password };
+  }, []);
+
+  const finish = (result: File | string | null) => {
     resolver.current?.(result);
     resolver.current = null;
     setPending(null);
@@ -87,6 +100,12 @@ export function useProtectedPdf() {
     if (!pending) return;
     setPending({ ...pending, busy: true, error: '' });
     try {
+      if (pending.verifyOnly) {
+        const { checkPdfPassword } = await import('../../lib/pdf/unlock');
+        await checkPdfPassword(await pending.file.arrayBuffer(), password);
+        finish(password);
+        return;
+      }
       const { unlockPdf } = await import('../../lib/pdf/unlock');
       const bytes = await unlockPdf({ fileBuffer: await pending.file.arrayBuffer(), password });
       finish(new File([bytes.slice().buffer as ArrayBuffer], pending.file.name, { type: 'application/pdf' }));
@@ -102,5 +121,5 @@ export function useProtectedPdf() {
   };
 
   const dialog = pending ? <PasswordDialog key={pending.file.name} pending={pending} onSubmit={(password) => void submit(password)} onCancel={() => { if (!pending.busy) finish(null); }} /> : null;
-  return { prepare, dialog };
+  return { prepare, openWithPassword, dialog };
 }

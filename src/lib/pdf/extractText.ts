@@ -8,9 +8,10 @@ export interface ExtractedPageText {
   text: string;
 }
 
-export async function extractTextFromPdf(fileBuffer: ArrayBuffer): Promise<ExtractedPageText[]> {
+export async function extractTextFromPdf(fileBuffer: ArrayBuffer, password?: string): Promise<ExtractedPageText[]> {
   const loadingTask = pdfjsLib.getDocument({
     data: new Uint8Array(fileBuffer.slice(0)),
+    password,
     cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
     cMapPacked: true,
   });

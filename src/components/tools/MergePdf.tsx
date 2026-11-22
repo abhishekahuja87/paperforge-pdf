@@ -169,8 +169,8 @@ export const MergePdf: React.FC = () => {
                       <span className="min-w-0">
                         <span className="block truncate text-xs font-semibold text-stone-800" title={file.name}>{file.name}</span>
                         <span className="mt-0.5 block text-[10px] text-stone-400">
+                          {pageCounts.has(file) ? `${pageCounts.get(file)} ${pageCounts.get(file) === 1 ? 'page' : 'pages'} • ` : ''}
                           {formatFileSize(file.size)}
-                          {pageCounts.has(file) ? ` · ${pageCounts.get(file)} ${pageCounts.get(file) === 1 ? 'page' : 'pages'}` : ''}
                         </span>
                         <label className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[10px] text-stone-500">
                           {t('pagesToUse', { defaultValue: 'Pages to use' })}
