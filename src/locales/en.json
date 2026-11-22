@@ -406,7 +406,7 @@
     "unsaved": "Unsaved",
     "rotating": "Rotating document...",
     "rerotate": "Re-rotate with new settings",
-    "rotate": "Rotate & save PDF",
+    "rotate": "Rotate PDF",
     "outdated": "Download outdated file",
     "download": "Download rotated PDF"
   },

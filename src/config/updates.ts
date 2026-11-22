@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/organize-pdf',
+    tool: 'PDF tools',
+    title: 'Clearer buttons in every PDF tool',
+    summary: 'Main buttons now say what they do, such as Rotate PDF or Organize PDF. When your file is ready you get the green Save banner and a grey button to start again with another PDF. The rotate options now fit small phones, and PDF tools suggest Master Document Studio for mixing several steps.',
+  },
+  {
+    date: '2026-11-22',
     path: '/merge-pdf',
     tool: 'PDF tools',
     title: 'Rename your file before you save it, in every PDF tool',

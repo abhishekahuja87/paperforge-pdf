@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SaveResult } from '../common/SaveResult';
+import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
   FileText, 
@@ -343,26 +343,29 @@ export const AddPageNumbers: React.FC = () => {
           {/* Action Buttons */}
           {downloadUrl && <SaveResult href={downloadUrl} name={downloadName} label="Your numbered PDF is ready" saveLabel="Save PDF" outdated={isOutOfSync} />}
           <div className="pt-2 flex flex-col gap-3">
-            <button
-              onClick={handleApply}
-              disabled={status === 'processing'}
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-indigo-600 hover:bg-indigo-700 text-white"
-            >
-              {status === 'processing' ? (
-                <Sparkles className="w-4 h-4 animate-spin" />
-              ) : isOutOfSync ? (
-                <RefreshCw className="w-4 h-4" />
-              ) : (
-                <Hash className="w-4 h-4" />
-              )}
-              <span>
-                {status === 'processing'
-                  ? 'Stamping Numbers...'
-                  : isOutOfSync
-                  ? 'Re-Stamp with New Settings'
-                  : 'Add Page Numbers & Download'}
-              </span>
-            </button>
+            {(!downloadUrl || isOutOfSync) && (
+              <button
+                onClick={handleApply}
+                disabled={status === 'processing'}
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-orange-700 hover:bg-orange-800 text-white"
+              >
+                {status === 'processing' ? (
+                  <Sparkles className="w-4 h-4 animate-spin" />
+                ) : isOutOfSync ? (
+                  <RefreshCw className="w-4 h-4" />
+                ) : (
+                  <Hash className="w-4 h-4" />
+                )}
+                <span>
+                  {status === 'processing'
+                    ? 'Stamping Numbers...'
+                    : isOutOfSync
+                    ? 'Re-Stamp with New Settings'
+                    : 'Add Page Numbers'}
+                </span>
+              </button>
+            )}
+            {downloadUrl && !isOutOfSync && <StartOverButton onClick={handleReset}>Add numbers to another PDF</StartOverButton>}
 
           </div>
         </div>

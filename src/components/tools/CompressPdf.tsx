@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SaveResult } from '../common/SaveResult';
+import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { UploadNote } from '../common/UploadNote';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
@@ -356,26 +356,29 @@ export const CompressPdf: React.FC = () => {
           {/* Action Buttons */}
           {downloadUrl && <SaveResult href={downloadUrl} name={downloadName} label="Your compressed PDF is ready" saveLabel="Save PDF" outdated={isOutOfSync} />}
           <div className="pt-2 flex flex-col gap-3">
-            <button
-              onClick={handleCompress}
-              disabled={status === 'processing'}
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-indigo-600 hover:bg-indigo-700 text-white"
-            >
-              {status === 'processing' ? (
-                <Sparkles className="w-4 h-4 animate-spin" />
-              ) : isOutOfSync ? (
-                <RefreshCw className="w-4 h-4" />
-              ) : (
-                <Minimize2 className="w-4 h-4" />
-              )}
-              <span>
-                {status === 'processing'
-                  ? (progress || 'Optimizing PDF...')
-                  : isOutOfSync
-                  ? 'Re-Compress with New Settings'
-                  : mode === 'target' ? 'Reduce to this size' : 'Compress & Optimize PDF'}
-              </span>
-            </button>
+            {(!downloadUrl || isOutOfSync) && (
+              <button
+                onClick={handleCompress}
+                disabled={status === 'processing'}
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-orange-700 hover:bg-orange-800 text-white"
+              >
+                {status === 'processing' ? (
+                  <Sparkles className="w-4 h-4 animate-spin" />
+                ) : isOutOfSync ? (
+                  <RefreshCw className="w-4 h-4" />
+                ) : (
+                  <Minimize2 className="w-4 h-4" />
+                )}
+                <span>
+                  {status === 'processing'
+                    ? (progress || 'Optimizing PDF...')
+                    : isOutOfSync
+                    ? 'Re-Compress with New Settings'
+                    : mode === 'target' ? 'Reduce to this size' : 'Compress PDF'}
+                </span>
+              </button>
+            )}
+            {downloadUrl && !isOutOfSync && <StartOverButton onClick={handleReset}>Compress another PDF</StartOverButton>}
 
           </div>
         </div>
