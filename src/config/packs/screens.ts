@@ -35,4 +35,20 @@ export const SCREENS_TOOLS: PackTool[] = [
     id: 'notice-board-display', kind: 'screenNotices', guideKey: 'screensNoticeBoard', category: 'display', icon: 'presentation', tier: 'more',
     keywords: ['digital notice board', 'notice board for tv', 'birthday wish display', 'welcome screen for office', 'announcement board', 'reception display screen', 'school notice board display', 'greeting board for tv', 'digital signage free', 'rotating messages display', 'office notice screen', 'holiday notice display'],
   }, screens.toolCatalog),
+  definePackTool({
+    id: 'spinner-wheel-display', kind: 'screenWheel', guideKey: 'screensSpinnerWheel', category: 'display', icon: 'rotate', tier: 'popular',
+    keywords: ['spinner wheel', 'random wheel picker', 'name wheel for classroom', 'wheel of names', 'spin the wheel online', 'decision wheel', 'prize wheel', 'random name spinner', 'spin wheel for students', 'wheel picker big screen', 'choose randomly wheel', 'classroom spinner'],
+  }, screens.toolCatalog),
+  definePackTool({
+    id: 'lucky-draw-display', kind: 'screenDraw', guideKey: 'screensLuckyDraw', category: 'display', icon: 'hash', tier: 'more',
+    keywords: ['lucky draw', 'raffle draw online', 'lucky draw for event', 'raffle ticket draw', 'random number draw', 'lucky draw on screen', 'society event lucky draw', 'draw winners one by one', 'raffle winner picker', 'lucky draw with prizes', 'ticket number draw', 'tambola lucky draw display'],
+  }, screens.toolCatalog),
+  definePackTool({
+    id: 'team-scoreboard-display', kind: 'screenScores', guideKey: 'screensScoreboard', category: 'display', icon: 'presentation', tier: 'more',
+    keywords: ['team scoreboard', 'scoreboard for classroom', 'house points scoreboard', 'quiz scoreboard', 'game score keeper', 'sports day scoreboard', 'team points display', 'online scoreboard for games', 'scoreboard on projector', 'group score tracker', 'points counter for teams', 'digital scoreboard free'],
+  }, screens.toolCatalog),
+  definePackTool({
+    id: 'classroom-seating-plan-display', kind: 'screenSeating', guideKey: 'screensSeatingPlan', category: 'display', icon: 'grid', tier: 'more',
+    keywords: ['classroom seating plan', 'seating chart maker', 'seating arrangement for class', 'random seating generator', 'class seating chart template', 'student seat allocation', 'seating plan for exam', 'bench seating plan', 'random seat assignment', 'classroom seating arrangement online', 'seating plan on projector', 'teacher seating chart'],
+  }, screens.toolCatalog),
 ];
