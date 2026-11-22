@@ -92,6 +92,9 @@ export const COLLECTIONS: CollectionSpec[] = [
   { id: 'sharing', icon: 'grid', tools: [
     'password-protected-document-maker', 'qr-code-generator', 'qr-code-scanner', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
   ] },
+  { id: 'media', icon: 'layers', tools: [
+    'audio-cutter-and-joiner',
+  ] },
   { id: 'dev', icon: 'file-code', tools: [
     'json-formatter', 'json-viewer', 'json-to-csv-converter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',
   ] },

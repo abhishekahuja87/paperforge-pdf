@@ -57,7 +57,6 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Get a photo or signature to 20, 50 or 100 KB", tool: "image-resizer", name: "Image Resizer (KB and Pixels)", note: "Hit a size limit or exact pixels for an online form." },
       { task: "Resize or convert many photos at once", tool: "bulk-image-tools", name: "Bulk Image Tools", note: "Resize, convert and watermark a whole batch as one ZIP." },
       { task: "Make one picture fit Instagram, YouTube and more", tool: "social-image-resizer", name: "Social Image Sizes", note: "Post, story, thumbnail, banner and profile sizes together." },
-      { task: "Cut or join audio and voice notes", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Trim, join and fade, saved as WAV." },
       { task: "Turn pictures into an animated GIF", tool: "gif-maker", name: "GIF Maker", note: "Set the order, timing and size." },
       { task: "See and remove hidden location from a photo", tool: "remove-photo-location", name: "Remove Location and EXIF Data", note: "Shows the place, phone model and time, then saves a clean copy." },
       { task: "Blur or black out details in a screenshot", tool: "screenshot-redactor", name: "Screenshot Redactor", note: "Hide phone numbers, balances and emails." },
@@ -270,6 +269,18 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { who: "At home", text: "Short daily practice with the step-by-step tools, then a printed worksheet." },
       { who: "In class", text: "Use the clock, money shop and planet explorers on a big screen." },
       { who: "Parties", text: "Print tambola tickets and call the numbers on screen." },
+    ],
+  },
+  "/audio-and-video-tools": {
+    tasks: [
+      { task: "Cut a part out of a recording", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Choose the start and end on the sound wave." },
+      { task: "Join voice notes or songs into one file", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Put the files in the order you want." },
+      { task: "Add a fade in and fade out", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Listen before you save." },
+    ],
+    situations: [
+      { who: "Phones and voice notes", text: "Trim a long voice note, or join several short ones, and save the result as a WAV file." },
+      { who: "Teachers and students", text: "Cut a lecture recording to the part you need." },
+      { who: "Anyone sharing audio", text: "Nothing is uploaded, so private recordings stay on your device." },
     ],
   },
   "/developer-and-data-tools": {

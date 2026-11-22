@@ -964,6 +964,10 @@
       "name": "Share privately: documents, QR codes, contacts",
       "description": "Write a document or pick a file and lock it with a password so you can send it without uploading it anywhere, make QR codes for links, text, Wi-Fi and contacts, and convert contact (.vcf) files to CSV or Excel, even very large ones."
     },
+    "media": {
+      "name": "Audio and video",
+      "description": "Cut, join and fade audio files and voice notes. Everything runs on your device, so your recordings are not uploaded."
+    },
     "dev": {
       "name": "Developer and data tools",
       "description": "Format JSON, encode Base64 and URLs, convert timestamps and colours, and generate UUIDs, passwords and placeholder text. Everything runs on your device, so keys and data stay with you."

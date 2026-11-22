@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ArrowRight, Baby, Briefcase, Calculator, Code2, Dumbbell, FileText, GraduationCap, Image as ImageIcon, Presentation, Printer, Receipt, Search, Share2, TrendingUp, type LucideIcon } from 'lucide-react';
+import { ArrowRight, Baby, Briefcase, Calculator, Code2, Music, Dumbbell, FileText, GraduationCap, Image as ImageIcon, Presentation, Printer, Receipt, Search, Share2, TrendingUp, type LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { COLLECTIONS } from '../../config/homeSections';
@@ -15,7 +15,7 @@ interface HomeTopBannerProps {
 
 const ICONS: Record<HeroTile['icon'], LucideIcon> = {
   file: FileText, image: ImageIcon, receipt: Receipt, trend: TrendingUp, calculator: Calculator, sport: Dumbbell, print: Printer,
-  briefcase: Briefcase, display: Presentation, school: GraduationCap, kids: Baby, share: Share2, code: Code2,
+  briefcase: Briefcase, display: Presentation, school: GraduationCap, kids: Baby, share: Share2, code: Code2, audio: Music,
 };
 
 export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChange }) => {

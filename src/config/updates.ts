@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/audio-and-video-tools',
+    tool: 'Audio and video tools',
+    title: 'New topic: Audio and video',
+    summary: 'The Audio Cutter and Joiner now has its own topic on the home page, with a tile and a page of its own, instead of sitting under More tools.',
+  },
+  {
+    date: '2026-11-22',
     path: '/kids-money-shop',
     tool: 'Kids learning tools',
     title: 'Kids tools use the whole screen on a computer',
