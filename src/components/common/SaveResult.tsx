@@ -85,4 +85,11 @@ export const SaveResult: React.FC<SaveResultProps> = ({ href, name, label = 'You
   );
 };
 
+/** The grey button that comes after a finished file: start again with another file. */
+export const StartOverButton: React.FC<{ onClick: () => void; children: React.ReactNode }> = ({ onClick, children }) => (
+  <button type="button" onClick={onClick} className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-stone-100 px-5 py-3 text-sm font-bold text-stone-700 transition hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-100">
+    {children}
+  </button>
+);
+
 export default SaveResult;

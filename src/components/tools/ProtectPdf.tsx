@@ -10,7 +10,7 @@ import {
   Copy,
 } from 'lucide-react';
 import { protectPdf } from '../../lib/pdf/protect';
-import { SaveResult } from '../common/SaveResult';
+import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { formatFileSize } from '../../lib/pdf/fileName';
 import { UploadNote } from '../common/UploadNote';
 
@@ -219,7 +219,7 @@ export const ProtectPdf: React.FC = () => {
                   type="button"
                   onClick={handleProtect}
                   disabled={isProcessing}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none"
                 >
                   {isProcessing ? (
                     <>
@@ -238,13 +238,7 @@ export const ProtectPdf: React.FC = () => {
               )}
 
               {downloadUrl && (
-                <button
-                  type="button"
-                  onClick={resetState}
-                  className="w-full sm:w-auto px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition cursor-pointer"
-                >
-                  Protect Another
-                </button>
+                <StartOverButton onClick={resetState}>Protect another PDF</StartOverButton>
               )}
             </div>
           </div>

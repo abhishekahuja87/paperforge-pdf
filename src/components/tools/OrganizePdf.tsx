@@ -13,7 +13,7 @@ import {
 import { loadPdfThumbnails, exportOrganizedPdf } from '../../lib/pdf/organize';
 import type { PageThumbnailItem } from '../../lib/pdf/organize';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
-import { SaveResult } from '../common/SaveResult';
+import { SaveResult, StartOverButton } from '../common/SaveResult';
 
 export const OrganizePdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
@@ -143,7 +143,7 @@ export const OrganizePdf: React.FC = () => {
               <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
               <span className="text-sm font-medium text-slate-700 truncate">{file.name}</span>
               <span className="text-xs text-slate-400 shrink-0">
-                ({pages.length} pages remaining)
+                ({pages.length} {pages.length === 1 ? 'page' : 'pages'})
               </span>
             </div>
 
@@ -248,15 +248,15 @@ export const OrganizePdf: React.FC = () => {
                   type="button"
                   onClick={handleExport}
                   disabled={isExporting}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none"
                 >
                   {isExporting ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>Saving Document...</span>
+                      <span>Organizing...</span>
                     </>
                   ) : (
-                    <span>Save and Download PDF</span>
+                    <span>Organize PDF</span>
                   )}
                 </button>
               ) : (
@@ -264,13 +264,7 @@ export const OrganizePdf: React.FC = () => {
               )}
 
               {downloadUrl && (
-                <button
-                  type="button"
-                  onClick={resetState}
-                  className="w-full sm:w-auto px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition cursor-pointer"
-                >
-                  Organize Another
-                </button>
+                <StartOverButton onClick={resetState}>Organize another PDF</StartOverButton>
               )}
             </div>
           )}

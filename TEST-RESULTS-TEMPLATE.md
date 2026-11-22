@@ -188,6 +188,9 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | Q9 | Quick start buttons on a phone (all eight) | "Loaded" mark and scroll to the list | | |
 | Q10 | All eight on a TV or projector | Large and readable, fullscreen, buttons fade | | |
 | Q11 | Pictures, video and logo (menu, spelling bee, notices, routine, logo on all) | Show correctly; video gone after reload, pictures stay | | |
+| Q21 | Main buttons named for the action; grey "another" button after a result; banner turns amber when settings change | Same in all PDF tools | | |
+| Q22 | Rotate angle options on a small phone; Organize "N pages" | Fit; no "remaining" | | |
+| Q23 | Related tools shows the Master Document Studio card on PDF tools | Shown | | |
 | Q18 | Save banner and rename (pencil) in all PDF tools; amber outdated state | Same in every tool, new name is used for the download | | |
 | Q19 | Merge on phone: row buttons clear of the page box; small files show KB | No overlap | | |
 | Q20 | Back link goes tool, collection, home; contact page from a tool says report or suggest | Works | | |

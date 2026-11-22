@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SaveResult } from '../common/SaveResult';
+import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { FileDropZone } from '../common/FileDropZone';
 import { 
   FileText, 
@@ -153,7 +153,7 @@ export const RotatePdf: React.FC = () => {
           {/* Rotation Angle Selection */}
           <div className="space-y-1.5">
             <label className="block text-xs font-semibold text-slate-700">{t('rotateControls.angle')}</label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
               {[
                 { deg: 90 as RotationAngle, label: t('rotateControls.clockwise'), desc: t('rotateControls.right') },
                 { deg: 180 as RotationAngle, label: t('rotateControls.flip'), desc: t('rotateControls.upsideDown') },
@@ -163,7 +163,7 @@ export const RotatePdf: React.FC = () => {
                   key={item.deg}
                   type="button"
                   onClick={() => setAngle(item.deg)}
-                  className={`p-2.5 rounded-xl border text-left transition cursor-pointer ${
+                  className={`min-w-0 break-words p-2.5 rounded-xl border text-left transition cursor-pointer ${
                     angle === item.deg
                       ? 'border-indigo-600 bg-indigo-50/60 text-indigo-950 ring-1 ring-indigo-600'
                       : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
@@ -237,26 +237,29 @@ export const RotatePdf: React.FC = () => {
           {/* Action Buttons */}
           {downloadUrl && <SaveResult href={downloadUrl} name={downloadName || 'rotated_document.pdf'} label="Your rotated PDF is ready" saveLabel="Save PDF" outdated={isOutOfSync} />}
           <div className="pt-2 flex flex-col gap-3">
-            <button
-              onClick={handleRotate}
-              disabled={status === 'processing'}
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-indigo-600 hover:bg-indigo-700 text-white"
-            >
-              {status === 'processing' ? (
-                <Sparkles className="w-4 h-4 animate-spin" />
-              ) : isOutOfSync ? (
-                <RefreshCw className="w-4 h-4" />
-              ) : (
-                <RotateCw className="w-4 h-4" />
-              )}
-              <span>
-                {status === 'processing'
-                  ? t('rotateControls.rotating')
-                  : isOutOfSync
-                  ? t('rotateControls.rerotate')
-                  : t('rotateControls.rotate')}
-              </span>
-            </button>
+            {(!downloadUrl || isOutOfSync) && (
+              <button
+                onClick={handleRotate}
+                disabled={status === 'processing'}
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none bg-orange-700 hover:bg-orange-800 text-white"
+              >
+                {status === 'processing' ? (
+                  <Sparkles className="w-4 h-4 animate-spin" />
+                ) : isOutOfSync ? (
+                  <RefreshCw className="w-4 h-4" />
+                ) : (
+                  <RotateCw className="w-4 h-4" />
+                )}
+                <span>
+                  {status === 'processing'
+                    ? t('rotateControls.rotating')
+                    : isOutOfSync
+                    ? t('rotateControls.rerotate')
+                    : t('rotateControls.rotate')}
+                </span>
+              </button>
+            )}
+            {downloadUrl && !isOutOfSync && <StartOverButton onClick={handleReset}>Rotate another PDF</StartOverButton>}
 
           </div>
         </div>

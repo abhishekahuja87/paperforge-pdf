@@ -11,7 +11,7 @@ import { mergePdfFiles } from '../../lib/pdf/merge';
 import { getPdfPageCount, parsePageRanges } from '../../lib/pdf/split';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { formatFileSize } from '../../lib/pdf/fileName';
-import { SaveResult } from '../common/SaveResult';
+import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { UploadNote } from '../common/UploadNote';
 import { FileDropZone } from '../common/FileDropZone';
 import { useTranslation } from 'react-i18next';
@@ -95,6 +95,15 @@ export const MergePdf: React.FC = () => {
   };
   const totalPages = files.reduce((sum, file) => sum + (pagesFrom(file) ?? 0), 0);
   const allCounted = files.every((file) => pageCounts.has(file));
+
+  const startOver = () => {
+    setFiles([]);
+    setPageCounts(new Map());
+    setRanges(new Map());
+    setDownloadUrl(null);
+    setDownloadName('');
+    setError(null);
+  };
 
   const handleMerge = async () => {
     if (files.length < 2) return;
@@ -220,7 +229,7 @@ export const MergePdf: React.FC = () => {
           )}
           {downloadUrl && <SaveResult href={downloadUrl} name={downloadName} label={t('ready')} saveLabel={t('save')} />}
 
-          {files.length > 0 && <button
+          {files.length > 0 && !downloadUrl && <button
             type="button"
             onClick={handleMerge}
             disabled={files.length < 2 || isProcessing}
@@ -238,6 +247,7 @@ export const MergePdf: React.FC = () => {
               </>
             )}
           </button>}
+          {downloadUrl && <StartOverButton onClick={startOver}>Merge other files</StartOverButton>}
         </div>
       </section>
     </>
