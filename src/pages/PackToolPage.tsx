@@ -13,15 +13,15 @@ import { NotFoundPage } from './NotFoundPage';
 export const PackToolPage: React.FC<{ kind: string }> = ({ kind }) => {
   const entry = findPackTool(kind);
   if (!entry) return <NotFoundPage />;
-  return <PackToolContent kind={kind} guideKey={entry.guideKey} shareable={entry.shareable} />;
+  return <PackToolContent kind={kind} guideKey={entry.guideKey} shareable={entry.shareable} wide={entry.wide} />;
 };
 
-const PackToolContent: React.FC<{ kind: string; guideKey: Parameters<typeof usePageGuide>[0]; shareable: boolean }> = ({ kind, guideKey, shareable }) => {
+const PackToolContent: React.FC<{ kind: string; guideKey: Parameters<typeof usePageGuide>[0]; shareable: boolean; wide: boolean }> = ({ kind, guideKey, shareable, wide }) => {
   const { i18n } = useTranslation();
   const guide = usePageGuide(guideKey);
   const Screen = PACK_COMPONENTS[kind];
   return (
-    <ToolLayout title={guide.title} subtitle={guide.subtitle} contentLanguage={i18n.language} seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}>
+    <ToolLayout wide={wide} title={guide.title} subtitle={guide.subtitle} contentLanguage={i18n.language} seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}>
       <ShareProvider key={kind}>
         <Suspense fallback={<div className="py-10 text-center text-sm text-slate-500" role="status">Loading…</div>}>
           <Screen />

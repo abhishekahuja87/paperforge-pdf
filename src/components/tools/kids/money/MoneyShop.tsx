@@ -65,13 +65,16 @@ const PayExactly: React.FC = () => {
   return (
     <div className="space-y-4">
       <LevelPicker level={level} onChange={restart} />
-      <div className={`${card} space-y-4`}>
+      <div className={`${card} space-y-4 lg:grid lg:grid-cols-2 lg:items-start lg:gap-8 lg:space-y-0`}>
+        <div className="space-y-4">
         <p className="text-center text-sm font-bold text-slate-700" aria-live="polite">Question {Math.min(asked + (result === 'right' ? 0 : 1), ROUND)} of {ROUND} · Score {score}</p>
         <div className="mx-auto flex max-w-xs items-center justify-center gap-4 rounded-2xl border-2 border-orange-200 bg-orange-50 p-4">
           <span className="text-6xl" aria-hidden="true">{question.emoji}</span>
           <div><p className="text-lg font-bold capitalize text-slate-900">{question.name}</p><p className="text-4xl font-black text-orange-800">{rupees(question.price)}</p></div>
         </div>
         <p className="text-center text-base font-bold text-slate-800">Pay exactly {rupees(question.price)}.</p>
+        </div>
+        <div className="space-y-4">
         <MoneyPicker onAdd={tray.add} disabled={result === 'right'} />
         <Tray values={tray.values} onRemove={tray.remove} label="Your payment" disabled={result === 'right'} />
         {result === 'short' && <Message good={false}>Not enough yet. You need {rupees(question.price - total)} more.</Message>}
@@ -85,6 +88,7 @@ const PayExactly: React.FC = () => {
               <button type="button" onClick={skip} className={`${bigButton} border border-slate-300 bg-white text-slate-600`}>Show me</button>
             </>
           ) : finished ? <RoundEnd score={score} onAgain={next} /> : <button type="button" onClick={next} className={`${bigButton} w-full border border-slate-300 bg-white text-slate-800`}>Next question</button>}
+        </div>
         </div>
       </div>
     </div>
@@ -115,13 +119,16 @@ const GiveChange: React.FC = () => {
   return (
     <div className="space-y-4">
       <LevelPicker level={level} onChange={restart} />
-      <div className={`${card} space-y-4`}>
+      <div className={`${card} space-y-4 lg:grid lg:grid-cols-2 lg:items-start lg:gap-8 lg:space-y-0`}>
+        <div className="space-y-4">
         <p className="text-center text-sm font-bold text-slate-700" aria-live="polite">Question {Math.min(asked + (result ? 0 : 1), ROUND)} of {ROUND} · Score {score}</p>
         <div className="mx-auto max-w-sm rounded-2xl border-2 border-orange-200 bg-orange-50 p-4 text-center">
           <p className="text-base font-bold text-slate-900"><span aria-hidden="true" className="text-3xl">{question.emoji}</span> The {question.name} costs <span className="text-orange-800">{rupees(question.price)}</span>.</p>
           <p className="mt-2 flex flex-wrap items-center justify-center gap-2 text-base font-bold text-slate-900">The customer pays with <Money value={question.paid} />, that is {rupees(question.paid)}.</p>
         </div>
         <p className="text-center text-base font-bold text-slate-800">You are the shopkeeper. Give back the change.</p>
+        </div>
+        <div className="space-y-4">
         <MoneyPicker onAdd={tray.add} disabled={result !== null} />
         <Tray values={tray.values} onRemove={tray.remove} label="Change you give" disabled={result !== null} />
         {result === 'right' && <Message good>Correct! {rupees(question.paid)} − {rupees(question.price)} = {rupees(question.change)}.</Message>}
@@ -133,6 +140,7 @@ const GiveChange: React.FC = () => {
               <button type="button" onClick={tray.clear} disabled={total === 0} className={`${bigButton} border border-slate-300 bg-white text-slate-800`}>Clear</button>
             </>
           ) : finished ? <RoundEnd score={score} onAgain={next} /> : <button type="button" onClick={next} className={`${bigButton} w-full border border-slate-300 bg-white text-slate-800`}>Next question</button>}
+        </div>
         </div>
       </div>
     </div>
@@ -172,7 +180,7 @@ const MyShop: React.FC = () => {
   const again = () => { setBasket({}); tray.clear(); setPaid(null); };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 lg:grid lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-6 lg:space-y-0">
       <div className={card}>
         <p className="text-sm font-bold text-slate-800">Fill your basket</p>
         <ul className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -248,7 +256,7 @@ export const MoneyShop: React.FC = () => {
   const Panel = TABS.find((tab) => tab.id === active)?.Panel ?? PayExactly;
   return (
     <div className="space-y-4">
-      <div role="tablist" aria-label="Money shop" className="grid grid-cols-3 gap-2">
+      <div role="tablist" aria-label="Money shop" className="grid grid-cols-3 gap-2 lg:max-w-xl">
         {TABS.map((tab) => (
           <button key={tab.id} type="button" role="tab" id={`ms-tab-${tab.id}`} aria-selected={active === tab.id} aria-controls="ms-panel" onClick={() => setActive(tab.id)}
             className={`min-h-14 rounded-2xl border-2 px-2 py-3 text-base font-black ${active === tab.id ? 'border-orange-600 bg-orange-600 text-white' : 'border-slate-300 bg-white text-slate-800 hover:bg-slate-50'}`}>{tab.label}</button>

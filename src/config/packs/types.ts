@@ -14,6 +14,8 @@ export interface PackTool {
   guideKey: PageGuideId;
   /** Show the "copy link to this calculation" bar. Only for tools whose inputs are plain numbers, dates and choices. */
   shareable: boolean;
+  /** Give the screen the wide page (two columns on a computer). For interactive tools that should fit on one screen. */
+  wide: boolean;
 }
 
 interface PackToolSpec {
@@ -25,6 +27,7 @@ interface PackToolSpec {
   tier: ToolTier;
   keywords: string[];
   shareable?: boolean;
+  wide?: boolean;
 }
 
 /** Builds a PackTool whose title and description come from the pack's text file, so the wording lives in one place. */
@@ -34,6 +37,7 @@ export function definePackTool(spec: PackToolSpec, catalog: Record<string, strin
     kind: spec.kind,
     guideKey: spec.guideKey,
     shareable: spec.shareable ?? false,
+    wide: spec.wide ?? false,
     tool: { id: spec.id, title, description, category: spec.category, path: `/${spec.id}`, icon: spec.icon, isAvailable: true, tier: spec.tier, keywords: spec.keywords },
   };
 }

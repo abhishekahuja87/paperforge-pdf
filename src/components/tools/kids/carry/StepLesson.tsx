@@ -79,15 +79,15 @@ export function StepLesson<F extends LessonFrame>({ sign, examples, initial = 1,
   const maxLen = ask ? Math.max(2, ...ask.answers.map((answer) => String(answer).length)) : 2;
 
   return (
-    <div className="mx-auto max-w-xl space-y-3">
-      <div className="grid grid-cols-2 gap-2" role="group" aria-label="Watch or try">
+    <div className="mx-auto max-w-xl space-y-3 lg:grid lg:max-w-5xl lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:content-start lg:gap-x-8 lg:gap-y-3 lg:space-y-0">
+      <div className="grid grid-cols-2 gap-2 lg:col-start-2" role="group" aria-label="Watch or try">
         {([['watch', 'Watch'], ['try', 'You try']] as const).map(([id, label]) => (
           <button key={id} type="button" aria-pressed={mode === id} onClick={() => switchMode(id)}
             className={`min-h-14 rounded-2xl border-2 text-lg font-black ${mode === id ? 'border-orange-600 bg-orange-600 text-white' : 'border-slate-300 bg-white text-slate-800 hover:bg-slate-50'}`}>{label}</button>
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2" role="group" aria-label="Examples">
+      <div className="flex flex-wrap gap-2 lg:col-start-2" role="group" aria-label="Examples">
         {examples.map((item) => {
           const on = item.x === pair.x && item.y === pair.y;
           return (
@@ -98,18 +98,18 @@ export function StepLesson<F extends LessonFrame>({ sign, examples, initial = 1,
         <button type="button" aria-label="A new sum" onClick={() => choose(random())} className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-800 hover:bg-slate-50"><Shuffle className="h-5 w-5" aria-hidden="true" /></button>
       </div>
 
-      <p className="text-center text-4xl font-black tracking-tight text-slate-900">
+      <p className="text-center text-4xl font-black tracking-tight text-slate-900 lg:col-start-1 lg:row-start-1">
         {pair.x} {sign} {pair.y}{frame.done ? <span className="text-emerald-700"> = {result(pair.x, pair.y)}</span> : null}
       </p>
 
-      <button type="button" className="block w-full text-left [&>svg]:mx-auto [&>svg]:max-h-[42vh]" onClick={() => { if (mode === 'watch') setStep((current) => Math.min(last, current + 1)); }} aria-label={mode === 'watch' ? 'Next step' : 'The sum'}>
+      <button type="button" className="block w-full text-left [&>svg]:mx-auto [&>svg]:max-h-[42vh] lg:col-start-1 lg:row-span-8 lg:row-start-2 lg:self-start lg:[&>svg]:max-h-[64vh]" onClick={() => { if (mode === 'watch') setStep((current) => Math.min(last, current + 1)); }} aria-label={mode === 'watch' ? 'Next step' : 'The sum'}>
         {renderBoard(frame, frames, Math.min(step, last), pair)}
       </button>
 
       {mode === 'watch' && (
         <>
-          <p className="min-h-[3.5rem] rounded-2xl bg-orange-50 px-4 py-3 text-center text-2xl font-black text-orange-900" aria-live="polite">{frame.line}</p>
-          <div className="flex items-center justify-center gap-3">
+          <p className="min-h-[3.5rem] rounded-2xl bg-orange-50 px-4 py-3 text-center text-2xl font-black text-orange-900 lg:col-start-2" aria-live="polite">{frame.line}</p>
+          <div className="flex items-center justify-center gap-3 lg:col-start-2">
             <button type="button" aria-label="Back one step" className={round} disabled={step === 0} onClick={() => { setPlaying(false); setStep((current) => Math.max(0, current - 1)); }}><ChevronLeft className="h-7 w-7" aria-hidden="true" /></button>
             <button type="button" aria-label={playing ? 'Pause' : 'Play'} className={`${round} !h-16 !w-16 !border-orange-600 !bg-orange-600 !text-white hover:!bg-orange-700`} onClick={() => { if (step >= last) setStep(0); setPlaying((on) => !on); }}>
               {playing ? <Pause className="h-8 w-8" aria-hidden="true" /> : <Play className="h-8 w-8" aria-hidden="true" />}
@@ -121,7 +121,7 @@ export function StepLesson<F extends LessonFrame>({ sign, examples, initial = 1,
       )}
 
       {mode === 'try' && (
-        <div className="rounded-2xl bg-orange-50 px-4 py-4 text-center" aria-live="polite">
+        <div className="rounded-2xl bg-orange-50 px-4 py-4 text-center lg:col-start-2" aria-live="polite">
           {ask ? (
             <form onSubmit={(event) => { event.preventDefault(); check(); }} className="space-y-3">
               <p className="text-2xl font-black text-orange-900">{askTitle(ask)}</p>
@@ -156,11 +156,11 @@ export function StepLesson<F extends LessonFrame>({ sign, examples, initial = 1,
         </div>
       )}
 
-      <div className="flex justify-center gap-1.5" aria-hidden="true">
+      <div className="flex justify-center gap-1.5 lg:col-start-2" aria-hidden="true">
         {frames.map((_, index) => <span key={index} className={`h-2.5 w-2.5 rounded-full ${index === step ? 'bg-orange-600' : index < step ? 'bg-orange-300' : 'bg-slate-300'}`} />)}
       </div>
 
-      <details className="rounded-2xl border border-slate-200 bg-white p-3">
+      <details className="rounded-2xl border border-slate-200 bg-white p-3 lg:col-start-2">
         <summary className="min-h-10 cursor-pointer text-sm font-bold text-slate-700">My own numbers</summary>
         <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
           <input inputMode="numeric" aria-label="First number" value={own.x} onChange={(event) => setOwn((c) => ({ ...c, x: event.target.value.replace(/\D/g, '').slice(0, ownDigits[0]) }))} className="h-12 w-24 rounded-xl border border-slate-300 text-center text-xl font-bold" />

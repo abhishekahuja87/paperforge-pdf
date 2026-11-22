@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/kids-money-shop',
+    tool: 'Kids learning tools',
+    title: 'Kids tools use the whole screen on a computer',
+    summary: 'On a computer, the carry and borrow lessons, long multiplication and division, Money Shop, Shadow Explorer and Learn the Clock now show the picture on one side and the buttons on the other, so nothing needs scrolling. Phones keep one simple column.',
+  },
+  {
+    date: '2026-11-22',
     path: '/learn-the-clock',
     tool: 'Learn the Clock',
     title: 'Easier to move the clock hands',

@@ -21,9 +21,9 @@ export const LearnTab: React.FC = () => {
   const chip = 'min-h-11 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50';
 
   return (
-    <div className="grid gap-4 md:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] md:items-start">
+    <div className="grid gap-4 md:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] md:items-start lg:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] lg:gap-8">
       <div className={card}>
-        <div className="mx-auto max-w-sm">
+        <div className="mx-auto max-w-sm lg:max-w-md">
           <ClockFace time={time} onChange={setTime} step={step} numbers={numbers} label="Clock you can move. Drag the red dot for hours and the blue dot for minutes." />
         </div>
         <p className="mt-3 text-center text-sm font-semibold text-slate-700">
