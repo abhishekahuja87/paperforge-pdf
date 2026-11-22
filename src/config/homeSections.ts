@@ -70,27 +70,30 @@ export const COLLECTIONS: CollectionSpec[] = [
     'emi-calculator', 'sip-calculator', 'lumpsum-calculator', 'fd-calculator', 'rd-calculator', 'ppf-calculator', 'cagr-calculator', 'simple-compound-interest-calculator', 'inflation-calculator',
   ] },
   { id: 'everyday', icon: 'hash', tools: [
-    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'vehicle-service-log-printable', 'secret-santa-generator', 'random-name-picker', 'random-team-generator', 'whatsapp-link-generator',
+    'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'secret-santa-generator', 'random-name-picker', 'random-team-generator'
   ] },
   { id: 'sports', icon: 'dumbbell', tools: [
     'sports-court-size-guide', 'exercise-library', 'workout-planner', 'bmi-calculator',
   ] },
   { id: 'printables', icon: 'layers', tools: [
     'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable', 'milk-maid-attendance-calendar-printable', 'pet-health-record-card-printable', 'weekly-cleaning-schedule-printable', 'wedding-shagun-register-printable', 'baby-feeding-log-printable', 'habit-tracker-printable', 'certificate-of-achievement-printable', 'name-tag-sticker-sheet-printable', 'recipe-card-printable', 'rangoli-dot-grid-printable',
+    'vehicle-service-log-printable',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',
-    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable', 'tuition-fee-register-printable', 'office-cleaning-checklist-printable', 'customer-order-register-printable', 'society-notice-template-printable', 'content-calendar-printable', 'door-sign-printable', 'stamp-maker', 'id-card-maker-printable', 'upi-payment-qr-stand-printable', 'barcode-generator',
+    'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable', 'tuition-fee-register-printable', 'office-cleaning-checklist-printable', 'customer-order-register-printable', 'society-notice-template-printable', 'content-calendar-printable', 'door-sign-printable', 'stamp-maker', 'id-card-maker-printable', 'upi-payment-qr-stand-printable'
   ] },
-  { id: 'present', icon: 'presentation', tools: ['display-studio', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display'] },
+  { id: 'present', icon: 'presentation', tools: ['display-studio', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'classroom-quiz-display'] },
   { id: 'study', icon: 'type', tools: [
-    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'question-paper-template-printable', 'classroom-quiz-display',
+    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'question-paper-template-printable'
   ] },
   { id: 'kids', icon: 'clock', tools: [
     'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'solar-system-explorer', 'math-worksheet-generator-printable', 'maze-generator-printable',
   ] },
   { id: 'sharing', icon: 'grid', tools: [
     'password-protected-document-maker', 'qr-code-generator', 'qr-code-scanner', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
+    'whatsapp-link-generator',
+    'barcode-generator',
   ] },
   { id: 'media', icon: 'layers', tools: [
     'audio-cutter-and-joiner',

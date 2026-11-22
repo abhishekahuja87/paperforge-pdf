@@ -81,7 +81,7 @@ export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChan
                   <Link to={tile.to} className={`group flex h-full min-h-14 items-center gap-2.5 rounded-xl border ${HOME_COLLECTION_BORDER[tile.collection] ?? HOME_COLLECTION_BORDER.other} bg-white px-3 py-2 shadow-sm transition hover:shadow-md`}>
                     <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${HOME_COLLECTION_STYLES[tile.collection] ?? HOME_COLLECTION_STYLES.other} ${HOME_COLLECTION_HOVER[tile.collection] ?? HOME_COLLECTION_HOVER.other}`}><Icon className="h-4 w-4" aria-hidden="true" /></span>
                     <span className="min-w-0">
-                      <span className="block text-xs font-bold leading-4 text-stone-900">{tile.label}</span>
+                      <span className="block text-xs font-bold leading-4 text-stone-900">{t(`homeCollections.${tile.collection}.name`, { defaultValue: tile.label })}</span>
                       <span className="block text-[11px] text-stone-500">{counts.get(tile.collection) ?? 0} {t('homeTools', { defaultValue: 'tools' })}</span>
                     </span>
                   </Link>

@@ -83,6 +83,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Convert phone contacts to CSV or Excel", tool: "vcard-to-csv-converter", name: "VCF to CSV and Excel Converter", note: "Handles very large .vcf files." },
       { task: "Write a letter and lock it with a password", tool: "password-protected-document-maker", name: "Private Document Maker", note: "Create the document, lock it, and send one file." },
       { task: "Start a WhatsApp chat from a link or QR", tool: "whatsapp-link-generator", name: "WhatsApp Link Generator", note: "A wa.me link with your first message typed in." },
+      { task: "Make a barcode", tool: "barcode-generator", name: "Barcode Generator", note: "Code 128 or EAN-13, with a label sheet." },
     ],
     situations: [
       { who: "Shops and cafes", text: "Put a Wi-Fi QR code on the counter, print a UPI scan-and-pay stand from the Jobs and business tools, and share a menu or offer link with the QR Code Generator." },
@@ -139,8 +140,6 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Draw Secret Santa names", tool: "secret-santa-generator", name: "Secret Santa Generator", note: "Pass one phone around." },
       { task: "Pick a winner or a student at random", tool: "random-name-picker", name: "Random Name Picker", note: "No repeats." },
       { task: "Split a class or group into teams", tool: "random-team-generator", name: "Random Team Generator", note: "By number of teams or people per team." },
-      { task: "Start a WhatsApp chat without saving the number", tool: "whatsapp-link-generator", name: "WhatsApp Link Generator", note: "Makes a link and a QR code." },
-      { task: "Keep a vehicle service record", tool: "vehicle-service-log-printable", name: "Vehicle Service Log Printable", note: "Date, odometer, work done and next service." },
     ],
     situations: [
       { who: "At home", text: "Split a bill, convert a recipe's units, find the days left until a date, and work out an exact age for a form." },
@@ -166,10 +165,10 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/printables-and-templates": {
     tasks: [
+      { task: "Keep a vehicle service record", tool: "vehicle-service-log-printable", name: "Vehicle Service Log Printable", note: "Date, odometer, work done and next service." },
       { task: "Print dot grid, graph, lined or Cornell paper", tool: "printable-paper-maker", name: "Printable Paper Maker", note: "Many paper types in one maker." },
       { task: "Print a monthly calendar or weekly planner", tool: "printable-planner-maker", name: "Printable Calendar and Planner Maker", note: "Monthly, weekly, daily or year page." },
       { task: "Plan meals for the week", tool: "printable-meal-planner", name: "Printable Meal Planner", note: "With a shopping list." },
-      { task: "Show a quiz on the class screen", tool: "classroom-quiz-display", name: "Classroom Quiz Display", note: "Learn, mock exam and real exam modes." },
       { task: "Show an exam clock in a hall", tool: "exam-hall-display", name: "Exam Hall Display", note: "Time left, rules and warnings." },
       { task: "Spin a wheel to pick a name or prize", tool: "spinner-wheel-display", name: "Spinner Wheel", note: "One pick at a time, big screen." },
       { task: "Draw raffle winners at an event", tool: "lucky-draw-display", name: "Lucky Draw and Raffle Display", note: "Tickets or names, with prizes." },
@@ -213,7 +212,6 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Print price tags", tool: "price-tag-maker", name: "Price Tag Maker", note: "Shelf labels with barcodes." },
       { task: "Design a visiting card", tool: "visiting-card-maker", name: "Visiting Card Maker", note: "PNG or PDF with a QR code." },
       { task: "Print a UPI scan-and-pay stand", tool: "upi-payment-qr-stand-printable", name: "UPI QR Stand Printable", note: "With your shop name and logo." },
-      { task: "Make a barcode", tool: "barcode-generator", name: "Barcode Generator", note: "Code 128 or EAN-13, with a label sheet." },
       { task: "Make an office stamp picture", tool: "stamp-maker", name: "Stamp Maker", note: "A transparent PNG." },
       { task: "Keep staff attendance", tool: "staff-attendance-register-printable", name: "Staff Attendance Register Printable", note: "Monthly sheet." },
       { task: "Keep an order book", tool: "customer-order-register-printable", name: "Customer Order Register Printable", note: "For tailors, bakers and small shops." },
