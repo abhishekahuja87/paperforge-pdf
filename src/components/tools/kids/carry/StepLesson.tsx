@@ -102,7 +102,7 @@ export function StepLesson<F extends LessonFrame>({ sign, examples, initial = 1,
         {pair.x} {sign} {pair.y}{frame.done ? <span className="text-emerald-700"> = {result(pair.x, pair.y)}</span> : null}
       </p>
 
-      <button type="button" className="block w-full text-left" onClick={() => { if (mode === 'watch') setStep((current) => Math.min(last, current + 1)); }} aria-label={mode === 'watch' ? 'Next step' : 'The sum'}>
+      <button type="button" className="block w-full text-left [&>svg]:mx-auto [&>svg]:max-h-[42vh]" onClick={() => { if (mode === 'watch') setStep((current) => Math.min(last, current + 1)); }} aria-label={mode === 'watch' ? 'Next step' : 'The sum'}>
         {renderBoard(frame, frames, Math.min(step, last), pair)}
       </button>
 

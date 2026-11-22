@@ -266,3 +266,7 @@ Two kids pages (`addition-with-carrying-for-kids`, `subtraction-with-borrowing-f
 - 22 Nov: shared colour picker `src/components/common/ColorPicker.tsx` (`ColorField`, logic in `src/lib/color/picker.ts`) replaces every native colour input. Timestamp tools in `src/lib/utilities/timestampTools.ts` and `components/tools/utilities/timestamp/`. New `devtools` pack (`src/config/packs/devtools.ts`, `components/tools/devtools/`): JSON to CSV (`lib/devtools/jsonToCsv.ts`) and JSON Viewer (`lib/devtools/jsonTree.ts`).
 
 - 22 Nov: new `more` pack (`src/config/packs/more.ts`, `components/tools/more/`, logic in `src/lib/more/`): Resize PDF Page Size, PDF Booklet Maker, Grayscale PDF, Extract Images from PDF and Audio Cutter and Joiner. Chosen because other sites cap, watermark or charge for them. Shared opener hook `usePdfSource`.
+
+## Parked ideas (not started)
+- Offline client-side DICOM viewer (discussed 22 Nov). v1 scope: uncompressed, RLE and baseline JPEG; series list, scroll, window/level, zoom, PNG/PDF export, anonymise; lossless JPEG and JPEG 2000 later; no 3D/MPR. Needs sample scans to test compressed formats; clear "not for diagnosis" note; no medical interpretation in guide text. Awaiting scope, sample files and placement.
+- Edit PDF (add text, highlight, draw, shapes), the biggest paid-elsewhere gap.
