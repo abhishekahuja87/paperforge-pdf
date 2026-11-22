@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ToolGuide } from '../components/common/ToolGuide';
 import { ToolLayout } from '../components/layout/ToolLayout';
-import { MasterDocumentStudio } from '../components/tools/MasterDocumentStudio';
+import { DigitizeTool } from '../components/tools/DigitizeTool';
+import { UploadNote } from '../components/common/UploadNote';
 
 export const DigitizeDocumentsPage: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [hasSources, setHasSources] = useState(false);
   const steps = [1, 2, 3].map((index) => ({
     title: t(`digitize.step${index}`),
     description: t(`digitize.step${index}Detail`),
@@ -17,11 +17,11 @@ export const DigitizeDocumentsPage: React.FC = () => {
   }));
 
   return (
-    <ToolLayout wide={hasSources} title={t('digitize.title')} subtitle={t('digitize.subtitle')} contentLanguage={i18n.language}
-      seoContent={!hasSources ? <ToolGuide toolName={t('digitize.title')} steps={steps} faqs={faqs} contentLanguage={i18n.language} /> : undefined}>
+    <ToolLayout title={t('digitize.title')} subtitle={t('digitize.subtitle')} contentLanguage={i18n.language}
+      seoContent={<ToolGuide toolName={t('digitize.title')} steps={steps} faqs={faqs} contentLanguage={i18n.language} />}>
       <div className="space-y-4">
-        <p lang={i18n.language} className="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">{t('digitize.note')} {t('digitize.editorLanguage')}</p>
-        <MasterDocumentStudio digitize onHasSourcesChange={setHasSources} />
+        <div lang={i18n.language}><UploadNote>{t('digitize.note')}</UploadNote></div>
+        <DigitizeTool />
       </div>
     </ToolLayout>
   );
