@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { ClipboardPaste, Download, Undo2 } from 'lucide-react';
 import { FileDropZone } from '../../common/FileDropZone';
 import { Note } from '../../finance/ui';
@@ -206,7 +207,7 @@ export const ScreenshotRedactor: React.FC = () => {
           </div>
           {style === 'solid' && (
             <label className="block text-xs font-semibold text-slate-700">Box colour
-              <input type="color" value={color} onChange={(e) => setColor(e.target.value)} className={`${fieldClass} h-10 p-1`} />
+              <ColorField value={color} onChange={setColor} label="Box colour" className="mt-1.5 block h-10 w-24" />
             </label>
           )}
         </div>

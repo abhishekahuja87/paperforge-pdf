@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { Download, Printer } from 'lucide-react';
 import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
 import { fieldClass } from '../utilities/common';
@@ -72,8 +73,8 @@ export const BulkQrGenerator: React.FC = () => {
           <SelectField label="File type" value={format} onChange={setFormat} options={[{ value: 'png', label: 'PNG pictures' }, { value: 'svg', label: 'SVG (sharp at any size)' }]} />
           <SelectField label="PNG size" value={size} onChange={setSize} options={[{ value: '512', label: '512 px' }, { value: '1024', label: '1024 px' }, { value: '2048', label: '2048 px' }]} />
           <SelectField label="Codes per row on the printed sheet" value={columns} onChange={setColumns} options={['3', '4', '5'].map((value) => ({ value, label: value }))} />
-          <label className="block text-xs font-semibold text-slate-700">Code colour<input type="color" value={fg} onChange={(event) => setFg(event.target.value)} className="mt-1.5 block h-11 w-full rounded-lg border border-slate-200 bg-white p-1" /></label>
-          <label className="block text-xs font-semibold text-slate-700">Background colour<input type="color" value={bg} onChange={(event) => setBg(event.target.value)} className="mt-1.5 block h-11 w-full rounded-lg border border-slate-200 bg-white p-1" /></label>
+          <label className="block text-xs font-semibold text-slate-700">Code colour<ColorField value={fg} onChange={setFg} label="Code colour" className="mt-1.5 block h-11 w-full" /></label>
+          <label className="block text-xs font-semibold text-slate-700">Background colour<ColorField value={bg} onChange={setBg} label="Background colour" className="mt-1.5 block h-11 w-full" /></label>
         </div>
         {contrast < 4 && <p role="alert" className="mt-2 text-xs text-rose-800">These colours are too close. Scanners need a dark code on a light background, so pick colours that contrast strongly.</p>}
         {items.length > MAX_BULK && <p role="alert" className="mt-2 text-xs text-rose-800">You pasted {items.length} lines. Only the first {MAX_BULK} are used.</p>}

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { Check, Copy, Download, Printer } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { card, heading } from '../paper/controls';
@@ -133,7 +134,7 @@ export const JobDescriptionBuilder: React.FC = () => {
           </ul>
           <label className="mt-3 flex items-center gap-3 text-xs font-semibold text-slate-700">
             Colour
-            <input type="color" value={accent} onChange={(event) => setAccent(event.target.value)} className="h-10 w-14 cursor-pointer rounded border border-slate-200 bg-white" aria-label="Accent colour" />
+            <ColorField value={accent} onChange={setAccent} label="Accent colour" className="h-10 w-14" />
             <button type="button" onClick={() => setAccent(spec.accent)} className="text-xs font-semibold text-orange-700 underline">Reset</button>
           </label>
           <p className="mt-2 text-[11px] text-slate-500">Picking a style loads its wording for the sections you have not edited. Sections you changed keep your text.</p>

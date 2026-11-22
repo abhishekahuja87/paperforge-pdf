@@ -1,0 +1,162 @@
+{
+  "guideSteps": {
+    "json-to-csv-converter": [
+      [
+        "Add your JSON",
+        "Drop a .json file, or paste the text. Tap Use a sample to try it first."
+      ],
+      [
+        "Pick the list",
+        "If the JSON holds more than one list of records, choose the one you want. Check the preview table."
+      ],
+      [
+        "Set the options",
+        "Choose the separator, how nested values are flattened, how lists are written, and which columns to keep."
+      ],
+      [
+        "Convert and save",
+        "Tap Convert to CSV, then Save CSV or copy the text. The file opens in Excel or Google Sheets."
+      ]
+    ],
+    "json-viewer": [
+      [
+        "Add your JSON",
+        "Drop a .json file or paste the text. If it has comments or trailing commas, one tap cleans them."
+      ],
+      [
+        "Explore the tree",
+        "Tap the arrows to open or close parts, or use Expand all, Collapse all and Level 1 to 4."
+      ],
+      [
+        "Search and select",
+        "Search keys and values and jump between matches. Tap any row to see its path and copy it or its value."
+      ],
+      [
+        "Switch the view",
+        "Show a list of records as a table, or see the formatted text with your choice of indentation, then copy or save it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "jsonToCsvConverterGuide": {
+      "title": "JSON to CSV Converter Online: Free, Private, Works on Large Files",
+      "subtitle": "Turn a JSON file or pasted text into a CSV you can open in Excel or Google Sheets. Choose columns, separator and nesting. Free, no sign-up, nothing uploaded.",
+      "faq": [
+        [
+          "What does the JSON to CSV converter do?",
+          "It reads JSON and writes a CSV file with one row for each record and one column for each field, ready for Excel, Google Sheets or any database import."
+        ],
+        [
+          "What if my JSON has nested objects?",
+          "Nested objects are flattened into columns with dotted names such as address.city. You can instead keep them as JSON text inside one cell."
+        ],
+        [
+          "How are lists inside a record handled?",
+          "You can join the items in one cell, spread them over numbered columns, or keep them as JSON text. Pick what suits your sheet."
+        ],
+        [
+          "My JSON has several lists. Which one is converted?",
+          "The tool finds every list of records and lets you choose. The preview shows the first rows before you convert."
+        ],
+        [
+          "Why do some cells start with an apostrophe?",
+          "Text beginning with = + - or @ can run as a formula when a spreadsheet opens it. The tool adds an apostrophe to keep it plain text. You can turn this off."
+        ],
+        [
+          "Do Hindi and other language letters show correctly in Excel?",
+          "Yes, when Excel-friendly encoding is on, which is the default. It adds a marker that lets Excel read the file as UTF-8."
+        ],
+        [
+          "Is my JSON uploaded anywhere?",
+          "No. The converter runs in your browser on your own device, so the data you open is not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "jsonViewerGuide": {
+      "title": "JSON Viewer Online: Explore Large Nested JSON as a Tree, Free and Private",
+      "subtitle": "Open big or deeply nested JSON as a tree you can expand, collapse and search, or as a table. Copy any path or value. Free, no sign-up, nothing uploaded.",
+      "faq": [
+        [
+          "What is a JSON viewer for?",
+          "It makes JSON easy to read. Instead of one long block of text, you see a tree where each object and list opens and closes, with colours for text, numbers and true or false."
+        ],
+        [
+          "Can it open a very large file?",
+          "Yes. Only the rows you open are drawn, and long lists are shown 100 at a time with a Show more button, so a large file stays quick on a phone."
+        ],
+        [
+          "How do I find a value inside a big file?",
+          "Type in the search box. Matching keys and values are highlighted, their parents open by themselves, and the arrows jump from one match to the next."
+        ],
+        [
+          "What is the path shown for a selected row?",
+          "It is the JSONPath, such as $.branches[0].city. Developers use it to read the same value in code. Copy path puts it on your clipboard."
+        ],
+        [
+          "Can I see a list of records as a table?",
+          "Yes. Switch to Table to see a list as rows and columns, filter the rows, or convert it to CSV with the JSON to CSV tool."
+        ],
+        [
+          "What if my file has comments or an extra comma?",
+          "Strict JSON does not allow them. The viewer shows an error and a button that removes comments and trailing commas, then tries again."
+        ],
+        [
+          "Is my JSON uploaded anywhere?",
+          "No. The viewer runs in your browser on your own device, so the data you open is not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "json-to-csv-converter": {
+      "sections": [
+        {
+          "heading": "What the JSON to CSV converter does",
+          "paragraphs": [
+            "JSON is how most apps and APIs send data, but spreadsheets work with rows and columns. This tool turns a JSON list of records into a CSV file, with one row for each record and one column for each field.",
+            "You see a preview of the table before converting, so you know the result is what you expect."
+          ]
+        },
+        {
+          "heading": "Control over nested data",
+          "paragraphs": [
+            "Real JSON is rarely flat. Objects inside objects become columns with dotted names, lists can be joined into one cell or spread across columns, and you can leave out columns you do not need.",
+            "Choose a comma, semicolon, tab or pipe as the separator, quote every value, and set the text used for empty fields."
+          ]
+        },
+        {
+          "heading": "Safe for spreadsheets and private",
+          "paragraphs": [
+            "Values that start with a formula character are kept as plain text so a spreadsheet does not run them. An optional marker makes Excel read non-English letters correctly.",
+            "The file is read and converted on your own device. Nothing is uploaded, so customer lists and API responses stay with you."
+          ]
+        }
+      ]
+    },
+    "json-viewer": {
+      "sections": [
+        {
+          "heading": "What the JSON viewer does",
+          "paragraphs": [
+            "The JSON viewer shows data as a tree. Objects and lists open and close with a tap, and text, numbers, true or false and empty values each have their own colour, so the shape of the data is clear at a glance.",
+            "It is made for large and deeply nested files that are hard to read in a text editor."
+          ]
+        },
+        {
+          "heading": "Find, select and copy",
+          "paragraphs": [
+            "Search keys and values, jump between matches and let the tree open the right branches for you. Tap any row to see its JSONPath and copy the path or the value, or copy a whole part as JSON.",
+            "Expand all, Collapse all and Level 1 to 4 let you choose how much to see. You can also sort keys A to Z."
+          ]
+        },
+        {
+          "heading": "Tree, table or text, and private",
+          "paragraphs": [
+            "A list of records can be shown as a table with a filter, and the formatted text can be copied or saved with two or four spaces, or minified.",
+            "Everything happens in your browser. Your JSON is not uploaded, so it is fine for work data, though you should still avoid sharing live secrets."
+          ]
+        }
+      ]
+    }
+  }
+}

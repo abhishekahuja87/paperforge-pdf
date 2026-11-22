@@ -1,4 +1,5 @@
 import React, { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { ArrowDown, ArrowUp, Download, Plus, Printer, Trash2, Upload } from 'lucide-react';
 import { calcCard } from '../../finance/ui';
 import { ChoiceButtons } from '../utilities/common';
@@ -245,7 +246,7 @@ export const ResumeBuilder: React.FC = () => {
             <ChoiceButtons label="Paper" value={style.paper} onChange={(value) => setStyle((current) => ({ ...current, paper: value === 'letter' ? 'letter' : 'a4' }))} options={[{ value: 'a4', label: 'A4' }, { value: 'letter', label: 'US Letter' }]} />
             {template.colour && (
               <label className="flex items-center gap-3 text-xs font-semibold text-slate-700">Accent colour
-                <input type="color" value={style.accent} onChange={(event) => setStyle((current) => ({ ...current, accent: event.target.value }))} className="h-9 w-12 cursor-pointer rounded border border-slate-200 bg-white p-0.5" />
+                <ColorField value={style.accent} onChange={(hex) => setStyle((current) => ({ ...current, accent: hex }))} label="Accent colour" className="h-9 w-12" />
               </label>
             )}
           </div>

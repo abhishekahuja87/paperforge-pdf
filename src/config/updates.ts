@@ -19,6 +19,34 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/json-viewer',
+    tool: 'JSON Viewer',
+    title: 'New: JSON Viewer for big nested JSON',
+    summary: 'Open JSON as a tree you can expand, collapse and search, tap a row to copy its path or value, see lists as a table, or view the formatted text. Large files stay quick on a phone.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/json-to-csv-converter',
+    tool: 'JSON to CSV Converter',
+    title: 'New: JSON to CSV Converter',
+    summary: 'Turn a JSON file or pasted text into a CSV for Excel or Google Sheets. Pick the list, columns, separator and how nested values are flattened, and see a preview first.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/color-converter',
+    tool: 'Colour tools',
+    title: 'One advanced colour picker everywhere',
+    summary: 'Pick a colour with a full colour area and hue slider, type a hex or RGB value, use the eyedropper where your browser has one, and reuse recent colours. The same picker is now in every tool that asks for a colour.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/timestamp-converter',
+    tool: 'Unix Timestamp Converter',
+    title: 'Timestamp converter: more zones, maths and batch',
+    summary: 'A live clock in seconds and milliseconds, any time zone, automatic seconds/milliseconds/microseconds detection, weekday, week and quarter, add or subtract time, the gap between two timestamps, and a batch converter with CSV copy.',
+  },
+  {
+    date: '2026-11-22',
     path: '/pdf-to-images',
     tool: 'PDF tools',
     title: 'Every PDF tool now looks and works the same',

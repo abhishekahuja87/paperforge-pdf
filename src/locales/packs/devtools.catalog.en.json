@@ -1,0 +1,12 @@
+{
+  "toolCatalog": {
+    "json-to-csv-converter": [
+      "JSON to CSV Converter: Turn JSON into a Spreadsheet, Free and Private",
+      "Convert any JSON file or pasted text into CSV for Excel or Google Sheets. Pick the list, columns and separator. Free, no sign-up, nothing is uploaded."
+    ],
+    "json-viewer": [
+      "JSON Viewer: Open, Search and Explore Big Nested JSON as a Tree",
+      "View large or deeply nested JSON as a tree you can expand, collapse and search, or as a table. Copy any path or value. Free and private, nothing is uploaded."
+    ]
+  }
+}

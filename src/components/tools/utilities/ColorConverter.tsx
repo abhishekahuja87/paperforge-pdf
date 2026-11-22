@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { ColorField } from '../../common/ColorPicker';
 import { calcCard } from '../../finance/ui';
 import { CopyButton, fieldClass } from './common';
 import { contrastRatio, hslToRgb, parseHex, rgbToHsl, toHex, type Rgb } from '../../../lib/utilities/dev';
@@ -36,7 +37,7 @@ export const ColorConverter: React.FC = () => {
   return (
     <section className={calcCard}>
       <div className="grid gap-4 rounded-xl bg-slate-50 p-4 sm:grid-cols-[auto_1fr]">
-        <label className="block text-xs font-semibold text-slate-700">Pick a colour<input type="color" value={rgb ? toHex(rgb) : '#000000'} onChange={(event) => setHex(event.target.value)} className="mt-1.5 block h-12 w-20 cursor-pointer rounded border border-slate-200 bg-white p-1" /></label>
+        <label className="block text-xs font-semibold text-slate-700">Pick a colour<ColorField value={rgb ? toHex(rgb) : '#000000'} onChange={setHex} label="Pick a colour" className="mt-1.5 block h-12 w-20" /></label>
         <label className="block text-xs font-semibold text-slate-700">HEX code
           <input value={hex} onChange={(event) => setHex(event.target.value)} className={`${fieldClass} font-mono`} aria-invalid={!rgb} />
           {!rgb && <span className="mt-1 block font-normal text-red-700" role="alert">Enter a 3 or 6 digit hex code such as #ea580c.</span>}
@@ -68,7 +69,7 @@ export const ColorConverter: React.FC = () => {
         <h2 className="text-sm font-bold text-slate-900">Text contrast check (WCAG)</h2>
         <p className="mt-1 text-xs text-slate-500">Uses the colour above as the text colour on this background.</p>
         <div className="mt-3 flex flex-wrap items-end gap-3">
-          <label className="block text-xs font-semibold text-slate-700">Background<input type="color" value={bg ? toHex(bg) : '#ffffff'} onChange={(event) => setBackground(event.target.value)} className="mt-1.5 block h-10 w-16 cursor-pointer rounded border border-slate-200 bg-white p-1" /></label>
+          <label className="block text-xs font-semibold text-slate-700">Background<ColorField value={bg ? toHex(bg) : '#ffffff'} onChange={setBackground} label="Background" className="mt-1.5 block h-10 w-16" /></label>
           <label className="block text-xs font-semibold text-slate-700">Hex<input value={background} onChange={(event) => setBackground(event.target.value)} className="mt-1.5 w-28 rounded-lg border border-slate-200 bg-white px-3 py-2 font-mono text-sm" /></label>
         </div>
         {ratio !== null && rgb && bg ? (

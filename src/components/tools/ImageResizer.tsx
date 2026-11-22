@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { ColorField } from '../common/ColorPicker';
 import { AlertCircle, Download, LoaderCircle, Maximize2, RotateCcw } from 'lucide-react';
 import { FileDropZone } from '../common/FileDropZone';
 import { downloadBlob, formatBytes } from '../../lib/browserTools';
@@ -170,7 +171,7 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
               </label>
               <label className="flex items-center gap-3 text-xs font-semibold text-slate-700 sm:col-span-2">
                 Background colour (for transparent areas{useExact ? ' and white borders' : ''})
-                <input type="color" value={background} disabled={isProcessing} onChange={(event) => { setBackground(event.target.value); clearResults(); }} className="h-9 w-12 cursor-pointer rounded border border-slate-200 bg-white p-0.5" />
+                <ColorField value={background} onChange={(hex) => { setBackground(hex); clearResults(); }} label="Background colour" className="h-9 w-12" disabled={isProcessing} />
               </label>
               {useExact && (
                 <>

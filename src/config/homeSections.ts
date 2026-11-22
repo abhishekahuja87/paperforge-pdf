@@ -20,7 +20,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'classroom-quiz-display', 'workout-planner', 'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids'
+  'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'classroom-quiz-display', 'workout-planner', 'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'json-to-csv-converter', 'json-viewer'
 ];
 
 /** Studio-style tools shown as a slim row. Scanning and display have their own topics below. */
@@ -93,6 +93,6 @@ export const COLLECTIONS: CollectionSpec[] = [
     'password-protected-document-maker', 'qr-code-generator', 'qr-code-scanner', 'bulk-qr-code-generator', 'wifi-qr-code-generator', 'vcard-qr-code-generator', 'vcard-to-csv-converter',
   ] },
   { id: 'dev', icon: 'file-code', tools: [
-    'json-formatter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',
+    'json-formatter', 'json-viewer', 'json-to-csv-converter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',
   ] },
 ];

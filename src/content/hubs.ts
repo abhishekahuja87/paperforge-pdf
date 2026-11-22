@@ -205,11 +205,11 @@ export const HUBS: Hub[] = [
     path: "/developer-and-data-tools",
     collection: "dev",
     title: "Free Developer and Data Tools",
-    subtitle: "Format JSON, encode Base64 and URLs, convert timestamps and colours, and generate UUIDs, passwords and placeholder text.",
-    description: "Free developer tools: JSON formatter, Base64 and URL encoder, timestamp and colour converters, UUID, password and lorem ipsum generators.",
+    subtitle: "Format, view and convert JSON, encode Base64 and URLs, convert timestamps and colours, and generate UUIDs, passwords and placeholder text.",
+    description: "Free developer tools: JSON formatter, JSON viewer, JSON to CSV, Base64 and URL encoder, timestamp and colour converters, UUID, password and lorem ipsum generators.",
     sections: [
       { heading: "What you can do here", paragraphs: [
-        "Tidy and check JSON, encode and decode Base64 and URLs, convert Unix timestamps and colour codes, and generate UUIDs, random passwords and placeholder text.",
+        "Tidy and check JSON, explore big nested JSON as a tree, turn JSON into CSV, encode and decode Base64 and URLs, convert Unix timestamps and colour codes, and generate UUIDs, random passwords and placeholder text.",
       ] },
       { heading: "Keys and data stay with you", paragraphs: [
         "Everything runs on your device in your browser, so text, tokens and data you paste are not sent to MyDailyUtils. Still, avoid pasting live secrets into any website you have not checked.",
