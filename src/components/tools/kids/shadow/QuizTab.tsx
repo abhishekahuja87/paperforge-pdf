@@ -37,8 +37,8 @@ export const QuizTab: React.FC = () => {
     );
   }
   return (
-    <div className="space-y-4">
-      <div className={card}>
+    <div className="space-y-4 lg:grid lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start lg:gap-6 lg:space-y-0">
+      <div className={`${card} lg:col-span-2`}>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Level">
           {SHADOW_LEVELS.map((item) => <button key={item.id} type="button" className={chip(level === item.id)} aria-pressed={level === item.id} title={item.hint} onClick={() => restart(item.id)}>{item.label}</button>)}
         </div>
@@ -46,7 +46,10 @@ export const QuizTab: React.FC = () => {
       </div>
       <div className={card}>
         <ShadowScene alpha={alpha} personX={question.personX} subject={question.subject} hideShadow={result === null} onSun={isSet && result === null ? setAlpha : undefined} />
-        <p className="mt-3 text-lg font-black text-slate-900">{question.prompt}</p>
+      </div>
+      <div className="space-y-4">
+      <div className={card}>
+        <p className="text-lg font-black text-slate-900">{question.prompt}</p>
         {isSet ? (
           <div className="mt-2 space-y-3">
             <p className="text-xs text-slate-600">Drag the sun in the picture, or use the slider.</p>
@@ -70,6 +73,7 @@ export const QuizTab: React.FC = () => {
         </div>
       )}
       {result !== null && <button type="button" onClick={next} className={`${bigButton} w-full bg-slate-900 text-white hover:bg-slate-800`}>{number >= ROUND ? 'See my score' : 'Next question'}</button>}
+      </div>
     </div>
   );
 };

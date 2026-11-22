@@ -13,7 +13,7 @@ export const ExploreTab: React.FC = () => {
   const [subject, setSubject] = useState<SubjectId>('person');
   const [hidden, setHidden] = useState(false);
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 lg:grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-start lg:gap-6 lg:space-y-0">
       <div className={card}>
         <ShadowScene alpha={alpha} personX={x} subject={subject} hideShadow={hidden} onSun={setAlpha} onMove={setX} />
         <p className="mt-2 text-xs text-slate-600">Drag the sun along its path. Drag the {SUBJECTS.find((s) => s.id === subject)?.label.toLowerCase()} left or right. The dashed line is the sun ray that just touches the top of the head. It ends where the shadow ends.</p>
