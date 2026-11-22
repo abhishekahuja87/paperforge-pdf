@@ -17,6 +17,8 @@ import { TRUST } from '../content/trust';
 import { FREE_NO_LIMITS } from '../content/freeNoLimits';
 import { HUB_EXTRAS } from '../content/hubExtras';
 import { HUBS } from '../content/hubs';
+import { HUB_FAQS } from '../content/hubFaqs';
+import { hubGuides } from '../content/hubGuides';
 import { COLLECTIONS } from '../config/homeSections';
 import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
@@ -393,7 +395,11 @@ function buildShellPages(): ShellPage[] {
         { heading: 'What can I do here?', paragraphs: extras.tasks.map((row) => `${row.task}: ${row.name}. ${row.note}`) },
         { heading: 'Ideas for your situation', paragraphs: extras.situations.map((item) => `${item.who}: ${item.text}`) },
       ] : [];
-      return info(hub.path, hub.title, hub.subtitle, hub.description, [...hub.sections.slice(0, 1), ...taskSections, ...hub.sections.slice(1), { heading: `All ${listed.length} tools`, paragraphs: listed.map((tool) => `${tool.title}: ${tool.description}`) }]);
+      const guides = hubGuides(hub);
+      const faqSet = HUB_FAQS[hub.path];
+      const guideSections = guides.length > 0 ? [{ heading: 'How-to guides for this section', paragraphs: guides.map((guide) => `${guide.title}. ${guide.description}`) }] : [];
+      const faqSections = faqSet ? [{ heading: 'Common questions', paragraphs: faqSet.faqs.map((item) => `${item.q} ${item.a}`) }] : [];
+      return info(hub.path, hub.title, hub.subtitle, hub.description, [...hub.sections.slice(0, 1), ...taskSections, ...guideSections, ...faqSections, ...hub.sections.slice(1), { heading: `All ${listed.length} tools`, paragraphs: listed.map((tool) => `${tool.title}: ${tool.description}`) }]);
     }),
     info('/whats-new', "What's new", 'Improvements to the tools, newest first.',
       'A dated list of what has been added or improved on MyDailyUtils tools and calculators.',

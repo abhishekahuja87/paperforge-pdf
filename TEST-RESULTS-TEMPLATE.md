@@ -233,3 +233,13 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L3 | Grayscale PDF: grey and black-and-white on a colour PDF | | |
 | L4 | Extract Images from PDF: ZIP of the photos in a PDF | | |
 | L5 | Audio Cutter and Joiner: join two files, trim, play, save WAV | | |
+
+### Section pages: guides, common questions, related sections (22 Nov)
+
+| # | Check | Result | Notes |
+|---|---|---|---|
+| M1 | All 14 section pages show guides, 5 questions and related sections | | |
+| M2 | Questions open and close on a phone, no clipped text | | |
+| M3 | Three new guides open and list working "Try it" tools | | |
+| M4 | Passport photo guide shows the rejection-message section | | |
+| M5 | Pre-rendered HTML has the same questions | | |
