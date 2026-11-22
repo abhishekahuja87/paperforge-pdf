@@ -12,7 +12,7 @@ export const PROMISE = {
 export const NO_LIMIT_TOOL_IDS: readonly string[] = [
   'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'pdf-to-images', 'extract-text',
   'add-page-numbers', 'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'sign-pdf',
-  'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text',
+  'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf', 'audio-cutter-and-joiner',
   'image-compressor', 'image-converter', 'image-resizer', 'bulk-image-tools', 'social-image-resizer', 'gif-maker', 'remove-photo-location',
 ];
 

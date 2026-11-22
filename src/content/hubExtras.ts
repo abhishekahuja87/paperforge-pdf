@@ -11,6 +11,10 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
     tasks: [
       { task: "Join several PDFs into one", tool: "merge-pdf", name: "Merge PDF", note: "Put the files in order and download a single PDF." },
       { task: "Pull pages out of a PDF", tool: "split-pdf", name: "Split PDF", note: "Keep only the pages you need." },
+      { task: "Change a PDF to A4, Letter or A5", tool: "resize-pdf-page-size", name: "Resize PDF Page Size", note: "Fit, fill or stretch every page." },
+      { task: "Print a PDF as a folded booklet", tool: "pdf-booklet-maker", name: "PDF Booklet Maker", note: "Two pages to a sheet in the right order." },
+      { task: "Print a colour PDF without colour ink", tool: "grayscale-pdf", name: "Grayscale PDF", note: "Greys or pure black and white." },
+      { task: "Save the photos inside a PDF", tool: "extract-images-from-pdf", name: "Extract Images from PDF", note: "Original quality, as one ZIP." },
       { task: "Cut a scanned batch into separate documents", tool: "smart-split-pdf", name: "Smart Split PDF", note: "Split every N pages, at blank pages, at bookmarks or by file size, as one ZIP." },
       { task: "Make a PDF small enough to email or upload", tool: "compress-pdf", name: "Compress PDF", note: "Shrinks the file and shows the new size before you download." },
       { task: "Fix a sideways or upside-down page", tool: "rotate-pdf", name: "Rotate PDF", note: "Turn single pages or the whole file." },
@@ -53,6 +57,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Get a photo or signature to 20, 50 or 100 KB", tool: "image-resizer", name: "Image Resizer (KB and Pixels)", note: "Hit a size limit or exact pixels for an online form." },
       { task: "Resize or convert many photos at once", tool: "bulk-image-tools", name: "Bulk Image Tools", note: "Resize, convert and watermark a whole batch as one ZIP." },
       { task: "Make one picture fit Instagram, YouTube and more", tool: "social-image-resizer", name: "Social Image Sizes", note: "Post, story, thumbnail, banner and profile sizes together." },
+      { task: "Cut or join audio and voice notes", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Trim, join and fade, saved as WAV." },
       { task: "Turn pictures into an animated GIF", tool: "gif-maker", name: "GIF Maker", note: "Set the order, timing and size." },
       { task: "See and remove hidden location from a photo", tool: "remove-photo-location", name: "Remove Location and EXIF Data", note: "Shows the place, phone model and time, then saves a clean copy." },
       { task: "Blur or black out details in a screenshot", tool: "screenshot-redactor", name: "Screenshot Redactor", note: "Hide phone numbers, balances and emails." },

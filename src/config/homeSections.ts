@@ -20,7 +20,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'classroom-quiz-display', 'workout-planner', 'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'json-to-csv-converter', 'json-viewer'
+  'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'classroom-quiz-display', 'workout-planner', 'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'json-to-csv-converter', 'json-viewer', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf', 'audio-cutter-and-joiner'
 ];
 
 /** Studio-style tools shown as a slim row. Scanning and display have their own topics below. */
@@ -58,7 +58,7 @@ export interface CollectionSpec {
 export const COLLECTIONS: CollectionSpec[] = [
   { id: 'pdf', icon: 'file-text', tools: [
     'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'digitize-documents', 'pdf-to-images', 'extract-text', 'add-page-numbers',
-    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text',
+    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf',
   ] },
   { id: 'images', icon: 'image', tools: [
     'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location', 'bulk-image-tools', 'social-image-resizer', 'gif-maker',

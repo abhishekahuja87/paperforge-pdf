@@ -224,3 +224,12 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | K2 | Timestamp converter: live clock, zones, unit detection, add/subtract, batch | | |
 | K3 | JSON to CSV: sample, file with several lists, open result in Excel | | |
 | K4 | JSON Viewer: expand/collapse, search, copy path, table and text views, a large file | | |
+
+## L. Free-more tools (22 Nov)
+| # | What to try | Result | Notes |
+|---|---|---|---|
+| L1 | Resize PDF Page Size: mixed-size and rotated pages to A4 | | |
+| L2 | PDF Booklet Maker: print a 4-page test double-sided and fold | | |
+| L3 | Grayscale PDF: grey and black-and-white on a colour PDF | | |
+| L4 | Extract Images from PDF: ZIP of the photos in a PDF | | |
+| L5 | Audio Cutter and Joiner: join two files, trim, play, save WAV | | |

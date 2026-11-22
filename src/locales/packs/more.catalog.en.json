@@ -1,0 +1,24 @@
+{
+  "toolCatalog": {
+    "resize-pdf-page-size": [
+      "Resize PDF Page Size: Change to A4, Letter, A5 and More, Free and No Limits",
+      "Change every page of a PDF to A4, A3, A5, Letter or Legal. Fit, fill or stretch, with a margin. Free, no sign-up, no page limit, and nothing is uploaded."
+    ],
+    "pdf-booklet-maker": [
+      "PDF Booklet Maker: Print Pages Two to a Sheet and Fold, Free and No Limits",
+      "Put a PDF in booklet order, two pages to each landscape sheet, to print double-sided and fold into a booklet. Free, no sign-up, nothing uploaded."
+    ],
+    "grayscale-pdf": [
+      "Grayscale PDF: Convert a PDF to Black and White or Grey for Printing, Free",
+      "Turn a colour PDF into shades of grey or pure black and white for cheaper printing. Free, no sign-up, no page limit, and nothing is uploaded."
+    ],
+    "extract-images-from-pdf": [
+      "Extract Images from PDF: Save the Original Pictures, Free and No Limits",
+      "Save every photo and picture stored inside a PDF, at its original quality, as one ZIP. Free, no sign-up, no page limit, and nothing is uploaded."
+    ],
+    "audio-cutter-and-joiner": [
+      "Audio Cutter and Joiner: Trim, Join and Fade Audio Files, Free and Private",
+      "Cut a part out of an audio file, join several files, add fades and save as WAV. Free, no sign-up, no length limit, and nothing is uploaded."
+    ]
+  }
+}

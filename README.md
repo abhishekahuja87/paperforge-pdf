@@ -264,3 +264,5 @@ Two kids pages (`addition-with-carrying-for-kids`, `subtraction-with-borrowing-f
 - Topic pages and tool pages share one header pattern: back link and the single `PromisePill` on the same line, headline, subtitle, all left-aligned (`InfoPageLayout leftAligned topExtra`). The multi-tag row (`PromiseTags`) is only on the home hero.
 
 - 22 Nov: shared colour picker `src/components/common/ColorPicker.tsx` (`ColorField`, logic in `src/lib/color/picker.ts`) replaces every native colour input. Timestamp tools in `src/lib/utilities/timestampTools.ts` and `components/tools/utilities/timestamp/`. New `devtools` pack (`src/config/packs/devtools.ts`, `components/tools/devtools/`): JSON to CSV (`lib/devtools/jsonToCsv.ts`) and JSON Viewer (`lib/devtools/jsonTree.ts`).
+
+- 22 Nov: new `more` pack (`src/config/packs/more.ts`, `components/tools/more/`, logic in `src/lib/more/`): Resize PDF Page Size, PDF Booklet Maker, Grayscale PDF, Extract Images from PDF and Audio Cutter and Joiner. Chosen because other sites cap, watermark or charge for them. Shared opener hook `usePdfSource`.

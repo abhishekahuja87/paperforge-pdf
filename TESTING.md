@@ -1194,3 +1194,11 @@ Not run. /json-to-csv-converter: use the sample, a .json file and pasted text. A
 
 ### JSON Viewer (22 Nov)
 Not run. /json-viewer: sample, file, paste. Tree: arrows open/close, Expand all, Collapse all, Level 1 to 4. Search jumps between matches, opens parents, Enter and Shift+Enter move. Tap a row: path (e.g. $.branches[0].city) with Copy path and Copy value. A list of over 100 items shows "Show more". Sort keys A to Z. Table view with filter and the link to JSON to CSV. Text view with 2, 4 and minified, Copy and Save. Try a 20 MB file on a phone and note any slowness.
+
+### Free-more tools (22 Nov): Resize PDF Page Size, PDF Booklet Maker, Grayscale PDF, Extract Images from PDF, Audio Cutter and Joiner
+Not run. Check each on a phone and a computer; all use the standard upload box, file bar, orange main button and green Save banner.
+- [ ] Resize PDF Page Size (/resize-pdf-page-size): a mixed-size PDF becomes all A4; a PDF with sideways (rotated) pages comes out upright; Fit, Fill, Stretch and a 10 mm margin look right; text is still selectable; changing a setting after saving turns the banner amber and brings the main button back.
+- [ ] PDF Booklet Maker (/pdf-booklet-maker): an 8-page PDF lists Front 1: 8 | 1, Back 1: 2 | 7, Front 2: 6 | 3, Back 2: 4 | 5; a 5-page PDF shows blanks. Print a 4-page test double-sided (flip on short edge) and fold: pages read 1, 2, 3, 4. Right-to-left swaps the sides.
+- [ ] Grayscale PDF (/grayscale-pdf): grey and black-and-white both work on a colour PDF, a photo PDF and a scan; progress shows page by page; the note about text not being selectable is visible; a 100-page file does not crash a phone.
+- [ ] Extract Images from PDF (/extract-images-from-pdf): a PDF with photos gives a ZIP of .jpg files opening at original quality; a PDF with logos/PNG gives .png with transparency kept; "Skip tiny icons" removes bullets; a text-only PDF shows the "No pictures found" note.
+- [ ] Audio Cutter and Joiner (/audio-cutter-and-joiner): an MP3, an M4A and a WhatsApp voice note all open; two files join in the order shown; start/end typed as 1:02.5 and the sliders agree; Play plays the chosen part with fades; the saved WAV plays in the player and on the phone; a 31-minute file shows the memory limit message.

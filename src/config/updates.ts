@@ -19,6 +19,41 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/resize-pdf-page-size',
+    tool: 'Resize PDF Page Size',
+    title: 'New: Resize PDF Page Size',
+    summary: 'Change every page to A4, A3, A5, A6, Letter, Legal or Tabloid. Fit, fill or stretch, with a margin. Text stays sharp.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/pdf-booklet-maker',
+    tool: 'PDF Booklet Maker',
+    title: 'New: PDF Booklet Maker',
+    summary: 'Put a PDF in booklet order, two pages to a sheet, to print double-sided and fold. Shows what goes on every printed side.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/grayscale-pdf',
+    tool: 'Grayscale PDF',
+    title: 'New: Grayscale PDF',
+    summary: 'Turn a colour PDF into shades of grey or pure black and white so it prints without colour ink.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/extract-images-from-pdf',
+    tool: 'Extract Images from PDF',
+    title: 'New: Extract Images from PDF',
+    summary: 'Save the photos and pictures stored inside a PDF at their original quality, as one ZIP.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/audio-cutter-and-joiner',
+    tool: 'Audio Cutter and Joiner',
+    title: 'New: Audio Cutter and Joiner',
+    summary: 'Trim a recording, join several files, add fades and save as WAV. Works with MP3, M4A, WAV, OGG and voice notes.',
+  },
+  {
+    date: '2026-11-22',
     path: '/json-viewer',
     tool: 'JSON Viewer',
     title: 'New: JSON Viewer for big nested JSON',
