@@ -30,8 +30,8 @@ export async function checkPdfPassword(fileBuffer: ArrayBuffer, password: string
     void loadingTask.destroy();
   };
   try {
-    const doc = await loadingTask.promise;
-    void doc.destroy();
+    await loadingTask.promise;
+    void loadingTask.destroy();
   } catch (err: unknown) {
     if (problem === 'required') throw new Error('PASSWORD_REQUIRED: Please enter the password to open this PDF.');
     if (problem === 'invalid') throw new Error('INVALID_PASSWORD: The password you entered is incorrect.');
