@@ -5,22 +5,25 @@ import { beep } from '../../../lib/screens/beep';
 import { clockText, examStateAt, hms, pad2, time12, type ExamState } from '../../../lib/screens/clock';
 import { bool, isRecord, num, oneOf, str } from '../../../lib/screens/read';
 import { usePersisted } from '../../../lib/screens/usePersisted';
+import { ThemePicker } from '../shared/ThemePicker';
+import { THEME_STYLES } from '../../../lib/screens/themes';
+import { readTheme, type Theme } from '../../../lib/screens/timed';
 import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { ScreenShell } from './ScreenShell';
 import { CHECK, FIELD, LABEL, ORANGE } from './ui';
 
 type StartMode = 'press' | 'clock';
-interface Saved { title: string; subject: string; startMode: StartMode; startTime: string; minutes: number; warn: number; rules: string; sound: boolean; light: boolean; logo: string }
+interface Saved { title: string; subject: string; startMode: StartMode; startTime: string; minutes: number; warn: number; rules: string; sound: boolean; theme: Theme; logo: string }
 const RULES = 'Write your name and roll number first.\nRead all the questions before you start.\nMobile phones must be switched off and kept away.\nRaise your hand if you need anything.';
-const DEFAULTS: Saved = { title: 'Unit Test', subject: '', startMode: 'press', startTime: '10:00', minutes: 60, warn: 10, rules: RULES, sound: true, light: false, logo: '' };
+const DEFAULTS: Saved = { title: 'Unit Test', subject: '', startMode: 'press', startTime: '10:00', minutes: 60, warn: 10, rules: RULES, sound: true, theme: 'dark', logo: '' };
 const PRESETS: Array<Preset & { values: Partial<Saved> }> = [
   { id: 'board', label: 'Three-hour exam', blurb: '180 minutes with a 15 minute warning.', values: { title: 'Final Examination', minutes: 180, warn: 15 } },
   { id: 'test', label: 'Class test', blurb: '60 minutes with a 10 minute warning.', values: { title: 'Class Test', minutes: 60, warn: 10 } },
   { id: 'unit', label: 'Short test', blurb: '40 minutes with a 5 minute warning.', values: { title: 'Unit Test', minutes: 40, warn: 5 } },
   { id: 'quiz', label: 'Quick quiz', blurb: '20 minutes with a 5 minute warning.', values: { title: 'Quick Quiz', minutes: 20, warn: 5 } },
 ];
-const read = (value: unknown): Saved | null => (isRecord(value) ? { title: str(value.title, DEFAULTS.title), subject: str(value.subject), startMode: oneOf(value.startMode, ['press', 'clock'] as const, 'press'), startTime: str(value.startTime, DEFAULTS.startTime), minutes: num(value.minutes, 60), warn: num(value.warn, 10), rules: str(value.rules, RULES), sound: bool(value.sound, true), light: bool(value.light, false), logo: str(value.logo) } : null);
+const read = (value: unknown): Saved | null => (isRecord(value) ? { title: str(value.title, DEFAULTS.title), subject: str(value.subject), startMode: oneOf(value.startMode, ['press', 'clock'] as const, 'press'), startTime: str(value.startTime, DEFAULTS.startTime), minutes: num(value.minutes, 60), warn: num(value.warn, 10), rules: str(value.rules, RULES), sound: bool(value.sound, true), theme: readTheme(value.theme, value.light), logo: str(value.logo) } : null);
 
 const nowTime = (): string => { const now = new Date(); return `${pad2(now.getHours())}:${pad2(now.getMinutes())}`; };
 
@@ -35,9 +38,10 @@ const ExamScreen: React.FC<{ saved: Saved; startAt: Date; minutes: number; warn:
     lastPhase.current = state.phase;
   }, [state.phase, saved.sound]);
 
-  const dark = !saved.light;
-  const surface = state.phase === 'over' ? 'bg-red-800 text-white' : state.phase === 'warning' ? 'bg-amber-600 text-white' : dark ? 'bg-stone-950 text-white' : 'bg-white text-stone-900';
-  const muted = surface.includes('bg-white') ? 'text-stone-600' : 'text-white/80';
+  const style = THEME_STYLES[saved.theme];
+  const surface = state.phase === 'over' ? 'bg-red-800 text-white' : state.phase === 'warning' ? 'bg-amber-600 text-white' : style.surface;
+  const alert = state.phase === 'over' || state.phase === 'warning';
+  const muted = alert ? 'text-white/85' : style.muted;
   const label = state.phase === 'before' ? 'Exam starts in' : state.phase === 'over' ? 'Time is up' : state.phase === 'warning' ? `Last ${warn} minutes` : 'Time left';
   const rules = saved.rules.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
 
@@ -113,8 +117,8 @@ export const ExamHall: React.FC = () => {
         </label>
         <div className="grid gap-x-4 gap-y-1 sm:grid-cols-2">
           <label className={CHECK}><input type="checkbox" checked={saved.sound} onChange={(event) => update({ sound: event.target.checked })} className="h-4 w-4 accent-orange-700" />Beep when the exam starts, the warning begins and time is up</label>
-          <label className={CHECK}><input type="checkbox" checked={saved.light} onChange={(event) => update({ light: event.target.checked })} className="h-4 w-4 accent-orange-700" />Light screen</label>
         </div>
+        <ThemePicker name="exam-theme" value={saved.theme} onChange={(theme) => update({ theme })} />
         <LogoField logo={saved.logo} onChange={(logo) => update({ logo })} label="School or centre logo in the corner (optional)" />
         <button type="button" onClick={start} disabled={saved.startMode === 'clock' && !clockStart} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Start the exam screen</button>
         <Note>The screen shows the current time, the time left, when the exam started and ends, and your rules. It turns amber for the last minutes and red when time is up. Your settings are saved only in this browser. Check the clock on the device against the hall clock before you begin.</Note>

@@ -5,16 +5,19 @@ import { beep } from '../../../lib/screens/beep';
 import { callNext, formatToken, type TokenState } from '../../../lib/screens/clock';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';
 import { usePersisted } from '../../../lib/screens/usePersisted';
+import { ThemePicker } from '../shared/ThemePicker';
+import { THEME_STYLES } from '../../../lib/screens/themes';
+import { readTheme, type Theme } from '../../../lib/screens/timed';
 import { LogoField } from './LogoField';
 import { ScreenShell } from './ScreenShell';
 import { CHECK, FIELD, LABEL, ORANGE, OUTLINE } from './ui';
 
-interface Saved { state: TokenState; width: number; sound: boolean; light: boolean; logo: string }
-const DEFAULTS: Saved = { state: { prefix: '', current: 0, last: [], counter: '' }, width: 2, sound: true, light: false, logo: '' };
+interface Saved { state: TokenState; width: number; sound: boolean; theme: Theme; logo: string }
+const DEFAULTS: Saved = { state: { prefix: '', current: 0, last: [], counter: '' }, width: 2, sound: true, theme: 'dark', logo: '' };
 const read = (value: unknown): Saved | null => {
   if (!isRecord(value) || !isRecord(value.state)) return null;
   const last = Array.isArray(value.state.last) ? value.state.last.filter((entry): entry is number => typeof entry === 'number').slice(0, 6) : [];
-  return { state: { prefix: str(value.state.prefix), current: Math.max(0, num(value.state.current, 0)), last, counter: str(value.state.counter) }, width: Math.min(5, Math.max(1, num(value.width, 2))), sound: bool(value.sound, true), light: bool(value.light, false), logo: str(value.logo) };
+  return { state: { prefix: str(value.state.prefix), current: Math.max(0, num(value.state.current, 0)), last, counter: str(value.state.counter) }, width: Math.min(5, Math.max(1, num(value.width, 2))), sound: bool(value.sound, true), theme: readTheme(value.theme, value.light), logo: str(value.logo) };
 };
 
 /** A "now serving" display for a clinic, shop, office or bank counter. The staff press Next; the screen shows the number. */
@@ -35,9 +38,9 @@ export const QueueToken: React.FC = () => {
   }, [call]);
 
   const upcoming = [1, 2, 3].map((by) => state.current + by);
-  const dark = !saved.light;
-  const surface = dark ? 'bg-stone-950 text-white' : 'bg-white text-stone-900';
-  const muted = dark ? 'text-stone-300' : 'text-stone-600';
+  const style = THEME_STYLES[saved.theme];
+  const surface = style.surface;
+  const muted = style.muted;
   const bar = (
     <>
       <button type="button" aria-label="Previous number" onClick={() => call(-1)} disabled={state.current === 0} className="flex h-12 w-12 items-center justify-center rounded-full bg-black/20 hover:bg-black/30 disabled:opacity-40"><Minus className="h-6 w-6" aria-hidden="true" /></button>
@@ -73,15 +76,15 @@ export const QueueToken: React.FC = () => {
         </div>
         <div className="grid gap-x-4 gap-y-1 sm:grid-cols-2">
           <label className={CHECK}><input type="checkbox" checked={saved.sound} onChange={(event) => setSaved({ ...saved, sound: event.target.checked })} className="h-4 w-4 accent-orange-700" />Chime when the next number is called</label>
-          <label className={CHECK}><input type="checkbox" checked={saved.light} onChange={(event) => setSaved({ ...saved, light: event.target.checked })} className="h-4 w-4 accent-orange-700" />Light screen</label>
         </div>
+        <ThemePicker name="token-theme" value={saved.theme} onChange={(theme) => setSaved({ ...saved, theme })} />
         <LogoField logo={saved.logo} onChange={(logo) => setSaved({ ...saved, logo })} label="Logo in the corner (optional, for example your clinic or shop)" />
         <Note>Give people numbered slips or tell them their number, then press Next as each person is called. On the big screen the right arrow, space bar or Next button calls the next number and the left arrow goes back. The numbers are saved only in this browser, so the count survives a reload. Nothing is sent anywhere, so it cannot show on a second screen by itself: open this page on the device that is connected to the display.</Note>
       </section>
       {full && (
         <ScreenShell surface={surface} label="Now serving display" onClose={close} bar={bar} onKey={onKey} logo={saved.logo || undefined}>
           <div className="m-auto flex w-full max-w-6xl flex-col items-center gap-4 px-6 text-center">
-            <p className={`text-[clamp(1.4rem,4vw,3.4rem)] font-bold uppercase tracking-widest ${dark ? 'text-orange-300' : 'text-orange-700'}`}>{state.counter.trim() || 'Now serving'}</p>
+            <p className={`text-[clamp(1.4rem,4vw,3.4rem)] font-bold uppercase tracking-widest ${style.accent}`}>{state.counter.trim() || 'Now serving'}</p>
             <p className="text-[clamp(6rem,30vw,26rem)] font-black leading-none tabular-nums" aria-live="polite">{state.current === 0 ? '—' : show(state.current)}</p>
             <p className={`text-[clamp(1.2rem,3vw,2.6rem)] ${muted}`}>Next: <span className="font-bold">{upcoming.map(show).join('   ')}</span></p>
             {state.last.length > 0 && <p className={`text-[clamp(1rem,2.2vw,1.8rem)] ${muted}`}>Earlier: {state.last.slice(0, 4).map(show).join('   ')}</p>}

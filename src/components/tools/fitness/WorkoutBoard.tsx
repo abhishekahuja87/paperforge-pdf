@@ -3,6 +3,7 @@ import { Check, Pause, Play, RotateCcw, X } from 'lucide-react';
 import { EXERCISES, GROUPS, imageUrl } from '../../../lib/fitness/exercises';
 import { BLOCKS, formatClock, formatDuration, formatPlanDate, type Timing, type WorkoutPlan } from '../../../lib/fitness/workout';
 import { FLIP_CSS } from '../shared/flipCss';
+import { THEME_STYLES } from '../../../lib/screens/themes';
 import type { ShowOptions } from './WorkoutPlayer';
 
 const BY_ID = new Map(EXERCISES.map((exercise) => [exercise.id, exercise]));
@@ -83,12 +84,9 @@ export const WorkoutBoard: React.FC<Props> = ({ plan, timing, show, onClose }) =
   }, [activeKey, timing.work]);
   const reset = () => { setDone(new Set()); setActiveKey(null); setElapsed(0); setRunning(false); };
 
-  const dark = !show.light;
-  const surface = dark ? 'bg-stone-950 text-white' : 'bg-stone-50 text-stone-900';
-  const muted = dark ? 'text-stone-300' : 'text-stone-600';
-  const accent = dark ? 'text-orange-300' : 'text-orange-700';
-  const card = dark ? 'border-white/10 bg-white/5' : 'border-stone-200 bg-white';
-  const btn = dark ? 'bg-white/10 hover:bg-white/20' : 'bg-stone-100 hover:bg-stone-200';
+  const style = THEME_STYLES[show.theme];
+  const dark = !style.onLight;
+  const { surface, muted, accent, card, btn } = style;
   const header = [show.title ? plan.title.trim() : '', show.place ? plan.place.trim() : '', show.date ? formatPlanDate(plan.date) : ''].filter(Boolean);
   const perExercise = timing.work + timing.rest;
 

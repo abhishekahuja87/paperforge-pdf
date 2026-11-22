@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react';
 import { EXERCISES, GROUPS, imageUrl } from '../../../lib/fitness/exercises';
 import { BLOCKS, buildSlides, formatClock, formatPlanDate, type Slide, type Timing, type WorkoutPlan } from '../../../lib/fitness/workout';
+import { THEME_STYLES } from '../../../lib/screens/themes';
+import type { Theme } from '../../../lib/screens/timed';
 import { FLIP_CSS } from '../shared/flipCss';
 
 export interface ShowOptions {
@@ -13,10 +15,10 @@ export interface ShowOptions {
   steps: boolean;
   timer: boolean;
   next: boolean;
-  light: boolean;
+  theme: Theme;
 }
 
-export const DEFAULT_SHOW: ShowOptions = { date: true, title: true, place: true, pictures: true, muscles: true, steps: true, timer: true, next: true, light: false };
+export const DEFAULT_SHOW: ShowOptions = { date: true, title: true, place: true, pictures: true, muscles: true, steps: true, timer: true, next: true, theme: 'dark' };
 
 const BY_ID = new Map(EXERCISES.map((exercise) => [exercise.id, exercise]));
 const GROUP_LABEL = new Map(GROUPS.map((group) => [group.id, group.label]));
@@ -103,11 +105,9 @@ export const WorkoutPlayer: React.FC<Props> = ({ plan, timing, show, onClose }) 
     return () => window.removeEventListener('keydown', onKey);
   }, [go, index, reveal]);
 
-  const dark = !show.light;
-  const surface = dark ? 'bg-stone-950 text-white' : 'bg-white text-stone-900';
-  const muted = dark ? 'text-stone-300' : 'text-stone-600';
-  const accent = dark ? 'text-orange-300' : 'text-orange-700';
-  const chip = dark ? 'bg-white/10 text-orange-200' : 'bg-orange-50 text-orange-800';
+  const style = THEME_STYLES[show.theme];
+  const dark = !style.onLight;
+  const { surface, muted, accent, chip } = style;
   const progress = slides.length > 1 ? (index / (slides.length - 1)) * 100 : 100;
 
   const header = [show.title ? plan.title.trim() : '', show.place ? plan.place.trim() : '', show.date ? formatPlanDate(plan.date) : ''].filter(Boolean);

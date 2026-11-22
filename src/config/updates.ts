@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-22',
     path: '/display-and-presentation-tools',
     tool: 'Display tools',
+    title: 'Six simple screen colours on the display tools, the quiz and the workout slideshow',
+    summary: 'Pick Dark, Light, Sunrise, Forest, Ocean or Rose for the exam hall, token, timings, spelling bee, menu, routine, quiz and workout screens. Your choice is remembered on the tools that save their settings.',
+  },
+  {
+    date: '2026-11-22',
+    path: '/display-and-presentation-tools',
+    tool: 'Display tools',
     title: 'Pictures and videos on the display tools, and controls that stay clear on phones',
     summary: 'Menu items, spelling words, notices and routine steps can carry a picture, notices can play a video, and every big-screen tool takes a logo. On a phone the buttons now sit at the top so the browser’s full-screen message does not cover them. The exercise list grew to 182 with 64 stretches.',
   },

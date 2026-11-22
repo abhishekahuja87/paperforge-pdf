@@ -2,16 +2,17 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { Play } from 'lucide-react';
 import { calcCard, Note } from '../../finance/ui';
 import { bool, isRecord, num, oneOf, str } from '../../../lib/screens/read';
-import { buildBeeSlides, clampInt, type BeeMode } from '../../../lib/screens/timed';
+import { buildBeeSlides, clampInt, readTheme, type BeeMode, type Theme } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { useScrollTo } from '../../../lib/screens/useScrollTo';
+import { ThemePicker } from '../shared/ThemePicker';
 import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { makeRow, readRows, RowsEditor, type Column, type FormRow } from './RowsEditor';
 import { TimedPlayer } from './TimedPlayer';
 import { CHECK, FIELD, LABEL, ORANGE } from './ui';
 
-interface Saved { rows: FormRow[]; mode: BeeMode; auto: boolean; think: number; reveal: number; shuffle: boolean; light: boolean; logo: string }
+interface Saved { rows: FormRow[]; mode: BeeMode; auto: boolean; think: number; reveal: number; shuffle: boolean; theme: Theme; logo: string }
 const COLUMNS: Column[] = [
   { key: 'word', label: 'Word', placeholder: 'For example library', size: 'mid' },
   { key: 'hint', label: 'Meaning, clue or sentence', placeholder: 'For example a place with many books', size: 'wide' },
@@ -22,7 +23,7 @@ const LISTS: Array<Preset & { words: Array<[string, string]> }> = [
   { id: 'school', label: 'School words', blurb: '8 everyday school words.', words: [['library', 'a place with many books'], ['calendar', 'it shows the days and months of the year'], ['homework', 'work from school that you do at home'], ['dictionary', 'a book that gives the meanings of words'], ['playground', 'where children play at school'], ['notebook', 'a book to write in'], ['teacher', 'a person who teaches in a class'], ['science', 'the study of nature and how things work']] },
   { id: 'tricky', label: 'Tricky spellings', blurb: '8 words many people spell wrongly.', words: [['necessary', 'needed; you must have it'], ['separate', 'to keep apart'], ['definitely', 'without any doubt'], ['receive', 'to get something that is given'], ['environment', 'the world around us'], ['beautiful', 'very pleasing to look at'], ['calendar', 'a chart of the days of the year'], ['occasion', 'a special event or time']] },
 ];
-const read = (value: unknown): Saved | null => (isRecord(value) ? { rows: readRows(value.rows, ['word', 'hint', 'image']) ?? [], mode: oneOf(value.mode, ['spell', 'read'] as const, 'spell'), auto: bool(value.auto, false), think: num(value.think, 15), reveal: num(value.reveal, 6), shuffle: bool(value.shuffle, false), light: bool(value.light, false), logo: str(value.logo) } : null);
+const read = (value: unknown): Saved | null => (isRecord(value) ? { rows: readRows(value.rows, ['word', 'hint', 'image']) ?? [], mode: oneOf(value.mode, ['spell', 'read'] as const, 'spell'), auto: bool(value.auto, false), think: num(value.think, 15), reveal: num(value.reveal, 6), shuffle: bool(value.shuffle, false), theme: readTheme(value.theme, value.light), logo: str(value.logo) } : null);
 
 function shuffled<T>(items: T[]): T[] {
   const copy = [...items];
@@ -36,7 +37,7 @@ function shuffled<T>(items: T[]): T[] {
 }
 
 export const SpellingBee: React.FC = () => {
-  const [saved, setSaved] = usePersisted<Saved>('mdu-bee-v1', { rows: [], mode: 'spell', auto: false, think: 15, reveal: 6, shuffle: false, light: false, logo: '' }, read);
+  const [saved, setSaved] = usePersisted<Saved>('mdu-bee-v1', { rows: [], mode: 'spell', auto: false, think: 15, reveal: 6, shuffle: false, theme: 'dark', logo: '' }, read);
   const [active, setActive] = useState<string | null>(null);
   const [slides, setSlides] = useState<ReturnType<typeof buildBeeSlides> | null>(null);
   const { ref, scroll } = useScrollTo<HTMLDivElement>();
@@ -67,7 +68,6 @@ export const SpellingBee: React.FC = () => {
         <div className="grid gap-x-4 gap-y-1 sm:grid-cols-2">
           <label className={CHECK}><input type="checkbox" checked={saved.auto} onChange={(event) => update({ auto: event.target.checked })} className="h-4 w-4 accent-orange-700" />Move on by itself (otherwise you click)</label>
           <label className={CHECK}><input type="checkbox" checked={saved.shuffle} onChange={(event) => update({ shuffle: event.target.checked })} className="h-4 w-4 accent-orange-700" />Shuffle the words</label>
-          <label className={CHECK}><input type="checkbox" checked={saved.light} onChange={(event) => update({ light: event.target.checked })} className="h-4 w-4 accent-orange-700" />Light screen</label>
         </div>
         {saved.auto && (
           <div className="grid gap-3 sm:grid-cols-2">
@@ -75,12 +75,13 @@ export const SpellingBee: React.FC = () => {
             <label className={LABEL}>Seconds to show the answer<input type="number" inputMode="numeric" min={1} max={120} value={saved.reveal} onChange={(event) => update({ reveal: Number(event.target.value) })} className={FIELD} /></label>
           </div>
         )}
+        <ThemePicker name="bee-theme" value={saved.theme} onChange={(theme) => update({ theme })} />
         <LogoField logo={saved.logo} onChange={(logo) => update({ logo })} label="Logo in the corner (optional, for example your school)" />
         <p className="text-sm font-semibold text-stone-800">{words.length === 0 ? 'Add some words to start.' : `${words.length} ${words.length === 1 ? 'word' : 'words'}, ${saved.auto ? 'moves on by itself' : 'moves when you click'}.`}</p>
         <button type="button" onClick={start} disabled={words.length === 0} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Start the bee</button>
         <Note>Your word list is saved only in this browser. Click, press space or the right arrow to reveal and move on; the left arrow goes back. Escape or Close leaves.</Note>
       </section>
-      {slides && <TimedPlayer slides={slides} label="Spelling and vocabulary bee" showTimer={saved.auto} sound={false} light={saved.light} logo={saved.logo || undefined} onClose={close} />}
+      {slides && <TimedPlayer slides={slides} label="Spelling and vocabulary bee" showTimer={saved.auto} sound={false} theme={saved.theme} logo={saved.logo || undefined} onClose={close} />}
     </div>
   );
 };

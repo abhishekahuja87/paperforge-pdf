@@ -3,8 +3,11 @@
 export type Tone = 'work' | 'rest' | 'info' | 'reveal';
 export type Theme = 'dark' | 'light' | 'orange' | 'green' | 'blue' | 'rose';
 export const THEMES: Array<{ id: Theme; label: string }> = [
-  { id: 'dark', label: 'Dark' }, { id: 'light', label: 'Light' }, { id: 'orange', label: 'Orange' }, { id: 'green', label: 'Green' }, { id: 'blue', label: 'Blue' }, { id: 'rose', label: 'Rose' },
+  { id: 'dark', label: 'Dark' }, { id: 'light', label: 'Light' }, { id: 'orange', label: 'Sunrise' }, { id: 'green', label: 'Forest' }, { id: 'blue', label: 'Ocean' }, { id: 'rose', label: 'Rose' },
 ];
+export const THEME_IDS: Theme[] = THEMES.map((entry) => entry.id);
+/** Read a saved theme; older saves only had a light-screen tick box. */
+export const readTheme = (value: unknown, legacyLight?: unknown): Theme => (THEME_IDS.includes(value as Theme) ? (value as Theme) : legacyLight === true ? 'light' : 'dark');
 
 export interface BoardRow { left: string; right?: string; sub?: string; image?: string }
 
@@ -76,7 +79,7 @@ export function buildSequenceSlides(steps: SequenceStep[], prepare: number, labe
   const first = steps[0];
   if (prepare > 0 && first) slides.push({ key: 'prepare', chip: 'Get ready', title: 'Get ready', note: 'Find a comfortable place and breathe steadily.', seconds: prepare, tone: 'info', next: first.name });
   steps.forEach((step, index) => {
-    slides.push({ key: `s-${index}`, chip: `${label} ${index + 1} of ${steps.length}`, title: step.name, note: step.note.trim() || undefined, image: step.image, image2: step.image2, seconds: Math.max(1, step.seconds), tone: 'work', next: steps[index + 1]?.name ?? 'Finish' });
+    slides.push({ key: `s-${index}`, chip: `${label} ${index + 1} of ${steps.length}`, title: step.name, note: step.note.trim() || undefined, image: step.image, image2: step.image2, seconds: Math.max(1, step.seconds), tone: 'info', next: steps[index + 1]?.name ?? 'Finish' });
   });
   slides.push({ key: 'done', title: 'Done', note: 'Take a slow breath and relax.', seconds: 0, tone: 'info' });
   return slides;

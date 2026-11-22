@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { beep } from '../../../lib/screens/beep';
 import { formatClock, type Theme, type TimedSlide } from '../../../lib/screens/timed';
+import { THEME_STYLES } from '../../../lib/screens/themes';
 import { FLIP_CSS } from '../shared/flipCss';
 import { ScreenShell } from './ScreenShell';
 
@@ -12,20 +13,17 @@ interface Props {
   loop?: boolean;
   showTimer: boolean;
   sound: boolean;
-  /** Default colours when a slide has no theme of its own. */
-  light: boolean;
+  /** Screen colours when a slide has no theme of its own. */
+  theme: Theme;
   /** Optional logo or picture shown in a corner. */
   logo?: string;
   onClose: () => void;
 }
 
-const SURFACE: Record<Theme, string> = {
-  dark: 'bg-stone-950 text-white', light: 'bg-white text-stone-900', orange: 'bg-orange-600 text-white', green: 'bg-green-700 text-white', blue: 'bg-blue-700 text-white', rose: 'bg-rose-700 text-white',
-};
 const TONE_SURFACE = { work: 'bg-green-700 text-white', rest: 'bg-blue-800 text-white', info: '', reveal: 'bg-orange-600 text-white' } as const;
 
 /** One player for every timed show: it follows a list of slides, counts down each one, and waits for a click when a slide has no time. */
-export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, showTimer, sound, light, logo, onClose }) => {
+export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, showTimer, sound, theme: defaultTheme, logo, onClose }) => {
   const [index, setIndex] = useState(0);
   const [remaining, setRemaining] = useState(slides[0]?.seconds ?? 0);
   const [paused, setPaused] = useState(false);
@@ -75,13 +73,13 @@ export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, show
     else if (event.key === ' ') { event.preventDefault(); setPaused((value) => !value); }
   }, [go, index, manual]);
 
-  const theme = slide.theme ?? (light ? 'light' : 'dark');
+  const style = THEME_STYLES[slide.theme ?? defaultTheme];
   const toneSurface = TONE_SURFACE[slide.tone];
-  const surface = toneSurface || SURFACE[theme];
-  const onLight = surface.includes('bg-white');
-  const muted = onLight ? 'text-stone-600' : 'text-white/80';
+  const surface = toneSurface || style.surface;
+  const muted = toneSurface || !style.onLight ? 'text-white/85' : style.muted;
   const progress = slides.length > 1 ? (index / (slides.length - 1)) * 100 : 100;
-  const low = timed && slide.tone === 'work' && remaining <= 3;
+  const low = timed && slide.tone !== 'reveal' && remaining <= 3;
+  const lowColour = !toneSurface && style.onLight ? 'text-red-600' : 'text-red-300';
   const btn = 'bg-black/20 hover:bg-black/30';
 
   const bar = (
@@ -120,7 +118,7 @@ export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, show
             </ul>
           )}
           {slide.note && <p className={`max-w-4xl whitespace-pre-wrap break-words ${slide.tone === 'reveal' ? 'text-[clamp(1.4rem,4vw,3.4rem)] font-bold tracking-[0.2em]' : `text-[clamp(1.1rem,2.8vw,2.4rem)] ${muted}`}`}>{slide.note}</p>}
-          {showTimer && timed && <p aria-label="Time left" className={`text-[clamp(4rem,18vw,13rem)] font-black leading-none tabular-nums ${low ? 'text-red-300' : ''}`}>{formatClock(remaining)}</p>}
+          {showTimer && timed && <p aria-label="Time left" className={`text-[clamp(4rem,18vw,13rem)] font-black leading-none tabular-nums ${low ? lowColour : ''}`}>{formatClock(remaining)}</p>}
           {slide.next && <p className={`text-[clamp(1rem,2.2vw,1.8rem)] ${muted}`}>Next: <span className="font-bold">{slide.next}</span></p>}
           {manual && index === 0 && <p className={`text-sm ${muted}`}>Click, press space or the right arrow to move on.</p>}
         </div>

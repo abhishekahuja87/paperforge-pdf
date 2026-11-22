@@ -188,6 +188,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | Q9 | Quick start buttons on a phone (all eight) | "Loaded" mark and scroll to the list | | |
 | Q10 | All eight on a TV or projector | Large and readable, fullscreen, buttons fade | | |
 | Q11 | Pictures, video and logo (menu, spelling bee, notices, routine, logo on all) | Show correctly; video gone after reload, pictures stay | | |
+| Q13 | Screen colours (six) on exam hall, token, timings, bee, menu, routine, quiz and workout slideshow and board | Readable on all six, remembered after reload where saved, an older saved light screen still opens as Light | | |
 | Q12 | Phone full screen on the quiz, workout slideshow and the big-screen tools | Buttons at the top, not hidden by the browser's message | | |
 
 ## J. Your own tasks (not testing, tick when done)

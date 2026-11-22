@@ -3,17 +3,18 @@ import { Play } from 'lucide-react';
 import { calcCard, Note } from '../../finance/ui';
 import { EXERCISES, imageUrl, type Exercise } from '../../../lib/fitness/exercises';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';
-import { buildSequenceSlides, clampInt, formatDuration, totalSeconds } from '../../../lib/screens/timed';
+import { buildSequenceSlides, clampInt, formatDuration, readTheme, totalSeconds, type Theme } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { useScrollTo } from '../../../lib/screens/useScrollTo';
 import { ExercisePicker } from '../shared/ExercisePicker';
+import { ThemePicker } from '../shared/ThemePicker';
 import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { makeRow, readRows, RowsEditor, type Column, type FormRow } from './RowsEditor';
 import { TimedPlayer } from './TimedPlayer';
 import { CHECK, FIELD, LABEL, ORANGE } from './ui';
 
-interface Saved { rows: FormRow[]; prepare: number; sound: boolean; timer: boolean; light: boolean; seconds: number; logo: string }
+interface Saved { rows: FormRow[]; prepare: number; sound: boolean; timer: boolean; theme: Theme; seconds: number; logo: string }
 const KEYS = ['name', 'note', 'seconds', 'image', 'exerciseId'];
 const COLUMNS: Column[] = [
   { key: 'name', label: 'Step', placeholder: 'For example Child’s pose, Add the flour, Station 1', size: 'wide' },
@@ -41,10 +42,10 @@ const SETS: Array<Preset & { steps: Array<ReturnType<typeof step>> }> = [
     step('Station 1', 'Reading corner', 300), step('Station 2', 'Maths puzzles', 300), step('Station 3', 'Writing task', 300), step('Station 4', 'Group discussion', 300)] },
 ];
 
-const read = (value: unknown): Saved | null => (isRecord(value) ? { rows: readRows(value.rows, KEYS) ?? [], prepare: num(value.prepare, 10), sound: bool(value.sound, true), timer: bool(value.timer, true), light: bool(value.light, false), seconds: num(value.seconds, 30), logo: str(value.logo) } : null);
+const read = (value: unknown): Saved | null => (isRecord(value) ? { rows: readRows(value.rows, KEYS) ?? [], prepare: num(value.prepare, 10), sound: bool(value.sound, true), timer: bool(value.timer, true), theme: readTheme(value.theme, value.light), seconds: num(value.seconds, 30), logo: str(value.logo) } : null);
 
 export const RoutineDisplay: React.FC = () => {
-  const [saved, setSaved] = usePersisted<Saved>('mdu-routine-v1', { rows: [], prepare: 10, sound: true, timer: true, light: false, seconds: 30, logo: '' }, read);
+  const [saved, setSaved] = usePersisted<Saved>('mdu-routine-v1', { rows: [], prepare: 10, sound: true, timer: true, theme: 'dark', seconds: 30, logo: '' }, read);
   const [active, setActive] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
   const { ref, scroll } = useScrollTo<HTMLDivElement>();
@@ -85,14 +86,14 @@ export const RoutineDisplay: React.FC = () => {
         <div className="grid gap-x-4 gap-y-1 sm:grid-cols-2">
           <label className={CHECK}><input type="checkbox" checked={saved.timer} onChange={(event) => update({ timer: event.target.checked })} className="h-4 w-4 accent-orange-700" />Show the big countdown</label>
           <label className={CHECK}><input type="checkbox" checked={saved.sound} onChange={(event) => update({ sound: event.target.checked })} className="h-4 w-4 accent-orange-700" />Soft beep at each change</label>
-          <label className={CHECK}><input type="checkbox" checked={saved.light} onChange={(event) => update({ light: event.target.checked })} className="h-4 w-4 accent-orange-700" />Light screen for the get ready and end slides</label>
         </div>
+        <ThemePicker name="routine-theme" value={saved.theme} onChange={(theme) => update({ theme })} />
         <LogoField logo={saved.logo} onChange={(logo) => update({ logo })} />
         <p className="text-sm font-semibold text-stone-800">{steps.length === 0 ? 'Add some steps to start.' : `${steps.length} ${steps.length === 1 ? 'step' : 'steps'}, about ${formatDuration(totalSeconds(slides))} in all.`}</p>
         <button type="button" onClick={() => setPlaying(true)} disabled={steps.length === 0} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Start routine</button>
         <Note>Each step shows its name, your cue, a picture if it has one, a countdown and the next step. Your routine is saved only in this browser. For exercises and stretches this is general information, not medical advice: move gently, never force a stretch and stop if something hurts.</Note>
       </section>
-      {playing && <TimedPlayer slides={slides} label="Step-by-step routine" showTimer={saved.timer} sound={saved.sound} light={saved.light} logo={saved.logo || undefined} onClose={close} />}
+      {playing && <TimedPlayer slides={slides} label="Step-by-step routine" showTimer={saved.timer} sound={saved.sound} theme={saved.theme} logo={saved.logo || undefined} onClose={close} />}
     </div>
   );
 };
