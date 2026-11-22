@@ -468,4 +468,75 @@ export const TOOL_GUIDES: Guide[] = [
       ] },
     ],
   },
+  {
+    slug: "how-to-extract-pages-from-a-pdf",
+    title: "How to extract pages from a PDF, one page or a range",
+    description: "Take one page, a few pages or a range out of a PDF and save them as a new file, in your browser.",
+    tools: ["split-pdf", "delete-pdf-pages", "organize-pdf", "smart-split-pdf"],
+    sections: [
+      { heading: "When this helps", paragraphs: [
+        "A form may want only page 3 of a certificate, a bank may want the last page of a statement, or you may want to send a few pages of a long report. Pulling those pages into their own file is quicker than sending the whole PDF.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open Split PDF and choose the file. In Pages to Extract, type the pages you want. Use commas for single pages, such as 1, 4, 7, and a dash for a range, such as 2-5. You can mix them, for example 1-3, 5, 8. Press Extract Pages and save the new PDF.",
+        "The original file is not changed. Check the new file before you send it.",
+      ] },
+      { heading: "Other ways to get the same result", paragraphs: [
+        "If you only want to drop a few pages and keep the rest, Delete PDF Pages is quicker. To put pages in a new order or turn some of them, use Organize PDF. To cut a long file into many parts at once, such as every 10 pages, use Smart Split PDF, which gives all the parts in one ZIP.",
+      ] },
+      { heading: "If the result is not right", paragraphs: [
+        "If the tool says the range is not valid, check that every page number is between 1 and the number of pages in your file. If the new file is still too big for a form, make it smaller with Compress PDF.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your file is handled in your browser. Nothing is uploaded to MyDailyUtils, and there is no sign-up or watermark.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-make-a-quotation-for-a-customer",
+    title: "How to make a quotation for a customer and save it as a PDF",
+    description: "Write a clean quotation with your details, the client, items, discount and tax, and save it as a PDF to send.",
+    tools: ["quotation-generator", "gst-invoice-generator", "sign-pdf"],
+    sections: [
+      { heading: "What a quotation is", paragraphs: [
+        "A quotation is an offer of a price for work or goods, usually sent before the customer agrees. It shows what you will do or supply, what it costs, how long the price stays open, and any terms. When the customer agrees, you send a bill or invoice.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open the Quotation Generator. Fill in Your name or business and contact details, then the client name and details. Give the quotation a title, a number and a date, and set how many days it is valid for. Press Add an item for each line, with a description, quantity and price. Add a discount or a tax rate if you need them. The preview updates as you type.",
+        "Add Notes and terms, such as what is included and what is not. You can ask for a deposit as a percentage, or split the price into payments. Then press Print or save as PDF.",
+      ] },
+      { heading: "What to put in the notes", paragraphs: [
+        "Say what the price covers, how long it is valid, when you can start, and how you want to be paid. Short and clear terms avoid arguments later. Add anything the customer must provide, such as access or files.",
+      ] },
+      { heading: "After the customer says yes", paragraphs: [
+        "For a bill with GST, use the GST Invoice Generator. If the customer wants a signed copy of the quotation, add your signature with Sign PDF.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "What you type stays in your browser. Nothing is uploaded to MyDailyUtils.",
+      ] },
+    ],
+  },
+  {
+    slug: "how-to-make-a-visiting-card-and-print-it",
+    title: "How to make a visiting card online and print it at home or a shop",
+    description: "Pick a design, add your details and a QR code, then download a PNG, a PDF or an A4 sheet of ten cards.",
+    tools: ["visiting-card-maker", "vcard-qr-code-generator", "qr-code-generator"],
+    sections: [
+      { heading: "When this helps", paragraphs: [
+        "A simple card is useful for a shop, a freelance service, a school project or a first job search. You can make one in a few minutes and print it yourself or take the file to a print shop.",
+      ] },
+      { heading: "Steps", paragraphs: [
+        "Open the Visiting Card Maker and pick a design from the 17 colour, gradient and plain styles. Type your name, role and contact details. You can add a QR code that opens your website or saves your contact details to a phone. Check the preview, then choose a download: a PNG picture, a PDF with one card, or an A4 sheet with ten cards to print and cut.",
+      ] },
+      { heading: "Printing", paragraphs: [
+        "For home printing, use the A4 sheet of ten cards, print at actual size and cut along the edges. For a print shop, take the PDF or the PNG and ask them for the paper and finish you like. Do a test print on plain paper first to check that the text is easy to read.",
+      ] },
+      { heading: "Choosing the QR code", paragraphs: [
+        "A QR code that opens your website is good for a business. A code that saves your contact details is good for a networking event. Test the code with your own phone before you print many copies.",
+      ] },
+      { heading: "Privacy", paragraphs: [
+        "Your details stay in your browser. Nothing is uploaded to MyDailyUtils.",
+      ] },
+    ],
+  },
 ];

@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-22',
+    path: '/pdf-tools',
+    tool: 'All sections',
+    title: 'Common questions, guides and related sections on every section page',
+    summary: 'Each of the 14 section pages now answers the questions people ask most, lists the how-to guides for its tools and links to related sections. Three new guides cover extracting pages from a PDF, making a quotation and making a visiting card, and the passport photo guide now explains form rejection messages.',
+  },
+  {
+    date: '2026-11-22',
     path: '/',
     tool: 'All sections',
     title: 'One name for every section',

@@ -475,6 +475,10 @@ const CORE_GUIDES: Guide[] = [
       { heading: "Signatures", paragraphs: [
         "Sign with a dark pen on plain white paper, photograph it in even light and crop closely. If the shape differs from the target size, choose \"Fit inside with white borders\" so no part of the signature is cut off.",
       ] },
+      { heading: "If the form still rejects the file", paragraphs: [
+        "Forms often show a short error, such as a message that only a passport-size file under a given width and height is accepted. That usually means the width or height in pixels is too large, even if the file is small in KB. Read the limits on your form, set the exact width and height in the Image Resizer, and set the KB limit as well. Both must fit. Check the official notice for the current sizes before you upload.",
+        "Some forms also want a file that is not too small. The Image Resizer brings a file down to a limit and does not pad it, so if a form asks for a minimum, start from a clearer photo with more pixels and check the size the tool shows.",
+      ] },
       { heading: "If it still does not fit", paragraphs: [
         "If the tool says it could not reach the limit, raise the limit if the form allows, use a smaller size or crop closer. The tool does not change backgrounds or check face position; if your form has such rules, prepare the photo accordingly.",
       ] },

@@ -7,6 +7,9 @@ import { COLLECTIONS } from '../config/homeSections';
 import { TOOLS, type ToolItem } from '../config/tools';
 import type { Hub } from '../content/hubs';
 import { HUB_EXTRAS } from '../content/hubExtras';
+import { HUB_FAQS } from '../content/hubFaqs';
+import { hubGuides } from '../content/hubGuides';
+import { HERO_TILES } from '../config/heroTiles';
 
 const BY_ID = new Map(TOOLS.map((tool) => [tool.id, tool]));
 
@@ -19,6 +22,9 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
   const extras = HUB_EXTRAS[hub.path];
   const intro = hub.sections.slice(0, 1);
   const rest = hub.sections.slice(1);
+  const faqSet = HUB_FAQS[hub.path];
+  const guides = useMemo(() => hubGuides(hub), [hub]);
+  const related = (faqSet?.related ?? []).map((path) => HERO_TILES.find((tile) => tile.to === path)).filter((tile): tile is NonNullable<typeof tile> => Boolean(tile));
   return (
     <InfoPageLayout title={hub.title} subtitle={hub.subtitle} description={hub.description} contentLanguage="en" compact leftAligned topExtra={<PromisePill />}>
       {intro.map((section) => (
@@ -66,6 +72,32 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
           </div>
         </section>
       )}
+      {guides.length > 0 && (
+        <section className="space-y-3">
+          <h2 className="text-lg font-bold text-slate-900">How-to guides for this section</h2>
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {guides.map((guide) => (
+              <li key={guide.slug} className="rounded-xl border border-stone-200 bg-white p-3">
+                <Link to={`/guides/${guide.slug}`} className="text-sm font-bold text-indigo-700 underline">{guide.title}</Link>
+                <p className="mt-1 text-[13px] leading-6 text-stone-600">{guide.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {faqSet && (
+        <section className="space-y-3">
+          <h2 className="text-lg font-bold text-slate-900">Common questions</h2>
+          <div className="space-y-2">
+            {faqSet.faqs.map((item) => (
+              <details key={item.q} className="rounded-xl border border-stone-200 bg-white px-3 py-2">
+                <summary className="cursor-pointer text-sm font-semibold text-stone-900">{item.q}</summary>
+                <p className="mt-2 text-[13px] leading-6 text-stone-700">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
       {rest.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>
@@ -76,6 +108,14 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
         <h2 className="text-lg font-bold text-slate-900">All {tools.length} tools</h2>
         <div className="grid gap-2 sm:grid-cols-2">{tools.map((tool) => <HomeToolCard key={tool.id} tool={tool} compact />)}</div>
       </section>
+      {related.length > 0 && (
+        <section className="space-y-3">
+          <h2 className="text-lg font-bold text-slate-900">Related sections</h2>
+          <div className="flex flex-wrap gap-2">
+            {related.map((tile) => <Link key={tile.to} to={tile.to} className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-[13px] font-semibold text-stone-800 hover:border-orange-300">{tile.label}</Link>)}
+          </div>
+        </section>
+      )}
       <p>
         See also <Link to="/guides" className="font-semibold text-indigo-700 underline">how-to guides</Link> and{' '}
         <Link to="/why-trust-us" className="font-semibold text-indigo-700 underline">why you can trust these tools</Link>.
