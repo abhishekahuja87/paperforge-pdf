@@ -20,6 +20,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
+  'interval-circuit-timer', 'yoga-class-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'classroom-quiz-display', 'workout-planner',
   'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'visiting-card-maker', 'job-description-builder',
 ];
 
@@ -82,7 +83,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',
     'offer-poster-maker', 'price-tag-maker', 'visiting-card-maker', 'staff-attendance-register-printable', 'tuition-fee-register-printable', 'office-cleaning-checklist-printable', 'customer-order-register-printable', 'society-notice-template-printable', 'content-calendar-printable', 'door-sign-printable', 'stamp-maker', 'id-card-maker-printable', 'upi-payment-qr-stand-printable', 'barcode-generator',
   ] },
-  { id: 'present', icon: 'presentation', tools: ['display-studio'] },
+  { id: 'present', icon: 'presentation', tools: ['display-studio', 'interval-circuit-timer', 'yoga-class-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display'] },
   { id: 'study', icon: 'type', tools: [
     'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'question-paper-template-printable', 'classroom-quiz-display',
   ] },

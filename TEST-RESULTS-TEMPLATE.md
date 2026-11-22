@@ -174,6 +174,20 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | P8 | Shuffle, show options, copy paper and key | Work; answers stay right after shuffling | | |
 | P9 | On a phone and on a TV or projector | Usable and fills the screen | | |
 
+## Q. Big-screen tools
+| # | Check | Expected | Result | Notes |
+|---|---|---|---|---|
+| Q1 | Interval timer: Tabata, Circuit, beeps | Right rounds and times; green/blue; beeps | | |
+| Q2 | Yoga class display: sample, edit, paste many, start | Name, cue, countdown, next pose | | |
+| Q3 | Exam hall display: press start and set time | Clock, time left, amber warning, red Pens down | | |
+| Q4 | Menu board: sample, paging, symbol, loop | Sections and pages loop; prices correct | | |
+| Q5 | Queue token display: next, back, jump, big screen | Number huge, next three, chime, count kept | | |
+| Q6 | Daily timings board | Sorted; now green, next marked, changes with the clock | | |
+| Q7 | Spelling bee: Spell it, Read it, auto, shuffle | Clue/word reveal works | | |
+| Q8 | Notice board: colours, picture, loop | Messages rotate | | |
+| Q9 | Quick start buttons on a phone (all eight) | "Loaded" mark and scroll to the list | | |
+| Q10 | All eight on a TV or projector | Large and readable, fullscreen, buttons fade | | |
+
 ## J. Your own tasks (not testing, tick when done)
 - [ ] Merge the PR only after `pnpm-lock.yaml` includes qr-scanner and @tesseract.js-data/hin
 - [ ] Search Console: resubmit the sitemap

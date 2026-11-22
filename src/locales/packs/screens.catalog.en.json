@@ -1,0 +1,36 @@
+{
+  "toolCatalog": {
+    "interval-circuit-timer": [
+      "Interval and Circuit Timer: Tabata, HIIT, EMOM and Boxing Rounds on a Big Screen",
+      "A free full-screen interval timer for work and rest rounds, sets and named exercises. Ready Tabata, HIIT, circuit, EMOM, boxing and study sprint timers. Beeps included."
+    ],
+    "yoga-class-display": [
+      "Yoga and Stretch Class Display: Show Poses with Hold Timers on a Screen",
+      "Build a yoga or stretching sequence with pose names, cues and hold timers, then show it full screen for a class. Morning, desk break and cool-down sequences included."
+    ],
+    "exam-hall-display": [
+      "Exam Hall Display: Big Clock, Time Left and Rules on the Screen",
+      "A free full-screen exam timer for a hall or classroom with a big clock, time left, start and end time, rules and last-minutes warning. Start at a set time or on a button."
+    ],
+    "menu-board-display": [
+      "Menu and Price Board Display: Show Your Menu or Price List on a Shop Screen",
+      "A free digital menu board for a cafe, restaurant, salon or shop. Add items with prices and notes, group them in sections and loop them full screen on any TV or monitor."
+    ],
+    "queue-token-display": [
+      "Queue Token Display: Now Serving Number Screen for Clinics, Shops and Offices",
+      "A free \"now serving\" token display. Press Next to call the next number, show it huge on a screen, with a chime, a counter name, a letter prefix and the numbers called before."
+    ],
+    "daily-timings-board": [
+      "Daily Timings Board: Show Temple, Clinic, Hall or Event Timings That Highlight What Is On Now",
+      "A free digital timings board for a temple, clinic, community hall, office or event. Add times and activities and the screen highlights what is on now and what is next."
+    ],
+    "spelling-bee-display": [
+      "Spelling and Vocabulary Bee Display: Show Words, Clues and Answers on the Class Screen",
+      "A free spelling bee and vocabulary game for the classroom screen. Add words with meanings or clues, show a clue and reveal the word, or the word and its meaning. Manual or auto."
+    ],
+    "notice-board-display": [
+      "Notice and Greeting Board Display: Birthday Wishes, Welcome and Announcements on a Screen",
+      "A free digital notice board for an office, school, shop or home. Rotate welcome messages, birthday wishes, notices and reminders with colours and pictures on any screen."
+    ]
+  }
+}

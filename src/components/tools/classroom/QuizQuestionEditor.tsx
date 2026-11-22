@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { ArrowDown, ArrowUp, ChevronDown, ChevronUp, Copy, ImagePlus, Plus, Trash2, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowDown, ArrowUp, ChevronDown, ChevronUp, Copy, Plus, Trash2 } from 'lucide-react';
 import { LETTERS, MAX_OPTIONS, MIN_OPTIONS, newKey, type QuizOption, type QuizQuestion } from '../../../lib/classroom/quiz';
-import { pictureToDataUrl } from '../../../lib/classroom/quizImage';
+import { PictureButton } from '../shared/PictureButton';
 
 const FIELD = 'min-h-10 w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-900 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100';
 const SMALL_BUTTON = 'inline-flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 hover:bg-stone-50 disabled:opacity-40';
@@ -16,26 +16,6 @@ interface Props {
   onCopy: () => void;
   onRemove: () => void;
 }
-
-/** A button that picks a picture, shrinks it and hands back a data URL. */
-const PictureButton: React.FC<{ image?: string; label: string; onPick: (image: string | undefined) => void; onError: (message: string) => void }> = ({ image, label, onPick, onError }) => {
-  const input = useRef<HTMLInputElement>(null);
-  const choose = async (file: File | undefined) => {
-    if (!file) return;
-    try { onPick(await pictureToDataUrl(file)); } catch (error) { onError(error instanceof Error ? error.message : 'Could not read that picture.'); }
-    if (input.current) input.current.value = '';
-  };
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      {image && <img src={image} alt="" className="h-9 w-12 rounded border border-stone-200 object-cover" />}
-      <button type="button" onClick={() => input.current?.click()} className="inline-flex min-h-8 items-center gap-1 rounded-lg border border-stone-200 bg-white px-2 text-[11px] font-semibold text-stone-700 hover:bg-stone-50">
-        <ImagePlus className="h-3.5 w-3.5" aria-hidden="true" />{image ? 'Change picture' : label}
-      </button>
-      {image && <button type="button" aria-label="Remove picture" onClick={() => onPick(undefined)} className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-stone-500 hover:bg-stone-100"><X className="h-4 w-4" aria-hidden="true" /></button>}
-      <input ref={input} type="file" accept="image/*" className="sr-only" tabIndex={-1} aria-hidden="true" onChange={(event) => void choose(event.target.files?.[0])} />
-    </span>
-  );
-};
 
 /** One question: text, optional picture, 2 to 6 options (each with an optional picture), the correct answer and an explanation. */
 export const QuizQuestionEditor: React.FC<Props> = ({ question, index, count, startOpen, onChange, onMove, onCopy, onRemove }) => {

@@ -220,14 +220,17 @@ export const HUBS: Hub[] = [
     path: '/display-and-presentation-tools',
     collection: 'present',
     title: 'Free Display and Presentation Tools: Run a Slideshow on a TV or Shop Screen',
-    subtitle: 'Turn PDFs, Word files and pictures into a fullscreen slideshow for a TV, a kiosk or a screen in your shop.',
-    description: 'Free display and presentation tool: play PDFs, Word files and images as a fullscreen slideshow with timing, captions, transitions, loop, shuffle and a clock. Runs in your browser.',
+    subtitle: 'Slideshows, menu boards, queue numbers, exam clocks, interval timers and notice boards for a TV, a projector or a screen in your shop, class or gym.',
+    description: 'Free display tools for a TV, projector or shop screen: slideshows, menu boards, queue token numbers, exam hall clock, interval timer, yoga class display, timings board and notice board. Run in your browser.',
     sections: [
       { heading: 'What you can do here', paragraphs: [
         'Add PDFs, Word files and pictures, put the slides in your order, set how long each one stays, choose fade or zoom, and play them fullscreen on a TV, a kiosk or a screen at the counter. You can loop or shuffle the slides and show a clock and the date while the screen stays awake.',
       ] },
       { heading: 'Good to know', paragraphs: [
-        'This topic has one tool today, and more will be added here as the site grows. The files you add are used in your browser and are not uploaded to MyDailyUtils.',
+        'Other tools here put your own text on a big screen. Show a menu or price list in a shop, call queue numbers in a clinic, run an exam hall clock, time Tabata or circuit rounds in a gym, lead a yoga sequence, show temple or hall timings that highlight what is on now, play a spelling bee, or rotate notices and birthday wishes. Everything runs in your browser. What you type is kept on your device and is not uploaded to MyDailyUtils.',
+      ] },
+      { heading: 'Ideas for who uses it', paragraphs: [
+        'Shops and cafes use the menu board. Clinics, pharmacies and service counters use the queue token screen. Teachers and tuition centres use the exam hall display, the spelling bee and the Classroom Quiz Display. Gyms, yoga teachers and schools use the interval timer and the yoga display. Temples, societies and offices use the timings board and the notice board.',
       ] },
     ],
   },

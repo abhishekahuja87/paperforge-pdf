@@ -15,6 +15,7 @@ import { SHOPS_COMPONENTS } from './shops/registry';
 import { HOUSEHOLD_COMPONENTS } from './household/registry';
 import { SPORTS_COMPONENTS } from './sports/registry';
 import { FITNESS_COMPONENTS } from './fitness/registry';
+import { SCREENS_COMPONENTS } from './screens/registry';
 import { CLASSROOM_COMPONENTS } from './classroom/registry';
 import { EXPLAINER_COMPONENTS } from './explainers/registry';
 import { BIZCARD_COMPONENTS } from './bizcards/registry';
@@ -46,6 +47,7 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...HOUSEHOLD_COMPONENTS,
   ...SPORTS_COMPONENTS,
   ...FITNESS_COMPONENTS,
+  ...SCREENS_COMPONENTS,
   ...CLASSROOM_COMPONENTS,
   ...EXPLAINER_COMPONENTS,
   ...BIZCARD_COMPONENTS,
