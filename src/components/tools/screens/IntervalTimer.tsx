@@ -69,7 +69,7 @@ export const IntervalTimer: React.FC = () => {
         <button type="button" onClick={() => setPlaying(true)} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Start timer</button>
         <Note>Green is work, blue is rest. Your settings are saved only in this browser. The timer fills the screen and tries to keep it awake; the sound needs the volume on. Use the arrow keys, space bar or the buttons to skip, pause and close. Exercise at a level that suits you and stop if something hurts.</Note>
       </section>
-      {playing && <TimedPlayer slides={slides} label="Interval timer" showTimer={s.timer} sound={s.sound} light={false} logo={s.logo || undefined} onClose={close} />}
+      {playing && <TimedPlayer slides={slides} label="Interval timer" showTimer={s.timer} sound={s.sound} theme="dark" logo={s.logo || undefined} onClose={close} />}
     </div>
   );
 };

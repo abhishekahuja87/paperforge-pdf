@@ -5,6 +5,7 @@ import { isRecord, num, oneOf, str } from '../../../lib/screens/read';
 import { THEMES, buildMenuSlides, clampInt, type Theme } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { useScrollTo } from '../../../lib/screens/useScrollTo';
+import { ThemePicker } from '../shared/ThemePicker';
 import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { makeRow, readRows, RowsEditor, type Column, type FormRow } from './RowsEditor';
@@ -61,16 +62,14 @@ export const MenuBoard: React.FC = () => {
           <label className={LABEL}>Put this before prices that are only numbers
             <select value={saved.currency} onChange={(event) => update({ currency: event.target.value })} className={FIELD}>{CURRENCIES.map(([value, label]) => <option key={label} value={value}>{label}</option>)}</select>
           </label>
-          <label className={LABEL}>Screen colour
-            <select value={saved.theme} onChange={(event) => update({ theme: oneOf(event.target.value, THEMES.map((entry) => entry.id), 'dark') })} className={FIELD}>{THEMES.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}</select>
-          </label>
         </div>
+        <ThemePicker name="menu-theme" value={saved.theme} onChange={(theme) => update({ theme })} />
         <LogoField logo={saved.logo} onChange={(logo) => update({ logo })} label="Shop logo in the corner (optional)" />
         <p className="text-sm font-semibold text-stone-800">{items.length === 0 ? 'Add some items to start.' : `${items.length} ${items.length === 1 ? 'item' : 'items'} on ${slides.length} ${slides.length === 1 ? 'screen' : 'screens'}, about ${slides.length * clampInt(saved.seconds, 3, 300, 10)} seconds for one round. It keeps looping.`}</p>
         <button type="button" onClick={() => setPlaying(true)} disabled={items.length === 0} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Show on screen</button>
         <Note>Open this page on the screen by your counter and tap Show on screen. The board loops until you close it. Your menu is saved only in this browser. Prices are shown exactly as typed, so check them before you show the board. Pictures are shrunk in your browser and kept on this device.</Note>
       </section>
-      {playing && <TimedPlayer slides={slides} label="Menu and price board" loop showTimer={false} sound={false} light={saved.theme === 'light'} logo={saved.logo || undefined} onClose={close} />}
+      {playing && <TimedPlayer slides={slides} label="Menu and price board" loop showTimer={false} sound={false} theme={saved.theme} logo={saved.logo || undefined} onClose={close} />}
     </div>
   );
 };

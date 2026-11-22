@@ -784,6 +784,7 @@ For every tool: the page opens; the quick start buttons show "Loaded" and the pa
 - [ ] /spelling-bee-display: "Spell it" shows the clue then the word with spaced letters; "Read it" shows the word then the meaning; click, space and arrows move; auto mode uses the think and answer seconds; Shuffle changes the order.
 - [ ] /notice-board-display: messages show in their colours with an optional picture; it loops; seconds per message work; a large picture is shrunk.
 - [ ] Pictures and video: a menu item picture shows beside its price; a spelling word picture shows with the clue and the answer; a notice picture and a notice video (muted, loops) play; after a reload the video is gone but pictures stay; the logo shows small in the bottom left corner of every screen.
+- [ ] Screen colours: each tool has the colour picker (exam hall, token, timings, spelling bee, menu, routine); the screen uses the chosen colour, text is readable on all six, exam amber and red warnings still show, the timings board highlights NOW and NEXT on every colour, and the choice is still there after reload. The interval timer has no picker by design.
 - [ ] On a phone: forms are usable and fit the width; the screens fill the display. In full screen the buttons are at the top, so the browser's own message along the bottom does not cover them (check Interval timer, Quiz, Workout slideshow too).
 
 ### Classroom Quiz Display

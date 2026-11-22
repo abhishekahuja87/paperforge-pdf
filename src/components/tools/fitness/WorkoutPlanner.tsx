@@ -9,6 +9,7 @@ import {
 import { QUICK_STARTS, type QuickStart } from '../../../lib/fitness/workoutStarts';
 import { WorkoutBlockEditor } from './WorkoutBlockEditor';
 import { WorkoutBoard } from './WorkoutBoard';
+import { ThemePicker } from '../shared/ThemePicker';
 import { DEFAULT_SHOW, WorkoutPlayer, type ShowOptions } from './WorkoutPlayer';
 
 const STORAGE_KEY = 'mdu-workout-plan-v1';
@@ -17,9 +18,9 @@ const LABEL = 'block space-y-1 text-xs font-bold text-stone-700';
 const START_GROUP: Record<BlockId, 'all' | 'stretching' | 'cardio'> = { warmup: 'cardio', main: 'all', cooldown: 'stretching' };
 const BY_ID = new Map(EXERCISES.map((exercise) => [exercise.id, exercise]));
 
-const SHOW_LABELS: Array<[keyof ShowOptions, string]> = [
+const SHOW_LABELS: Array<[Exclude<keyof ShowOptions, 'theme'>, string]> = [
   ['date', 'Date'], ['title', 'Workout name'], ['place', 'Gym or trainer name'], ['pictures', 'Pictures'], ['muscles', 'Muscles worked'],
-  ['steps', 'How-to steps'], ['timer', 'Countdown timer'], ['next', 'Next exercise'], ['light', 'Light screen (default is dark)'],
+  ['steps', 'How-to steps'], ['timer', 'Countdown timer'], ['next', 'Next exercise'],
 ];
 
 function loadPlan(): WorkoutPlan {
@@ -126,6 +127,7 @@ export const WorkoutPlanner: React.FC = () => {
 
       <section className={`${calcCard} space-y-4`}>
         <h2 className="text-sm font-black text-stone-900">What the screen shows</h2>
+        <ThemePicker name="workout-theme" value={show.theme} onChange={(theme) => setShow({ ...show, theme })} />
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-2">
           {SHOW_LABELS.map(([key, label]) => (
             <label key={key} className="flex min-h-9 items-center gap-2 text-sm text-stone-800">

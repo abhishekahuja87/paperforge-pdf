@@ -55,7 +55,7 @@ export const NoticeBoard: React.FC = () => {
         <button type="button" onClick={() => setPlaying(true)} disabled={notices.length === 0} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Show on screen</button>
         <Note>Open this page on the screen and tap Show on screen. The messages loop until you close it. Your messages and pictures are saved only in this browser (if it is full, pictures may not be kept). A video plays muted and looping during its message, comes from your device and is not uploaded, but it is not kept when you reload the page, so add it again next time. Keep videos short.</Note>
       </section>
-      {playing && <TimedPlayer slides={slides} label="Notice and greeting board" loop showTimer={false} sound={false} light={false} logo={saved.logo || undefined} onClose={close} />}
+      {playing && <TimedPlayer slides={slides} label="Notice and greeting board" loop showTimer={false} sound={false} theme="dark" logo={saved.logo || undefined} onClose={close} />}
     </div>
   );
 };

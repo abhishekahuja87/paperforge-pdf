@@ -1,3 +1,4 @@
+import type { Theme } from '../screens/timed';
 /** Logic for the Classroom Quiz Display. No React and no data files here, so it can be tested on its own. */
 
 export type QuizMode = 'learn' | 'mock' | 'real';
@@ -24,10 +25,10 @@ export interface QuizQuestion {
 }
 export interface Quiz { title: string; subject: string; /** YYYY-MM-DD */ date: string; questions: QuizQuestion[] }
 export interface QuizTiming { /** Seconds to answer each question (auto modes). */ seconds: number; /** Seconds the answer stays on screen (mock exam). */ reveal: number }
-export interface QuizShow { date: boolean; title: boolean; subject: boolean; number: boolean; timer: boolean; explanation: boolean; light: boolean }
+export interface QuizShow { date: boolean; title: boolean; subject: boolean; number: boolean; timer: boolean; explanation: boolean; theme: Theme }
 export interface PlayOptions { shuffleQuestions: boolean; shuffleOptions: boolean }
 
-export const DEFAULT_QUIZ_SHOW: QuizShow = { date: true, title: true, subject: true, number: true, timer: true, explanation: true, light: false };
+export const DEFAULT_QUIZ_SHOW: QuizShow = { date: true, title: true, subject: true, number: true, timer: true, explanation: true, theme: 'dark' };
 export const INTRO_SECONDS = 6;
 
 let counter = 0;

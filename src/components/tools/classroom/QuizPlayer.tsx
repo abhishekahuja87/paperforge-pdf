@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react';
+import { THEME_STYLES } from '../../../lib/screens/themes';
 import { LETTERS, MODES, buildQuizSlides, formatClock, formatQuizDate, type Quiz, type QuizMode, type QuizQuestion, type QuizShow, type QuizSlide, type QuizTiming } from '../../../lib/classroom/quiz';
 
 interface Props { quiz: Quiz; mode: QuizMode; timing: QuizTiming; show: QuizShow; onClose: () => void }
@@ -86,12 +87,9 @@ export const QuizPlayer: React.FC<Props> = ({ quiz, mode, timing, show, onClose 
     return () => window.removeEventListener('keydown', onKey);
   }, [go, index, reveal, auto]);
 
-  const dark = !show.light;
-  const surface = dark ? 'bg-stone-950 text-white' : 'bg-white text-stone-900';
-  const muted = dark ? 'text-stone-300' : 'text-stone-600';
-  const accent = dark ? 'text-orange-300' : 'text-orange-700';
-  const chip = dark ? 'bg-white/10 text-orange-200' : 'bg-orange-50 text-orange-800';
-  const btn = dark ? 'bg-white/10 hover:bg-white/20' : 'bg-stone-100 hover:bg-stone-200';
+  const style = THEME_STYLES[show.theme];
+  const dark = !style.onLight;
+  const { surface, muted, accent, chip, btn } = style;
   const progress = slides.length > 1 ? (index / (slides.length - 1)) * 100 : 100;
   const header = [show.title ? quiz.title.trim() : '', show.subject ? quiz.subject.trim() : '', show.date ? formatQuizDate(quiz.date) : ''].filter(Boolean);
   const timedSlide = slide.seconds > 0 && (slide.kind === 'question' || slide.kind === 'answer');
@@ -193,7 +191,7 @@ export const QuizPlayer: React.FC<Props> = ({ quiz, mode, timing, show, onClose 
       onClick={(event) => { if (!auto && (event.target as HTMLElement).closest('button') === null) go(index + 1); }}
       className={`fixed inset-0 z-[100] flex flex-col ${surface} ${auto ? '' : 'cursor-pointer'}`}
     >
-      <div className={`h-1.5 w-full ${dark ? 'bg-white/10' : 'bg-stone-200'}`}><div className="h-full bg-orange-500 transition-[width] duration-300" style={{ width: `${progress}%` }} /></div>
+      <div className={`h-1.5 w-full ${style.track}`}><div className="h-full bg-orange-500 transition-[width] duration-300" style={{ width: `${progress}%` }} /></div>
       <div className="flex items-start justify-between gap-4 px-5 pt-3 sm:px-10">
         <p className={`text-xs font-semibold sm:text-sm ${muted}`}>{slide.kind !== 'intro' ? header.join('  ·  ') : ''}</p>
         {show.timer && timedSlide && (

@@ -5,6 +5,7 @@ import {
   DEFAULT_QUIZ_SHOW, MODES, blankQuestion, buildQuizSlides, clampSeconds, emptyQuiz, formatDuration, newKey, parseQuizText, prepareQuiz, quizIssues, quizToText, readQuiz,
   totalSeconds, trueFalseQuestion, withoutImages, type Quiz, type QuizMode, type QuizQuestion, type QuizShow,
 } from '../../../lib/classroom/quiz';
+import { ThemePicker } from '../shared/ThemePicker';
 import { QuizPlayer } from './QuizPlayer';
 import { QuizQuestionEditor } from './QuizQuestionEditor';
 
@@ -14,8 +15,8 @@ const LABEL = 'block space-y-1 text-xs font-bold text-stone-700';
 const ORANGE = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500';
 const OUTLINE = 'inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-sm font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-50';
 
-const SHOW_LABELS: Array<[keyof QuizShow, string]> = [
-  ['title', 'Quiz name'], ['subject', 'Subject or class'], ['date', 'Date'], ['number', 'Question number'], ['timer', 'Countdown timer'], ['explanation', 'Explanations'], ['light', 'Light screen (default is dark)'],
+const SHOW_LABELS: Array<[Exclude<keyof QuizShow, 'theme'>, string]> = [
+  ['title', 'Quiz name'], ['subject', 'Subject or class'], ['date', 'Date'], ['number', 'Question number'], ['timer', 'Countdown timer'], ['explanation', 'Explanations'],
 ];
 
 const SAMPLE: Array<{ text: string; options: string[]; correct: number; explanation: string }> = [
@@ -244,6 +245,7 @@ export const QuizMaker: React.FC = () => {
             {mode === 'mock' && <label className={LABEL}>Seconds to show each answer<input type="number" inputMode="numeric" min={1} max={120} value={reveal} onChange={(event) => setReveal(Number(event.target.value))} className={FIELD} /></label>}
           </div>
         )}
+        <ThemePicker name="quiz-theme" value={show.theme} onChange={(theme) => setShow({ ...show, theme })} />
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-2">
           {SHOW_LABELS.map(([key, label]) => (
             <label key={key} className="flex min-h-9 items-center gap-2 text-sm text-stone-800">
