@@ -5,21 +5,22 @@ import { beep } from '../../../lib/screens/beep';
 import { clockText, examStateAt, hms, pad2, time12, type ExamState } from '../../../lib/screens/clock';
 import { bool, isRecord, num, oneOf, str } from '../../../lib/screens/read';
 import { usePersisted } from '../../../lib/screens/usePersisted';
+import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { ScreenShell } from './ScreenShell';
 import { CHECK, FIELD, LABEL, ORANGE } from './ui';
 
 type StartMode = 'press' | 'clock';
-interface Saved { title: string; subject: string; startMode: StartMode; startTime: string; minutes: number; warn: number; rules: string; sound: boolean; light: boolean }
+interface Saved { title: string; subject: string; startMode: StartMode; startTime: string; minutes: number; warn: number; rules: string; sound: boolean; light: boolean; logo: string }
 const RULES = 'Write your name and roll number first.\nRead all the questions before you start.\nMobile phones must be switched off and kept away.\nRaise your hand if you need anything.';
-const DEFAULTS: Saved = { title: 'Unit Test', subject: '', startMode: 'press', startTime: '10:00', minutes: 60, warn: 10, rules: RULES, sound: true, light: false };
+const DEFAULTS: Saved = { title: 'Unit Test', subject: '', startMode: 'press', startTime: '10:00', minutes: 60, warn: 10, rules: RULES, sound: true, light: false, logo: '' };
 const PRESETS: Array<Preset & { values: Partial<Saved> }> = [
   { id: 'board', label: 'Three-hour exam', blurb: '180 minutes with a 15 minute warning.', values: { title: 'Final Examination', minutes: 180, warn: 15 } },
   { id: 'test', label: 'Class test', blurb: '60 minutes with a 10 minute warning.', values: { title: 'Class Test', minutes: 60, warn: 10 } },
   { id: 'unit', label: 'Short test', blurb: '40 minutes with a 5 minute warning.', values: { title: 'Unit Test', minutes: 40, warn: 5 } },
   { id: 'quiz', label: 'Quick quiz', blurb: '20 minutes with a 5 minute warning.', values: { title: 'Quick Quiz', minutes: 20, warn: 5 } },
 ];
-const read = (value: unknown): Saved | null => (isRecord(value) ? { title: str(value.title, DEFAULTS.title), subject: str(value.subject), startMode: oneOf(value.startMode, ['press', 'clock'] as const, 'press'), startTime: str(value.startTime, DEFAULTS.startTime), minutes: num(value.minutes, 60), warn: num(value.warn, 10), rules: str(value.rules, RULES), sound: bool(value.sound, true), light: bool(value.light, false) } : null);
+const read = (value: unknown): Saved | null => (isRecord(value) ? { title: str(value.title, DEFAULTS.title), subject: str(value.subject), startMode: oneOf(value.startMode, ['press', 'clock'] as const, 'press'), startTime: str(value.startTime, DEFAULTS.startTime), minutes: num(value.minutes, 60), warn: num(value.warn, 10), rules: str(value.rules, RULES), sound: bool(value.sound, true), light: bool(value.light, false), logo: str(value.logo) } : null);
 
 const nowTime = (): string => { const now = new Date(); return `${pad2(now.getHours())}:${pad2(now.getMinutes())}`; };
 
@@ -41,7 +42,7 @@ const ExamScreen: React.FC<{ saved: Saved; startAt: Date; minutes: number; warn:
   const rules = saved.rules.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
 
   return (
-    <ScreenShell surface={`${surface} transition-colors duration-500`} label="Exam hall display" onClose={onClose}>
+    <ScreenShell surface={`${surface} transition-colors duration-500`} label="Exam hall display" onClose={onClose} logo={saved.logo || undefined}>
       <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-6 py-5 sm:px-12">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <div className="min-w-0">
@@ -114,6 +115,7 @@ export const ExamHall: React.FC = () => {
           <label className={CHECK}><input type="checkbox" checked={saved.sound} onChange={(event) => update({ sound: event.target.checked })} className="h-4 w-4 accent-orange-700" />Beep when the exam starts, the warning begins and time is up</label>
           <label className={CHECK}><input type="checkbox" checked={saved.light} onChange={(event) => update({ light: event.target.checked })} className="h-4 w-4 accent-orange-700" />Light screen</label>
         </div>
+        <LogoField logo={saved.logo} onChange={(logo) => update({ logo })} label="School or centre logo in the corner (optional)" />
         <button type="button" onClick={start} disabled={saved.startMode === 'clock' && !clockStart} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Start the exam screen</button>
         <Note>The screen shows the current time, the time left, when the exam started and ends, and your rules. It turns amber for the last minutes and red when time is up. Your settings are saved only in this browser. Check the clock on the device against the hall clock before you begin.</Note>
       </section>

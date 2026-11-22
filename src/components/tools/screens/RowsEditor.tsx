@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { ArrowDown, ArrowUp, ClipboardPaste, Plus, Trash2 } from 'lucide-react';
 import { splitLines } from '../../../lib/screens/timed';
 import { PictureButton } from '../shared/PictureButton';
+import { VideoButton } from '../shared/VideoButton';
 import { FIELD, ORANGE, OUTLINE, SMALL_BUTTON } from './ui';
 
 export interface FormRow { id: string; [key: string]: string }
-export interface Column { key: string; label: string; type?: 'text' | 'number' | 'time' | 'select' | 'image' | 'area'; placeholder?: string; options?: Array<[string, string]>; size?: 'wide' | 'mid' | 'narrow' }
+export interface Column { key: string; label: string; type?: 'text' | 'number' | 'time' | 'select' | 'image' | 'video' | 'area'; placeholder?: string; options?: Array<[string, string]>; size?: 'wide' | 'mid' | 'narrow' }
 
 let counter = 0;
 export const rowId = (): string => { counter += 1; return `r${Date.now().toString(36)}${counter.toString(36)}`; };
@@ -22,12 +23,16 @@ interface Props {
   /** Pasting many lines: which columns the pieces of each line fill, and an example. */
   bulk?: { keys: string[]; example: string; hint: string };
   empty: string;
+  /** A small picture shown at the start of a row, for rows that come from a picture library. */
+  thumb?: (row: FormRow) => string | undefined;
+  /** Extra controls shown under the list, for example a picker for the exercise library. */
+  extra?: React.ReactNode;
 }
 
 const SIZE = { wide: 'min-w-[12rem] flex-[3]', mid: 'min-w-[8rem] flex-[2]', narrow: 'w-24' } as const;
 
 /** A list of rows with the same fields: edit, reorder, remove, add one, or paste many lines at once. Used by the big-screen tools. */
-export const RowsEditor: React.FC<Props> = ({ title, columns, rows, onChange, blank, addLabel, bulk, empty }) => {
+export const RowsEditor: React.FC<Props> = ({ title, columns, rows, onChange, blank, addLabel, bulk, empty, thumb, extra }) => {
   const [pasteOpen, setPasteOpen] = useState(false);
   const [pasted, setPasted] = useState('');
   const [error, setError] = useState('');
@@ -61,6 +66,7 @@ export const RowsEditor: React.FC<Props> = ({ title, columns, rows, onChange, bl
           {rows.map((row, index) => (
             <li key={row.id} className="flex flex-wrap items-end gap-2 rounded-xl border border-stone-200 bg-white p-2">
               <span className="mb-2 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[11px] font-bold text-orange-800">{index + 1}</span>
+              {thumb?.(row) && <img src={thumb(row)} alt="" width={48} height={32} loading="lazy" className="mb-1 h-8 w-12 shrink-0 rounded object-cover" />}
               {columns.map((column) => (
                 <label key={column.key} className={`block space-y-0.5 text-[10px] font-bold uppercase tracking-wide text-stone-500 ${SIZE[column.size ?? 'mid']}`}>
                   {column.label}
@@ -68,6 +74,8 @@ export const RowsEditor: React.FC<Props> = ({ title, columns, rows, onChange, bl
                     <select value={row[column.key] ?? ''} onChange={(event) => set(row.id, column.key, event.target.value)} className={FIELD}>{(column.options ?? []).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>
                   ) : column.type === 'image' ? (
                     <span className="block normal-case"><PictureButton image={row[column.key] || undefined} label="Add a picture" onPick={(image) => set(row.id, column.key, image ?? '')} onError={setError} /></span>
+                  ) : column.type === 'video' ? (
+                    <span className="block normal-case"><VideoButton video={row[column.key] || undefined} label="Add a video" onPick={(video) => set(row.id, column.key, video ?? '')} /></span>
                   ) : column.type === 'area' ? (
                     <textarea rows={2} value={row[column.key] ?? ''} placeholder={column.placeholder} onChange={(event) => set(row.id, column.key, event.target.value)} className={`${FIELD} normal-case`} />
                   ) : (
@@ -85,6 +93,7 @@ export const RowsEditor: React.FC<Props> = ({ title, columns, rows, onChange, bl
         </ol>
       )}
       {error && <p role="alert" className="text-xs font-semibold text-red-700">{error}</p>}
+      {extra}
       <div className="flex flex-wrap gap-2">
         <button type="button" onClick={() => onChange([...rows, makeRow(blank)])} className={OUTLINE}><Plus className="h-4 w-4" aria-hidden="true" />{addLabel}</button>
         {bulk && <button type="button" onClick={() => setPasteOpen(!pasteOpen)} aria-expanded={pasteOpen} className={OUTLINE}><ClipboardPaste className="h-4 w-4" aria-hidden="true" />Paste many at once</button>}
@@ -106,6 +115,6 @@ export function readRows(value: unknown, keys: string[]): FormRow[] | null {
   return value.slice(0, 300).flatMap((entry) => {
     if (typeof entry !== 'object' || entry === null) return [];
     const record = entry as Record<string, unknown>;
-    return [makeRow(Object.fromEntries(keys.map((key) => [key, typeof record[key] === 'string' ? (record[key] as string) : ''])))];
+    return [makeRow(Object.fromEntries(keys.map((key) => [key, typeof record[key] === 'string' && !(record[key] as string).startsWith('blob:') ? (record[key] as string) : ''])))];
   });
 }

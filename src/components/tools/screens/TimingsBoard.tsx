@@ -5,13 +5,14 @@ import { clockText, nowMinutes, sortedTimings, time12, timingsNow } from '../../
 import { bool, isRecord, oneOf, str } from '../../../lib/screens/read';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { useScrollTo } from '../../../lib/screens/useScrollTo';
+import { LogoField } from './LogoField';
 import { PresetGrid, type Preset } from './PresetGrid';
 import { makeRow, readRows, RowsEditor, type Column, type FormRow } from './RowsEditor';
 import { ScreenShell } from './ScreenShell';
 import { CHECK, FIELD, LABEL, ORANGE } from './ui';
 
 type Hours = '12' | '24';
-interface Saved { title: string; rows: FormRow[]; hours: Hours; clock: boolean; light: boolean }
+interface Saved { title: string; rows: FormRow[]; hours: Hours; clock: boolean; light: boolean; logo: string }
 const COLUMNS: Column[] = [
   { key: 'time', label: 'Time', type: 'time', size: 'narrow' },
   { key: 'title', label: 'What happens', placeholder: 'For example Morning aarti', size: 'wide' },
@@ -24,7 +25,7 @@ const BOARDS: Array<Preset & { title: string; rows: Array<{ time: string; title:
   { id: 'hall', label: 'Community hall or society', blurb: 'Activities through the day.', title: 'Today in the hall', rows: [t('07:00', 'Yoga class', 'Ground floor'), t('10:00', 'Senior citizens’ meet'), t('16:00', 'Kids’ activity hour'), t('19:00', 'Society meeting', 'First floor')] },
   { id: 'event', label: 'Event programme', blurb: 'A day’s programme for guests.', title: 'Programme', rows: [t('09:00', 'Registration'), t('10:00', 'Welcome and opening'), t('13:00', 'Lunch'), t('14:00', 'Main session'), t('17:00', 'Closing')] },
 ];
-const read = (value: unknown): Saved | null => (isRecord(value) ? { title: str(value.title, 'Daily timings'), rows: readRows(value.rows, ['time', 'title', 'note']) ?? [], hours: oneOf(value.hours, ['12', '24'] as const, '12'), clock: bool(value.clock, true), light: bool(value.light, false) } : null);
+const read = (value: unknown): Saved | null => (isRecord(value) ? { title: str(value.title, 'Daily timings'), rows: readRows(value.rows, ['time', 'title', 'note']) ?? [], hours: oneOf(value.hours, ['12', '24'] as const, '12'), clock: bool(value.clock, true), light: bool(value.light, false), logo: str(value.logo) } : null);
 
 const TimingsScreen: React.FC<{ saved: Saved; onClose: () => void }> = ({ saved, onClose }) => {
   const [now, setNow] = useState(() => new Date());
@@ -36,7 +37,7 @@ const TimingsScreen: React.FC<{ saved: Saved; onClose: () => void }> = ({ saved,
   const shown = (time: string) => (saved.hours === '12' ? time12(time) : time);
 
   return (
-    <ScreenShell surface={dark ? 'bg-stone-950 text-white' : 'bg-white text-stone-900'} label="Daily timings board" onClose={onClose}>
+    <ScreenShell surface={dark ? 'bg-stone-950 text-white' : 'bg-white text-stone-900'} label="Daily timings board" onClose={onClose} logo={saved.logo || undefined}>
       <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-6 py-5 sm:px-12">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2 className="break-words text-[clamp(1.8rem,5vw,4rem)] font-black leading-tight">{saved.title.trim() || 'Timings'}</h2>
@@ -66,7 +67,7 @@ const TimingsScreen: React.FC<{ saved: Saved; onClose: () => void }> = ({ saved,
 };
 
 export const TimingsBoard: React.FC = () => {
-  const [saved, setSaved] = usePersisted<Saved>('mdu-timings-v1', { title: 'Daily timings', rows: [], hours: '12', clock: true, light: false }, read);
+  const [saved, setSaved] = usePersisted<Saved>('mdu-timings-v1', { title: 'Daily timings', rows: [], hours: '12', clock: true, light: false, logo: '' }, read);
   const [active, setActive] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
   const { ref, scroll } = useScrollTo<HTMLDivElement>();
@@ -93,6 +94,7 @@ export const TimingsBoard: React.FC = () => {
           <label className={CHECK}><input type="checkbox" checked={saved.clock} onChange={(event) => update({ clock: event.target.checked })} className="h-4 w-4 accent-orange-700" />Show the clock</label>
           <label className={CHECK}><input type="checkbox" checked={saved.light} onChange={(event) => update({ light: event.target.checked })} className="h-4 w-4 accent-orange-700" />Light screen</label>
         </div>
+        <LogoField logo={saved.logo} onChange={(logo) => update({ logo })} label="Logo in the corner (optional, for example your temple, clinic or society)" />
         <p className="text-sm font-semibold text-stone-800">{count === 0 ? 'Add some timings to start.' : `${count} ${count === 1 ? 'timing' : 'timings'}. The one on now turns green and the next one is marked.`}</p>
         <button type="button" onClick={() => setPlaying(true)} disabled={count === 0} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Show on screen</button>
         <Note>The board sorts the times for you and follows this device’s clock, so the current activity changes by itself. Your timings are saved only in this browser. Check the times before you put the board on display.</Note>

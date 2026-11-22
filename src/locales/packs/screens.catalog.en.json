@@ -4,10 +4,6 @@
       "Interval and Circuit Timer: Tabata, HIIT, EMOM and Boxing Rounds on a Big Screen",
       "A free full-screen interval timer for work and rest rounds, sets and named exercises. Ready Tabata, HIIT, circuit, EMOM, boxing and study sprint timers. Beeps included."
     ],
-    "yoga-class-display": [
-      "Yoga and Stretch Class Display: Show Poses with Hold Timers on a Screen",
-      "Build a yoga or stretching sequence with pose names, cues and hold timers, then show it full screen for a class. Morning, desk break and cool-down sequences included."
-    ],
     "exam-hall-display": [
       "Exam Hall Display: Big Clock, Time Left and Rules on the Screen",
       "A free full-screen exam timer for a hall or classroom with a big clock, time left, start and end time, rules and last-minutes warning. Start at a set time or on a button."
@@ -31,6 +27,10 @@
     "notice-board-display": [
       "Notice and Greeting Board Display: Birthday Wishes, Welcome and Announcements on a Screen",
       "A free digital notice board for an office, school, shop or home. Rotate welcome messages, birthday wishes, notices and reminders with colours and pictures on any screen."
+    ],
+    "step-by-step-routine-display": [
+      "Step-by-Step Routine Display: Show Any Timed Routine on a Screen (Stretch, Yoga, Exercise, Cooking, Class Stations)",
+      "Build a routine of steps with cues, seconds and optional pictures, then show it full screen with a countdown and the next step. Stretches come with pictures; add your own for anything else."
     ]
   }
 }

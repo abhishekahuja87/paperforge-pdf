@@ -6,7 +6,7 @@ export const THEMES: Array<{ id: Theme; label: string }> = [
   { id: 'dark', label: 'Dark' }, { id: 'light', label: 'Light' }, { id: 'orange', label: 'Orange' }, { id: 'green', label: 'Green' }, { id: 'blue', label: 'Blue' }, { id: 'rose', label: 'Rose' },
 ];
 
-export interface BoardRow { left: string; right?: string; sub?: string }
+export interface BoardRow { left: string; right?: string; sub?: string; image?: string }
 
 /** One screen of a timed show. seconds = 0 means it waits for a click or the next button. */
 export interface TimedSlide {
@@ -15,6 +15,10 @@ export interface TimedSlide {
   title: string;
   note?: string;
   image?: string;
+  /** A second picture that fades in and out over the first (the two photos of an exercise). */
+  image2?: string;
+  /** A video played on the slide. Only lasts for the visit, so it is never saved. */
+  video?: string;
   rows?: BoardRow[];
   seconds: number;
   tone: Tone;
@@ -65,21 +69,21 @@ export function buildIntervalSlides(config: IntervalConfig): TimedSlide[] {
 }
 
 // ---- Yoga, stretch or any step-by-step sequence ----
-export interface SequenceStep { name: string; note: string; seconds: number }
+export interface SequenceStep { name: string; note: string; seconds: number; image?: string; image2?: string }
 
 export function buildSequenceSlides(steps: SequenceStep[], prepare: number, label: string): TimedSlide[] {
   const slides: TimedSlide[] = [];
   const first = steps[0];
   if (prepare > 0 && first) slides.push({ key: 'prepare', chip: 'Get ready', title: 'Get ready', note: 'Find a comfortable place and breathe steadily.', seconds: prepare, tone: 'info', next: first.name });
   steps.forEach((step, index) => {
-    slides.push({ key: `s-${index}`, chip: `${label} ${index + 1} of ${steps.length}`, title: step.name, note: step.note.trim() || undefined, seconds: Math.max(1, step.seconds), tone: 'work', next: steps[index + 1]?.name ?? 'Finish' });
+    slides.push({ key: `s-${index}`, chip: `${label} ${index + 1} of ${steps.length}`, title: step.name, note: step.note.trim() || undefined, image: step.image, image2: step.image2, seconds: Math.max(1, step.seconds), tone: 'work', next: steps[index + 1]?.name ?? 'Finish' });
   });
   slides.push({ key: 'done', title: 'Done', note: 'Take a slow breath and relax.', seconds: 0, tone: 'info' });
   return slides;
 }
 
 // ---- Spelling and vocabulary bee ----
-export interface WordEntry { word: string; hint: string }
+export interface WordEntry { word: string; hint: string; image?: string }
 export type BeeMode = 'spell' | 'read';
 
 export function buildBeeSlides(words: WordEntry[], mode: BeeMode, seconds: number, revealSeconds: number): TimedSlide[] {
@@ -88,11 +92,11 @@ export function buildBeeSlides(words: WordEntry[], mode: BeeMode, seconds: numbe
     const chip = `Word ${index + 1} of ${words.length}`;
     const letters = entry.word.trim().toUpperCase().split('').join(' ');
     if (mode === 'spell') {
-      slides.push({ key: `f-${index}`, chip, title: entry.hint.trim() || 'Spell the word', note: entry.hint.trim() ? 'Spell the word that matches.' : undefined, seconds, tone: 'info' });
-      slides.push({ key: `b-${index}`, chip, title: entry.word.trim(), note: letters, seconds: revealSeconds, tone: 'reveal' });
+      slides.push({ key: `f-${index}`, chip, title: entry.hint.trim() || (entry.image ? 'Spell the word for this picture' : 'Spell the word'), note: entry.hint.trim() ? 'Spell the word that matches.' : undefined, image: entry.image, seconds, tone: 'info' });
+      slides.push({ key: `b-${index}`, chip, title: entry.word.trim(), note: letters, image: entry.image, seconds: revealSeconds, tone: 'reveal' });
     } else {
-      slides.push({ key: `f-${index}`, chip, title: entry.word.trim(), seconds, tone: 'info' });
-      slides.push({ key: `b-${index}`, chip, title: entry.word.trim(), note: entry.hint.trim() || undefined, seconds: revealSeconds, tone: 'reveal' });
+      slides.push({ key: `f-${index}`, chip, title: entry.word.trim(), image: entry.image, seconds, tone: 'info' });
+      slides.push({ key: `b-${index}`, chip, title: entry.word.trim(), note: entry.hint.trim() || undefined, image: entry.image, seconds: revealSeconds, tone: 'reveal' });
     }
   });
   slides.push({ key: 'done', title: 'That was the last word', note: 'Well done, everyone.', seconds: 0, tone: 'info' });
@@ -100,16 +104,16 @@ export function buildBeeSlides(words: WordEntry[], mode: BeeMode, seconds: numbe
 }
 
 // ---- Notice and greeting board ----
-export interface NoticeEntry { title: string; text: string; image: string; theme: Theme }
+export interface NoticeEntry { title: string; text: string; image: string; video?: string; theme: Theme }
 
 export function buildNoticeSlides(notices: NoticeEntry[], seconds: number): TimedSlide[] {
   return notices.map((notice, index) => ({
-    key: `n-${index}`, title: notice.title.trim(), note: notice.text.trim() || undefined, image: notice.image || undefined, seconds, tone: 'info' as const, theme: notice.theme,
+    key: `n-${index}`, title: notice.title.trim(), note: notice.text.trim() || undefined, image: notice.image || undefined, video: notice.video || undefined, seconds, tone: 'info' as const, theme: notice.theme,
   }));
 }
 
 // ---- Menu and price board ----
-export interface MenuItem { section: string; name: string; price: string; note: string }
+export interface MenuItem { section: string; name: string; price: string; note: string; image?: string }
 
 export function buildMenuSlides(items: MenuItem[], shop: string, perPage: number, seconds: number): TimedSlide[] {
   const sections: string[] = [];
@@ -120,7 +124,7 @@ export function buildMenuSlides(items: MenuItem[], shop: string, perPage: number
     const inSection = items.filter((item) => item.section.trim() === section);
     const pages = Math.max(1, Math.ceil(inSection.length / perPage));
     for (let page = 0; page < pages; page += 1) {
-      const rows = inSection.slice(page * perPage, (page + 1) * perPage).map((item) => ({ left: item.name.trim(), right: item.price.trim() || undefined, sub: item.note.trim() || undefined }));
+      const rows = inSection.slice(page * perPage, (page + 1) * perPage).map((item) => ({ left: item.name.trim(), right: item.price.trim() || undefined, sub: item.note.trim() || undefined, image: item.image || undefined }));
       slides.push({ key: `m-${section}-${page}`, chip: shop.trim() || undefined, title: many && section ? section : shop.trim() || 'Menu', note: pages > 1 ? `${page + 1} of ${pages}` : undefined, rows, seconds, tone: 'info' });
     }
   }

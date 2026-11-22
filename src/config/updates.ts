@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-22',
+    path: '/display-and-presentation-tools',
+    tool: 'Display tools',
+    title: 'Pictures and videos on the display tools, and controls that stay clear on phones',
+    summary: 'Menu items, spelling words, notices and routine steps can carry a picture, notices can play a video, and every big-screen tool takes a logo. On a phone the buttons now sit at the top so the browser’s full-screen message does not cover them. The exercise list grew to 182 with 64 stretches.',
+  },
+  {
     date: '2026-11-21',
     path: '/interval-circuit-timer',
     tool: 'Interval and Circuit Timer',
@@ -26,10 +33,10 @@ const ENTRIES: SiteUpdate[] = [
   },
   {
     date: '2026-11-21',
-    path: '/yoga-class-display',
-    tool: 'Yoga and Stretch Class Display',
-    title: 'New: show a yoga or stretch sequence with hold timers',
-    summary: 'Build a sequence of poses with cues and seconds and show it full screen with a countdown and the next pose.',
+    path: '/step-by-step-routine-display',
+    tool: 'Step-by-Step Routine Display',
+    title: 'New: show any timed routine step by step',
+    summary: 'Build a routine of steps with cues and seconds and show it full screen with a countdown and the next step. Stretches come with pictures.',
   },
   {
     date: '2026-11-21',

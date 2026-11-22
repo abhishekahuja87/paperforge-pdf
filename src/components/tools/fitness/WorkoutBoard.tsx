@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Check, Pause, Play, RotateCcw, X } from 'lucide-react';
 import { EXERCISES, GROUPS, imageUrl } from '../../../lib/fitness/exercises';
 import { BLOCKS, formatClock, formatDuration, formatPlanDate, type Timing, type WorkoutPlan } from '../../../lib/fitness/workout';
-import { FLIP_CSS, type ShowOptions } from './WorkoutPlayer';
+import { FLIP_CSS } from '../shared/flipCss';
+import type { ShowOptions } from './WorkoutPlayer';
 
 const BY_ID = new Map(EXERCISES.map((exercise) => [exercise.id, exercise]));
 const GROUP_LABEL = new Map(GROUPS.map((group) => [group.id, group.label]));

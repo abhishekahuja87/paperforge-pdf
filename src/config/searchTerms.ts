@@ -26,7 +26,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'digitize-documents': ['scan to searchable pdf', 'ocr pdf', 'photo of document to pdf', 'scanned pdf to text', 'document scanner', 'make scanned pdf searchable'],
   'classroom-quiz-display': ['quiz maker for teachers', 'mcq quiz on projector', 'mock exam timer', 'exam timer for class', 'quiz with answers', 'classroom quiz'],
   'interval-circuit-timer': ['tabata timer', 'hiit timer', 'workout timer', 'round timer', 'gym timer for tv', 'emom timer'],
-  'yoga-class-display': ['yoga timer', 'stretch timer', 'yoga class tv', 'pose timer', 'desk stretch break'],
+  'step-by-step-routine-display': ['routine timer','steps on tv','stretch break timer','yoga timer','morning routine for kids','station rotation timer','yoga sequence on screen'],
   'exam-hall-display': ['exam timer', 'exam clock', 'test timer for class', 'exam countdown', 'projector clock'],
   'menu-board-display': ['digital menu board', 'menu on tv', 'price list on tv', 'cafe menu screen', 'shop price board'],
   'queue-token-display': ['token display', 'now serving', 'queue number screen', 'waiting room token', 'clinic token'],

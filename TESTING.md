@@ -769,21 +769,22 @@ Not run: `tsc`, `vite build`, browser.
 - [ ] Random words: separators work; 1000 words fine. Random characters: set lengths and tick/untick sets; with none ticked a message appears and the box is empty.
 - [ ] Search the home page for "random text generator" and "random word generator": the tool is found.
 
-### Big-screen tools (interval timer, yoga, exam hall, menu, token, timings, spelling bee, notices)
+### Big-screen tools (interval timer, routine display, exam hall, menu, token, timings, spelling bee, notices)
 
 Not run: `tsc` (project), `vite build`, browser, real phone, TV or projector. Only `lib/screens/*` was strict type-checked and tested in Node, and the components were type-checked against stub React types.
 
 For every tool: the page opens; the quick start buttons show "Loaded" and the page scrolls to the list; every list has Add, move up/down, remove, Clear all; the screen fills the display, buttons fade when idle and return on touch, Escape or Close leaves; reload keeps your settings.
 
 - [ ] /interval-circuit-timer: Tabata gives 8 work rounds of 20 s with 10 s rest; Circuit names repeat; total time shown matches; green work, blue rest, countdown red in the last 3 seconds; beeps with the volume up; Pause, arrows, Next skip.
-- [ ] /yoga-class-display: Morning stretch loads 8 poses; edit a cue and seconds; "Paste many at once" with `name | cue | seconds`; Start class shows name, cue, countdown, next pose; Done slide at the end.
+- [ ] /step-by-step-routine-display: Morning stretch loads 7 steps with pictures that fade between two photos; "Add from the exercise list" adds a step with its pictures; "Add your own step" with and without an own picture; Breathing and Kids' routine have no library pictures; "Paste many at once" with `name | cue | seconds`; Start routine shows name, cue, picture, countdown, next step; Done slide at the end.
 - [ ] /exam-hall-display: "Start when I press" runs from that moment; "Start at a set time" counts down to the time and "Use the time now" fills it; amber for the last N minutes, red "Pens down" at the end; rules show; beeps at the phase changes.
 - [ ] /menu-board-display: Cafe menu sample shows 3 sections; items per screen and seconds change paging; the symbol is put before number-only prices; it loops; empty section uses the board name.
 - [ ] /queue-token-display: Call next number, Go back, Jump to number, Start again; letter and digits change the number (A07); chime; big screen Next button, right arrow, space; numbers called before are listed; reload keeps the count.
 - [ ] /daily-timings-board: times are sorted; the current row is green with NOW, the next has NEXT, earlier rows fade, and this changes as the clock moves; 12-hour and 24-hour; clock on and off.
 - [ ] /spelling-bee-display: "Spell it" shows the clue then the word with spaced letters; "Read it" shows the word then the meaning; click, space and arrows move; auto mode uses the think and answer seconds; Shuffle changes the order.
 - [ ] /notice-board-display: messages show in their colours with an optional picture; it loops; seconds per message work; a large picture is shrunk.
-- [ ] On a phone: forms are usable and fit the width; the screens fill the display.
+- [ ] Pictures and video: a menu item picture shows beside its price; a spelling word picture shows with the clue and the answer; a notice picture and a notice video (muted, loops) play; after a reload the video is gone but pictures stay; the logo shows small in the bottom left corner of every screen.
+- [ ] On a phone: forms are usable and fit the width; the screens fill the display. In full screen the buttons are at the top, so the browser's own message along the bottom does not cover them (check Interval timer, Quiz, Workout slideshow too).
 
 ### Classroom Quiz Display
 
