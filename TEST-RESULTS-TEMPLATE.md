@@ -284,3 +284,16 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | Q5 | Reduce motion shows a still start picture | | |
 | Q6 | Each sport shows "How to play <sport>" and "<sport> playing rules" | | |
 | Q7 | Rules read correctly for the sports you know well | | |
+
+### Six more sports and fitness tools (23 Nov)
+| # | Check | Result | Notes |
+|---|---|---|---|
+| R1 | Match Score Keeper scores all six sports correctly, Undo works, score survives a reload | | |
+| R2 | Tournament Fixtures Maker round robin, home and away and knockout are right for 4, 5 and 8 teams | | |
+| R3 | Points table order and Copy the fixtures work | | |
+| R4 | Cricket Run Rate Calculator chase, net run rate and player stats are right, invalid overs are rejected | | |
+| R5 | Workout Log saves, shows progress and New best, deletes and copies CSV | | |
+| R6 | One-Rep Max and Plate Calculator estimates and plates are right in kg and lb | | |
+| R7 | Running Pace Calculator pace, time and distance modes, miles, splits and predictions | | |
+| R8 | Section page, home page, footer and menu show 12 sports and fitness tools | | |
+| R9 | All six pages show guide steps, 7 FAQs and an article, with no horizontal scroll on a phone | | |

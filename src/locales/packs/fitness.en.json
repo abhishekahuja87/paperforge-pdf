@@ -53,6 +53,60 @@
         "Show it or copy it",
         "Choose Show this day on a screen to open it in the Workout Planner with timers and pictures, or copy the day or the whole week as text for a chat or a note."
       ]
+    ],
+    "one-rep-max-and-plate-calculator": [
+      [
+        "Enter a hard set",
+        "Type the weight you lifted and the reps you completed with good form. Sets of 2 to 10 reps give the most reliable estimate."
+      ],
+      [
+        "Read your estimated max",
+        "The tool averages the Epley and Brzycki formulas and shows your estimated one-rep max, with each formula alongside."
+      ],
+      [
+        "Use the training table",
+        "The table lists the weight at 100, 95, 90 percent and lower, the reps you can usually do at that weight and the plates needed on each side of the bar."
+      ],
+      [
+        "Load any weight",
+        "In the plate calculator, type the weight on the bar, choose your bar and the tool lists the plates for each side, heaviest first."
+      ]
+    ],
+    "running-pace-calculator": [
+      [
+        "Choose what to find",
+        "Pick Find my pace, Find my finish time or Find the distance, and choose kilometres or miles."
+      ],
+      [
+        "Fill in the boxes",
+        "Enter the distance and your time, or your distance and pace, depending on the mode. Tap 5K, 10K, half marathon or marathon to fill in a common distance."
+      ],
+      [
+        "Read your numbers",
+        "See your pace per kilometre or mile, finish time, distance and speed in kilometres or miles an hour."
+      ],
+      [
+        "Plan your race",
+        "Check the split table for a time at every kilometre or mile, and the predicted race times for other distances based on your run."
+      ]
+    ],
+    "workout-log": [
+      [
+        "Pick the date and exercise",
+        "Choose the day, then type part of an exercise name and pick it from the list of more than 300 exercises, stretches and yoga poses."
+      ],
+      [
+        "Write your sets",
+        "Type each set as weight x reps, separated by commas, for example 60x8, 60x8, 65x6. For body weight moves use 0 as the weight."
+      ],
+      [
+        "Save it",
+        "Tap Save to my log. It is saved on your device straight away and appears in your history."
+      ],
+      [
+        "Watch your progress",
+        "Each exercise gets a progress line based on your best set each day, and a New best label when you beat your earlier days."
+      ]
     ]
   },
   "pageGuides": {
@@ -157,6 +211,108 @@
           "No. Everything runs in your browser and nothing you choose is sent to {{siteName}}. Opening a day in the Workout Planner saves it on this device only. The page still loads the exercise pictures, advertising and other resources from the network."
         ]
       ]
+    },
+    "fitnessOneRepMax": {
+      "title": "One-Rep Max and Plate Calculator: Estimate Your Max and Load the Bar",
+      "subtitle": "Estimate your one-rep max from any set, see training weights at each percentage and the plates for each side of the bar. Free, in kg or lb, no sign-up.",
+      "faq": [
+        [
+          "What is a one-rep max?",
+          "It is the heaviest weight you could lift once with good form. Most people never test it directly, because it is hard and risky. Instead they estimate it from a lighter set of several reps, which is what this tool does."
+        ],
+        [
+          "How does the estimate work?",
+          "The tool uses two well-known formulas. Epley multiplies your weight by one plus the reps divided by 30. Brzycki multiplies your weight by 36 and divides by 37 minus the reps. The headline number is the average of the two, which is steadier than either alone."
+        ],
+        [
+          "How accurate is it?",
+          "It is a good guide, not a promise. The formulas work best for 2 to 10 reps and get less accurate above about 12. They also vary between people and lifts, and they are usually closer for the bench press than for the deadlift or the squat."
+        ],
+        [
+          "What do the percentages and reps mean?",
+          "Training plans often say to lift at a share of your max, such as three sets of five at 80 percent. The table does that sum and shows the plates for each weight. The reps column is a rough guide to how many reps people can usually do at that share."
+        ],
+        [
+          "How do I load the bar with the plate calculator?",
+          "Enter the total weight you want on the bar and pick your bar. Because both sides must match, the tool takes off the bar weight, halves the rest and picks the biggest plates first. If the plates cannot make the exact weight it shows the closest weight under it."
+        ],
+        [
+          "Is it safe to test a true one-rep max?",
+          "A true max is a very hard effort. Only try one with a spotter or safety arms, after a thorough warm-up, and only if you have trained the lift for a while. If you have an injury or a health condition, check with a doctor first. The estimate on this page is a safer way to plan your training."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Your numbers stay in the page and are not saved. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
+    },
+    "fitnessRunningPace": {
+      "title": "Running Pace Calculator: Pace, Finish Time, Splits and Race Predictions",
+      "subtitle": "Work out your running pace, finish time or distance, see splits for every kilometre or mile and predict 5K to marathon times from one run. Free, no sign-up.",
+      "faq": [
+        [
+          "How is running pace calculated?",
+          "Pace is the time taken divided by the distance covered. A 5 kilometre run in 30 minutes is 6 minutes for each kilometre. The tool also shows the matching speed, which is the distance divided by the time in hours."
+        ],
+        [
+          "Can I work in miles?",
+          "Yes. Switch between kilometres and miles and every number follows, including the pace, the speed and the split table. A mile is 1.609344 kilometres."
+        ],
+        [
+          "What are split times for?",
+          "Splits show the time you should reach at each kilometre or mile if you hold an even pace. Many runners write them on a band or a phone note to check they are on target during a race."
+        ],
+        [
+          "How are race times predicted?",
+          "The tool uses the Riegel formula, which multiplies your time by the ratio of the two distances raised to the power 1.06. It works best for runs between about 1.5 kilometres and a marathon and when you have trained for the longer distance."
+        ],
+        [
+          "How accurate are the predictions?",
+          "They are a guide. They assume a hard, well-paced effort and enough training for the new distance. For the half marathon and marathon, many runners find real results slower than the prediction because stamina and fuelling matter more over long races."
+        ],
+        [
+          "How do I convert a treadmill speed to a pace?",
+          "Use Find my pace with a distance of 1 kilometre or mile and the time that speed takes, or use Find my finish time and enter the pace. As a check, 10 kilometres an hour is 6 minutes a kilometre."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Your times are used only in the page. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
+    },
+    "fitnessWorkoutLog": {
+      "title": "Workout Log: Track Sets, Reps and Weights, See Your Progress",
+      "subtitle": "Log your sets, reps and weights from more than 300 exercises, see progress charts and new bests. Saved on your device with no account and no sign-up.",
+      "faq": [
+        [
+          "How do I write my sets?",
+          "Write each set as the weight, an x and the reps, such as 60x8. Separate sets with commas, so 60x8, 60x8, 65x6 is three sets. For body weight moves such as push-ups, write 0 for the weight, such as 0x15."
+        ],
+        [
+          "How is progress measured?",
+          "For weighted moves the tool takes your best set each day, works out an estimated one-rep max from it and plots one point a day. For body weight moves it uses your most reps. A rising line means you are getting stronger."
+        ],
+        [
+          "What does New best mean?",
+          "It appears when your latest day beats every earlier day for that exercise. It needs at least two days of data, so you will see it from your second session."
+        ],
+        [
+          "Where is my log kept?",
+          "In your browser on this device only. Nothing is sent to a server, so it works without an account, but clearing your browser data or using another browser or phone will not show it. Use Copy my log as CSV now and then to keep a backup."
+        ],
+        [
+          "Can I move my log to a spreadsheet?",
+          "Yes. Copy my log as CSV puts the date, exercise and sets on your clipboard. Paste it into Excel or Google Sheets and it fills in columns."
+        ],
+        [
+          "Which weight unit does it use?",
+          "Pick kilograms or pounds at the top. The unit only changes how the numbers are labelled, so switch it before you start and keep to one unit."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Your log is saved only in this browser on this device. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -238,6 +394,81 @@
           "paragraphs": [
             "Start with the plan that has fewer days than you think you can manage. A plan you finish is better than a bigger plan you drop. Begin with weights you can lift with good form, stop a rep or two before you are exhausted and add a little each week. On rest days a walk or gentle stretching is enough.",
             "Choose Show this day on a screen to open any day in the Workout Planner, where you can run it as a slideshow with timers on a phone, a gym TV or a class screen. These are general routines and not medical advice, so check with a doctor first if you have an injury or a health condition."
+          ]
+        }
+      ]
+    },
+    "one-rep-max-and-plate-calculator": {
+      "sections": [
+        {
+          "heading": "Estimating a max without testing it",
+          "paragraphs": [
+            "Your one-rep max is the starting point for most strength plans, because training weights are often written as a share of it. Testing a true max is hard on the body and carries a risk of injury, so most people estimate it from a set of a few reps. Lift a weight as many times as you can with good form, enter the weight and the reps, and the calculator does the rest.",
+            "Two formulas are used because each has a weakness. Epley can run a little high for low reps and Brzycki rises quickly as the reps climb. Averaging them gives a steadier figure. The estimate is most trustworthy for sets of 2 to 10 reps, and for longer sets it is better to treat the number as a ballpark."
+          ]
+        },
+        {
+          "heading": "Using percentages in training",
+          "paragraphs": [
+            "Many programs ask for work at a set share of your max, such as 70 percent for sets of eight or 85 percent for sets of three. The table on this page turns your max into the actual weights, so you do not have to work them out in the gym. The usual reps beside each share are a rough guide, since a lighter lift such as a curl lets most people do more reps at a given percentage than a heavy leg lift does.",
+            "Re-test your estimate every few weeks. As you get stronger your max rises and the weights in the table go up with it. You can keep track of your sets over time in the Workout Log tool."
+          ]
+        },
+        {
+          "heading": "Loading the barbell",
+          "paragraphs": [
+            "A barbell is loaded evenly on both sides, so the plate calculator subtracts the weight of the bar, splits what is left and lists the plates for one side, heaviest first. Choose the bar you use, whether a standard bar, a lighter women's bar or a short bar, because the bar weight changes the sum.",
+            "Always use collars to hold the plates in place. If your gym has different plates than the ones listed, such as 20 pound plates or 1 kilogram plates, you can still use the plate list as a starting point and adjust it by hand."
+          ]
+        }
+      ]
+    },
+    "running-pace-calculator": {
+      "sections": [
+        {
+          "heading": "Pace, speed and time",
+          "paragraphs": [
+            "Runners talk about pace, which is the time for each kilometre or mile, while treadmills and watches often show speed. They describe the same thing in different ways. The calculator converts between them, so a 5:30 pace per kilometre becomes about 10.9 kilometres an hour, and you can see both on the screen at once.",
+            "The three modes cover the questions runners ask most. Find my pace answers what pace they ran. Find my finish time shows what time a target pace gives over a race distance. Find the distance shows how far you will go in a set time at a steady pace, which is handy for timed runs."
+          ]
+        },
+        {
+          "heading": "Splits and pacing",
+          "paragraphs": [
+            "An even pace is the safest plan for most races, and splits turn your goal into checkpoints. The table lists the time you should reach at each kilometre or mile, with a final line for the finish if the distance is not a whole number. Going out too fast and fading is the most common pacing mistake, so keep the first few splits close to the plan.",
+            "Copy the summary to share your result or paste it into a training log, and print or save the page as a PDF if you want to carry the splits with you."
+          ]
+        },
+        {
+          "heading": "Predicting other race distances",
+          "paragraphs": [
+            "If you have just run a hard 5K, you can estimate what a 10K or a half marathon might look like. The Riegel formula behind the predictions is simple and well known, but it assumes you will train properly for the longer race. Treat the numbers as a target to build towards and not a guarantee.",
+            "Use the predictions to set sensible goals, not to choose a pace on race day. Weather, hills, sleep and fuelling all change how a race goes, and a comfortable start almost always gives the best finish."
+          ]
+        }
+      ]
+    },
+    "workout-log": {
+      "sections": [
+        {
+          "heading": "Why keep a log",
+          "paragraphs": [
+            "Getting stronger depends on doing a little more over time, whether it is an extra rep, a few more kilograms or an extra set. That is easy to say and hard to remember without a record. A log takes the guessing out: you can see what you lifted last time and aim to beat it.",
+            "This log is made to be quick enough to use between sets. You type the date, find the exercise, write the sets in a short line and save. There is no account, no sign-up and nothing to install."
+          ]
+        },
+        {
+          "heading": "Reading your progress",
+          "paragraphs": [
+            "For each exercise the tool picks your best set on each day and turns it into an estimated one-rep max, so a heavy set of three can be compared fairly with a lighter set of ten. The chart shows how that number changes from session to session, and a New best label appears when you beat your earlier days.",
+            "Do not worry if the line wobbles. Sleep, food and stress change how a session goes, so look at the trend over a few weeks and not at a single day."
+          ]
+        },
+        {
+          "heading": "Keeping your data safe",
+          "paragraphs": [
+            "Your log is stored only in your browser on this device. That keeps it private, but it also means it can be lost if you clear your site data or change phone. The Copy my log as CSV button puts everything on your clipboard so you can paste it into a spreadsheet as a backup.",
+            "The log works well with the fixed plans in Weekly Workout Plans. Follow a plan, log each session and watch the numbers go up."
           ]
         }
       ]
