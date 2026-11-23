@@ -466,7 +466,7 @@
         ],
         [
           "Does it have pictures?",
-          "Yes for stretches and exercises. The list has 182 exercises and stretches, 64 of them stretches, each with two pictures that fade into each other. These come from the free-exercise-db project, which is in the public domain. There are no yoga pose pictures, because we did not find a yoga picture set that is clearly free to use, but you can add your own picture to any step."
+          "Yes for stretches and exercises. The list has 339 exercises, stretches and yoga poses, 113 of them stretches and 21 of them yoga poses, each with two pictures that fade into each other. The exercise and stretch pictures come from the free-exercise-db project, which is in the public domain. The yoga pictures are our own line drawings of the start and the hold. You can also add your own picture to any step."
         ],
         [
           "Can I add my own pictures to steps?",
@@ -474,7 +474,7 @@
         ],
         [
           "Can I use it for yoga?",
-          "Yes. Type the pose names and cues, set the hold time and add your own pose photos or leave them out. The ready stretch sequences are a good start for gentle mobility work. For yoga classes the screen keeps the time and the teacher leads the pose."
+          "Yes. Add poses from the list of 21 yoga poses, each with a start and a hold picture, or type your own pose names and cues, set the hold time and add your own photos. For yoga classes the screen keeps the time and the teacher leads the pose."
         ],
         [
           "Can I paste a list of steps?",
@@ -815,8 +815,8 @@
         {
           "heading": "Pictures from a free exercise list",
           "paragraphs": [
-            "Stretches and exercises can be added from a list of 182 entries, each with two pictures that fade into each other so people can see the movement. The list has 64 stretches, including neck, shoulder, back, hip, hamstring and calf stretches, chair stretches for a desk break and floor stretches for a cool-down.",
-            "The pictures come from the free-exercise-db project and are in the public domain. For anything not in the list, such as a yoga pose, a kitchen step or a lab setup, add a picture of your own or show the step without one."
+            "Stretches, exercises and yoga poses can be added from a list of 339 entries, each with two pictures that fade into each other so people can see the movement. The list has 113 stretches, including neck, shoulder, back, hip, hamstring and calf stretches, chair stretches for a desk break and floor stretches for a cool-down, and 21 yoga poses.",
+            "The exercise and stretch pictures come from the free-exercise-db project and are in the public domain. The yoga pictures are our own line drawings. For anything not in the list, such as a kitchen step or a lab setup, add a picture of your own or show the step without one."
           ]
         },
         {

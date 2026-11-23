@@ -3,11 +3,11 @@
     "exercise-library": [
       [
         "Pick a body area",
-        "Tap Chest, Back, Shoulders, Arms, Legs and glutes, Core, Cardio or Stretching, or leave it on All to scroll through every group on one page."
+        "Tap Chest, Back, Shoulders, Arms, Legs and glutes, Core, Cardio, Stretching or Yoga, or leave it on All to scroll through every group on one page."
       ],
       [
         "Narrow it down",
-        "Filter by equipment (none, dumbbell, barbell, machine or cable) and by level, or search for an exercise or a muscle such as squat or biceps."
+        "Filter by equipment (none, dumbbell, barbell, machine or bands, kettlebell and ball) and by level, or search for an exercise or a muscle such as squat or biceps."
       ],
       [
         "Watch and read",
@@ -20,8 +20,8 @@
     ],
     "workout-planner": [
       [
-        "Start from a quick plan",
-        "Tap Mix day, Push day, Pull day, Leg day, Full body, Home or Cardio and core to fill all three parts, or start empty and build your own."
+        "Build a workout or start from a quick plan",
+        "Tap 5, 10, 15, 20 or 30 minutes with or without equipment and the planner fills a warm-up, a main part and a cool-down to fit the time. Or tap a quick plan such as Push day, Home, Morning yoga or Evening wind-down, or start empty and build your own."
       ],
       [
         "Edit warm-up, main and cool-down",
@@ -44,7 +44,7 @@
       "faq": [
         [
           "Where do the pictures and instructions come from?",
-          "They come from the free-exercise-db project, an open dataset released into the public domain. Each exercise has a photo of the start position and a photo of the end position. This page fades between the two so the movement is easy to follow. We chose about 180 common exercises from the larger dataset."
+          "They come from the free-exercise-db project, an open dataset released into the public domain. Each exercise has a photo of the start position and a photo of the end position. This page fades between the two so the movement is easy to follow. We chose 318 common exercises and stretches from the larger dataset. The 21 yoga poses are different: their pictures are our own line drawings, each showing the start and the hold."
         ],
         [
           "Is this medical advice? Are these exercises right for me?",
@@ -86,7 +86,7 @@
         ],
         [
           "What are the quick starts?",
-          "Ready plans such as Mix day, Push day, Pull day, Leg day, Full body, Home and Cardio and core. Tap one to fill all three parts, then change anything. Undo brings back what you had before."
+          "Ready plans such as Mix day, Push day, Pull day, Leg day, Full body, Home, Cardio and core, Morning yoga and Evening wind-down. Tap one to fill all three parts, then change anything. Build me a workout is different: you choose the time, the equipment, the focus and the level, and it picks the moves. Undo brings back what you had before."
         ],
         [
           "Can I show it on a gym TV or a phone?",
@@ -113,7 +113,7 @@
         {
           "heading": "What the library covers",
           "paragraphs": [
-            "The library lists about 180 common exercises in eight groups: chest, back, shoulders, arms, legs and glutes, core, cardio and stretching. For every exercise you see the muscles it mainly works, the muscles that help, the equipment it needs, a level from beginner to advanced and numbered steps.",
+            "The library lists 339 exercises, stretches and yoga poses in nine groups: chest, back, shoulders, arms, legs and glutes, core, cardio, stretching and yoga. For every exercise you see the muscles it mainly works, the muscles that help, the equipment it needs, a level from beginner to advanced and numbered steps.",
             "Each picture shows two positions and fades between them in a loop, so you can see the start, the movement and the finish without playing a video. If your device is set to reduce motion, the pictures stay still and show the start position."
           ]
         },
@@ -152,7 +152,7 @@
         {
           "heading": "Your own exercises are welcome",
           "paragraphs": [
-            "The list holds about 180 common exercises with two pictures each, but every gym has machines and moves that are not in it. Each part has an Add your own form for a name and a note.",
+            "The list holds more than 300 exercises, stretches and yoga poses with two pictures each, but every gym has machines and moves that are not in it. Each part has an Add your own form for a name and a note.",
             "Your entries sit in the plan next to the others. They show on the slideshow without a picture, so the screen stays honest about what it has."
           ]
         },

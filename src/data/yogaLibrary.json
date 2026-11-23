@@ -1,0 +1,424 @@
+[
+ {
+  "id": "yoga-mountain-pose",
+  "name": "Mountain Pose (Tadasana)",
+  "group": "yoga",
+  "muscles": [
+   "whole body"
+  ],
+  "secondary": [],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Stand with your feet hip-width apart and your weight even on both feet.",
+   "Let your arms hang by your sides. Lengthen the back of your neck and keep your chin level.",
+   "Breathe in and raise both arms overhead with the palms facing each other. Reach up without lifting your shoulders towards your ears.",
+   "Hold for five slow breaths, then lower your arms as you breathe out."
+  ]
+ },
+ {
+  "id": "yoga-chair-pose",
+  "name": "Chair Pose (Utkatasana)",
+  "group": "yoga",
+  "muscles": [
+   "quads",
+   "glutes"
+  ],
+  "secondary": [
+   "core",
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Stand with your feet together or hip-width apart and your arms by your sides.",
+   "Bend your knees and send your hips back as if you were sitting on a chair. Keep your knees over your ankles.",
+   "Reach your arms forward and up beside your ears. Keep your chest lifted and your back long.",
+   "Hold for three to five breaths. To come out, press through your feet and stand tall."
+  ]
+ },
+ {
+  "id": "yoga-standing-forward-fold",
+  "name": "Standing Forward Fold (Uttanasana)",
+  "group": "yoga",
+  "muscles": [
+   "hamstrings"
+  ],
+  "secondary": [
+   "lower back",
+   "calves"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Stand with your feet hip-width apart.",
+   "Breathe out and fold forward from your hips, not your waist. Bend your knees as much as you need to.",
+   "Let your head and arms hang heavy. Your hands can rest on your shins, on blocks or on the floor.",
+   "Hold for five breaths. To come up, bend your knees and roll up slowly with your head last."
+  ]
+ },
+ {
+  "id": "yoga-downward-facing-dog",
+  "name": "Downward-Facing Dog (Adho Mukha Svanasana)",
+  "group": "yoga",
+  "muscles": [
+   "shoulders",
+   "hamstrings",
+   "calves"
+  ],
+  "secondary": [
+   "back",
+   "arms"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Start on your hands and knees with your hands slightly ahead of your shoulders.",
+   "Curl your toes under and lift your knees as you push your hips up and back.",
+   "Press your hands into the floor and lengthen your spine. Keep your knees soft and let your heels reach down.",
+   "Hold for five breaths, then lower your knees to the floor and rest."
+  ]
+ },
+ {
+  "id": "yoga-cobra-pose",
+  "name": "Cobra Pose (Bhujangasana)",
+  "group": "yoga",
+  "muscles": [
+   "back",
+   "chest"
+  ],
+  "secondary": [
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Lie on your front with your legs together and your hands under your shoulders.",
+   "Breathe in, press gently through your hands and lift your chest. Keep your elbows bent and close to your body.",
+   "Keep your hips on the floor and your shoulders away from your ears. Look forward.",
+   "Hold for three breaths and lower down as you breathe out. Stop if you feel pain in your lower back."
+  ]
+ },
+ {
+  "id": "yoga-sphinx-pose",
+  "name": "Sphinx Pose (Salamba Bhujangasana)",
+  "group": "yoga",
+  "muscles": [
+   "back"
+  ],
+  "secondary": [
+   "chest",
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Lie on your front with your legs stretched behind you.",
+   "Place your forearms on the floor with your elbows under your shoulders.",
+   "Press your forearms down and lift your chest gently. Keep your hips on the floor and your neck long.",
+   "Stay for five to eight breaths, then lower down slowly."
+  ]
+ },
+ {
+  "id": "yoga-childs-pose",
+  "name": "Child's Pose (Balasana)",
+  "group": "yoga",
+  "muscles": [
+   "back",
+   "hips"
+  ],
+  "secondary": [
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Kneel on the floor with your big toes together and your knees apart.",
+   "Sit your hips back towards your heels and fold forward.",
+   "Rest your forehead on the floor and stretch your arms forward, or lay them by your sides.",
+   "Stay for as long as is comfortable, breathing slowly into your back."
+  ]
+ },
+ {
+  "id": "yoga-warrior-one",
+  "name": "Warrior I (Virabhadrasana I)",
+  "group": "yoga",
+  "muscles": [
+   "quads",
+   "hips"
+  ],
+  "secondary": [
+   "shoulders",
+   "glutes"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Step one foot back about a leg length behind you. Turn the back foot out slightly and keep it flat.",
+   "Bend your front knee over your ankle. Keep your back leg straight.",
+   "Square your hips to the front and reach both arms up beside your ears.",
+   "Hold for five breaths, then step your feet together and repeat on the other side."
+  ]
+ },
+ {
+  "id": "yoga-warrior-two",
+  "name": "Warrior II (Virabhadrasana II)",
+  "group": "yoga",
+  "muscles": [
+   "quads",
+   "hips"
+  ],
+  "secondary": [
+   "shoulders",
+   "glutes"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Stand with your feet wide apart, about one leg length. Turn your right foot out and your left foot in slightly.",
+   "Bend your right knee over your ankle. Keep your left leg straight.",
+   "Stretch your arms out to the sides at shoulder height and look over your front hand.",
+   "Hold for five breaths, then change sides."
+  ]
+ },
+ {
+  "id": "yoga-triangle-pose",
+  "name": "Triangle Pose (Trikonasana)",
+  "group": "yoga",
+  "muscles": [
+   "hamstrings",
+   "hips"
+  ],
+  "secondary": [
+   "sides of the waist",
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Stand with your feet wide apart and turn your right foot out. Keep your legs straight.",
+   "Reach your right arm forward and hinge from your hip, keeping your waist long.",
+   "Place your right hand on your shin, a block or the floor, and reach your left arm up.",
+   "Hold for five breaths, rise with a long spine and change sides."
+  ]
+ },
+ {
+  "id": "yoga-tree-pose",
+  "name": "Tree Pose (Vrksasana)",
+  "group": "yoga",
+  "muscles": [
+   "standing leg",
+   "hips"
+  ],
+  "secondary": [
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Stand tall and shift your weight onto one foot.",
+   "Place the sole of your other foot on your calf or inner thigh. Do not press it on the knee.",
+   "Bring your hands together at your chest, or reach them overhead.",
+   "Look at a fixed spot to stay steady. Hold for five breaths and change sides."
+  ]
+ },
+ {
+  "id": "yoga-bridge-pose",
+  "name": "Bridge Pose (Setu Bandhasana)",
+  "group": "yoga",
+  "muscles": [
+   "glutes",
+   "back"
+  ],
+  "secondary": [
+   "hamstrings",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Lie on your back with your knees bent and your feet flat, hip-width apart.",
+   "Place your arms by your sides with your palms down.",
+   "Press into your feet and lift your hips until your body makes a straight line from knees to shoulders.",
+   "Hold for three to five breaths and lower down slowly."
+  ]
+ },
+ {
+  "id": "yoga-seated-forward-bend",
+  "name": "Seated Forward Bend (Paschimottanasana)",
+  "group": "yoga",
+  "muscles": [
+   "hamstrings",
+   "back"
+  ],
+  "secondary": [
+   "calves"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Sit on the floor with your legs stretched in front of you. Sit on a folded blanket if your back rounds.",
+   "Breathe in and lengthen your spine. Breathe out and fold forward from your hips.",
+   "Hold your shins, ankles or feet. Keep your knees slightly bent if your legs feel tight.",
+   "Hold for five breaths and come up with a long back."
+  ]
+ },
+ {
+  "id": "yoga-boat-pose",
+  "name": "Boat Pose (Navasana)",
+  "group": "yoga",
+  "muscles": [
+   "core",
+   "hip flexors"
+  ],
+  "secondary": [
+   "quads"
+  ],
+  "equipment": "bodyweight",
+  "level": "intermediate",
+  "steps": [
+   "Sit with your knees bent and your feet on the floor.",
+   "Lean back a little and lift your feet so your shins are parallel to the floor.",
+   "Stretch your arms forward beside your knees. Keep your chest lifted.",
+   "Hold for three to five breaths. To make it easier, keep your knees bent or hold behind your thighs."
+  ]
+ },
+ {
+  "id": "yoga-locust-pose",
+  "name": "Locust Pose (Salabhasana)",
+  "group": "yoga",
+  "muscles": [
+   "back",
+   "glutes"
+  ],
+  "secondary": [
+   "hamstrings",
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Lie on your front with your arms by your sides and your forehead on the floor.",
+   "Breathe in and lift your chest, arms and legs a little way off the floor.",
+   "Look down slightly so your neck stays long. Squeeze your legs together.",
+   "Hold for three breaths and lower down. Repeat a few times."
+  ]
+ },
+ {
+  "id": "yoga-low-lunge",
+  "name": "Low Lunge (Anjaneyasana)",
+  "group": "yoga",
+  "muscles": [
+   "hip flexors",
+   "quads"
+  ],
+  "secondary": [
+   "glutes"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Start on your hands and knees and step one foot forward between your hands.",
+   "Place your back knee on the floor, on a folded blanket if you like. Keep the front knee over your ankle.",
+   "Lift your chest and reach your arms up. Let your hips sink forward.",
+   "Hold for five breaths and change sides."
+  ]
+ },
+ {
+  "id": "yoga-easy-pose",
+  "name": "Easy Pose (Sukhasana)",
+  "group": "yoga",
+  "muscles": [
+   "hips"
+  ],
+  "secondary": [
+   "back"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Sit on the floor, or on a folded blanket, and cross your legs at the shins.",
+   "Rest your hands on your knees and sit tall.",
+   "Relax your shoulders and keep your chin level.",
+   "Breathe slowly for one to three minutes. Switch the cross of your legs halfway through."
+  ]
+ },
+ {
+  "id": "yoga-corpse-pose",
+  "name": "Corpse Pose (Savasana)",
+  "group": "yoga",
+  "muscles": [
+   "whole body"
+  ],
+  "secondary": [],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Lie on your back with your legs a little apart and your arms away from your body, palms up.",
+   "Close your eyes and let your feet fall outwards.",
+   "Let your breath become slow and natural. Relax your face, jaw and shoulders.",
+   "Stay for two to five minutes. Roll to one side before you sit up."
+  ]
+ },
+ {
+  "id": "yoga-garland-pose",
+  "name": "Garland Pose (Malasana)",
+  "group": "yoga",
+  "muscles": [
+   "hips",
+   "glutes"
+  ],
+  "secondary": [
+   "calves",
+   "back"
+  ],
+  "equipment": "bodyweight",
+  "level": "intermediate",
+  "steps": [
+   "Stand with your feet slightly wider than your hips and turn your toes out a little.",
+   "Bend your knees and lower into a deep squat. Put a folded blanket under your heels if they lift.",
+   "Bring your palms together at your chest and press your elbows gently against your knees.",
+   "Hold for five breaths and stand up slowly."
+  ]
+ },
+ {
+  "id": "yoga-standing-side-bend",
+  "name": "Standing Side Bend (Crescent Moon)",
+  "group": "yoga",
+  "muscles": [
+   "sides of the waist"
+  ],
+  "secondary": [
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Stand with your feet together or hip-width apart and reach your arms overhead.",
+   "Hold your wrists or join your palms.",
+   "Breathe in to lengthen, then breathe out and bend gently to one side without leaning forward.",
+   "Hold for three breaths, come back to the middle and bend to the other side."
+  ]
+ },
+ {
+  "id": "yoga-happy-baby",
+  "name": "Happy Baby Pose (Ananda Balasana)",
+  "group": "yoga",
+  "muscles": [
+   "hips",
+   "inner thighs"
+  ],
+  "secondary": [
+   "lower back"
+  ],
+  "equipment": "bodyweight",
+  "level": "beginner",
+  "steps": [
+   "Lie on your back and bring your knees towards your chest.",
+   "Hold the outsides of your feet, or your shins, with your hands.",
+   "Open your knees wider than your body and press your feet gently into your hands.",
+   "Rock softly from side to side for five breaths and release."
+  ]
+ }
+]

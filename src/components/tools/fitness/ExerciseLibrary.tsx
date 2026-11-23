@@ -24,7 +24,7 @@ const Card: React.FC<{ item: Exercise }> = ({ item }) => {
   return (
     <li className="overflow-hidden rounded-xl border border-slate-200 bg-white">
       <div className="relative aspect-[3/2] bg-slate-100">
-        <img src={imageUrl(item.id, 0)} alt={`${item.name}: start and end position`} width={360} height={240} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={imageUrl(item.id, 0)} alt={item.group === 'yoga' ? `${item.name}: start and hold position` : `${item.name}: start and end position`} width={360} height={240} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
         <img src={imageUrl(item.id, 1)} alt="" aria-hidden="true" width={360} height={240} loading="lazy" decoding="async" className="mdu-ex-b absolute inset-0 h-full w-full object-cover" />
       </div>
       <div className="space-y-2 p-3">
@@ -107,7 +107,7 @@ export const ExerciseLibrary: React.FC = () => {
       })}
 
       <p className="mt-6 text-center text-[11px] text-slate-500">
-        General information, not medical advice. Start light, keep good form and stop if something hurts. Photos and instructions come from the public-domain free-exercise-db project.
+        General information, not medical advice. Start light, keep good form and stop if something hurts. Photos and instructions come from the public-domain free-exercise-db project. The yoga pictures are our own line drawings. Move slowly into any pose and never force it.
       </p>
     </section>
   );

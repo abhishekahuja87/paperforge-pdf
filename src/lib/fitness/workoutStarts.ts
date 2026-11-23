@@ -69,4 +69,20 @@ export const QUICK_STARTS: QuickStart[] = [
       cooldown: ['cat-stretch', 'spinal-stretch', 'child-s-pose'],
     },
   },
+  {
+    id: 'yoga-morning', label: 'Morning yoga', blurb: 'Gentle standing and floor poses to start the day.', title: 'Morning yoga',
+    blocks: {
+      warmup: ['yoga-easy-pose', 'cat-stretch', 'yoga-mountain-pose'],
+      main: ['yoga-standing-forward-fold', 'yoga-chair-pose', 'yoga-warrior-one', 'yoga-warrior-two', 'yoga-triangle-pose', 'yoga-downward-facing-dog', 'yoga-cobra-pose'],
+      cooldown: ['yoga-childs-pose', 'yoga-seated-forward-bend', 'yoga-corpse-pose'],
+    },
+  },
+  {
+    id: 'yoga-evening', label: 'Evening wind-down', blurb: 'Slow poses on the floor to relax before sleep.', title: 'Evening wind-down',
+    blocks: {
+      warmup: ['yoga-easy-pose', 'cat-stretch'],
+      main: ['yoga-low-lunge', 'yoga-garland-pose', 'yoga-bridge-pose', 'yoga-happy-baby', 'yoga-seated-forward-bend'],
+      cooldown: ['yoga-childs-pose', 'yoga-corpse-pose'],
+    },
+  },
 ];

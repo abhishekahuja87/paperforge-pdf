@@ -7,6 +7,8 @@ import {
   type BlockId, type WorkoutItem, type WorkoutPlan,
 } from '../../../lib/fitness/workout';
 import { QUICK_STARTS, type QuickStart } from '../../../lib/fitness/workoutStarts';
+import { buildWorkout, type BuildOptions } from '../../../lib/fitness/buildWorkout';
+import { BuildWorkoutPanel } from './BuildWorkoutPanel';
 import { WorkoutBlockEditor } from './WorkoutBlockEditor';
 import { WorkoutBoard } from './WorkoutBoard';
 import { ThemePicker } from '../shared/ThemePicker';
@@ -45,6 +47,7 @@ export const WorkoutPlanner: React.FC = () => {
   const [work, setWork] = useState(40);
   const [rest, setRest] = useState(15);
   const [activeStart, setActiveStart] = useState<string | null>(null);
+  const [lastBuild, setLastBuild] = useState<BuildOptions | null>(null);
   const listsRef = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState<'slides' | 'board' | null>(null);
 
@@ -64,6 +67,18 @@ export const WorkoutPlanner: React.FC = () => {
     setActiveStart(start.id);
     setNotice(`Loaded ${start.label}. Change anything below.`);
     // On a phone the lists are below the buttons, so bring them into view to show what was picked.
+    window.setTimeout(() => listsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  };
+  const applyBuild = (options: BuildOptions) => {
+    const built = buildWorkout(options);
+    const toItems = (ids: string[]): WorkoutItem[] => ids.flatMap((id) => { const exercise = BY_ID.get(id); return exercise ? [itemFromExercise(exercise, exercise.group === 'yoga' ? 'Hold and breathe' : '')] : []; });
+    setPrevious(plan);
+    setPlan((current) => ({ ...current, title: built.title.charAt(0).toUpperCase() + built.title.slice(1), blocks: { warmup: toItems(built.blocks.warmup), main: toItems(built.blocks.main), cooldown: toItems(built.blocks.cooldown) } }));
+    setWork(built.work);
+    setRest(built.rest);
+    setActiveStart(null);
+    setLastBuild(options);
+    setNotice(`Built a ${options.minutes} minute workout. Change anything below, or press the button again for different moves.`);
     window.setTimeout(() => listsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
   };
   const clearAll = () => {
@@ -95,6 +110,8 @@ export const WorkoutPlanner: React.FC = () => {
           <label className={LABEL}>Gym or trainer (optional)<input type="text" value={plan.place} onChange={(event) => setPlan({ ...plan, place: event.target.value })} placeholder="For example your gym name" className={FIELD} /></label>
           <label className={LABEL}>Date<input type="date" value={plan.date} onChange={(event) => setPlan({ ...plan, date: event.target.value })} className={FIELD} /></label>
         </div>
+
+        <BuildWorkoutPanel onBuild={applyBuild} last={lastBuild} />
 
         <div className="space-y-2">
           <h2 className="text-sm font-black text-stone-900">Quick start</h2>

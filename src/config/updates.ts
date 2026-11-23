@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-23',
+    path: '/workout-planner',
+    tool: 'Workout Planner',
+    title: 'Build me a workout, 21 yoga poses and about 140 more exercises',
+    summary: 'The Workout Planner can now build a 5, 10, 15, 20 or 30 minute workout with or without equipment, for the whole body, upper or lower body, core, cardio, stretching or yoga, and you can change every move afterwards. The Exercise Library has 339 exercises, stretches and yoga poses, with pictures that also work in the Interval Timer, Routine Display, slideshow and one-screen view. Two new quick plans: Morning yoga and Evening wind-down.',
+  },
+  {
+    date: '2026-11-23',
     path: '/guides',
     tool: 'Guides and section pages',
     title: 'Clearer answers that link straight to the tool',
