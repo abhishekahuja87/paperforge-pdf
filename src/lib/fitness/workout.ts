@@ -37,6 +37,9 @@ export type Slide =
 
 export const INTRO_SECONDS = 8;
 
+/** The browser storage key the Workout Planner keeps its plan under. Other tools write a plan here to open it in the planner. */
+export const PLAN_STORAGE_KEY = 'mdu-workout-plan-v1';
+
 let counter = 0;
 export const newKey = (): string => `w${Date.now().toString(36)}${(counter += 1).toString(36)}`;
 

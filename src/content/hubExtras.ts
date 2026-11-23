@@ -153,6 +153,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Find the size of a court or ground", tool: "sports-court-size-guide", name: "Sports Court and Ground Size Guide", note: "Drawn to scale in metres and feet, with a marking plan." },
       { task: "Find an exercise and how to do it", tool: "exercise-library", name: "Exercise Library", note: "Gym and home exercises with moving pictures." },
       { task: "Plan today's workout and show it on a screen", tool: "workout-planner", name: "Workout Planner and Gym Display", note: "Warm-up, main and cool-down with your own entries." },
+      { task: "Follow a fixed 3, 4 or 5 day plan", tool: "weekly-workout-plans", name: "Weekly Workout Plans", note: "Gym, home and yoga plans that cover every muscle." },
       { task: "Time Tabata, HIIT or circuit rounds", tool: "interval-circuit-timer", name: "Interval and Circuit Timer", note: "Work and rest rounds with beeps." },
       { task: "Show any routine step by step", tool: "step-by-step-routine-display", name: "Step-by-Step Routine Display", note: "Stretches with pictures, or any timed steps." },
       { task: "Check your BMI", tool: "bmi-calculator", name: "BMI Calculator", note: "Indian and WHO categories." },

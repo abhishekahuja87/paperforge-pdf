@@ -99,7 +99,11 @@ export const TimedPlayer: React.FC<Props> = ({ slides, label, loop = false, show
           {slide.chip && <p className={`text-[clamp(0.95rem,2vw,1.6rem)] font-bold uppercase tracking-wider ${muted}`}>{slide.chip}</p>}
           {slide.video && <video key={slide.video} src={slide.video} autoPlay muted loop playsInline className="max-h-[38vh] max-w-full rounded-2xl bg-black" />}
           {slide.image && !slide.video && (slide.image2
-            ? <span className="relative block aspect-[3/2] w-[min(100%,calc(34vh*1.5))] overflow-hidden rounded-2xl bg-stone-200"><img src={slide.image} alt="" className="absolute inset-0 h-full w-full object-cover" /><img src={slide.image2} alt="" aria-hidden="true" className="mdu-wk-b absolute inset-0 h-full w-full object-cover" /></span>
+            ? <span className="relative block aspect-[3/2] w-[min(100%,calc(34vh*1.5))] overflow-hidden rounded-2xl bg-stone-200">
+              {slide.middle && slide.middle.length === 2
+                ? [slide.image, ...slide.middle, slide.image2].map((src, layer) => <img key={layer} src={src} alt="" aria-hidden={layer === 0 ? undefined : true} className={`absolute inset-0 h-full w-full object-cover${layer === 0 ? '' : ` mdu-y${layer}`}`} />)
+                : <><img src={slide.image} alt="" className="absolute inset-0 h-full w-full object-cover" /><img src={slide.image2} alt="" aria-hidden="true" className="mdu-wk-b absolute inset-0 h-full w-full object-cover" /></>}
+            </span>
             : <img src={slide.image} alt="" className="max-h-[34vh] max-w-full rounded-2xl bg-white object-contain" />)}
           <h2 className={`break-words font-black leading-[1.05] tracking-tight ${slide.rows ? 'text-[clamp(1.8rem,5vw,4rem)]' : 'text-[clamp(2.2rem,8vw,7rem)]'}`}>{slide.title}</h2>
           {slide.rows && (

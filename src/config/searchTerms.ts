@@ -99,6 +99,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'number-to-words': ['amount in words', 'number in words for cheque', 'rupees in words', 'write number in english'],
   'sports-court-size-guide': ['badminton court size', 'tennis court dimensions', 'football pitch size', 'cricket pitch length', 'volleyball court size', 'kabaddi court size'],
   'workout-planner': ['5 minute workout', '10 minute workout', 'build a workout', 'daily workout plan', 'gym slideshow', 'warm up and cool down plan', 'push pull legs', 'workout timer', 'gym tv display'],
+  'weekly-workout-plans': ['3 day workout plan', '4 day workout split', '5 day workout plan', 'full body workout routine', 'upper lower split', 'weekly yoga plan', 'beginner gym routine', 'home workout schedule'],
   'exercise-library': ['yoga poses', 'yoga poses with pictures', 'how to do a squat', 'home workout', 'exercise instructions', 'bodyweight exercises', 'gym exercises'],
   'solar-system-explorer': ['planets in order', 'planet sizes', 'solar system for kids', 'distance of planets from sun'],
   'printable-paper-maker': ['graph paper pdf', 'dot grid printable', 'lined paper', 'cornell notes', 'isometric paper', 'free printable paper'],

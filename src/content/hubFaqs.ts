@@ -123,7 +123,7 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
   '/sports-and-fitness-tools': {
     related: ['/printables-and-templates', '/everyday-tools', '/display-and-presentation-tools'],
     faqs: [
-      { q: 'What is the size of a badminton court?', a: '{sports-court-size-guide} draws the court to scale in metres and feet, with a marking plan and how to play. Court and ground sizes for 13 sports are on the same page. For an official event, check the size in the rules of your sports body.' },
+      { q: 'What is the size of a badminton court?', a: '{sports-court-size-guide} draws the court to scale in metres and feet, with a marking plan, how to play the sport and its playing rules. Court and ground sizes for 13 sports are on the same page. For an official event, check the size in the rules of your sports body.' },
       { q: 'Can I check whether a court fits my space?', a: 'Yes. {sports-court-size-guide} includes a check of which courts fit the space you have. Enter its length and width and read which courts fit.' },
       { q: 'How do I mark a court on the ground?', a: 'Use the marking plan in {sports-court-size-guide} for the lengths to measure. Measure carefully and check the result against the rules of your sports body.' },
       { q: 'Is there a scoreboard I can use at a match?', a: '{team-scoreboard-display} lets you add teams, tap to add points and show big scores on a projector or TV. Scores are saved on your device.' },

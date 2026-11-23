@@ -273,3 +273,14 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | P7 | Morning yoga and Evening wind-down quick plans load | | |
 | P8 | Equipment filter label reads Bands, kettlebell, ball or other | | |
 | P9 | Pictures load on a phone without slowing the page | | |
+
+### Weekly workout plans, smoother yoga, sport rules (23 Nov)
+| # | Check | Result | Notes |
+|---|---|---|---|
+| Q1 | All nine plans load and each day lists warm-up, main and cool-down with pictures | | |
+| Q2 | Copy the whole week and Copy this day work | | |
+| Q3 | Show this day on a screen opens the Workout Planner with the day filled in | | |
+| Q4 | Yoga pose pictures move start, middle, hold and back in the Library, slideshow, one-screen view, Interval Timer and Routine Display | | |
+| Q5 | Reduce motion shows a still start picture | | |
+| Q6 | Each sport shows "How to play <sport>" and "<sport> playing rules" | | |
+| Q7 | Rules read correctly for the sports you know well | | |

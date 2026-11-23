@@ -20,6 +20,8 @@ export interface TimedSlide {
   image?: string;
   /** A second picture that fades in and out over the first (the two photos of an exercise). */
   image2?: string;
+  /** Two pictures between image and image2, for yoga poses. */
+  middle?: string[];
   /** A video played on the slide. Only lasts for the visit, so it is never saved. */
   video?: string;
   rows?: BoardRow[];
@@ -72,14 +74,14 @@ export function buildIntervalSlides(config: IntervalConfig): TimedSlide[] {
 }
 
 // ---- Yoga, stretch or any step-by-step sequence ----
-export interface SequenceStep { name: string; note: string; seconds: number; image?: string; image2?: string }
+export interface SequenceStep { name: string; note: string; seconds: number; image?: string; image2?: string; middle?: string[] }
 
 export function buildSequenceSlides(steps: SequenceStep[], prepare: number, label: string): TimedSlide[] {
   const slides: TimedSlide[] = [];
   const first = steps[0];
   if (prepare > 0 && first) slides.push({ key: 'prepare', chip: 'Get ready', title: 'Get ready', note: 'Find a comfortable place and breathe steadily.', seconds: prepare, tone: 'info', next: first.name });
   steps.forEach((step, index) => {
-    slides.push({ key: `s-${index}`, chip: `${label} ${index + 1} of ${steps.length}`, title: step.name, note: step.note.trim() || undefined, image: step.image, image2: step.image2, seconds: Math.max(1, step.seconds), tone: 'info', next: steps[index + 1]?.name ?? 'Finish' });
+    slides.push({ key: `s-${index}`, chip: `${label} ${index + 1} of ${steps.length}`, title: step.name, note: step.note.trim() || undefined, image: step.image, image2: step.image2, middle: step.middle, seconds: Math.max(1, step.seconds), tone: 'info', next: steps[index + 1]?.name ?? 'Finish' });
   });
   slides.push({ key: 'done', title: 'Done', note: 'Take a slow breath and relax.', seconds: 0, tone: 'info' });
   return slides;

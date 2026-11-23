@@ -19,6 +19,20 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-23',
+    path: '/sports-court-size-guide',
+    tool: 'Sports Court and Ground Size Guide',
+    title: 'Playing rules for every sport, and the sport name in the headings',
+    summary: 'Each sport now has a section called, for example, "Volleyball playing rules" with serving, faults, positions and timing, next to "How to play Volleyball". A short note reminds you to check the current rules of your sports body.',
+  },
+  {
+    date: '2026-11-23',
+    path: '/weekly-workout-plans',
+    tool: 'Weekly Workout Plans',
+    title: 'New: fixed 3, 4 and 5 day gym, home and yoga plans',
+    summary: 'Nine plans that never change, so you can repeat the same week and watch yourself improve. Every main muscle is covered, each move has a picture, and a day opens in the Workout Planner to show on a screen. Yoga poses now move through four pictures instead of two, everywhere pictures are shown.',
+  },
+  {
+    date: '2026-11-23',
     path: '/workout-planner',
     tool: 'Workout Planner',
     title: 'Build me a workout, 21 yoga poses and about 140 more exercises',

@@ -46,7 +46,16 @@
       },
       "refs": {
         "net": "from the net"
-      }
+      },
+      "rules": [
+        "Singles is played on the narrower court, inside the inner side lines. Doubles uses the full width, but the serve must land short of the doubles long service line.",
+        "The server's feet must stay inside the service court, with both feet touching the floor and still until the serve is hit.",
+        "A fault is called if the shuttle lands outside the lines, passes through or under the net, touches the ceiling, a player or their clothes, or is hit twice in a row by one player.",
+        "A player may not touch the net with the racket or body, or hit the shuttle before it has crossed the net.",
+        "A let, which means the rally is played again, is called if the shuttle is caught on the net after passing over it, or if the server or receiver was not ready.",
+        "Players change ends after each game, and in the deciding game when a side first reaches 11 points.",
+        "There is an interval of 60 seconds when the leader reaches 11 points and up to 120 seconds between games."
+      ]
     },
     "tennis": {
       "name": "Tennis",
@@ -90,7 +99,15 @@
       },
       "refs": {
         "net": "from the net"
-      }
+      },
+      "rules": [
+        "The server has two attempts. A serve is a fault if it misses the diagonally opposite service box or the server steps on the baseline before hitting. Two faults in a row, a double fault, lose the point.",
+        "A serve that touches the net and still lands in the correct box is a let and is served again.",
+        "The server stands behind the baseline, between the centre mark and the side line, and serves from the right side at the start of each game, then alternates sides.",
+        "A ball that touches a line is in. A player loses the point if the ball bounces twice on their side, or if they hit it out or into the net, touch the net, or hit the ball twice.",
+        "In doubles the outer lane, the tramlines, is in play, and partners take turns to serve whole games.",
+        "In a tie-break, players change ends after every six points. Players switch ends after the first game and then after every odd game of a set."
+      ]
     },
     "pickleball": {
       "name": "Pickleball",
@@ -133,7 +150,15 @@
       },
       "refs": {
         "net": "from the net"
-      }
+      },
+      "rules": [
+        "The serve must land in the diagonally opposite service court beyond the kitchen line. A serve that lands on the kitchen line is short and is a fault.",
+        "Under current USA Pickleball rules, a serve that clips the net and lands in the correct court is in play.",
+        "In doubles the first serving side gets only one serve at the start of a game. After that each side gets two serves before the serve passes to the other side.",
+        "The score is called as three numbers: the serving side's score, the receiving side's score and the server number, 1 or 2.",
+        "A fault is called if the ball is hit out or into the net, if the double-bounce rule is broken, or if a player volleys the ball while in the kitchen.",
+        "A ball that lands on any line except the kitchen line on a serve is in."
+      ]
     },
     "basketball": {
       "name": "Basketball",
@@ -181,7 +206,15 @@
         "semicircle": "Free-throw semicircle",
         "rimHeight": "Rim height: {v1} above the floor",
         "twoPoint": "Two-point arc radius: {v1} (not drawn)"
-      }
+      },
+      "rules": [
+        "Travelling is taking more than two steps without dribbling. A double dribble is dribbling with both hands at once, or stopping and starting to dribble again.",
+        "Once a team has brought the ball into the frontcourt it may not pass it back into the backcourt. A team has 8 seconds to bring the ball into the frontcourt.",
+        "Under FIBA rules a team has 24 seconds to shoot. The clock is reset to 14 seconds after an offensive rebound.",
+        "A player who commits five personal fouls must leave the game. After a team has four fouls in a period, the other team gets free throws for each later foul.",
+        "A tied game goes into extra periods of 5 minutes until one team leads.",
+        "In 3x3 a game lasts 10 minutes or until a team reaches 21 points, with a 12-second shot clock."
+      ]
     },
     "volleyball": {
       "name": "Volleyball",
@@ -222,7 +255,17 @@
       },
       "refs": {
         "net": "from the net"
-      }
+      },
+      "rules": [
+        "The server stands behind the end line. A serve that touches the net and goes over is still in play. A ball that lands on a line is in.",
+        "A team may touch the ball up to three times, not counting a block. One player may not touch it twice in a row, except on a block or the first touch after a hard-hit ball.",
+        "The ball must be hit cleanly. Lifting, carrying, holding or catching the ball is a fault.",
+        "Touching the net during play is a fault. A player may step over the centre line only if part of the foot stays on or above it.",
+        "Back-row players may not attack the ball above the top of the net from in front of the attack line, 3 m from the net.",
+        "A libero is a defensive specialist in a different colour shirt and may not attack the ball above the top of the net.",
+        "Each team may take two timeouts of 30 seconds in a set and may make up to six substitutions.",
+        "In beach volleyball there is no libero, and teams switch sides every 7 points (every 5 points in the deciding set)."
+      ]
     },
     "football": {
       "name": "Football (soccer)",
@@ -275,7 +318,15 @@
         "penaltyArc": "Penalty arc",
         "cornerArc": "Corner arc",
         "goal": "Goal: {v1} wide inside the posts, crossbar {v2} high"
-      }
+      },
+      "rules": [
+        "A player is in an offside position if any part of their head, body or feet is nearer the opponent's goal line than both the ball and the second-last opponent when a teammate plays the ball. It is an offence only if they then take part in play. There is no offside from a goal kick, throw-in or corner kick.",
+        "A direct free kick is given for kicking, tripping, pushing or handling the ball. An indirect free kick is given for offences such as dangerous play. A direct free kick offence inside the defender's own penalty area gives a penalty kick.",
+        "The referee shows a yellow card as a caution and a red card to send a player off. Two yellow cards in a match mean a red card.",
+        "The referee adds time at the end of each half for stoppages.",
+        "Most competitions allow up to five substitutions per team, but this depends on the competition.",
+        "In knockout matches a draw is usually followed by two periods of extra time of 15 minutes, then a penalty shoot-out if the score is still level."
+      ]
     },
     "cricket": {
       "name": "Cricket",
@@ -320,7 +371,15 @@
         "boundary": "Boundary",
         "pitch": "Pitch",
         "fieldingArc": "Fielding circle (30 yards)"
-      }
+      },
+      "rules": [
+        "A wide or a no-ball gives the batting side an extra run and the ball must be bowled again. In limited-overs cricket the ball after a no-ball is a free hit.",
+        "A batter can be out bowled, caught, leg before wicket (the ball hits the leg or pad and would have gone on to hit the stumps), run out, stumped or hit wicket.",
+        "After each over the bowlers change ends and a different bowler must bowl the next over. No bowler bowls two overs in a row.",
+        "A bowler's elbow may straighten by no more than 15 degrees as the ball is bowled.",
+        "In T20 each side bats for 20 overs and in a one-day match for 50 overs. There are fielding restrictions in the early overs of limited-overs matches.",
+        "Two umpires control the match. One stands behind the stumps at the bowler's end and the other at square leg."
+      ]
     },
     "hockey": {
       "name": "Hockey (field)",
@@ -364,7 +423,15 @@
         "penaltySpot": "Penalty spot",
         "goalHeight": "Goal height: {v1}",
         "lineWidth": "Lines are {v1} wide"
-      }
+      },
+      "rules": [
+        "Players may only use the flat side of the stick. Playing the ball with the rounded back side of the stick is a foul.",
+        "A player may not use the body or stick to shield the ball from an opponent. This is called obstruction.",
+        "On a free hit the opponents must stand at least 5 m away.",
+        "A penalty corner is given for certain fouls by the defenders inside their circle, or when defenders play the ball over their own back line on purpose.",
+        "A green card sends a player off for 2 minutes, a yellow card for at least 5 minutes and a red card for the rest of the match.",
+        "A knockout match that ends level may be decided by a shoot-out, where each attacker has 8 seconds to score against the goalkeeper."
+      ]
     },
     "kabaddi": {
       "name": "Kabaddi",
@@ -406,7 +473,14 @@
       "parts": {},
       "refs": {
         "net": "from the midline"
-      }
+      },
+      "rules": [
+        "In many forms of the game the raider must keep chanting kabaddi on a single breath while in the other half. Check which rules your event uses.",
+        "A raider is out if they step outside the boundary lines, or if they are held so that they cannot return to their own half.",
+        "A super tackle scores two points for the defenders when the raider is caught while three or fewer defenders are left on the mat.",
+        "When a team scores a point, one of its players who is out returns to the mat, in the order they went out.",
+        "In league rules, after two raids in a row without a point, the next raid is a do-or-die raid, and the raider is out if they do not score."
+      ]
     },
     "khoKho": {
       "name": "Kho Kho",
@@ -441,7 +515,14 @@
         "centralLane": "Central lane is {v1} wide",
         "crossLane": "Each of the 8 cross lanes is {v1} wide",
         "poleHeight": "Poles are {v1} high (lower value of 120-125 cm)"
-      }
+      },
+      "rules": [
+        "Sitting chasers must stay in their squares facing alternate directions and may not stand up or move until a teammate touches them and says Kho.",
+        "The active chaser may only run forward in the direction they face and may change direction only after going around a post at the end of the lane.",
+        "A runner is out when touched by the active chaser, or when they step outside the boundary.",
+        "The next batch of three runners enters when all three runners in the previous batch are out.",
+        "Each runner put out scores one point for the chasing team."
+      ]
     },
     "tableTennis": {
       "name": "Table tennis",
@@ -485,7 +566,15 @@
       },
       "refs": {
         "net": "from the net"
-      }
+      },
+      "rules": [
+        "To serve, the ball rests on the open, flat palm, is thrown up at least 16 cm and is struck as it falls, behind the end line and above the level of the table.",
+        "A serve that touches the net and lands in the correct court is a let and is served again.",
+        "In doubles the serve goes diagonally from the right half of the table to the receiver's right half, and partners must hit the ball in turn.",
+        "A player loses the point if they move the table, touch the net or the table with the free hand or hit the ball twice.",
+        "Players change ends after each game, and in the last game of a match when one side reaches 5 points.",
+        "The two sides of the racket must be different colours, one red and one black. Each player or side may take one timeout of up to a minute in a match."
+      ]
     },
     "squash": {
       "name": "Squash",
@@ -523,7 +612,15 @@
         "backWall": "Back wall: top line {v1} high",
         "tin": "Tin: {v1} high",
         "serviceLine": "Service line on the front wall: {v1} high"
-      }
+      },
+      "rules": [
+        "At serve one foot must be inside the service box. The serve must hit the front wall above the service line and land in the opposite quarter of the court.",
+        "The ball is out if it hits the tin, the board at the bottom of the front wall, or the out line.",
+        "Players must give the opponent a clear view of the ball, room to swing and a direct line to the front wall. If not, the referee can call a let, where the rally is played again, or award a stroke, which is a point.",
+        "The server serves again from the other side of the court after each point they win.",
+        "The rest between games is 90 seconds.",
+        "Eye protection is strongly recommended."
+      ]
     }
   },
   "ui": {
@@ -585,7 +682,10 @@
     "refEnd": "from the end line",
     "refNet": "from the centre line",
     "refSide": "from the side line",
-    "radiusWord": "Radius"
+    "radiusWord": "Radius",
+    "howToTitle": "How to play {sport}",
+    "rulesTitle": "{sport} playing rules",
+    "rulesLead": "A short summary of common rules. Official rules differ by level, age group and event, and they change, so check the current rules of your sports body before an official match."
   },
   "marking": {
     "heading": "How to mark this court",

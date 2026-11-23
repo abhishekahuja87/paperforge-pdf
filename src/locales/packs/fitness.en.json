@@ -35,6 +35,24 @@
         "Start a view",
         "Tap Start slideshow for one big exercise at a time, or Show all on one screen to see warm-up, main and cool-down together with small pictures and a timer on each exercise."
       ]
+    ],
+    "weekly-workout-plans": [
+      [
+        "Choose gym, home or yoga",
+        "Tap Gym for barbells, dumbbells and machines, At home for body weight and a pair of dumbbells, or Yoga for poses and stretches with no equipment."
+      ],
+      [
+        "Pick 3, 4 or 5 days",
+        "Three days is full body each time and suits beginners. Four days splits upper and lower body. Five days gives one muscle area a day plus a lighter day. The days to train on are shown under the title."
+      ],
+      [
+        "Open a day and look at the moves",
+        "Each day lists a warm-up, the main moves and a cool-down, each with a picture, the muscles it works and the sets and reps or the hold time. The plan is fixed, so you can follow the same week again and again."
+      ],
+      [
+        "Show it or copy it",
+        "Choose Show this day on a screen to open it in the Workout Planner with timers and pictures, or copy the day or the whole week as text for a chat or a note."
+      ]
     ]
   },
   "pageGuides": {
@@ -44,7 +62,7 @@
       "faq": [
         [
           "Where do the pictures and instructions come from?",
-          "They come from the free-exercise-db project, an open dataset released into the public domain. Each exercise has a photo of the start position and a photo of the end position. This page fades between the two so the movement is easy to follow. We chose 318 common exercises and stretches from the larger dataset. The 21 yoga poses are different: their pictures are our own line drawings, each showing the start and the hold."
+          "They come from the free-exercise-db project, an open dataset released into the public domain. Each exercise has a photo of the start position and a photo of the end position. This page fades between the two so the movement is easy to follow. We chose 318 common exercises and stretches from the larger dataset. The 21 yoga poses are different: their pictures are our own line drawings, four for each pose, that move from the start into the hold and back."
         ],
         [
           "Is this medical advice? Are these exercises right for me?",
@@ -105,6 +123,40 @@
           "No. The plan stays in your browser, saved on this device only, and nothing you type is sent to {{siteName}}. The page still loads the exercise pictures, advertising and other resources from the network."
         ]
       ]
+    },
+    "fitnessWeeklyPlans": {
+      "title": "Weekly Workout Plans: Fixed 3, 4 and 5 Day Gym, Home and Yoga Routines",
+      "subtitle": "Fixed weekly plans for the gym, home or yoga. Pick 3, 4 or 5 days and every main muscle is covered, with a picture for every move. Free, no sign-up.",
+      "faq": [
+        [
+          "Why are these plans fixed and not random?",
+          "A routine only works when you can repeat it and add a little weight or a few reps over the weeks. If the moves changed every day you could not tell whether you were improving. These plans stay the same, so you learn the moves and can see your progress."
+        ],
+        [
+          "Which plan should I choose, 3, 4 or 5 days?",
+          "Choose the number of days you can keep up for months, not the biggest number. Three full-body days suit beginners and busy weeks. Four days with two upper and two lower body days train each muscle twice a week. Five days gives each muscle area its own day, plus a lighter full-body day."
+        ],
+        [
+          "Do the plans cover every muscle?",
+          "Yes. The gym and home plans train the chest, upper back, lats, lower back, shoulders, biceps, triceps, quads, hamstrings, glutes, calves and abs across the week. We checked this against the muscles listed for every move in the Exercise Library. The yoga plans work the whole body, with a mix of legs, core, back and hips."
+        ],
+        [
+          "What does the home plan need?",
+          "Your body weight and a pair of dumbbells. A few muscles, such as the biceps and calves, are hard to train without any weight, so those moves use the dumbbells. Each move shows the equipment it needs, so you can swap or skip it."
+        ],
+        [
+          "Can I show a day on a gym or class screen?",
+          "Yes. Open a day and choose Show this day on a screen. The Workout Planner opens with that day filled in, and you can start the slideshow with pictures and timers or show the whole day on one screen. It replaces the plan saved in the planner, so copy it first if you want to keep the old one."
+        ],
+        [
+          "Are these plans medical advice?",
+          "No. They are general fitness routines, not advice for your body or any health condition. Start light, keep good form, stop if anything hurts and talk to a doctor first if you have an injury, a heart condition, are pregnant or have not exercised for a long time."
+        ],
+        [
+          "Is my choice uploaded or stored?",
+          "No. Everything runs in your browser and nothing you choose is sent to {{siteName}}. Opening a day in the Workout Planner saves it on this device only. The page still loads the exercise pictures, advertising and other resources from the network."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -161,6 +213,31 @@
           "paragraphs": [
             "The slideshow shows one exercise at a time with the date, the plan name and, if you want, the muscles, the steps and a countdown. The one-screen view shows the whole plan at once with small pictures, a timer on each exercise and a session clock, which suits a gym wall TV. Both work on a phone on a stand too.",
             "This page gives general information and not medical advice. Keep a light start, good form and a rest day between hard sessions for the same muscles, and stop if something hurts."
+          ]
+        }
+      ]
+    },
+    "weekly-workout-plans": {
+      "sections": [
+        {
+          "heading": "A fixed plan you can repeat",
+          "paragraphs": [
+            "Most people stop going to the gym because they never know what to do next. A fixed weekly plan answers that. You open the page, pick the number of days you can train, and the same warm-up, main moves and cool-down are waiting every week. Because the moves do not change, you can add a little weight or a rep each week and see yourself improve.",
+            "There are nine plans: 3, 4 and 5 days, each for the gym, for home and for yoga. Every plan lists the days of the week to train so the rest days fall in the right place, and every move has a picture, the muscles it works and the sets and reps or the hold time."
+          ]
+        },
+        {
+          "heading": "How the days are split",
+          "paragraphs": [
+            "Three days a week uses full-body sessions on alternate days. Each session trains legs, chest, back, shoulders, arms and core, with different moves on each day so no muscle gets bored. Four days splits the week into two upper-body days and two lower-body days, so every muscle is trained twice. Five days gives the chest and triceps, back and biceps, legs and glutes, and shoulders and core a day each, and ends with a lighter full-body and cardio day.",
+            "The gym and home plans were checked move by move against the muscles each exercise works, so the chest, back, shoulders, arms, legs, glutes, calves and abs are all trained in every plan. The yoga plans follow a similar rhythm: a flow, a strength and balance day, a hips and hamstrings day and a slow evening stretch."
+          ]
+        },
+        {
+          "heading": "Using the plans well",
+          "paragraphs": [
+            "Start with the plan that has fewer days than you think you can manage. A plan you finish is better than a bigger plan you drop. Begin with weights you can lift with good form, stop a rep or two before you are exhausted and add a little each week. On rest days a walk or gentle stretching is enough.",
+            "Choose Show this day on a screen to open any day in the Workout Planner, where you can run it as a slideshow with timers on a phone, a gym TV or a class screen. These are general routines and not medical advice, so check with a doctor first if you have an injury or a health condition."
           ]
         }
       ]
