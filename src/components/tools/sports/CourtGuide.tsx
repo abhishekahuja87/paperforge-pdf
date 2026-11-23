@@ -14,7 +14,7 @@ import CourtSetOut from './CourtSetOut';
 
 type SportText = {
   name: string; summary: string; variants: Record<string, string>; facts: Record<string, string>; marks: Record<string, string>;
-  margins: Record<string, string>; parts: Record<string, string>; refs?: { net?: string }; howToPlay: string[]; notes: string[];
+  margins: Record<string, string>; parts: Record<string, string>; refs?: { net?: string }; howToPlay: string[]; rules: string[]; notes: string[];
 };
 const sportsText = text.sports as unknown as Record<string, SportText>;
 const ui = text.ui;
@@ -125,8 +125,12 @@ const CourtGuide: React.FC = () => {
             <div className="mt-3"><CourtSetOut variant={variant} margin={margin} marking={marking} marks={copy.marks} label={`${copy.name}: ${marking.heading}`} clearCaption={ui.clearCaption} hint={ui.setOutHint} annotate={annotate} /></div>
           </details>
 
-          <h3 className="mt-5 text-sm font-semibold text-slate-900">{ui.howTo}</h3>
+          <h3 className="mt-5 text-sm font-semibold text-slate-900">{ui.howToTitle.replace('{sport}', copy.name)}</h3>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-700">{copy.howToPlay.map((line) => <li key={line}>{line}</li>)}</ul>
+
+          <h3 className="mt-5 text-sm font-semibold text-slate-900">{ui.rulesTitle.replace('{sport}', copy.name)}</h3>
+          <p className="text-[11px] text-slate-500">{ui.rulesLead}</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-700">{copy.rules.map((line) => <li key={line}>{line}</li>)}</ul>
 
           <h3 className="mt-5 text-sm font-semibold text-slate-900">{ui.notes}</h3>
           <p className="text-[11px] text-slate-500">{ui.notesLead}</p>

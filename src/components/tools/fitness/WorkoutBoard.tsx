@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Check, Pause, Play, RotateCcw, X } from 'lucide-react';
-import { EXERCISES, GROUPS, imageUrl } from '../../../lib/fitness/exercises';
+import { EXERCISES, GROUPS } from '../../../lib/fitness/exercises';
+import { ExercisePictures } from '../shared/ExercisePictures';
 import { BLOCKS, formatClock, formatDuration, formatPlanDate, type Timing, type WorkoutPlan } from '../../../lib/fitness/workout';
 import { FLIP_CSS } from '../shared/flipCss';
 import { THEME_STYLES } from '../../../lib/screens/themes';
@@ -133,8 +134,7 @@ export const WorkoutBoard: React.FC<Props> = ({ plan, timing, show, onClose }) =
                         </button>
                         {show.pictures && exercise && (
                           <span className="relative h-12 w-[4.5rem] shrink-0 overflow-hidden rounded-lg bg-stone-200">
-                            <img src={imageUrl(exercise.id, 0)} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-                            <img src={imageUrl(exercise.id, 1)} alt="" aria-hidden="true" loading="lazy" className="mdu-wk-b absolute inset-0 h-full w-full object-cover" />
+                            <ExercisePictures id={exercise.id} lazy />
                           </span>
                         )}
                         <span className="min-w-0 flex-1">

@@ -11,4 +11,8 @@ export const FITNESS_TOOLS: PackTool[] = [
     id: 'workout-planner', kind: 'workoutPlanner', guideKey: 'fitnessWorkoutPlanner', category: 'everyday', icon: 'dumbbell', tier: 'popular',
     keywords: ['workout planner', 'daily workout plan', 'gym workout display', 'gym slideshow', 'workout slideshow for gym tv', 'workout timer with exercises', 'push pull legs plan', 'mix day workout', 'home workout plan no equipment', 'workout schedule maker', 'exercise timer with pictures', 'gym class display screen', '5 minute workout', '10 minute workout no equipment', '15 minute home workout', '20 minute workout', 'build a workout', 'yoga routine timer'],
   }, fitness.toolCatalog),
+  definePackTool({
+    id: 'weekly-workout-plans', kind: 'weeklyWorkoutPlans', guideKey: 'fitnessWeeklyPlans', category: 'everyday', icon: 'dumbbell', tier: 'popular',
+    keywords: ['3 day workout plan', '4 day workout split', '5 day workout plan', 'weekly workout plan', 'full body workout plan', 'upper lower split', 'home workout plan', 'gym workout plan for beginners', 'weekly yoga plan', '3 day yoga routine', 'workout routine every muscle', 'fixed workout plan'],
+  }, fitness.toolCatalog),
 ];

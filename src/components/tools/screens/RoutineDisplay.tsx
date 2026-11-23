@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { Play } from 'lucide-react';
 import { calcCard, Note } from '../../finance/ui';
-import { EXERCISES, imageUrl, type Exercise } from '../../../lib/fitness/exercises';
+import { EXERCISES, framesOf, imageUrl, type Exercise } from '../../../lib/fitness/exercises';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';
 import { buildSequenceSlides, clampInt, formatDuration, readTheme, totalSeconds, type Theme } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
@@ -53,7 +53,7 @@ export const RoutineDisplay: React.FC = () => {
   const steps = useMemo(() => saved.rows.filter((row) => (row.name ?? '').trim()).map((row) => {
     const own = row.image || undefined;
     const library = row.exerciseId ? row.exerciseId : '';
-    return { name: row.name.trim(), note: row.note ?? '', seconds: clampInt(Number(row.seconds), 3, 3600, 30), image: own ?? (library ? imageUrl(library, 0) : undefined), image2: !own && library ? imageUrl(library, 1) : undefined };
+    return { name: row.name.trim(), note: row.note ?? '', seconds: clampInt(Number(row.seconds), 3, 3600, 30), image: own ?? (library ? imageUrl(library, 0) : undefined), image2: !own && library ? imageUrl(library, 1) : undefined, middle: !own && library && framesOf(library) >= 4 ? [imageUrl(library, 2), imageUrl(library, 3)] : undefined };
   }), [saved.rows]);
   const slides = useMemo(() => buildSequenceSlides(steps, clampInt(saved.prepare, 0, 120, 10), 'Step'), [steps, saved.prepare]);
   const update = (patch: Partial<Saved>) => setSaved({ ...saved, ...patch });

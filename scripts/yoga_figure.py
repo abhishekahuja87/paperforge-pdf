@@ -44,21 +44,31 @@ def joints(pose):
     return out
 
 
-def place(points):
-    """Centres the figure, scales it up to fill the picture and rests its lowest point on the floor. Returns the points and the scale."""
+def fit_scale(points):
+    """The scale that makes one figure fill the picture."""
     xs = [p[0] for p in points.values()]
     ys = [p[1] for p in points.values()]
     width = max(xs) - min(xs) + 2 * HEAD_R
     height = max(ys) - min(ys) + 2 * HEAD_R
-    scale = max(0.9, min(0.86 * W / width, 0.84 * FLOOR / height, 1.25))
+    return max(0.9, min(0.86 * W / width, 0.84 * FLOOR / height, 1.25))
+
+
+def place(points, fixed_scale=None):
+    """Centres the figure, scales it up to fill the picture and rests its lowest point on the floor. Returns the points and the scale.
+    Pass fixed_scale to draw every frame of one pose at the same size, so the figure does not jump in size while it moves."""
+    xs = [p[0] for p in points.values()]
+    ys = [p[1] for p in points.values()]
+    width = max(xs) - min(xs) + 2 * HEAD_R
+    height = max(ys) - min(ys) + 2 * HEAD_R
+    scale = fixed_scale if fixed_scale else fit_scale(points)
     cx = (min(xs) + max(xs)) / 2
     placed = {name: (W / 2 + (p[0] - cx) * scale, p[1] * scale) for name, p in points.items()}
     shift_y = (FLOOR - 6 * scale) - max(y for _, y in placed.values())
     return {name: (p[0], p[1] + shift_y) for name, p in placed.items()}, scale
 
 
-def draw_pose(pose, accent_tip=True):
-    pts, k = place(joints(pose))
+def draw_pose(pose, accent_tip=True, fixed_scale=None):
+    pts, k = place(joints(pose), fixed_scale)
     image = Image.new('RGB', (W * SS, H * SS), BG)
     draw = ImageDraw.Draw(image)
 
@@ -99,3 +109,22 @@ def draw_pose(pose, accent_tip=True):
 
 def pose(t, head=None, arms=((90, 90), (90, 90)), legs=((90, 90, 0), (90, 90, 0))):
     return {'t': t, 'head': t if head is None else head, 'an': arms[0], 'af': arms[1], 'ln': legs[0], 'lf': legs[1]}
+
+
+def blend(a, b, amount):
+    """A pose part of the way from a to b (amount 0 to 1). Each angle turns the short way round."""
+    def turn(x, y):
+        delta = (y - x + 180) % 360 - 180
+        return x + delta * amount
+    out = {}
+    for key in a:
+        if isinstance(a[key], tuple):
+            out[key] = tuple(turn(x, y) for x, y in zip(a[key], b[key]))
+        else:
+            out[key] = turn(a[key], b[key])
+    return out
+
+
+def frame_scale(poses):
+    """One scale for all frames of a pose: the smallest that fits every frame."""
+    return min(fit_scale(joints(p)) for p in poses)

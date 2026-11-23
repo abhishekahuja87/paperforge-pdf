@@ -13,6 +13,8 @@ export interface Exercise {
   secondary: string[];
   equipment: ExerciseEquipment;
   level: ExerciseLevel;
+  /** How many pictures there are: 2 (start and end) when left out, 4 for yoga poses (start, hold and two between). */
+  frames?: number;
   steps: string[];
 }
 
@@ -31,7 +33,7 @@ export const GROUPS: Array<{ id: ExerciseGroup; label: string; blurb: string }> 
   { id: 'core', label: 'Core', blurb: 'Abs, obliques and the muscles that keep your trunk steady.' },
   { id: 'cardio', label: 'Cardio', blurb: 'Machines and jumping or skipping moves that raise your heart rate.' },
   { id: 'stretching', label: 'Stretching', blurb: 'Stretches and mobility moves for warming up and cooling down.' },
-  { id: 'yoga', label: 'Yoga', blurb: 'Yoga poses with two line drawings each, the start and the hold. Move slowly, never force a pose and skip any that hurts.' },
+  { id: 'yoga', label: 'Yoga', blurb: 'Yoga poses drawn as four pictures that move from the start into the hold and back. Move slowly, never force a pose and skip any that hurts.' },
 ];
 
 export const EQUIPMENT: Array<{ id: ExerciseEquipment; label: string }> = [
@@ -48,7 +50,11 @@ export const LEVELS: Array<{ id: ExerciseLevel; label: string }> = [
   { id: 'advanced', label: 'Advanced' },
 ];
 
-export const imageUrl = (id: string, frame: 0 | 1): string => `/exercises/${id}/${frame}.webp`;
+export const imageUrl = (id: string, frame: 0 | 1 | 2 | 3): string => `/exercises/${id}/${frame}.webp`;
+
+const FRAMES = new Map(EXERCISES.map((item) => [item.id, item.frames ?? 2]));
+/** The number of pictures an exercise has. */
+export const framesOf = (id: string): number => FRAMES.get(id) ?? 2;
 
 export interface ExerciseFilter { group: ExerciseGroup | 'all'; equipment: ExerciseEquipment | 'all'; level: ExerciseLevel | 'all'; query: string }
 

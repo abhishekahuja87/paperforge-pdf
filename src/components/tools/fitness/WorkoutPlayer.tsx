@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react';
-import { EXERCISES, GROUPS, imageUrl } from '../../../lib/fitness/exercises';
+import { EXERCISES, GROUPS } from '../../../lib/fitness/exercises';
+import { ExercisePictures } from '../shared/ExercisePictures';
 import { BLOCKS, buildSlides, formatClock, formatPlanDate, type Slide, type Timing, type WorkoutPlan } from '../../../lib/fitness/workout';
 import { THEME_STYLES } from '../../../lib/screens/themes';
 import type { Theme } from '../../../lib/screens/timed';
@@ -151,8 +152,7 @@ export const WorkoutPlayer: React.FC<Props> = ({ plan, timing, show, onClose }) 
       <div className={`flex min-h-0 flex-1 flex-col gap-3 lg:grid lg:items-center lg:gap-6 ${showPictures ? 'lg:grid-cols-2' : ''}`}>
         {showPictures && exercise && (
           <div className="relative mx-auto aspect-[3/2] w-[min(100%,calc(32vh*1.5))] shrink-0 overflow-hidden rounded-2xl bg-stone-200 lg:w-full lg:max-w-3xl">
-            <img src={imageUrl(exercise.id, 0)} alt={`${exercise.name}: start position`} className="absolute inset-0 h-full w-full object-cover" />
-            <img src={imageUrl(exercise.id, 1)} alt="" aria-hidden="true" className="mdu-wk-b absolute inset-0 h-full w-full object-cover" />
+            <ExercisePictures id={exercise.id} alt={`${exercise.name}: start position`} />
           </div>
         )}
         <div className={`min-h-0 min-w-0 flex-1 space-y-3 overflow-y-auto lg:flex-none lg:overflow-visible ${showPictures ? '' : 'mx-auto max-w-4xl text-center'}`}>

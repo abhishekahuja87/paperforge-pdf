@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import { calcCard } from '../../finance/ui';
+import { ExercisePictures } from '../shared/ExercisePictures';
+import { MOTION_CSS } from '../shared/flipCss';
 import {
-  EQUIPMENT, EXERCISES, GROUPS, LEVELS, filterExercises, imageUrl,
+  EQUIPMENT, EXERCISES, GROUPS, LEVELS, filterExercises,
   type Exercise, type ExerciseEquipment, type ExerciseGroup, type ExerciseLevel,
 } from '../../../lib/fitness/exercises';
 
@@ -24,8 +26,7 @@ const Card: React.FC<{ item: Exercise }> = ({ item }) => {
   return (
     <li className="overflow-hidden rounded-xl border border-slate-200 bg-white">
       <div className="relative aspect-[3/2] bg-slate-100">
-        <img src={imageUrl(item.id, 0)} alt={item.group === 'yoga' ? `${item.name}: start and hold position` : `${item.name}: start and end position`} width={360} height={240} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
-        <img src={imageUrl(item.id, 1)} alt="" aria-hidden="true" width={360} height={240} loading="lazy" decoding="async" className="mdu-ex-b absolute inset-0 h-full w-full object-cover" />
+        <ExercisePictures id={item.id} lazy twoClass="mdu-ex-b" alt={item.group === 'yoga' ? `${item.name}: moving from the start into the hold` : `${item.name}: start and end position`} />
       </div>
       <div className="space-y-2 p-3">
         <h3 className="text-sm font-bold leading-snug text-slate-900">{item.name}</h3>
@@ -57,7 +58,7 @@ export const ExerciseLibrary: React.FC = () => {
 
   return (
     <section className={calcCard}>
-      <style>{ANIMATION_CSS}</style>
+      <style>{ANIMATION_CSS + MOTION_CSS}</style>
 
       <label className="relative block">
         <span className="sr-only">Search exercises or muscles</span>

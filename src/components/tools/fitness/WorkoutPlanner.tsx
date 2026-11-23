@@ -3,7 +3,7 @@ import { Check, Copy, LayoutGrid, Play, Trash2 } from 'lucide-react';
 import { calcCard, Note } from '../../finance/ui';
 import { EXERCISES } from '../../../lib/fitness/exercises';
 import {
-  BLOCKS, buildSlides, clampSeconds, emptyPlan, formatDuration, itemFromExercise, planItemCount, planToText, readSavedPlan, totalSeconds,
+  BLOCKS, PLAN_STORAGE_KEY, buildSlides, clampSeconds, emptyPlan, formatDuration, itemFromExercise, planItemCount, planToText, readSavedPlan, totalSeconds,
   type BlockId, type WorkoutItem, type WorkoutPlan,
 } from '../../../lib/fitness/workout';
 import { QUICK_STARTS, type QuickStart } from '../../../lib/fitness/workoutStarts';
@@ -14,7 +14,7 @@ import { WorkoutBoard } from './WorkoutBoard';
 import { ThemePicker } from '../shared/ThemePicker';
 import { DEFAULT_SHOW, WorkoutPlayer, type ShowOptions } from './WorkoutPlayer';
 
-const STORAGE_KEY = 'mdu-workout-plan-v1';
+const STORAGE_KEY = PLAN_STORAGE_KEY;
 const FIELD = 'min-h-10 w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-900 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100';
 const LABEL = 'block space-y-1 text-xs font-bold text-stone-700';
 const START_GROUP: Record<BlockId, 'all' | 'stretching' | 'cardio'> = { warmup: 'cardio', main: 'all', cooldown: 'stretching' };
