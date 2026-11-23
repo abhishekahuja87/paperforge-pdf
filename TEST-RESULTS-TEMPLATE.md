@@ -260,3 +260,16 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | O3 | Tool pages link other tools, never themselves | | |
 | O4 | Older iPhone or Safari loads these pages | | |
 | O5 | Pre-rendered HTML shows no { } markers | | |
+
+### Exercise library, yoga and Build me a workout (23 Nov)
+| # | Check | Result | Notes |
+|---|-------|--------|-------|
+| P1 | 5, 10, 15, 20, 30 minute builds fill all three parts, time close to chosen | | |
+| P2 | With and without equipment give different moves; no kit in no-equipment builds | | |
+| P3 | Yoga focus ends with Corpse pose | | |
+| P4 | Build another changes moves; Undo restores the previous plan | | |
+| P5 | Yoga group shows 21 poses with two pictures each | | |
+| P6 | Yoga poses can be added in Interval Timer, Routine Display and slideshow | | |
+| P7 | Morning yoga and Evening wind-down quick plans load | | |
+| P8 | Equipment filter label reads Bands, kettlebell, ball or other | | |
+| P9 | Pictures load on a phone without slowing the page | | |

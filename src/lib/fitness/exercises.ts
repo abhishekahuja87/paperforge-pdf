@@ -1,6 +1,7 @@
 import library from '../../data/exerciseLibrary.json';
+import yoga from '../../data/yogaLibrary.json';
 
-export type ExerciseGroup = 'chest' | 'back' | 'shoulders' | 'arms' | 'legs' | 'core' | 'cardio' | 'stretching';
+export type ExerciseGroup = 'chest' | 'back' | 'shoulders' | 'arms' | 'legs' | 'core' | 'cardio' | 'stretching' | 'yoga';
 export type ExerciseEquipment = 'bodyweight' | 'dumbbell' | 'barbell' | 'machine' | 'other';
 export type ExerciseLevel = 'beginner' | 'intermediate' | 'advanced';
 
@@ -15,8 +16,11 @@ export interface Exercise {
   steps: string[];
 }
 
-/** Hand-picked exercises from the open free-exercise-db dataset. See scripts/build-exercise-library.py. */
-export const EXERCISES = library as Exercise[];
+/**
+ * Exercises and stretches from the open free-exercise-db dataset (scripts/build-exercise-library.py, scripts/build-more-exercises.py),
+ * then the yoga poses, which have pictures we drew ourselves (scripts/build-yoga-library.py). The order is the order in the lists.
+ */
+export const EXERCISES = [...(library as Exercise[]), ...(yoga as Exercise[])];
 
 export const GROUPS: Array<{ id: ExerciseGroup; label: string; blurb: string }> = [
   { id: 'chest', label: 'Chest', blurb: 'Pressing and fly movements for the chest.' },
@@ -27,6 +31,7 @@ export const GROUPS: Array<{ id: ExerciseGroup; label: string; blurb: string }> 
   { id: 'core', label: 'Core', blurb: 'Abs, obliques and the muscles that keep your trunk steady.' },
   { id: 'cardio', label: 'Cardio', blurb: 'Machines and jumping or skipping moves that raise your heart rate.' },
   { id: 'stretching', label: 'Stretching', blurb: 'Stretches and mobility moves for warming up and cooling down.' },
+  { id: 'yoga', label: 'Yoga', blurb: 'Yoga poses with two line drawings each, the start and the hold. Move slowly, never force a pose and skip any that hurts.' },
 ];
 
 export const EQUIPMENT: Array<{ id: ExerciseEquipment; label: string }> = [
@@ -34,7 +39,7 @@ export const EQUIPMENT: Array<{ id: ExerciseEquipment; label: string }> = [
   { id: 'dumbbell', label: 'Dumbbell' },
   { id: 'barbell', label: 'Barbell' },
   { id: 'machine', label: 'Machine or cable' },
-  { id: 'other', label: 'Other' },
+  { id: 'other', label: 'Bands, kettlebell, ball or other' },
 ];
 
 export const LEVELS: Array<{ id: ExerciseLevel; label: string }> = [
