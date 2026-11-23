@@ -15,4 +15,16 @@ export const FITNESS_TOOLS: PackTool[] = [
     id: 'weekly-workout-plans', kind: 'weeklyWorkoutPlans', guideKey: 'fitnessWeeklyPlans', category: 'everyday', icon: 'dumbbell', tier: 'popular',
     keywords: ['3 day workout plan', '4 day workout split', '5 day workout plan', 'weekly workout plan', 'full body workout plan', 'upper lower split', 'home workout plan', 'gym workout plan for beginners', 'weekly yoga plan', '3 day yoga routine', 'workout routine every muscle', 'fixed workout plan'],
   }, fitness.toolCatalog),
+  definePackTool({
+    id: 'one-rep-max-and-plate-calculator', kind: 'oneRepMax', guideKey: 'fitnessOneRepMax', category: 'everyday', icon: 'calculator', tier: 'popular',
+    keywords: ['one rep max calculator', '1rm calculator', 'estimate one rep max', 'epley formula calculator', 'brzycki formula', 'bench press max calculator', 'squat max calculator', 'plate calculator', 'barbell plate calculator', 'how many plates per side', 'weight percentage calculator for lifting', 'strength training percentages'],
+  }, fitness.toolCatalog),
+  definePackTool({
+    id: 'running-pace-calculator', kind: 'runningPace', guideKey: 'fitnessRunningPace', category: 'everyday', icon: 'clock', tier: 'popular',
+    keywords: ['running pace calculator', 'pace calculator', '5k pace chart', '10k pace calculator', 'half marathon pace calculator', 'marathon pace calculator', 'min per km to km h', 'min per mile calculator', 'race time predictor', 'running split times', 'treadmill pace converter', 'how fast is my run'],
+  }, fitness.toolCatalog),
+  definePackTool({
+    id: 'workout-log', kind: 'workoutLog', guideKey: 'fitnessWorkoutLog', category: 'everyday', icon: 'file-text', tier: 'popular',
+    keywords: ['workout log', 'gym log book', 'workout tracker', 'strength training log', 'exercise log online', 'progressive overload tracker', 'track sets and reps', 'free workout tracker no app', 'gym progress tracker', 'lifting log', 'personal record tracker', 'workout diary'],
+  }, fitness.toolCatalog),
 ];

@@ -21,6 +21,60 @@
         "Read the notes and sources",
         "Each sport lists notes, risks, how to play it, its playing rules, the sources used and the date they were checked. Confirm with the governing body before you build."
       ]
+    ],
+    "cricket-run-rate-calculator": [
+      [
+        "Choose a calculator",
+        "Pick Run chase for the required run rate, Net run rate for a tournament table or Player stats for averages and strike rates."
+      ],
+      [
+        "Choose the match length",
+        "Select 5, 8, 10, 15, 20, 30 or 50 overs, which sets how many balls each team has."
+      ],
+      [
+        "Enter scores and overs",
+        "Type runs and overs as cricketers write them, so 18.4 means 18 overs and 4 balls. Tick the boxes if a team was bowled out."
+      ],
+      [
+        "Read and copy the result",
+        "See the rates at once, and copy the summary to share in a match chat."
+      ]
+    ],
+    "match-score-keeper": [
+      [
+        "Pick the sport and length",
+        "Choose badminton, tennis, volleyball, table tennis, squash or pickleball, then choose a single game or best of 3, 5 or 7 where it applies."
+      ],
+      [
+        "Name the players",
+        "Type the player or team names over Player 1 and Player 2."
+      ],
+      [
+        "Tap +1 point",
+        "Press the big button under the side that won the rally. The tool follows the rules for games, sets, deuce, tie-breaks and winning by two."
+      ],
+      [
+        "Fix mistakes and finish",
+        "Use Undo last point if you tapped the wrong side. The tool reminds you to change ends and shows the winner of the match."
+      ]
+    ],
+    "tournament-fixtures-maker": [
+      [
+        "List your teams",
+        "Type one team or player on each line, up to 32. For a knockout, put the strongest first."
+      ],
+      [
+        "Choose the format",
+        "Pick round robin where everyone plays once, home and away where everyone plays twice, or a knockout bracket."
+      ],
+      [
+        "Enter the results",
+        "In a round robin, type the score of each match. In a knockout, tap the winner of each match."
+      ],
+      [
+        "Share it",
+        "Read the points table or the champion, and copy the fixtures to send to the group."
+      ]
     ]
   },
   "pageGuides": {
@@ -65,6 +119,108 @@
           "Recreational, school and club courts are often smaller than the full sizes, and some leagues set their own limits. Follow the rulebook of your league or federation."
         ]
       ]
+    },
+    "sportsCricketRunRate": {
+      "title": "Cricket Run Rate Calculator: Required Rate, Net Run Rate and Averages",
+      "subtitle": "Required run rate in a chase, net run rate across a tournament, plus batting average, strike rate, economy and bowling average. Free cricket calculator.",
+      "faq": [
+        [
+          "How is net run rate calculated?",
+          "Net run rate is the runs a team scores per over across all its matches, minus the runs it concedes per over. A team that scored 340 runs in 40 overs and conceded 320 in 40 overs has a rate of 8.5 minus 8.0, which is plus 0.5."
+        ],
+        [
+          "How are overs written?",
+          "Cricketers write overs as whole overs, a dot and the balls, so 18.4 is 18 overs and 4 balls, which is 112 balls. The tool accepts that form and rejects anything above 5 balls after the dot. It then uses the real number of balls in the sums, because 18.4 overs is not 18.4 in decimal."
+        ],
+        [
+          "What happens when a team is bowled out?",
+          "In net run rate calculations a team that is bowled out is counted as having faced its full quota of overs, not the overs it lasted. Tick the bowled out box and the tool does this for you."
+        ],
+        [
+          "How is the required run rate worked out?",
+          "It is the runs still needed divided by the balls left, multiplied by six. If a team needs 80 runs from 60 balls, the required rate is 8.00 runs an over. The tool also shows the current run rate and the score at that rate."
+        ],
+        [
+          "Does it handle rain-affected matches?",
+          "Not automatically. Tournaments use different rules, such as a revised target or a reduced quota of overs. If a match was shortened, enter the official revised figures for it."
+        ],
+        [
+          "What do the player stats mean?",
+          "Batting average is runs divided by times out, and strike rate is runs per 100 balls. Economy is runs conceded per over, bowling average is runs conceded per wicket and balls per wicket is the bowling strike rate."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Your scores are used only in the page. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
+    },
+    "sportsMatchScoreKeeper": {
+      "title": "Match Score Keeper: Badminton, Tennis, Volleyball and Table Tennis Scoreboard",
+      "subtitle": "Keep the score of badminton, tennis, volleyball, table tennis, squash or pickleball with big buttons, undo and the right rules. Free, saved on your device.",
+      "faq": [
+        [
+          "Which sports can it score?",
+          "Badminton, tennis, volleyball, table tennis, squash and pickleball with rally scoring. Each uses its own rules for points per game, winning by two, and the number of games or sets."
+        ],
+        [
+          "How does tennis scoring work here?",
+          "Points go 15, 30, 40 and game, with deuce and advantage at 40 all. A set is won at 6 games with a lead of two, and a tie-break to 7 points is played at 6-6. Matches are a single set or best of 3 or 5."
+        ],
+        [
+          "What if I tap the wrong side?",
+          "Press Undo last point. It takes back one point at a time, as far back as the start of the match, and every score is recalculated."
+        ],
+        [
+          "Does it tell me when to change ends?",
+          "It shows a reminder, for example in the deciding game of badminton when a side reaches 11, in table tennis at 5 in the last game, after each volleyball set and after odd games in tennis. Always follow your umpire or event rules."
+        ],
+        [
+          "Does it track who is serving?",
+          "No. It keeps the score only, so the serve is still tracked by the players or the umpire."
+        ],
+        [
+          "Will I lose the score if I close the page?",
+          "No. The score is saved on your device, so it is there when you come back. Press New match to start again."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. The score and names are saved only in this browser. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
+    },
+    "sportsTournamentFixtures": {
+      "title": "Tournament Fixtures Maker: Round Robin, Knockout Bracket and Points Table",
+      "subtitle": "Make fixtures for a round robin, home and away or knockout tournament, enter scores for a live points table and copy the schedule. Free, no sign-up.",
+      "faq": [
+        [
+          "What is a round robin?",
+          "A round robin is a tournament where every team plays every other team once. The tool lists the matches in rounds so that no team plays twice in the same round, and each team plays all the others."
+        ],
+        [
+          "How are byes handled?",
+          "With an odd number of teams in a round robin, one team rests in each round. In a knockout, if the number of teams is not 2, 4, 8, 16 or 32, the top seeds get a bye and go straight to the next round."
+        ],
+        [
+          "How does the points table work?",
+          "Each match gives points for a win, a draw or a loss. You can change the points for a win and a draw. Teams are ordered by points, then score difference, then scores for, and then by name."
+        ],
+        [
+          "How are knockout matches seeded?",
+          "Teams are placed so that the top seeds meet as late as possible. With 8 teams, seed 1 plays seed 8, 4 plays 5, 2 plays 7 and 3 plays 6. The order of your list is the seeding."
+        ],
+        [
+          "Can I save and share the fixtures?",
+          "The tool keeps your teams and results on this device. Use Copy the fixtures to paste the schedule into a chat or document. Clear all results starts again with the same teams."
+        ],
+        [
+          "Is there a limit on teams?",
+          "Up to 32 teams. For very large tournaments, split the teams into groups and make one fixture list for each."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Your teams and results are saved only in this browser. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -95,6 +251,81 @@
           "paragraphs": [
             "Sizes come from the sources listed and were checked on the date shown. Some come from summaries of the rules or older editions, such as the volleyball clear space, the cricket boundary limits and the hockey figures, and the notes on each page say so.",
             "Football has no run-off distance in the Laws, and table tennis has an official size only for competition. Cricket grounds are oval but are drawn and counted as circles. Kho kho lane positions and cricket creases are not drawn. Always confirm with your federation, and have the surface, height and safety of a venue checked by a qualified person."
+          ]
+        }
+      ]
+    },
+    "cricket-run-rate-calculator": {
+      "sections": [
+        {
+          "heading": "Why run rates matter",
+          "paragraphs": [
+            "Run rates tell you how fast runs are coming, which is the heart of limited-overs cricket. In a chase the required rate shows how hard the job is, and in a tournament table the net run rate separates teams that finish on the same points.",
+            "Computing them by hand is slow and easy to get wrong, especially when overs are written as 18.4 or when a team is bowled out. This tool does the sums for you and shows the figures a captain or scorer needs."
+          ]
+        },
+        {
+          "heading": "Net run rate across a tournament",
+          "paragraphs": [
+            "To find the net run rate, add up all the runs a team has scored and all the overs it has faced, then do the same for the runs it has conceded and the overs it has bowled. Divide each pair, and subtract the second rate from the first. The tool lets you add a match at a time, with up to twelve matches, and keeps the running figure.",
+            "If a side is bowled out, the full quota of overs is counted, which stops a team from gaining by being bowled out cheaply and quickly. Rain-reduced games follow the rules of each tournament, so enter their official figures."
+          ]
+        },
+        {
+          "heading": "Averages and strike rates",
+          "paragraphs": [
+            "Player stats help compare batters and bowlers who have played different numbers of matches. A batting average shows how many runs a batter makes for each time they are out, while the strike rate shows how fast they score. For bowlers, economy shows how many runs they give away in an over, and bowling average and balls per wicket show how often they take wickets.",
+            "These numbers are a summary and do not replace watching the game. A batter with a low average might have been given a difficult role, and a bowler with a high economy might have been bowling in the closing overs."
+          ]
+        }
+      ]
+    },
+    "match-score-keeper": {
+      "sections": [
+        {
+          "heading": "A scoreboard for any court",
+          "paragraphs": [
+            "A friendly match still needs a score everyone agrees on. This keeper has two big buttons that are easy to press on a phone, even with sweaty hands, and a large score that can be read across the court. Rules are built in, so you do not argue about whether a game ends at 21 or needs a two-point lead.",
+            "It works for casual play, club nights, school sports days and coaching. Because it runs in the browser there is nothing to install, and the score is saved on the device so a lost signal or a closed tab does not wipe the match."
+          ]
+        },
+        {
+          "heading": "How the rules are applied",
+          "paragraphs": [
+            "In badminton a game goes to 21 with a lead of two and stops at 30, and a match is the best of three games. Table tennis games go to 11, squash to 11, pickleball to 11 with rally scoring, and volleyball to 25, with a deciding set to 15, all with a two-point lead needed. Tennis follows the 15, 30, 40 pattern with deuce and a tie-break at 6-6 in every set.",
+            "Rules differ between events and age groups. If your competition uses another format, such as games to 15, use the tool for the score and the official rules for the result."
+          ]
+        },
+        {
+          "heading": "Getting the most from it",
+          "paragraphs": [
+            "Set the names first so everyone can see who is who. Press the button as soon as a rally ends, and use Undo if you press the wrong one. Watch the hint line for ends changes, and look at the finished games line to see how earlier games went.",
+            "Put a phone or tablet where the players can see it, or cast it to a bigger screen for a club match. The Sports Court Guide has the playing rules for each sport if you need to check a decision."
+          ]
+        }
+      ]
+    },
+    "tournament-fixtures-maker": {
+      "sections": [
+        {
+          "heading": "Fixtures without the headache",
+          "paragraphs": [
+            "Planning who plays whom is easy for four teams and painful for eleven. The circle method used here arranges every team against every other team with the fewest rounds, and keeps the home and away spots balanced. You type the names and the list is ready in a second.",
+            "For a knockout, the tool seeds the bracket so that the strongest teams are kept apart until the later rounds, and it gives byes when the number of teams is not a power of two."
+          ]
+        },
+        {
+          "heading": "Points tables and brackets",
+          "paragraphs": [
+            "As results come in, type the score of each match and the table updates. Teams are ordered by points, then score difference, then scores for. Change the points for a win and a draw to match your league, for example 2 for a win in some leagues and 3 in others.",
+            "In a knockout, just tap the winner of each match and the bracket fills in, round by round, up to the final and the champion."
+          ]
+        },
+        {
+          "heading": "Running a tournament well",
+          "paragraphs": [
+            "Tell everyone the format and the tie-break rules before the first match, and keep the points table visible. If you are short of courts or time, a single round robin in groups followed by a short knockout is a good way to give every team several matches.",
+            "Use the Match Score Keeper for the scores of individual matches, and the Sports Court Guide to mark out the court you need."
           ]
         }
       ]

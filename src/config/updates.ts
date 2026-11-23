@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-23',
+    path: '/sports-and-fitness-tools',
+    tool: 'Sports and fitness tools',
+    title: 'Six new sports and fitness tools',
+    summary: 'Match Score Keeper (badminton, tennis, volleyball, table tennis, squash, pickleball), Tournament Fixtures Maker with a points table, Cricket Run Rate Calculator, Workout Log, One-Rep Max and Plate Calculator and Running Pace Calculator. The Sports and fitness section now has 12 tools.',
+  },
+  {
+    date: '2026-11-23',
     path: '/sports-court-size-guide',
     tool: 'Sports Court and Ground Size Guide',
     title: 'Playing rules for every sport, and the sport name in the headings',

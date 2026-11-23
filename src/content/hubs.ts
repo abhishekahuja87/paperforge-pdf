@@ -124,11 +124,11 @@ export const HUBS: Hub[] = [
     path: "/sports-and-fitness-tools",
     collection: "sports",
     title: "Free Sports and Fitness Tools",
-    subtitle: "Court and ground sizes with set-out measurements, an exercise library with how-to steps, and a BMI calculator.",
-    description: "Free sports and fitness tools: sports court and ground size guide, exercise library with how-to steps and a BMI calculator.",
+    subtitle: "Court sizes and rules, match scores, fixtures, cricket run rates, exercises with pictures, weekly plans, a workout log, pace and strength calculators.",
+    description: "Free sports and fitness tools: court size and rules guide, match score keeper, tournament fixtures, cricket run rate calculator, exercise library, weekly workout plans, workout log, running pace and one-rep max calculators.",
     sections: [
       { heading: "What you can do here", paragraphs: [
-        "Look up the size and markings of common courts and grounds, browse exercises with simple step-by-step instructions, and work out a BMI figure from height and weight.",
+        "Look up the size, markings and playing rules of common courts and grounds, keep the score of a badminton, tennis, volleyball, table tennis, squash or pickleball match, and make fixtures and a points table for a tournament. Work out cricket run rates and averages. Browse exercises and yoga poses with moving pictures, follow a fixed 3, 4 or 5 day plan, log your sets, estimate your one-rep max, load a barbell, work out your running pace and check a BMI figure.",
       ] },
       { heading: "A note on health", paragraphs: [
         "BMI and exercise guides are general information. They are not medical advice and do not diagnose anything. If you have a health condition, an injury or a doubt, speak to a doctor or a qualified trainer first.",

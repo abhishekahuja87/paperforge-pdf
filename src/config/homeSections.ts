@@ -73,7 +73,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'age-calculator', 'date-difference-calculator', 'percentage-calculator', 'discount-calculator', 'unit-converter', 'bill-splitter', 'time-zone-converter', 'number-to-words', 'secret-santa-generator', 'random-name-picker', 'random-team-generator'
   ] },
   { id: 'sports', icon: 'dumbbell', tools: [
-    'sports-court-size-guide', 'exercise-library', 'workout-planner', 'weekly-workout-plans', 'bmi-calculator',
+    'sports-court-size-guide', 'match-score-keeper', 'tournament-fixtures-maker', 'cricket-run-rate-calculator', 'exercise-library', 'workout-planner', 'weekly-workout-plans', 'workout-log', 'one-rep-max-and-plate-calculator', 'running-pace-calculator', 'bmi-calculator',
   ] },
   { id: 'printables', icon: 'layers', tools: [
     'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable', 'milk-maid-attendance-calendar-printable', 'pet-health-record-card-printable', 'weekly-cleaning-schedule-printable', 'wedding-shagun-register-printable', 'baby-feeding-log-printable', 'habit-tracker-printable', 'certificate-of-achievement-printable', 'name-tag-sticker-sheet-printable', 'recipe-card-printable', 'rangoli-dot-grid-printable',

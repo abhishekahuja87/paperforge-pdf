@@ -4,4 +4,7 @@ export const FITNESS_COMPONENTS: Record<string, LazyExoticComponent<ComponentTyp
   exerciseLibrary: lazy(() => import('./ExerciseLibrary')),
   workoutPlanner: lazy(() => import('./WorkoutPlanner')),
   weeklyWorkoutPlans: lazy(() => import('./WeeklyWorkoutPlans')),
+  oneRepMax: lazy(() => import('./OneRepMax')),
+  runningPace: lazy(() => import('./RunningPace')),
+  workoutLog: lazy(() => import('./WorkoutLog')),
 };
