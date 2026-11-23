@@ -250,3 +250,13 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 |---|---|---|---|
 | N1 | All information pages have a left-aligned header, back link and pill | | |
 | N2 | 404 page matches | | |
+
+### Linked answers (23 Nov)
+
+| # | Check | Result | Notes |
+|---|---|---|---|
+| O1 | Tool links in all 14 sections' questions open the right tool | | |
+| O2 | Guides link first mention of each tool once | | |
+| O3 | Tool pages link other tools, never themselves | | |
+| O4 | Older iPhone or Safari loads these pages | | |
+| O5 | Pre-rendered HTML shows no { } markers | | |

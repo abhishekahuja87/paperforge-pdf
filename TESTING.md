@@ -1220,3 +1220,6 @@ Not run. Open each of the 14 section pages. Order after the task table and situa
 
 ### Information pages: left-aligned header (23 Nov)
 Not run. Open /whats-new, /guides, any guide, /contact (and /contact?tool=quotation-generator), /about, /why-trust-us, /editorial-policy, /free-no-limits, /privacy, /terms and a made-up address (404). Each has the All tools back link and the Free, No limits, Stays on your device pill on one line, then a left-aligned headline and subtitle, the same as a section page. Nothing is centred in the header. Check phone and desktop widths.
+
+### Linked answers (23 Nov)
+Not run. On each of the 14 section pages open every Common question: the tool names in the answers are orange underlined links that open the right tool (no link goes to a missing page). Open three guides: the first mention of each tool in the text is a link, later mentions are plain, and the Try it list still shows every tool. Open a tool page and its written sections and questions: other tools named there are linked once and the page never links to itself. Check on an older iPhone or Safari that the pages still load (no regex error). View the pre-rendered HTML of a section page: questions appear as plain text with tool names and no curly-brace markers.
