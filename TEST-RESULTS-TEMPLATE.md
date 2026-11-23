@@ -243,3 +243,10 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | M3 | Three new guides open and list working "Try it" tools | | |
 | M4 | Passport photo guide shows the rejection-message section | | |
 | M5 | Pre-rendered HTML has the same questions | | |
+
+### Information pages: left-aligned header (23 Nov)
+
+| # | Check | Result | Notes |
+|---|---|---|---|
+| N1 | All information pages have a left-aligned header, back link and pill | | |
+| N2 | 404 page matches | | |

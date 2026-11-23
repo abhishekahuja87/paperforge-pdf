@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { InfoPageLayout } from '../components/layout/InfoPageLayout';
-import { PromisePill } from '../components/common/PromisePill';
 import { HomeToolCard } from '../components/home/HomeVariantTools';
 import { COLLECTIONS } from '../config/homeSections';
 import { TOOLS, type ToolItem } from '../config/tools';
@@ -26,7 +25,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
   const guides = useMemo(() => hubGuides(hub), [hub]);
   const related = (faqSet?.related ?? []).map((path) => HERO_TILES.find((tile) => tile.to === path)).filter((tile): tile is NonNullable<typeof tile> => Boolean(tile));
   return (
-    <InfoPageLayout title={hub.title} subtitle={hub.subtitle} description={hub.description} contentLanguage="en" compact leftAligned topExtra={<PromisePill />}>
+    <InfoPageLayout title={hub.title} subtitle={hub.subtitle} description={hub.description} contentLanguage="en" compact>
       {intro.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>

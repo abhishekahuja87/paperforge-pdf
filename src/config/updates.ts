@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-23',
+    path: '/whats-new',
+    tool: 'All pages',
+    title: 'Information pages look like the tool pages',
+    summary: "What's new, Guides, each guide, Contact and request a tool, About, Why trust us, Privacy, Terms and the other information pages now have a left-aligned headline, the same back link and the same Free, No limits, Stays on your device pill as the tool and section pages.",
+  },
+  {
     date: '2026-11-22',
     path: '/pdf-tools',
     tool: 'All sections',

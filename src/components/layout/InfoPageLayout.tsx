@@ -3,6 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageMetadata } from '../common/PageMetadata';
 import { useTranslation } from 'react-i18next';
+import { PromisePill } from '../common/PromisePill';
 
 interface InfoPageLayoutProps {
   title: string;
@@ -13,13 +14,13 @@ interface InfoPageLayoutProps {
   noindex?: boolean;
   /** A smaller headline, for pages that carry a lot of content under it. */
   compact?: boolean;
-  /** Left-align the back link, headline and subtitle, like a tool page. */
+  /** Left-aligned by default, like a tool page. Pass false only for a deliberately centred page. */
   leftAligned?: boolean;
-  /** Shown on the same line as the back link, like the promise pill on a tool page. */
+  /** Shown on the same line as the back link. Defaults to the promise pill, like a tool page. */
   topExtra?: React.ReactNode;
 }
 
-export const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ title, subtitle, description, children, contentLanguage = 'en', noindex = false, compact = false, leftAligned = false, topExtra }) => {
+export const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ title, subtitle, description, children, contentLanguage = 'en', noindex = false, compact = false, leftAligned = true, topExtra = <PromisePill /> }) => {
   const { t } = useTranslation();
   return (
   <div className="min-h-full bg-[var(--theme-background)] px-4 py-8 sm:py-10">

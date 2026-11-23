@@ -18,7 +18,7 @@ export const NotFoundPage: React.FC = () => {
       contentLanguage={i18n.language}
       noindex
     >
-      <section className="space-y-4 text-center">
+      <section className="space-y-4">
         <p>{t('notFoundBody')}</p>
         <ul className="flex flex-wrap justify-center gap-2">
           {tools.map((tool) => {
