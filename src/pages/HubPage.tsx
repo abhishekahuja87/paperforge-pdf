@@ -7,6 +7,7 @@ import { TOOLS, type ToolItem } from '../config/tools';
 import type { Hub } from '../content/hubs';
 import { HUB_EXTRAS } from '../content/hubExtras';
 import { HUB_FAQS } from '../content/hubFaqs';
+import { LinkedText } from '../components/common/LinkedText';
 import { hubGuides } from '../content/hubGuides';
 import { HERO_TILES } from '../config/heroTiles';
 
@@ -22,6 +23,8 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
   const intro = hub.sections.slice(0, 1);
   const rest = hub.sections.slice(1);
   const faqSet = HUB_FAQS[hub.path];
+  // Each tool is linked once in the running text of this page; the table, the guides and the tool list link on their own.
+  const seen = new Set<string>();
   const guides = useMemo(() => hubGuides(hub), [hub]);
   const related = (faqSet?.related ?? []).map((path) => HERO_TILES.find((tile) => tile.to === path)).filter((tile): tile is NonNullable<typeof tile> => Boolean(tile));
   return (
@@ -29,7 +32,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
       {intro.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>
-          {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} /></p>)}
         </section>
       ))}
       {extras && extras.tasks.length > 0 && (
@@ -65,7 +68,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
             {extras.situations.map((item) => (
               <div key={item.who} className="rounded-xl border border-stone-200 bg-white p-3">
                 <h3 className="text-sm font-bold text-stone-900">{item.who}</h3>
-                <p className="mt-1 text-[13px] leading-6 text-stone-700">{item.text}</p>
+                <p className="mt-1 text-[13px] leading-6 text-stone-700"><LinkedText text={item.text} auto seen={seen} /></p>
               </div>
             ))}
           </div>
@@ -91,7 +94,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
             {faqSet.faqs.map((item) => (
               <details key={item.q} className="rounded-xl border border-stone-200 bg-white px-3 py-2">
                 <summary className="cursor-pointer text-sm font-semibold text-stone-900">{item.q}</summary>
-                <p className="mt-2 text-[13px] leading-6 text-stone-700">{item.a}</p>
+                <p className="mt-2 text-[13px] leading-6 text-stone-700"><LinkedText text={item.a} /></p>
               </details>
             ))}
           </div>
@@ -100,7 +103,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
       {rest.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>
-          {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} /></p>)}
         </section>
       ))}
       <section className="space-y-3">

@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-23',
+    path: '/guides',
+    tool: 'Guides and section pages',
+    title: 'Clearer answers that link straight to the tool',
+    summary: 'The questions on every section page were rewritten so each answer says something new and links to the tool it names. Guides, section page text and the questions under each tool now link the first mention of another tool, so you can open it in one tap.',
+  },
+  {
+    date: '2026-11-23',
     path: '/whats-new',
     tool: 'All pages',
     title: 'Information pages look like the tool pages',

@@ -7,6 +7,7 @@ import { AccordionList } from './AccordionList';
 import { FoldToggle } from './FoldToggle';
 import { GuideRegistryContext } from './guideRegistry';
 import { useArticleSections } from './ToolArticle';
+import { LinkedText } from './LinkedText';
 
 export interface GuideStep {
   title: string;
@@ -48,6 +49,8 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
   const isWorkshop = appearance === 'workshop';
   const articleSections = useArticleSections(guideId);
   const { setGuideShowsArticle } = useContext(GuideRegistryContext);
+  // Other tools named in the text are linked once; the tool's own page is never linked to itself.
+  const seen = new Set<string>();
   const showsArticle = isWorkshop && articleSections.length > 0;
   // Tell the layout this guide lists the written sections, so they are not shown a second time.
   useLayoutEffect(() => {
@@ -60,13 +63,13 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
         key: `article-${section.heading}`,
         title: section.heading,
         level: 2 as const,
-        children: <>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</>,
+        children: <>{section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} exclude={pathname} /></p>)}</>,
       })),
       ...faqs.map((faq) => ({
         key: `faq-${faq.question}`,
         title: faq.question,
         level: 3 as const,
-        children: <p>{faq.answer}</p>,
+        children: <p><LinkedText text={faq.answer} auto seen={seen} exclude={pathname} /></p>,
       })),
     ];
     // One column: steps (three across when wide), then the accordion, then the privacy note.

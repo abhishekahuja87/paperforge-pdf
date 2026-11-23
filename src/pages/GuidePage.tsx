@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { InfoPageLayout } from '../components/layout/InfoPageLayout';
 import { TOOLS } from '../config/tools';
 import { getGuide } from '../content/guides';
+import { LinkedText } from '../components/common/LinkedText';
 import { NotFoundPage } from './NotFoundPage';
 
 export const GuidePage: React.FC = () => {
@@ -13,12 +14,14 @@ export const GuidePage: React.FC = () => {
     .map((id) => TOOLS.find((tool) => tool.id === id && tool.isAvailable))
     .filter((tool): tool is NonNullable<typeof tool> => Boolean(tool));
 
+  // The first mention of each tool in the text becomes a link; the Try it list below still lists them all.
+  const seen = new Set<string>();
   return (
     <InfoPageLayout title={guide.title} subtitle={guide.description} description={guide.description} contentLanguage="en">
       {guide.sections.map((section) => (
         <section key={section.heading} className="space-y-2">
           <h2 className="text-xl font-bold text-stone-900">{section.heading}</h2>
-          {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} /></p>)}
         </section>
       ))}
       {tools.length > 0 && (
