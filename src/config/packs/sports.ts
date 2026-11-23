@@ -19,4 +19,12 @@ export const SPORTS_TOOLS: PackTool[] = [
     id: 'tournament-fixtures-maker', kind: 'tournamentFixtures', guideKey: 'sportsTournamentFixtures', category: 'everyday', icon: 'grid', tier: 'popular',
     keywords: ['tournament fixtures generator', 'round robin schedule maker', 'knockout bracket maker', 'league fixtures generator', 'points table calculator', 'tournament bracket generator', 'round robin fixture generator', 'cricket tournament fixtures', 'football league table maker', 'badminton tournament draw', 'school sports day fixtures', 'single elimination bracket'],
   }, sports.toolCatalog),
+  definePackTool({
+    id: 'cricket-scorer', kind: 'cricketScorer', guideKey: 'sportsCricketScorer', category: 'everyday', icon: 'hash', tier: 'popular',
+    keywords: ['cricket scorer', 'cricket scoring app', 'ball by ball cricket score', 'cricket scoreboard online', 'gully cricket scorer', 'cricket score counter', 'simple cricket scoring', 'cricket run counter', 'cricket scorecard online', 'cricket over counter', 'free hit scorer', 'cricket scoreboard for mobile'],
+  }, sports.toolCatalog),
+  definePackTool({
+    id: 'quick-scoreboard', kind: 'quickScoreboard', guideKey: 'sportsQuickScoreboard', category: 'everyday', icon: 'hash', tier: 'popular',
+    keywords: ['basketball scoreboard', 'basketball score counter', 'football scoreboard online', 'hockey scoreboard', 'kabaddi scoreboard', 'kabaddi score counter', 'digital scoreboard free', 'score counter for any game', 'quick scoreboard', 'scoreboard with timer', 'handball scoreboard', 'simple scoreboard for sports day'],
+  }, sports.toolCatalog),
 ];

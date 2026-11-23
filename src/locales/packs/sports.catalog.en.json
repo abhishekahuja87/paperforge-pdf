@@ -15,6 +15,14 @@
     "tournament-fixtures-maker": [
       "Tournament Fixtures Maker: Round Robin, Knockout Bracket and Points Table",
       "Make fixtures for a round robin, home and away or knockout tournament with byes, enter scores to build a points table and copy the schedule. Free, no sign-up."
+    ],
+    "cricket-scorer": [
+      "Cricket Scorer: Ball by Ball Scoreboard with Run Rate, Free Hit and Undo",
+      "Score a cricket innings ball by ball with no setup. Tap runs, wickets, wides and no-balls and see the score, overs, run rate and partnership at once. Free."
+    ],
+    "quick-scoreboard": [
+      "Quick Scoreboard: Basketball, Football, Hockey and Kabaddi Score Counter",
+      "A simple scoreboard for basketball, football, hockey, kabaddi, handball or any game. Big +1, +2 and +3 buttons, fouls, a game clock and undo. Free."
     ]
   }
 }

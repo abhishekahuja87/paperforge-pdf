@@ -154,6 +154,8 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Find an exercise and how to do it", tool: "exercise-library", name: "Exercise Library", note: "Gym and home exercises with moving pictures." },
       { task: "Plan today's workout and show it on a screen", tool: "workout-planner", name: "Workout Planner and Gym Display", note: "Warm-up, main and cool-down with your own entries." },
       { task: "Follow a fixed 3, 4 or 5 day plan", tool: "weekly-workout-plans", name: "Weekly Workout Plans", note: "Gym, home and yoga plans that cover every muscle." },
+      { task: "Score a cricket match ball by ball", tool: "cricket-scorer", name: "Cricket Scorer", note: "No setup: tap runs, wickets and extras." },
+      { task: "Run a scoreboard for basketball, football or kabaddi", tool: "quick-scoreboard", name: "Quick Scoreboard", note: "Big score buttons, fouls and a clock." },
       { task: "Keep the score of a match", tool: "match-score-keeper", name: "Match Score Keeper", note: "Badminton, tennis, volleyball, table tennis, squash and pickleball." },
       { task: "Make fixtures and a points table", tool: "tournament-fixtures-maker", name: "Tournament Fixtures Maker", note: "Round robin or knockout, with byes." },
       { task: "Work out a cricket run rate", tool: "cricket-run-rate-calculator", name: "Cricket Run Rate Calculator", note: "Required rate, net run rate and player averages." },

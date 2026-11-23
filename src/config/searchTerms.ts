@@ -105,6 +105,8 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'cricket-run-rate-calculator': ['cricket run rate calculator', 'net run rate calculator', 'nrr calculator', 'required run rate calculator', 'cricket calculator', 'how to calculate net run rate', 't20 run rate'],
   'match-score-keeper': ['badminton score counter', 'tennis score counter', 'volleyball scoreboard', 'table tennis scoreboard', 'squash score counter', 'pickleball score keeper', 'scoreboard app free'],
   'tournament-fixtures-maker': ['tournament fixtures generator', 'round robin schedule maker', 'knockout bracket maker', 'league fixtures generator', 'points table calculator', 'tournament bracket generator', 'round robin fixture generator'],
+  'cricket-scorer': ['cricket scorer', 'cricket scoring app', 'ball by ball cricket score', 'cricket scoreboard online', 'gully cricket scorer', 'cricket score counter', 'simple cricket scoring'],
+  'quick-scoreboard': ['basketball scoreboard', 'basketball score counter', 'football scoreboard online', 'hockey scoreboard', 'kabaddi scoreboard', 'kabaddi score counter', 'digital scoreboard free'],
   'weekly-workout-plans': ['3 day workout plan', '4 day workout split', '5 day workout plan', 'full body workout routine', 'upper lower split', 'weekly yoga plan', 'beginner gym routine', 'home workout schedule'],
   'exercise-library': ['yoga poses', 'yoga poses with pictures', 'how to do a squat', 'home workout', 'exercise instructions', 'bodyweight exercises', 'gym exercises'],
   'solar-system-explorer': ['planets in order', 'planet sizes', 'solar system for kids', 'distance of planets from sun'],
