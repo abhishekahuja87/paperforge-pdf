@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "globe-video-maker": [
+      [
+        "Pick point A and point B",
+        "Search a country or city, or type coordinates. Add a stop in between if the trip has one. Change the name shown on the video if you like."
+      ],
+      [
+        "Choose the look",
+        "Pick a globe look, the camera movement, the route line, the moving marker and the pin. The preview updates as you change them."
+      ],
+      [
+        "Set shape, quality and length",
+        "Choose 9:16 for Reels and Shorts, 16:9 for YouTube, 1:1 or 4:5 for posts. Pick 720p or 1080p and a length from 5 to 30 seconds."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make video and keep the page open while it records. Then save the video. You can also save a still picture."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "globeVideoMakerGuide": {
+      "title": "Globe Video Maker: Make a Globe Flight Video from A to B, Free",
+      "subtitle": "Pick two places and download a video of a globe flying from one to the other. Six looks, Reel, YouTube and square sizes. Free, no watermark.",
+      "faq": [
+        [
+          "Is the Globe Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "Which places can I use?",
+          "Any country, about 2,500 cities, or coordinates you type, such as 28.61, 77.21. Countries are shown with India's borders as India shows them."
+        ],
+        [
+          "Can I add a stop between A and B?",
+          "Yes. You can add up to three stops in between, for example a stopover, and the globe visits each one in turn."
+        ],
+        [
+          "Which video shapes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts, at 720p or 1080p."
+        ],
+        [
+          "How long does it take to make a video?",
+          "The video is recorded in real time, so a 10 second video takes about 10 seconds. Keep the page open and the screen on while it records."
+        ],
+        [
+          "Does it save MP4?",
+          "It saves MP4 when your browser can make it, and WebM otherwise. MP4 works in Instagram, WhatsApp and most apps; if an app does not accept WebM, try Chrome on a computer or a recent Android phone."
+        ],
+        [
+          "Is it smooth on my phone?",
+          "Speed depends on the phone. 720p is smoother on older phones. If the device falls behind, frames are skipped so the video keeps its length, and you are told."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The globe is drawn and the video is recorded on your own device, so your places and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "globe-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Globe Video Maker does",
+          "paragraphs": [
+            "The Globe Video Maker turns a trip into a short video. You pick where it starts and where it ends, and a globe turns to the first place, travels along the route and arrives at the second, with a pin, a name and an optional title.",
+            "It is made for travel posts, flight and shipping explainers, route maps for a business and intros. You choose the look, the camera movement, the line and a moving plane or dot."
+          ]
+        },
+        {
+          "heading": "Choices that change the video",
+          "paragraphs": [
+            "Six globe looks cover a dark night globe, a natural earth, a bright day map, a neon outline, a dotted globe and a paper style. The camera can fly out and back in, spin while it travels or zoom steadily. The route can be solid, dashed, dotted or glowing, lifted above the globe or flat on it.",
+            "Countries can be highlighted and place names can be hidden or renamed. Videos come as 9:16, 16:9, 1:1 or 4:5, at 720p or 1080p, from 5 to 30 seconds long."
+          ]
+        },
+        {
+          "heading": "Made on your device",
+          "paragraphs": [
+            "The globe is drawn and recorded in your browser. Nothing is uploaded, there is no watermark and no limit on videos. Because it records in real time, a 10 second video takes about 10 seconds, and a slower phone may look less smooth, so try 720p first.",
+            "Borders follow the Indian government's view of India's boundaries. The map is for showing a route, not for settling boundaries."
+          ]
+        }
+      ]
+    }
+  }
+}

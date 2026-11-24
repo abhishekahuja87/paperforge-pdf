@@ -233,6 +233,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L3 | Grayscale PDF: grey and black-and-white on a colour PDF | | |
 | L4 | Extract Images from PDF: ZIP of the photos in a PDF | | |
 | L5 | Audio Cutter and Joiner: join two files, trim, play, save WAV | | |
+| L6 | Globe Video Maker: pick A and B, preview, make a 10 s video, play it, save it | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

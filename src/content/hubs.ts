@@ -205,14 +205,14 @@ export const HUBS: Hub[] = [
     path: "/audio-and-video-tools",
     collection: "media",
     title: "Free Audio and Video Tools",
-    subtitle: "Cut and join audio files and voice notes, add fades and save them, free and without uploading your recordings.",
-    description: "Free audio tools: cut and trim audio, join several files into one, add fade in and fade out and save as WAV. Works with MP3, M4A, WAV, OGG and voice notes in your browser.",
+    subtitle: "Cut and join audio files and voice notes, and make a globe video from one place to another, free and without uploading anything.",
+    description: "Free audio and video tools: cut and trim audio, join files, add fades, and make a globe animation video that flies from A to B for Reels, Shorts and YouTube. Runs in your browser.",
     sections: [
       { heading: "What you can do here", paragraphs: [
-        "Open one or more audio files, put them in order, choose the part to keep on a sound wave, add a fade in and out, listen to the result and save it. More audio and video tools will be added here.",
+        "Open one or more audio files, put them in order, choose the part to keep on a sound wave, add a fade in and out, listen to the result and save it. For video, the Globe Video Maker turns two places into a short video of a globe flying from the first to the second, with six looks and Reel, YouTube and square sizes.",
       ] },
       { heading: "Your recordings stay with you", paragraphs: [
-        "Audio is read and edited on your own device in your browser, so private voice notes and recordings are not sent to MyDailyUtils.",
+        "Audio is read and edited, and globe videos are drawn and recorded, on your own device in your browser, so private voice notes and recordings are not sent to MyDailyUtils.",
       ] },
     ],
   },

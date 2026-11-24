@@ -147,6 +147,7 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
       { q: 'Can I join two audio files into one?', a: 'Yes. Add the files in {audio-cutter-and-joiner} in the order you want and save one new file.' },
       { q: 'Can I make a ringtone?', a: 'Cut the part you like with {audio-cutter-and-joiner} and save it. Your phone decides which file types it accepts as a ringtone, so check that after saving.' },
       { q: 'What file does it save?', a: '{audio-cutter-and-joiner} saves WAV files. WAV files are bigger than MP3 files, but they keep the full quality of the audio.' },
+      { q: 'How do I make a globe video from one place to another?', a: 'Open {globe-video-maker}, pick point A and point B, choose a look and a video shape, and tap Make video. It records on your device with no watermark. A video takes as long as its length, so keep the page open.' },
       { q: 'Is my audio uploaded?', a: 'No. The audio is cut in your browser and nothing is uploaded to MyDailyUtils.' },
     ],
   },
