@@ -94,3 +94,40 @@ export function chaseView(view: InningsView, target: number, oversLimit: number)
 
 /** Score at the current run rate over the full overs, rounded. Only meaningful with a limit and at least one over. */
 export const projected = (view: InningsView, oversLimit: number): number | null => (oversLimit > 0 && view.balls >= 6 ? Math.round(view.runRate * oversLimit) : null);
+
+export interface OverLine {
+  /** 1 for the first over. */
+  over: number;
+  balls: Ball[];
+  /** Runs scored in this over, extras included. */
+  runs: number;
+  wickets: number;
+  /** Score and wickets at the end of this over, or so far for the over in progress. */
+  total: number;
+  totalWickets: number;
+  /** Six fair balls have been bowled. */
+  complete: boolean;
+}
+
+/** Every over so far, oldest first. Wides and no-balls stay in the over they were bowled in, and an over ends on its sixth fair ball. */
+export function overHistory(balls: Ball[]): OverLine[] {
+  const lines: OverLine[] = [];
+  let current: Ball[] = [];
+  let legal = 0, total = 0, totalWickets = 0;
+  const close = (complete: boolean) => {
+    const runs = current.reduce((sum, ball) => sum + ballRuns(ball), 0);
+    const wickets = current.filter((ball) => ball.wicket).length;
+    total += runs;
+    totalWickets += wickets;
+    lines.push({ over: lines.length + 1, balls: current, runs, wickets, total, totalWickets, complete });
+    current = [];
+    legal = 0;
+  };
+  for (const ball of balls) {
+    current.push(ball);
+    if (isLegal(ball)) legal += 1;
+    if (legal === 6) close(true);
+  }
+  if (current.length > 0) close(false);
+  return lines;
+}

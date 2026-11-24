@@ -145,6 +145,11 @@ ok(() => { const v = cs.inningsView(Array.from({ length: 12 }, () => B('ok', 1))
 ok(() => { const v = cs.inningsView(Array.from({ length: 30 }, () => B('ok', 1))); const c = cs.chaseView(v, 50, 10); assert.equal(c.needed, 20); assert.equal(c.ballsLeft, 30); near(c.required, 4); assert.equal(c.won, false); assert.equal(cs.chaseView(v, 30, 10).won, true); });
 ok(() => { const v = cs.inningsView(Array.from({ length: 12 }, () => B('ok', 1))); assert.equal(cs.projected(v, 20), 120); assert.equal(cs.projected(cs.inningsView([B('ok', 1)]), 20), null); });
 
+ok(() => { const h = cs.overHistory([...Array.from({ length: 6 }, () => B('ok', 1)), B('wd'), B('ok', 4), B('ok', 0, true)]); assert.equal(h.length, 2); assert.equal(h[0].runs, 6); assert.equal(h[0].complete, true); assert.equal(h[1].runs, 5); assert.equal(h[1].wickets, 1); assert.equal(h[1].total, 11); assert.equal(h[1].totalWickets, 1); assert.equal(h[1].complete, false); });
+ok(() => { const h = cs.overHistory([...Array.from({ length: 5 }, () => B('ok', 0)), B('nb'), B('ok', 2)]); assert.equal(h.length, 1); assert.equal(h[0].balls.length, 7); assert.equal(h[0].runs, 3); assert.equal(h[0].complete, true); });
+ok(() => assert.deepEqual(cs.overHistory([]), []));
+ok(() => { const h = cs.overHistory(Array.from({ length: 12 }, () => B('ok', 2))); assert.equal(h.length, 2); assert.equal(h[1].total, 24); });
+
 // quick scoreboard
 ok(() => assert.deepEqual(quick.totals([{ side: 0, points: 2 }, { side: 1, points: 3 }, { side: 0, points: 1 }]), [3, 3]));
 ok(() => assert.equal(quick.leader([3, 3]), null));
