@@ -300,6 +300,7 @@ Two kids pages (`addition-with-carrying-for-kids`, `subtraction-with-borrowing-f
 
 - 22 Nov: shared colour picker `src/components/common/ColorPicker.tsx` (`ColorField`, logic in `src/lib/color/picker.ts`) replaces every native colour input. Timestamp tools in `src/lib/utilities/timestampTools.ts` and `components/tools/utilities/timestamp/`. New `devtools` pack (`src/config/packs/devtools.ts`, `components/tools/devtools/`): JSON to CSV (`lib/devtools/jsonToCsv.ts`) and JSON Viewer (`lib/devtools/jsonTree.ts`).
 
+- 24 Nov: Globe Video Maker Smooth mode: `src/lib/globe/encode.ts` draws each frame at its exact time and encodes H.264 with WebCodecs, `mp4.ts` writes the MP4 (no library). Quick mode (MediaRecorder, `record.ts`) is the fallback.
 - 24 Nov: Globe Video Maker (`/globe-video-maker`, section media): pack `src/config/packs/globe.ts`, UI `components/tools/globe/`, engine `src/lib/globe/` (geo, world, places, styles, timeline, draw, record), screen text `locales/packs/globe.ui.en.json`. Map data in `src/data/globe/` is built by `scripts/build-globe-data.py` from Natural Earth (public domain, India point-of-view borders); rerun it to refresh. Draws on a canvas and records with MediaRecorder (MP4 where the browser can, else WebM).
 - 22 Nov: new `more` pack (`src/config/packs/more.ts`, `components/tools/more/`, logic in `src/lib/more/`): Resize PDF Page Size, PDF Booklet Maker, Grayscale PDF, Extract Images from PDF and Audio Cutter and Joiner. Chosen because other sites cap, watermark or charge for them. Shared opener hook `usePdfSource`.
 

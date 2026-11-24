@@ -13,8 +13,8 @@ export function recordSupport(): RecordSupport {
   return none;
 }
 
-/** Bits per second for a picture size: about 0.2 bits per pixel at 30 frames a second, which keeps thin map lines clean. */
-export const videoBitrate = (width: number, height: number) => Math.round(Math.min(16_000_000, Math.max(3_000_000, width * height * 30 * 0.2)));
+/** Bits per second for a picture size: about 0.2 bits per pixel per frame, which keeps thin map lines clean. */
+export const videoBitrate = (width: number, height: number, fps = 30) => Math.round(Math.min(24_000_000, Math.max(3_000_000, width * height * fps * 0.2)));
 
 export interface RecordJob {
   canvas: HTMLCanvasElement;

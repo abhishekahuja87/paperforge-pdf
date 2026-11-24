@@ -42,7 +42,7 @@
         ],
         [
           "How long does it take to make a video?",
-          "The video is recorded in real time, so a 10 second video takes about 10 seconds. Keep the page open and the screen on while it records."
+          "In Smooth mode every frame is drawn one by one, so a fast phone finishes in about the length of the video and a slower one takes longer. Quick mode records in real time. Keep the page open and the screen on either way."
         ],
         [
           "Does it save MP4?",
@@ -50,7 +50,7 @@
         ],
         [
           "Is it smooth on my phone?",
-          "Speed depends on the phone. 720p is smoother on older phones. If the device falls behind, frames are skipped so the video keeps its length, and you are told."
+          "Smooth mode draws every frame, so the video is smooth even when the phone is slow; it just takes longer to make. 720p is faster on older phones. If your browser cannot do this, the tool records in real time instead."
         ],
         [
           "Is anything uploaded anywhere?",
@@ -79,7 +79,7 @@
         {
           "heading": "Made on your device",
           "paragraphs": [
-            "The globe is drawn and recorded in your browser. Nothing is uploaded, there is no watermark and no limit on videos. Because it records in real time, a 10 second video takes about 10 seconds, and a slower phone may look less smooth, so try 720p first.",
+            "The globe is drawn and recorded in your browser. Nothing is uploaded, there is no watermark and no limit on videos. Smooth mode draws every frame at 30 or 60 frames a second, so a slow phone takes longer rather than making a choppy video. Try 720p first if making it takes too long.",
             "Borders follow the Indian government's view of India's boundaries. The map is for showing a route, not for settling boundaries."
           ]
         }
