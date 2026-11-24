@@ -235,6 +235,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L5 | Audio Cutter and Joiner: join two files, trim, play, save WAV | | |
 | L6 | Globe Video Maker: pick A and B, preview, make a 10 s video, play it, save it | | |
 | L7 | Globe Video Maker: One to many and Places visited layouts, an example button, and one purpose page such as /travel-route-video-maker | | |
+| L8 | Globe Video Maker: import a GPX route and make a 5 s 4K video | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

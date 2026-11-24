@@ -16,6 +16,7 @@ import { buildPlaces, normalise, parseCoordinates, searchPlaces, shortName, stop
 import { GLOBE_STYLES, styleById } from '../../../lib/globe/styles';
 import { buildPlan, maximumStops, minimumSeconds } from '../../../lib/globe/plan';
 import { GLOBE_PRESETS, presetById } from '../../../lib/globe/presets';
+import { parseGpx, pathKm, placeCount, samplePoints, stopsFromPoints } from '../../../lib/globe/gpx';
 import { renderGlobe } from '../../../lib/globe/draw';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
 import { canEncodeAac, encodeAac, readMusic, renderMusic, type Music } from '../../../lib/globe/audio';
@@ -25,7 +26,7 @@ import type { GlobeOptions, ShapeId, Stop } from '../../../lib/globe/types';
 const STORAGE_KEY = 'mdu_globe_video_v1';
 const MORE_PLACES = ['Singapore', 'Dubai', 'London', 'Tokyo', 'Paris', 'Sydney', 'Brazil', 'Canada', 'Egypt', 'Kenya', 'Germany', 'Italy', 'Mexico', 'Thailand'];
 
-interface Saved { stops: Stop[]; options: GlobeOptions; shape: ShapeId; quality: 720 | 1080; fps: 30 | 60; mode: 'smooth' | 'quick' }
+interface Saved { stops: Stop[]; options: GlobeOptions; shape: ShapeId; quality: 720 | 1080 | 2160; fps: 30 | 60; mode: 'smooth' | 'quick' }
 
 const DEFAULT_OPTIONS: GlobeOptions = { layout: 'chain', styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10, legMovers: [], routeColor: '', distance: 'off', night: false, logoCorner: 'br', logoSize: 'medium' };
 const ROUTE_COLOURS = ['#f97316', '#ef4444', '#ec4899', '#a855f7', '#22c55e', '#14b8a6', '#eab308', '#ffffff'];
@@ -179,6 +180,7 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
   const [notice, setNotice] = useState('');
   const abort = useRef<AbortController | null>(null);
   const support = useMemo(() => recordSupport(!!music), [music]);
+  const [fourK, setFourK] = useState<{ ok: boolean; codec: string }>({ ok: false, codec: '' });
   const [smooth, setSmooth] = useState<{ ok: boolean; codec: string }>({ ok: false, codec: '' });
   const [started, setStarted] = useState(0);
   const [wasSmooth, setWasSmooth] = useState(false);
@@ -259,9 +261,12 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
 
   const fileBase = normalise(layout === 'chain' ? `globe-${stops[0]!.label}-to-${stops[stops.length - 1]!.label}` : layout === 'fan' ? `globe-${stops[0]!.label}-to-${stops.length - 1}-places` : `globe-${stops.length}-places-visited`).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-  const useSmooth = mode === 'smooth' && smooth.ok && (!music || aac);
+  useEffect(() => { let live = true; const big = videoSize(shape, 2160); void canEncodeOffline(big.width, big.height, fps).then((found) => { if (live) setFourK(found); }); return () => { live = false; }; }, [shape, fps]);
+
+  const useSmooth = (mode === 'smooth' || quality === 2160) && smooth.ok && (!music || aac);
   const musicFallsBack = !!music && mode === 'smooth' && smooth.ok && !aac;
-  const canMake = support.ok || smooth.ok;
+  const needsSmooth = quality === 2160;
+  const canMake = needsSmooth ? smooth.ok && (!music || aac) : support.ok || smooth.ok;
 
   const makeVideo = async () => {
     setPlaying(false); setMessage(''); setResult(null); setProgress(0); setStarted(performance.now()); setWasSmooth(useSmooth); setRecording(true);
@@ -300,6 +305,19 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
     const limit = maximumStops(value);
     setPicture(null); setResult(null); setTime(0);
     setSaved((current) => ({ ...current, options: { ...current.options, layout: value }, stops: current.stops.length > limit ? [...current.stops.slice(0, limit - 1), current.stops[current.stops.length - 1]!] : current.stops }));
+  };
+  const importGpx = async (file: File | null) => {
+    if (!file) return;
+    try {
+      const points = parseGpx(await file.text());
+      if (points.length < 2) { setNotice(ui.gpxBad); return; }
+      const km = pathKm(points);
+      const kept = stopsFromPoints(samplePoints(points, placeCount(km)), places);
+      photoStore.current.clear();
+      setPicture(null); setResult(null); setTime(0);
+      setSaved((current) => ({ ...current, options: { ...current.options, layout: 'chain' }, stops: kept }));
+      setNotice(ui.gpxDone.replace('{{count}}', String(kept.length)).replace('{{km}}', String(Math.round(km))));
+    } catch { setNotice(ui.gpxBad); }
   };
   const applyPreset = (id: string) => { const next = presetSaved(id); photoStore.current.clear(); setPicture(null); setResult(null); setTime(0); setMessage(''); setSaved((current) => ({ ...next, fps: current.fps, mode: current.mode, quality: current.quality })); };
   const titleFor = (index: number) => (layout === 'chain' ? (index === 0 ? ui.stopA : index === stops.length - 1 ? ui.stopB : ui.stopMid) : layout === 'fan' ? (index === 0 ? ui.fanFrom : `${ui.fanTo} ${index}`) : `${ui.placeN} ${index + 1}`);
@@ -340,6 +358,11 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
           <StopEditor key={index} title={titleFor(index)} stop={stop} onChange={(next) => setStop(index, next)} onRemove={removable(index) ? () => setStops(stops.filter((_, i) => i !== index)) : undefined} photo={photoOf(stop)} onPhoto={(file) => void setPhoto(index, file)} />
         ))}
         <div className="flex flex-wrap gap-2">
+          {layout === 'chain' && (
+            <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50">
+              {ui.gpx}<input type="file" accept=".gpx,application/gpx+xml,text/xml" className="sr-only" onChange={(event) => { void importGpx(event.target.files?.[0] ?? null); event.target.value = ''; }} />
+            </label>
+          )}
           {layout === 'chain' && <button type="button" onClick={swap} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><ArrowUp className="h-4 w-4" aria-hidden="true" /><ArrowDown className="-ml-3 h-4 w-4" aria-hidden="true" />{ui.swap}</button>}
           {stops.length < maxStops && <button type="button" onClick={addStop} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><Plus className="h-4 w-4" aria-hidden="true" />{layout === 'chain' ? ui.addStop : ui.addPlace}</button>}
         </div>
@@ -408,7 +431,8 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
         <h2 className={heading}>{ui.shape}</h2>
         <ChoiceButtons label={ui.shape} value={shape} onChange={(value) => { setSaved({ ...saved, shape: value as ShapeId }); setResult(null); setPicture(null); }} options={names(ui.shapes)} />
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.quality}</p>
-          <ChoiceButtons label={ui.quality} value={String(quality)} onChange={(value) => { setSaved({ ...saved, quality: value === '1080' ? 1080 : 720 }); setResult(null); setPicture(null); }} options={names(ui.qualities)} /></div>
+          <ChoiceButtons label={ui.quality} value={String(quality)} onChange={(value) => { setSaved({ ...saved, quality: value === '2160' ? 2160 : value === '1080' ? 1080 : 720 }); setResult(null); setPicture(null); }} options={names(ui.qualities).filter((item) => item.value !== '2160' || fourK.ok || quality === 2160)} />
+          {quality === 2160 && <p className="mt-1 text-[11px] text-slate-500">{ui.fourKHint}</p>}</div>
         {smooth.ok && (
           <>
             <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mode}</p>
