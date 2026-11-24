@@ -162,6 +162,7 @@ ok(() => assert.equal(quick.gameInfo('nope').id, 'basketball'));
 
 // court size pages (kho kho, kabaddi): the written numbers must match the court data
 const units = await import('../src/lib/sports/units.ts');
+const courtPagesModule = await import('../src/config/courtPages.ts');
 const courtData = await import('../src/lib/sports/courtData.ts');
 const { readFileSync } = await import('node:fs');
 const packText = JSON.parse(readFileSync(new URL('../src/locales/packs/sports.en.json', import.meta.url), 'utf8'));
@@ -176,5 +177,28 @@ ok(() => { for (const v of kab) { assert.ok(kabText.includes(units.formatLength(
 ok(() => { const men = kab[0]; const baulk = men.marks.find((x) => x.id === 'baulkLine').m; const bonus = men.marks.find((x) => x.id === 'bonusLine').m; assert.ok(kabText.includes(units.formatLength(baulk)) && kabText.includes(units.formatLength(bonus))); });
 ok(() => { for (const key of ['sportsKhoKhoCourt', 'sportsKabaddiCourt']) { const g = packText.pageGuides[key]; assert.ok(g.subtitle.length <= 160, key); assert.equal(g.faq.length, 8); assert.ok(g.faq.at(-1)[1].includes('{{siteName}}')); } });
 ok(() => { for (const slug of ['kho-kho-court-size', 'kabaddi-court-size']) { assert.equal(packText.guideSteps[slug].length, 4); assert.equal(packText.toolArticles[slug].sections.length, 3); } });
+
+// every court page: each "N m (X ft Y in)" written in the text must agree with itself, and each page has its full set of text
+ok(() => {
+  const { COURT_PAGES } = courtPagesModule;
+  assert.equal(COURT_PAGES.length, 12);
+  const re = /(\d+(?:\.\d+)?) m \((?:(\d+) ft )?(?:(\d+(?:\.\d+)?) in)?\)/g;
+  let seen = 0;
+  for (const page of COURT_PAGES) {
+    const slug = page.path.slice(1);
+    const g = packText.pageGuides[page.guideKey];
+    assert.ok(g && g.subtitle.length <= 160 && g.faq.length === 8 && g.faq.at(-1)[1].includes('{{siteName}}'), slug);
+    assert.equal(packText.guideSteps[slug].length, 4, slug);
+    assert.equal(packText.toolArticles[slug].sections.length, 3, slug);
+    assert.ok(courtData.SPORTS.some((x) => x.id === page.sportId), slug);
+    for (const m of JSON.stringify([packText.toolArticles[slug], packText.guideSteps[slug], g]).matchAll(re)) {
+      const metres = Number(m[1]);
+      const written = (Number(m[2] ?? 0) * 12 + Number(m[3] ?? 0)) * 0.0254;
+      assert.ok(Math.abs(metres - written) <= 0.006, `${slug}: ${m[0]} is not consistent`);
+      seen += 1;
+    }
+  }
+  assert.ok(seen > 150, `only ${seen} lengths checked`);
+});
 
 console.log(`${checks} checks passed`);

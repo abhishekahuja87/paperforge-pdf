@@ -328,3 +328,13 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | U5 | Sitemap lists both; main guide links to each sport page; section FAQ links work | | |
 | U6 | Search Console: sitemap submitted, both pages requested for indexing (date) | | |
 | U7 | After 2-3 weeks: indexed? impressions for the two queries? (note numbers) | | |
+
+### Court size pages for every sport (24 Nov)
+| # | Check | Result | Notes |
+|---|---|---|---|
+| V1 | All 12 court size pages open with the sport chosen, no sport list, no Fit tab | | |
+| V2 | Choosing a sport in the main guide opens its page; Show this court opens the right page and version | | |
+| V3 | Sizes match a trusted source for each sport | | |
+| V4 | Each page has 4 steps, 3 sections, 8 questions; own title in page source | | |
+| V5 | Sitemap lists all 12; section FAQ links work; no sideways scroll at 360 px | | |
+| V6 | Search Console: pages requested for indexing (date) | | |

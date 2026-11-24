@@ -20,6 +20,16 @@ export interface CourtPage {
 export const COURT_PAGES: CourtPage[] = [
   { path: '/kho-kho-court-size', sportId: 'khoKho', guideKey: 'sportsKhoKhoCourt', name: 'Kho kho court size' },
   { path: '/kabaddi-court-size', sportId: 'kabaddi', guideKey: 'sportsKabaddiCourt', name: 'Kabaddi court size' },
+  { path: '/badminton-court-size', sportId: 'badminton', guideKey: 'sportsBadmintonCourt', name: 'Badminton court size' },
+  { path: '/tennis-court-size', sportId: 'tennis', guideKey: 'sportsTennisCourt', name: 'Tennis court size' },
+  { path: '/pickleball-court-size', sportId: 'pickleball', guideKey: 'sportsPickleballCourt', name: 'Pickleball court size' },
+  { path: '/basketball-court-size', sportId: 'basketball', guideKey: 'sportsBasketballCourt', name: 'Basketball court size' },
+  { path: '/volleyball-court-size', sportId: 'volleyball', guideKey: 'sportsVolleyballCourt', name: 'Volleyball court size' },
+  { path: '/football-pitch-size', sportId: 'football', guideKey: 'sportsFootballPitch', name: 'Football pitch size' },
+  { path: '/cricket-pitch-size', sportId: 'cricket', guideKey: 'sportsCricketPitch', name: 'Cricket pitch and ground size' },
+  { path: '/hockey-pitch-size', sportId: 'hockey', guideKey: 'sportsHockeyPitch', name: 'Hockey pitch size' },
+  { path: '/table-tennis-table-size', sportId: 'tableTennis', guideKey: 'sportsTableTennisTable', name: 'Table tennis table size' },
+  { path: '/squash-court-size', sportId: 'squash', guideKey: 'sportsSquashCourt', name: 'Squash court size' },
 ];
 
 export const courtPageFor = (sportId: string): CourtPage | undefined => COURT_PAGES.find((page) => page.sportId === sportId);
