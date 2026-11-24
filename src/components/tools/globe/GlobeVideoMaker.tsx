@@ -19,6 +19,7 @@ import { GLOBE_PRESETS, presetById } from '../../../lib/globe/presets';
 import { parseGpx, pathKm, placeCount, samplePoints, stopsFromPoints } from '../../../lib/globe/gpx';
 import { Link } from 'react-router-dom';
 import { GLOBE_PAGES } from '../../../config/globePages';
+import { loadPicture, pictureFiles } from '../../../lib/globe/placePicture';
 import { renderGlobe } from '../../../lib/globe/draw';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
 import { canEncodeAac, encodeAac, readMusic, renderMusic, type Music } from '../../../lib/globe/audio';
@@ -77,7 +78,7 @@ function load(key: string, preset?: string): Saved {
 }
 
 /** One place picker: search box with suggestions, plus the name shown on the video. */
-const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) => void; onRemove?: () => void; photo: HTMLCanvasElement | null; onPhoto: (file: File | null) => void }> = ({ title, stop, onChange, onRemove, photo, onPhoto }) => {
+const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) => void; onRemove?: () => void; photo: HTMLCanvasElement | null; onPhoto: (file: File | null) => void; onPlace: () => void; placeBusy: boolean; credit: string | null }> = ({ title, stop, onChange, onRemove, photo, onPhoto, onPlace, placeBusy, credit }) => {
   const [query, setQuery] = useState('');
   const photoThumb = useMemo(() => (photo ? thumbnail(photo) : ''), [photo]);
   const [open, setOpen] = useState(false);
@@ -134,11 +135,13 @@ const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) =
           <ImageIcon className="h-4 w-4" aria-hidden="true" />{photo ? ui.changePhoto : ui.addPhoto}
           <input type="file" accept="image/*" className="sr-only" onChange={(event) => { const file = event.target.files?.[0] ?? null; event.target.value = ''; if (file) onPhoto(file); }} />
         </label>
+        {stop.kind !== 'point' && <button type="button" onClick={onPlace} disabled={placeBusy} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-50">{placeBusy ? ui.placeLoading : credit ? ui.placeAnother : ui.placePicture}</button>}
         {photo && <>
           <img src={photoThumb} alt="" className="h-11 w-11 rounded-lg border border-slate-200 object-cover" />
           <button type="button" onClick={() => onPhoto(null)} className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50">{ui.removePhoto}</button>
         </>}
       </div>
+      {credit && <p className="mt-1 text-[11px] text-slate-500">{ui.placeCredit.replace('{credit}', credit)}</p>}
     </div>
   );
 };
@@ -173,6 +176,10 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
   const [result, setResult] = useState<{ url: string; name: string; size: number; slow: number; extension: string } | null>(null);
   const [picture, setPicture] = useState<{ url: string; name: string } | null>(null);
   const photoStore = useRef(new Map<number, HTMLCanvasElement>());
+  const creditStore = useRef(new Map<number, string>());
+  const placeTries = useRef(new Map<string, { files: string[]; next: number }>());
+  const [placeBusy, setPlaceBusy] = useState(-1);
+  const [face, setFace] = useState<{ source: HTMLCanvasElement; zoom: number; x: number; y: number } | null>(null);
   const nextPhoto = useRef(1);
   const [logo, setLogo] = useState<HTMLCanvasElement | null>(null);
   const logoThumb = useMemo(() => (logo ? thumbnail(logo) : ''), [logo]);
@@ -206,6 +213,50 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
       setStops(stops.map((item, i) => (i === index ? { ...item, photoId: id } : item)));
     } catch { setNotice(ui.photoFailed); }
   };
+  /** Finds a free picture of the stop's place and uses it as the stop's photo. Each tap on an already filled stop moves to the next picture. */
+  const fillPlace = async (index: number, quiet = false): Promise<boolean> => {
+    const stop = stops[index];
+    if (!stop || stop.kind === 'point') return false;
+    setNotice(''); setPlaceBusy(index);
+    try {
+      let entry = placeTries.current.get(stop.label);
+      if (!entry) { entry = { files: await pictureFiles(stop.label), next: 0 }; placeTries.current.set(stop.label, entry); }
+      if (entry.next >= entry.files.length) entry.next = 0;
+      for (let tries = 0; tries < entry.files.length; tries += 1) {
+        const file = entry.files[entry.next % entry.files.length]!; entry.next += 1;
+        const found = await loadPicture(file, 900);
+        if (!found) continue;
+        const id = nextPhoto.current++; photoStore.current.set(id, found.canvas); creditStore.current.set(id, found.credit);
+        setSaved((current) => ({ ...current, stops: current.stops.map((item, i) => (i === index ? { ...item, photoId: id } : item)) }));
+        setPicture(null); setResult(null); setTime(0);
+        return true;
+      }
+      if (!quiet) setNotice(ui.placeNone.replace('{place}', stop.label));
+      return false;
+    } finally { setPlaceBusy(-1); }
+  };
+  const fillEmpty = async () => {
+    let missed = 0;
+    for (let i = 0; i < stops.length; i += 1) {
+      if (stops[i]!.photoId || stops[i]!.kind === 'point') continue;
+      if (!(await fillPlace(i, true))) missed += 1;
+    }
+    if (missed > 0) setNotice(ui.placeSome.replace('{count}', String(missed)));
+  };
+  const addFace = async (file: File | null) => {
+    setNotice(''); setResult(null); setPicture(null);
+    if (!file) { setFace(null); return; }
+    try { setFace({ source: await readPicture(file, 900), zoom: 1, x: 0, y: 0 }); update({ mover: 'face', arc: 'lifted' }); } catch { setNotice(ui.photoFailed); }
+  };
+  const faceBadge = useMemo(() => {
+    if (!face) return null;
+    const out = document.createElement('canvas'); out.width = 256; out.height = 256;
+    const { source, zoom, x, y } = face;
+    const side = Math.min(source.width, source.height) / zoom;
+    const sx = (source.width - side) / 2 + (x * (source.width - side)) / 2, sy = (source.height - side) / 2 + (y * (source.height - side)) / 2;
+    out.getContext('2d')!.drawImage(source, Math.max(0, Math.min(source.width - side, sx)), Math.max(0, Math.min(source.height - side, sy)), side, side, 0, 0, 256, 256);
+    return out;
+  }, [face]);
   const addLogo = async (file: File | null) => {
     setNotice(''); setResult(null); setPicture(null);
     if (!file) { setLogo(null); return; }
@@ -240,8 +291,8 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
   const paint = useCallback((target: HTMLCanvasElement, seconds: number) => {
     const ctx = target.getContext('2d');
     if (!ctx) return;
-    renderGlobe(ctx, { width: target.width, height: target.height, frame: timeline.frameAt(seconds), stops, world, style: styleById(options.styleId), options: { ...options, legMovers }, photos: stops.map(photoOf), logo });
-  }, [timeline, stops, options, logo, photoKey]); // eslint-disable-line react-hooks/exhaustive-deps
+    renderGlobe(ctx, { width: target.width, height: target.height, frame: timeline.frameAt(seconds), stops, world, style: styleById(options.styleId), options: { ...options, legMovers }, photos: stops.map(photoOf), credits: stops.map((stop) => (stop.photoId ? creditStore.current.get(stop.photoId) ?? null : null)), face: faceBadge, logo });
+  }, [timeline, stops, options, logo, photoKey, faceBadge]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => { if (canvas.current && !playing) paint(canvas.current, time); }, [paint, time, playing, previewW, previewH]);
 
@@ -315,17 +366,17 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
       if (points.length < 2) { setNotice(ui.gpxBad); return; }
       const km = pathKm(points);
       const kept = stopsFromPoints(samplePoints(points, placeCount(km)), places);
-      photoStore.current.clear();
+      photoStore.current.clear(); creditStore.current.clear();
       setPicture(null); setResult(null); setTime(0);
       setSaved((current) => ({ ...current, options: { ...current.options, layout: 'chain' }, stops: kept }));
       setNotice(ui.gpxDone.replace('{{count}}', String(kept.length)).replace('{{km}}', String(Math.round(km))));
     } catch { setNotice(ui.gpxBad); }
   };
-  const applyPreset = (id: string) => { const next = presetSaved(id); photoStore.current.clear(); setPicture(null); setResult(null); setTime(0); setMessage(''); setSaved((current) => ({ ...next, fps: current.fps, mode: current.mode, quality: current.quality })); };
+  const applyPreset = (id: string) => { const next = presetSaved(id); photoStore.current.clear(); creditStore.current.clear(); setPicture(null); setResult(null); setTime(0); setMessage(''); setSaved((current) => ({ ...next, fps: current.fps, mode: current.mode, quality: current.quality })); };
   const titleFor = (index: number) => (layout === 'chain' ? (index === 0 ? ui.stopA : index === stops.length - 1 ? ui.stopB : ui.stopMid) : layout === 'fan' ? (index === 0 ? ui.fanFrom : `${ui.fanTo} ${index}`) : `${ui.placeN} ${index + 1}`);
   const removable = (index: number) => (layout === 'chain' ? index > 0 && index < stops.length - 1 : index > 0 && stops.length > 2);
   const swap = () => setStops([...stops].reverse());
-  const reset = () => { try { localStorage.removeItem(storageKey); } catch { /* storage blocked */ } setSaved(preset ? presetSaved(preset) : defaultSaved()); setResult(null); setTime(0); setMessage(''); setNotice(''); setLogo(null); setMusic(null); photoStore.current.clear(); };
+  const reset = () => { try { localStorage.removeItem(storageKey); } catch { /* storage blocked */ } setSaved(preset ? presetSaved(preset) : defaultSaved()); setResult(null); setTime(0); setMessage(''); setNotice(''); setLogo(null); setMusic(null); setFace(null); photoStore.current.clear(); creditStore.current.clear(); placeTries.current.clear(); };
   const ratio = `${full.width} / ${full.height}`;
 
   return (
@@ -357,7 +408,7 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
           <p className="mt-1 text-[11px] text-slate-500">{(ui.layoutHints as Record<string, string>)[layout]}</p></div>
         <p className="text-xs text-slate-600">{layout === 'chain' ? ui.placesHint : ui.placesHintMany}</p>
         {stops.map((stop, index) => (
-          <StopEditor key={index} title={titleFor(index)} stop={stop} onChange={(next) => setStop(index, next)} onRemove={removable(index) ? () => setStops(stops.filter((_, i) => i !== index)) : undefined} photo={photoOf(stop)} onPhoto={(file) => void setPhoto(index, file)} />
+          <StopEditor key={index} title={titleFor(index)} stop={stop} onChange={(next) => setStop(index, next)} onRemove={removable(index) ? () => setStops(stops.filter((_, i) => i !== index)) : undefined} photo={photoOf(stop)} onPhoto={(file) => void setPhoto(index, file)} onPlace={() => void fillPlace(index)} placeBusy={placeBusy === index} credit={stop.photoId ? creditStore.current.get(stop.photoId) ?? null : null} />
         ))}
         <div className="flex flex-wrap gap-2">
           {layout === 'chain' && (
@@ -368,6 +419,7 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
           {layout === 'chain' && <button type="button" onClick={swap} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><ArrowUp className="h-4 w-4" aria-hidden="true" /><ArrowDown className="-ml-3 h-4 w-4" aria-hidden="true" />{ui.swap}</button>}
           {stops.length < maxStops && <button type="button" onClick={addStop} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><Plus className="h-4 w-4" aria-hidden="true" />{layout === 'chain' ? ui.addStop : ui.addPlace}</button>}
         </div>
+        <button type="button" onClick={() => void fillEmpty()} disabled={placeBusy >= 0} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-50">{placeBusy >= 0 ? ui.placeLoading : ui.placeFill}</button>
         {same && <Note>{ui.sameStops}</Note>}
         {notice && <Note>{notice}</Note>}
       </section>
@@ -381,7 +433,25 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
           {layout === 'chain' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.motion}</p><ChoiceButtons label={ui.motion} value={options.motion} onChange={(value) => update({ motion: value as GlobeOptions['motion'] })} options={names(ui.motions)} /></div>}
           {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.line}</p><ChoiceButtons label={ui.line} value={options.line} onChange={(value) => update({ line: value as GlobeOptions['line'] })} options={names(ui.lines)} /></div>}
           {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.arc}</p><ChoiceButtons label={ui.arc} value={options.arc} onChange={(value) => update({ arc: value as GlobeOptions['arc'] })} options={names(ui.arcs)} /></div>}
-          {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mover}</p><ChoiceButtons label={ui.mover} value={options.mover} onChange={(value) => update({ mover: value as GlobeOptions['mover'], ...(value === 'plane' ? { arc: 'lifted' as const } : value === 'dot' || value === 'none' ? {} : { arc: 'flat' as const }) })} options={names(ui.movers)} />{['train', 'car', 'bus', 'ship'].includes(options.mover) && <p className="mt-1 text-[11px] text-slate-500">{ui.moverNote}</p>}</div>}
+          {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mover}</p><ChoiceButtons label={ui.mover} value={options.mover} onChange={(value) => update({ mover: value as GlobeOptions['mover'], ...(value === 'plane' || value === 'face' ? { arc: 'lifted' as const } : value === 'dot' || value === 'none' ? {} : { arc: 'flat' as const }) })} options={names(ui.movers)} />{['train', 'car', 'bus', 'ship'].includes(options.mover) && <p className="mt-1 text-[11px] text-slate-500">{ui.moverNote}</p>}
+            {(options.mover === 'face' || options.legMovers.includes('face')) && (
+              <div className="mt-2 space-y-2 rounded-xl border border-slate-200 bg-white p-3">
+                <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50">
+                  <ImageIcon className="h-4 w-4" aria-hidden="true" />{face ? ui.faceChange : ui.faceAdd}
+                  <input type="file" accept="image/*" className="sr-only" onChange={(event) => { const file = event.target.files?.[0] ?? null; event.target.value = ''; if (file) void addFace(file); }} />
+                </label>
+                {!face && <p className="text-[11px] text-slate-500">{ui.faceNeeded}</p>}
+                {face && faceBadge && <div className="flex items-center gap-3">
+                  <img src={faceBadge.toDataURL('image/jpeg', 0.8)} alt="" className="h-16 w-16 rounded-full border-2 border-white object-cover shadow" />
+                  <div className="flex-1 space-y-1">
+                    <label className="block text-[11px] font-semibold text-slate-700">{ui.faceZoom}<input type="range" min={1} max={3} step={0.05} value={face.zoom} onChange={(event) => setFace({ ...face, zoom: Number(event.target.value) })} className="w-full accent-orange-700" /></label>
+                    <label className="block text-[11px] font-semibold text-slate-700">{ui.faceLeftRight}<input type="range" min={-1} max={1} step={0.05} value={face.x} onChange={(event) => setFace({ ...face, x: Number(event.target.value) })} className="w-full accent-orange-700" /></label>
+                    <label className="block text-[11px] font-semibold text-slate-700">{ui.faceUpDown}<input type="range" min={-1} max={1} step={0.05} value={face.y} onChange={(event) => setFace({ ...face, y: Number(event.target.value) })} className="w-full accent-orange-700" /></label>
+                  </div>
+                  <button type="button" onClick={() => void addFace(null)} className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50">{ui.faceRemove}</button>
+                </div>}
+              </div>
+            )}</div>}
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.pin}</p><ChoiceButtons label={ui.pin} value={options.pin} onChange={(value) => update({ pin: value as GlobeOptions['pin'] })} options={names(ui.pins)} /></div>
           {layout === 'chain' && stops.length > 2 && (
             <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.perLeg}</p>

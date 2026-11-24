@@ -144,7 +144,7 @@
         ],
         [
           "Is anything uploaded anywhere?",
-          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else. The one exception is the Use a picture of this place button: it sends only the place name to Wikipedia to find a free picture, and only when you tap it."
         ]
       ]
     },
@@ -182,7 +182,7 @@
         ],
         [
           "Is anything uploaded anywhere?",
-          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else. The one exception is the Use a picture of this place button: it sends only the place name to Wikipedia to find a free picture, and only when you tap it."
         ]
       ]
     },
@@ -220,7 +220,7 @@
         ],
         [
           "Is anything uploaded anywhere?",
-          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else. The one exception is the Use a picture of this place button: it sends only the place name to Wikipedia to find a free picture, and only when you tap it."
         ]
       ]
     },
@@ -258,7 +258,7 @@
         ],
         [
           "Is anything uploaded anywhere?",
-          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else. The one exception is the Use a picture of this place button: it sends only the place name to Wikipedia to find a free picture, and only when you tap it."
         ]
       ]
     },
@@ -296,7 +296,7 @@
         ],
         [
           "Is anything uploaded anywhere?",
-          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else. The one exception is the Use a picture of this place button: it sends only the place name to Wikipedia to find a free picture, and only when you tap it."
         ]
       ]
     },
@@ -334,7 +334,7 @@
         ],
         [
           "Is anything uploaded anywhere?",
-          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else. The one exception is the Use a picture of this place button: it sends only the place name to Wikipedia to find a free picture, and only when you tap it."
         ]
       ]
     }
