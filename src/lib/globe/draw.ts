@@ -11,7 +11,7 @@ export interface DrawInput {
   stops: Stop[];
   world: World;
   style: GlobeStyle;
-  options: Pick<GlobeOptions, 'line' | 'arc' | 'mover' | 'pin' | 'highlight' | 'labels' | 'caption'> & Partial<Pick<GlobeOptions, 'legMovers' | 'routeColor' | 'distance' | 'night' | 'logoCorner' | 'logoSize'>>;
+  options: Pick<GlobeOptions, 'line' | 'arc' | 'mover' | 'pin' | 'highlight' | 'labels' | 'caption'> & Partial<Pick<GlobeOptions, 'layout' | 'legMovers' | 'routeColor' | 'distance' | 'night' | 'logoCorner' | 'logoSize'>>;
   /** A picture for each stop (or null), shown when the trip is at that stop. */
   photos?: (CanvasImageSource | null)[];
   /** A logo for a corner of the video. */
@@ -27,6 +27,9 @@ const FONT = '"Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica 
 const moverFor = (options: DrawInput['options'], hop: number): GlobeOptions['mover'] => { const own = options.legMovers?.[hop]; return own && own !== 'same' ? own : options.mover; };
 /** A plane flies on a lifted arc and other vehicles go flat, unless one general vehicle is used and the arc is set by hand. */
 const liftedFor = (options: DrawInput['options'], hop: number) => { const own = options.legMovers?.[hop]; return own && own !== 'same' ? own === 'plane' : options.arc === 'lifted'; };
+/** The two stops a hop joins: in a fan every hop starts at the first stop. */
+const hopEnds = (input: DrawInput, hop: number) => (input.options.layout === 'fan' ? [input.stops[0]!, input.stops[hop + 1]!] as const : [input.stops[hop]!, input.stops[hop + 1]!] as const);
+const hopCount = (input: DrawInput) => (input.options.layout === 'visited' ? 0 : Math.max(0, input.stops.length - 1));
 const colourOf = (input: DrawInput) => input.options.routeColor || input.style.route;
 
 interface Screen { cx: number; cy: number; r: number; view: View; unit: number }
@@ -300,10 +303,13 @@ function drawGlobe(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
 const visible = (p: Projected) => p.depth >= 0 || p.x * p.x + p.y * p.y > 1;
 
 /** Points along a hop from stop a to stop b, lifted above the surface in the middle when the arc is lifted. */
-function hopPoints(a: Vec, b: Vec, upTo: number, lifted: boolean): { v: Vec; lift: number }[] {
+/** How high the middle of an arc is above the globe. A fan of many arcs stays low, so arcs to the far side do not float off into space. */
+const liftHeight = (angle: number, scale: number) => (0.07 + 0.16 * clamp(angle / Math.PI, 0, 1)) * scale;
+
+function hopPoints(a: Vec, b: Vec, upTo: number, lifted: boolean, scale = 1): { v: Vec; lift: number }[] {
   const angle = angleBetween(a, b);
   const n = Math.max(12, Math.ceil((angle * 180) / Math.PI / 1.5));
-  const height = lifted ? 0.07 + 0.16 * clamp(angle / Math.PI, 0, 1) : 0;
+  const height = lifted ? liftHeight(angle, scale) : 0;
   const out: { v: Vec; lift: number }[] = [];
   const last = Math.max(1, Math.ceil(n * upTo));
   for (let i = 0; i <= last; i++) {
@@ -329,17 +335,18 @@ function strokeSegments(ctx: CanvasRenderingContext2D, s: Screen, points: { v: V
 }
 
 function drawRoute(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
-  const { stops, frame, options } = input;
+  const { frame, options } = input;
   const width = Math.max(1.6, s.unit * 0.0062);
   const route = colourOf(input);
   ctx.save();
   ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  for (let i = 0; i < stops.length - 1; i++) {
+  for (let i = 0; i < hopCount(input); i++) {
     const progress = frame.routes[i] ?? 0;
     if (progress <= 0.001) continue;
-    const a = toVec(stops[i].lon, stops[i].lat), b = toVec(stops[i + 1].lon, stops[i + 1].lat);
+    const [from, to] = hopEnds(input, i);
+    const a = toVec(from.lon, from.lat), b = toVec(to.lon, to.lat);
     const lifted = liftedFor(options, i);
-    const points = hopPoints(a, b, progress, lifted);
+    const points = hopPoints(a, b, progress, lifted, options.layout === 'fan' ? 0.35 : 1);
     ctx.strokeStyle = route;
     if (options.line === 'rail') {
       // sleepers (short wide dashes) with two thin rails on top
@@ -372,14 +379,15 @@ const formatDistance = (km: number, unit: 'km' | 'mi') => { const value = unit =
 
 /** The length of each finished hop, in a small label on the middle of the line. */
 function drawDistances(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
-  const { stops, frame, options } = input;
+  const { frame, options } = input;
   if (!options.distance || options.distance === 'off') return;
-  for (let i = 0; i < stops.length - 1; i++) {
+  for (let i = 0; i < hopCount(input); i++) {
     const alpha = smoothstep(0.55, 0.95, frame.routes[i] ?? 0);
     if (alpha <= 0.01) continue;
-    const a = toVec(stops[i].lon, stops[i].lat), b = toVec(stops[i + 1].lon, stops[i + 1].lat);
+    const [from, to] = hopEnds(input, i);
+    const a = toVec(from.lon, from.lat), b = toVec(to.lon, to.lat);
     const angle = angleBetween(a, b);
-    const lift = liftedFor(options, i) ? 1 + (0.07 + 0.16 * clamp(angle / Math.PI, 0, 1)) : 1;
+    const lift = liftedFor(options, i) ? 1 + liftHeight(angle, options.layout === 'fan' ? 0.35 : 1) : 1;
     const p = project(slerp(a, b, 0.5), s.view, lift);
     if (p.depth < 0.1) continue;
     const [x, y] = toScreen(s, p);
@@ -426,16 +434,20 @@ function vehicle(ctx: CanvasRenderingContext2D, kind: 'train' | 'car' | 'bus' | 
 }
 
 function drawMover(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
-  const { stops, frame, options } = input;
-  if (!frame.head) return;
-  const { hop, t } = frame.head;
+  for (const head of input.frame.heads) drawOneMover(ctx, input, s, head);
+}
+
+function drawOneMover(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen, head: { hop: number; t: number }) {
+  const { options } = input;
+  const { hop, t } = head;
   const mover = moverFor(options, hop);
   if (mover === 'none') return;
   const route = colourOf(input);
-  const a = toVec(stops[hop].lon, stops[hop].lat), b = toVec(stops[hop + 1].lon, stops[hop + 1].lat);
+  const [from, to] = hopEnds(input, hop);
+  const a = toVec(from.lon, from.lat), b = toVec(to.lon, to.lat);
   const angle = angleBetween(a, b);
   const lifted = liftedFor(options, hop);
-  const height = lifted ? 0.07 + 0.16 * clamp(angle / Math.PI, 0, 1) : 0;
+  const height = lifted ? liftHeight(angle, options.layout === 'fan' ? 0.35 : 1) : 0;
   const at = (u: number) => project(slerp(a, b, u), s.view, 1 + height * Math.sin(Math.PI * u));
   const p = at(t), q = at(Math.min(1, t + 0.01)), o = at(Math.max(0, t - 0.01));
   if (!visible(p)) return;
@@ -477,6 +489,7 @@ function drawPins(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen): (
   const { stops, frame, style, options, width: w, height: h } = input;
   const unit = s.unit;
   const anchors: ({ x: number; top: number; bottom: number } | null)[] = stops.map(() => null);
+  const taken: { x: number; y: number; w: number; h: number }[] = [];
   stops.forEach((stop, i) => {
     const pop = clamp(frame.pins[i] ?? 0, 0, 1);
     if (pop <= 0) return;
@@ -520,6 +533,10 @@ function drawPins(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen): (
       let bx = x - boxW / 2;
       bx = clamp(bx, size * 0.5, w - boxW - size * 0.5);
       const by = clamp(labelY - boxH - size * 0.25, size * 0.4, h - boxH - size * 0.4);
+      // A name that would sit on top of one already drawn is left out, so crowded maps stay readable.
+      const crowded = taken.some((box) => bx < box.x + box.w && bx + boxW > box.x && by < box.y + box.h && by + boxH > box.y);
+      if (!crowded) {
+      taken.push({ x: bx, y: by, w: boxW, h: boxH });
       ctx.globalAlpha = clamp(pop * 1.4, 0, 1);
       ctx.shadowColor = 'rgba(0,0,0,0.35)'; ctx.shadowBlur = size * 0.5; ctx.shadowOffsetY = size * 0.15;
       ctx.fillStyle = style.labelBg; roundRect(ctx, bx, by, boxW, boxH, boxH / 2); ctx.fill();
@@ -527,6 +544,7 @@ function drawPins(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen): (
       ctx.fillStyle = style.labelText; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
       ctx.fillText(stop.label, bx + padX, by + boxH / 2 + size * 0.04);
       topOfStop = by;
+      }
     }
     anchors[i] = { x, top: topOfStop, bottom: y + r * 1.8 };
     ctx.restore();

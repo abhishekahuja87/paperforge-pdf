@@ -1,0 +1,476 @@
+{
+  "guideSteps": {
+    "travel-route-video-maker": [
+      [
+        "Add your places in order",
+        "Start from the example and change each stop to a city or country on your trip. You can add up to three stops between the first and last place."
+      ],
+      [
+        "Add photos and distances",
+        "Add a photo to any stop and switch on distance labels to show the length of each leg in kilometres or miles."
+      ],
+      [
+        "Choose shape and length",
+        "Pick 9:16 for Reels and Shorts or 16:9 for YouTube, then a length that gives each stop a few seconds."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make video, keep the page open while it records, then save the video or a still picture."
+      ]
+    ],
+    "flight-path-animation-maker": [
+      [
+        "Choose where you fly from and to",
+        "Start from the example, then search for your departure and arrival cities. Coordinates work too."
+      ],
+      [
+        "Check the look",
+        "The example uses a dark night globe with a glowing line, a plane and the distance in the middle. Change any of them."
+      ],
+      [
+        "Pick shape and length",
+        "9:16 suits Reels and Shorts, 16:9 suits YouTube. Six to ten seconds is enough for one flight."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make video, wait while it records and save the file. A still picture is available too."
+      ]
+    ],
+    "moving-abroad-announcement-video": [
+      [
+        "Pick the country you leave and the one you move to",
+        "Start from the example and change both places. A city can colour its whole country."
+      ],
+      [
+        "Write your title",
+        "Change the title to your own words, such as We are moving! or See you in Toronto."
+      ],
+      [
+        "Add a photo or logo",
+        "Add a photo of your family or a logo in a corner if you want one."
+      ],
+      [
+        "Make and save the reel",
+        "Tap Make video and save it. The example is already the 9:16 shape for Reels and Stories."
+      ]
+    ],
+    "export-shipping-route-video-maker": [
+      [
+        "Set your origin and markets",
+        "The example ships from India to six countries. Change the first place to yours and the others to your markets. Up to twelve places fit."
+      ],
+      [
+        "Pick the look",
+        "Use a ship as the marker if you like, show distances and add your logo in a corner."
+      ],
+      [
+        "Set title, shape and length",
+        "A title such as Where we ship works well. Allow about a second for each market."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make video and save the file. A still picture is also available for a catalogue or website."
+      ]
+    ],
+    "globe-intro-video-maker": [
+      [
+        "Choose your two places",
+        "Start from the example, or pick the countries your channel is about."
+      ],
+      [
+        "Write your welcome line",
+        "Change the title to your channel's greeting, such as Welcome to my channel."
+      ],
+      [
+        "Add your logo",
+        "Put your logo in a corner and pick a globe look that fits your channel."
+      ],
+      [
+        "Make and save the intro",
+        "The example is eight seconds in the 16:9 shape for YouTube. Tap Make video and save it."
+      ]
+    ],
+    "countries-visited-map-video": [
+      [
+        "List the places you have been",
+        "The example has seven countries. Change them or add more, up to twelve. Cities work too and can colour their country."
+      ],
+      [
+        "Add photos",
+        "Add a photo to any place and it shows beside its pin."
+      ],
+      [
+        "Choose title and shape",
+        "A title such as Countries I have visited works well. Pick 9:16 for Reels or 1:1 for a post. Give each place about a second."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make video, keep the page open while it records and save the file."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "globeTravelRoute": {
+      "title": "Travel Route Video Maker: Show Your Trip on a Globe, Free",
+      "subtitle": "Turn your trip into a globe video. Add the cities you visited in order, a photo for each stop and the distance of each leg. Free, no watermark.",
+      "faq": [
+        [
+          "Is this free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many trip videos you make."
+        ],
+        [
+          "How many stops can my trip have?",
+          "The route can have up to five places in a row: a start, three stops and an end. For a longer trip, make one video for each part and join them in a video editor."
+        ],
+        [
+          "Can I show a different vehicle on each leg?",
+          "Yes. For routes with more than two places each leg can have its own marker, for example a plane for the long leg and a train for the last one. The marker follows a curved line between places, not real rails or roads."
+        ],
+        [
+          "Can I add photos from the trip?",
+          "Yes. Add a photo to any stop and it appears beside the pin as the globe arrives. Photos stay on your device."
+        ],
+        [
+          "What if my town is not in the list?",
+          "Tap Search more places to look through about 170,000 towns, or type coordinates such as 28.61, 77.21. Old names such as Bombay and Bangalore work too."
+        ],
+        [
+          "Which video shape should I pick?",
+          "Choose 9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts. It saves MP4 when your browser can make it, and WebM otherwise."
+        ],
+        [
+          "Why does making the video take a while?",
+          "In Smooth mode every frame is drawn one by one, so a slow phone takes longer rather than making a choppy video. Keep the page open and the screen on. Try 720p first if it takes too long."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "globeFlightPath": {
+      "title": "Flight Path Animation Maker: Plane Route on a Night Globe, Free",
+      "subtitle": "Animate a flight from one city to another on a glowing globe. Pick the cities, show the distance and download a video. Free, no watermark.",
+      "faq": [
+        [
+          "Is this free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many flight animations you make."
+        ],
+        [
+          "Is the line the real flight path?",
+          "No. The plane follows a curved line between the two places, which is close to the shortest route over the globe, but it is an illustration and not tracked flight data."
+        ],
+        [
+          "Can I show the distance?",
+          "Yes. A label shows the length of the flight in kilometres or miles. It is the straight distance over the globe, not the distance flown."
+        ],
+        [
+          "Can I add a stop or a connection?",
+          "Yes. Add up to three places between the start and end, and give each leg its own marker if you like."
+        ],
+        [
+          "Can I use a train or a ship instead of a plane?",
+          "Yes. Choose Train, Car, Bus or Ship as the moving marker. The line can look like a railway for trains."
+        ],
+        [
+          "Can I show the night side of the world?",
+          "Yes. The night shading darkens one side of the globe. It is a style choice and does not match the time of a real flight."
+        ],
+        [
+          "What if my town is not in the list?",
+          "Tap Search more places to look through about 170,000 towns, or type coordinates such as 28.61, 77.21. Old names such as Bombay and Bangalore work too."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "globeMoving": {
+      "title": "Moving Abroad Announcement Video Maker: Globe Reel, Free",
+      "subtitle": "Announce a move to another country with a globe that flies from your home country to the new one, with your own title. Free, no watermark.",
+      "faq": [
+        [
+          "Is this free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many announcement videos you make."
+        ],
+        [
+          "Can I write my own title?",
+          "Yes. The title can be any short text. Keep it brief so it is easy to read on a phone."
+        ],
+        [
+          "Can I highlight the country I am moving to?",
+          "Yes. Pick a city and tick the box under it to colour its whole country on the globe."
+        ],
+        [
+          "Can I add a photo of us?",
+          "Yes. Add a photo to the last stop and it appears when the globe arrives. The photo stays on your device."
+        ],
+        [
+          "Can I change the look?",
+          "Yes. Pick from six globe looks, a route colour and a pin, and add your logo in any corner. Music can come from a file on your device; use music you have the right to use."
+        ],
+        [
+          "What if my town is not in the list?",
+          "Tap Search more places to look through about 170,000 towns, or type coordinates such as 28.61, 77.21. Old names such as Bombay and Bangalore work too."
+        ],
+        [
+          "Which video shape should I pick?",
+          "Choose 9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts. It saves MP4 when your browser can make it, and WebM otherwise."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "globeExport": {
+      "title": "Export and Shipping Route Video Maker: One Origin, Many Countries",
+      "subtitle": "Show where you ship from and to. Lines spread from your country to each market on a globe, ready for a catalogue, website or social post. Free.",
+      "faq": [
+        [
+          "Is this free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many shipping videos you make."
+        ],
+        [
+          "What is the One to many route type?",
+          "The first place is the origin and every other place gets its own line from it, so the video shows all your markets together. The globe pulls back so the places fit, then turns slowly."
+        ],
+        [
+          "Why are some places hidden at first?",
+          "A globe shows only one side at a time. Places on the far side appear as the globe turns, so give the video enough seconds."
+        ],
+        [
+          "Can I use a ship or a plane?",
+          "Yes. Choose Ship, Plane, Train, Car or Bus as the marker. The marker follows a curved line, not real shipping lanes or air routes."
+        ],
+        [
+          "Can I show distances?",
+          "Yes. Each line can carry a label with its length in kilometres or miles."
+        ],
+        [
+          "Can I change the look?",
+          "Yes. Pick from six globe looks, a route colour and a pin, and add your logo in any corner. Music can come from a file on your device; use music you have the right to use."
+        ],
+        [
+          "What if my town is not in the list?",
+          "Tap Search more places to look through about 170,000 towns, or type coordinates such as 28.61, 77.21. Old names such as Bombay and Bangalore work too."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "globeIntro": {
+      "title": "YouTube Globe Intro Maker: Spinning Globe Intro, Free",
+      "subtitle": "Make a short spinning globe intro for your channel, with your welcome line and logo. Download a 16:9 video with no watermark. Free.",
+      "faq": [
+        [
+          "Is this free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many intros you make."
+        ],
+        [
+          "How long should an intro be?",
+          "Five to eight seconds is enough. Viewers tend to skip longer ones. You can pick any length from 5 to 30 seconds."
+        ],
+        [
+          "Can I add my channel logo?",
+          "Yes. Add it in any corner at the size you like. The logo stays on your device."
+        ],
+        [
+          "Can I add music?",
+          "Yes, from a file on your device. Use music you have the right to use. It fades in and out."
+        ],
+        [
+          "Can I hide the place names?",
+          "Yes. The example hides labels so the globe looks clean behind your title."
+        ],
+        [
+          "Which video shape should I pick?",
+          "Choose 9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts. It saves MP4 when your browser can make it, and WebM otherwise."
+        ],
+        [
+          "Why does making the video take a while?",
+          "In Smooth mode every frame is drawn one by one, so a slow phone takes longer rather than making a choppy video. Keep the page open and the screen on. Try 720p first if it takes too long."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    },
+    "globeVisited": {
+      "title": "Countries Visited Map Video Maker: Places I Have Been",
+      "subtitle": "Pin every country you have visited on a globe. Pins pop up one by one in a short video, with photos and your title. Free, no watermark.",
+      "faq": [
+        [
+          "Is this free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many travel map videos you make."
+        ],
+        [
+          "How is this different from a route video?",
+          "There are no lines between places. The globe pulls back so all the places fit, then each pin pops up in turn, so it suits a list of places in any order."
+        ],
+        [
+          "How many places can I add?",
+          "Up to twelve in one video. For more, make two videos and join them in an editor."
+        ],
+        [
+          "Can the countries be coloured?",
+          "Yes. Pick a city and tick the box under it to colour its country, so visited countries stand out on the map."
+        ],
+        [
+          "Why are some pins hard to see?",
+          "A globe shows one side at a time, so places on the far side appear as it turns. Crowded labels are hidden so names do not overlap, but the pins stay."
+        ],
+        [
+          "What if my town is not in the list?",
+          "Tap Search more places to look through about 170,000 towns, or type coordinates such as 28.61, 77.21. Old names such as Bombay and Bangalore work too."
+        ],
+        [
+          "Which video shape should I pick?",
+          "Choose 9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts. It saves MP4 when your browser can make it, and WebM otherwise."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The globe is drawn and the video is recorded on your own device, so your places, photos and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "travel-route-video-maker": {
+      "sections": [
+        {
+          "heading": "What a travel route video shows",
+          "paragraphs": [
+            "The globe turns to your first city, travels along the route and stops at each place with a pin, a name and, if you like, a photo. It is a short way to show friends and followers where you went, in the order you went."
+          ]
+        },
+        {
+          "heading": "Make it feel like your trip",
+          "paragraphs": [
+            "Choose a globe look, a route colour and a moving marker. Distance labels add the length of each leg, and a title such as My trip names the video. A logo in a corner works well for a travel blog or channel."
+          ]
+        },
+        {
+          "heading": "Made on your device",
+          "paragraphs": [
+            "The map is drawn and recorded in your browser, so your photos and places are not uploaded. Borders follow the Indian government's view of India's boundaries. Place names come from Natural Earth and GeoNames (CC BY 4.0). The route is an illustration, not a record of the real path."
+          ]
+        }
+      ]
+    },
+    "flight-path-animation-maker": {
+      "sections": [
+        {
+          "heading": "What the animation shows",
+          "paragraphs": [
+            "A globe turns to the departure city, a plane travels along a glowing arc and the camera ends on the arrival city. It suits a ticket reveal, a travel announcement, an explainer about a route or a quick intro for a travel business."
+          ]
+        },
+        {
+          "heading": "Choices that change the look",
+          "paragraphs": [
+            "Six globe looks, a line that is solid, dashed, dotted or glowing, a lifted or flat route, a camera that flies out and back or spins, and a pin of your choice."
+          ]
+        },
+        {
+          "heading": "Made on your device",
+          "paragraphs": [
+            "Everything is drawn and recorded in your browser, so nothing is uploaded and there is no watermark. Borders follow the Indian government's view of India's boundaries. Place names come from Natural Earth and GeoNames (CC BY 4.0)."
+          ]
+        }
+      ]
+    },
+    "moving-abroad-announcement-video": {
+      "sections": [
+        {
+          "heading": "A short, friendly way to share news",
+          "paragraphs": [
+            "A globe that leaves your home country and lands in the new one tells the story in a few seconds. It works for a job move, a study move or a family move, on Reels, Stories, Shorts or WhatsApp Status."
+          ]
+        },
+        {
+          "heading": "Make it personal",
+          "paragraphs": [
+            "Use your own title, a photo of the family at the destination, your logo if you share as a creator, and music you have the right to use. The route colour can match the colours of your new city or school."
+          ]
+        },
+        {
+          "heading": "Made on your device",
+          "paragraphs": [
+            "Everything is drawn and recorded in your browser, so your photos, places and video are not uploaded. Borders follow the Indian government's view of India's boundaries. Place names come from Natural Earth and GeoNames (CC BY 4.0)."
+          ]
+        }
+      ]
+    },
+    "export-shipping-route-video-maker": {
+      "sections": [
+        {
+          "heading": "Where you sell, in one picture",
+          "paragraphs": [
+            "Exporters, online shops and small manufacturers use a map of markets on catalogues, websites and posts. This page makes it a short video where lines grow from your country to each customer country in turn."
+          ]
+        },
+        {
+          "heading": "Choices for a business video",
+          "paragraphs": [
+            "Add your logo, name your markets, pick brand-like colours for the route, hide or rename place labels and choose 16:9 for a website or 1:1 for a post."
+          ]
+        },
+        {
+          "heading": "Made on your device",
+          "paragraphs": [
+            "The video is made in your browser, so your places and logo are not uploaded and there is no watermark. The map shows markets, not real shipping or flight routes, delivery times or trade facts. Borders follow the Indian government's view of India's boundaries. Place names come from Natural Earth and GeoNames (CC BY 4.0)."
+          ]
+        }
+      ]
+    },
+    "globe-intro-video-maker": {
+      "sections": [
+        {
+          "heading": "A simple intro for any channel",
+          "paragraphs": [
+            "A neon globe that spins from one country to another gives travel, news, language, business and education channels a quick, clean opening. Place the video at the start of each upload in your editor."
+          ]
+        },
+        {
+          "heading": "Choices that make it yours",
+          "paragraphs": [
+            "Six globe looks, camera movements, route colours and logo corners. Set 16:9 for YouTube or 9:16 for Shorts. Highlight the country your channel is about."
+          ]
+        },
+        {
+          "heading": "Made on your device",
+          "paragraphs": [
+            "The intro is drawn and recorded in your browser, so nothing is uploaded and there is no watermark. Borders follow the Indian government's view of India's boundaries. Place names come from Natural Earth and GeoNames (CC BY 4.0)."
+          ]
+        }
+      ]
+    },
+    "countries-visited-map-video": {
+      "sections": [
+        {
+          "heading": "A travel map that moves",
+          "paragraphs": [
+            "Many travellers keep a list of countries they have seen. This video shows that list on a globe, with a pin popping up for each place and a photo if you add one, in a shape ready for Reels, Shorts or a family chat."
+          ]
+        },
+        {
+          "heading": "Choices for the video",
+          "paragraphs": [
+            "Pick a globe look, a pin, a title, a logo corner and music from your device. Highlight countries to colour the map. The order of the pins follows your list."
+          ]
+        },
+        {
+          "heading": "Made on your device",
+          "paragraphs": [
+            "The globe is drawn and recorded in your browser, so your photos and places are not uploaded and there is no watermark. Borders follow the Indian government's view of India's boundaries. Place names come from Natural Earth and GeoNames (CC BY 4.0)."
+          ]
+        }
+      ]
+    }
+  }
+}

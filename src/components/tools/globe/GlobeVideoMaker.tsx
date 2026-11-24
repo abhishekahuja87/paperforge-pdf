@@ -14,7 +14,8 @@ import { decodeWorld, type RawWorld, type RawPlaces } from '../../../lib/globe/w
 import { loadMorePlaces, searchMore, shardLetter } from '../../../lib/globe/morePlaces';
 import { buildPlaces, normalise, parseCoordinates, searchPlaces, shortName, stopFromCoordinates, stopFromPlace, type PlaceEntry } from '../../../lib/globe/places';
 import { GLOBE_STYLES, styleById } from '../../../lib/globe/styles';
-import { buildTimeline } from '../../../lib/globe/timeline';
+import { buildPlan, maximumStops, minimumSeconds } from '../../../lib/globe/plan';
+import { GLOBE_PRESETS, presetById } from '../../../lib/globe/presets';
 import { renderGlobe } from '../../../lib/globe/draw';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
 import { canEncodeAac, encodeAac, readMusic, renderMusic, type Music } from '../../../lib/globe/audio';
@@ -22,11 +23,11 @@ import { canEncodeOffline, encodeOffline } from '../../../lib/globe/encode';
 import type { GlobeOptions, ShapeId, Stop } from '../../../lib/globe/types';
 
 const STORAGE_KEY = 'mdu_globe_video_v1';
-const MAX_STOPS = 5;
+const MORE_PLACES = ['Singapore', 'Dubai', 'London', 'Tokyo', 'Paris', 'Sydney', 'Brazil', 'Canada', 'Egypt', 'Kenya', 'Germany', 'Italy', 'Mexico', 'Thailand'];
 
 interface Saved { stops: Stop[]; options: GlobeOptions; shape: ShapeId; quality: 720 | 1080; fps: 30 | 60; mode: 'smooth' | 'quick' }
 
-const DEFAULT_OPTIONS: GlobeOptions = { styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10, legMovers: [], routeColor: '', distance: 'off', night: false, logoCorner: 'br', logoSize: 'medium' };
+const DEFAULT_OPTIONS: GlobeOptions = { layout: 'chain', styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10, legMovers: [], routeColor: '', distance: 'off', night: false, logoCorner: 'br', logoSize: 'medium' };
 const ROUTE_COLOURS = ['#f97316', '#ef4444', '#ec4899', '#a855f7', '#22c55e', '#14b8a6', '#eab308', '#ffffff'];
 
 /** A small copy of a picture for the settings screen, made once so it is not redone on every frame of the preview. */
@@ -53,17 +54,23 @@ const world = decodeWorld(rawWorld as unknown as RawWorld);
 const places = buildPlaces(world, rawPlaces as unknown as RawPlaces);
 const find = (name: string) => stopFromPlace(searchPlaces(places, name, 1)[0]!);
 const defaultSaved = (): Saved => ({ stops: [find('India'), find('United States')], options: { ...DEFAULT_OPTIONS }, shape: 'reel', quality: 720, fps: 30, mode: 'smooth' });
+const presetSaved = (id: string): Saved => {
+  const preset = presetById(id);
+  if (!preset) return defaultSaved();
+  return { stops: preset.stops.map(find), options: { ...DEFAULT_OPTIONS, ...preset.options }, shape: preset.shape, quality: 720, fps: 30, mode: 'smooth' };
+};
 
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
 
-function load(): Saved {
+function load(key: string, preset?: string): Saved {
+  const start = preset ? presetSaved(preset) : defaultSaved();
   try {
-    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null') as Saved | null;
-    if (parsed && Array.isArray(parsed.stops) && parsed.stops.length >= 2 && parsed.stops.length <= MAX_STOPS && parsed.options) {
-      return { ...defaultSaved(), ...parsed, options: { ...DEFAULT_OPTIONS, ...parsed.options } };
+    const parsed = JSON.parse(localStorage.getItem(key) ?? 'null') as Saved | null;
+    if (parsed && Array.isArray(parsed.stops) && parsed.stops.length >= 2 && parsed.stops.length <= 12 && parsed.options) {
+      return { ...start, ...parsed, options: { ...DEFAULT_OPTIONS, ...parsed.options } };
     }
   } catch { /* storage blocked or damaged: use the defaults */ }
-  return defaultSaved();
+  return start;
 }
 
 /** One place picker: search box with suggestions, plus the name shown on the video. */
@@ -139,7 +146,7 @@ const StyleThumb: React.FC<{ id: string; chosen: boolean; onPick: () => void }> 
   useEffect(() => {
     const canvas = ref.current; const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
-    renderGlobe(ctx, { width: 96, height: 96, frame: { lon: 20, lat: 20, zoom: 1.05, routes: [], pins: [], glow: [], photos: [], head: null, caption: 0, time: 0 }, stops: [], world, style: styleById(id), options: { line: 'solid', arc: 'lifted', mover: 'none', pin: 'pin', highlight: false, labels: false, caption: '' }, overlay: false });
+    renderGlobe(ctx, { width: 96, height: 96, frame: { lon: 20, lat: 20, zoom: 1.05, routes: [], pins: [], glow: [], photos: [], heads: [], caption: 0, time: 0 }, stops: [], world, style: styleById(id), options: { line: 'solid', arc: 'lifted', mover: 'none', pin: 'pin', highlight: false, labels: false, caption: '' }, overlay: false });
   }, [id]);
   return (
     <button type="button" aria-pressed={chosen} onClick={onPick} className={`rounded-xl border p-1.5 text-center ${chosen ? 'border-orange-400 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
@@ -150,8 +157,9 @@ const StyleThumb: React.FC<{ id: string; chosen: boolean; onPick: () => void }> 
 };
 
 /** Make a video of a globe that flies from one place to another. Drawn and recorded on your device. */
-export const GlobeVideoMaker: React.FC = () => {
-  const [saved, setSaved] = useState<Saved>(load);
+export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
+  const storageKey = preset ? `${STORAGE_KEY}_${preset}` : STORAGE_KEY;
+  const [saved, setSaved] = useState<Saved>(() => load(storageKey, preset));
   const { stops, options, shape, quality, fps, mode } = saved;
   const canvas = useRef<HTMLCanvasElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -176,7 +184,7 @@ export const GlobeVideoMaker: React.FC = () => {
   const [wasSmooth, setWasSmooth] = useState(false);
 
   useEffect(() => { void canEncodeAac().then(setAac); }, []);
-  useEffect(() => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch { /* storage blocked */ } }, [saved]);
+  useEffect(() => { try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch { /* storage blocked */ } }, [saved]);
   useEffect(() => () => { abort.current?.abort(); }, []);
   useEffect(() => () => { if (result) URL.revokeObjectURL(result.url); }, [result]);
   useEffect(() => () => { if (picture) URL.revokeObjectURL(picture.url); }, [picture]);
@@ -209,12 +217,15 @@ export const GlobeVideoMaker: React.FC = () => {
   const setLeg = (index: number, value: string) => update({ legMovers: legMovers.map((item, i) => (i === index ? (value as GlobeOptions['mover'] | 'same') : item)) });
 
   // Each stop needs a few seconds to be shown well, so more stops means a longer minimum.
-  const minSeconds = Math.max(5, 3 * (stops.length - 1) + 2);
+  const layout = options.layout;
+  const maxStops = maximumStops(layout);
+  const minSeconds = minimumSeconds(layout, stops.length);
   const seconds = Math.min(30, Math.max(options.seconds, minSeconds));
   const photoStops = stops.map((stop) => !!photoOf(stop));
   const photoKey = photoStops.join();
-  const timeline = useMemo(() => buildTimeline(stops, { ...options, seconds, photoStops }), [stops, options, seconds, photoKey]); // eslint-disable-line react-hooks/exhaustive-deps
-  const same = stops.some((a, i) => stops.some((b, j) => i !== j && Math.abs(a.lat - b.lat) < 0.01 && Math.abs(a.lon - b.lon) < 0.01 && Math.abs(i - j) === 1));
+  const timeline = useMemo(() => buildPlan(stops, { ...options, seconds, photoStops }), [stops, options, seconds, photoKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  const near = (a: Stop, b: Stop) => Math.abs(a.lat - b.lat) < 0.01 && Math.abs(a.lon - b.lon) < 0.01;
+  const same = layout === 'chain' ? stops.some((a, i) => i > 0 && near(a, stops[i - 1]!)) : stops.some((a, i) => stops.some((b, j) => j > i && near(a, b)));
 
   // Preview size: short side 480 pixels.
   const full = videoSize(shape, quality);
@@ -246,7 +257,7 @@ export const GlobeVideoMaker: React.FC = () => {
 
   const togglePlay = () => { if (playing) setPlaying(false); else { if (time >= timeline.duration - 0.05) setTime(0); setPlaying(true); } };
 
-  const fileBase = normalise(`globe-${stops[0]!.label}-to-${stops[stops.length - 1]!.label}`).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const fileBase = normalise(layout === 'chain' ? `globe-${stops[0]!.label}-to-${stops[stops.length - 1]!.label}` : layout === 'fan' ? `globe-${stops[0]!.label}-to-${stops.length - 1}-places` : `globe-${stops.length}-places-visited`).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   const useSmooth = mode === 'smooth' && smooth.ok && (!music || aac);
   const musicFallsBack = !!music && mode === 'smooth' && smooth.ok && !aac;
@@ -280,9 +291,21 @@ export const GlobeVideoMaker: React.FC = () => {
     target.toBlob((blob) => { if (blob) setPicture({ url: URL.createObjectURL(blob), name: `${fileBase}.png` }); }, 'image/png');
   };
 
-  const addStop = () => { if (stops.length < MAX_STOPS) setStops([...stops.slice(0, -1), find('Dubai'), stops[stops.length - 1]!]); };
+  const addStop = () => {
+    if (stops.length >= maxStops) return;
+    const unused = find(MORE_PLACES.find((name) => !stops.some((stop) => stop.label.toLowerCase() === name.toLowerCase())) ?? 'Dubai');
+    setStops(layout === 'chain' ? [...stops.slice(0, -1), unused, stops[stops.length - 1]!] : [...stops, unused]);
+  };
+  const changeLayout = (value: GlobeOptions['layout']) => {
+    const limit = maximumStops(value);
+    setPicture(null); setResult(null); setTime(0);
+    setSaved((current) => ({ ...current, options: { ...current.options, layout: value }, stops: current.stops.length > limit ? [...current.stops.slice(0, limit - 1), current.stops[current.stops.length - 1]!] : current.stops }));
+  };
+  const applyPreset = (id: string) => { const next = presetSaved(id); photoStore.current.clear(); setPicture(null); setResult(null); setTime(0); setMessage(''); setSaved((current) => ({ ...next, fps: current.fps, mode: current.mode, quality: current.quality })); };
+  const titleFor = (index: number) => (layout === 'chain' ? (index === 0 ? ui.stopA : index === stops.length - 1 ? ui.stopB : ui.stopMid) : layout === 'fan' ? (index === 0 ? ui.fanFrom : `${ui.fanTo} ${index}`) : `${ui.placeN} ${index + 1}`);
+  const removable = (index: number) => (layout === 'chain' ? index > 0 && index < stops.length - 1 : index > 0 && stops.length > 2);
   const swap = () => setStops([...stops].reverse());
-  const reset = () => { try { localStorage.removeItem(STORAGE_KEY); } catch { /* storage blocked */ } setSaved(defaultSaved()); setResult(null); setTime(0); setMessage(''); setNotice(''); setLogo(null); setMusic(null); photoStore.current.clear(); };
+  const reset = () => { try { localStorage.removeItem(storageKey); } catch { /* storage blocked */ } setSaved(preset ? presetSaved(preset) : defaultSaved()); setResult(null); setTime(0); setMessage(''); setNotice(''); setLogo(null); setMusic(null); photoStore.current.clear(); };
   const ratio = `${full.width} / ${full.height}`;
 
   return (
@@ -302,14 +325,23 @@ export const GlobeVideoMaker: React.FC = () => {
       </section>
 
       <section className={`${card} space-y-3`}>
+        {!preset && (
+          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.startFrom}</p>
+            <div role="group" aria-label={ui.startFrom} className="flex flex-wrap gap-2">
+              {GLOBE_PRESETS.map((item) => <button key={item.id} type="button" onClick={() => applyPreset(item.id)} className="min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-orange-50">{(ui.presets as Record<string, string>)[item.id]}</button>)}
+            </div></div>
+        )}
         <h2 className={heading}>{ui.places}</h2>
-        <p className="text-xs text-slate-600">{ui.placesHint}</p>
+        <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.layout}</p>
+          <ChoiceButtons label={ui.layout} value={layout} onChange={(value) => changeLayout(value as GlobeOptions['layout'])} options={names(ui.layouts)} />
+          <p className="mt-1 text-[11px] text-slate-500">{(ui.layoutHints as Record<string, string>)[layout]}</p></div>
+        <p className="text-xs text-slate-600">{layout === 'chain' ? ui.placesHint : ui.placesHintMany}</p>
         {stops.map((stop, index) => (
-          <StopEditor key={index} title={index === 0 ? ui.stopA : index === stops.length - 1 ? ui.stopB : ui.stopMid} stop={stop} onChange={(next) => setStop(index, next)} onRemove={index > 0 && index < stops.length - 1 ? () => setStops(stops.filter((_, i) => i !== index)) : undefined} photo={photoOf(stop)} onPhoto={(file) => void setPhoto(index, file)} />
+          <StopEditor key={index} title={titleFor(index)} stop={stop} onChange={(next) => setStop(index, next)} onRemove={removable(index) ? () => setStops(stops.filter((_, i) => i !== index)) : undefined} photo={photoOf(stop)} onPhoto={(file) => void setPhoto(index, file)} />
         ))}
         <div className="flex flex-wrap gap-2">
-          <button type="button" onClick={swap} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><ArrowUp className="h-4 w-4" aria-hidden="true" /><ArrowDown className="-ml-3 h-4 w-4" aria-hidden="true" />{ui.swap}</button>
-          {stops.length < MAX_STOPS && <button type="button" onClick={addStop} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><Plus className="h-4 w-4" aria-hidden="true" />{ui.addStop}</button>}
+          {layout === 'chain' && <button type="button" onClick={swap} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><ArrowUp className="h-4 w-4" aria-hidden="true" /><ArrowDown className="-ml-3 h-4 w-4" aria-hidden="true" />{ui.swap}</button>}
+          {stops.length < maxStops && <button type="button" onClick={addStop} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><Plus className="h-4 w-4" aria-hidden="true" />{layout === 'chain' ? ui.addStop : ui.addPlace}</button>}
         </div>
         {same && <Note>{ui.sameStops}</Note>}
         {notice && <Note>{notice}</Note>}
@@ -321,12 +353,12 @@ export const GlobeVideoMaker: React.FC = () => {
           {GLOBE_STYLES.map((style) => <StyleThumb key={style.id} id={style.id} chosen={options.styleId === style.id} onPick={() => update({ styleId: style.id })} />)}
         </div>
         <div className="space-y-3">
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.motion}</p><ChoiceButtons label={ui.motion} value={options.motion} onChange={(value) => update({ motion: value as GlobeOptions['motion'] })} options={names(ui.motions)} /></div>
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.line}</p><ChoiceButtons label={ui.line} value={options.line} onChange={(value) => update({ line: value as GlobeOptions['line'] })} options={names(ui.lines)} /></div>
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.arc}</p><ChoiceButtons label={ui.arc} value={options.arc} onChange={(value) => update({ arc: value as GlobeOptions['arc'] })} options={names(ui.arcs)} /></div>
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mover}</p><ChoiceButtons label={ui.mover} value={options.mover} onChange={(value) => update({ mover: value as GlobeOptions['mover'], ...(value === 'plane' ? { arc: 'lifted' as const } : value === 'dot' || value === 'none' ? {} : { arc: 'flat' as const }) })} options={names(ui.movers)} />{['train', 'car', 'bus', 'ship'].includes(options.mover) && <p className="mt-1 text-[11px] text-slate-500">{ui.moverNote}</p>}</div>
+          {layout === 'chain' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.motion}</p><ChoiceButtons label={ui.motion} value={options.motion} onChange={(value) => update({ motion: value as GlobeOptions['motion'] })} options={names(ui.motions)} /></div>}
+          {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.line}</p><ChoiceButtons label={ui.line} value={options.line} onChange={(value) => update({ line: value as GlobeOptions['line'] })} options={names(ui.lines)} /></div>}
+          {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.arc}</p><ChoiceButtons label={ui.arc} value={options.arc} onChange={(value) => update({ arc: value as GlobeOptions['arc'] })} options={names(ui.arcs)} /></div>}
+          {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mover}</p><ChoiceButtons label={ui.mover} value={options.mover} onChange={(value) => update({ mover: value as GlobeOptions['mover'], ...(value === 'plane' ? { arc: 'lifted' as const } : value === 'dot' || value === 'none' ? {} : { arc: 'flat' as const }) })} options={names(ui.movers)} />{['train', 'car', 'bus', 'ship'].includes(options.mover) && <p className="mt-1 text-[11px] text-slate-500">{ui.moverNote}</p>}</div>}
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.pin}</p><ChoiceButtons label={ui.pin} value={options.pin} onChange={(value) => update({ pin: value as GlobeOptions['pin'] })} options={names(ui.pins)} /></div>
-          {stops.length > 2 && (
+          {layout === 'chain' && stops.length > 2 && (
             <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.perLeg}</p>
               <div className="space-y-2">{legMovers.map((leg, i) => (
                 <div key={i}><p className="text-[11px] font-semibold text-slate-600">{stops[i]!.label} → {stops[i + 1]!.label}</p>
@@ -338,7 +370,7 @@ export const GlobeVideoMaker: React.FC = () => {
               <button type="button" aria-pressed={!options.routeColor} onClick={() => update({ routeColor: '' })} className={`min-h-10 rounded-lg border px-3 text-xs font-semibold ${!options.routeColor ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700'}`}>{ui.lookColour}</button>
               {ROUTE_COLOURS.map((colour) => <button key={colour} type="button" aria-label={colour} aria-pressed={options.routeColor === colour} onClick={() => update({ routeColor: colour })} style={{ background: colour }} className={`h-10 w-10 rounded-full border-2 ${options.routeColor === colour ? 'border-slate-900' : 'border-slate-200'}`} />)}
             </div></div>
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.distance}</p><ChoiceButtons label={ui.distance} value={options.distance} onChange={(value) => update({ distance: value as GlobeOptions['distance'] })} options={names(ui.distances)} /></div>
+          {layout !== 'visited' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.distance}</p><ChoiceButtons label={ui.distance} value={options.distance} onChange={(value) => update({ distance: value as GlobeOptions['distance'] })} options={names(ui.distances)} /></div>}
           <Toggle label={ui.night} hint={ui.nightHint} checked={options.night} onChange={(value) => update({ night: value })} />
           <Toggle label={ui.highlight} hint={ui.highlightHint} checked={options.highlight} onChange={(value) => update({ highlight: value })} />
           <Toggle label={ui.labels} checked={options.labels} onChange={(value) => update({ labels: value })} />

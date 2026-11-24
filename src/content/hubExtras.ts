@@ -284,7 +284,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Cut a part out of a recording", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Choose the start and end on the sound wave." },
       { task: "Join voice notes or songs into one file", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Put the files in the order you want." },
       { task: "Add a fade in and fade out", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Listen before you save." },
-      { task: "Make a video of a trip from one place to another", tool: "globe-video-maker", name: "Globe Video Maker", note: "Pick A and B, choose a look, save a Reel, YouTube or square video." },
+      { task: "Make a video of a trip from one place to another", tool: "globe-video-maker", name: "Globe Video Maker", note: "Pick A and B, or one origin and many places. Choose a look, save a Reel, YouTube or square video." },
     ],
     situations: [
       { who: "Creators and travellers", text: "Make a globe video that flies from your home city to your destination for a Reel, a Short or a YouTube intro." },
