@@ -685,7 +685,8 @@
     "radiusWord": "Radius",
     "howToTitle": "How to play {sport}",
     "rulesTitle": "{sport} playing rules",
-    "rulesLead": "A short summary of common rules. Official rules differ by level, age group and event, and they change, so check the current rules of your sports body before an official match."
+    "rulesLead": "A short summary of common rules. Official rules differ by level, age group and event, and they change, so check the current rules of your sports body before an official match.",
+    "sportPageLink": "Open the {sport} court size page"
   },
   "marking": {
     "heading": "How to mark this court",

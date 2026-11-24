@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { CalcFooter, Note, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { CHECKED_ON, SOURCES, SPORTS, findSport } from '../../../lib/sports/courtData';
 import { spaceNeeded } from '../../../lib/sports/fit';
@@ -92,6 +92,7 @@ const CourtGuide: React.FC<{ fixedSport?: string }> = ({ fixedSport }) => {
             {variant.margins.length > 1 && <SelectField label={ui.runoff} value={margin.id} onChange={setMarginId} options={variant.margins.map((m) => ({ value: m.id, label: copy.margins[m.id] }))} />}
           </div>
           <p className="mt-3 text-xs text-slate-600">{copy.summary}</p>
+          {!fixedSport && courtPageFor(sport.id) && <p className="mt-1 text-xs"><Link to={courtPageFor(sport.id)!.path} state={{ variant: variant.id }} className="font-semibold text-orange-800 underline">{ui.sportPageLink.replace('{sport}', copy.name)}</Link></p>}
           <div className="mt-3"><CourtDiagram variant={variant} margin={margin} label={`${copy.name}: ${copy.variants[variant.id]}`} clearCaption={ui.clearCaption} annotate={annotate} /></div>
           <p className="mt-1 text-[11px] text-slate-500">{ui.drawingNote}</p>
           <div className="mt-3 flex flex-wrap gap-2">

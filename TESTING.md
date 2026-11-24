@@ -1264,3 +1264,6 @@ Check after deploy:
 - [ ] Each page has its own title, 4 steps, 3 sections and 8 questions (last one on privacy). Page source shows the text and its own canonical.
 - [ ] The sitemap lists all 12 pages. The Sports and fitness section FAQ links work. At 360 px nothing scrolls sideways.
 - [ ] Search Console: request indexing for the new pages (the two pilot pages first), then check the Pages report.
+
+### Court size page link in the main guide (24 Nov)
+- [ ] /sports-court-size-guide opens on Badminton and shows "Open the Badminton court size page" under the summary; it opens /badminton-court-size. Choosing another sport opens that sport's page straight away. Not run in a browser.
