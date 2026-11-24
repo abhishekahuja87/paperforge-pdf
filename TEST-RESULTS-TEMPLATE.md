@@ -237,6 +237,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L7 | Globe Video Maker: One to many and Places visited layouts, an example button, and one purpose page such as /travel-route-video-maker | | |
 | L8 | Globe Video Maker: import a GPX route and make a 5 s 4K video | | |
 | L9 | Globe Video Maker: face photo as the marker and a place picture with credit at a stop | | |
+| L10 | Globe Video Maker: a note on a stop, an intro card, an ending card with facts | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

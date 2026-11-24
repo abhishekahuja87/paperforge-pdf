@@ -14,7 +14,7 @@ import { decodeWorld, type RawWorld, type RawPlaces } from '../../../lib/globe/w
 import { loadMorePlaces, searchMore, shardLetter } from '../../../lib/globe/morePlaces';
 import { buildPlaces, normalise, parseCoordinates, searchPlaces, shortName, stopFromCoordinates, stopFromPlace, type PlaceEntry } from '../../../lib/globe/places';
 import { GLOBE_STYLES, styleById } from '../../../lib/globe/styles';
-import { buildPlan, maximumStops, minimumSeconds } from '../../../lib/globe/plan';
+import { buildPlan, hasIntro, hasOutro, INTRO_SECONDS, maximumStops, minimumSeconds, OUTRO_SECONDS, tripFacts } from '../../../lib/globe/plan';
 import { GLOBE_PRESETS, presetById } from '../../../lib/globe/presets';
 import { parseGpx, pathKm, placeCount, samplePoints, stopsFromPoints } from '../../../lib/globe/gpx';
 import { Link } from 'react-router-dom';
@@ -31,7 +31,7 @@ const MORE_PLACES = ['Singapore', 'Dubai', 'London', 'Tokyo', 'Paris', 'Sydney',
 
 interface Saved { stops: Stop[]; options: GlobeOptions; shape: ShapeId; quality: 720 | 1080 | 2160; fps: 30 | 60; mode: 'smooth' | 'quick' }
 
-const DEFAULT_OPTIONS: GlobeOptions = { layout: 'chain', styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10, legMovers: [], routeColor: '', distance: 'off', night: false, logoCorner: 'br', logoSize: 'medium' };
+const DEFAULT_OPTIONS: GlobeOptions = { layout: 'chain', styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10, legMovers: [], routeColor: '', distance: 'off', night: false, logoCorner: 'br', logoSize: 'medium', introTitle: '', introSub: '', outroTitle: '', outroSub: '', facts: false };
 const ROUTE_COLOURS = ['#f97316', '#ef4444', '#ec4899', '#a855f7', '#22c55e', '#14b8a6', '#eab308', '#ffffff'];
 
 /** A small copy of a picture for the settings screen, made once so it is not redone on every frame of the preview. */
@@ -141,6 +141,9 @@ const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) =
           <button type="button" onClick={() => onPhoto(null)} className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50">{ui.removePhoto}</button>
         </>}
       </div>
+      <label className="mt-2 block text-xs font-semibold text-slate-700">{ui.stopNote}
+        <input value={stop.note ?? ''} maxLength={60} placeholder={ui.stopNotePlaceholder} onChange={(event) => onChange({ ...stop, note: event.target.value })} className={fieldClass} />
+      </label>
       {credit && <p className="mt-1 text-[11px] text-slate-500">{ui.placeCredit.replace('{credit}', credit)}</p>}
     </div>
   );
@@ -276,7 +279,7 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
   const maxStops = maximumStops(layout);
   const minSeconds = minimumSeconds(layout, stops.length);
   const seconds = Math.min(30, Math.max(options.seconds, minSeconds));
-  const photoStops = stops.map((stop) => !!photoOf(stop));
+  const photoStops = stops.map((stop) => !!photoOf(stop) || !!stop.note?.trim());
   const photoKey = photoStops.join();
   const timeline = useMemo(() => buildPlan(stops, { ...options, seconds, photoStops }), [stops, options, seconds, photoKey]); // eslint-disable-line react-hooks/exhaustive-deps
   const near = (a: Stop, b: Stop) => Math.abs(a.lat - b.lat) < 0.01 && Math.abs(a.lon - b.lon) < 0.01;
@@ -291,7 +294,7 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
   const paint = useCallback((target: HTMLCanvasElement, seconds: number) => {
     const ctx = target.getContext('2d');
     if (!ctx) return;
-    renderGlobe(ctx, { width: target.width, height: target.height, frame: timeline.frameAt(seconds), stops, world, style: styleById(options.styleId), options: { ...options, legMovers }, photos: stops.map(photoOf), credits: stops.map((stop) => (stop.photoId ? creditStore.current.get(stop.photoId) ?? null : null)), face: faceBadge, logo });
+    renderGlobe(ctx, { width: target.width, height: target.height, frame: timeline.frameAt(seconds), stops, world, style: styleById(options.styleId), options: { ...options, legMovers }, facts: options.facts ? tripFacts(stops, layout, options.distance === 'mi' ? 'mi' : 'km') : '', photos: stops.map(photoOf), credits: stops.map((stop) => (stop.photoId ? creditStore.current.get(stop.photoId) ?? null : null)), face: faceBadge, logo });
   }, [timeline, stops, options, logo, photoKey, faceBadge]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => { if (canvas.current && !playing) paint(canvas.current, time); }, [paint, time, playing, previewW, previewH]);
@@ -476,6 +479,15 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
           <label className="block text-xs font-semibold text-slate-700">{ui.caption}
             <input value={options.caption} maxLength={60} placeholder={ui.captionPlaceholder} onChange={(event) => update({ caption: event.target.value })} className={fieldClass} />
           </label>
+          <div className="space-y-2 rounded-xl border border-slate-200 bg-white p-3">
+            <p className="text-xs font-bold text-slate-800">{ui.cardsTitle}</p>
+            <p className="text-[11px] text-slate-500">{ui.cardsHint.replace('{intro}', String(INTRO_SECONDS)).replace('{outro}', String(OUTRO_SECONDS))}</p>
+            <label className="block text-xs font-semibold text-slate-700">{ui.introTitle}<input value={options.introTitle} maxLength={60} placeholder={ui.introTitlePlaceholder} onChange={(event) => update({ introTitle: event.target.value })} className={fieldClass} /></label>
+            <label className="block text-xs font-semibold text-slate-700">{ui.introSub}<input value={options.introSub} maxLength={80} onChange={(event) => update({ introSub: event.target.value })} className={fieldClass} /></label>
+            <label className="block text-xs font-semibold text-slate-700">{ui.outroTitle}<input value={options.outroTitle} maxLength={60} placeholder={ui.outroTitlePlaceholder} onChange={(event) => update({ outroTitle: event.target.value })} className={fieldClass} /></label>
+            <label className="block text-xs font-semibold text-slate-700">{ui.outroSub}<input value={options.outroSub} maxLength={80} placeholder={ui.outroSubPlaceholder} onChange={(event) => update({ outroSub: event.target.value })} className={fieldClass} /></label>
+            <Toggle label={ui.facts} hint={ui.factsHint} checked={options.facts} onChange={(value) => update({ facts: value })} />
+          </div>
         </div>
       </section>
 
@@ -518,7 +530,7 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
               <ChoiceButtons label={ui.frameRate} value={String(fps)} onChange={(value) => { setSaved({ ...saved, fps: value === '60' ? 60 : 30 }); setResult(null); }} options={names(ui.frameRates)} /></div>}
           </>
         )}
-        <label className="block text-xs font-semibold text-slate-700"><span className="flex justify-between"><span>{ui.seconds}</span><span className="font-bold text-slate-900">{seconds} s</span></span>
+        <label className="block text-xs font-semibold text-slate-700"><span className="flex justify-between"><span>{ui.seconds}</span><span className="font-bold text-slate-900">{seconds} s{(hasIntro(options) || hasOutro(options)) ? ` + ${((hasIntro(options) ? INTRO_SECONDS : 0) + (hasOutro(options) ? OUTRO_SECONDS : 0)).toFixed(1).replace('.0', '')} s cards` : ''}</span></span>
           <input type="range" min={minSeconds} max={30} step={1} value={seconds} onChange={(event) => update({ seconds: Number(event.target.value) })} className="mt-1 w-full accent-orange-700" />
         </label>
         <p className="text-[11px] text-slate-500">{useSmooth ? ui.fpsSmooth.replace('{fps}', String(fps)) : ui.fps}</p>

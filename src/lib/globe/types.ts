@@ -8,6 +8,8 @@ export interface Stop {
   kind: 'country' | 'city' | 'point';
   /** Id of the country the place is in (or is). A country is highlighted by the "Highlight the countries" switch; a city by its own tick box. */
   countryId?: string;
+  /** A short line shown at the bottom of the video while the trip is at this stop, for example a date. */
+  note?: string;
   /** Number of a photo for this stop, kept by the screen. Not saved between visits. */
   photoId?: number;
   /** For a city or point: highlight its country. */
@@ -47,6 +49,13 @@ export interface GlobeOptions {
   night: boolean;
   logoCorner: 'tl' | 'tr' | 'bl' | 'br';
   logoSize: 'small' | 'medium' | 'large';
+  /** Cards before and after the globe. A card is shown only when it has text (or, for the end card, facts are on). */
+  introTitle: string;
+  introSub: string;
+  outroTitle: string;
+  outroSub: string;
+  /** Show places, countries and distance on the end card. */
+  facts: boolean;
 }
 
 /** What the camera and the route look like at one moment. */
@@ -67,6 +76,8 @@ export interface Frame {
   photos: number[];
   /** Opacity of the caption (0 to 1). */
   caption: number;
+  /** The intro or end card, when one is on screen: how opaque it is (0 to 1). */
+  card?: { which: 'intro' | 'outro'; alpha: number };
   /** Seconds since the start, used for small animations like the pulse. */
   time: number;
 }

@@ -202,5 +202,18 @@
   "faceZoom": "Zoom",
   "faceLeftRight": "Move left or right",
   "faceUpDown": "Move up or down",
-  "faceNeeded": "Add a photo to use it as the moving marker. Until then a dot is shown. Use a photo of yourself or of someone who agreed. It stays on your device."
+  "faceNeeded": "Add a photo to use it as the moving marker. Until then a dot is shown. Use a photo of yourself or of someone who agreed. It stays on your device.",
+  "stopNote": "Note shown with this stop (optional)",
+  "stopNotePlaceholder": "Day 3, June 2026",
+  "cardsTitle": "Intro and ending cards",
+  "cardsHint": "A card is added only when it has text. The intro adds {intro} s before the globe and the ending adds {outro} s after it.",
+  "introTitle": "Intro title",
+  "introTitlePlaceholder": "Our trip to Japan",
+  "introSub": "Intro line",
+  "outroTitle": "Ending title",
+  "outroTitlePlaceholder": "Thanks for watching",
+  "outroSub": "Ending line",
+  "outroSubPlaceholder": "Follow @yourname",
+  "facts": "Show trip facts on the ending card",
+  "factsHint": "Places, countries and, for a trip, the straight-line distance, worked out from your stops."
 }

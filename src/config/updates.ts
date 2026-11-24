@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-24',
     path: '/globe-video-maker',
     tool: 'Globe Video Maker',
+    title: 'Notes for each stop, intro and ending cards, and a trip facts card',
+    summary: 'Add a short note such as a date to any stop, an intro card and an ending card with your own text, and show the number of places, countries and the distance on the ending card.',
+  },
+  {
+    date: '2026-11-24',
+    path: '/globe-video-maker',
+    tool: 'Globe Video Maker',
     title: 'Example buttons now open their own page and show which one you are on',
     summary: 'Travel route, flight path, moving announcement, shipping route, YouTube intro and places visited each open their own page with its own address, and the example you are on is highlighted.',
   },
