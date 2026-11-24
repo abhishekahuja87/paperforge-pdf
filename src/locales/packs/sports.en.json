@@ -327,6 +327,240 @@
         "Confirm with your federation",
         "The guide does not draw the short line, because the sources we checked differed slightly. Confirm the markings with World Squash or your national body before you build."
       ]
+    ],
+    "round-robin-schedule-4-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 4 teams, Team 1 to Team 4. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 6 matches in 3 rounds. Round robin, home and away, doubles that to 12 matches in 6 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "round-robin-schedule-5-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 5 teams, Team 1 to Team 5. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 10 matches in 5 rounds. Round robin, home and away, doubles that to 20 matches in 10 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "round-robin-schedule-6-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 6 teams, Team 1 to Team 6. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 15 matches in 5 rounds. Round robin, home and away, doubles that to 30 matches in 10 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "round-robin-schedule-7-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 7 teams, Team 1 to Team 7. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 21 matches in 7 rounds. Round robin, home and away, doubles that to 42 matches in 14 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "round-robin-schedule-8-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 8 teams, Team 1 to Team 8. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 28 matches in 7 rounds. Round robin, home and away, doubles that to 56 matches in 14 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "round-robin-schedule-9-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 9 teams, Team 1 to Team 9. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 36 matches in 9 rounds. Round robin, home and away, doubles that to 72 matches in 18 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "round-robin-schedule-10-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 10 teams, Team 1 to Team 10. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 45 matches in 9 rounds. Round robin, home and away, doubles that to 90 matches in 18 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "round-robin-schedule-12-teams": [
+      [
+        "Type your team names",
+        "The tool below starts with 12 teams, Team 1 to Team 12. Replace them with your own names, one on each line."
+      ],
+      [
+        "Choose the format",
+        "Round robin, everyone plays once, makes 66 matches in 11 rounds. Round robin, home and away, doubles that to 132 matches in 22 rounds."
+      ],
+      [
+        "Copy the fixtures",
+        "Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams."
+      ],
+      [
+        "Enter the scores",
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+      ]
+    ],
+    "knockout-bracket-6-teams": [
+      [
+        "Type your team names",
+        "Open the Format list and choose Knockout bracket. Type your 6 teams, one on each line, strongest first, because the order is the seeding."
+      ],
+      [
+        "Read the first round",
+        "The top 2 seeds have a bye and go straight to the second round. The other teams play in the first round."
+      ],
+      [
+        "Pick the winners",
+        "Tap the winner of each match. The winners move on to the next round until a champion is shown."
+      ],
+      [
+        "Copy or start again",
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+      ]
+    ],
+    "knockout-bracket-8-teams": [
+      [
+        "Type your team names",
+        "Open the Format list and choose Knockout bracket. Type your 8 teams, one on each line, strongest first, because the order is the seeding."
+      ],
+      [
+        "Read the first round",
+        "8 is a power of 2, so every team plays in the first round and no one has a bye."
+      ],
+      [
+        "Pick the winners",
+        "Tap the winner of each match. The winners move on to the next round until a champion is shown."
+      ],
+      [
+        "Copy or start again",
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+      ]
+    ],
+    "knockout-bracket-10-teams": [
+      [
+        "Type your team names",
+        "Open the Format list and choose Knockout bracket. Type your 10 teams, one on each line, strongest first, because the order is the seeding."
+      ],
+      [
+        "Read the first round",
+        "The top 6 seeds have a bye and go straight to the second round. The other teams play in the first round."
+      ],
+      [
+        "Pick the winners",
+        "Tap the winner of each match. The winners move on to the next round until a champion is shown."
+      ],
+      [
+        "Copy or start again",
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+      ]
+    ],
+    "knockout-bracket-12-teams": [
+      [
+        "Type your team names",
+        "Open the Format list and choose Knockout bracket. Type your 12 teams, one on each line, strongest first, because the order is the seeding."
+      ],
+      [
+        "Read the first round",
+        "The top 4 seeds have a bye and go straight to the second round. The other teams play in the first round."
+      ],
+      [
+        "Pick the winners",
+        "Tap the winner of each match. The winners move on to the next round until a champion is shown."
+      ],
+      [
+        "Copy or start again",
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+      ]
+    ],
+    "knockout-bracket-16-teams": [
+      [
+        "Type your team names",
+        "Open the Format list and choose Knockout bracket. Type your 16 teams, one on each line, strongest first, because the order is the seeding."
+      ],
+      [
+        "Read the first round",
+        "16 is a power of 2, so every team plays in the first round and no one has a bye."
+      ],
+      [
+        "Pick the winners",
+        "Tap the winner of each match. The winners move on to the next round until a champion is shown."
+      ],
+      [
+        "Copy or start again",
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+      ]
     ]
   },
   "pageGuides": {
@@ -997,6 +1231,500 @@
           "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
         ]
       ]
+    },
+    "fixturesRoundRobin4": {
+      "title": "Round Robin Schedule for 4 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 4 teams: all 6 matches in 3 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 4 teams?",
+          "There are 6 matches. Each of the 4 teams plays the other 3, and the total is 4 x 3 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 4 teams have?",
+          "3 rounds, with 2 matches in each."
+        ],
+        [
+          "Do all 4 teams play in every round?",
+          "Yes. With an even number of teams everyone has an opponent in every round, so you need 2 courts or pitches to play a round at once."
+        ],
+        [
+          "How many matches are there home and away with 4 teams?",
+          "12 matches in 6 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "2 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 4 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesRoundRobin5": {
+      "title": "Round Robin Schedule for 5 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 5 teams: all 10 matches in 5 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 5 teams?",
+          "There are 10 matches. Each of the 5 teams plays the other 4, and the total is 5 x 4 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 5 teams have?",
+          "5 rounds, with 2 matches in each."
+        ],
+        [
+          "What happens with 5 teams, an odd number?",
+          "One team rests in each round, and each team rests once. The tool shows the rounds without the resting team."
+        ],
+        [
+          "How many matches are there home and away with 5 teams?",
+          "20 matches in 10 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "2 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 5 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesRoundRobin6": {
+      "title": "Round Robin Schedule for 6 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 6 teams: all 15 matches in 5 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 6 teams?",
+          "There are 15 matches. Each of the 6 teams plays the other 5, and the total is 6 x 5 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 6 teams have?",
+          "5 rounds, with 3 matches in each."
+        ],
+        [
+          "Do all 6 teams play in every round?",
+          "Yes. With an even number of teams everyone has an opponent in every round, so you need 3 courts or pitches to play a round at once."
+        ],
+        [
+          "How many matches are there home and away with 6 teams?",
+          "30 matches in 10 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "3 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 6 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesRoundRobin7": {
+      "title": "Round Robin Schedule for 7 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 7 teams: all 21 matches in 7 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 7 teams?",
+          "There are 21 matches. Each of the 7 teams plays the other 6, and the total is 7 x 6 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 7 teams have?",
+          "7 rounds, with 3 matches in each."
+        ],
+        [
+          "What happens with 7 teams, an odd number?",
+          "One team rests in each round, and each team rests once. The tool shows the rounds without the resting team."
+        ],
+        [
+          "How many matches are there home and away with 7 teams?",
+          "42 matches in 14 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "3 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 7 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesRoundRobin8": {
+      "title": "Round Robin Schedule for 8 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 8 teams: all 28 matches in 7 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 8 teams?",
+          "There are 28 matches. Each of the 8 teams plays the other 7, and the total is 8 x 7 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 8 teams have?",
+          "7 rounds, with 4 matches in each."
+        ],
+        [
+          "Do all 8 teams play in every round?",
+          "Yes. With an even number of teams everyone has an opponent in every round, so you need 4 courts or pitches to play a round at once."
+        ],
+        [
+          "How many matches are there home and away with 8 teams?",
+          "56 matches in 14 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "4 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 8 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesRoundRobin9": {
+      "title": "Round Robin Schedule for 9 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 9 teams: all 36 matches in 9 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 9 teams?",
+          "There are 36 matches. Each of the 9 teams plays the other 8, and the total is 9 x 8 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 9 teams have?",
+          "9 rounds, with 4 matches in each."
+        ],
+        [
+          "What happens with 9 teams, an odd number?",
+          "One team rests in each round, and each team rests once. The tool shows the rounds without the resting team."
+        ],
+        [
+          "How many matches are there home and away with 9 teams?",
+          "72 matches in 18 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "4 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 9 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesRoundRobin10": {
+      "title": "Round Robin Schedule for 10 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 10 teams: all 45 matches in 9 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 10 teams?",
+          "There are 45 matches. Each of the 10 teams plays the other 9, and the total is 10 x 9 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 10 teams have?",
+          "9 rounds, with 5 matches in each."
+        ],
+        [
+          "Do all 10 teams play in every round?",
+          "Yes. With an even number of teams everyone has an opponent in every round, so you need 5 courts or pitches to play a round at once."
+        ],
+        [
+          "How many matches are there home and away with 10 teams?",
+          "90 matches in 18 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "5 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 10 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesRoundRobin12": {
+      "title": "Round Robin Schedule for 12 Teams: Fixtures, Rounds and Match List",
+      "subtitle": "Round robin fixtures for 12 teams: all 66 matches in 11 rounds, ready to copy, with your own team names, a points table and home and away.",
+      "faq": [
+        [
+          "How many matches are there in a round robin with 12 teams?",
+          "There are 66 matches. Each of the 12 teams plays the other 11, and the total is 12 x 11 ÷ 2."
+        ],
+        [
+          "How many rounds does a round robin with 12 teams have?",
+          "11 rounds, with 6 matches in each."
+        ],
+        [
+          "Do all 12 teams play in every round?",
+          "Yes. With an even number of teams everyone has an opponent in every round, so you need 6 courts or pitches to play a round at once."
+        ],
+        [
+          "How many matches are there home and away with 12 teams?",
+          "132 matches in 22 rounds. Every pairing is played twice, once at each team's ground, with the second half of the schedule reversing home and away."
+        ],
+        [
+          "How many courts or pitches do I need?",
+          "6 to play a whole round at once. With fewer, play part of a round at a time and use the same rounds as a guide to the order."
+        ],
+        [
+          "How are the points worked out?",
+          "A win gives 3 points and a draw 1 by default, and you can change both. Teams are ordered by points, then score difference, then scores for."
+        ],
+        [
+          "Can I use my own team names?",
+          "Yes. Replace Team 1 to Team 12 in the box with your own names, one on each line. Adding or removing a team changes the schedule to match."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesKnockout6": {
+      "title": "Knockout Bracket for 6 Teams: Draw, Byes and Match List",
+      "subtitle": "Knockout bracket for 6 teams: 5 matches in 3 rounds, with 2 byes. Seeded so the top teams meet late. Copy it and pick the winners.",
+      "faq": [
+        [
+          "How many matches are there in a knockout with 6 teams?",
+          "5 matches. Every match knocks out one team, so 5 teams have to be knocked out to find the champion."
+        ],
+        [
+          "How many rounds does a knockout with 6 teams have?",
+          "3 rounds: Quarter-finals, Semi-finals, Final."
+        ],
+        [
+          "Are there byes with 6 teams?",
+          "Yes, 2. The bracket needs 8 places, so 2 teams go straight through the first round."
+        ],
+        [
+          "Who gets the byes?",
+          "The top 2 seeds, which are the first 2 teams in your list. List the strongest teams first."
+        ],
+        [
+          "How are the teams seeded?",
+          "The order of your list is the seeding. The top seeds are placed so they cannot meet until the latest round possible, using the slot order 1, 8, 4, 5, 2, 7, 3, 6."
+        ],
+        [
+          "Does it make a third place match?",
+          "No. If you want one, add a match between the two losing semi-finalists before the final."
+        ],
+        [
+          "Can I use my own team names and save the winners?",
+          "Yes. Replace Team 1 to Team 6 with your own names. The winners you pick are kept on this device until you clear them."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesKnockout8": {
+      "title": "Knockout Bracket for 8 Teams: Draw, Byes and Match List",
+      "subtitle": "Knockout bracket for 8 teams: 7 matches in 3 rounds. Seeded so the top teams meet late. Copy it and pick the winners.",
+      "faq": [
+        [
+          "How many matches are there in a knockout with 8 teams?",
+          "7 matches. Every match knocks out one team, so 7 teams have to be knocked out to find the champion."
+        ],
+        [
+          "How many rounds does a knockout with 8 teams have?",
+          "3 rounds: Quarter-finals, Semi-finals, Final."
+        ],
+        [
+          "Are there byes with 8 teams?",
+          "No. 8 is a power of 2, so every team plays in the first round."
+        ],
+        [
+          "How are teams matched in the first round?",
+          "By seed. With 8 places, seed 1 plays seed 8, and the top seeds meet as late as possible."
+        ],
+        [
+          "How are the teams seeded?",
+          "The order of your list is the seeding. The top seeds are placed so they cannot meet until the latest round possible, using the slot order 1, 8, 4, 5, 2, 7, 3, 6."
+        ],
+        [
+          "Does it make a third place match?",
+          "No. If you want one, add a match between the two losing semi-finalists before the final."
+        ],
+        [
+          "Can I use my own team names and save the winners?",
+          "Yes. Replace Team 1 to Team 8 with your own names. The winners you pick are kept on this device until you clear them."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesKnockout10": {
+      "title": "Knockout Bracket for 10 Teams: Draw, Byes and Match List",
+      "subtitle": "Knockout bracket for 10 teams: 9 matches in 4 rounds, with 6 byes. Seeded so the top teams meet late. Copy it and pick the winners.",
+      "faq": [
+        [
+          "How many matches are there in a knockout with 10 teams?",
+          "9 matches. Every match knocks out one team, so 9 teams have to be knocked out to find the champion."
+        ],
+        [
+          "How many rounds does a knockout with 10 teams have?",
+          "4 rounds: Round of 16, Quarter-finals, Semi-finals, Final."
+        ],
+        [
+          "Are there byes with 10 teams?",
+          "Yes, 6. The bracket needs 16 places, so 6 teams go straight through the first round."
+        ],
+        [
+          "Who gets the byes?",
+          "The top 6 seeds, which are the first 6 teams in your list. List the strongest teams first."
+        ],
+        [
+          "How are the teams seeded?",
+          "The order of your list is the seeding. The top seeds are placed so they cannot meet until the latest round possible, using the slot order 1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11."
+        ],
+        [
+          "Does it make a third place match?",
+          "No. If you want one, add a match between the two losing semi-finalists before the final."
+        ],
+        [
+          "Can I use my own team names and save the winners?",
+          "Yes. Replace Team 1 to Team 10 with your own names. The winners you pick are kept on this device until you clear them."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesKnockout12": {
+      "title": "Knockout Bracket for 12 Teams: Draw, Byes and Match List",
+      "subtitle": "Knockout bracket for 12 teams: 11 matches in 4 rounds, with 4 byes. Seeded so the top teams meet late. Copy it and pick the winners.",
+      "faq": [
+        [
+          "How many matches are there in a knockout with 12 teams?",
+          "11 matches. Every match knocks out one team, so 11 teams have to be knocked out to find the champion."
+        ],
+        [
+          "How many rounds does a knockout with 12 teams have?",
+          "4 rounds: Round of 16, Quarter-finals, Semi-finals, Final."
+        ],
+        [
+          "Are there byes with 12 teams?",
+          "Yes, 4. The bracket needs 16 places, so 4 teams go straight through the first round."
+        ],
+        [
+          "Who gets the byes?",
+          "The top 4 seeds, which are the first 4 teams in your list. List the strongest teams first."
+        ],
+        [
+          "How are the teams seeded?",
+          "The order of your list is the seeding. The top seeds are placed so they cannot meet until the latest round possible, using the slot order 1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11."
+        ],
+        [
+          "Does it make a third place match?",
+          "No. If you want one, add a match between the two losing semi-finalists before the final."
+        ],
+        [
+          "Can I use my own team names and save the winners?",
+          "Yes. Replace Team 1 to Team 12 with your own names. The winners you pick are kept on this device until you clear them."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "fixturesKnockout16": {
+      "title": "Knockout Bracket for 16 Teams: Draw, Byes and Match List",
+      "subtitle": "Knockout bracket for 16 teams: 15 matches in 4 rounds. Seeded so the top teams meet late. Copy it and pick the winners.",
+      "faq": [
+        [
+          "How many matches are there in a knockout with 16 teams?",
+          "15 matches. Every match knocks out one team, so 15 teams have to be knocked out to find the champion."
+        ],
+        [
+          "How many rounds does a knockout with 16 teams have?",
+          "4 rounds: Round of 16, Quarter-finals, Semi-finals, Final."
+        ],
+        [
+          "Are there byes with 16 teams?",
+          "No. 16 is a power of 2, so every team plays in the first round."
+        ],
+        [
+          "How are teams matched in the first round?",
+          "By seed. With 16 places, seed 1 plays seed 16, and the top seeds meet as late as possible."
+        ],
+        [
+          "How are the teams seeded?",
+          "The order of your list is the seeding. The top seeds are placed so they cannot meet until the latest round possible, using the slot order 1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11."
+        ],
+        [
+          "Does it make a third place match?",
+          "No. If you want one, add a match between the two losing semi-finalists before the final."
+        ],
+        [
+          "Can I use my own team names and save the winners?",
+          "Yes. Replace Team 1 to Team 16 with your own names. The winners you pick are kept on this device until you clear them."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The team names and results stay in your browser on this device, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -1452,6 +2180,384 @@
           "paragraphs": [
             "A squash court is a building project, with a floor, four walls and a roof, and you should have a qualified person check the plan. This guide is for planning and is not an engineering approval.",
             "Confirm the sizes with World Squash or your national body before you build. Use the Fit my space tab on the Sports Court and Ground Size Guide to see whether a court fits a building."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-4-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 4 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 4 teams, every team plays every other team once. That is 4 x 3 ÷ 2 = 6 matches, and each team plays 3 of them. The matches are shared out in 3 rounds of 2 matches.",
+            "Because 4 is an even number, every team plays in every round. You need 2 courts or pitches to play a whole round at the same time."
+          ]
+        },
+        {
+          "heading": "Match list for 4 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 4 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 4 with your own names.",
+            "Round 1: Team 1 vs Team 4, Team 2 vs Team 3.",
+            "Round 2: Team 3 vs Team 1, Team 4 vs Team 2.",
+            "Round 3: Team 1 vs Team 2, Team 3 vs Team 4."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 4 teams takes 3 days, and a home and away round robin takes 6 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-5-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 5 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 5 teams, every team plays every other team once. That is 5 x 4 ÷ 2 = 10 matches, and each team plays 4 of them. The matches are shared out in 5 rounds of 2 matches.",
+            "Because 5 is an odd number, one team has no opponent in each round and rests. Each team rests once, which is why there are 5 rounds and not 4."
+          ]
+        },
+        {
+          "heading": "Match list for 5 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 5 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 5 with your own names.",
+            "Round 1: Team 2 vs Team 5, Team 3 vs Team 4. Team 1 rests.",
+            "Round 2: Team 5 vs Team 1, Team 2 vs Team 3. Team 4 rests.",
+            "Round 3: Team 1 vs Team 4, Team 5 vs Team 3. Team 2 rests.",
+            "Round 4: Team 3 vs Team 1, Team 4 vs Team 2. Team 5 rests.",
+            "Round 5: Team 1 vs Team 2, Team 4 vs Team 5. Team 3 rests."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 5 teams takes 5 days, and a home and away round robin takes 10 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-6-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 6 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 6 teams, every team plays every other team once. That is 6 x 5 ÷ 2 = 15 matches, and each team plays 5 of them. The matches are shared out in 5 rounds of 3 matches.",
+            "Because 6 is an even number, every team plays in every round. You need 3 courts or pitches to play a whole round at the same time."
+          ]
+        },
+        {
+          "heading": "Match list for 6 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 6 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 6 with your own names.",
+            "Round 1: Team 1 vs Team 6, Team 2 vs Team 5, Team 3 vs Team 4.",
+            "Round 2: Team 5 vs Team 1, Team 6 vs Team 4, Team 2 vs Team 3.",
+            "Round 3: Team 1 vs Team 4, Team 5 vs Team 3, Team 6 vs Team 2.",
+            "Round 4: Team 3 vs Team 1, Team 4 vs Team 2, Team 5 vs Team 6.",
+            "Round 5: Team 1 vs Team 2, Team 3 vs Team 6, Team 4 vs Team 5."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 6 teams takes 5 days, and a home and away round robin takes 10 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-7-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 7 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 7 teams, every team plays every other team once. That is 7 x 6 ÷ 2 = 21 matches, and each team plays 6 of them. The matches are shared out in 7 rounds of 3 matches.",
+            "Because 7 is an odd number, one team has no opponent in each round and rests. Each team rests once, which is why there are 7 rounds and not 6."
+          ]
+        },
+        {
+          "heading": "Match list for 7 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 7 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 7 with your own names.",
+            "Round 1: Team 2 vs Team 7, Team 3 vs Team 6, Team 4 vs Team 5. Team 1 rests.",
+            "Round 2: Team 7 vs Team 1, Team 2 vs Team 5, Team 3 vs Team 4. Team 6 rests.",
+            "Round 3: Team 1 vs Team 6, Team 7 vs Team 5, Team 2 vs Team 3. Team 4 rests.",
+            "Round 4: Team 5 vs Team 1, Team 6 vs Team 4, Team 7 vs Team 3. Team 2 rests.",
+            "Round 5: Team 1 vs Team 4, Team 5 vs Team 3, Team 6 vs Team 2. Team 7 rests.",
+            "Round 6: Team 3 vs Team 1, Team 4 vs Team 2, Team 6 vs Team 7. Team 5 rests.",
+            "Round 7: Team 1 vs Team 2, Team 4 vs Team 7, Team 5 vs Team 6. Team 3 rests."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 7 teams takes 7 days, and a home and away round robin takes 14 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-8-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 8 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 8 teams, every team plays every other team once. That is 8 x 7 ÷ 2 = 28 matches, and each team plays 7 of them. The matches are shared out in 7 rounds of 4 matches.",
+            "Because 8 is an even number, every team plays in every round. You need 4 courts or pitches to play a whole round at the same time."
+          ]
+        },
+        {
+          "heading": "Match list for 8 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 8 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 8 with your own names.",
+            "Round 1: Team 1 vs Team 8, Team 2 vs Team 7, Team 3 vs Team 6, Team 4 vs Team 5.",
+            "Round 2: Team 7 vs Team 1, Team 8 vs Team 6, Team 2 vs Team 5, Team 3 vs Team 4.",
+            "Round 3: Team 1 vs Team 6, Team 7 vs Team 5, Team 8 vs Team 4, Team 2 vs Team 3.",
+            "Round 4: Team 5 vs Team 1, Team 6 vs Team 4, Team 7 vs Team 3, Team 8 vs Team 2.",
+            "Round 5: Team 1 vs Team 4, Team 5 vs Team 3, Team 6 vs Team 2, Team 7 vs Team 8.",
+            "Round 6: Team 3 vs Team 1, Team 4 vs Team 2, Team 5 vs Team 8, Team 6 vs Team 7.",
+            "Round 7: Team 1 vs Team 2, Team 3 vs Team 8, Team 4 vs Team 7, Team 5 vs Team 6."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 8 teams takes 7 days, and a home and away round robin takes 14 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-9-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 9 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 9 teams, every team plays every other team once. That is 9 x 8 ÷ 2 = 36 matches, and each team plays 8 of them. The matches are shared out in 9 rounds of 4 matches.",
+            "Because 9 is an odd number, one team has no opponent in each round and rests. Each team rests once, which is why there are 9 rounds and not 8."
+          ]
+        },
+        {
+          "heading": "Match list for 9 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 9 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 9 with your own names.",
+            "Round 1: Team 2 vs Team 9, Team 3 vs Team 8, Team 4 vs Team 7, Team 5 vs Team 6. Team 1 rests.",
+            "Round 2: Team 9 vs Team 1, Team 2 vs Team 7, Team 3 vs Team 6, Team 4 vs Team 5. Team 8 rests.",
+            "Round 3: Team 1 vs Team 8, Team 9 vs Team 7, Team 2 vs Team 5, Team 3 vs Team 4. Team 6 rests.",
+            "Round 4: Team 7 vs Team 1, Team 8 vs Team 6, Team 9 vs Team 5, Team 2 vs Team 3. Team 4 rests.",
+            "Round 5: Team 1 vs Team 6, Team 7 vs Team 5, Team 8 vs Team 4, Team 9 vs Team 3. Team 2 rests.",
+            "Round 6: Team 5 vs Team 1, Team 6 vs Team 4, Team 7 vs Team 3, Team 8 vs Team 2. Team 9 rests.",
+            "Round 7: Team 1 vs Team 4, Team 5 vs Team 3, Team 6 vs Team 2, Team 8 vs Team 9. Team 7 rests.",
+            "Round 8: Team 3 vs Team 1, Team 4 vs Team 2, Team 6 vs Team 9, Team 7 vs Team 8. Team 5 rests.",
+            "Round 9: Team 1 vs Team 2, Team 4 vs Team 9, Team 5 vs Team 8, Team 6 vs Team 7. Team 3 rests."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 9 teams takes 9 days, and a home and away round robin takes 18 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-10-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 10 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 10 teams, every team plays every other team once. That is 10 x 9 ÷ 2 = 45 matches, and each team plays 9 of them. The matches are shared out in 9 rounds of 5 matches.",
+            "Because 10 is an even number, every team plays in every round. You need 5 courts or pitches to play a whole round at the same time."
+          ]
+        },
+        {
+          "heading": "Match list for 10 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 10 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 10 with your own names.",
+            "Round 1: Team 1 vs Team 10, Team 2 vs Team 9, Team 3 vs Team 8, Team 4 vs Team 7, Team 5 vs Team 6.",
+            "Round 2: Team 9 vs Team 1, Team 10 vs Team 8, Team 2 vs Team 7, Team 3 vs Team 6, Team 4 vs Team 5.",
+            "Round 3: Team 1 vs Team 8, Team 9 vs Team 7, Team 10 vs Team 6, Team 2 vs Team 5, Team 3 vs Team 4.",
+            "Round 4: Team 7 vs Team 1, Team 8 vs Team 6, Team 9 vs Team 5, Team 10 vs Team 4, Team 2 vs Team 3.",
+            "Round 5: Team 1 vs Team 6, Team 7 vs Team 5, Team 8 vs Team 4, Team 9 vs Team 3, Team 10 vs Team 2.",
+            "Round 6: Team 5 vs Team 1, Team 6 vs Team 4, Team 7 vs Team 3, Team 8 vs Team 2, Team 9 vs Team 10.",
+            "Round 7: Team 1 vs Team 4, Team 5 vs Team 3, Team 6 vs Team 2, Team 7 vs Team 10, Team 8 vs Team 9.",
+            "Round 8: Team 3 vs Team 1, Team 4 vs Team 2, Team 5 vs Team 10, Team 6 vs Team 9, Team 7 vs Team 8.",
+            "Round 9: Team 1 vs Team 2, Team 3 vs Team 10, Team 4 vs Team 9, Team 5 vs Team 8, Team 6 vs Team 7."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 10 teams takes 9 days, and a home and away round robin takes 18 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "round-robin-schedule-12-teams": {
+      "sections": [
+        {
+          "heading": "Round robin for 12 teams at a glance",
+          "paragraphs": [
+            "In a round robin with 12 teams, every team plays every other team once. That is 12 x 11 ÷ 2 = 66 matches, and each team plays 11 of them. The matches are shared out in 11 rounds of 6 matches.",
+            "Because 12 is an even number, every team plays in every round. You need 6 courts or pitches to play a whole round at the same time."
+          ]
+        },
+        {
+          "heading": "Match list for 12 teams",
+          "paragraphs": [
+            "This is the schedule the tool makes for 12 teams, using the circle method, where one team stays still and the others move round it. Replace Team 1 to Team 12 with your own names.",
+            "Round 1: Team 1 vs Team 12, Team 2 vs Team 11, Team 3 vs Team 10, Team 4 vs Team 9, Team 5 vs Team 8, Team 6 vs Team 7.",
+            "Round 2: Team 11 vs Team 1, Team 12 vs Team 10, Team 2 vs Team 9, Team 3 vs Team 8, Team 4 vs Team 7, Team 5 vs Team 6.",
+            "Round 3: Team 1 vs Team 10, Team 11 vs Team 9, Team 12 vs Team 8, Team 2 vs Team 7, Team 3 vs Team 6, Team 4 vs Team 5.",
+            "Round 4: Team 9 vs Team 1, Team 10 vs Team 8, Team 11 vs Team 7, Team 12 vs Team 6, Team 2 vs Team 5, Team 3 vs Team 4.",
+            "Round 5: Team 1 vs Team 8, Team 9 vs Team 7, Team 10 vs Team 6, Team 11 vs Team 5, Team 12 vs Team 4, Team 2 vs Team 3.",
+            "Round 6: Team 7 vs Team 1, Team 8 vs Team 6, Team 9 vs Team 5, Team 10 vs Team 4, Team 11 vs Team 3, Team 12 vs Team 2.",
+            "Round 7: Team 1 vs Team 6, Team 7 vs Team 5, Team 8 vs Team 4, Team 9 vs Team 3, Team 10 vs Team 2, Team 11 vs Team 12.",
+            "Round 8: Team 5 vs Team 1, Team 6 vs Team 4, Team 7 vs Team 3, Team 8 vs Team 2, Team 9 vs Team 12, Team 10 vs Team 11.",
+            "Round 9: Team 1 vs Team 4, Team 5 vs Team 3, Team 6 vs Team 2, Team 7 vs Team 12, Team 8 vs Team 11, Team 9 vs Team 10.",
+            "Round 10: Team 3 vs Team 1, Team 4 vs Team 2, Team 5 vs Team 12, Team 6 vs Team 11, Team 7 vs Team 10, Team 8 vs Team 9.",
+            "Round 11: Team 1 vs Team 2, Team 3 vs Team 12, Team 4 vs Team 11, Team 5 vs Team 10, Team 6 vs Team 9, Team 7 vs Team 8."
+          ]
+        },
+        {
+          "heading": "Running the tournament",
+          "paragraphs": [
+            "If you play one round a day, a round robin for 12 teams takes 11 days, and a home and away round robin takes 22 days. With fewer courts or pitches, play part of a round at a time.",
+            "The tool adds the scores to a points table. A win is worth 3 points and a draw 1 by default, and you can change both. Teams level on points are ordered by score difference, then by scores for."
+          ]
+        }
+      ]
+    },
+    "knockout-bracket-6-teams": {
+      "sections": [
+        {
+          "heading": "Knockout bracket for 6 teams at a glance",
+          "paragraphs": [
+            "A knockout with 6 teams has 5 matches, because every match knocks out one team and only the champion is left. The bracket is built on 8 places and has 3 rounds: Quarter-finals (4 matches), Semi-finals (2 matches), Final (1 match).",
+            "6 is not a power of 2, so 2 places are left empty. The top 2 seeds get a bye, which means going straight to the next round without playing, and the other 4 teams play 2 matches in the first round."
+          ]
+        },
+        {
+          "heading": "First round for 6 teams",
+          "paragraphs": [
+            "This is the first round the tool makes for 6 teams, in seed order. Team 1 is the top seed. Replace the team names with your own.",
+            "Team 1 has a bye, Team 4 vs Team 5, Team 2 has a bye, Team 3 vs Team 6.",
+            "The slot order for 8 places is 1, 8, 4, 5, 2, 7, 3, 6. Seed 1 plays the lowest seed, and the top seeds are kept apart until the latest round possible."
+          ]
+        },
+        {
+          "heading": "Running the knockout",
+          "paragraphs": [
+            "Play each round in turn. Rounds get shorter: 4 matches, 2 matches, 1 match. With one court, that is 5 matches in all.",
+            "The tool does not make a third place match. If you want one, add a match between the two losing semi-finalists before the final."
+          ]
+        }
+      ]
+    },
+    "knockout-bracket-8-teams": {
+      "sections": [
+        {
+          "heading": "Knockout bracket for 8 teams at a glance",
+          "paragraphs": [
+            "A knockout with 8 teams has 7 matches, because every match knocks out one team and only the champion is left. The bracket is built on 8 places and has 3 rounds: Quarter-finals (4 matches), Semi-finals (2 matches), Final (1 match).",
+            "8 is a power of 2, so every team plays in the first round and there are no byes."
+          ]
+        },
+        {
+          "heading": "First round for 8 teams",
+          "paragraphs": [
+            "This is the first round the tool makes for 8 teams, in seed order. Team 1 is the top seed. Replace the team names with your own.",
+            "Team 1 vs Team 8, Team 4 vs Team 5, Team 2 vs Team 7, Team 3 vs Team 6.",
+            "The slot order for 8 places is 1, 8, 4, 5, 2, 7, 3, 6. Seed 1 plays the lowest seed, and the top seeds are kept apart until the latest round possible."
+          ]
+        },
+        {
+          "heading": "Running the knockout",
+          "paragraphs": [
+            "Play each round in turn. Rounds get shorter: 4 matches, 2 matches, 1 match. With one court, that is 7 matches in all.",
+            "The tool does not make a third place match. If you want one, add a match between the two losing semi-finalists before the final."
+          ]
+        }
+      ]
+    },
+    "knockout-bracket-10-teams": {
+      "sections": [
+        {
+          "heading": "Knockout bracket for 10 teams at a glance",
+          "paragraphs": [
+            "A knockout with 10 teams has 9 matches, because every match knocks out one team and only the champion is left. The bracket is built on 16 places and has 4 rounds: Round of 16 (8 matches), Quarter-finals (4 matches), Semi-finals (2 matches), Final (1 match).",
+            "10 is not a power of 2, so 6 places are left empty. The top 6 seeds get a bye, which means going straight to the next round without playing, and the other 4 teams play 2 matches in the first round."
+          ]
+        },
+        {
+          "heading": "First round for 10 teams",
+          "paragraphs": [
+            "This is the first round the tool makes for 10 teams, in seed order. Team 1 is the top seed. Replace the team names with your own.",
+            "Team 1 has a bye, Team 8 vs Team 9, Team 4 has a bye, Team 5 has a bye, Team 2 has a bye, Team 7 vs Team 10, Team 3 has a bye, Team 6 has a bye.",
+            "The slot order for 16 places is 1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11. Seed 1 plays the lowest seed, and the top seeds are kept apart until the latest round possible."
+          ]
+        },
+        {
+          "heading": "Running the knockout",
+          "paragraphs": [
+            "Play each round in turn. Rounds get shorter: 8 matches, 4 matches, 2 matches, 1 match. With one court, that is 9 matches in all.",
+            "The tool does not make a third place match. If you want one, add a match between the two losing semi-finalists before the final."
+          ]
+        }
+      ]
+    },
+    "knockout-bracket-12-teams": {
+      "sections": [
+        {
+          "heading": "Knockout bracket for 12 teams at a glance",
+          "paragraphs": [
+            "A knockout with 12 teams has 11 matches, because every match knocks out one team and only the champion is left. The bracket is built on 16 places and has 4 rounds: Round of 16 (8 matches), Quarter-finals (4 matches), Semi-finals (2 matches), Final (1 match).",
+            "12 is not a power of 2, so 4 places are left empty. The top 4 seeds get a bye, which means going straight to the next round without playing, and the other 8 teams play 4 matches in the first round."
+          ]
+        },
+        {
+          "heading": "First round for 12 teams",
+          "paragraphs": [
+            "This is the first round the tool makes for 12 teams, in seed order. Team 1 is the top seed. Replace the team names with your own.",
+            "Team 1 has a bye, Team 8 vs Team 9, Team 4 has a bye, Team 5 vs Team 12, Team 2 has a bye, Team 7 vs Team 10, Team 3 has a bye, Team 6 vs Team 11.",
+            "The slot order for 16 places is 1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11. Seed 1 plays the lowest seed, and the top seeds are kept apart until the latest round possible."
+          ]
+        },
+        {
+          "heading": "Running the knockout",
+          "paragraphs": [
+            "Play each round in turn. Rounds get shorter: 8 matches, 4 matches, 2 matches, 1 match. With one court, that is 11 matches in all.",
+            "The tool does not make a third place match. If you want one, add a match between the two losing semi-finalists before the final."
+          ]
+        }
+      ]
+    },
+    "knockout-bracket-16-teams": {
+      "sections": [
+        {
+          "heading": "Knockout bracket for 16 teams at a glance",
+          "paragraphs": [
+            "A knockout with 16 teams has 15 matches, because every match knocks out one team and only the champion is left. The bracket is built on 16 places and has 4 rounds: Round of 16 (8 matches), Quarter-finals (4 matches), Semi-finals (2 matches), Final (1 match).",
+            "16 is a power of 2, so every team plays in the first round and there are no byes."
+          ]
+        },
+        {
+          "heading": "First round for 16 teams",
+          "paragraphs": [
+            "This is the first round the tool makes for 16 teams, in seed order. Team 1 is the top seed. Replace the team names with your own.",
+            "Team 1 vs Team 16, Team 8 vs Team 9, Team 4 vs Team 13, Team 5 vs Team 12, Team 2 vs Team 15, Team 7 vs Team 10, Team 3 vs Team 14, Team 6 vs Team 11.",
+            "The slot order for 16 places is 1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11. Seed 1 plays the lowest seed, and the top seeds are kept apart until the latest round possible."
+          ]
+        },
+        {
+          "heading": "Running the knockout",
+          "paragraphs": [
+            "Play each round in turn. Rounds get shorter: 8 matches, 4 matches, 2 matches, 1 match. With one court, that is 15 matches in all.",
+            "The tool does not make a third place match. If you want one, add a match between the two losing semi-finalists before the final."
           ]
         }
       ]

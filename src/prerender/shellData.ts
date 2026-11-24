@@ -22,6 +22,7 @@ import { hubGuides } from '../content/hubGuides';
 import { plainText } from '../lib/toolLinks';
 import { COLLECTIONS } from '../config/homeSections';
 import { COURT_PAGES } from '../config/courtPages';
+import { FIXTURE_PAGES } from '../config/fixturePages';
 import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
@@ -295,6 +296,9 @@ export function getShellGroups(): ShellGroup[] {
       name: 'Court size pages',
       links: COURT_PAGES.map((page) => ({ path: page.path, title: page.name, description: '' })),
     }, {
+      name: 'Tournament schedules',
+      links: FIXTURE_PAGES.map((page) => ({ path: page.path, title: page.name, description: '' })),
+    }, {
       name: 'Guides',
       links: [
         { path: '/guides', title: 'All guides', description: '' },
@@ -348,7 +352,7 @@ function buildShellPages(): ShellPage[] {
     };
   });
 
-  const courtPages: ShellPage[] = COURT_PAGES.map((page) => {
+  const courtPages: ShellPage[] = [...COURT_PAGES, ...FIXTURE_PAGES].map((page) => {
     const guide = rec(rec(en.pageGuides)[page.guideKey]);
     const heading = str(guide.title);
     const subtitle = str(guide.subtitle);

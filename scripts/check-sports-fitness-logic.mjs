@@ -201,4 +201,28 @@ ok(() => {
   assert.ok(seen > 150, `only ${seen} lengths checked`);
 });
 
+// tournament size pages: the text in the locale file must be what the generator makes from the fixtures code
+const fixtureContent = await import('./fixture-pages-content.mjs');
+const fixturePagesModule = await import('../src/config/fixturePages.ts');
+ok(() => {
+  const made = fixtureContent.buildFixtureContent();
+  for (const group of ['guideSteps', 'pageGuides', 'toolArticles']) for (const [key, value] of Object.entries(made[group])) assert.deepEqual(packText[group][key], value, `${group}.${key} is out of date, run scripts/build-fixture-pages.mjs`);
+});
+ok(() => {
+  for (const page of fixturePagesModule.FIXTURE_PAGES) {
+    const g = packText.pageGuides[page.guideKey];
+    assert.ok(g.subtitle.length <= 160 && g.faq.length === 8 && g.faq.at(-1)[1].includes('{{siteName}}'), page.path);
+    const teams = Array.from({ length: page.teams }, (_, i) => `Team ${i + 1}`);
+    if (page.format === 'roundRobin') {
+      const rounds = fixtures.roundRobin(teams);
+      assert.equal(rounds.flat().length, (page.teams * (page.teams - 1)) / 2, page.path);
+      const seen = new Set(rounds.flat().map(([a, b]) => [a, b].sort().join('|')));
+      assert.equal(seen.size, rounds.flat().length, `${page.path} repeats a match`);
+    } else {
+      const size = fixtures.nextPowerOfTwo(page.teams);
+      assert.equal(fixtures.knockoutFirstRound(teams).filter((t) => t.a && t.b).length, page.teams - size / 2, page.path);
+    }
+  }
+});
+
 console.log(`${checks} checks passed`);

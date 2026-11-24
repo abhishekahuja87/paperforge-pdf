@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-24',
+    path: '/round-robin-schedule-6-teams',
+    tool: 'Tournament schedule pages',
+    title: 'New pages: round robin schedules for 4 to 12 teams and knockout brackets for 6 to 16 teams',
+    summary: 'Each page is the Tournament Fixtures Maker already set to that number of teams, with the full match list, the number of rounds and byes, and common questions. Enter scores for a points table, copy the fixtures or pick knockout winners. Your work on each page is kept on this device.',
+  },
+  {
+    date: '2026-11-24',
     path: '/badminton-court-size',
     tool: 'Court size pages for every sport',
     title: 'A page of its own for each sport: badminton, tennis, pickleball, basketball, volleyball, football, cricket, hockey, table tennis and squash',
