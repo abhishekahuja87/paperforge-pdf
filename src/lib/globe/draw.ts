@@ -11,7 +11,9 @@ export interface DrawInput {
   stops: Stop[];
   world: World;
   style: GlobeStyle;
-  options: Pick<GlobeOptions, 'line' | 'arc' | 'mover' | 'pin' | 'highlight' | 'labels' | 'caption'> & Partial<Pick<GlobeOptions, 'layout' | 'legMovers' | 'routeColor' | 'distance' | 'night' | 'logoCorner' | 'logoSize'>>;
+  options: Pick<GlobeOptions, 'line' | 'arc' | 'mover' | 'pin' | 'highlight' | 'labels' | 'caption'> & Partial<Pick<GlobeOptions, 'layout' | 'legMovers' | 'routeColor' | 'distance' | 'night' | 'logoCorner' | 'logoSize' | 'introTitle' | 'introSub' | 'outroTitle' | 'outroSub'>>;
+  /** The facts line for the end card (places, countries, distance), or empty. */
+  facts?: string;
   /** A picture for each stop (or null), shown when the trip is at that stop. */
   photos?: (CanvasImageSource | null)[];
   /** The person's face or any picture, cropped square, used as the moving marker when the marker is 'face'. */
@@ -603,6 +605,78 @@ function drawPhotos(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen, 
   });
 }
 
+/** A short line for each stop (a date, a day number) in a pill near the bottom, shown while the trip is at that stop. */
+function drawNotes(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
+  const { stops, frame, width: w, height: h } = input;
+  stops.forEach((stop, i) => {
+    const note = stop.note?.trim();
+    const alpha = clamp(frame.photos[i] ?? 0, 0, 1);
+    if (!note || alpha <= 0.01) return;
+    let size = s.unit * 0.04;
+    ctx.save();
+    ctx.font = `700 ${size}px ${FONT}`;
+    const limit = w * 0.84;
+    while (ctx.measureText(note).width > limit - size * 1.6 && size > s.unit * 0.026) { size *= 0.93; ctx.font = `700 ${size}px ${FONT}`; }
+    const text = ctx.measureText(note).width > limit - size * 1.6 ? `${note.slice(0, Math.max(4, Math.floor(note.length * 0.7)))}…` : note;
+    const tw = ctx.measureText(text).width, pw = tw + size * 1.6, ph = size * 1.9;
+    const x = w / 2 - pw / 2, y = h - s.unit * 0.075 - ph + (1 - alpha) * size * 0.6;
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = 'rgba(15,23,42,0.74)'; roundRect(ctx, x, y, pw, ph, ph / 2); ctx.fill();
+    ctx.fillStyle = '#ffffff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, w / 2, y + ph / 2 + size * 0.04);
+    ctx.restore();
+  });
+}
+
+/** Breaks text into at most `maxLines` lines that fit `maxWidth` with the current font. */
+function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number, maxLines: number): string[] {
+  const lines: string[] = [];
+  let current = '';
+  for (const word of text.split(/\s+/).filter(Boolean)) {
+    const test = current ? `${current} ${word}` : word;
+    if (ctx.measureText(test).width > maxWidth && current) { lines.push(current); current = word; } else current = test;
+  }
+  if (current) lines.push(current);
+  return lines.slice(0, maxLines);
+}
+
+/** The intro card (a title over the start of the globe) or the end card (a title, a line and the trip facts). */
+function drawCard(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
+  const { frame, options, style, width: w, height: h } = input;
+  const card = frame.card;
+  if (!card || card.alpha <= 0.01) return;
+  const title = (card.which === 'intro' ? options.introTitle : options.outroTitle)?.trim() ?? '';
+  const sub = (card.which === 'intro' ? options.introSub : options.outroSub)?.trim() ?? '';
+  const facts = card.which === 'outro' ? input.facts?.trim() ?? '' : '';
+  const shade = ctx.createLinearGradient(0, 0, 0, h);
+  shade.addColorStop(0, style.bg[0]); shade.addColorStop(1, style.bg[1]);
+  ctx.save();
+  ctx.globalAlpha = card.alpha * (card.which === 'intro' ? 0.94 : 0.92);
+  ctx.fillStyle = shade; ctx.fillRect(0, 0, w, h);
+  ctx.globalAlpha = card.alpha;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = style.text;
+  ctx.shadowColor = 'rgba(0,0,0,0.35)'; ctx.shadowBlur = s.unit * 0.02;
+  const maxWidth = w * 0.84;
+  const titleSize = s.unit * 0.085, subSize = s.unit * 0.044, factSize = s.unit * 0.04;
+  ctx.font = `800 ${titleSize}px ${FONT}`;
+  const titleLines = title ? wrapText(ctx, title, maxWidth, 3) : [];
+  ctx.font = `600 ${subSize}px ${FONT}`;
+  const subLines = sub ? wrapText(ctx, sub, maxWidth, 3) : [];
+  const gap = s.unit * 0.03;
+  const total = titleLines.length * titleSize * 1.18 + (titleLines.length && subLines.length ? gap : 0) + subLines.length * subSize * 1.3 + (facts ? gap * 1.6 + factSize : 0);
+  let y = h / 2 - total / 2 + titleSize * 0.9;
+  ctx.font = `800 ${titleSize}px ${FONT}`;
+  for (const line of titleLines) { ctx.fillText(line, w / 2, y); y += titleSize * 1.18; }
+  if (titleLines.length && subLines.length) y += gap - titleSize * 0.18;
+  else if (subLines.length) y = h / 2 - total / 2 + subSize;
+  ctx.font = `600 ${subSize}px ${FONT}`; ctx.globalAlpha = card.alpha * 0.9;
+  for (const line of subLines) { ctx.fillText(line, w / 2, y); y += subSize * 1.3; }
+  if (facts) {
+    ctx.globalAlpha = card.alpha; ctx.font = `700 ${factSize}px ${FONT}`; ctx.fillStyle = colourOf(input);
+    ctx.fillText(facts, w / 2, y + gap * 1.2);
+  }
+  ctx.restore();
+}
+
 /** The person's logo in a corner of the video. */
 function drawLogo(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   const { logo, options, width: w, height: h } = input;
@@ -662,7 +736,9 @@ export function renderGlobe(ctx: CanvasRenderingContext2D, input: DrawInput) {
   drawMover(ctx, input, s);
   const anchors = drawPins(ctx, input, s);
   drawPhotos(ctx, input, s, anchors);
+  drawNotes(ctx, input, s);
   drawCaption(ctx, input, s);
+  drawCard(ctx, input, s);
   drawLogo(ctx, input, s);
 }
 
