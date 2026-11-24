@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDown, ArrowUp, Download, Image as ImageIcon, Pause, Play, Plus, Trash2, Video } from 'lucide-react';
+import { ArrowDown, ArrowUp, Image as ImageIcon, Pause, Play, Plus, Trash2, Video } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Toggle, card, heading } from '../paper/controls';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
-import { downloadBlob } from '../../../lib/browserTools';
+import { formatBytes } from '../../../lib/browserTools';
+import { SaveResult } from '../../common/SaveResult';
 import rawWorld from '../../../data/globe/world.json';
 import rawPlaces from '../../../data/globe/places.json';
 import ui from '../../../locales/packs/globe.ui.en.json';
@@ -102,16 +103,18 @@ export const GlobeVideoMaker: React.FC = () => {
   const [recording, setRecording] = useState(false);
   const [progress, setProgress] = useState(0);
   const [message, setMessage] = useState('');
-  const [result, setResult] = useState<{ url: string; blob: Blob; extension: string; slow: number } | null>(null);
+  const [result, setResult] = useState<{ url: string; name: string; size: number; slow: number; extension: string } | null>(null);
+  const [picture, setPicture] = useState<{ url: string; name: string } | null>(null);
   const abort = useRef<AbortController | null>(null);
   const support = useMemo(() => recordSupport(), []);
 
   useEffect(() => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch { /* storage blocked */ } }, [saved]);
   useEffect(() => () => { abort.current?.abort(); }, []);
   useEffect(() => () => { if (result) URL.revokeObjectURL(result.url); }, [result]);
+  useEffect(() => () => { if (picture) URL.revokeObjectURL(picture.url); }, [picture]);
 
-  const update = (patch: Partial<GlobeOptions>) => { setSaved((current) => ({ ...current, options: { ...current.options, ...patch } })); setResult(null); };
-  const setStops = (next: Stop[]) => { setSaved((current) => ({ ...current, stops: next })); setResult(null); setTime(0); };
+  const update = (patch: Partial<GlobeOptions>) => { setPicture(null); setSaved((current) => ({ ...current, options: { ...current.options, ...patch } })); setResult(null); };
+  const setStops = (next: Stop[]) => { setPicture(null); setSaved((current) => ({ ...current, stops: next })); setResult(null); setTime(0); };
   const setStop = (index: number, stop: Stop) => setStops(stops.map((item, i) => (i === index ? stop : item)));
 
   // Each stop needs a few seconds to be shown well, so more stops means a longer minimum.
@@ -161,7 +164,7 @@ export const GlobeVideoMaker: React.FC = () => {
       const done = await recordCanvas({ canvas: target, duration: timeline.duration, fps: 30, paint: (seconds) => paint(target, seconds), onProgress: setProgress, signal: control.signal });
       if (done) {
         const fps = done.frames / timeline.duration;
-        setResult({ url: URL.createObjectURL(done.blob), blob: done.blob, extension: done.support.extension, slow: fps < 27 ? Math.round(fps) : 0 });
+        setResult({ url: URL.createObjectURL(done.blob), name: `${fileBase}.${done.support.extension}`, size: done.blob.size, extension: done.support.extension, slow: fps < 27 ? Math.round(fps) : 0 });
       }
     } catch { setMessage(ui.failed); }
     finally { void lock?.release().catch(() => undefined); setRecording(false); abort.current = null; }
@@ -170,7 +173,7 @@ export const GlobeVideoMaker: React.FC = () => {
   const savePicture = () => {
     const target = document.createElement('canvas'); target.width = full.width; target.height = full.height;
     paint(target, time);
-    target.toBlob((blob) => { if (blob) downloadBlob(blob, `${fileBase}.png`); }, 'image/png');
+    target.toBlob((blob) => { if (blob) setPicture({ url: URL.createObjectURL(blob), name: `${fileBase}.png` }); }, 'image/png');
   };
 
   const addStop = () => { if (stops.length < MAX_STOPS) setStops([...stops.slice(0, -1), find('Dubai'), stops[stops.length - 1]!]); };
@@ -228,9 +231,9 @@ export const GlobeVideoMaker: React.FC = () => {
 
       <section className={`${card} space-y-4`}>
         <h2 className={heading}>{ui.shape}</h2>
-        <ChoiceButtons label={ui.shape} value={shape} onChange={(value) => { setSaved({ ...saved, shape: value as ShapeId }); setResult(null); }} options={names(ui.shapes)} />
+        <ChoiceButtons label={ui.shape} value={shape} onChange={(value) => { setSaved({ ...saved, shape: value as ShapeId }); setResult(null); setPicture(null); }} options={names(ui.shapes)} />
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.quality}</p>
-          <ChoiceButtons label={ui.quality} value={String(quality)} onChange={(value) => { setSaved({ ...saved, quality: value === '1080' ? 1080 : 720 }); setResult(null); }} options={names(ui.qualities)} /></div>
+          <ChoiceButtons label={ui.quality} value={String(quality)} onChange={(value) => { setSaved({ ...saved, quality: value === '1080' ? 1080 : 720 }); setResult(null); setPicture(null); }} options={names(ui.qualities)} /></div>
         <label className="block text-xs font-semibold text-slate-700"><span className="flex justify-between"><span>{ui.seconds}</span><span className="font-bold text-slate-900">{seconds} s</span></span>
           <input type="range" min={minSeconds} max={30} step={1} value={seconds} onChange={(event) => update({ seconds: Number(event.target.value) })} className="mt-1 w-full accent-orange-700" />
         </label>
@@ -246,15 +249,15 @@ export const GlobeVideoMaker: React.FC = () => {
         {message && <Note>{message}</Note>}
         {result && (
           <div className="space-y-3 rounded-xl border border-green-200 bg-green-50 p-3">
-            <p className="text-sm font-bold text-green-900">{ui.ready}</p>
             <video src={result.url} controls playsInline className="mx-auto max-h-[70vh] w-full max-w-md rounded-lg bg-black" style={{ aspectRatio: ratio }} />
             <p className="text-xs text-slate-700">{result.extension === 'mp4' ? ui.mp4Note : ui.webmNote}</p>
             {result.slow > 0 && <Note>{ui.slowNote.replace('{fps}', String(result.slow))}</Note>}
-            <MainActionButton onClick={() => downloadBlob(result.blob, `${fileBase}.${result.extension}`)}><Download className="h-5 w-5" aria-hidden="true" />{ui.saveVideo}</MainActionButton>
+            <SaveResult href={result.url} name={result.name} label={ui.ready} saveLabel={ui.saveVideo} detail={formatBytes(result.size)} />
           </div>
         )}
         <div className="flex flex-wrap gap-2">
-          <button type="button" onClick={savePicture} disabled={recording} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40"><ImageIcon className="h-4 w-4" aria-hidden="true" />{ui.savePicture}</button>
+          <button type="button" onClick={savePicture} disabled={recording} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40"><ImageIcon className="h-4 w-4" aria-hidden="true" />{ui.makePicture}</button>
+          {picture && <div className="w-full"><SaveResult href={picture.url} name={picture.name} label={ui.pictureReady} saveLabel={ui.savePicture} /></div>}
           <ConfirmButton label={ui.startAgain} confirmLabel={ui.startAgainConfirm} onConfirm={reset} disabled={recording} />
         </div>
       </section>

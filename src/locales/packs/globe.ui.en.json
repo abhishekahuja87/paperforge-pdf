@@ -33,7 +33,7 @@
   "cancel": "Cancel",
   "keepOpen": "Keep this screen on and stay on this page while the video records. It takes as long as the video.",
   "saveVideo": "Save video",
-  "savePicture": "Save picture (PNG)",
+  "savePicture": "Save picture",
   "startAgain": "Start again",
   "startAgainConfirm": "Tap again to reset everything",
   "ready": "Your video is ready.",
@@ -53,11 +53,40 @@
     "dots": "Dots",
     "paper": "Paper"
   },
-  "motions": { "fly": "Fly (zoom out and in)", "spin": "Spin and travel", "zoom": "Steady zoom" },
-  "lines": { "solid": "Solid", "dashed": "Dashed", "dotted": "Dotted", "glow": "Glow" },
-  "arcs": { "lifted": "Lifted arc", "flat": "Flat on the globe" },
-  "movers": { "plane": "Plane", "dot": "Dot", "none": "None" },
-  "pins": { "pin": "Pin", "ring": "Ring" },
-  "shapes": { "reel": "9:16 Reel, Story, Short", "wide": "16:9 YouTube", "square": "1:1 Square", "portrait": "4:5 Feed post" },
-  "qualities": { "720": "720p (faster)", "1080": "1080p (sharper)" }
+  "motions": {
+    "fly": "Fly (zoom out and in)",
+    "spin": "Spin and travel",
+    "zoom": "Steady zoom"
+  },
+  "lines": {
+    "solid": "Solid",
+    "dashed": "Dashed",
+    "dotted": "Dotted",
+    "glow": "Glow"
+  },
+  "arcs": {
+    "lifted": "Lifted arc",
+    "flat": "Flat on the globe"
+  },
+  "movers": {
+    "plane": "Plane",
+    "dot": "Dot",
+    "none": "None"
+  },
+  "pins": {
+    "pin": "Pin",
+    "ring": "Ring"
+  },
+  "shapes": {
+    "reel": "9:16 Reel, Story, Short",
+    "wide": "16:9 YouTube",
+    "square": "1:1 Square",
+    "portrait": "4:5 Feed post"
+  },
+  "qualities": {
+    "720": "720p (faster)",
+    "1080": "1080p (sharper)"
+  },
+  "makePicture": "Make picture (PNG)",
+  "pictureReady": "Your picture is ready."
 }
