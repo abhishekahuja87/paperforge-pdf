@@ -14,6 +14,10 @@ export interface DrawInput {
   options: Pick<GlobeOptions, 'line' | 'arc' | 'mover' | 'pin' | 'highlight' | 'labels' | 'caption'> & Partial<Pick<GlobeOptions, 'layout' | 'legMovers' | 'routeColor' | 'distance' | 'night' | 'logoCorner' | 'logoSize'>>;
   /** A picture for each stop (or null), shown when the trip is at that stop. */
   photos?: (CanvasImageSource | null)[];
+  /** The person's face or any picture, cropped square, used as the moving marker when the marker is 'face'. */
+  face?: CanvasImageSource | null;
+  /** Credit line for each stop's picture (or null), shown while the picture is. */
+  credits?: (string | null)[];
   /** A logo for a corner of the video. */
   logo?: CanvasImageSource | null;
   /** Draw the route, pins, labels and caption. False gives a plain globe, for style previews. */
@@ -26,7 +30,7 @@ const FONT = '"Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica 
 /** The vehicle on a hop: its own choice, or the general one. */
 const moverFor = (options: DrawInput['options'], hop: number): GlobeOptions['mover'] => { const own = options.legMovers?.[hop]; return own && own !== 'same' ? own : options.mover; };
 /** A plane flies on a lifted arc and other vehicles go flat, unless one general vehicle is used and the arc is set by hand. */
-const liftedFor = (options: DrawInput['options'], hop: number) => { const own = options.legMovers?.[hop]; return own && own !== 'same' ? own === 'plane' : options.arc === 'lifted'; };
+const liftedFor = (options: DrawInput['options'], hop: number) => { const own = options.legMovers?.[hop]; return own && own !== 'same' ? own === 'plane' || own === 'face' : options.arc === 'lifted'; };
 /** The two stops a hop joins: in a fan every hop starts at the first stop. */
 const hopEnds = (input: DrawInput, hop: number) => (input.options.layout === 'fan' ? [input.stops[0]!, input.stops[hop + 1]!] as const : [input.stops[hop]!, input.stops[hop + 1]!] as const);
 const hopCount = (input: DrawInput) => (input.options.layout === 'visited' ? 0 : Math.max(0, input.stops.length - 1));
@@ -457,7 +461,17 @@ function drawOneMover(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen
   const size = Math.max(7, s.unit * 0.026);
   ctx.save();
   ctx.translate(x, y);
-  if (mover === 'plane') {
+  if (mover === 'face' && input.face) {
+    const r = Math.max(14, s.unit * 0.065);
+    const time = input.frame.time;
+    ctx.translate(0, -r * 0.35 + Math.sin(time * 6) * r * 0.12);
+    ctx.rotate(Math.sin(time * 4) * 0.08);
+    ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = r * 0.5; ctx.shadowOffsetY = r * 0.2;
+    ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(0, 0, r * 1.12, 0, TAU); ctx.fill();
+    ctx.shadowColor = 'transparent';
+    ctx.save(); ctx.beginPath(); ctx.arc(0, 0, r, 0, TAU); ctx.clip(); ctx.drawImage(input.face, -r, -r, r * 2, r * 2); ctx.restore();
+    ctx.strokeStyle = route; ctx.lineWidth = r * 0.14; ctx.beginPath(); ctx.arc(0, 0, r * 1.12, 0, TAU); ctx.stroke();
+  } else if (mover === 'plane') {
     ctx.rotate(heading);
     ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = size * 0.5; ctx.shadowOffsetY = size * 0.25;
     ctx.scale(size, size); planePath(ctx);
@@ -578,6 +592,14 @@ function drawPhotos(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen, 
     ctx.shadowColor = 'transparent';
     ctx.save(); roundRect(ctx, -pw / 2, -ph / 2, pw, ph, border * 0.8); ctx.clip(); ctx.drawImage(photo, -pw / 2, -ph / 2, pw, ph); ctx.restore();
     ctx.restore();
+    const credit = input.credits?.[i];
+    if (credit && alpha > 0.5) {
+      const size = Math.max(9, s.unit * 0.022);
+      ctx.save(); ctx.globalAlpha = alpha; ctx.font = `500 ${size}px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = size * 0.5; ctx.fillStyle = 'rgba(255,255,255,0.92)';
+      ctx.fillText(credit.length > 60 ? `${credit.slice(0, 58)}…` : credit, w / 2, h - s.unit * 0.025);
+      ctx.restore();
+    }
   });
 }
 

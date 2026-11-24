@@ -42,7 +42,7 @@
         ],
         [
           "Can I add my logo, photos or music?",
-          "Yes. Add a photo to any stop, a logo in any corner, and music from a file on your device. The music fades in and out and repeats if it is short. Use music you have the right to use. Photos, logo and music stay on your device and are not saved between visits."
+          "Yes. Add a photo to any stop, a logo in any corner, and music from a file on your device. The music fades in and out and repeats if it is short. Use music you have the right to use. Photos, logo and music stay on your device and are not saved between visits. You can also use your own photo as the moving marker instead of the plane, and a stop can show a free picture of its place from Wikimedia Commons, with the credit shown in the video."
         ],
         [
           "Which video shapes does it make?",
@@ -54,7 +54,7 @@
         ],
         [
           "Is anything uploaded anywhere?",
-          "No. The globe is drawn and the video is recorded on your own device, so your places and video are not sent to {{siteName}} or anyone else."
+          "No. The globe is drawn and the video is recorded on your own device, so your places and video are not sent to {{siteName}} or anyone else. The one exception is the Use a picture of this place button: it sends only the place name to Wikipedia to find a free picture, and only when you tap it."
         ]
       ]
     }
@@ -76,7 +76,8 @@
             "Countries can be highlighted and place names can be hidden or renamed. Videos come as 9:16, 16:9, 1:1 or 4:5, at 720p or 1080p, from 5 to 30 seconds long.",
             "The moving marker can be a plane, train, car, bus or ship, and the line can look like a railway. Vehicles follow the straight curved line between the two places, not real tracks, roads or sea routes, so the video is an illustration of the trip. For a city you can also colour its whole country.",
             "You can add a photo to any stop, a logo in a corner, and music from your own files. A distance label shows the length of each leg in kilometres or miles, the route can be any colour, each leg can have its own vehicle, and the night side of the world can be shaded.",
-            "Quality goes up to 4K in browsers that can encode it. A GPX file from a run, ride or drive can be imported to turn the route into a globe trip with up to five places; the video shows an illustration of the trip, not the exact path."
+            "Quality goes up to 4K in browsers that can encode it. A GPX file from a run, ride or drive can be imported to turn the route into a globe trip with up to five places; the video shows an illustration of the trip, not the exact path.",
+            "Your own photo can be the moving marker, in a round badge that bobs along the route. Each stop can show your photo, or a free picture of the place found on Wikimedia Commons when you ask for it, with the photographer's credit shown in the video. Use photos of yourself or people who agreed."
           ]
         },
         {

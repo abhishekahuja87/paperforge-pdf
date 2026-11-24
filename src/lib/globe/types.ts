@@ -18,7 +18,7 @@ export interface Stop {
 
 export type Motion = 'fly' | 'spin' | 'zoom';
 export type LineStyle = 'solid' | 'dashed' | 'dotted' | 'glow' | 'rail';
-export type MoverStyle = 'plane' | 'train' | 'car' | 'bus' | 'ship' | 'dot' | 'none';
+export type MoverStyle = 'plane' | 'train' | 'car' | 'bus' | 'ship' | 'dot' | 'face' | 'none';
 export type PinStyle = 'pin' | 'ring';
 export type ArcStyle = 'lifted' | 'flat';
 /** How the stops are joined: one after another (trip), one origin to every other place (fan), or no route at all (places visited). */
