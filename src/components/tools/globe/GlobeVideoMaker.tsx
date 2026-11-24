@@ -16,19 +16,20 @@ import { GLOBE_STYLES, styleById } from '../../../lib/globe/styles';
 import { buildTimeline } from '../../../lib/globe/timeline';
 import { renderGlobe } from '../../../lib/globe/draw';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
+import { canEncodeOffline, encodeOffline } from '../../../lib/globe/encode';
 import type { GlobeOptions, ShapeId, Stop } from '../../../lib/globe/types';
 
 const STORAGE_KEY = 'mdu_globe_video_v1';
 const MAX_STOPS = 5;
 
-interface Saved { stops: Stop[]; options: GlobeOptions; shape: ShapeId; quality: 720 | 1080 }
+interface Saved { stops: Stop[]; options: GlobeOptions; shape: ShapeId; quality: 720 | 1080; fps: 30 | 60; mode: 'smooth' | 'quick' }
 
 const DEFAULT_OPTIONS: GlobeOptions = { styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10 };
 
 const world = decodeWorld(rawWorld as unknown as RawWorld);
 const places = buildPlaces(world, rawPlaces as unknown as RawPlaces);
 const find = (name: string) => stopFromPlace(searchPlaces(places, name, 1)[0]!);
-const defaultSaved = (): Saved => ({ stops: [find('India'), find('United States')], options: { ...DEFAULT_OPTIONS }, shape: 'reel', quality: 720 });
+const defaultSaved = (): Saved => ({ stops: [find('India'), find('United States')], options: { ...DEFAULT_OPTIONS }, shape: 'reel', quality: 720, fps: 30, mode: 'smooth' });
 
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
 
@@ -96,7 +97,7 @@ const StyleThumb: React.FC<{ id: string; chosen: boolean; onPick: () => void }> 
 /** Make a video of a globe that flies from one place to another. Drawn and recorded on your device. */
 export const GlobeVideoMaker: React.FC = () => {
   const [saved, setSaved] = useState<Saved>(load);
-  const { stops, options, shape, quality } = saved;
+  const { stops, options, shape, quality, fps, mode } = saved;
   const canvas = useRef<HTMLCanvasElement>(null);
   const [playing, setPlaying] = useState(false);
   const [time, setTime] = useState(0);
@@ -107,6 +108,9 @@ export const GlobeVideoMaker: React.FC = () => {
   const [picture, setPicture] = useState<{ url: string; name: string } | null>(null);
   const abort = useRef<AbortController | null>(null);
   const support = useMemo(() => recordSupport(), []);
+  const [smooth, setSmooth] = useState<{ ok: boolean; codec: string }>({ ok: false, codec: '' });
+  const [started, setStarted] = useState(0);
+  const [wasSmooth, setWasSmooth] = useState(false);
 
   useEffect(() => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch { /* storage blocked */ } }, [saved]);
   useEffect(() => () => { abort.current?.abort(); }, []);
@@ -125,6 +129,7 @@ export const GlobeVideoMaker: React.FC = () => {
 
   // Preview size: short side 480 pixels.
   const full = videoSize(shape, quality);
+  useEffect(() => { let live = true; void canEncodeOffline(full.width, full.height, fps).then((found) => { if (live) setSmooth(found); }); return () => { live = false; }; }, [full.width, full.height, fps]);
   const previewScale = 480 / Math.min(full.width, full.height);
   const previewW = Math.round(full.width * previewScale), previewH = Math.round(full.height * previewScale);
 
@@ -154,13 +159,21 @@ export const GlobeVideoMaker: React.FC = () => {
 
   const fileBase = `globe-${stops[0]!.label}-to-${stops[stops.length - 1]!.label}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+  const useSmooth = mode === 'smooth' && smooth.ok;
+  const canMake = support.ok || smooth.ok;
+
   const makeVideo = async () => {
-    setPlaying(false); setMessage(''); setResult(null); setProgress(0); setRecording(true);
+    setPlaying(false); setMessage(''); setResult(null); setProgress(0); setStarted(performance.now()); setWasSmooth(useSmooth); setRecording(true);
     const target = document.createElement('canvas'); target.width = full.width; target.height = full.height;
     const control = new AbortController(); abort.current = control;
     let lock: { release: () => Promise<void> } | null = null;
     try { lock = await (navigator as unknown as { wakeLock?: { request: (type: string) => Promise<{ release: () => Promise<void> }> } }).wakeLock?.request('screen') ?? null; } catch { /* not allowed: carry on */ }
     try {
+      if (useSmooth) {
+        const done = await encodeOffline({ canvas: target, codec: smooth.codec, duration: timeline.duration, fps, paint: (seconds) => paint(target, seconds), onProgress: setProgress, signal: control.signal });
+        if (done) setResult({ url: URL.createObjectURL(done.blob), name: `${fileBase}.mp4`, size: done.blob.size, extension: 'mp4', slow: 0 });
+        return;
+      }
       const done = await recordCanvas({ canvas: target, duration: timeline.duration, fps: 30, paint: (seconds) => paint(target, seconds), onProgress: setProgress, signal: control.signal });
       if (done) {
         const fps = done.frames / timeline.duration;
@@ -234,23 +247,32 @@ export const GlobeVideoMaker: React.FC = () => {
         <ChoiceButtons label={ui.shape} value={shape} onChange={(value) => { setSaved({ ...saved, shape: value as ShapeId }); setResult(null); setPicture(null); }} options={names(ui.shapes)} />
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.quality}</p>
           <ChoiceButtons label={ui.quality} value={String(quality)} onChange={(value) => { setSaved({ ...saved, quality: value === '1080' ? 1080 : 720 }); setResult(null); setPicture(null); }} options={names(ui.qualities)} /></div>
+        {smooth.ok && (
+          <>
+            <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mode}</p>
+              <ChoiceButtons label={ui.mode} value={mode} onChange={(value) => { setSaved({ ...saved, mode: value === 'quick' ? 'quick' : 'smooth' }); setResult(null); }} options={names(ui.modes)} />
+              <p className="mt-1 text-[11px] text-slate-500">{mode === 'smooth' ? ui.smoothHint : ui.quickHint}</p></div>
+            {mode === 'smooth' && <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.frameRate}</p>
+              <ChoiceButtons label={ui.frameRate} value={String(fps)} onChange={(value) => { setSaved({ ...saved, fps: value === '60' ? 60 : 30 }); setResult(null); }} options={names(ui.frameRates)} /></div>}
+          </>
+        )}
         <label className="block text-xs font-semibold text-slate-700"><span className="flex justify-between"><span>{ui.seconds}</span><span className="font-bold text-slate-900">{seconds} s</span></span>
           <input type="range" min={minSeconds} max={30} step={1} value={seconds} onChange={(event) => update({ seconds: Number(event.target.value) })} className="mt-1 w-full accent-orange-700" />
         </label>
-        <p className="text-[11px] text-slate-500">{ui.fps}</p>
+        <p className="text-[11px] text-slate-500">{useSmooth ? ui.fpsSmooth.replace('{fps}', String(fps)) : ui.fps}</p>
       </section>
 
       <section className={`${card} space-y-3`}>
-        {!support.ok && <Note>{ui.noRecord}</Note>}
-        {recording && <><div className="h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full bg-orange-700" style={{ width: `${Math.round(progress * 100)}%` }} /></div><p className="text-xs text-slate-700">{ui.keepOpen}</p></>}
+        {!canMake && <Note>{ui.noRecord}</Note>}
+        {recording && <><div className="h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full bg-orange-700" style={{ width: `${Math.round(progress * 100)}%` }} /></div><p className="text-xs text-slate-700">{wasSmooth ? ui.keepOpenSmooth.replace('{done}', String(Math.round(progress * 100))).replace('{left}', progress > 0.05 ? String(Math.max(1, Math.round(((performance.now() - started) / 1000) * (1 - progress) / progress))) : '…') : ui.keepOpen}</p></>}
         {recording
           ? <button type="button" onClick={() => abort.current?.abort()} className="min-h-11 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50">{ui.cancel}</button>
-          : <MainActionButton onClick={() => void makeVideo()} disabled={!support.ok || same}><Video className="h-5 w-5" aria-hidden="true" />{ui.make}</MainActionButton>}
+          : <MainActionButton onClick={() => void makeVideo()} disabled={!canMake || same}><Video className="h-5 w-5" aria-hidden="true" />{ui.make}</MainActionButton>}
         {message && <Note>{message}</Note>}
         {result && (
           <div className="space-y-3 rounded-xl border border-green-200 bg-green-50 p-3">
             <video src={result.url} controls playsInline className="mx-auto max-h-[70vh] w-full max-w-md rounded-lg bg-black" style={{ aspectRatio: ratio }} />
-            <p className="text-xs text-slate-700">{result.extension === 'mp4' ? ui.mp4Note : ui.webmNote}</p>
+            <p className="text-xs text-slate-700">{result.extension === 'mp4' ? (wasSmooth ? ui.smoothNote.replace('{fps}', String(fps)) : ui.mp4Note) : ui.webmNote}</p>
             {result.slow > 0 && <Note>{ui.slowNote.replace('{fps}', String(result.slow))}</Note>}
             <SaveResult href={result.url} name={result.name} label={ui.ready} saveLabel={ui.saveVideo} detail={formatBytes(result.size)} />
           </div>

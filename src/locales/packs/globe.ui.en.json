@@ -88,5 +88,20 @@
     "1080": "1080p (sharper)"
   },
   "makePicture": "Make picture (PNG)",
-  "pictureReady": "Your picture is ready."
+  "pictureReady": "Your picture is ready.",
+  "mode": "How to make the video",
+  "modes": {
+    "smooth": "Smooth (best quality, slower)",
+    "quick": "Quick (plays in real time)"
+  },
+  "smoothHint": "Draws every frame one by one, so the video is smooth and sharp even on a slow phone. It can take longer than the video itself.",
+  "quickHint": "Records while the globe plays, so it takes as long as the video. A slow phone may skip frames.",
+  "frameRate": "Frames a second",
+  "frameRates": {
+    "30": "30 (standard)",
+    "60": "60 (extra smooth, bigger file)"
+  },
+  "fpsSmooth": "{fps} frames a second, every frame drawn. No watermark. Made on your device, nothing is uploaded.",
+  "keepOpenSmooth": "Drawing every frame: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
+  "smoothNote": "Saved as an MP4 file with every frame drawn, at {fps} frames a second."
 }

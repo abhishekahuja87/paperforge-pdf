@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-24',
     path: '/globe-video-maker',
     tool: 'Globe Video Maker',
+    title: 'Smoother, sharper videos with Smooth mode and 60 frames a second',
+    summary: 'Smooth mode draws every frame one by one, so videos stay smooth and sharp even on a slow phone, and it can take longer than the video. Choose 30 or 60 frames a second. Quick mode is still there.',
+  },
+  {
+    date: '2026-11-24',
+    path: '/globe-video-maker',
+    tool: 'Globe Video Maker',
     title: 'New: Globe Video Maker',
     summary: 'Pick two places, with a stop in between if you like, and save a video of a globe flying from one to the other. Six looks, Reel, YouTube, square and feed sizes, 720p or 1080p, no watermark.',
   },
