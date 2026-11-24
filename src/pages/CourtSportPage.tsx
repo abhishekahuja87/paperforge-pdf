@@ -18,8 +18,8 @@ export const CourtSportPage: React.FC<{ page: CourtPage }> = ({ page }) => {
       <nav aria-label="More court sizes" className="mx-auto mt-4 w-full max-w-3xl text-sm text-slate-700">
         <p>
           More court sizes:{' '}
-          {others.map((item) => <React.Fragment key={item.path}><Link to={item.path} className="font-semibold text-orange-800 underline">{item.name}</Link>{', '}</React.Fragment>)}
-          <Link to="/sports-court-size-guide" className="font-semibold text-orange-800 underline">every sport in the Sports Court and Ground Size Guide</Link>.
+          {others.map((item, index) => <React.Fragment key={item.path}><Link to={item.path} className="font-semibold text-orange-800 underline">{item.name}</Link>{index < others.length - 1 ? ', ' : '. '}</React.Fragment>)}
+          Or see <Link to="/sports-court-size-guide" className="font-semibold text-orange-800 underline">every sport in the Sports Court and Ground Size Guide</Link>.
         </p>
       </nav>
     </ToolLayout>

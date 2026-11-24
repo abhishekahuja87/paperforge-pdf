@@ -147,6 +147,186 @@
         "Add the lobbies",
         "Mark a 1 m strip along both long sides for the lobbies, then confirm the size with your state association or the IKF rules for your event."
       ]
+    ],
+    "badminton-court-size": [
+      [
+        "Read the court size",
+        "The drawing is to scale with the length and width written on it in metres and feet. The court is 13.4 m x 6.1 m for doubles, and singles uses the same court with the inner side lines."
+      ],
+      [
+        "Mark the outer rectangle",
+        "Measure 13.4 m for the long sides and 6.1 m for the ends and peg the four corners. Check that both diagonals are 14.72 m, which shows the corners are square."
+      ],
+      [
+        "Add the service lines and net",
+        "Mark the net line 6.7 m from each back line, the short service line 1.98 m from the net, the long service line for doubles 0.76 m in from the back line, the centre line 3.05 m from the side and the singles side lines 0.46 m inside the outer lines."
+      ],
+      [
+        "Check the space and the rules",
+        "Plan 2 m clear behind the back lines and 1.5 m at the sides for competition, then confirm with your federation. Save the marking plan as an image or PDF to take to the hall."
+      ]
+    ],
+    "tennis-court-size": [
+      [
+        "Read the court size",
+        "The drawing is to scale with the sizes in metres and feet. A tennis court is 23.77 m x 10.97 m for doubles, and singles uses the inner side lines 8.23 m apart."
+      ],
+      [
+        "Mark the outer rectangle",
+        "Measure 23.77 m for the sides and 10.97 m for the baselines and peg the corners. Check that both diagonals are 26.18 m, which shows the corners are square."
+      ],
+      [
+        "Add the net, service lines and centre line",
+        "Mark the net 11.885 m from each baseline, the service lines 6.4 m from the net, the centre service line down the middle and the singles side lines 1.37 m inside the doubles lines."
+      ],
+      [
+        "Check the run-off space",
+        "Plan 5.48 m behind the baselines and 3.05 m at the sides for club play, or 6.4 m and 3.66 m for international play, then save the marking plan as an image or PDF."
+      ]
+    ],
+    "pickleball-court-size": [
+      [
+        "Read the court size",
+        "The drawing is to scale. A pickleball court is 13.41 m x 6.096 m (44 ft x 20 ft), the same for singles and doubles, which is the size of a doubles badminton court."
+      ],
+      [
+        "Mark the outer rectangle",
+        "Measure 13.41 m for the sides and 6.096 m for the ends and peg the corners. Check that both diagonals are 14.73 m, which shows the corners are square."
+      ],
+      [
+        "Add the net, kitchen and centre lines",
+        "Mark the net across the middle, 6.706 m from each end line. Mark the kitchen line 2.134 m (7 ft) from the net on each side, and the centre line down the middle of each half behind the kitchen."
+      ],
+      [
+        "Check the playing area",
+        "Plan a playing area of at least 9.14 m x 18.29 m (30 ft x 60 ft), or 10.36 m x 19.51 m (34 ft x 64 ft) for tournaments, then save the marking plan."
+      ]
+    ],
+    "basketball-court-size": [
+      [
+        "Pick the version",
+        "Choose the FIBA full court (28 m x 15 m) or the 3x3 court (15 m x 11 m) in the Version box. The drawing is to scale with the sizes written on it in metres and feet."
+      ],
+      [
+        "Mark the outer rectangle",
+        "For a full court, measure 28 m by 15 m and peg the corners. Check that both diagonals are 31.76 m. For 3x3, measure 15 m by 11 m and check that both diagonals are 18.6 m."
+      ],
+      [
+        "Add the lines",
+        "On a full court, mark the halfway line 14 m from each end, the free-throw line 5.8 m from each end line, the lane 4.9 m wide, the three-point corner lines 0.9 m in from the side lines and the centre circle with a radius of 1.8 m."
+      ],
+      [
+        "Check the space and the rules",
+        "Keep obstructions at least 2 m from the court and confirm the size with FIBA or your league, then save the marking plan as an image or PDF."
+      ]
+    ],
+    "volleyball-court-size": [
+      [
+        "Pick indoor or beach",
+        "Choose the indoor court (18 m x 9 m) or the beach court (16 m x 8 m) in the Version box. The drawing is to scale with the sizes in metres and feet."
+      ],
+      [
+        "Mark the outer rectangle",
+        "For indoor, measure 18 m by 9 m and check that both diagonals are 20.12 m. For beach, measure 16 m by 8 m and check that both diagonals are 17.89 m."
+      ],
+      [
+        "Add the centre and attack lines",
+        "Mark the centre line under the net, at 9 m from each end line for indoor. Mark each attack line 3 m from the centre line, which is 6 m from the end line."
+      ],
+      [
+        "Set the net and the free zone",
+        "Net height is 2.43 m for men and 2.24 m for women. Plan at least 3 m of clear space on all sides, or 8 m at the ends and 5 m at the sides for official events."
+      ]
+    ],
+    "football-pitch-size": [
+      [
+        "Choose a pitch size",
+        "The Laws allow 90 to 120 m in length and 45 to 90 m in width. Pick the smallest, the smallest international size, the common 105 m x 68 m or the largest in the Version box."
+      ],
+      [
+        "Mark the outer rectangle",
+        "Measure the touchlines and goal lines and peg the corners. For 105 m x 68 m, check that both diagonals are 125.1 m, which shows the corners are square."
+      ],
+      [
+        "Add the halfway line and circle",
+        "Mark the halfway line across the middle and the centre circle with a radius of 9.15 m around the centre spot."
+      ],
+      [
+        "Mark the goal and penalty areas",
+        "Mark each goal area 5.5 m from the goal line, each penalty area 16.5 m from it, the penalty mark 11 m from the goal line and the corner arcs with a radius of 1 m."
+      ]
+    ],
+    "cricket-pitch-size": [
+      [
+        "Read the pitch size",
+        "A cricket pitch is 22 yards (20.12 m) long and 10 ft (3.05 m) wide. Choose Pitch only in the Version box to see it to scale."
+      ],
+      [
+        "Mark the pitch",
+        "Peg a rectangle 20.12 m by 3.048 m and check that both diagonals are 20.35 m. Mark the centre line 1.524 m (5 ft) from each side."
+      ],
+      [
+        "Pick a ground size",
+        "Choose a boundary in the Version box. Men's international boundaries are 65 to 90 yards from the centre of the pitch, and women's international boundaries are 60 to 70 yards."
+      ],
+      [
+        "Add the fielding circle",
+        "For limited-overs matches, mark a fielding circle with a radius of 27.43 m (30 yards) from each wicket, and keep boards and fencing at least 3 yards (2.74 m) outside the boundary."
+      ]
+    ],
+    "hockey-pitch-size": [
+      [
+        "Read the pitch size",
+        "A field hockey pitch is 91.4 m (100 yards) long and 55 m (60 yards) wide. The drawing is to scale with the sizes written on it in metres and feet."
+      ],
+      [
+        "Mark the outer rectangle",
+        "Measure 91.4 m for the side lines and 55 m for the back lines and peg the corners. Check that both diagonals are 106.67 m, which shows the corners are square."
+      ],
+      [
+        "Add the lines",
+        "Mark the halfway line 45.7 m from each back line, the 23 m lines 22.9 m from each back line and the shooting circle with a radius of 14.63 m at each end."
+      ],
+      [
+        "Add the goals and spots",
+        "Each goal is 3.66 m wide and 2.14 m high, outside the back line. Mark the penalty spot 6.475 m from the goal line and keep 3 m of run-off behind the back lines."
+      ]
+    ],
+    "table-tennis-table-size": [
+      [
+        "Read the table size",
+        "A table tennis table is 2.74 m x 1.525 m and 0.76 m high. Choose The table in the Version box to see it to scale with the net line."
+      ],
+      [
+        "Check the net",
+        "The net is 15.25 cm (6 in) high above the playing surface and sits across the middle, 1.37 m from each end."
+      ],
+      [
+        "Pick the playing space",
+        "Choose a space in the Version box: competition 14 m x 7 m, masters 10 m x 5 m or wheelchair events 8 m x 6 m. Competition needs 5 m of height."
+      ],
+      [
+        "Plan your room",
+        "Leave enough room to step back from the table, then use Fit my space on the Sports Court and Ground Size Guide to check a room, and save the drawing as an image or PDF."
+      ]
+    ],
+    "squash-court-size": [
+      [
+        "Pick singles or doubles",
+        "Choose the singles court (9.75 m x 6.4 m) or the doubles court (13.72 m x 7.62 m) in the Version box. The drawing is to scale in metres and feet."
+      ],
+      [
+        "Read the wall heights",
+        "On a singles court the front wall top line is 4.57 m high and the back wall top line is 2.13 m high. A doubles court has a front wall top line of 6.09 m."
+      ],
+      [
+        "Check the tin and service line",
+        "The tin is 0.48 m high, and the service line on the front wall is 1.78 m high. Heights are measured on the walls and are not floor distances."
+      ],
+      [
+        "Confirm with your federation",
+        "The guide does not draw the short line, because the sources we checked differed slightly. Confirm the markings with World Squash or your national body before you build."
+      ]
     ]
   },
   "pageGuides": {
@@ -437,6 +617,386 @@
           "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
         ]
       ]
+    },
+    "sportsBadmintonCourt": {
+      "title": "Badminton Court Size: Dimensions, Lines and Marking Plan",
+      "subtitle": "Badminton court size in metres and feet for singles and doubles, drawn to scale, with service lines, net height, clear space, a marking plan and rules. Free.",
+      "faq": [
+        [
+          "What is the size of a badminton court?",
+          "A badminton court is 13.4 m (43 ft 11.6 in) long and 6.1 m (20 ft 0.2 in) wide for doubles. Singles uses the same court with narrower inner side lines, 5.18 m (16 ft 11.9 in) apart."
+        ],
+        [
+          "How high is a badminton net?",
+          "The net is 1.55 m (5 ft 1 in) high at the posts and 1.524 m (5 ft 0 in) in the middle. The posts stand on the doubles side lines."
+        ],
+        [
+          "Where is the short service line?",
+          "The short service line is 1.98 m (6 ft 6 in) from the net, which is 4.72 m from each back line."
+        ],
+        [
+          "Where is the long service line?",
+          "For doubles the long service line is 0.76 m (2 ft 5.9 in) in from the back line. In singles the back line itself is the long service line."
+        ],
+        [
+          "How much space do I need around a badminton court?",
+          "The BWF asks for 2 m behind the back lines and 1.5 m at the sides in competition halls, and the guide lists 9 m of clear height. For a home or school court you can use less, but leave room to move."
+        ],
+        [
+          "How do I mark a badminton court at home?",
+          "Peg a 13.4 m by 6.1 m rectangle, check that both diagonals are 14.72 m, then mark the net line, service lines, centre line and singles side lines from the marking plan on this page."
+        ],
+        [
+          "Is this the official badminton court size?",
+          "The size comes from the sources listed on the page and the date they were checked is shown. Confirm with the Badminton World Federation or your national body before you mark a court for a competition."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsTennisCourt": {
+      "title": "Tennis Court Size: Dimensions, Lines and Marking Plan",
+      "subtitle": "Tennis court size in metres and feet for singles and doubles, drawn to scale, with service lines, net height, run-off space, a marking plan and rules. Free.",
+      "faq": [
+        [
+          "What is the size of a tennis court?",
+          "A tennis court is 23.77 m (77 ft 11.8 in) long and 10.97 m (35 ft 11.9 in) wide for doubles, and 8.23 m (27 ft 0 in) wide for singles."
+        ],
+        [
+          "How far is the service line from the net?",
+          "The service line is 6.4 m (21 ft 0 in) from the net on each side, which is 5.485 m (17 ft 11.9 in) from each baseline."
+        ],
+        [
+          "How high is a tennis net?",
+          "The net is 1.07 m (3 ft 6.1 in) high at the posts and 0.914 m (3 ft 0 in) in the middle."
+        ],
+        [
+          "How much space do I need around a tennis court?",
+          "The ITF recommends 5.48 m behind the baselines and 3.05 m at the sides for club play, and 6.4 m and 3.66 m for international play. These are minimums."
+        ],
+        [
+          "How do I mark a tennis court?",
+          "Peg a 23.77 m by 10.97 m rectangle, check that both diagonals are 26.18 m, then mark the net line, service lines, centre service line and singles side lines from the marking plan on this page."
+        ],
+        [
+          "Do singles and doubles use the same court?",
+          "Yes. Most courts are built with doubles lines, and singles uses the inner side lines 1.37 m (4 ft 5.9 in) inside the outer ones."
+        ],
+        [
+          "Is this the official tennis court size?",
+          "The sizes come from the sources listed on the page and the date they were checked is shown. Confirm with the International Tennis Federation or your national body before you build a court for competition."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsPickleballCourt": {
+      "title": "Pickleball Court Size: Dimensions, Kitchen Line and Marking Plan",
+      "subtitle": "Pickleball court size in metres and feet, drawn to scale, with the kitchen line, net height, playing area, a marking plan and rules. Free and private.",
+      "faq": [
+        [
+          "What is the size of a pickleball court?",
+          "A pickleball court is 13.41 m (44 ft 0 in) long and 6.096 m (20 ft 0 in) wide, the same for singles and doubles."
+        ],
+        [
+          "How big is the kitchen in pickleball?",
+          "The non-volley zone, called the kitchen, is 2.134 m (7 ft 0 in) deep from the net on each side and covers the full width of the court."
+        ],
+        [
+          "How high is a pickleball net?",
+          "The net is 0.914 m (3 ft 0 in) high at the sidelines and 0.864 m (2 ft 10 in) in the middle."
+        ],
+        [
+          "Is a pickleball court the same as a badminton court?",
+          "The size is the same as a doubles badminton court, 13.4 m by 6.1 m, but the lines are different. Many people mark pickleball lines on a badminton court."
+        ],
+        [
+          "How much space do I need for a pickleball court?",
+          "USA Pickleball describes a smallest playing area of 9.14 m x 18.29 m (30 ft x 60 ft) and a tournament area of 10.36 m x 19.51 m (34 ft x 64 ft)."
+        ],
+        [
+          "How do I mark a pickleball court?",
+          "Peg a 13.41 m by 6.096 m rectangle, check that both diagonals are 14.73 m, then mark the net line, kitchen lines and centre lines from the marking plan on this page."
+        ],
+        [
+          "Is this the official pickleball court size?",
+          "The sizes come from the sources listed on the page and the date they were checked is shown. Confirm with USA Pickleball or your national body, because the rulebook is updated."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsBasketballCourt": {
+      "title": "Basketball Court Size: Dimensions, Lines and Marking Plan",
+      "subtitle": "Basketball court size in metres and feet for a full FIBA court and 3x3, drawn to scale, with free-throw line, three-point arc, rim height and a marking plan.",
+      "faq": [
+        [
+          "What is the size of a basketball court?",
+          "A full FIBA court is 28 m (91 ft 10.4 in) long and 15 m (49 ft 2.6 in) wide. A 3x3 court is 15 m (49 ft 2.6 in) by 11 m (36 ft 1.1 in)."
+        ],
+        [
+          "How high is a basketball hoop?",
+          "The rim is 3.05 m (10 ft 0.1 in) above the floor."
+        ],
+        [
+          "How far is the free-throw line?",
+          "The free-throw line is 5.8 m (19 ft 0.3 in) from the end line. The lane is 4.9 m (16 ft 0.9 in) wide."
+        ],
+        [
+          "How far is the three-point line?",
+          "The three-point arc has a radius of 6.75 m (22 ft 1.7 in), and the corner lines run 0.9 m (2 ft 11.4 in) in from the side lines."
+        ],
+        [
+          "What is the size of a 3x3 basketball court?",
+          "A 3x3 court is 15 m (49 ft 2.6 in) long and 11 m (36 ft 1.1 in) wide."
+        ],
+        [
+          "How much space is needed around a basketball court?",
+          "FIBA asks for obstructions to be at least 2 m from the court."
+        ],
+        [
+          "Is this the official basketball court size?",
+          "The sizes come from the FIBA text listed on the page and the date they were checked is shown. School and league courts often differ, so confirm with FIBA or your league."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsVolleyballCourt": {
+      "title": "Volleyball Court Size: Indoor and Beach Dimensions and Marking Plan",
+      "subtitle": "Volleyball court size in metres and feet for indoor and beach courts, drawn to scale, with attack line, net height, free zone and a marking plan. Free.",
+      "faq": [
+        [
+          "What is the size of a volleyball court?",
+          "An indoor court is 18 m (59 ft 0.7 in) by 9 m (29 ft 6.3 in). A beach court is 16 m (52 ft 5.9 in) by 8 m (26 ft 3 in)."
+        ],
+        [
+          "How high is a volleyball net?",
+          "The net is 2.43 m (7 ft 11.7 in) high for men and 2.24 m (7 ft 4.2 in) for women."
+        ],
+        [
+          "Where is the attack line?",
+          "On an indoor court the attack line is 3 m (9 ft 10.1 in) from the centre line, which is 6 m (19 ft 8.2 in) from the end line."
+        ],
+        [
+          "How much space is needed around a volleyball court?",
+          "The smallest free zone listed is 3 m on all sides. For world and official events the guide lists 8 m at the end lines and 5 m at the sidelines, with 7 m of clear height."
+        ],
+        [
+          "Is a beach volleyball court smaller than an indoor court?",
+          "Yes. A beach court is 16 m by 8 m, and an indoor court is 18 m by 9 m."
+        ],
+        [
+          "How do I mark a volleyball court?",
+          "Peg the rectangle, check that both diagonals match, then mark the centre line and, for an indoor court, the attack lines from the marking plan on this page."
+        ],
+        [
+          "Is this the official volleyball court size?",
+          "The sizes come from the sources listed on the page and the date they were checked is shown. Confirm with the FIVB or your national body, because the clear-space figures come from an older state guide."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsFootballPitch": {
+      "title": "Football Pitch Size: Dimensions, Penalty Area and Marking Plan",
+      "subtitle": "Football pitch size in metres and feet, from the smallest to the largest allowed, drawn to scale, with goal, penalty area and centre circle and a marking plan.",
+      "faq": [
+        [
+          "What is the size of a football pitch?",
+          "The Laws allow 90 to 120 m in length and 45 to 90 m in width for an 11-a-side pitch. A common size is 105 m by 68 m (344 ft 5.9 in by 223 ft 1.2 in)."
+        ],
+        [
+          "What size is a football pitch for international matches?",
+          "The guide lists 100 to 110 m in length and 64 to 75 m in width for international matches."
+        ],
+        [
+          "How wide is a football goal?",
+          "A goal is 7.32 m (24 ft 0.2 in) wide inside the posts, and the crossbar is 2.44 m (8 ft 0.1 in) high."
+        ],
+        [
+          "How big is the penalty area?",
+          "The penalty area reaches 16.5 m (54 ft 1.6 in) from the goal line. The goal area reaches 5.5 m (18 ft 0.5 in) and the penalty mark is 11 m (36 ft 1.1 in) from the goal line."
+        ],
+        [
+          "How big is the centre circle?",
+          "The centre circle has a radius of 9.15 m (30 ft 0.2 in). The penalty arc uses the same radius."
+        ],
+        [
+          "How do I mark a football pitch?",
+          "Peg the rectangle, check that both diagonals match, then mark the halfway line, circle, penalty areas, goal areas and arcs from the marking plan on this page."
+        ],
+        [
+          "Is this the official football pitch size?",
+          "The sizes come from the Laws of the Game summary listed on the page and the date they were checked is shown. Youth and local pitches often differ, so confirm with your league or federation."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsCricketPitch": {
+      "title": "Cricket Pitch Length and Ground Size: Dimensions in Metres and Feet",
+      "subtitle": "Cricket pitch length, width and ground boundary size in metres, feet and yards, drawn to scale, with the fielding circle, a marking plan and rules. Free.",
+      "faq": [
+        [
+          "How long is a cricket pitch?",
+          "A cricket pitch is 22 yards, which is 20.12 m (66 ft 0 in), long and 10 ft (3.048 m) wide."
+        ],
+        [
+          "What is the size of a cricket ground?",
+          "It is not fixed. Men's international boundaries are 65 to 90 yards, 59.44 m to 82.3 m, from the centre of the pitch. Women's international boundaries are 60 to 70 yards, 54.86 m to 64.01 m."
+        ],
+        [
+          "How big is the fielding circle in cricket?",
+          "In limited-overs matches the fielding circle has a radius of 27.43 m (90 ft 0 in), which is 30 yards, from each wicket."
+        ],
+        [
+          "How wide is a cricket pitch?",
+          "The pitch is 10 ft (3.048 m) wide, with the centre line 1.524 m (5 ft) from each side."
+        ],
+        [
+          "Is a cricket ground a circle?",
+          "No. Real grounds are ovals. The guide draws a circle with the boundary distance as its radius, which is the safest size to plan for."
+        ],
+        [
+          "How do I mark a cricket pitch?",
+          "Peg a 20.12 m by 3.048 m rectangle, check that both diagonals are 20.35 m, then mark the centre line from the marking plan on this page."
+        ],
+        [
+          "Is this the official cricket ground size?",
+          "The limits are those for men's Tests and ODIs and women's international matches, and the date they were checked is shown. Local grounds and schools use their own limits."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsHockeyPitch": {
+      "title": "Hockey Pitch Size: Dimensions, Circle and Marking Plan",
+      "subtitle": "Field hockey pitch size in metres and feet, drawn to scale, with the shooting circle, 23 m lines, goal size, run-off space and a marking plan. Free.",
+      "faq": [
+        [
+          "What is the size of a hockey pitch?",
+          "A field hockey pitch is 91.4 m (299 ft 10.4 in) long and 55 m (180 ft 5.4 in) wide, which is 100 yards by 60 yards."
+        ],
+        [
+          "How big is a hockey goal?",
+          "A goal is 3.66 m (12 ft 0.1 in) wide and 2.14 m (7 ft 0.3 in) high."
+        ],
+        [
+          "How big is the shooting circle?",
+          "The shooting circle has a radius of 14.63 m (48 ft 0 in) from each goalpost, joined by a 3.66 m straight line."
+        ],
+        [
+          "Where is the 23 m line?",
+          "It is 22.9 m (75 ft 1.6 in) from each back line."
+        ],
+        [
+          "Where is the penalty spot?",
+          "The penalty spot is 6.475 m (21 ft 2.9 in) from the goal line."
+        ],
+        [
+          "How much run-off space does a hockey pitch need?",
+          "The FIH asks for at least 2 m at the side lines and 3 m at the back lines."
+        ],
+        [
+          "Is this the official hockey pitch size?",
+          "The sizes come from the FIH source listed on the page and the date they were checked is shown. Confirm with the International Hockey Federation or your national body before you mark a pitch for competition."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsTableTennisTable": {
+      "title": "Table Tennis Table Size: Dimensions, Net Height and Room Space",
+      "subtitle": "Table tennis table size in metres and feet, with net and table height and the playing space for competition, masters and wheelchair events, to scale. Free.",
+      "faq": [
+        [
+          "What is the size of a table tennis table?",
+          "A table is 2.74 m (8 ft 11.9 in) long, 1.525 m (5 ft 0 in) wide and 0.76 m (2 ft 5.9 in) high."
+        ],
+        [
+          "How high is the table tennis net?",
+          "The net is 0.152 m (6 in) above the playing surface."
+        ],
+        [
+          "How much space do I need for table tennis?",
+          "Competitions need a space of at least 14 m x 7 m, with 5 m of height. Masters events can use 10 m x 5 m and wheelchair events 8 m x 6 m. A home table needs much less."
+        ],
+        [
+          "Where does the net go on the table?",
+          "The net runs across the middle of the table, 1.37 m (4 ft 5.9 in) from each end."
+        ],
+        [
+          "What is the line down the middle of the table?",
+          "It is a centre line, 0.762 m (2 ft 6 in) from each side, used to divide the table for doubles serves."
+        ],
+        [
+          "How big is the space for masters and wheelchair events?",
+          "Masters events can use a space of 10 m (32 ft 9.7 in) by 5 m (16 ft 4.9 in), and wheelchair events 8 m (26 ft 3 in) by 6 m (19 ft 8.2 in)."
+        ],
+        [
+          "Is this the official table tennis size?",
+          "The sizes come from the ITTF sources listed on the page and the date they were checked is shown. Confirm with the ITTF or your national body for competitions."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsSquashCourt": {
+      "title": "Squash Court Size: Singles and Doubles Dimensions and Wall Heights",
+      "subtitle": "Squash court size in metres and feet for singles and doubles courts, drawn to scale, with wall heights, tin height and the service line. Free and private.",
+      "faq": [
+        [
+          "What is the size of a squash court?",
+          "A singles squash court is 9.75 m (31 ft 11.9 in) long and 6.4 m (21 ft 0 in) wide. A doubles court is 13.72 m (45 ft 0.2 in) by 7.62 m (25 ft 0 in)."
+        ],
+        [
+          "How high is the front wall of a squash court?",
+          "On a singles court the front wall top line is 4.57 m (14 ft 11.9 in) high. On a doubles court it is 6.09 m (19 ft 11.8 in)."
+        ],
+        [
+          "How high is the back wall?",
+          "The back wall top line is 2.13 m (6 ft 11.9 in) high."
+        ],
+        [
+          "How high is the tin?",
+          "The tin is 0.48 m (1 ft 6.9 in) high, and the service line on the front wall is 1.78 m (5 ft 10.1 in) high."
+        ],
+        [
+          "What is the difference between singles and doubles squash courts?",
+          "A doubles court is longer and wider, 13.72 m by 7.62 m against 9.75 m by 6.4 m, and its front wall is higher."
+        ],
+        [
+          "Can I build a squash court at home?",
+          "A squash court needs four walls, a floor and a roof, built to exact heights. Have a qualified person check the plan, because this guide is not an engineering approval."
+        ],
+        [
+          "Is this the official squash court size?",
+          "The sizes come from the World Squash sources listed on the page and the date they were checked is shown. Confirm with World Squash or your national body before you build."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -642,6 +1202,256 @@
           "paragraphs": [
             "Peg out the outer rectangle, check that both diagonals match, then mark the midline and the baulk, bonus and lobby lines from the marking plan on this page. Choose the version first, because each court has different distances.",
             "The guide lists a desirable ground of 20 m by 20 m and no smaller than 17 m by 18 m around the court. Rules differ by league, so check the current rules of the Amateur Kabaddi Federation of India or your state association. See also the kho kho court size page and the full Sports Court and Ground Size Guide."
+          ]
+        }
+      ]
+    },
+    "badminton-court-size": {
+      "sections": [
+        {
+          "heading": "Badminton court size at a glance",
+          "paragraphs": [
+            "A badminton court is 13.4 m (43 ft 11.6 in) long and 6.1 m (20 ft 0.2 in) wide for doubles. For singles the court is 5.18 m (16 ft 11.9 in) wide, using the inner side lines. The diagonal is 14.72 m. Line width is 0.04 m (1.6 in).",
+            "The net is 1.55 m (5 ft 1 in) high at the posts and 1.524 m (5 ft 0 in) in the middle. The short service line is 1.98 m (6 ft 6 in) from the net, and the long service line for doubles is 0.76 m (2 ft 5.9 in) in from the back line. In singles the back line itself is the long service line."
+          ]
+        },
+        {
+          "heading": "How to mark a badminton court",
+          "paragraphs": [
+            "Peg out the 13.4 m by 6.1 m rectangle and measure both diagonals. When they match, the corners are square. Mark the net line across the middle, 6.7 m from each back line, then the short service lines 4.72 m from each back line.",
+            "Add the centre line 3.05 m from the side line, the long service line for doubles and the singles side lines 0.46 m (1 ft 6.1 in) inside the outer side lines. On a hall floor, use tape in a colour that stands out from the surface, and put the net posts on the doubles side lines."
+          ]
+        },
+        {
+          "heading": "Space around the court and where rules differ",
+          "paragraphs": [
+            "The guide uses the clear space the BWF asks for in competition halls: 2 m behind the back lines and 1.5 m at the sides, with 9 m of clear height above the court. That makes a space of about 17.4 m x 9.1 m for one court. Use the Fit my space tab on the Sports Court and Ground Size Guide to check a room.",
+            "School and club halls often squeeze courts closer together, and rules are updated from time to time. Confirm with the Badminton World Federation or your national body before you mark a court for a competition."
+          ]
+        }
+      ]
+    },
+    "tennis-court-size": {
+      "sections": [
+        {
+          "heading": "Tennis court size at a glance",
+          "paragraphs": [
+            "A tennis court is 23.77 m (77 ft 11.8 in) long and 10.97 m (35 ft 11.9 in) wide for doubles. For singles the court is 8.23 m (27 ft 0 in) wide. The diagonal is 26.18 m.",
+            "The service line is 6.4 m (21 ft 0 in) from the net. The net is 1.07 m (3 ft 6.1 in) high at the posts and 0.914 m (3 ft 0 in) in the middle, and the posts stand 0.914 m outside the doubles side lines."
+          ]
+        },
+        {
+          "heading": "How to mark a tennis court",
+          "paragraphs": [
+            "Peg out the 23.77 m by 10.97 m rectangle and measure both diagonals. When they match, the corners are square. Mark the net line across the middle, 11.885 m from each baseline, then the service lines 6.4 m from the net on both sides.",
+            "Add the centre service line, which runs 5.485 m (17 ft 11.9 in) from each side line, and the singles side lines 1.37 m (4 ft 5.9 in) inside the doubles side lines. Most courts are built with doubles lines and the singles lines added inside them."
+          ]
+        },
+        {
+          "heading": "Space around the court and where rules differ",
+          "paragraphs": [
+            "The ITF recommends at least 5.48 m behind the baselines and 3.05 m at the sides for club and recreational play, and 6.4 m and 3.66 m for international competition. These are minimums. The ITF also recommends a roof height of at least 9 m over the court at the net.",
+            "For a home or school court you can plan a tighter fit, but play will feel cramped. Confirm with the International Tennis Federation or your national body for competitions. Use the Fit my space tab on the Sports Court and Ground Size Guide to check a plot."
+          ]
+        }
+      ]
+    },
+    "pickleball-court-size": {
+      "sections": [
+        {
+          "heading": "Pickleball court size at a glance",
+          "paragraphs": [
+            "A pickleball court is 13.41 m (44 ft 0 in) long and 6.096 m (20 ft 0 in) wide. The size is the same for singles and doubles. The diagonal is 14.73 m. Lines are 0.051 m (2 in) wide.",
+            "The non-volley zone, called the kitchen, is 2.134 m (7 ft 0 in) deep from the net on each side and runs across the full width of the court. The net is 0.914 m (3 ft 0 in) high at the sidelines and 0.864 m (2 ft 10 in) in the middle."
+          ]
+        },
+        {
+          "heading": "How to mark a pickleball court",
+          "paragraphs": [
+            "Peg out the rectangle and measure both diagonals. The net line sits 6.706 m (22 ft 0 in) from each end line. The kitchen line is 4.572 m (15 ft 0 in) from each end line, and the centre line is 3.048 m (10 ft 0 in) from each side line, running from the kitchen line to the end line.",
+            "The size matches a doubles badminton court, so some venues mark both on one floor. A serve that lands on the kitchen line is short and a fault."
+          ]
+        },
+        {
+          "heading": "Space around the court and where rules differ",
+          "paragraphs": [
+            "USA Pickleball describes a smallest playing area of 9.14 m x 18.29 m (30 ft x 60 ft) and a tournament playing area of 10.36 m x 19.51 m (34 ft x 64 ft). That is a clear space of about 2.44 m (8 ft) behind the end lines and 1.52 m (5 ft) at the sides at the minimum, and 3.05 m (10 ft) and 2.13 m (7 ft) for tournaments.",
+            "Rules are updated each year, and school or community courts may differ. Confirm with USA Pickleball or your national body for competitions, and use the Fit my space tab on the Sports Court and Ground Size Guide to see how many courts fit."
+          ]
+        }
+      ]
+    },
+    "basketball-court-size": {
+      "sections": [
+        {
+          "heading": "Basketball court size at a glance",
+          "paragraphs": [
+            "A full FIBA basketball court is 28 m (91 ft 10.4 in) long and 15 m (49 ft 2.6 in) wide, measured from the inside edge of the boundary lines. The diagonal is 31.76 m. A 3x3 court is 15 m (49 ft 2.6 in) by 11 m (36 ft 1.1 in).",
+            "The rim is 3.05 m (10 ft 0.1 in) above the floor. The free-throw line is 5.8 m (19 ft 0.3 in) from the end line, the lane is 4.9 m (16 ft 0.9 in) wide, the three-point arc has a radius of 6.75 m (22 ft 1.7 in) and the centre circle has a radius of 1.8 m (5 ft 10.9 in)."
+          ]
+        },
+        {
+          "heading": "How to mark a basketball court",
+          "paragraphs": [
+            "Peg out the rectangle and measure both diagonals. Mark the halfway line 14 m (45 ft 11.2 in) from each end line, then the centre circle. At each end mark the free-throw line, the lane, and the free-throw semicircle with a radius of 1.8 m.",
+            "The three-point corner lines run 0.9 m (2 ft 11.4 in) in from each side line and meet the arc. The arc is drawn from a point 1.575 m in from the end line."
+          ]
+        },
+        {
+          "heading": "Space around the court and where rules differ",
+          "paragraphs": [
+            "FIBA asks for obstructions to be at least 2 m from the court, so a full court needs a space of about 32 m x 19 m. Use the Fit my space tab on the Sports Court and Ground Size Guide to check a hall or playground.",
+            "School, street and league courts are often smaller than a full FIBA court, and other leagues use their own sizes. Confirm with FIBA or your league before you mark a court for competition."
+          ]
+        }
+      ]
+    },
+    "volleyball-court-size": {
+      "sections": [
+        {
+          "heading": "Volleyball court size at a glance",
+          "paragraphs": [
+            "An indoor volleyball court is 18 m (59 ft 0.7 in) long and 9 m (29 ft 6.3 in) wide, split by the net into two 9 m x 9 m halves. A beach court is 16 m (52 ft 5.9 in) by 8 m (26 ft 3 in). The diagonals are 20.12 m and 17.89 m.",
+            "The attack line is 3 m (9 ft 10.1 in) from the centre line on an indoor court. The net is 2.43 m (7 ft 11.7 in) high for men and 2.24 m (7 ft 4.2 in) for women."
+          ]
+        },
+        {
+          "heading": "How to mark a volleyball court",
+          "paragraphs": [
+            "Peg out the rectangle, measure both diagonals and adjust a peg until they match. Mark the centre line across the middle, 9 m from each end line for an indoor court, then the attack lines 3 m on each side of it.",
+            "A beach court has no attack line, so only the outer lines and the centre line under the net are marked."
+          ]
+        },
+        {
+          "heading": "Space around the court and where rules differ",
+          "paragraphs": [
+            "The guide lists a free zone of at least 3 m on all sides as the smallest clear space, and 8 m at the end lines and 5 m at the sidelines for world and official competitions, with at least 7 m of clear height above the court. The figures come from a state guide that cites older rules.",
+            "Check the current FIVB or national rules before you build a court for competition. Use the Fit my space tab on the Sports Court and Ground Size Guide to see whether a court fits a hall."
+          ]
+        }
+      ]
+    },
+    "football-pitch-size": {
+      "sections": [
+        {
+          "heading": "Football pitch size at a glance",
+          "paragraphs": [
+            "The Laws of the Game let an 11-a-side pitch be 90 to 120 m long and 45 to 90 m wide, and 100 to 110 m by 64 to 75 m for international matches. A common size is 105 m (344 ft 5.9 in) by 68 m (223 ft 1.2 in), which is a choice and not a rule. Its diagonal is 125.1 m.",
+            "The goal is 7.32 m (24 ft 0.2 in) wide inside the posts and the crossbar is 2.44 m (8 ft 0.1 in) high. The goal area reaches 5.5 m (18 ft 0.5 in) from the goal line, the penalty area 16.5 m (54 ft 1.6 in) and the penalty mark is 11 m (36 ft 1.1 in) from the goal line."
+          ]
+        },
+        {
+          "heading": "How to mark a football pitch",
+          "paragraphs": [
+            "Peg out the touchlines and goal lines and check that both diagonals match. Mark the halfway line across the middle and the centre circle with a radius of 9.15 m (30 ft 0.2 in). At each end, mark the goal area, penalty area, penalty mark and the penalty arc, which has the same 9.15 m radius.",
+            "Add a corner arc with a radius of 1 m (3 ft 3.4 in) at each corner."
+          ]
+        },
+        {
+          "heading": "Space around the pitch and where rules differ",
+          "paragraphs": [
+            "The Laws give ranges and not one size, and youth and local pitches often differ. The guide does not list a run-off area, because the Laws do not set one. Upright advertising must be at least 1 m from the touchlines and the goal net.",
+            "Check the rules of your league, school or federation before you mark a pitch. Use the Fit my space tab on the Sports Court and Ground Size Guide to see which pitch size fits a ground."
+          ]
+        }
+      ]
+    },
+    "cricket-pitch-size": {
+      "sections": [
+        {
+          "heading": "Cricket pitch and ground size at a glance",
+          "paragraphs": [
+            "A cricket pitch is 22 yards, which is 20.12 m (66 ft 0 in), long and 10 ft (3.048 m) wide. The diagonal of the pitch is 20.35 m. The centre line is 1.524 m (5 ft 0 in) from each side.",
+            "The ground is not fixed. International boundaries for men are 65 to 90 yards from the centre of the pitch, which is 59.44 m (195 ft 0 in) to 82.3 m (270 ft 0 in). For women's international matches the range is 60 to 70 yards, which is 54.86 m (180 ft 0 in) to 64.01 m (210 ft 0 in)."
+          ]
+        },
+        {
+          "heading": "How to mark a cricket pitch and ground",
+          "paragraphs": [
+            "Mark the pitch first, as a rectangle 20.12 m long and 3.048 m wide, with the centre line along the length. Then choose a boundary distance and measure it from the middle of the pitch in every direction. Real grounds are ovals, and the guide draws a circle with the boundary distance as its radius, which is the safest size to plan for.",
+            "For limited-overs matches the fielding circle has a radius of 27.43 m (90 ft 0 in) from each wicket, joined by straight lines. The guide shows the straight part, which is 32 m (105 ft 0 in) at the smallest men's boundary."
+          ]
+        },
+        {
+          "heading": "Space around the ground and where rules differ",
+          "paragraphs": [
+            "The guide keeps a gap of at least 3 yards, 2.74 m (9 ft 0 in), between the boundary rope and fencing or advertising boards. School, club and local grounds use their own limits and are often much smaller than international grounds.",
+            "Check the rules of your association or the ICC before you mark a ground for a match. See also the Cricket Scorer and the Cricket Run Rate Calculator for scoring."
+          ]
+        }
+      ]
+    },
+    "hockey-pitch-size": {
+      "sections": [
+        {
+          "heading": "Hockey pitch size at a glance",
+          "paragraphs": [
+            "A field hockey pitch is 91.4 m (299 ft 10.4 in) long and 55 m (180 ft 5.4 in) wide, which is 100 yards by 60 yards. The diagonal is 106.67 m. Lines are 0.075 m (3 in) wide.",
+            "Each goal is 3.66 m (12 ft 0.1 in) wide and 2.14 m (7 ft 0.3 in) high. The shooting circle has a radius of 14.63 m (48 ft 0 in), the 23 m line is 22.9 m (75 ft 1.6 in) from the back line and the penalty spot is 6.475 m (21 ft 2.9 in) from the goal line."
+          ]
+        },
+        {
+          "heading": "How to mark a hockey pitch",
+          "paragraphs": [
+            "Peg out the rectangle and check that both diagonals match. Mark the halfway line 45.7 m (149 ft 11.2 in) from each back line and the 23 m lines 22.9 m from each back line.",
+            "The shooting circle is drawn from two quadrant arcs of 14.63 m radius centred on the goalposts, joined by a 3.66 m straight line. Mark the penalty spot 6.475 m from the goal line."
+          ]
+        },
+        {
+          "heading": "Space around the pitch and where rules differ",
+          "paragraphs": [
+            "The FIH asks for run-off of at least 2 m at the side lines and 3 m at the back lines, so a full pitch needs a space of about 97.4 m x 59 m. The run-off is a minimum, and the last metre can be a different surface.",
+            "School and club pitches are often smaller. Confirm the size with the International Hockey Federation or your national body before you mark a pitch for competition. Use the Fit my space tab on the Sports Court and Ground Size Guide to check a ground."
+          ]
+        }
+      ]
+    },
+    "table-tennis-table-size": {
+      "sections": [
+        {
+          "heading": "Table tennis table size at a glance",
+          "paragraphs": [
+            "A table tennis table is 2.74 m (8 ft 11.9 in) long, 1.525 m (5 ft 0 in) wide and 0.76 m (2 ft 5.9 in) above the floor. The net is 0.152 m (6 in) above the playing surface and runs across the middle of the table, 1.37 m (4 ft 5.9 in) from each end.",
+            "A line down the centre of the table, 0.762 m (2 ft 6 in) from each side, divides it for doubles serves."
+          ]
+        },
+        {
+          "heading": "Playing space for table tennis",
+          "paragraphs": [
+            "The competition playing space is 14 m (45 ft 11.2 in) long and 7 m (22 ft 11.6 in) wide, with 5 m of clear height. Reduced spaces are allowed for masters events, 10 m (32 ft 9.7 in) by 5 m (16 ft 4.9 in), and for wheelchair events, 8 m (26 ft 3 in) by 6 m (19 ft 8.2 in).",
+            "The 14 m x 7 m x 5 m space is the competition minimum. Home and club tables need much less. The rules do not set a recreational size, so leave enough room to step back from the table."
+          ]
+        },
+        {
+          "heading": "Choosing a room and where rules differ",
+          "paragraphs": [
+            "For a home table, measure the room first and leave space around all four sides. Players need room to step back from the table, so check both the length and the width of the room.",
+            "Confirm the sizes with the International Table Tennis Federation or your national body before you set up a space for a competition. Use the Fit my space tab on the Sports Court and Ground Size Guide to check a room."
+          ]
+        }
+      ]
+    },
+    "squash-court-size": {
+      "sections": [
+        {
+          "heading": "Squash court size at a glance",
+          "paragraphs": [
+            "A singles squash court is 9.75 m (31 ft 11.9 in) long and 6.4 m (21 ft 0 in) wide, enclosed by four walls. A doubles court is 13.72 m (45 ft 0.2 in) long and 7.62 m (25 ft 0 in) wide.",
+            "On a singles court the front wall top line is 4.57 m (14 ft 11.9 in) high, the back wall top line is 2.13 m (6 ft 11.9 in) high, the tin is 0.48 m (1 ft 6.9 in) high and the service line on the front wall is 1.78 m (5 ft 10.1 in) high. On a doubles court the front wall top line is 6.09 m (19 ft 11.8 in) high."
+          ]
+        },
+        {
+          "heading": "Squash court markings and walls",
+          "paragraphs": [
+            "A squash court is built with walls, so most of the numbers on the page are heights on the walls and not distances on the floor. The floor lines include the short line and the half-court line, and the guide does not draw them because the two sources we checked differed slightly on the short line position.",
+            "The tin is a strip across the bottom of the front wall, and a ball that hits it is out."
+          ]
+        },
+        {
+          "heading": "Planning a court and where rules differ",
+          "paragraphs": [
+            "A squash court is a building project, with a floor, four walls and a roof, and you should have a qualified person check the plan. This guide is for planning and is not an engineering approval.",
+            "Confirm the sizes with World Squash or your national body before you build. Use the Fit my space tab on the Sports Court and Ground Size Guide to see whether a court fits a building."
           ]
         }
       ]

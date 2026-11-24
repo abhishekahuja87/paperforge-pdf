@@ -1253,3 +1253,14 @@ Check after deploy:
 - [ ] Sports and fitness section page FAQ answers both sizes with working links. What's new has the 24 Nov entry.
 - [ ] At 360 px nothing scrolls sideways.
 - [ ] Search Console: submit the sitemap, then URL Inspection and Request indexing for both pages. Note the date, then check the Pages report and Performance (queries "kho kho court size", "kabaddi court size") after two to three weeks.
+
+### Court size pages for every sport (24 Nov)
+Checked in the sandbox: 101 logic checks (every length written in the page text agrees in metres and feet; each page has 4 steps, 3 sections, 8 questions) and the stub-typed `tsc`. Not run: the real `tsc`, `vite build`, the prerender step, a browser or a phone.
+
+Check after deploy:
+- [ ] Each of the 12 addresses opens (badminton, tennis, pickleball, basketball, volleyball, cricket pitch, hockey, table tennis, squash, football, kho kho, kabaddi) with that sport chosen, no sport list and no Fit tab.
+- [ ] On /sports-court-size-guide, choose each sport: the address changes to that sport's page. In Fit my space, "Show this court" opens the right page and version.
+- [ ] Spot check sizes against a source you trust: badminton 13.4 x 6.1 m, tennis 23.77 x 10.97 m, pickleball 13.41 x 6.096 m, basketball 28 x 15 m, volleyball 18 x 9 m, football 105 x 68 m, hockey 91.4 x 55 m, table 2.74 x 1.525 m, squash 9.75 x 6.4 m.
+- [ ] Each page has its own title, 4 steps, 3 sections and 8 questions (last one on privacy). Page source shows the text and its own canonical.
+- [ ] The sitemap lists all 12 pages. The Sports and fitness section FAQ links work. At 360 px nothing scrolls sideways.
+- [ ] Search Console: request indexing for the new pages (the two pilot pages first), then check the Pages report.

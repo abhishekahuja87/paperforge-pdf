@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-24',
+    path: '/badminton-court-size',
+    tool: 'Court size pages for every sport',
+    title: 'A page of its own for each sport: badminton, tennis, pickleball, basketball, volleyball, football, cricket, hockey, table tennis and squash',
+    summary: 'Choosing a sport in the Sports Court and Ground Size Guide now opens that sport\'s own page, for example the badminton court size page, with the court drawn to scale, a marking plan, a short written guide and common questions. Kho kho and kabaddi already had pages.',
+  },
+  {
+    date: '2026-11-24',
     path: '/kho-kho-court-size',
     tool: 'Kho Kho and Kabaddi Court Size pages',
     title: 'New pages: kho kho court size and kabaddi court size',

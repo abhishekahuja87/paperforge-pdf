@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { CalcFooter, Note, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { CHECKED_ON, SOURCES, SPORTS, findSport } from '../../../lib/sports/courtData';
 import { spaceNeeded } from '../../../lib/sports/fit';
@@ -28,11 +28,14 @@ const tabClass = (on: boolean) => `min-h-11 flex-1 rounded-xl px-4 text-sm font-
 
 /** `fixedSport` is used by the one-sport pages (for example kho kho court size): that sport is shown, with no sport list and no Fit my space tab. */
 const CourtGuide: React.FC<{ fixedSport?: string }> = ({ fixedSport }) => {
+  const navigate = useNavigate();
+  const wanted = (useLocation().state as { variant?: string } | null)?.variant;
   const first = findSport(fixedSport ?? SPORTS[0].id);
+  const firstVariant = first.variants.find((v) => v.id === wanted) ?? first.variants[0];
   const [tab, setTab] = useState<'sizes' | 'fit'>('sizes');
   const [sportId, setSportId] = useState(first.id);
-  const [variantId, setVariantId] = useState(first.variants[0].id);
-  const [marginId, setMarginId] = useState(first.variants[0].margins[0].id);
+  const [variantId, setVariantId] = useState(firstVariant.id);
+  const [marginId, setMarginId] = useState(firstVariant.margins[0].id);
 
   const [saving, setSaving] = useState<Saving>('');
   const [failed, setFailed] = useState(false);
@@ -44,6 +47,9 @@ const CourtGuide: React.FC<{ fixedSport?: string }> = ({ fixedSport }) => {
   const annotate = useMemo(() => ({ captions: { endA: ui.fromEndA, endB: ui.fromEndB, sideA: ui.fromSideA, sideB: ui.fromSideB }, names: labelNames(copy.marks, copy.parts, ui, copy.refs) }), [copy]);
 
   const pick = (nextSport: string, nextVariant?: string) => {
+    // A sport with its own page opens that page, so the address matches what is shown.
+    const own = courtPageFor(nextSport);
+    if (own && !fixedSport) { navigate(own.path, { state: { variant: nextVariant } }); return; }
     const s = findSport(nextSport);
     const v = s.variants.find((x) => x.id === nextVariant) ?? s.variants[0];
     setSportId(s.id); setVariantId(v.id); setMarginId(v.margins[0].id);
@@ -86,7 +92,6 @@ const CourtGuide: React.FC<{ fixedSport?: string }> = ({ fixedSport }) => {
             {variant.margins.length > 1 && <SelectField label={ui.runoff} value={margin.id} onChange={setMarginId} options={variant.margins.map((m) => ({ value: m.id, label: copy.margins[m.id] }))} />}
           </div>
           <p className="mt-3 text-xs text-slate-600">{copy.summary}</p>
-          {!fixedSport && courtPageFor(sport.id) && <p className="mt-1 text-xs"><Link to={courtPageFor(sport.id)!.path} className="font-semibold text-orange-800 underline">{ui.sportPageLink.replace('{sport}', copy.name)}</Link></p>}
           <div className="mt-3"><CourtDiagram variant={variant} margin={margin} label={`${copy.name}: ${copy.variants[variant.id]}`} clearCaption={ui.clearCaption} annotate={annotate} /></div>
           <p className="mt-1 text-[11px] text-slate-500">{ui.drawingNote}</p>
           <div className="mt-3 flex flex-wrap gap-2">
