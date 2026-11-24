@@ -2,8 +2,8 @@ import { capRadius, toVec, type Vec } from './geo';
 
 /** Shape of src/data/globe/world.json, made by scripts/build-globe-data.py. */
 export interface RawWorld { c: [string, string, number, number, number, number[][]][]; m: string; mw: number; mh: number }
-/** Shape of src/data/globe/places.json: name, country, latitude and longitude in hundredths of a degree, and 0 (capital), 1 (over a million people) or 2. */
-export type RawPlaces = [string, string, number, number, number][];
+/** Shape of src/data/globe/places.json: name, country, latitude and longitude in hundredths of a degree, and 0 (capital), 1 (over a million people) or 2, then the id of its country on the map. */
+export type RawPlaces = [string, string, number, number, number, string][];
 
 export interface Ring {
   /** x, y, z of every point on the unit sphere, one after another. */

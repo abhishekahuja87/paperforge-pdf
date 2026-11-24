@@ -166,7 +166,7 @@ function drawBody(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   const fill = new Path2D(), edge = new Path2D();
   const extra: { path: Path2D; color: string }[] = [];
   const overrides = style.landOverride ?? {};
-  const highlighted = new Set(options.highlight ? stops.filter((st) => st.kind === 'country' && st.countryId).map((st) => st.countryId as string) : []);
+  const highlighted = new Set(options.highlight ? stops.filter((st) => st.countryId && (st.kind === 'country' ? options.highlight : st.highlight)).map((st) => st.countryId as string) : []);
   const highlightPaths = new Map<string, Path2D>();
   for (const country of world.countries) {
     const wanted = highlighted.has(country.id);
@@ -204,7 +204,8 @@ function drawBody(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   // highlighted countries
   if (highlightPaths.size) {
     stops.forEach((st, i) => {
-      const path = st.countryId ? highlightPaths.get(st.countryId) : undefined;
+      const wants = st.kind === 'country' ? options.highlight : st.highlight;
+      const path = st.countryId && wants ? highlightPaths.get(st.countryId) : undefined;
       if (!path) return;
       ctx.globalAlpha = 0.55 * clamp(frame.glow[i] ?? 0, 0, 1);
       ctx.fillStyle = style.highlight; ctx.fill(path, 'evenodd');
@@ -292,7 +293,13 @@ function drawRoute(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
     const a = toVec(stops[i].lon, stops[i].lat), b = toVec(stops[i + 1].lon, stops[i + 1].lat);
     const points = hopPoints(a, b, progress, lifted);
     ctx.strokeStyle = style.route;
-    if (options.line === 'glow') {
+    if (options.line === 'rail') {
+      // sleepers (short wide dashes) with two thin rails on top
+      ctx.globalAlpha = 0.25; ctx.strokeStyle = '#000000'; ctx.lineWidth = width * 2.6; strokeSegments(ctx, s, points);
+      ctx.globalAlpha = 1; ctx.strokeStyle = style.route; ctx.lineWidth = width * 2.3; ctx.setLineDash([width * 0.55, width * 1.35]); strokeSegments(ctx, s, points);
+      ctx.setLineDash([]); ctx.strokeStyle = '#ffffff'; ctx.lineWidth = width * 1.05; strokeSegments(ctx, s, points);
+      ctx.strokeStyle = style.route; ctx.lineWidth = width * 0.4; strokeSegments(ctx, s, points);
+    } else if (options.line === 'glow') {
       ctx.globalAlpha = 0.16; ctx.lineWidth = width * 4.2; strokeSegments(ctx, s, points);
       ctx.globalAlpha = 0.3; ctx.lineWidth = width * 2.4; strokeSegments(ctx, s, points);
       ctx.globalAlpha = 1; ctx.lineWidth = width; ctx.strokeStyle = '#ffffff'; ctx.globalAlpha = 0.9; strokeSegments(ctx, s, points);
@@ -320,6 +327,28 @@ function planePath(ctx: CanvasRenderingContext2D) {
   ctx.closePath();
 }
 
+/** Top-down vehicles, pointing along +x and drawn in a box about 2 long. Each fills white with a coloured outline and coloured details, like the plane. */
+function vehicle(ctx: CanvasRenderingContext2D, kind: 'train' | 'car' | 'bus' | 'ship', color: string) {
+  const body = (x: number, y: number, w: number, h: number, r: number) => { roundRect(ctx, x, y, w, h, r); ctx.fillStyle = '#ffffff'; ctx.fill(); ctx.lineWidth = 0.07; ctx.strokeStyle = color; ctx.stroke(); };
+  ctx.fillStyle = color;
+  if (kind === 'train') {
+    body(0.35, -0.3, 0.75, 0.6, 0.22); // engine, nose first
+    ctx.fillStyle = color; roundRect(ctx, 0.72, -0.2, 0.26, 0.4, 0.1); ctx.fill();
+    for (let i = 0; i < 3; i++) { body(-0.78 + i * 0.37, -0.28, 0.33, 0.56, 0.08); ctx.fillStyle = color; ctx.fillRect(-0.74 + i * 0.37, -0.1, 0.25, 0.2); }
+  } else if (kind === 'bus') {
+    body(-0.95, -0.33, 1.9, 0.66, 0.17);
+    ctx.fillStyle = color; roundRect(ctx, 0.62, -0.26, 0.24, 0.52, 0.07); ctx.fill();
+    for (let i = 0; i < 4; i++) ctx.fillRect(-0.78 + i * 0.36, -0.2, 0.26, 0.4);
+  } else if (kind === 'car') {
+    body(-0.8, -0.38, 1.6, 0.76, 0.3);
+    ctx.fillStyle = color; roundRect(ctx, 0.2, -0.28, 0.3, 0.56, 0.08); ctx.fill(); roundRect(ctx, -0.58, -0.27, 0.22, 0.54, 0.06); ctx.fill(); ctx.fillRect(-0.3, -0.22, 0.46, 0.44);
+  } else {
+    ctx.beginPath(); ctx.moveTo(1, 0); ctx.bezierCurveTo(0.6, -0.42, 0.2, -0.42, -0.75, -0.42); ctx.lineTo(-0.9, -0.3); ctx.lineTo(-0.9, 0.3); ctx.lineTo(-0.75, 0.42); ctx.bezierCurveTo(0.2, 0.42, 0.6, 0.42, 1, 0); ctx.closePath();
+    ctx.fillStyle = '#ffffff'; ctx.fill(); ctx.lineWidth = 0.07; ctx.strokeStyle = color; ctx.stroke();
+    ctx.fillStyle = color; roundRect(ctx, -0.55, -0.2, 0.7, 0.4, 0.08); ctx.fill(); ctx.fillRect(0.2, -0.12, 0.25, 0.24);
+  }
+}
+
 function drawMover(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   const { stops, frame, style, options } = input;
   if (!frame.head || options.mover === 'none') return;
@@ -343,6 +372,11 @@ function drawMover(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
     ctx.scale(size, size); planePath(ctx);
     ctx.fillStyle = '#ffffff'; ctx.fill();
     ctx.shadowColor = 'transparent'; ctx.lineWidth = 0.07; ctx.strokeStyle = style.route; ctx.stroke();
+  } else if (options.mover === 'train' || options.mover === 'car' || options.mover === 'bus' || options.mover === 'ship') {
+    ctx.rotate(heading);
+    ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = size * 0.45; ctx.shadowOffsetY = size * 0.2;
+    const grow = options.mover === 'train' ? 1.6 : options.mover === 'bus' ? 1.4 : options.mover === 'car' ? 1.3 : 1.15;
+    ctx.scale(size * grow, size * grow); vehicle(ctx, options.mover, style.route);
   } else {
     ctx.fillStyle = style.route; ctx.globalAlpha = 0.28; ctx.beginPath(); ctx.arc(0, 0, size * 0.95, 0, TAU); ctx.fill();
     ctx.globalAlpha = 1; ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(0, 0, size * 0.42, 0, TAU); ctx.fill();

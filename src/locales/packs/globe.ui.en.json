@@ -18,7 +18,7 @@
   "mover": "Moving marker",
   "pin": "Place marker",
   "highlight": "Highlight the countries",
-  "highlightHint": "Colours each country you start, stop at or end in.",
+  "highlightHint": "Colours each country you pick as a country. For a city, use the tick box under it.",
   "labels": "Show place names",
   "caption": "Title on the video (optional)",
   "captionPlaceholder": "For example: Delhi to New York",
@@ -62,7 +62,8 @@
     "solid": "Solid",
     "dashed": "Dashed",
     "dotted": "Dotted",
-    "glow": "Glow"
+    "glow": "Glow",
+    "rail": "Railway"
   },
   "arcs": {
     "lifted": "Lifted arc",
@@ -70,6 +71,10 @@
   },
   "movers": {
     "plane": "Plane",
+    "train": "Train",
+    "car": "Car",
+    "bus": "Bus",
+    "ship": "Ship",
     "dot": "Dot",
     "none": "None"
   },
@@ -103,5 +108,12 @@
   },
   "fpsSmooth": "{fps} frames a second, every frame drawn. No watermark. Made on your device, nothing is uploaded.",
   "keepOpenSmooth": "Drawing every frame: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
-  "smoothNote": "Saved as an MP4 file with every frame drawn, at {fps} frames a second."
+  "smoothNote": "Saved as an MP4 file with every frame drawn, at {fps} frames a second.",
+  "searchMore": "Can't find it? Search more places",
+  "searchingMore": "Loading more places…",
+  "noMatchMore": "Still no match. Check the spelling, or type coordinates such as 28.61, 77.21.",
+  "moreFailed": "Could not load more places. Check your connection and try again.",
+  "highlightCountryOf": "Highlight {country}",
+  "moverNote": "Train, car, bus and ship follow the straight curved line between the two places, not real tracks, roads or sea routes. The video is an illustration of the trip.",
+  "credit": "Place names: GeoNames (CC BY 4.0) and Natural Earth. Borders of India as shown by India."
 }

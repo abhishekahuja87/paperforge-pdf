@@ -12,9 +12,36 @@ export interface PlaceEntry {
   span?: number;
   /** Lower comes first when matches are equal: countries and capitals, then big cities. */
   rank: number;
-  /** Lower case words to match, including other names people use. */
+  /** Lower case words to match, with accents removed, including other names people use. */
   search: string;
+  /** Name with accents removed and lower case, for matching what was typed. */
+  norm: string;
 }
+
+/** Lower case and no accents, so "Zürich" is found by "zurich" and "Pūnch" by "punch". */
+export const normalise = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+/** Older and other names for cities, by the name on the map (without accents). Typing the old name finds the city. */
+export const CITY_ALIASES: Record<string, string> = {
+  bengaluru: 'bangalore', mumbai: 'bombay', kolkata: 'calcutta', chennai: 'madras', pune: 'poona', thiruvananthapuram: 'trivandrum', kochi: 'cochin ernakulam',
+  vadodara: 'baroda', mysuru: 'mysore', gurugram: 'gurgaon', gurgaon: 'gurugram', prayagraj: 'allahabad', allahabad: 'prayagraj', varanasi: 'benares banaras kashi',
+  visakhapatnam: 'vizag vishakhapatnam waltair', kozhikode: 'calicut', puducherry: 'pondicherry', mangaluru: 'mangalore', belagavi: 'belgaum', belgaum: 'belagavi',
+  shimla: 'simla', guwahati: 'gauhati', thanjavur: 'tanjore', hubballi: 'hubli', 'hubli-dharwad': 'hubli dharwad', tiruchirappalli: 'trichy trichinopoly', kanpur: 'cawnpore',
+  udhagamandalam: 'ooty ootacamund', ujjain: 'ujain', kalaburagi: 'gulbarga', vijayapura: 'bijapur', shivamogga: 'shimoga', tumakuru: 'tumkur', ballari: 'bellary',
+  'delhi': 'new delhi nct', 'new delhi': 'delhi', thrissur: 'trichur', alappuzha: 'alleppey', kollam: 'quilon', palakkad: 'palghat', kannur: 'cannanore',
+  bhubaneswar: 'bhubaneshwar', ahmedabad: 'amdavad', jabalpur: 'jubbulpore',  nashik: 'nasik', 'chhatrapati sambhajinagar': 'aurangabad',
+  'ho chi minh city': 'saigon', yangon: 'rangoon', istanbul: 'constantinople', beijing: 'peking', kyiv: 'kiev', dhaka: 'dacca', 'mexico city': 'ciudad de mexico cdmx',
+  'new york': 'nyc new york city', 'los angeles': 'la', 'washington, d.c.': 'washington dc', 'san francisco': 'sf frisco', 'kuala lumpur': 'kl', 'saint petersburg': 'st petersburg leningrad',
+  chongqing: 'chungking', guangzhou: 'canton', colombo: 'sri jayawardenepura', 'phnom penh': 'pnom penh', 'ulaanbaatar': 'ulan bator', 'kathmandu': 'katmandu',
+  gdansk: 'danzig', wroclaw: 'breslau', kaliningrad: 'konigsberg', ljubljana: 'laibach', thessaloniki: 'salonica', izmir: 'smyrna',
+};
+
+/** Some ids differ between the place list and the map. */
+const ID_FIX: Record<string, string> = { SSD: 'SDS' };
+export const fixCountryId = (id: string) => ID_FIX[id] ?? id;
+
+/** Words to match for a city: its name, its other names and its country. */
+export const citySearch = (name: string, country: string) => { const norm = normalise(name); return `${norm} ${CITY_ALIASES[norm] ?? ''} ${normalise(country)}`.trim(); };
 
 /** Other names people type for a country. The first name is the one on the map data. */
 const ALIASES: Record<string, string> = {
@@ -51,21 +78,23 @@ export const shortName = (name: string) => SHORT[name] ?? name;
 export function buildPlaces(world: World, cities: RawPlaces): PlaceEntry[] {
   const list: PlaceEntry[] = world.countries.map((c) => ({
     name: shortName(c.name), sub: '', lon: c.lon, lat: c.lat, kind: 'country', countryId: c.id, span: c.span, rank: 0,
-    search: `${shortName(c.name)} ${c.name} ${ALIASES[c.name] ?? ''}`.toLowerCase(),
+    search: normalise(`${shortName(c.name)} ${c.name} ${ALIASES[c.name] ?? ''}`), norm: normalise(shortName(c.name)),
   }));
-  for (const [name, country, lat, lon, rank] of cities) {
-    list.push({ name, sub: country, lon: lon / 100, lat: lat / 100, kind: 'city', rank: rank === 0 ? 1 : rank === 1 ? 2 : 3, search: `${name} ${country}`.toLowerCase() });
+  const known = new Set(world.countries.map((c) => c.id));
+  for (const [name, country, lat, lon, rank, id] of cities) {
+    const countryId = fixCountryId(id);
+    list.push({ name, sub: shortName(country), lon: lon / 100, lat: lat / 100, kind: 'city', rank: rank === 0 ? 1 : rank === 1 ? 2 : 3, search: citySearch(name, country), norm: normalise(name), countryId: known.has(countryId) ? countryId : undefined });
   }
   return list;
 }
 
 /** Best matches for what the person has typed: names that start with it first, then names with a word that starts with it, then names that contain it. */
 export function searchPlaces(list: PlaceEntry[], query: string, limit = 8): PlaceEntry[] {
-  const q = query.trim().toLowerCase();
+  const q = normalise(query);
   if (q.length < 1) return [];
   const scored: { entry: PlaceEntry; score: number }[] = [];
   for (const entry of list) {
-    const name = entry.name.toLowerCase();
+    const name = entry.norm;
     let score = -1;
     if (name === q) score = 0;
     else if (name.startsWith(q)) score = 1;
@@ -88,7 +117,7 @@ export function parseCoordinates(text: string): { lat: number; lon: number } | n
 }
 
 export function stopFromPlace(place: PlaceEntry): Stop {
-  return { label: place.name, lon: place.lon, lat: place.lat, kind: place.kind, countryId: place.countryId, span: place.span };
+  return { label: place.name, lon: place.lon, lat: place.lat, kind: place.kind, countryId: place.countryId, span: place.span, highlight: false };
 }
 
 export const stopFromCoordinates = (lat: number, lon: number): Stop => ({ label: `${lat.toFixed(2)}, ${lon.toFixed(2)}`, lon, lat, kind: 'point' });

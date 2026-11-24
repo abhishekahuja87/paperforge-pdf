@@ -11,7 +11,8 @@ import rawWorld from '../../../data/globe/world.json';
 import rawPlaces from '../../../data/globe/places.json';
 import ui from '../../../locales/packs/globe.ui.en.json';
 import { decodeWorld, type RawWorld, type RawPlaces } from '../../../lib/globe/world';
-import { buildPlaces, parseCoordinates, searchPlaces, stopFromCoordinates, stopFromPlace, type PlaceEntry } from '../../../lib/globe/places';
+import { loadMorePlaces, searchMore, shardLetter } from '../../../lib/globe/morePlaces';
+import { buildPlaces, parseCoordinates, searchPlaces, shortName, stopFromCoordinates, stopFromPlace, type PlaceEntry } from '../../../lib/globe/places';
 import { GLOBE_STYLES, styleById } from '../../../lib/globe/styles';
 import { buildTimeline } from '../../../lib/globe/timeline';
 import { renderGlobe } from '../../../lib/globe/draw';
@@ -47,7 +48,21 @@ function load(): Saved {
 const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) => void; onRemove?: () => void }> = ({ title, stop, onChange, onRemove }) => {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
-  const matches = useMemo(() => (query.trim() ? searchPlaces(places, query, 6) : []), [query]);
+  const [extra, setExtra] = useState<{ letter: string; list: PlaceEntry[] } | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const letter = shardLetter(query);
+  const loaded = extra?.letter === letter;
+  const matches = useMemo(() => {
+    if (!query.trim()) return [];
+    const main = searchPlaces(places, query, 6);
+    return loaded ? [...main, ...searchMore(extra!.list, places, query, 6)].slice(0, 10) : main;
+  }, [query, loaded, extra]);
+  const more = async () => {
+    setLoading(true); setFailed(false);
+    try { setExtra({ letter, list: await loadMorePlaces(query, world) }); } catch { setFailed(true); } finally { setLoading(false); }
+  };
+  const countryName = stop.countryId ? world.countries.find((country) => country.id === stop.countryId)?.name : undefined;
   const coords = useMemo(() => parseCoordinates(query), [query]);
   const choose = (entry: PlaceEntry) => { onChange(stopFromPlace(entry)); setQuery(''); setOpen(false); };
   const chooseCoords = () => { if (coords) { onChange(stopFromCoordinates(coords.lat, coords.lon)); setQuery(''); setOpen(false); } };
@@ -68,9 +83,16 @@ const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) =
           {matches.map((entry) => (
             <li key={`${entry.name}-${entry.lat}-${entry.lon}`}><button type="button" onClick={() => choose(entry)} className="block min-h-11 w-full px-3 py-2 text-left hover:bg-orange-50"><span className="font-semibold text-slate-900">{entry.name}</span>{entry.sub && <span className="text-slate-500">, {entry.sub}</span>}{entry.kind === 'country' && <span className="ml-2 text-[11px] text-slate-500">country</span>}</button></li>
           ))}
-          {!coords && matches.length === 0 && <li className="px-3 py-2 text-xs text-slate-600">{ui.noMatch}</li>}
+          {!coords && matches.length === 0 && <li className="px-3 py-2 text-xs text-slate-600">{loaded ? ui.noMatchMore : ui.noMatch}</li>}
+          {!loaded && query.trim().length >= 1 && (
+            <li className="border-t border-slate-100 p-2">
+              <button type="button" onClick={() => void more()} disabled={loading} className="min-h-11 w-full rounded-lg border border-orange-300 px-3 text-xs font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-50">{loading ? ui.searchingMore : ui.searchMore}</button>
+              {failed && <p className="mt-1 text-[11px] text-red-700">{ui.moreFailed}</p>}
+            </li>
+          )}
         </ul>
       )}
+      {stop.kind !== 'country' && countryName && <div className="mt-2"><Toggle label={ui.highlightCountryOf.replace('{country}', shortName(countryName))} checked={!!stop.highlight} onChange={(value) => onChange({ ...stop, highlight: value })} /></div>}
       <label className="mt-2 block text-xs font-semibold text-slate-700">{ui.labelOnVideo}
         <input value={stop.label} maxLength={40} onChange={(event) => onChange({ ...stop, label: event.target.value })} className={fieldClass} />
       </label>
@@ -232,7 +254,7 @@ export const GlobeVideoMaker: React.FC = () => {
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.motion}</p><ChoiceButtons label={ui.motion} value={options.motion} onChange={(value) => update({ motion: value as GlobeOptions['motion'] })} options={names(ui.motions)} /></div>
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.line}</p><ChoiceButtons label={ui.line} value={options.line} onChange={(value) => update({ line: value as GlobeOptions['line'] })} options={names(ui.lines)} /></div>
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.arc}</p><ChoiceButtons label={ui.arc} value={options.arc} onChange={(value) => update({ arc: value as GlobeOptions['arc'] })} options={names(ui.arcs)} /></div>
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mover}</p><ChoiceButtons label={ui.mover} value={options.mover} onChange={(value) => update({ mover: value as GlobeOptions['mover'] })} options={names(ui.movers)} /></div>
+          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mover}</p><ChoiceButtons label={ui.mover} value={options.mover} onChange={(value) => update({ mover: value as GlobeOptions['mover'], ...(value === 'plane' ? { arc: 'lifted' as const } : value === 'dot' || value === 'none' ? {} : { arc: 'flat' as const }) })} options={names(ui.movers)} />{['train', 'car', 'bus', 'ship'].includes(options.mover) && <p className="mt-1 text-[11px] text-slate-500">{ui.moverNote}</p>}</div>
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.pin}</p><ChoiceButtons label={ui.pin} value={options.pin} onChange={(value) => update({ pin: value as GlobeOptions['pin'] })} options={names(ui.pins)} /></div>
           <Toggle label={ui.highlight} hint={ui.highlightHint} checked={options.highlight} onChange={(value) => update({ highlight: value })} />
           <Toggle label={ui.labels} checked={options.labels} onChange={(value) => update({ labels: value })} />
@@ -260,6 +282,7 @@ export const GlobeVideoMaker: React.FC = () => {
           <input type="range" min={minSeconds} max={30} step={1} value={seconds} onChange={(event) => update({ seconds: Number(event.target.value) })} className="mt-1 w-full accent-orange-700" />
         </label>
         <p className="text-[11px] text-slate-500">{useSmooth ? ui.fpsSmooth.replace('{fps}', String(fps)) : ui.fps}</p>
+        <p className="text-[11px] text-slate-500">{ui.credit}</p>
       </section>
 
       <section className={`${card} space-y-3`}>

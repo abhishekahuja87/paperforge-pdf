@@ -6,15 +6,17 @@ export interface Stop {
   lat: number;
   /** 'country' or 'city' or 'point' (typed coordinates). Decides how close the camera comes. */
   kind: 'country' | 'city' | 'point';
-  /** Id of the country to highlight, when the stop is a country. */
+  /** Id of the country the place is in (or is). A country is highlighted by the "Highlight the countries" switch; a city by its own tick box. */
   countryId?: string;
+  /** For a city or point: highlight its country. */
+  highlight?: boolean;
   /** Angular span of the place in degrees, for fitting the camera. */
   span?: number;
 }
 
 export type Motion = 'fly' | 'spin' | 'zoom';
-export type LineStyle = 'solid' | 'dashed' | 'dotted' | 'glow';
-export type MoverStyle = 'plane' | 'dot' | 'none';
+export type LineStyle = 'solid' | 'dashed' | 'dotted' | 'glow' | 'rail';
+export type MoverStyle = 'plane' | 'train' | 'car' | 'bus' | 'ship' | 'dot' | 'none';
 export type PinStyle = 'pin' | 'ring';
 export type ArcStyle = 'lifted' | 'flat';
 export type ShapeId = 'reel' | 'wide' | 'square' | 'portrait';
