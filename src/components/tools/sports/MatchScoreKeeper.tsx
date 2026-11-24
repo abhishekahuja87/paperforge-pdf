@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { RotateCcw, Undo2 } from 'lucide-react';
+import { Undo2 } from 'lucide-react';
 import { calcCard, SelectField } from '../../finance/ui';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { SCORE_SPORTS, matchView, sportInfo, type MatchSetup, type ScoreSportId, type Side } from '../../../lib/sports/scoring';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { ghostButton, primaryButton, smallInput } from '../shared/toolStyles';
 
 interface Saved extends MatchSetup { names: [string, string] }
@@ -55,7 +56,7 @@ export const MatchScoreKeeper: React.FC = () => {
 
       <div className="flex flex-wrap justify-center gap-2">
         <button type="button" onClick={undo} disabled={saved.points.length === 0} className={ghostButton}><Undo2 className="h-4 w-4" aria-hidden="true" />Undo last point</button>
-        <button type="button" onClick={reset} disabled={saved.points.length === 0} className={ghostButton}><RotateCcw className="h-4 w-4" aria-hidden="true" />New match</button>
+        <ConfirmButton label="New match" confirmLabel="Tap again to start a new match" onConfirm={reset} disabled={saved.points.length === 0} />
       </div>
       <p className="text-center text-[11px] text-slate-500">The score is kept on this device, so it survives a closed tab. It does not keep track of who is serving.</p>
     </section>

@@ -308,3 +308,12 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | S5 | Big screen button works where supported and is hidden otherwise | | |
 | S6 | Section page, home page, footer and menu show 14 sports and fitness tools | | |
 | S7 | Both pages show guide steps, 7 FAQs and an article, with no horizontal scroll on a phone | | |
+
+### Start again buttons (24 Nov)
+| # | Check | Result | Notes |
+|---|---|---|---|
+| T1 | Cricket Scorer New match is visible next to Undo and needs a second tap | | |
+| T2 | Match Score Keeper, Quick Scoreboard and Tournament Fixtures Maker clear buttons work | | |
+| T3 | Workout Log Clear my whole log, Seating Plan, Spinner Wheel and Job Description Builder | | |
+| T4 | Menu, Notice, Timings, Spelling Bee, Routine, Exam Hall and Interval Timer clear or reset | | |
+| T5 | The first tap turns red, goes back after 4 seconds, and a reload keeps the cleared state | | |

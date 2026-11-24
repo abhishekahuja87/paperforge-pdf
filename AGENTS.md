@@ -16,6 +16,7 @@ MyDailyUtils started with one aim: build the ordinary utilities that already exi
 - Where a tool has rules or eligibility (tax limits, HRA, file size limits, what a lender allows), show them and flag when the input crosses one, with a plain caution that the result is an estimate.
 - When test findings come back, treat them as a prompt to ask whether the tool is also missing its "extra", not only whether it is broken, and say what could be better.
 - Put every new tool in a named topic (COLLECTIONS in `src/config/homeSections.ts`) and, if it is a new topic, give it a hero tile, a topic page in `src/content/hubs.ts` and `hubExtras.ts`, a sitemap entry and its colours in `src/lib/homePageVariants.ts`. The catch-all "More tools" section is only a safety net and must stay empty, because topic names and addresses should not change once they are indexed.
+- Any tool that saves its state in the browser (a score, a list, a log, a form) must have a visible way to start again, such as New match, New game, Clear the list or Start a new one, placed with the other main buttons and not hidden in an options box. Use `ConfirmButton` (`components/tools/shared/ConfirmButton.tsx`), which needs a second tap, instead of a browser pop-up. Disable it when there is nothing to clear.
 - Keep the other rules: browser-only processing, no forged-document tools, and update README, TESTING.md and the page copy (guide steps, FAQ, article) with every change.
 
 ## Tell people what got better

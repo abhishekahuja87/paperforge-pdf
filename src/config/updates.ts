@@ -20,6 +20,13 @@ const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-24',
     path: '/cricket-scorer',
+    tool: 'Cricket Scorer and other saved tools',
+    title: 'A clear New match or Start again button on tools that remember your work',
+    summary: 'Cricket Scorer, Match Score Keeper, Quick Scoreboard, Tournament Fixtures Maker, Workout Log, Seating Plan, Spinner Wheel, Job Description Builder and the Menu, Notice, Timings, Spelling Bee, Routine, Exam Hall and Interval Timer screens now have a visible button to wipe what is saved and start again. It asks for a second tap, so you do not lose a match by accident.',
+  },
+  {
+    date: '2026-11-24',
+    path: '/cricket-scorer',
     tool: 'Cricket Scorer',
     title: 'Cricket Scorer: over by over history',
     summary: 'A closed "Over by over" list under the buttons shows every over: its balls, runs, wickets and the total at the end. It stays hidden until you open it, so the scoring screen stays simple.',

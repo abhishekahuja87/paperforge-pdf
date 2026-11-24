@@ -8,6 +8,7 @@ import { readTheme, type Theme } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { slicePath, sliceAt, sliceColour, sliceLabel, spinTarget } from '../../../lib/screens/wheel';
 import { parseList, randomInt } from '../../../lib/toolkit/pick';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { ThemePicker } from '../shared/ThemePicker';
 import { LogoField } from './LogoField';
 import { ScreenShell } from './ScreenShell';
@@ -94,6 +95,7 @@ export const SpinnerWheel: React.FC = () => {
         </label>
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={() => { setSaved({ ...saved, text: SAMPLE }); setRemoved([]); setWinner(''); }} className={OUTLINE}>Try a sample list</button>
+          <ConfirmButton label="Clear the list" confirmLabel="Tap again to clear" onConfirm={() => { setSaved({ ...saved, text: '' }); setRemoved([]); setWinner(''); }} disabled={saved.text.trim() === ''} />
           <button type="button" onClick={() => { setRemoved([]); setWinner(''); }} disabled={removed.length === 0} className={OUTLINE}><RotateCcw className="h-4 w-4" aria-hidden="true" />Put removed names back</button>
         </div>
         {all.length < parseList(saved.text).length && <p role="status" className="text-xs text-red-700">Only the first {MAX_SLICES} choices are used.</p>}

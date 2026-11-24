@@ -62,7 +62,7 @@ export const RoutineDisplay: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
-        <PresetGrid presets={SETS} active={active} hint="Pick a ready routine, then change, add or remove any step. Stretches come with pictures; your own steps can have a picture of your own or none." onPick={(id) => { const set = SETS.find((entry) => entry.id === id); if (!set) return; update({ rows: set.steps.map(makeRow) }); setActive(id); scroll(); }} />
+        <PresetGrid presets={SETS} active={active} hint="Pick a ready routine, then change, add or remove any step. Stretches come with pictures; your own steps can have a picture of your own or none." onPick={(id) => { const set = SETS.find((entry) => entry.id === id); if (!set) return; update({ rows: set.steps.map(makeRow) }); setActive(id); scroll(); }} onClear={() => { setSaved({ ...saved, rows: [] }); setActive(null); }} clearLabel="Clear the steps and start again" />
       </section>
       <div ref={ref} className="scroll-mt-[69px]">
         <RowsEditor

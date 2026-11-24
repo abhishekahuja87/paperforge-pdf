@@ -1,10 +1,11 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import { ConfirmButton } from '../shared/ConfirmButton';
 
 export interface Preset { id: string; label: string; blurb: string }
 
 /** Quick-start buttons. The chosen one stays marked "Loaded" so it is clear on a phone that the tap worked. */
-export const PresetGrid: React.FC<{ title?: string; hint?: string; presets: Preset[]; active: string | null; onPick: (id: string) => void }> = ({ title = 'Quick start', hint, presets, active, onPick }) => (
+export const PresetGrid: React.FC<{ title?: string; hint?: string; presets: Preset[]; active: string | null; onPick: (id: string) => void; /** Wipes what is saved on this device and starts again. Shown as a two-tap button. */ onClear?: () => void; clearLabel?: string }> = ({ title = 'Quick start', hint, presets, active, onPick, onClear, clearLabel = 'Clear everything and start again' }) => (
   <div className="space-y-2">
     <h2 className="text-sm font-black text-stone-900">{title}</h2>
     {hint && <p className="text-xs text-stone-500">{hint}</p>}
@@ -18,5 +19,6 @@ export const PresetGrid: React.FC<{ title?: string; hint?: string; presets: Pres
         </li>
       ))}
     </ul>
+    {onClear && <ConfirmButton label={clearLabel} confirmLabel="Tap again to clear" onConfirm={onClear} />}
   </div>
 );

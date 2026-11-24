@@ -43,7 +43,7 @@ export const NoticeBoard: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
-        <PresetGrid presets={BOARDS} active={active} hint="Pick a sample, then replace the words with your own." onPick={(id) => { const board = BOARDS.find((entry) => entry.id === id); if (!board) return; update({ rows: board.notices.map(makeRow) }); setActive(id); scroll(); }} />
+        <PresetGrid presets={BOARDS} active={active} hint="Pick a sample, then replace the words with your own." onPick={(id) => { const board = BOARDS.find((entry) => entry.id === id); if (!board) return; update({ rows: board.notices.map(makeRow) }); setActive(id); scroll(); }} onClear={() => { setSaved({ ...saved, rows: [] }); setActive(null); }} clearLabel="Clear the notices and start again" />
       </section>
       <div ref={ref} className="scroll-mt-[69px]">
         <RowsEditor title="Messages" columns={COLUMNS} rows={saved.rows} onChange={(rows) => { update({ rows }); setActive(null); }} blank={{ title: '', text: '', theme: 'orange', image: '', video: '' }} addLabel="Add a message" empty="No messages yet. Pick a sample above or add your own." />

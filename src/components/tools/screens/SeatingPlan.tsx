@@ -9,6 +9,7 @@ import { readTheme, type Theme } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { parseList } from '../../../lib/toolkit/pick';
 import { ThemePicker } from '../shared/ThemePicker';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { LogoField } from './LogoField';
 import { ScreenShell } from './ScreenShell';
 import { FIELD, LABEL, ORANGE, OUTLINE } from './ui';
@@ -89,6 +90,7 @@ export const SeatingPlan: React.FC = () => {
           <div className="flex flex-wrap gap-2">
             <button type="button" onClick={() => setFull(true)} className={ORANGE}><Maximize className="h-4 w-4" aria-hidden="true" />Show on the board</button>
             <button type="button" onClick={() => void copy()} className={OUTLINE}><Copy className="h-4 w-4" aria-hidden="true" />{copied ? 'Copied' : 'Copy as text'}</button>
+            <ConfirmButton label="Clear names and plan" confirmLabel="Tap again to clear" onConfirm={() => { setSaved({ ...saved, names: '', grid: [] }); setPicked(null); }} />
           </div>
         </section>
       )}

@@ -4,6 +4,7 @@ import { SimpleTable, calcCard, SelectField, NumberField, InputGrid } from '../.
 import { parseAmount } from '../../../lib/finance/format';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { knockoutRounds, parseTeams, pointsTable, roundRobin, type Result } from '../../../lib/sports/fixtures';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { ghostButton, smallInput } from '../shared/toolStyles';
 
 type Format = 'single' | 'double' | 'knockout';
@@ -67,7 +68,8 @@ export const TournamentFixtures: React.FC = () => {
         <>
           <div className="flex flex-wrap items-center gap-2">
             <button type="button" onClick={() => void copy()} className={ghostButton}><Copy className="h-4 w-4" aria-hidden="true" />Copy the fixtures</button>
-            <button type="button" onClick={() => setSaved({ ...saved, scores: {}, picks: {} })} className={ghostButton}>Clear all results</button>
+            <ConfirmButton label="Clear all results" confirmLabel="Tap again to clear results" onConfirm={() => setSaved({ ...saved, scores: {}, picks: {} })} disabled={Object.keys(saved.scores).length === 0 && Object.keys(saved.picks).length === 0} />
+            <ConfirmButton label="New tournament" confirmLabel="Tap again to clear the teams too" onConfirm={() => setSaved({ ...saved, teamsText: '', scores: {}, picks: {} })} />
             {notice && <span role="status" className="text-xs text-slate-600">{notice}</span>}
           </div>
 
