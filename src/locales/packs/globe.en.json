@@ -30,7 +30,11 @@
         ],
         [
           "Which places can I use?",
-          "Any country, about 2,500 cities, or coordinates you type, such as 28.61, 77.21. Countries are shown with India's borders as India shows them."
+          "Any country, about 2,500 well-known cities, or coordinates you type, such as 28.61, 77.21. If a smaller town is not found, tap Search more places to look through about 170,000 towns, including thousands in India. Old names such as Bombay and Bangalore work too. Countries are shown with India's borders as India shows them. When you pick a city, a tick box under it colours its country, for example India for Delhi."
+        ],
+        [
+          "Can I use a train or a car instead of a plane?",
+          "Yes. Choose Train, Car, Bus or Ship as the moving marker. The route lies flat on the globe, and the line can look like a railway. The vehicle follows the straight curved line between the two places, not real rails or roads."
         ],
         [
           "Can I add a stop between A and B?",
@@ -41,16 +45,12 @@
           "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts, at 720p or 1080p."
         ],
         [
-          "How long does it take to make a video?",
-          "In Smooth mode every frame is drawn one by one, so a fast phone finishes in about the length of the video and a slower one takes longer. Quick mode records in real time. Keep the page open and the screen on either way."
+          "How long does it take, and is it smooth on my phone?",
+          "In Smooth mode every frame is drawn one by one, so a fast phone finishes in about the length of the video and a slower one takes longer. Quick mode records in real time. Keep the page open and the screen on either way. Smooth mode draws every frame, so the video is smooth even when the phone is slow; it just takes longer to make. 720p is faster on older phones. If your browser cannot do this, the tool records in real time instead."
         ],
         [
           "Does it save MP4?",
           "It saves MP4 when your browser can make it, and WebM otherwise. MP4 works in Instagram, WhatsApp and most apps; if an app does not accept WebM, try Chrome on a computer or a recent Android phone."
-        ],
-        [
-          "Is it smooth on my phone?",
-          "Smooth mode draws every frame, so the video is smooth even when the phone is slow; it just takes longer to make. 720p is faster on older phones. If your browser cannot do this, the tool records in real time instead."
         ],
         [
           "Is anything uploaded anywhere?",
@@ -73,14 +73,16 @@
           "heading": "Choices that change the video",
           "paragraphs": [
             "Six globe looks cover a dark night globe, a natural earth, a bright day map, a neon outline, a dotted globe and a paper style. The camera can fly out and back in, spin while it travels or zoom steadily. The route can be solid, dashed, dotted or glowing, lifted above the globe or flat on it.",
-            "Countries can be highlighted and place names can be hidden or renamed. Videos come as 9:16, 16:9, 1:1 or 4:5, at 720p or 1080p, from 5 to 30 seconds long."
+            "Countries can be highlighted and place names can be hidden or renamed. Videos come as 9:16, 16:9, 1:1 or 4:5, at 720p or 1080p, from 5 to 30 seconds long.",
+            "The moving marker can be a plane, train, car, bus or ship, and the line can look like a railway. Vehicles follow the straight curved line between the two places, not real tracks, roads or sea routes, so the video is an illustration of the trip. For a city you can also colour its whole country."
           ]
         },
         {
           "heading": "Made on your device",
           "paragraphs": [
             "The globe is drawn and recorded in your browser. Nothing is uploaded, there is no watermark and no limit on videos. Smooth mode draws every frame at 30 or 60 frames a second, so a slow phone takes longer rather than making a choppy video. Try 720p first if making it takes too long.",
-            "Borders follow the Indian government's view of India's boundaries. The map is for showing a route, not for settling boundaries."
+            "Borders follow the Indian government's view of India's boundaries. The map is for showing a route, not for settling boundaries.",
+            "Place names come from Natural Earth and GeoNames (CC BY 4.0)."
           ]
         }
       ]

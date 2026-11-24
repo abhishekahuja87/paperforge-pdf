@@ -104,9 +104,9 @@ def main(folder):
         capital = p.get('adm0cap') == 1
         if not (capital or pop >= 150000): continue
         rank = 0 if capital else (1 if pop >= 1000000 else 2)
-        places.append([p['name'], p['adm0name'], round(p['latitude'] * 100), round(p['longitude'] * 100), rank, pop])
-    places.sort(key=lambda x: -x[5])
-    places = [x[:5] for x in places]
+        places.append([p['name'], p['adm0name'], round(p['latitude'] * 100), round(p['longitude'] * 100), rank, p.get('adm0_a3') or '', pop])
+    places.sort(key=lambda x: -x[6])
+    places = [x[:6] for x in places]
     json.dump(places, open('src/data/globe/places.json', 'w'), separators=(',', ':'), ensure_ascii=False)
     print(len(countries), 'countries,', sum(len(c[5]) for c in countries), 'rings,', len(places), 'places')
 
