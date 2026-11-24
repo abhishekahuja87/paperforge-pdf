@@ -338,3 +338,12 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | V4 | Each page has 4 steps, 3 sections, 8 questions; own title in page source | | |
 | V5 | Sitemap lists all 12; section FAQ links work; no sideways scroll at 360 px | | |
 | V6 | Search Console: pages requested for indexing (date) | | |
+
+### Tournament size pages (24 Nov)
+| # | Check | Result | Notes |
+|---|---|---|---|
+| W1 | Round robin 6 teams: on-screen rounds match the written match list (15 matches, 5 rounds) | | |
+| W2 | 5 teams rests one team per round; knockout 6 teams has 2 byes; knockout 8 has none | | |
+| W3 | Scores kept after reload; main tool's own work not changed; New tournament works | | |
+| W4 | Own title, 4 steps, 3 sections, 8 questions in page source; 13 pages in sitemap | | |
+| W5 | Links from the main tool and the section FAQ work; no sideways scroll at 360 px | | |

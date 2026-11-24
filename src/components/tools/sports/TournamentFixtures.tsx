@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Copy } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { FIXTURE_PAGES } from '../../../config/fixturePages';
 import { SimpleTable, calcCard, SelectField, NumberField, InputGrid } from '../../finance/ui';
 import { parseAmount } from '../../../lib/finance/format';
 import { usePersisted } from '../../../lib/screens/usePersisted';
@@ -7,7 +9,7 @@ import { knockoutRounds, parseTeams, pointsTable, roundRobin, type Result } from
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { ghostButton, smallInput } from '../shared/toolStyles';
 
-type Format = 'single' | 'double' | 'knockout';
+export type Format = 'single' | 'double' | 'knockout';
 interface Saved { teamsText: string; format: Format; win: string; draw: string; scores: Record<string, [string, string]>; picks: Record<string, string> }
 const DEFAULT: Saved = { teamsText: 'Team A\nTeam B\nTeam C\nTeam D', format: 'single', win: '3', draw: '1', scores: {}, picks: {} };
 
@@ -19,8 +21,12 @@ const read = (value: unknown): Saved | null => {
 
 const MAX_TEAMS = 32;
 
-export const TournamentFixtures: React.FC = () => {
-  const [saved, setSaved] = usePersisted<Saved>('mdu-fixtures-v1', DEFAULT, read);
+/** `preset` is used by the tournament size pages (for example round robin for 6 teams): the team count and format start set, and the work is kept under its own key so it does not replace the main tool's saved work. */
+export interface FixturePreset { teams: number; format: Format; storageKey: string }
+
+export const TournamentFixtures: React.FC<{ preset?: FixturePreset }> = ({ preset }) => {
+  const start: Saved = preset ? { ...DEFAULT, format: preset.format, teamsText: Array.from({ length: preset.teams }, (_, i) => `Team ${i + 1}`).join('\n') } : DEFAULT;
+  const [saved, setSaved] = usePersisted<Saved>(preset?.storageKey ?? 'mdu-fixtures-v1', start, read);
   const [notice, setNotice] = useState('');
   const teams = useMemo(() => parseTeams(saved.teamsText).slice(0, MAX_TEAMS), [saved.teamsText]);
   const robin = useMemo(() => (saved.format === 'knockout' ? [] : roundRobin(teams, saved.format === 'double')), [teams, saved.format]);
@@ -126,6 +132,12 @@ export const TournamentFixtures: React.FC = () => {
             </>
           )}
         </>
+      )}
+      {!preset && (
+        <p className="text-xs text-slate-600">
+          Ready-made match lists:{' '}
+          {FIXTURE_PAGES.map((page, index) => <React.Fragment key={page.path}><Link to={page.path} className="font-semibold text-orange-800 underline">{page.name}</Link>{index < FIXTURE_PAGES.length - 1 ? ', ' : '.'}</React.Fragment>)}
+        </p>
       )}
     </section>
   );
