@@ -87,7 +87,7 @@
       ],
       [
         "Watch the figures",
-        "The score, wickets, overs, run rate, balls of this over, extras, fours and sixes and the partnership update after every ball."
+        "The score, wickets, overs, run rate, balls of this over, extras, fours and sixes and the partnership update after every ball. Open Over by over to see the runs and balls of every earlier over. It stays closed until you open it."
       ],
       [
         "Fix mistakes and finish",
@@ -446,7 +446,7 @@
         {
           "heading": "What it works out for you",
           "paragraphs": [
-            "From the list of balls the scorer works out the total, the wickets, the overs written the cricket way, the run rate, the extras, the fours and sixes, the balls of the current over and the partnership since the last wicket. If you set the overs it shows how many are left and the score you are on course for at the current rate.",
+            "From the list of balls the scorer works out the total, the wickets, the overs written the cricket way, the run rate, the extras, the fours and sixes, the balls of the current over and the partnership since the last wicket. The Over by over list, which is closed until you open it, shows each over's balls, runs, wickets and the total at its end. If you set the overs it shows how many are left and the score you are on course for at the current rate.",
             "In a chase it shows the runs needed, the balls left and the required run rate, and tells you when the target has been reached."
           ]
         },

@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from 'react';
 import { Undo2 } from 'lucide-react';
 import { calcCard, NumberField, SelectField } from '../../finance/ui';
 import { usePersisted } from '../../../lib/screens/usePersisted';
-import { ballLabel, chaseView, inningsView, projected, type Ball, type BallKind } from '../../../lib/sports/cricketScoring';
+import { ballLabel, chaseView, inningsView, overHistory, projected, type Ball, type BallKind } from '../../../lib/sports/cricketScoring';
 import { FullscreenButton } from '../shared/FullscreenButton';
 import { chipClass, ghostButton } from '../shared/toolStyles';
 
@@ -37,6 +37,7 @@ export const CricketScorer: React.FC = () => {
   const view = useMemo(() => inningsView(saved.balls, saved.oversLimit), [saved.balls, saved.oversLimit]);
   const chase = useMemo(() => (saved.target > 0 ? chaseView(view, saved.target, saved.oversLimit) : null), [view, saved.target, saved.oversLimit]);
   const finished = view.over || (chase?.won ?? false);
+  const history = useMemo(() => overHistory(saved.balls).reverse(), [saved.balls]);
   const proj = projected(view, saved.oversLimit);
   const hint = MODIFIERS.find((entry) => entry.id === modifier)?.hint ?? '';
 
@@ -94,6 +95,25 @@ export const CricketScorer: React.FC = () => {
         <button type="button" onClick={undo} disabled={saved.balls.length === 0} className={ghostButton}><Undo2 className="h-4 w-4" aria-hidden="true" />Undo last ball</button>
         <FullscreenButton target={board} />
       </div>
+
+      {history.length > 0 && (
+        <details className="rounded-xl border border-slate-200 p-3">
+          <summary className="cursor-pointer text-sm font-semibold text-slate-900">Over by over ({history.length})</summary>
+          <ol className="mt-3 space-y-2">
+            {history.map((line) => (
+              <li key={line.over} className="rounded-lg bg-slate-50 px-3 py-2">
+                <p className="flex flex-wrap items-baseline justify-between gap-2 text-sm">
+                  <span className="font-bold text-slate-900">Over {line.over}{line.complete ? '' : ' (in progress)'}</span>
+                  <span className="text-slate-700">{line.runs} {line.runs === 1 ? 'run' : 'runs'}{line.wickets > 0 ? `, ${line.wickets} ${line.wickets === 1 ? 'wicket' : 'wickets'}` : ''} · total {line.total}/{line.totalWickets}</span>
+                </p>
+                <ul className="mt-1.5 flex flex-wrap gap-1.5" aria-label={`Balls of over ${line.over}`}>
+                  {line.balls.map((ball, index) => <li key={index} className={`min-w-8 rounded-full px-2 py-0.5 text-xs font-bold ${tone(ball)}`}>{ballLabel(ball)}</li>)}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </details>
+      )}
 
       <details className="rounded-xl border border-slate-200 p-3">
         <summary className="cursor-pointer text-sm font-semibold text-slate-900">Options (all optional)</summary>

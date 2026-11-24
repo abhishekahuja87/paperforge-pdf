@@ -20,6 +20,13 @@ const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-24',
     path: '/cricket-scorer',
+    tool: 'Cricket Scorer',
+    title: 'Cricket Scorer: over by over history',
+    summary: 'A closed "Over by over" list under the buttons shows every over: its balls, runs, wickets and the total at the end. It stays hidden until you open it, so the scoring screen stays simple.',
+  },
+  {
+    date: '2026-11-24',
+    path: '/cricket-scorer',
     tool: 'Cricket Scorer and Quick Scoreboard',
     title: 'New: ball by ball Cricket Scorer and Quick Scoreboard',
     summary: 'Cricket Scorer needs no setup: tap runs, wickets, wides and no-balls and see the score, overs, run rate and partnership. Quick Scoreboard has big score buttons for basketball, football, hockey, kabaddi, handball or any game, with fouls, a clock and a big-screen view. The Sports and fitness section now has 14 tools.',

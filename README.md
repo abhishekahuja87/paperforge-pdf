@@ -232,6 +232,7 @@ The Sports and fitness section now has 12 tools. Counts on the home page, footer
 The Sports and fitness section now has 14 tools (counts are computed from `COLLECTIONS`; the hand-written texts were updated).
 - `cricket-scorer` (sports pack, `CricketScorer.tsx`, logic in `lib/sports/cricketScoring.ts`): no setup, ball by ball. The innings is the list of balls (`ok`, `wd`, `nb`, `bye`, `lb`, with runs and a wicket flag), so undo removes the last ball and every figure is recomputed. Wides and no-balls add 1 and are not legal balls; a no-ball makes the next ball a free hit. Options (hidden): overs limit, target, start the chase. Saved under `mdu-cricket-scorer-v1`.
 - `quick-scoreboard` (sports pack, `QuickScoreboard.tsx`, `lib/sports/quickScore.ts`): preset games (basketball, football, hockey, kabaddi, handball, any) with their own +N buttons and periods, fouls for basketball, a start and pause clock. Saved under `mdu-quick-scoreboard-v1`. If the clock was running when the page closed it keeps counting from its start time.
+- Cricket Scorer also has a closed `Over by over` list (`overHistory` in `cricketScoring.ts`): balls, runs, wickets and the running total of every over. Wides and no-balls stay in the over they were bowled in.
 - `components/tools/shared/FullscreenButton.tsx` shows the board fullscreen (hidden on iPhone, which cannot).
 - `scripts/check-sports-fitness-logic.mjs` now has 90 checks.
 
