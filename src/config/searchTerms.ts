@@ -52,6 +52,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'grayscale-pdf': ['pdf black and white', 'remove colour from pdf', 'save ink'],
   'extract-images-from-pdf': ['save pictures from pdf', 'pdf photos', 'get images out of pdf'],
   'audio-cutter-and-joiner': ['trim mp3', 'join audio', 'voice note cutter', 'ringtone'],
+  'globe-video-maker': ['globe animation', 'travel video', 'flight route', 'map video', 'earth zoom', 'reel'],
   'gif-maker': ['photos to gif', 'animated gif', 'slideshow gif'],
   'redact-pdf': ['hide text in pdf', 'black out pdf', 'hide aadhaar in pdf', 'cover account number in pdf'],
   'compare-pdf-and-text': ['diff checker', 'compare two documents', 'compare two texts', 'what changed in pdf'],

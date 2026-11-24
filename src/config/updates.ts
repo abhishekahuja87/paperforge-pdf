@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-24',
+    path: '/globe-video-maker',
+    tool: 'Globe Video Maker',
+    title: 'New: Globe Video Maker',
+    summary: 'Pick two places, with a stop in between if you like, and save a video of a globe flying from one to the other. Six looks, Reel, YouTube, square and feed sizes, 720p or 1080p, no watermark.',
+  },
+  {
+    date: '2026-11-24',
     path: '/round-robin-schedule-6-teams',
     tool: 'Tournament schedule pages',
     title: 'New pages: round robin schedules for 4 to 12 teams and knockout brackets for 6 to 16 teams',
