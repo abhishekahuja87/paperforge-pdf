@@ -1240,3 +1240,16 @@ Cricket Scorer over by over (24 Nov): not run in a browser. Score two overs incl
 
 ### Start again buttons (24 Nov)
 Not run in a browser or on a phone. For each of Cricket Scorer, Match Score Keeper, Quick Scoreboard, Tournament Fixtures Maker, Workout Log, Seating Plan, Spinner Wheel, Job Description Builder, Menu Board, Notice Board, Timings Board, Spelling Bee, Routine Display, Exam Hall and Interval Timer: add some data, tap the clear or new button once and check it turns red and asks "Tap again", wait 4 seconds and check it goes back to normal without clearing, then tap twice and check the data is cleared and a reload keeps it cleared. The button is disabled when there is nothing to clear.
+
+### Court size pages for kho kho and kabaddi (24 Nov)
+Checked in the sandbox: the written sizes, diagonals, baulk and bonus distances match `courtData.ts` (`scripts/check-sports-fitness-logic.mjs`, 100 checks) and the stub-typed `tsc` is clean. Not run: the real `tsc`, `vite build`, the prerender step, a browser or a phone.
+
+Check after deploy:
+- [ ] `/kho-kho-court-size` and `/kabaddi-court-size` open and show the court drawn to scale with the sport already chosen, no sport list and no Fit my space tab. Kabaddi still has the Version list (men, women, sub-junior).
+- [ ] Sizes read: kho kho 27 m x 16 m (88 ft 7 in x 52 ft 5.9 in); kabaddi men 13 x 10 m, women 12 x 8 m, sub-junior 11 x 8 m. Marking plan shows diagonals 31.38, 16.4, 14.42 and 13.6 m.
+- [ ] Each page has 4 steps, 3 written sections and 8 questions; the last is about privacy and names the site. Save as image and Save as PDF work.
+- [ ] View page source (or turn off JavaScript) on each page: the heading, steps, sections and questions are in the HTML, the title and description are unique, and the canonical link is the page's own address.
+- [ ] `https://www.mydailyutils.in/sitemap.xml` lists both pages. `/sports-court-size-guide` shows "Open the Kho Kho court size page" when kho kho is chosen, and the same for Kabaddi; other sports show no link.
+- [ ] Sports and fitness section page FAQ answers both sizes with working links. What's new has the 24 Nov entry.
+- [ ] At 360 px nothing scrolls sideways.
+- [ ] Search Console: submit the sitemap, then URL Inspection and Request indexing for both pages. Note the date, then check the Pages report and Performance (queries "kho kho court size", "kabaddi court size") after two to three weeks.

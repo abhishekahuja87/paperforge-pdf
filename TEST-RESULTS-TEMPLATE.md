@@ -317,3 +317,14 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | T3 | Workout Log Clear my whole log, Seating Plan, Spinner Wheel and Job Description Builder | | |
 | T4 | Menu, Notice, Timings, Spelling Bee, Routine, Exam Hall and Interval Timer clear or reset | | |
 | T5 | The first tap turns red, goes back after 4 seconds, and a reload keeps the cleared state | | |
+
+### Court size pages for kho kho and kabaddi (24 Nov)
+| # | Check | Result | Notes |
+|---|---|---|---|
+| U1 | /kho-kho-court-size and /kabaddi-court-size open with the sport chosen, no sport list, no Fit tab | | |
+| U2 | Sizes, diagonals and marking plan are right (kho kho 27 x 16 m; kabaddi 13 x 10, 12 x 8, 11 x 8 m) | | |
+| U3 | 4 steps, 3 written sections, 8 questions; Save as image and PDF work | | |
+| U4 | Page source shows heading, steps, questions, own title and canonical | | |
+| U5 | Sitemap lists both; main guide links to each sport page; section FAQ links work | | |
+| U6 | Search Console: sitemap submitted, both pages requested for indexing (date) | | |
+| U7 | After 2-3 weeks: indexed? impressions for the two queries? (note numbers) | | |
