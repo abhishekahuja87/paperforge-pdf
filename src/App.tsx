@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { COURT_PAGES } from './config/courtPages';
 import { FocusModeProvider } from './lib/focusMode';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -37,6 +38,7 @@ const ImageConverterPage = lazy(() => import('./pages/ImageConverterPage').then(
 const ImageCompressorPage = lazy(() => import('./pages/ImageCompressorPage').then((m) => ({ default: m.ImageCompressorPage })));
 const UtilityPage = lazy(() => import('./pages/UtilityPage').then((m) => ({ default: m.UtilityPage })));
 const FinanceCalculatorPage = lazy(() => import('./pages/FinanceCalculatorPage').then((m) => ({ default: m.FinanceCalculatorPage })));
+const CourtSportPage = lazy(() => import('./pages/CourtSportPage').then((m) => ({ default: m.CourtSportPage })));
 const PackToolPage = lazy(() => import('./pages/PackToolPage').then((m) => ({ default: m.PackToolPage })));
 const ImageResizerPage = lazy(() => import('./pages/ImageResizerPage').then((m) => ({ default: m.ImageResizerPage })));
 const JsonFormatterPage = lazy(() => import('./pages/JsonFormatterPage').then((m) => ({ default: m.JsonFormatterPage })));
@@ -145,6 +147,7 @@ export const App: React.FC = () => {
               <Route path="/editorial-policy" element={<EditorialPolicyPage />} />
               <Route path="/why-trust-us" element={<TrustPage />} />
               <Route path="/free-no-limits" element={<FreeNoLimitsPage />} />
+              {COURT_PAGES.map((page) => <Route key={page.path} path={page.path} element={<CourtSportPage page={page} />} />)}
               {HUBS.map((hub) => <Route key={hub.path} path={hub.path} element={<HubPage hub={hub} />} />)}
               <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/about" element={<AboutPage />} />

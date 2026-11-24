@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CalcFooter, Note, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
 import { CHECKED_ON, SOURCES, SPORTS, findSport } from '../../../lib/sports/courtData';
 import { spaceNeeded } from '../../../lib/sports/fit';
@@ -11,6 +12,7 @@ import text from '../../../locales/packs/sports.courts.en.json';
 import CourtDiagram from './CourtDiagram';
 import CourtFit from './CourtFit';
 import CourtSetOut from './CourtSetOut';
+import { courtPageFor } from '../../../config/courtPages';
 
 type SportText = {
   name: string; summary: string; variants: Record<string, string>; facts: Record<string, string>; marks: Record<string, string>;
@@ -24,11 +26,13 @@ type Saving = '' | 'png' | 'pdf';
 
 const tabClass = (on: boolean) => `min-h-11 flex-1 rounded-xl px-4 text-sm font-semibold ${on ? 'bg-orange-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`;
 
-const CourtGuide: React.FC = () => {
+/** `fixedSport` is used by the one-sport pages (for example kho kho court size): that sport is shown, with no sport list and no Fit my space tab. */
+const CourtGuide: React.FC<{ fixedSport?: string }> = ({ fixedSport }) => {
+  const first = findSport(fixedSport ?? SPORTS[0].id);
   const [tab, setTab] = useState<'sizes' | 'fit'>('sizes');
-  const [sportId, setSportId] = useState(SPORTS[0].id);
-  const [variantId, setVariantId] = useState(SPORTS[0].variants[0].id);
-  const [marginId, setMarginId] = useState(SPORTS[0].variants[0].margins[0].id);
+  const [sportId, setSportId] = useState(first.id);
+  const [variantId, setVariantId] = useState(first.variants[0].id);
+  const [marginId, setMarginId] = useState(first.variants[0].margins[0].id);
 
   const [saving, setSaving] = useState<Saving>('');
   const [failed, setFailed] = useState(false);
@@ -65,21 +69,24 @@ const CourtGuide: React.FC = () => {
 
   return (
     <div className={calcCard}>
-      <div className="flex gap-2" role="tablist">
-        <button type="button" role="tab" aria-selected={tab === 'sizes'} className={tabClass(tab === 'sizes')} onClick={() => setTab('sizes')}>{ui.sizesTab}</button>
-        <button type="button" role="tab" aria-selected={tab === 'fit'} className={tabClass(tab === 'fit')} onClick={() => setTab('fit')}>{ui.fitTab}</button>
-      </div>
+      {!fixedSport && (
+        <div className="flex gap-2" role="tablist">
+          <button type="button" role="tab" aria-selected={tab === 'sizes'} className={tabClass(tab === 'sizes')} onClick={() => setTab('sizes')}>{ui.sizesTab}</button>
+          <button type="button" role="tab" aria-selected={tab === 'fit'} className={tabClass(tab === 'fit')} onClick={() => setTab('fit')}>{ui.fitTab}</button>
+        </div>
+      )}
 
       {tab === 'fit' && <div className="mt-4"><CourtFit onOpen={(s, v) => { pick(s, v); setTab('sizes'); }} /></div>}
 
       {tab === 'sizes' && (
-        <div className="mt-4">
+        <div className={fixedSport ? '' : 'mt-4'}>
           <div className="grid gap-3 sm:grid-cols-2">
-            <SelectField label={ui.sport} value={sportId} onChange={(v) => pick(v)} options={SPORTS.map((s) => ({ value: s.id, label: sportsText[s.id].name }))} />
+            {!fixedSport && <SelectField label={ui.sport} value={sportId} onChange={(v) => pick(v)} options={SPORTS.map((s) => ({ value: s.id, label: sportsText[s.id].name }))} />}
             {sport.variants.length > 1 && <SelectField label={ui.variant} value={variant.id} onChange={(v) => pick(sportId, v)} options={sport.variants.map((v) => ({ value: v.id, label: copy.variants[v.id] }))} />}
             {variant.margins.length > 1 && <SelectField label={ui.runoff} value={margin.id} onChange={setMarginId} options={variant.margins.map((m) => ({ value: m.id, label: copy.margins[m.id] }))} />}
           </div>
           <p className="mt-3 text-xs text-slate-600">{copy.summary}</p>
+          {!fixedSport && courtPageFor(sport.id) && <p className="mt-1 text-xs"><Link to={courtPageFor(sport.id)!.path} className="font-semibold text-orange-800 underline">{ui.sportPageLink.replace('{sport}', copy.name)}</Link></p>}
           <div className="mt-3"><CourtDiagram variant={variant} margin={margin} label={`${copy.name}: ${copy.variants[variant.id]}`} clearCaption={ui.clearCaption} annotate={annotate} /></div>
           <p className="mt-1 text-[11px] text-slate-500">{ui.drawingNote}</p>
           <div className="mt-3 flex flex-wrap gap-2">

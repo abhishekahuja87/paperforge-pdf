@@ -21,6 +21,7 @@ import { HUB_FAQS } from '../content/hubFaqs';
 import { hubGuides } from '../content/hubGuides';
 import { plainText } from '../lib/toolLinks';
 import { COLLECTIONS } from '../config/homeSections';
+import { COURT_PAGES } from '../config/courtPages';
 import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
 
@@ -182,7 +183,7 @@ interface ToolCopy {
   faqs: ShellFaq[];
 }
 
-function articleFor(tool: ToolItem): ShellSection[] {
+function articleFor(tool: Pick<ToolItem, 'path'>): ShellSection[] {
   const sections = arr(rec(rec(rec(en).toolArticles)[tool.path.slice(1)]).sections);
   return sections.flatMap((item) => {
     const heading = str(rec(item).heading);
@@ -191,7 +192,7 @@ function articleFor(tool: ToolItem): ShellSection[] {
   });
 }
 
-function guideSteps(tool: ToolItem): ShellStep[] {
+function guideSteps(tool: Pick<ToolItem, 'path'>): ShellStep[] {
   return stepsFrom(rec(en.guideSteps)[tool.path.slice(1)]);
 }
 
@@ -291,6 +292,9 @@ export function getShellGroups(): ShellGroup[] {
     .filter((group) => group.tools.length > 0)
     .map((group) => ({ name: group.name, links: group.tools.map(toLink) }))
     .concat([{
+      name: 'Court size pages',
+      links: COURT_PAGES.map((page) => ({ path: page.path, title: page.name, description: '' })),
+    }, {
       name: 'Guides',
       links: [
         { path: '/guides', title: 'All guides', description: '' },
@@ -344,6 +348,24 @@ function buildShellPages(): ShellPage[] {
     };
   });
 
+  const courtPages: ShellPage[] = COURT_PAGES.map((page) => {
+    const guide = rec(rec(en.pageGuides)[page.guideKey]);
+    const heading = str(guide.title);
+    const subtitle = str(guide.subtitle);
+    return {
+      kind: 'tool',
+      path: page.path,
+      title: toolPageTitle(heading),
+      description: metaDescription(subtitle),
+      heading,
+      subtitle,
+      steps: guideSteps(page),
+      faqs: faqsFrom(guide.faq),
+      article: articleFor(page),
+      jsonLd: buildToolJsonLd({ name: heading, description: subtitle, path: page.path }),
+    };
+  });
+
   const info = (path: string, title: string, subtitle: string, description: string, article: ShellSection[] = []): ShellPage => ({
     kind: 'info', path, title, description, heading: title, subtitle, steps: [], faqs: [], article, jsonLd: [],
   });
@@ -378,6 +400,7 @@ function buildShellPages(): ShellPage[] {
   return [
     home,
     ...tools,
+    ...courtPages,
     ...guidePages,
     info('/about', 'About MyDailyUtils', 'Simple browser-based tools for everyday tasks.',
       'Learn about MyDailyUtils, a growing set of free online tools and calculators for everyday tasks, how in-browser processing works, and how to get support.', [

@@ -111,6 +111,42 @@
         "Run the clock and finish",
         "Start the clock, pick the period or half from the list, and tap Undo for a mistake. Show it on a big screen for the crowd."
       ]
+    ],
+    "kho-kho-court-size": [
+      [
+        "Open the ground drawing",
+        "The drawing below is to scale, with the 27 m x 16 m size written on it in metres and feet. Use Save as image or Save as PDF to take the marking plan to the ground."
+      ],
+      [
+        "Mark the outer rectangle",
+        "Measure 27 m for the long sides and 16 m for the ends, and put a peg at each corner. Check that both diagonals are 31.38 m, which shows the corners are square."
+      ],
+      [
+        "Add the lanes and poles",
+        "Mark the central lane 0.3 m wide and the 8 cross lanes 0.35 m wide each. Fix the two poles 1.2 m high, which is the lower value of the 120 to 125 cm range."
+      ],
+      [
+        "Check against your rules",
+        "Confirm the size and the number of players with the rules of your event or the Kho Kho Federation of India before a match, because school and local grounds often differ."
+      ]
+    ],
+    "kabaddi-court-size": [
+      [
+        "Choose the version",
+        "Pick the men and junior boys court (13 m x 10 m), the women and junior girls court (12 m x 8 m) or the sub-junior court (11 m x 8 m) in the Version box."
+      ],
+      [
+        "Mark the outer rectangle",
+        "Measure the length and width, put a peg at each corner and check that both diagonals match: 16.4 m for the men's court, 14.42 m for the women's court and 13.6 m for the sub-junior court."
+      ],
+      [
+        "Mark the midline and lines",
+        "Mark the midline, then a baulk line on each side of it and a bonus line 1 m beyond each baulk line. The numbers for your version are in the marking plan below."
+      ],
+      [
+        "Add the lobbies",
+        "Mark a 1 m strip along both long sides for the lobbies, then confirm the size with your state association or the IKF rules for your event."
+      ]
     ]
   },
   "pageGuides": {
@@ -325,6 +361,82 @@
           "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Nothing is saved anywhere else. The page still loads fonts, advertising and other resources from the network."
         ]
       ]
+    },
+    "sportsKhoKhoCourt": {
+      "title": "Kho Kho Court Size: Ground Measurements and Marking Plan",
+      "subtitle": "Kho kho ground size in metres and feet, drawn to scale, with lane widths, pole height, a marking plan, how to play and the playing rules. Free and private.",
+      "faq": [
+        [
+          "What is the size of a kho kho ground?",
+          "A kho kho ground is a rectangle 27 m long and 16 m wide, which is 88 ft 7 in by 52 ft 5.9 in. The guide uses the sizes published at khokho.net, and the date they were checked is shown on the page."
+        ],
+        [
+          "How wide are the central lane and the cross lanes?",
+          "The central lane is 0.3 m (11.8 in) wide and each of the 8 cross lanes is 0.35 m (1 ft 1.8 in) wide. The source we used gives the number and width of the cross lanes, but not the spacing between them, so the drawing shows only the outer rectangle."
+        ],
+        [
+          "How high are the kho kho poles?",
+          "The poles are 120 to 125 cm high. The guide shows the lower value, 1.2 m (3 ft 11.2 in)."
+        ],
+        [
+          "How do I mark a kho kho ground on grass or a playground?",
+          "Peg out a 27 m by 16 m rectangle and check that both diagonals measure 31.38 m. Equal diagonals show the corners are square. Then mark the central lane and cross lanes. The marking plan on this page can be saved as an image or a PDF."
+        ],
+        [
+          "How many players are in a kho kho team?",
+          "The guide describes nine players in a team, with three runners on the ground at a time. Some events, such as the World Cup, use seven a side, so check the rules of your event."
+        ],
+        [
+          "How long is a kho kho match?",
+          "In the format described here, a match has two innings and each inning has two turns of 9 minutes, one for chasing and one for running. Check the rules of your league for the exact timing."
+        ],
+        [
+          "Is this the official kho kho size?",
+          "The sizes come from the source listed on the page and the date they were checked is shown. School and local grounds often differ, so confirm with the Kho Kho Federation of India or your event organiser before you mark a ground for a competition."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
+    },
+    "sportsKabaddiCourt": {
+      "title": "Kabaddi Court Size: Men, Women and Sub-Junior Measurements",
+      "subtitle": "Kabaddi court size in metres and feet for men, women and sub-junior courts, drawn to scale, with baulk and bonus lines, a marking plan and rules. Free.",
+      "faq": [
+        [
+          "What is the size of a kabaddi court?",
+          "A men's kabaddi court is 13 m by 10 m (42 ft 7.8 in by 32 ft 9.7 in). A women's court is 12 m by 8 m and a sub-junior court is 11 m by 8 m. A midline splits the court into two halves."
+        ],
+        [
+          "Where are the baulk line and the bonus line?",
+          "On the men's court the baulk line is 3.75 m from the midline, which is 2.75 m from the end line, and the bonus line is 1 m beyond it, 1.75 m from the end line. On the women's and sub-junior courts the baulk line is 3 m from the midline."
+        ],
+        [
+          "What is the lobby in kabaddi?",
+          "The lobby is a 1 m strip along each long side of the court. It becomes part of the court after a touch or struggle starts."
+        ],
+        [
+          "How much space do I need around a kabaddi court?",
+          "The guide lists a desirable ground of 20 m by 20 m and no smaller than 17 m by 18 m. The Fit my space tab on the Sports Court and Ground Size Guide checks whether a court fits the space you have."
+        ],
+        [
+          "How do I mark a kabaddi court?",
+          "Peg out the outer rectangle and check that both diagonals match: 16.4 m for the men's court, 14.42 m for the women's court and 13.6 m for the sub-junior court. Then mark the midline, the two baulk lines, the two bonus lines and the lobbies from the marking plan on this page."
+        ],
+        [
+          "How many players are in a kabaddi team and how long is a match?",
+          "Two teams of seven take turns to raid. In the format described here, men play two halves of 20 minutes, and women and juniors play two halves of 15 minutes with a 5-minute break. Rules differ by league."
+        ],
+        [
+          "Which rules were used for these sizes?",
+          "The sizes are from the International Kabaddi Federation rules, version 2.1.0, and the page shows the date they were checked. For a national event, check the current rules of the Amateur Kabaddi Federation of India or your state association."
+        ],
+        [
+          "Is my data sent anywhere when I use this page?",
+          "No. The drawing and the saved image or PDF are made in your browser, and nothing you do here is uploaded to {{siteName}}."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -480,6 +592,56 @@
           "paragraphs": [
             "Tap Show on a big screen to fill the display with the scores, the period and the clock. Put a tablet or a laptop on a table, or connect it to a projector or TV, and the whole ground can follow the match. On iPhones the full-screen button is not available, so cast the page or turn the phone sideways.",
             "If you need a scoreboard for racket sports with games and sets, use the Match Score Keeper. For cricket use the Cricket Scorer."
+          ]
+        }
+      ]
+    },
+    "kho-kho-court-size": {
+      "sections": [
+        {
+          "heading": "Kho kho ground size at a glance",
+          "paragraphs": [
+            "A kho kho ground is a rectangle 27 m (88 ft 7 in) long and 16 m (52 ft 5.9 in) wide. The central lane is 0.3 m (11.8 in) wide, each of the 8 cross lanes is 0.35 m (1 ft 1.8 in) wide, and the two poles are 120 to 125 cm high. The diagonal of the ground is 31.38 m (102 ft 11.6 in).",
+            "These figures come from the source listed at the end of the guide, and the date they were checked is shown there. The source gives the number and width of the cross lanes but not the spacing between them, so this page does not show it."
+          ]
+        },
+        {
+          "heading": "How to mark a kho kho ground",
+          "paragraphs": [
+            "Peg out the long sides at 27 m and the ends at 16 m. Measure both diagonals. When they are the same, 31.38 m, the corners are square. Tighten or move a peg until they match.",
+            "Then mark the central lane and the cross lanes with chalk or lime, and fix a pole at each end. A school playground or a flat field with a firm, even surface is enough for practice. Keep the area free of stones and holes, because players turn and dive at speed."
+          ]
+        },
+        {
+          "heading": "Using this page and where the rules differ",
+          "paragraphs": [
+            "Choose Save as image or Save as PDF to take the drawing and the marking plan with you. Everything is made in your browser, and nothing is uploaded.",
+            "Rules change by event and level. The number of players in a team, the length of a turn and the clear space around the ground can differ between a school match, a state event and the World Cup, so confirm with the Kho Kho Federation of India or your organiser before you mark a ground for a competition. See also the kabaddi court size page and the full Sports Court and Ground Size Guide."
+          ]
+        }
+      ]
+    },
+    "kabaddi-court-size": {
+      "sections": [
+        {
+          "heading": "Kabaddi court size at a glance",
+          "paragraphs": [
+            "A men's kabaddi court is 13 m (42 ft 7.8 in) long and 10 m (32 ft 9.7 in) wide. A women's court is 12 m (39 ft 4.4 in) by 8 m (26 ft 3 in), and a sub-junior court is 11 m (36 ft 1.1 in) by 8 m. A midline splits each court in two, and the diagonals are 16.4 m, 14.42 m and 13.6 m.",
+            "The sizes follow the International Kabaddi Federation rules, version 2.1.0. The date they were checked is shown at the end of the guide."
+          ]
+        },
+        {
+          "heading": "Baulk, bonus and lobby lines",
+          "paragraphs": [
+            "On the men's court the baulk line is 3.75 m (12 ft 3.6 in) from the midline, so 2.75 m (9 ft 0.3 in) from the end line. The bonus line is 1 m beyond the baulk line, 1.75 m (5 ft 8.9 in) from the end line. On the women's and sub-junior courts the baulk line is 3 m (9 ft 10.1 in) from the midline.",
+            "A 1 m (3 ft 3.4 in) strip along each long side is the lobby. It becomes part of the court after a touch or struggle starts."
+          ]
+        },
+        {
+          "heading": "How to mark the court and what space you need",
+          "paragraphs": [
+            "Peg out the outer rectangle, check that both diagonals match, then mark the midline and the baulk, bonus and lobby lines from the marking plan on this page. Choose the version first, because each court has different distances.",
+            "The guide lists a desirable ground of 20 m by 20 m and no smaller than 17 m by 18 m around the court. Rules differ by league, so check the current rules of the Amateur Kabaddi Federation of India or your state association. See also the kho kho court size page and the full Sports Court and Ground Size Guide."
           ]
         }
       ]

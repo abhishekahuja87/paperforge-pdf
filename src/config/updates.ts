@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-24',
+    path: '/kho-kho-court-size',
+    tool: 'Kho Kho and Kabaddi Court Size pages',
+    title: 'New pages: kho kho court size and kabaddi court size',
+    summary: 'Each sport now has its own page with the ground drawn to scale in metres and feet, a marking plan, the rules, a short written guide and common questions. The kabaddi page covers the men, women and sub-junior courts. The full guide still has every sport.',
+  },
+  {
+    date: '2026-11-24',
     path: '/cricket-scorer',
     tool: 'Cricket Scorer and other saved tools',
     title: 'A clear New match or Start again button on tools that remember your work',

@@ -160,4 +160,21 @@ ok(() => assert.equal(quick.elapsed(10, 1000, 6000), 15));
 ok(() => assert.equal(quick.elapsed(10, null, 6000), 10));
 ok(() => assert.equal(quick.gameInfo('nope').id, 'basketball'));
 
+// court size pages (kho kho, kabaddi): the written numbers must match the court data
+const units = await import('../src/lib/sports/units.ts');
+const courtData = await import('../src/lib/sports/courtData.ts');
+const { readFileSync } = await import('node:fs');
+const packText = JSON.parse(readFileSync(new URL('../src/locales/packs/sports.en.json', import.meta.url), 'utf8'));
+const pageText = (slug, key) => JSON.stringify([packText.toolArticles[slug], packText.guideSteps[slug], packText.pageGuides[key]]);
+const khoText = pageText('kho-kho-court-size', 'sportsKhoKhoCourt');
+const kabText = pageText('kabaddi-court-size', 'sportsKabaddiCourt');
+const kho = courtData.SPORTS.find((x) => x.id === 'khoKho').variants[0];
+const kab = courtData.SPORTS.find((x) => x.id === 'kabaddi').variants;
+ok(() => { for (const m of [kho.length, kho.width, 0.3, 0.35]) assert.ok(khoText.includes(units.formatLength(m)), `kho kho text lacks ${units.formatLength(m)}`); });
+ok(() => assert.ok(khoText.includes(units.formatLength(Math.hypot(kho.length, kho.width)))));
+ok(() => { for (const v of kab) { assert.ok(kabText.includes(units.formatLength(v.length).split(' (')[0]), v.id); assert.ok(kabText.includes(String(Number(Math.hypot(v.length, v.width).toFixed(2))) + ' m'), `diagonal ${v.id}`); } });
+ok(() => { const men = kab[0]; const baulk = men.marks.find((x) => x.id === 'baulkLine').m; const bonus = men.marks.find((x) => x.id === 'bonusLine').m; assert.ok(kabText.includes(units.formatLength(baulk)) && kabText.includes(units.formatLength(bonus))); });
+ok(() => { for (const key of ['sportsKhoKhoCourt', 'sportsKabaddiCourt']) { const g = packText.pageGuides[key]; assert.ok(g.subtitle.length <= 160, key); assert.equal(g.faq.length, 8); assert.ok(g.faq.at(-1)[1].includes('{{siteName}}')); } });
+ok(() => { for (const slug of ['kho-kho-court-size', 'kabaddi-court-size']) { assert.equal(packText.guideSteps[slug].length, 4); assert.equal(packText.toolArticles[slug].sections.length, 3); } });
+
 console.log(`${checks} checks passed`);
