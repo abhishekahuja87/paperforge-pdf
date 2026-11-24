@@ -8,6 +8,8 @@ export interface Stop {
   kind: 'country' | 'city' | 'point';
   /** Id of the country the place is in (or is). A country is highlighted by the "Highlight the countries" switch; a city by its own tick box. */
   countryId?: string;
+  /** Number of a photo for this stop, kept by the screen. Not saved between visits. */
+  photoId?: number;
   /** For a city or point: highlight its country. */
   highlight?: boolean;
   /** Angular span of the place in degrees, for fitting the camera. */
@@ -32,6 +34,16 @@ export interface GlobeOptions {
   labels: boolean;
   caption: string;
   seconds: number;
+  /** A vehicle for each hop, or 'same' to use the one in `mover`. */
+  legMovers: ('same' | MoverStyle)[];
+  /** Colour of the route and the moving marker, or empty for the look's own colour. */
+  routeColor: string;
+  /** Show the distance of each hop as a label. */
+  distance: 'off' | 'km' | 'mi';
+  /** Shade the night side of the world. */
+  night: boolean;
+  logoCorner: 'tl' | 'tr' | 'bl' | 'br';
+  logoSize: 'small' | 'medium' | 'large';
 }
 
 /** What the camera and the route look like at one moment. */
@@ -48,6 +60,8 @@ export interface Frame {
   glow: number[];
   /** Position of the moving marker, as the hop it is on and the fraction of that hop. Null when nothing is moving. */
   head: { hop: number; t: number } | null;
+  /** For each stop, how visible its photo is (0 to 1). */
+  photos: number[];
   /** Opacity of the caption (0 to 1). */
   caption: number;
   /** Seconds since the start, used for small animations like the pulse. */

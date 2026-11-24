@@ -1,13 +1,15 @@
+import { musicGain } from './audio';
+
 /** Records a canvas to a video file in the browser. No upload and no watermark. */
 
 export interface RecordSupport { ok: boolean; mime: string; extension: 'mp4' | 'webm' }
 
 /** MP4 plays everywhere (WhatsApp, Instagram, iPhone), so it is tried first; WebM is the fallback for browsers that cannot write MP4. */
-export function recordSupport(): RecordSupport {
+export function recordSupport(withSound = false): RecordSupport {
   const none: RecordSupport = { ok: false, mime: '', extension: 'webm' };
   if (typeof MediaRecorder === 'undefined' || typeof HTMLCanvasElement === 'undefined' || !('captureStream' in HTMLCanvasElement.prototype)) return none;
-  const mp4 = ['video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1', 'video/mp4'];
-  const webm = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'];
+  const mp4 = withSound ? ['video/mp4;codecs=avc1.640028,mp4a.40.2', 'video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4'] : ['video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1', 'video/mp4'];
+  const webm = withSound ? ['video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'] : ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'];
   for (const mime of mp4) if (MediaRecorder.isTypeSupported(mime)) return { ok: true, mime, extension: 'mp4' };
   for (const mime of webm) if (MediaRecorder.isTypeSupported(mime)) return { ok: true, mime, extension: 'webm' };
   return none;
@@ -25,6 +27,8 @@ export interface RecordJob {
   paint: (seconds: number) => void;
   onProgress: (fraction: number) => void;
   signal: AbortSignal;
+  /** Music to play into the recording. It starts with the video and fades out at the end. */
+  music?: { buffer: AudioBuffer; volume: number };
 }
 
 /**
@@ -32,7 +36,7 @@ export interface RecordJob {
  * instead of the video getting longer. Resolves with the file, or null if cancelled.
  */
 export function recordCanvas(job: RecordJob): Promise<{ blob: Blob; support: RecordSupport; frames: number } | null> {
-  const support = recordSupport();
+  const support = recordSupport(!!job.music);
   if (!support.ok) return Promise.reject(new Error('This browser cannot record video.'));
   return new Promise((resolve, reject) => {
     const stream = job.canvas.captureStream(0);
@@ -40,6 +44,19 @@ export function recordCanvas(job: RecordJob): Promise<{ blob: Blob; support: Rec
     if (!track) { reject(new Error('Could not start recording.')); return; }
     const manual = typeof track.requestFrame === 'function';
     const live = manual ? stream : job.canvas.captureStream(job.fps);
+    let sound: AudioContext | null = null;
+    if (job.music) {
+      sound = new AudioContext();
+      const target = sound.createMediaStreamDestination();
+      const source = sound.createBufferSource(); source.buffer = job.music.buffer; source.loop = true;
+      const gain = sound.createGain();
+      const steps = Math.max(2, Math.ceil(job.duration * 20));
+      gain.gain.setValueAtTime(0, 0);
+      for (let i = 0; i <= steps; i++) { const t = (i / steps) * job.duration; gain.gain.linearRampToValueAtTime(musicGain(t, job.duration, job.music.volume), t + sound.currentTime); }
+      source.connect(gain).connect(target);
+      source.start();
+      target.stream.getAudioTracks().forEach((track) => live.addTrack(track));
+    }
     const recorder = new MediaRecorder(live, { mimeType: support.mime, videoBitsPerSecond: videoBitrate(job.canvas.width, job.canvas.height) });
     const chunks: BlobPart[] = [];
     let frames = 0, cancelled = false, raf = 0;
@@ -48,6 +65,7 @@ export function recordCanvas(job: RecordJob): Promise<{ blob: Blob; support: Rec
     recorder.onstop = () => {
       cancelAnimationFrame(raf);
       stream.getTracks().forEach((item) => item.stop());
+      void sound?.close();
       live.getTracks().forEach((item) => item.stop());
       resolve(cancelled ? null : { blob: new Blob(chunks, { type: support.mime.split(';')[0] }), support, frames });
     };
