@@ -16,7 +16,7 @@ export function recordSupport(withSound = false): RecordSupport {
 }
 
 /** Bits per second for a picture size: about 0.2 bits per pixel per frame, which keeps thin map lines clean. */
-export const videoBitrate = (width: number, height: number, fps = 30) => Math.round(Math.min(24_000_000, Math.max(3_000_000, width * height * fps * 0.2)));
+export const videoBitrate = (width: number, height: number, fps = 30) => Math.round(Math.min(width * height > 2_100_000 ? 45_000_000 : 24_000_000, Math.max(3_000_000, width * height * fps * 0.2)));
 
 export interface RecordJob {
   canvas: HTMLCanvasElement;
@@ -89,8 +89,8 @@ export function recordCanvas(job: RecordJob): Promise<{ blob: Blob; support: Rec
   });
 }
 
-/** Sizes in pixels for each shape and quality. The short side is 720 or 1080. All numbers are even, which video codecs need. */
-export function videoSize(shape: 'reel' | 'wide' | 'square' | 'portrait', quality: 720 | 1080): { width: number; height: number } {
+/** Sizes in pixels for each shape and quality. The short side is 720, 1080 or 2160 (4K). All numbers are even, which video codecs need. */
+export function videoSize(shape: 'reel' | 'wide' | 'square' | 'portrait', quality: 720 | 1080 | 2160): { width: number; height: number } {
   const s = quality;
   switch (shape) {
     case 'reel': return { width: s, height: Math.round((s * 16) / 9 / 2) * 2 };

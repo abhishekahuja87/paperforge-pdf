@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-24',
     path: '/globe-video-maker',
     tool: 'Globe Video Maker',
+    title: '4K videos and GPX route import',
+    summary: 'Make a 4K video where your browser can, and import a GPX file from a run, ride or drive to turn its route into a globe trip with up to five places.',
+  },
+  {
+    date: '2026-11-24',
+    path: '/globe-video-maker',
+    tool: 'Globe Video Maker',
     title: 'One to many routes, a places visited layout, ready examples and six new pages',
     summary: 'Show one origin with lines to many places, or pin every place you have visited. Start from a ready example such as a travel route, flight path, moving announcement, shipping route, YouTube intro or places visited video, each also on its own page.',
   },

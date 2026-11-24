@@ -6,7 +6,7 @@ export async function canEncodeOffline(width: number, height: number, fps: numbe
   const none = { ok: false, codec: '' };
   const w = window as unknown as { VideoEncoder?: typeof VideoEncoder; VideoFrame?: unknown };
   if (!w.VideoEncoder || !w.VideoFrame) return none;
-  for (const codec of ['avc1.640033', 'avc1.64002a', 'avc1.4d0033', 'avc1.42003e']) {
+  for (const codec of ['avc1.640034', 'avc1.640033', 'avc1.64002a', 'avc1.4d0033', 'avc1.42003e']) {
     try {
       const result = await VideoEncoder.isConfigSupported({ codec, width, height, bitrate: videoBitrate(width, height, fps), framerate: fps, avc: { format: 'avc' } });
       if (result.supported) return { ok: true, codec };

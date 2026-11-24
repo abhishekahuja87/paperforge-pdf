@@ -90,7 +90,8 @@
   },
   "qualities": {
     "720": "720p (faster)",
-    "1080": "1080p (sharper)"
+    "1080": "1080p (sharper)",
+    "2160": "4K (slowest, sharpest)"
   },
   "makePicture": "Make picture (PNG)",
   "pictureReady": "Your picture is ready.",
@@ -182,5 +183,9 @@
   "fanTo": "To",
   "placeN": "Place",
   "addPlace": "Add a place",
-  "placesHintMany": "Pick the first place and the others. Use a country, a city or coordinates like 28.61, 77.21."
+  "placesHintMany": "Pick the first place and the others. Use a country, a city or coordinates like 28.61, 77.21.",
+  "fourKHint": "4K needs a recent computer or phone and takes the longest. The file is large. Music needs a browser that can add sound to the video; if yours cannot, pick 1080p.",
+  "gpx": "Import a GPX route",
+  "gpxBad": "That file has no route or track points. Choose a .gpx file from your phone, watch or map app.",
+  "gpxDone": "Used {{count}} places along your {{km}} km route. Names come from a nearby city, or from coordinates. The video shows an illustration, not your exact path."
 }
