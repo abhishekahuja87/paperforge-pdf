@@ -17,6 +17,8 @@ import { GLOBE_STYLES, styleById } from '../../../lib/globe/styles';
 import { buildPlan, maximumStops, minimumSeconds } from '../../../lib/globe/plan';
 import { GLOBE_PRESETS, presetById } from '../../../lib/globe/presets';
 import { parseGpx, pathKm, placeCount, samplePoints, stopsFromPoints } from '../../../lib/globe/gpx';
+import { Link } from 'react-router-dom';
+import { GLOBE_PAGES } from '../../../config/globePages';
 import { renderGlobe } from '../../../lib/globe/draw';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
 import { canEncodeAac, encodeAac, readMusic, renderMusic, type Music } from '../../../lib/globe/audio';
@@ -470,6 +472,13 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
           <ConfirmButton label={ui.startAgain} confirmLabel={ui.startAgainConfirm} onConfirm={reset} disabled={recording} />
         </div>
       </section>
+      {!preset && (
+        <nav aria-label="Globe video ideas" className="text-sm text-slate-700">
+          <p>Ideas to start from: {GLOBE_PAGES.map((item, index) => (
+            <React.Fragment key={item.path}><Link to={item.path} className="font-semibold text-orange-800 underline">{item.name}</Link>{index < GLOBE_PAGES.length - 1 ? ', ' : '.'}</React.Fragment>
+          ))}</p>
+        </nav>
+      )}
     </div>
   );
 };
