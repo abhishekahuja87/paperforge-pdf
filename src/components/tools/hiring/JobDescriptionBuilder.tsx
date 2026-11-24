@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
 import { Check, Copy, Download, Printer } from 'lucide-react';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { Note } from '../../finance/ui';
 import { card, heading } from '../paper/controls';
 import { fieldClass } from '../utilities/common';
@@ -83,6 +84,13 @@ export const JobDescriptionBuilder: React.FC = () => {
   const copy = async () => {
     try { await navigator.clipboard.writeText(text); setCopied(true); window.setTimeout(() => setCopied(false), 2000); } catch { /* clipboard unavailable */ }
   };
+  const startNew = () => {
+    const fresh = getJdTemplate(template);
+    setDetails(Object.fromEntries(Object.keys(details).map((key) => [key, ''])) as unknown as JdDetails);
+    setSections(fresh.sections);
+    setAccent(fresh.accent);
+    setEdited({});
+  };
   const printPdf = () => {
     const previous = document.title;
     document.title = generateFileName('job-description', 'pdf', { base, details: template }).replace(/\.pdf$/, '');
@@ -158,6 +166,7 @@ export const JobDescriptionBuilder: React.FC = () => {
           <div className="mt-3 flex flex-col gap-2 sm:flex-row">
             <button type="button" onClick={printPdf} className={`${button} bg-orange-700 text-white hover:bg-orange-800`}><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button>
             <button type="button" onClick={saveText} className={`${button} border border-slate-300 bg-white text-slate-800 hover:bg-slate-50`}><Download className="h-4 w-4" aria-hidden="true" />Plain text (.txt)</button>
+            <ConfirmButton label="Start a new description" confirmLabel="Tap again to clear this one" onConfirm={startNew} />
             <button type="button" onClick={copy} className={`${button} border border-slate-300 bg-white text-slate-800 hover:bg-slate-50`}>{copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}{copied ? 'Copied' : 'Copy for job portals'}</button>
           </div>
           <p className="mt-2 text-[11px] text-slate-500">In the print window choose "Save as PDF" as the destination and turn off "Headers and footers". The plain text works for portals that do not accept formatting, such as Naukri, LinkedIn, WhatsApp or email.</p>

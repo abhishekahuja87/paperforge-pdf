@@ -45,7 +45,7 @@ export const IntervalTimer: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
-        <PresetGrid presets={PRESETS} active={active} hint="Pick a ready timer, then change any number below." onPick={(id) => { const preset = PRESETS.find((entry) => entry.id === id); if (!preset) return; setS({ ...s, ...preset.values, names: preset.values.names ?? '' }); setActive(id); }} />
+        <PresetGrid presets={PRESETS} active={active} hint="Pick a ready timer, then change any number below." onPick={(id) => { const preset = PRESETS.find((entry) => entry.id === id); if (!preset) return; setS({ ...s, ...preset.values, names: preset.values.names ?? '' }); setActive(id); }} onClear={() => { setS({ ...DEFAULTS, logo: s.logo }); setActive(null); }} clearLabel="Reset to the starting values" />
       </section>
       <section className={`${calcCard} space-y-4`}>
         <h2 className="text-sm font-black text-stone-900">Your timer</h2>

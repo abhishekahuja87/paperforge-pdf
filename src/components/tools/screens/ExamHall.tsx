@@ -89,7 +89,7 @@ export const ExamHall: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
-        <PresetGrid presets={PRESETS} active={active} hint="Pick a length, then change anything below." onPick={(id) => { const preset = PRESETS.find((entry) => entry.id === id); if (!preset) return; update(preset.values); setActive(id); }} />
+        <PresetGrid presets={PRESETS} active={active} hint="Pick a length, then change anything below." onPick={(id) => { const preset = PRESETS.find((entry) => entry.id === id); if (!preset) return; update(preset.values); setActive(id); }} onClear={() => { setSaved({ ...DEFAULTS, logo: saved.logo }); setActive(null); }} clearLabel="Reset to the starting values" />
       </section>
       <section className={`${calcCard} space-y-4`}>
         <div className="grid gap-3 sm:grid-cols-2">

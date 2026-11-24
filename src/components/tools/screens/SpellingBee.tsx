@@ -49,7 +49,7 @@ export const SpellingBee: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
-        <PresetGrid presets={LISTS} active={active} hint="Pick a ready word list, then change, add or remove words." onPick={(id) => { const list = LISTS.find((entry) => entry.id === id); if (!list) return; update({ rows: list.words.map(([word, hint]) => makeRow({ word, hint })) }); setActive(id); scroll(); }} />
+        <PresetGrid presets={LISTS} active={active} hint="Pick a ready word list, then change, add or remove words." onPick={(id) => { const list = LISTS.find((entry) => entry.id === id); if (!list) return; update({ rows: list.words.map(([word, hint]) => makeRow({ word, hint })) }); setActive(id); scroll(); }} onClear={() => { setSaved({ ...saved, rows: [] }); setActive(null); }} clearLabel="Clear the words and start again" />
       </section>
       <div ref={ref} className="scroll-mt-[69px]">
         <RowsEditor title="Words" columns={COLUMNS} rows={saved.rows} onChange={(rows) => { update({ rows }); setActive(null); }} blank={{ word: '', hint: '', image: '' }} addLabel="Add a word" empty="No words yet. Pick a list above, add a word, or paste many at once." bulk={{ keys: ['word', 'hint'], hint: 'One word per line: word | meaning or clue. You can also use a tab or " - " between them.', example: 'library | a place with many books\nelephant - the biggest land animal' }} />

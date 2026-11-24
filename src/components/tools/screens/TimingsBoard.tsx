@@ -81,7 +81,7 @@ export const TimingsBoard: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
-        <PresetGrid presets={BOARDS} active={active} hint="Pick a sample, then change the times and names." onPick={(id) => { const board = BOARDS.find((entry) => entry.id === id); if (!board) return; update({ title: board.title, rows: board.rows.map(makeRow) }); setActive(id); scroll(); }} />
+        <PresetGrid presets={BOARDS} active={active} hint="Pick a sample, then change the times and names." onPick={(id) => { const board = BOARDS.find((entry) => entry.id === id); if (!board) return; update({ title: board.title, rows: board.rows.map(makeRow) }); setActive(id); scroll(); }} onClear={() => { setSaved({ ...saved, title: 'Daily timings', rows: [] }); setActive(null); }} clearLabel="Clear the timings and start again" />
         <label className={LABEL}>Board heading<input type="text" value={saved.title} onChange={(event) => update({ title: event.target.value })} className={FIELD} /></label>
       </section>
       <div ref={ref} className="scroll-mt-[69px]">

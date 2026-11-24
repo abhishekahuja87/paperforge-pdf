@@ -6,6 +6,7 @@ import { EXERCISES } from '../../../lib/fitness/exercises';
 import { exercisesUsed, isRecord, parseSets, progressFor, setsToText, volume, type LogEntry } from '../../../lib/fitness/log';
 import { estimateOneRepMax, formatWeight } from '../../../lib/fitness/strength';
 import { newKey, todayIso } from '../../../lib/fitness/workout';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { chipClass, ghostButton, primaryButton, smallInput } from '../shared/toolStyles';
 
 interface Saved { unit: 'kg' | 'lb'; entries: LogEntry[] }
@@ -124,6 +125,7 @@ export const WorkoutLog: React.FC = () => {
             {sorted.length > 60 && <p className="text-[11px] text-slate-500">Showing the latest 60 of {sorted.length}. Copy as CSV to see them all.</p>}
           </div>
           <button type="button" onClick={() => void copy()} className={ghostButton}><Copy className="h-4 w-4" aria-hidden="true" />Copy my log as CSV</button>
+          <ConfirmButton label="Clear my whole log" confirmLabel="Tap again to delete everything" onConfirm={() => { setSaved({ ...saved, entries: [] }); setNotice('Your log is empty.'); }} icon={<Trash2 className="h-4 w-4" aria-hidden="true" />} />
         </>
       )}
       <Note>Your log is saved only in this browser on this device. Clearing site data or switching browsers removes it, so copy it as CSV now and then to keep a backup.</Note>

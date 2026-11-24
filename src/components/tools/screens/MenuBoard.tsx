@@ -47,7 +47,7 @@ export const MenuBoard: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
-        <PresetGrid presets={MENUS} active={active} hint="Pick a sample, then replace the names and prices with your own." onPick={(id) => { const menu = MENUS.find((entry) => entry.id === id); if (!menu) return; update({ shop: menu.shop, rows: menu.items.map(makeRow) }); setActive(id); scroll(); }} />
+        <PresetGrid presets={MENUS} active={active} hint="Pick a sample, then replace the names and prices with your own." onPick={(id) => { const menu = MENUS.find((entry) => entry.id === id); if (!menu) return; update({ shop: menu.shop, rows: menu.items.map(makeRow) }); setActive(id); scroll(); }} onClear={() => { setSaved({ ...saved, shop: 'Our Menu', rows: [] }); setActive(null); }} clearLabel="Clear the items and start again" />
         <label className={LABEL}>Shop or board name<input type="text" value={saved.shop} onChange={(event) => update({ shop: event.target.value })} className={FIELD} /></label>
       </section>
       <div ref={ref} className="scroll-mt-[69px]">

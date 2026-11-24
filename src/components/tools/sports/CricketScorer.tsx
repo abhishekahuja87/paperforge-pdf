@@ -3,6 +3,7 @@ import { Undo2 } from 'lucide-react';
 import { calcCard, NumberField, SelectField } from '../../finance/ui';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { ballLabel, chaseView, inningsView, overHistory, projected, type Ball, type BallKind } from '../../../lib/sports/cricketScoring';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { FullscreenButton } from '../shared/FullscreenButton';
 import { chipClass, ghostButton } from '../shared/toolStyles';
 
@@ -94,6 +95,7 @@ export const CricketScorer: React.FC = () => {
       <div className="flex flex-wrap gap-2">
         <button type="button" onClick={undo} disabled={saved.balls.length === 0} className={ghostButton}><Undo2 className="h-4 w-4" aria-hidden="true" />Undo last ball</button>
         <FullscreenButton target={board} />
+        <ConfirmButton label="New match" confirmLabel="Tap again to start a new match" onConfirm={reset} disabled={saved.balls.length === 0 && !saved.first && !saved.target} />
       </div>
 
       {history.length > 0 && (
@@ -123,7 +125,6 @@ export const CricketScorer: React.FC = () => {
         </div>
         <div className="mt-3 flex flex-wrap gap-2">
           <button type="button" onClick={startChase} disabled={saved.balls.length === 0} className={ghostButton}>End innings and start the chase</button>
-          <button type="button" onClick={reset} disabled={saved.balls.length === 0 && !saved.first && !saved.target} className={ghostButton}>New match</button>
         </div>
       </details>
       <p className="text-center text-[11px] text-slate-500">The innings is saved on this device, so it is still here if you close the page. It does not record player names.</p>

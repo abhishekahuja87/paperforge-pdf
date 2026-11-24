@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Minus, Pause, Play, Plus, RotateCcw, Undo2 } from 'lucide-react';
+import { Minus, Pause, Play, Plus, Undo2 } from 'lucide-react';
 import { calcCard, SelectField } from '../../finance/ui';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { QUICK_GAMES, clockText, elapsed, gameInfo, leader, totals, type Entry, type Side } from '../../../lib/sports/quickScore';
+import { ConfirmButton } from '../shared/ConfirmButton';
 import { FullscreenButton } from '../shared/FullscreenButton';
 import { ghostButton, primaryButton, smallInput } from '../shared/toolStyles';
 
@@ -88,7 +89,7 @@ export const QuickScoreboard: React.FC = () => {
           </select>
         </label>
         <FullscreenButton target={board} />
-        <button type="button" onClick={newGame} className={ghostButton}><RotateCcw className="h-4 w-4" aria-hidden="true" />New game</button>
+        <ConfirmButton label="New game" confirmLabel="Tap again to start a new game" onConfirm={newGame} disabled={saved.log.length === 0 && saved.banked === 0 && !running && saved.fouls[0] === 0 && saved.fouls[1] === 0} />
       </div>
       <p className="text-center text-[11px] text-slate-500">The score, names and clock are saved on this device, so they are still here if you close the page.</p>
     </section>
