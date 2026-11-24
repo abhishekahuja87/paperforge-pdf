@@ -396,12 +396,16 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
       </section>
 
       <section className={`${card} space-y-3`}>
-        {!preset && (
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.startFrom}</p>
-            <div role="group" aria-label={ui.startFrom} className="flex flex-wrap gap-2">
-              {GLOBE_PRESETS.map((item) => <button key={item.id} type="button" onClick={() => applyPreset(item.id)} className="min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-orange-50">{(ui.presets as Record<string, string>)[item.id]}</button>)}
-            </div></div>
-        )}
+        <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.startFrom}</p>
+          <div role="group" aria-label={ui.startFrom} className="flex flex-wrap gap-2">
+            {GLOBE_PRESETS.map((item) => {
+              const page = GLOBE_PAGES.find((entry) => entry.preset === item.id);
+              const selected = preset === item.id;
+              const look = `inline-flex min-h-10 items-center rounded-lg border px-3 py-2 text-xs font-semibold transition ${selected ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`;
+              const name = (ui.presets as Record<string, string>)[item.id];
+              return page ? <Link key={item.id} to={page.path} aria-current={selected ? 'page' : undefined} className={look}>{name}</Link> : <button key={item.id} type="button" aria-pressed={selected} onClick={() => applyPreset(item.id)} className={look}>{name}</button>;
+            })}
+          </div></div>
         <h2 className={heading}>{ui.places}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.layout}</p>
           <ChoiceButtons label={ui.layout} value={layout} onChange={(value) => changeLayout(value as GlobeOptions['layout'])} options={names(ui.layouts)} />
@@ -542,13 +546,6 @@ export const GlobeVideoMaker: React.FC<{ preset?: string }> = ({ preset }) => {
           <ConfirmButton label={ui.startAgain} confirmLabel={ui.startAgainConfirm} onConfirm={reset} disabled={recording} />
         </div>
       </section>
-      {!preset && (
-        <nav aria-label="Globe video ideas" className="text-sm text-slate-700">
-          <p>Ideas to start from: {GLOBE_PAGES.map((item, index) => (
-            <React.Fragment key={item.path}><Link to={item.path} className="font-semibold text-orange-800 underline">{item.name}</Link>{index < GLOBE_PAGES.length - 1 ? ', ' : '.'}</React.Fragment>
-          ))}</p>
-        </nav>
-      )}
     </div>
   );
 };

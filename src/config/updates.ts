@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-24',
     path: '/globe-video-maker',
     tool: 'Globe Video Maker',
+    title: 'Example buttons now open their own page and show which one you are on',
+    summary: 'Travel route, flight path, moving announcement, shipping route, YouTube intro and places visited each open their own page with its own address, and the example you are on is highlighted.',
+  },
+  {
+    date: '2026-11-24',
+    path: '/globe-video-maker',
+    tool: 'Globe Video Maker',
     title: 'Your photo as the moving marker, and pictures of places at stops',
     summary: 'Use your own face photo instead of the plane, shown in a round badge that travels the route. Each stop can show your photo or, with one tap, a free picture of that place with its credit.',
   },

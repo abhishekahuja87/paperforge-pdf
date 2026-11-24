@@ -153,7 +153,7 @@ export const App: React.FC = () => {
               <Route path="/free-no-limits" element={<FreeNoLimitsPage />} />
               {COURT_PAGES.map((page) => <Route key={page.path} path={page.path} element={<CourtSportPage page={page} />} />)}
               {FIXTURE_PAGES.map((page) => <Route key={page.path} path={page.path} element={<FixturePage page={page} />} />)}
-              {GLOBE_PAGES.map((page) => <Route key={page.path} path={page.path} element={<GlobePurposePage page={page} />} />)}
+              {GLOBE_PAGES.map((page) => <Route key={page.path} path={page.path} element={<GlobePurposePage key={page.path} page={page} />} />)}
               {HUBS.map((hub) => <Route key={hub.path} path={hub.path} element={<HubPage hub={hub} />} />)}
               <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/about" element={<AboutPage />} />
