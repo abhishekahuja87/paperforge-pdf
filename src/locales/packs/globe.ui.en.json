@@ -157,5 +157,30 @@
   "volume": "Volume",
   "musicFailed": "That audio file could not be read. Try an MP3, M4A or WAV file.",
   "musicHint": "Use music you have the right to use. It fades in and out and repeats if it is shorter than the video. Photos, logo and music are not saved between visits.",
-  "musicQuick": "This browser cannot add music in Smooth mode, so a video with music is recorded in real time instead. Keep the page open and expect it to take as long as the video."
+  "musicQuick": "This browser cannot add music in Smooth mode, so a video with music is recorded in real time instead. Keep the page open and expect it to take as long as the video.",
+  "startFrom": "Start from an example",
+  "presets": {
+    "travel": "Travel route",
+    "flight": "Flight path",
+    "moving": "Moving announcement",
+    "export": "Where we ship",
+    "intro": "YouTube intro",
+    "visited": "Places visited"
+  },
+  "layout": "Route type",
+  "layouts": {
+    "chain": "Trip: A to B and on",
+    "fan": "One to many",
+    "visited": "Places visited"
+  },
+  "layoutHints": {
+    "chain": "The globe follows one trip from the first place to the last, through any stops in between.",
+    "fan": "Routes go from the first place to each of the others, such as where a business ships to. Up to 12 places. Places on the far side of the world show as the globe turns.",
+    "visited": "No routes. Each place and its country light up one after another, such as countries you have visited. Up to 12 places."
+  },
+  "fanFrom": "From",
+  "fanTo": "To",
+  "placeN": "Place",
+  "addPlace": "Add a place",
+  "placesHintMany": "Pick the first place and the others. Use a country, a city or coordinates like 28.61, 77.21."
 }

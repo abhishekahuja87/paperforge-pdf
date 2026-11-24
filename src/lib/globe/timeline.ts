@@ -65,7 +65,7 @@ export function buildTimeline(stops: Stop[], options: Pick<GlobeOptions, 'motion
 
     let center: Vec = vecs[0];
     let zoom = zooms[0];
-    let head: Frame['head'] = null;
+    let head: { hop: number; t: number } | null = null;
     const farZoom = (i: number) => {
       const d = dist(i);
       const wide = smoothstep(4, 70, d);
@@ -111,7 +111,7 @@ export function buildTimeline(stops: Stop[], options: Pick<GlobeOptions, 'motion
     }
     const ll = fromVec(center);
     const captionIn = options.caption ? clamp(t / 0.7, 0, 1) * clamp((duration - t) / 0.5 + 0.0001, 0, 1) : 0;
-    return { lon: ll.lon, lat: ll.lat, zoom, routes, pins, glow, photos, head, caption: captionIn, time: t };
+    return { lon: ll.lon, lat: ll.lat, zoom, routes, pins, glow, photos, heads: head ? [head] : [], caption: captionIn, time: t };
   };
 
   return { duration, frameAt };

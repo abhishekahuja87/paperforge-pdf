@@ -21,9 +21,12 @@ export type LineStyle = 'solid' | 'dashed' | 'dotted' | 'glow' | 'rail';
 export type MoverStyle = 'plane' | 'train' | 'car' | 'bus' | 'ship' | 'dot' | 'none';
 export type PinStyle = 'pin' | 'ring';
 export type ArcStyle = 'lifted' | 'flat';
+/** How the stops are joined: one after another (trip), one origin to every other place (fan), or no route at all (places visited). */
+export type Layout = 'chain' | 'fan' | 'visited';
 export type ShapeId = 'reel' | 'wide' | 'square' | 'portrait';
 
 export interface GlobeOptions {
+  layout: Layout;
   styleId: string;
   motion: Motion;
   line: LineStyle;
@@ -58,8 +61,8 @@ export interface Frame {
   pins: number[];
   /** How strongly the countries of the stops are highlighted (0 to 1). */
   glow: number[];
-  /** Position of the moving marker, as the hop it is on and the fraction of that hop. Null when nothing is moving. */
-  head: { hop: number; t: number } | null;
+  /** Moving markers: the hop each is on and the fraction of that hop. Empty when nothing is moving. */
+  heads: { hop: number; t: number }[];
   /** For each stop, how visible its photo is (0 to 1). */
   photos: number[];
   /** Opacity of the caption (0 to 1). */

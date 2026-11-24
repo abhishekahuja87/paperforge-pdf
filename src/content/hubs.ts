@@ -205,7 +205,7 @@ export const HUBS: Hub[] = [
     path: "/audio-and-video-tools",
     collection: "media",
     title: "Free Audio and Video Tools",
-    subtitle: "Cut and join audio files and voice notes, and make a globe video from one place to another, free and without uploading anything.",
+    subtitle: "Cut and join audio files and voice notes, and make a globe video from one place to another or to many places, free and without uploading anything.",
     description: "Free audio and video tools: cut and trim audio, join files, add fades, and make a globe animation video that flies from A to B for Reels, Shorts and YouTube. Runs in your browser.",
     sections: [
       { heading: "What you can do here", paragraphs: [

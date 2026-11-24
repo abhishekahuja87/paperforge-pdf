@@ -38,7 +38,7 @@
         ],
         [
           "Can I add a stop between A and B?",
-          "Yes. You can add up to three stops in between, and the globe visits each one in turn. Each stop can have its own photo, and each leg its own vehicle, for example a plane and then a train."
+          "Yes. You can add up to three stops in between, and the globe visits each one in turn. Each stop can have its own photo, and each leg its own vehicle, for example a plane and then a train. Route type also offers One to many, with lines from one place to up to eleven others, and Places visited, which pins up to twelve places without lines. The Start from an example buttons fill in ready trips."
         ],
         [
           "Can I add my logo, photos or music?",
