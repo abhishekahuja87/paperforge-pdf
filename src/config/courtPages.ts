@@ -4,13 +4,15 @@
  * The text lives in src/locales/packs/sports.en.json (pageGuides, guideSteps, toolArticles).
  * To add a sport: add its copy there, then add a line here. Routes, the static pages and the sitemap follow from this list.
  */
+import type { PageGuideId } from '../lib/usePageGuide';
+
 export interface CourtPage {
   /** Route, for example /kho-kho-court-size. The key in guideSteps and toolArticles is the path without the slash. */
   path: string;
   /** Sport id in src/lib/sports/courtData.ts. */
   sportId: string;
   /** Key in pageGuides for the heading, subtitle and questions. */
-  guideKey: string;
+  guideKey: PageGuideId;
   /** Short name used in links to this page. */
   name: string;
 }
