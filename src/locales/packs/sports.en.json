@@ -75,6 +75,42 @@
         "Share it",
         "Read the points table or the champion, and copy the fixtures to send to the group."
       ]
+    ],
+    "cricket-scorer": [
+      [
+        "Start scoring",
+        "Open the page and you are on the first ball. There are no teams, names or overs to set up."
+      ],
+      [
+        "Tap what happened",
+        "Tap 0, 1, 2, 3, 4 or 6 for runs, or Wicket. For a wide, no-ball, bye or leg bye, pick that button first, then tap the runs."
+      ],
+      [
+        "Watch the figures",
+        "The score, wickets, overs, run rate, balls of this over, extras, fours and sixes and the partnership update after every ball."
+      ],
+      [
+        "Fix mistakes and finish",
+        "Tap Undo last ball if you made a mistake. Under Options you can set the overs, set a target for a chase or start the chase after the first innings."
+      ]
+    ],
+    "quick-scoreboard": [
+      [
+        "Choose the game",
+        "Pick basketball, football, hockey, kabaddi, handball or any other game. The buttons change to suit the game."
+      ],
+      [
+        "Name the sides",
+        "Type over Home and Away to give each side its name."
+      ],
+      [
+        "Tap to score",
+        "Tap +1, +2 or +3 under the side that scored. In basketball you can also count fouls for each side."
+      ],
+      [
+        "Run the clock and finish",
+        "Start the clock, pick the period or half from the list, and tap Undo for a mistake. Show it on a big screen for the crowd."
+      ]
     ]
   },
   "pageGuides": {
@@ -221,6 +257,74 @@
           "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Your teams and results are saved only in this browser. The page still loads fonts, advertising and other resources from the network."
         ]
       ]
+    },
+    "sportsCricketScorer": {
+      "title": "Cricket Scorer: Ball by Ball Scoreboard with Run Rate, Free Hit and Undo",
+      "subtitle": "Score a cricket innings ball by ball with no setup. Tap runs, wickets, wides and no-balls to see the score, overs, run rate and partnership. Free, no sign-up.",
+      "faq": [
+        [
+          "Do I need to set up teams, players or overs?",
+          "No. Open the page and start tapping the result of each ball. Overs, a target and a chase are optional and sit under Options, so a game in the street needs nothing at all."
+        ],
+        [
+          "How are wides and no-balls counted?",
+          "A wide or a no-ball adds 1 run to the total and the ball is not counted, so the over lasts until six fair balls have been bowled. Pick Wide or No-ball first, then tap 0 or the extra runs. After a no-ball the screen shows a free hit."
+        ],
+        [
+          "How do byes and leg byes work?",
+          "Pick Bye or Leg bye, then tap the runs. The runs go to extras and the ball counts as a fair ball."
+        ],
+        [
+          "What does the partnership show?",
+          "It shows the runs, and the number of balls in brackets, scored since the last wicket fell."
+        ],
+        [
+          "Can I score a chase?",
+          "Yes. Under Options set a target and the overs and the screen shows the runs needed, the balls left and the required run rate. You can also tap End innings and start the chase to take the first innings score plus one as the target."
+        ],
+        [
+          "Can I show the score on a bigger screen?",
+          "Yes. Tap Show on a big screen to fill the display with the score. It is available on computers, tablets and many phones, but not on the iPhone, where you can turn the phone sideways or cast the page instead."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. The innings is saved only in this browser, so it is still here if you close the page. Tap New match to clear it. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
+    },
+    "sportsQuickScoreboard": {
+      "title": "Quick Scoreboard: Basketball, Football, Hockey and Kabaddi Score Counter",
+      "subtitle": "A simple scoreboard for basketball, football, hockey, kabaddi, handball or any game, with big score buttons, fouls, a clock and undo. Free, no sign-up.",
+      "faq": [
+        [
+          "Which games does it support?",
+          "Basketball, football, hockey, kabaddi and handball have their own buttons and periods. Any other game gives you +1, +2, +3 and +5 buttons, so it works for almost anything."
+        ],
+        [
+          "What do the buttons add?",
+          "Basketball has +1 for a free throw, +2 for a shot and +3 for a shot from outside the arc. Football, hockey and handball have +1 for a goal. Kabaddi has +1 for a point and +2 for an All Out or a super tackle."
+        ],
+        [
+          "Does it keep time?",
+          "It has a simple clock that you start and pause by hand, and a list of periods such as quarters or halves. It counts up and does not stop or ring by itself, so use it as a guide and follow the official timekeeper."
+        ],
+        [
+          "What if I add a score by mistake?",
+          "Tap Undo last score. It removes one score at a time, as far back as the start of the game."
+        ],
+        [
+          "Can I show it to a crowd?",
+          "Yes. Tap Show on a big screen to fill the display with the scores and the clock. It works on computers, tablets and most Android phones, but not on the iPhone, where you can cast the page instead."
+        ],
+        [
+          "Is the score saved?",
+          "The score, names, fouls and the clock are saved on your device, so they are still here if you close the page. Tap New game to clear them."
+        ],
+        [
+          "Is anything I enter uploaded or stored?",
+          "No. Everything runs in your browser and nothing you enter is sent to {{siteName}}. Nothing is saved anywhere else. The page still loads fonts, advertising and other resources from the network."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -326,6 +430,56 @@
           "paragraphs": [
             "Tell everyone the format and the tie-break rules before the first match, and keep the points table visible. If you are short of courts or time, a single round robin in groups followed by a short knockout is a good way to give every team several matches.",
             "Use the Match Score Keeper for the scores of individual matches, and the Sports Court Guide to mark out the court you need."
+          ]
+        }
+      ]
+    },
+    "cricket-scorer": {
+      "sections": [
+        {
+          "heading": "Scoring with no setup",
+          "paragraphs": [
+            "A full scorecard needs two teams, eleven names each, an overs limit and a lot of patience. Most games, from a gully match to a society tournament, only need the score. This scorer opens ready to go: tap what happened on each ball and the numbers keep up.",
+            "There is nothing to configure and nothing to sign in to. The innings is saved on your phone as you go, so a closed tab or a dead battery in the browser does not lose the match."
+          ]
+        },
+        {
+          "heading": "What it works out for you",
+          "paragraphs": [
+            "From the list of balls the scorer works out the total, the wickets, the overs written the cricket way, the run rate, the extras, the fours and sixes, the balls of the current over and the partnership since the last wicket. If you set the overs it shows how many are left and the score you are on course for at the current rate.",
+            "In a chase it shows the runs needed, the balls left and the required run rate, and tells you when the target has been reached."
+          ]
+        },
+        {
+          "heading": "Getting it right on the field",
+          "paragraphs": [
+            "Choose the kind of ball before the runs, so a no-ball that went for four is No-ball then 4. Wides and no-balls do not count as a ball, which is why the over counter does not move. If you tap the wrong button, Undo takes back one ball at a time.",
+            "Local rules differ, especially in street cricket, so agree beforehand whether a wide or a no-ball counts a run. This scorer follows the standard rule of one run for each."
+          ]
+        }
+      ]
+    },
+    "quick-scoreboard": {
+      "sections": [
+        {
+          "heading": "A scoreboard in one tap",
+          "paragraphs": [
+            "For a school match, a tournament day or a game in the park you often just need two big numbers that everybody can see. This scoreboard has them. Pick the game, tap the big button under the side that scored, and the score changes at once.",
+            "Basketball gets a three-point button and a foul counter for each side, kabaddi gets a two-point button for an All Out, and a plain +1 does for football, hockey and handball. Any other game gets +1, +2, +3 and +5."
+          ]
+        },
+        {
+          "heading": "Clock, periods and undo",
+          "paragraphs": [
+            "A start and pause clock counts up from zero, and a list of periods lets you mark quarters, halves or rounds. The clock is a helper for the scorer and does not replace the official timekeeper, because it does not stop at the end of a period by itself.",
+            "Every score is stored as a list, so Undo removes the last one and the total is worked out again. That makes it safe to tap fast during a busy moment and fix a slip afterwards."
+          ]
+        },
+        {
+          "heading": "Showing it to the crowd",
+          "paragraphs": [
+            "Tap Show on a big screen to fill the display with the scores, the period and the clock. Put a tablet or a laptop on a table, or connect it to a projector or TV, and the whole ground can follow the match. On iPhones the full-screen button is not available, so cast the page or turn the phone sideways.",
+            "If you need a scoreboard for racket sports with games and sets, use the Match Score Keeper. For cricket use the Cricket Scorer."
           ]
         }
       ]

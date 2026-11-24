@@ -17,6 +17,8 @@ const log = await import('../src/lib/fitness/log.ts');
 const cricket = await import('../src/lib/sports/cricket.ts');
 const scoring = await import('../src/lib/sports/scoring.ts');
 const fixtures = await import('../src/lib/sports/fixtures.ts');
+const cs = await import('../src/lib/sports/cricketScoring.ts');
+const quick = await import('../src/lib/sports/quickScore.ts');
 
 const near = (a, b, eps = 0.01) => assert.ok(Math.abs(a - b) <= eps, `${a} is not close to ${b}`);
 let checks = 0;
@@ -125,5 +127,32 @@ ok(() => { const entries = [
   { id: '2', date: '2026-11-08', exerciseId: 'x', sets: [{ weight: 65, reps: 8 }] },
   { id: '3', date: '2026-11-08', exerciseId: 'y', sets: [{ weight: 10, reps: 8 }] }];
   const p = log.progressFor(entries, 'x'); assert.equal(p.length, 2); assert.ok(log.isRecord(p)); assert.equal(log.progressFor(entries, 'y').length, 1); assert.equal(log.isRecord(log.progressFor(entries, 'y')), false); });
+
+// ball by ball cricket
+const B = (kind, runs = 0, wicket = false) => ({ kind, runs, wicket });
+ok(() => { const v = cs.inningsView([B('ok', 1), B('ok', 4), B('ok', 0), B('ok', 6), B('ok', 2), B('ok', 0)]); assert.equal(v.runs, 13); assert.equal(v.overs, '1.0'); assert.equal(v.fours, 1); assert.equal(v.sixes, 1); assert.equal(v.thisOver.length, 6); near(v.runRate, 13); });
+ok(() => { const v = cs.inningsView([B('wd'), B('ok', 1)]); assert.equal(v.runs, 2); assert.equal(v.balls, 1); assert.equal(v.extras, 1); assert.equal(v.overs, '0.1'); });
+ok(() => { const v = cs.inningsView([B('nb', 4)]); assert.equal(v.runs, 5); assert.equal(v.balls, 0); assert.equal(v.fours, 1); assert.equal(v.freeHit, true); assert.equal(cs.inningsView([B('nb'), B('ok', 1)]).freeHit, false); });
+ok(() => { const v = cs.inningsView([B('ok', 2), B('ok', 0, true), B('ok', 1), B('bye', 2)]); assert.equal(v.wickets, 1); assert.equal(v.runs, 5); assert.deepEqual(v.partnership, { runs: 3, balls: 2 }); assert.equal(v.extras, 2); });
+ok(() => assert.equal(cs.ballLabel(B('ok', 0, true)), 'W'));
+ok(() => assert.equal(cs.ballLabel(B('nb', 4)), 'nb+4'));
+ok(() => assert.equal(cs.ballLabel(B('lb', 1)), 'lb1'));
+ok(() => assert.equal(cs.ballLabel(B('wd', 0, true)), 'wdW'));
+ok(() => { const balls = Array.from({ length: 12 }, () => B('ok', 1)); const v = cs.inningsView(balls, 2); assert.equal(v.over, true); assert.equal(v.overs, '2.0'); assert.equal(cs.inningsView(balls.slice(0, 11), 2).over, false); assert.equal(cs.inningsView(balls).over, false); });
+ok(() => { const balls = Array.from({ length: 10 }, () => B('ok', 0, true)); assert.equal(cs.inningsView(balls).over, true); });
+ok(() => { const v = cs.inningsView([B('ok', 1), B('ok', 1), B('ok', 1), B('ok', 1), B('ok', 1), B('ok', 1), B('ok', 4)]); assert.equal(v.thisOver.length, 1); assert.equal(v.overs, '1.1'); });
+ok(() => { const v = cs.inningsView(Array.from({ length: 12 }, () => B('ok', 1))); assert.equal(v.thisOver.length, 6); });
+ok(() => { const v = cs.inningsView(Array.from({ length: 30 }, () => B('ok', 1))); const c = cs.chaseView(v, 50, 10); assert.equal(c.needed, 20); assert.equal(c.ballsLeft, 30); near(c.required, 4); assert.equal(c.won, false); assert.equal(cs.chaseView(v, 30, 10).won, true); });
+ok(() => { const v = cs.inningsView(Array.from({ length: 12 }, () => B('ok', 1))); assert.equal(cs.projected(v, 20), 120); assert.equal(cs.projected(cs.inningsView([B('ok', 1)]), 20), null); });
+
+// quick scoreboard
+ok(() => assert.deepEqual(quick.totals([{ side: 0, points: 2 }, { side: 1, points: 3 }, { side: 0, points: 1 }]), [3, 3]));
+ok(() => assert.equal(quick.leader([3, 3]), null));
+ok(() => assert.equal(quick.leader([2, 3]), 1));
+ok(() => assert.equal(quick.clockText(125), '02:05'));
+ok(() => assert.equal(quick.clockText(3725), '1:02:05'));
+ok(() => assert.equal(quick.elapsed(10, 1000, 6000), 15));
+ok(() => assert.equal(quick.elapsed(10, null, 6000), 10));
+ok(() => assert.equal(quick.gameInfo('nope').id, 'basketball'));
 
 console.log(`${checks} checks passed`);

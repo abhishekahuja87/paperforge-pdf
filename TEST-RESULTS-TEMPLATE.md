@@ -297,3 +297,14 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | R7 | Running Pace Calculator pace, time and distance modes, miles, splits and predictions | | |
 | R8 | Section page, home page, footer and menu show 12 sports and fitness tools | | |
 | R9 | All six pages show guide steps, 7 FAQs and an article, with no horizontal scroll on a phone | | |
+
+### Cricket Scorer and Quick Scoreboard (24 Nov)
+| # | Check | Result | Notes |
+|---|---|---|---|
+| S1 | Cricket Scorer runs, wickets, wides, no-balls (free hit), byes and leg byes score correctly | | |
+| S2 | Overs limit ends the innings, chase target and required rate are right | | |
+| S3 | Undo and reload keep and restore the innings | | |
+| S4 | Quick Scoreboard buttons for each game, fouls, clock, periods and Undo | | |
+| S5 | Big screen button works where supported and is hidden otherwise | | |
+| S6 | Section page, home page, footer and menu show 14 sports and fitness tools | | |
+| S7 | Both pages show guide steps, 7 FAQs and an article, with no horizontal scroll on a phone | | |

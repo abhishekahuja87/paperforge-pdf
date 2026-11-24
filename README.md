@@ -228,6 +228,13 @@ The Sports and fitness section now has 12 tools. Counts on the home page, footer
 - `scripts/check-sports-fitness-logic.mjs` checks the maths of all six (`node --experimental-strip-types scripts/check-sports-fitness-logic.mjs`).
 - Shared button and chip styles for these tools are in `components/tools/shared/toolStyles.ts`.
 
+### Cricket Scorer and Quick Scoreboard (24 Nov)
+The Sports and fitness section now has 14 tools (counts are computed from `COLLECTIONS`; the hand-written texts were updated).
+- `cricket-scorer` (sports pack, `CricketScorer.tsx`, logic in `lib/sports/cricketScoring.ts`): no setup, ball by ball. The innings is the list of balls (`ok`, `wd`, `nb`, `bye`, `lb`, with runs and a wicket flag), so undo removes the last ball and every figure is recomputed. Wides and no-balls add 1 and are not legal balls; a no-ball makes the next ball a free hit. Options (hidden): overs limit, target, start the chase. Saved under `mdu-cricket-scorer-v1`.
+- `quick-scoreboard` (sports pack, `QuickScoreboard.tsx`, `lib/sports/quickScore.ts`): preset games (basketball, football, hockey, kabaddi, handball, any) with their own +N buttons and periods, fouls for basketball, a start and pause clock. Saved under `mdu-quick-scoreboard-v1`. If the clock was running when the page closed it keeps counting from its start time.
+- `components/tools/shared/FullscreenButton.tsx` shows the board fullscreen (hidden on iPhone, which cannot).
+- `scripts/check-sports-fitness-logic.mjs` now has 90 checks.
+
 ### Big-screen tools (`screens` pack)
 
 Twelve tools in `config/packs/screens.ts` (the original eight plus `spinner-wheel-display`, `lucky-draw-display`, `team-scoreboard-display` and `classroom-seating-plan-display`; their screens are `SpinnerWheel.tsx`, `LuckyDraw.tsx`, `Scoreboard.tsx`, `SeatingPlan.tsx`, logic in `lib/screens/{wheel,draw,scores,seating}.ts`, saved in `mdu-wheel-v1`, `mdu-draw-v1`, `mdu-scores-v1`, `mdu-seating-v1`). The random name picker (`toolkit` pack) can also open on the big screen through `ScreenShell`. Original eight (the routine tool is `step-by-step-routine-display`, formerly the yoga display; its screen is `RoutineDisplay.tsx` and it can add steps from the Exercise Library through `shared/ExercisePicker.tsx`) (text in `locales/packs/screens*.json`, screens in `components/tools/screens/`, registry `registry.ts`): Interval and Circuit Timer, Step-by-Step Routine Display, Exam Hall Display, Menu and Price Board Display, Queue Token Display, Daily Timings Board, Spelling and Vocabulary Bee Display, Notice and Greeting Board Display. All use category `display` and are listed in the Display collection (`present`) and on the Display topic page.
