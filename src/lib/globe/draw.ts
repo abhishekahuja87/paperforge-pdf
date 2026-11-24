@@ -1,4 +1,4 @@
-import { angleBetween, clamp, easeInOut, project, slerp, toVec, viewAt, type Projected, type Vec, type View } from './geo';
+import { angleBetween, clamp, easeInOut, project, slerp, smoothstep, toVec, viewAt, type Projected, type Vec, type View } from './geo';
 import type { GlobeStyle } from './styles';
 import type { Frame, GlobeOptions, Stop } from './types';
 import type { Ring, World } from './world';
@@ -11,13 +11,23 @@ export interface DrawInput {
   stops: Stop[];
   world: World;
   style: GlobeStyle;
-  options: Pick<GlobeOptions, 'line' | 'arc' | 'mover' | 'pin' | 'highlight' | 'labels' | 'caption'>;
+  options: Pick<GlobeOptions, 'line' | 'arc' | 'mover' | 'pin' | 'highlight' | 'labels' | 'caption'> & Partial<Pick<GlobeOptions, 'legMovers' | 'routeColor' | 'distance' | 'night' | 'logoCorner' | 'logoSize'>>;
+  /** A picture for each stop (or null), shown when the trip is at that stop. */
+  photos?: (CanvasImageSource | null)[];
+  /** A logo for a corner of the video. */
+  logo?: CanvasImageSource | null;
   /** Draw the route, pins, labels and caption. False gives a plain globe, for style previews. */
   overlay?: boolean;
 }
 
 const TAU = Math.PI * 2;
 const FONT = '"Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif';
+
+/** The vehicle on a hop: its own choice, or the general one. */
+const moverFor = (options: DrawInput['options'], hop: number): GlobeOptions['mover'] => { const own = options.legMovers?.[hop]; return own && own !== 'same' ? own : options.mover; };
+/** A plane flies on a lifted arc and other vehicles go flat, unless one general vehicle is used and the arc is set by hand. */
+const liftedFor = (options: DrawInput['options'], hop: number) => { const own = options.legMovers?.[hop]; return own && own !== 'same' ? own === 'plane' : options.arc === 'lifted'; };
+const colourOf = (input: DrawInput) => input.options.routeColor || input.style.route;
 
 interface Screen { cx: number; cy: number; r: number; view: View; unit: number }
 
@@ -216,6 +226,42 @@ function drawBody(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   }
 }
 
+let nightCanvas: HTMLCanvasElement | null = null;
+
+/** Darkens the half of the world that faces away from the sun. The sun stays fixed in the world, above the start of the trip, so the line between day and night does not move with the camera. The shading is worked out on a small picture and scaled up, which also makes the edge soft. */
+function drawNight(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
+  const sun = toVec(input.stops[0].lon + 20, 14);
+  const cell = Math.max(4, Math.round(s.unit / 130));
+  const x0 = Math.max(0, s.cx - s.r), y0 = Math.max(0, s.cy - s.r), x1 = Math.min(input.width, s.cx + s.r), y1 = Math.min(input.height, s.cy + s.r);
+  const cols = Math.max(1, Math.ceil((x1 - x0) / cell)), rows = Math.max(1, Math.ceil((y1 - y0) / cell));
+  if (!nightCanvas) nightCanvas = document.createElement('canvas');
+  if (nightCanvas.width !== cols || nightCanvas.height !== rows) { nightCanvas.width = cols; nightCanvas.height = rows; }
+  const nctx = nightCanvas.getContext('2d');
+  if (!nctx) return;
+  const image = nctx.createImageData(cols, rows);
+  const { east, north, out } = s.view;
+  for (let j = 0; j < rows; j++) {
+    const y = (s.cy - (y0 + (j + 0.5) * cell)) / s.r;
+    for (let i = 0; i < cols; i++) {
+      const x = (x0 + (i + 0.5) * cell - s.cx) / s.r;
+      const rr = x * x + y * y;
+      if (rr >= 1) continue;
+      const z = Math.sqrt(1 - rr);
+      const px = x * east[0] + y * north[0] + z * out[0], py = x * east[1] + y * north[1] + z * out[1], pz = x * east[2] + y * north[2] + z * out[2];
+      const light = px * sun[0] + py * sun[1] + pz * sun[2];
+      const k = clamp((0.12 - light) / 0.26, 0, 1);
+      const night = k * k * (3 - 2 * k);
+      const at = (j * cols + i) * 4;
+      image.data[at] = 4; image.data[at + 1] = 8; image.data[at + 2] = 28; image.data[at + 3] = Math.round(night * 0.8 * 255);
+    }
+  }
+  nctx.putImageData(image, 0, 0);
+  ctx.save();
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(nightCanvas, x0, y0, cols * cell, rows * cell);
+  ctx.restore();
+}
+
 function drawGlobe(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   const { style } = input;
   const lightX = s.cx - s.r * 0.32, lightY = s.cy - s.r * 0.38;
@@ -232,6 +278,7 @@ function drawGlobe(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   ctx.fillStyle = ocean; ctx.fillRect(s.cx - s.r, s.cy - s.r, s.r * 2, s.r * 2);
   if (style.graticule) drawGraticule(ctx, s, style.graticule);
   drawBody(ctx, input, s);
+  if (input.options.night && input.stops.length) drawNight(ctx, input, s);
   if (style.shading > 0) {
     const shade = ctx.createRadialGradient(lightX, lightY, s.r * 0.35, s.cx, s.cy, s.r * 1.12);
     shade.addColorStop(0, 'rgba(255,255,255,0.10)'); shade.addColorStop(0.45, 'rgba(0,0,0,0)'); shade.addColorStop(1, `rgba(0,0,0,${0.62 * style.shading})`);
@@ -282,34 +329,35 @@ function strokeSegments(ctx: CanvasRenderingContext2D, s: Screen, points: { v: V
 }
 
 function drawRoute(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
-  const { stops, frame, style, options } = input;
-  const lifted = options.arc === 'lifted';
+  const { stops, frame, options } = input;
   const width = Math.max(1.6, s.unit * 0.0062);
+  const route = colourOf(input);
   ctx.save();
   ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   for (let i = 0; i < stops.length - 1; i++) {
     const progress = frame.routes[i] ?? 0;
     if (progress <= 0.001) continue;
     const a = toVec(stops[i].lon, stops[i].lat), b = toVec(stops[i + 1].lon, stops[i + 1].lat);
+    const lifted = liftedFor(options, i);
     const points = hopPoints(a, b, progress, lifted);
-    ctx.strokeStyle = style.route;
+    ctx.strokeStyle = route;
     if (options.line === 'rail') {
       // sleepers (short wide dashes) with two thin rails on top
       ctx.globalAlpha = 0.25; ctx.strokeStyle = '#000000'; ctx.lineWidth = width * 2.6; strokeSegments(ctx, s, points);
-      ctx.globalAlpha = 1; ctx.strokeStyle = style.route; ctx.lineWidth = width * 2.3; ctx.setLineDash([width * 0.55, width * 1.35]); strokeSegments(ctx, s, points);
+      ctx.globalAlpha = 1; ctx.strokeStyle = route; ctx.lineWidth = width * 2.3; ctx.setLineDash([width * 0.55, width * 1.35]); strokeSegments(ctx, s, points);
       ctx.setLineDash([]); ctx.strokeStyle = '#ffffff'; ctx.lineWidth = width * 1.05; strokeSegments(ctx, s, points);
-      ctx.strokeStyle = style.route; ctx.lineWidth = width * 0.4; strokeSegments(ctx, s, points);
+      ctx.strokeStyle = route; ctx.lineWidth = width * 0.4; strokeSegments(ctx, s, points);
     } else if (options.line === 'glow') {
       ctx.globalAlpha = 0.16; ctx.lineWidth = width * 4.2; strokeSegments(ctx, s, points);
       ctx.globalAlpha = 0.3; ctx.lineWidth = width * 2.4; strokeSegments(ctx, s, points);
       ctx.globalAlpha = 1; ctx.lineWidth = width; ctx.strokeStyle = '#ffffff'; ctx.globalAlpha = 0.9; strokeSegments(ctx, s, points);
-      ctx.strokeStyle = style.route; ctx.globalAlpha = 0.85; ctx.lineWidth = width * 0.8; strokeSegments(ctx, s, points);
+      ctx.strokeStyle = route; ctx.globalAlpha = 0.85; ctx.lineWidth = width * 0.8; strokeSegments(ctx, s, points);
       ctx.globalAlpha = 1;
     } else {
       // soft dark underline so the line stays readable on any land colour
       ctx.setLineDash([]); ctx.globalAlpha = 0.2; ctx.strokeStyle = '#000000'; ctx.lineWidth = width * 1.7;
       if (options.line === 'solid') strokeSegments(ctx, s, points);
-      ctx.globalAlpha = 1; ctx.strokeStyle = style.route; ctx.lineWidth = width;
+      ctx.globalAlpha = 1; ctx.strokeStyle = route; ctx.lineWidth = width;
       if (options.line === 'dashed') ctx.setLineDash([width * 3.4, width * 2.2]);
       else if (options.line === 'dotted') { ctx.setLineDash([0.01, width * 2.4]); ctx.lineWidth = width * 1.25; }
       strokeSegments(ctx, s, points);
@@ -317,6 +365,34 @@ function drawRoute(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
     }
   }
   ctx.restore();
+}
+
+const EARTH_KM = 6371;
+const formatDistance = (km: number, unit: 'km' | 'mi') => { const value = unit === 'mi' ? km * 0.621371 : km; const rounded = value >= 100 ? Math.round(value / 10) * 10 : Math.round(value); return `${rounded.toLocaleString('en-US')} ${unit}`; };
+
+/** The length of each finished hop, in a small label on the middle of the line. */
+function drawDistances(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
+  const { stops, frame, options } = input;
+  if (!options.distance || options.distance === 'off') return;
+  for (let i = 0; i < stops.length - 1; i++) {
+    const alpha = smoothstep(0.55, 0.95, frame.routes[i] ?? 0);
+    if (alpha <= 0.01) continue;
+    const a = toVec(stops[i].lon, stops[i].lat), b = toVec(stops[i + 1].lon, stops[i + 1].lat);
+    const angle = angleBetween(a, b);
+    const lift = liftedFor(options, i) ? 1 + (0.07 + 0.16 * clamp(angle / Math.PI, 0, 1)) : 1;
+    const p = project(slerp(a, b, 0.5), s.view, lift);
+    if (p.depth < 0.1) continue;
+    const [x, y] = toScreen(s, p);
+    const text = formatDistance(angle * EARTH_KM, options.distance);
+    const size = Math.max(10, s.unit * 0.028);
+    ctx.save();
+    ctx.globalAlpha = alpha; ctx.font = `700 ${size}px ${FONT}`; ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+    const w = ctx.measureText(text).width + size * 1.1, h = size * 1.6;
+    ctx.shadowColor = 'rgba(0,0,0,0.35)'; ctx.shadowBlur = size * 0.4; ctx.shadowOffsetY = size * 0.12;
+    ctx.fillStyle = colourOf(input); roundRect(ctx, x - w / 2, y - size * 1.2 - h / 2, w, h, h / 2); ctx.fill();
+    ctx.shadowColor = 'transparent'; ctx.fillStyle = '#ffffff'; ctx.fillText(text, x, y - size * 1.2 + size * 0.04);
+    ctx.restore();
+  }
 }
 
 function planePath(ctx: CanvasRenderingContext2D) {
@@ -350,12 +426,15 @@ function vehicle(ctx: CanvasRenderingContext2D, kind: 'train' | 'car' | 'bus' | 
 }
 
 function drawMover(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
-  const { stops, frame, style, options } = input;
-  if (!frame.head || options.mover === 'none') return;
+  const { stops, frame, options } = input;
+  if (!frame.head) return;
   const { hop, t } = frame.head;
+  const mover = moverFor(options, hop);
+  if (mover === 'none') return;
+  const route = colourOf(input);
   const a = toVec(stops[hop].lon, stops[hop].lat), b = toVec(stops[hop + 1].lon, stops[hop + 1].lat);
   const angle = angleBetween(a, b);
-  const lifted = options.arc === 'lifted';
+  const lifted = liftedFor(options, hop);
   const height = lifted ? 0.07 + 0.16 * clamp(angle / Math.PI, 0, 1) : 0;
   const at = (u: number) => project(slerp(a, b, u), s.view, 1 + height * Math.sin(Math.PI * u));
   const p = at(t), q = at(Math.min(1, t + 0.01)), o = at(Math.max(0, t - 0.01));
@@ -366,21 +445,21 @@ function drawMover(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
   const size = Math.max(7, s.unit * 0.026);
   ctx.save();
   ctx.translate(x, y);
-  if (options.mover === 'plane') {
+  if (mover === 'plane') {
     ctx.rotate(heading);
     ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = size * 0.5; ctx.shadowOffsetY = size * 0.25;
     ctx.scale(size, size); planePath(ctx);
     ctx.fillStyle = '#ffffff'; ctx.fill();
-    ctx.shadowColor = 'transparent'; ctx.lineWidth = 0.07; ctx.strokeStyle = style.route; ctx.stroke();
-  } else if (options.mover === 'train' || options.mover === 'car' || options.mover === 'bus' || options.mover === 'ship') {
+    ctx.shadowColor = 'transparent'; ctx.lineWidth = 0.07; ctx.strokeStyle = route; ctx.stroke();
+  } else if (mover === 'train' || mover === 'car' || mover === 'bus' || mover === 'ship') {
     ctx.rotate(heading);
     ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = size * 0.45; ctx.shadowOffsetY = size * 0.2;
-    const grow = options.mover === 'train' ? 1.6 : options.mover === 'bus' ? 1.4 : options.mover === 'car' ? 1.3 : 1.15;
-    ctx.scale(size * grow, size * grow); vehicle(ctx, options.mover, style.route);
+    const grow = mover === 'train' ? 1.6 : mover === 'bus' ? 1.4 : mover === 'car' ? 1.3 : 1.15;
+    ctx.scale(size * grow, size * grow); vehicle(ctx, mover, route);
   } else {
-    ctx.fillStyle = style.route; ctx.globalAlpha = 0.28; ctx.beginPath(); ctx.arc(0, 0, size * 0.95, 0, TAU); ctx.fill();
+    ctx.fillStyle = route; ctx.globalAlpha = 0.28; ctx.beginPath(); ctx.arc(0, 0, size * 0.95, 0, TAU); ctx.fill();
     ctx.globalAlpha = 1; ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(0, 0, size * 0.42, 0, TAU); ctx.fill();
-    ctx.strokeStyle = style.route; ctx.lineWidth = size * 0.16; ctx.stroke();
+    ctx.strokeStyle = route; ctx.lineWidth = size * 0.16; ctx.stroke();
   }
   ctx.restore();
 }
@@ -393,9 +472,11 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
   ctx.closePath();
 }
 
-function drawPins(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
+/** Draws the pins and names. Returns, for each stop, where its photo can be placed: the point above the name (or below the pin when there is no room above). */
+function drawPins(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen): ({ x: number; top: number; bottom: number } | null)[] {
   const { stops, frame, style, options, width: w, height: h } = input;
   const unit = s.unit;
+  const anchors: ({ x: number; top: number; bottom: number } | null)[] = stops.map(() => null);
   stops.forEach((stop, i) => {
     const pop = clamp(frame.pins[i] ?? 0, 0, 1);
     if (pop <= 0) return;
@@ -429,6 +510,7 @@ function drawPins(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
       ctx.fillStyle = style.pin; ctx.beginPath(); ctx.arc(x, y, r * 0.55, 0, TAU); ctx.fill();
       labelY = y - r * 1.4;
     }
+    let topOfStop = labelY;
     if (options.labels && stop.label) {
       const size = Math.max(11, unit * 0.034);
       ctx.font = `700 ${size}px ${FONT}`;
@@ -444,9 +526,54 @@ function drawPins(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
       ctx.shadowColor = 'transparent';
       ctx.fillStyle = style.labelText; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
       ctx.fillText(stop.label, bx + padX, by + boxH / 2 + size * 0.04);
+      topOfStop = by;
     }
+    anchors[i] = { x, top: topOfStop, bottom: y + r * 1.8 };
     ctx.restore();
   });
+  return anchors;
+}
+
+/** A photo with a white border, above the name of the stop it belongs to. */
+function drawPhotos(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen, anchors: ({ x: number; top: number; bottom: number } | null)[]) {
+  const { frame, photos, width: w, height: h } = input;
+  if (!photos) return;
+  photos.forEach((photo, i) => {
+    const alpha = clamp(frame.photos[i] ?? 0, 0, 1);
+    const at = anchors[i];
+    if (!photo || !at || alpha <= 0.01) return;
+    const iw = (photo as { width?: number; videoWidth?: number }).width || 1, ih = (photo as { height?: number }).height || 1;
+    const box = s.unit * 0.32;
+    const scale = Math.min(box / iw, box / ih);
+    const pw = iw * scale, ph = ih * scale, border = s.unit * 0.012;
+    const cw = pw + border * 2, ch = ph + border * 2;
+    const gap = s.unit * 0.02;
+    let cy = at.top - gap - ch;
+    if (cy < s.unit * 0.03) cy = at.bottom + gap;
+    cy = clamp(cy, s.unit * 0.02, h - ch - s.unit * 0.02);
+    const cx = clamp(at.x - cw / 2, s.unit * 0.02, w - cw - s.unit * 0.02);
+    const grow = 0.9 + 0.1 * easeOutBack(alpha);
+    ctx.save();
+    ctx.globalAlpha = alpha; ctx.translate(cx + cw / 2, cy + ch / 2); ctx.scale(grow, grow); ctx.rotate((i % 2 ? 1 : -1) * 0.025);
+    ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = s.unit * 0.025; ctx.shadowOffsetY = s.unit * 0.008;
+    ctx.fillStyle = '#ffffff'; roundRect(ctx, -cw / 2, -ch / 2, cw, ch, border * 1.4); ctx.fill();
+    ctx.shadowColor = 'transparent';
+    ctx.save(); roundRect(ctx, -pw / 2, -ph / 2, pw, ph, border * 0.8); ctx.clip(); ctx.drawImage(photo, -pw / 2, -ph / 2, pw, ph); ctx.restore();
+    ctx.restore();
+  });
+}
+
+/** The person's logo in a corner of the video. */
+function drawLogo(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
+  const { logo, options, width: w, height: h } = input;
+  if (!logo) return;
+  const iw = (logo as { width?: number }).width || 1, ih = (logo as { height?: number }).height || 1;
+  const box = s.unit * (options.logoSize === 'small' ? 0.1 : options.logoSize === 'large' ? 0.22 : 0.15);
+  const scale = Math.min(box / iw, box / ih);
+  const lw = iw * scale, lh = ih * scale, margin = s.unit * 0.035;
+  const corner = options.logoCorner ?? 'br';
+  const x = corner.endsWith('l') ? margin : w - margin - lw, y = corner.startsWith('t') ? margin : h - margin - lh;
+  ctx.save(); ctx.globalAlpha = 0.95; ctx.imageSmoothingQuality = 'high'; ctx.drawImage(logo, x, y, lw, lh); ctx.restore();
 }
 
 function drawCaption(ctx: CanvasRenderingContext2D, input: DrawInput, s: Screen) {
@@ -491,9 +618,12 @@ export function renderGlobe(ctx: CanvasRenderingContext2D, input: DrawInput) {
   drawGlobe(ctx, input, s);
   if (input.overlay === false) return;
   drawRoute(ctx, input, s);
+  drawDistances(ctx, input, s);
   drawMover(ctx, input, s);
-  drawPins(ctx, input, s);
+  const anchors = drawPins(ctx, input, s);
+  drawPhotos(ctx, input, s, anchors);
   drawCaption(ctx, input, s);
+  drawLogo(ctx, input, s);
 }
 
 export { easeInOut };

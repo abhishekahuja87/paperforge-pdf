@@ -115,5 +115,47 @@
   "moreFailed": "Could not load more places. Check your connection and try again.",
   "highlightCountryOf": "Highlight {country}",
   "moverNote": "Train, car, bus and ship follow the straight curved line between the two places, not real tracks, roads or sea routes. The video is an illustration of the trip.",
-  "credit": "Place names: GeoNames (CC BY 4.0) and Natural Earth. Borders of India as shown by India."
+  "credit": "Place names: GeoNames (CC BY 4.0) and Natural Earth. Borders of India as shown by India.",
+  "addPhoto": "Add a photo",
+  "changePhoto": "Change photo",
+  "removePhoto": "Remove photo",
+  "photoFailed": "That picture could not be read. Try a JPG or PNG.",
+  "perLeg": "Vehicle for each leg",
+  "sameVehicle": "Same as above",
+  "routeColour": "Route colour",
+  "lookColour": "Look's colour",
+  "distance": "Distance label",
+  "distances": {
+    "off": "Off",
+    "km": "Kilometres",
+    "mi": "Miles"
+  },
+  "night": "Show night on the globe",
+  "nightHint": "Shades the side of the world facing away from the sun.",
+  "brandMusic": "Your logo and music",
+  "logo": "Logo in a corner",
+  "addLogo": "Add a logo",
+  "changeLogo": "Change logo",
+  "removeLogo": "Remove logo",
+  "logoCorner": "Logo corner",
+  "corners": {
+    "tl": "Top left",
+    "tr": "Top right",
+    "bl": "Bottom left",
+    "br": "Bottom right"
+  },
+  "logoSize": "Logo size",
+  "logoSizes": {
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large"
+  },
+  "music": "Music",
+  "addMusic": "Add music",
+  "changeMusic": "Change music",
+  "removeMusic": "Remove music",
+  "volume": "Volume",
+  "musicFailed": "That audio file could not be read. Try an MP3, M4A or WAV file.",
+  "musicHint": "Use music you have the right to use. It fades in and out and repeats if it is shorter than the video. Photos, logo and music are not saved between visits.",
+  "musicQuick": "This browser cannot add music in Smooth mode, so a video with music is recorded in real time instead. Keep the page open and expect it to take as long as the video."
 }

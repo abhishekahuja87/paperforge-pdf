@@ -1,4 +1,4 @@
-import { writeMp4, type Mp4Sample } from './mp4';
+import { writeMp4, type Mp4Audio, type Mp4Sample } from './mp4';
 import { videoBitrate } from './record';
 
 /** True when the browser can encode H.264 frame by frame (Chrome, Edge and recent Safari). Checked for the real size, because limits depend on it. */
@@ -24,6 +24,8 @@ export interface EncodeJob {
   paint: (seconds: number) => void;
   onProgress: (fraction: number) => void;
   signal: AbortSignal;
+  /** Sound to put in the file, already encoded. */
+  audio?: Mp4Audio;
 }
 
 /**
@@ -65,7 +67,7 @@ export async function encodeOffline(job: EncodeJob): Promise<{ blob: Blob; frame
     await encoder.flush();
     if (failure) throw failure;
     if (!description || samples.length === 0) throw new Error('Encoding failed.');
-    return { blob: new Blob([writeMp4(samples, description, canvas.width, canvas.height, fps) as BlobPart], { type: 'video/mp4' }), frames: samples.length };
+    return { blob: new Blob([writeMp4(samples, description, canvas.width, canvas.height, fps, job.audio) as BlobPart], { type: 'video/mp4' }), frames: samples.length };
   } finally {
     try { encoder.close(); } catch { /* already closed */ }
   }

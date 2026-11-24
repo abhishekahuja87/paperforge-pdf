@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-24',
     path: '/globe-video-maker',
     tool: 'Globe Video Maker',
+    title: 'Photos at stops, your logo, music, distance labels, route colours and a night side',
+    summary: 'Add a photo to any stop, a logo in a corner and music from your own file. Show the distance of each leg, pick the route colour, choose a different vehicle for each leg and shade the night side of the globe.',
+  },
+  {
+    date: '2026-11-24',
+    path: '/globe-video-maker',
+    tool: 'Globe Video Maker',
     title: 'Train, car, bus and ship markers, thousands more towns, and country highlight for cities',
     summary: 'Pick a train, car, bus or ship instead of a plane, with a railway line. If a town is not found, tap Search more places to look through about 170,000 towns, including thousands in India. Old names like Bombay and Bangalore work. A tick box under a city highlights its country.',
   },

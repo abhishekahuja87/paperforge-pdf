@@ -38,19 +38,19 @@
         ],
         [
           "Can I add a stop between A and B?",
-          "Yes. You can add up to three stops in between, for example a stopover, and the globe visits each one in turn."
+          "Yes. You can add up to three stops in between, and the globe visits each one in turn. Each stop can have its own photo, and each leg its own vehicle, for example a plane and then a train."
+        ],
+        [
+          "Can I add my logo, photos or music?",
+          "Yes. Add a photo to any stop, a logo in any corner, and music from a file on your device. The music fades in and out and repeats if it is short. Use music you have the right to use. Photos, logo and music stay on your device and are not saved between visits."
         ],
         [
           "Which video shapes does it make?",
-          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts, at 720p or 1080p."
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 for square posts and 4:5 for feed posts, at 720p or 1080p. It saves MP4 when your browser can make it, and WebM otherwise. MP4 works in Instagram, WhatsApp and most apps; if an app does not accept WebM, try Chrome on a computer or a recent Android phone."
         ],
         [
           "How long does it take, and is it smooth on my phone?",
           "In Smooth mode every frame is drawn one by one, so a fast phone finishes in about the length of the video and a slower one takes longer. Quick mode records in real time. Keep the page open and the screen on either way. Smooth mode draws every frame, so the video is smooth even when the phone is slow; it just takes longer to make. 720p is faster on older phones. If your browser cannot do this, the tool records in real time instead."
-        ],
-        [
-          "Does it save MP4?",
-          "It saves MP4 when your browser can make it, and WebM otherwise. MP4 works in Instagram, WhatsApp and most apps; if an app does not accept WebM, try Chrome on a computer or a recent Android phone."
         ],
         [
           "Is anything uploaded anywhere?",
@@ -74,7 +74,8 @@
           "paragraphs": [
             "Six globe looks cover a dark night globe, a natural earth, a bright day map, a neon outline, a dotted globe and a paper style. The camera can fly out and back in, spin while it travels or zoom steadily. The route can be solid, dashed, dotted or glowing, lifted above the globe or flat on it.",
             "Countries can be highlighted and place names can be hidden or renamed. Videos come as 9:16, 16:9, 1:1 or 4:5, at 720p or 1080p, from 5 to 30 seconds long.",
-            "The moving marker can be a plane, train, car, bus or ship, and the line can look like a railway. Vehicles follow the straight curved line between the two places, not real tracks, roads or sea routes, so the video is an illustration of the trip. For a city you can also colour its whole country."
+            "The moving marker can be a plane, train, car, bus or ship, and the line can look like a railway. Vehicles follow the straight curved line between the two places, not real tracks, roads or sea routes, so the video is an illustration of the trip. For a city you can also colour its whole country.",
+            "You can add a photo to any stop, a logo in a corner, and music from your own files. A distance label shows the length of each leg in kilometres or miles, the route can be any colour, each leg can have its own vehicle, and the night side of the world can be shaded."
           ]
         },
         {

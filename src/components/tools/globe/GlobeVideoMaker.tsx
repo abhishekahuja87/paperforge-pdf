@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDown, ArrowUp, Image as ImageIcon, Pause, Play, Plus, Trash2, Video } from 'lucide-react';
+import { ArrowDown, ArrowUp, Image as ImageIcon, Music as MusicIcon, Pause, Play, Plus, Trash2, Video } from 'lucide-react';
 import { Note } from '../../finance/ui';
 import { ChoiceButtons, fieldClass } from '../utilities/common';
 import { Toggle, card, heading } from '../paper/controls';
@@ -12,11 +12,12 @@ import rawPlaces from '../../../data/globe/places.json';
 import ui from '../../../locales/packs/globe.ui.en.json';
 import { decodeWorld, type RawWorld, type RawPlaces } from '../../../lib/globe/world';
 import { loadMorePlaces, searchMore, shardLetter } from '../../../lib/globe/morePlaces';
-import { buildPlaces, parseCoordinates, searchPlaces, shortName, stopFromCoordinates, stopFromPlace, type PlaceEntry } from '../../../lib/globe/places';
+import { buildPlaces, normalise, parseCoordinates, searchPlaces, shortName, stopFromCoordinates, stopFromPlace, type PlaceEntry } from '../../../lib/globe/places';
 import { GLOBE_STYLES, styleById } from '../../../lib/globe/styles';
 import { buildTimeline } from '../../../lib/globe/timeline';
 import { renderGlobe } from '../../../lib/globe/draw';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
+import { canEncodeAac, encodeAac, readMusic, renderMusic, type Music } from '../../../lib/globe/audio';
 import { canEncodeOffline, encodeOffline } from '../../../lib/globe/encode';
 import type { GlobeOptions, ShapeId, Stop } from '../../../lib/globe/types';
 
@@ -25,7 +26,28 @@ const MAX_STOPS = 5;
 
 interface Saved { stops: Stop[]; options: GlobeOptions; shape: ShapeId; quality: 720 | 1080; fps: 30 | 60; mode: 'smooth' | 'quick' }
 
-const DEFAULT_OPTIONS: GlobeOptions = { styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10 };
+const DEFAULT_OPTIONS: GlobeOptions = { styleId: 'earth', motion: 'fly', line: 'glow', arc: 'lifted', mover: 'plane', pin: 'pin', highlight: true, labels: true, caption: '', seconds: 10, legMovers: [], routeColor: '', distance: 'off', night: false, logoCorner: 'br', logoSize: 'medium' };
+const ROUTE_COLOURS = ['#f97316', '#ef4444', '#ec4899', '#a855f7', '#22c55e', '#14b8a6', '#eab308', '#ffffff'];
+
+/** A small copy of a picture for the settings screen, made once so it is not redone on every frame of the preview. */
+function thumbnail(source: HTMLCanvasElement): string {
+  const scale = Math.min(1, 96 / Math.max(source.width, source.height));
+  const small = document.createElement('canvas');
+  small.width = Math.max(1, Math.round(source.width * scale)); small.height = Math.max(1, Math.round(source.height * scale));
+  small.getContext('2d')!.drawImage(source, 0, 0, small.width, small.height);
+  return small.toDataURL('image/png');
+}
+
+/** Reads a picture file into a canvas no larger than `max` pixels on its longest side. */
+async function readPicture(file: File, max: number): Promise<HTMLCanvasElement> {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, max / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(1, Math.round(bitmap.width * scale)); canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+  canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  bitmap.close();
+  return canvas;
+}
 
 const world = decodeWorld(rawWorld as unknown as RawWorld);
 const places = buildPlaces(world, rawPlaces as unknown as RawPlaces);
@@ -45,8 +67,9 @@ function load(): Saved {
 }
 
 /** One place picker: search box with suggestions, plus the name shown on the video. */
-const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) => void; onRemove?: () => void }> = ({ title, stop, onChange, onRemove }) => {
+const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) => void; onRemove?: () => void; photo: HTMLCanvasElement | null; onPhoto: (file: File | null) => void }> = ({ title, stop, onChange, onRemove, photo, onPhoto }) => {
   const [query, setQuery] = useState('');
+  const photoThumb = useMemo(() => (photo ? thumbnail(photo) : ''), [photo]);
   const [open, setOpen] = useState(false);
   const [extra, setExtra] = useState<{ letter: string; list: PlaceEntry[] } | null>(null);
   const [loading, setLoading] = useState(false);
@@ -96,6 +119,16 @@ const StopEditor: React.FC<{ title: string; stop: Stop; onChange: (stop: Stop) =
       <label className="mt-2 block text-xs font-semibold text-slate-700">{ui.labelOnVideo}
         <input value={stop.label} maxLength={40} onChange={(event) => onChange({ ...stop, label: event.target.value })} className={fieldClass} />
       </label>
+      <div className="mt-2 flex flex-wrap items-center gap-2">
+        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50">
+          <ImageIcon className="h-4 w-4" aria-hidden="true" />{photo ? ui.changePhoto : ui.addPhoto}
+          <input type="file" accept="image/*" className="sr-only" onChange={(event) => { const file = event.target.files?.[0] ?? null; event.target.value = ''; if (file) onPhoto(file); }} />
+        </label>
+        {photo && <>
+          <img src={photoThumb} alt="" className="h-11 w-11 rounded-lg border border-slate-200 object-cover" />
+          <button type="button" onClick={() => onPhoto(null)} className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50">{ui.removePhoto}</button>
+        </>}
+      </div>
     </div>
   );
 };
@@ -106,7 +139,7 @@ const StyleThumb: React.FC<{ id: string; chosen: boolean; onPick: () => void }> 
   useEffect(() => {
     const canvas = ref.current; const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
-    renderGlobe(ctx, { width: 96, height: 96, frame: { lon: 20, lat: 20, zoom: 1.05, routes: [], pins: [], glow: [], head: null, caption: 0, time: 0 }, stops: [], world, style: styleById(id), options: { line: 'solid', arc: 'lifted', mover: 'none', pin: 'pin', highlight: false, labels: false, caption: '' }, overlay: false });
+    renderGlobe(ctx, { width: 96, height: 96, frame: { lon: 20, lat: 20, zoom: 1.05, routes: [], pins: [], glow: [], photos: [], head: null, caption: 0, time: 0 }, stops: [], world, style: styleById(id), options: { line: 'solid', arc: 'lifted', mover: 'none', pin: 'pin', highlight: false, labels: false, caption: '' }, overlay: false });
   }, [id]);
   return (
     <button type="button" aria-pressed={chosen} onClick={onPick} className={`rounded-xl border p-1.5 text-center ${chosen ? 'border-orange-400 bg-orange-50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
@@ -128,12 +161,21 @@ export const GlobeVideoMaker: React.FC = () => {
   const [message, setMessage] = useState('');
   const [result, setResult] = useState<{ url: string; name: string; size: number; slow: number; extension: string } | null>(null);
   const [picture, setPicture] = useState<{ url: string; name: string } | null>(null);
+  const photoStore = useRef(new Map<number, HTMLCanvasElement>());
+  const nextPhoto = useRef(1);
+  const [logo, setLogo] = useState<HTMLCanvasElement | null>(null);
+  const logoThumb = useMemo(() => (logo ? thumbnail(logo) : ''), [logo]);
+  const [music, setMusic] = useState<Music | null>(null);
+  const [volume, setVolume] = useState(70);
+  const [aac, setAac] = useState(false);
+  const [notice, setNotice] = useState('');
   const abort = useRef<AbortController | null>(null);
-  const support = useMemo(() => recordSupport(), []);
+  const support = useMemo(() => recordSupport(!!music), [music]);
   const [smooth, setSmooth] = useState<{ ok: boolean; codec: string }>({ ok: false, codec: '' });
   const [started, setStarted] = useState(0);
   const [wasSmooth, setWasSmooth] = useState(false);
 
+  useEffect(() => { void canEncodeAac().then(setAac); }, []);
   useEffect(() => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch { /* storage blocked */ } }, [saved]);
   useEffect(() => () => { abort.current?.abort(); }, []);
   useEffect(() => () => { if (result) URL.revokeObjectURL(result.url); }, [result]);
@@ -141,12 +183,37 @@ export const GlobeVideoMaker: React.FC = () => {
 
   const update = (patch: Partial<GlobeOptions>) => { setPicture(null); setSaved((current) => ({ ...current, options: { ...current.options, ...patch } })); setResult(null); };
   const setStops = (next: Stop[]) => { setPicture(null); setSaved((current) => ({ ...current, stops: next })); setResult(null); setTime(0); };
-  const setStop = (index: number, stop: Stop) => setStops(stops.map((item, i) => (i === index ? stop : item)));
+  const setStop = (index: number, stop: Stop) => setStops(stops.map((item, i) => (i === index ? { ...stop, photoId: item.photoId } : item)));
+  const photoOf = (stop: Stop) => (stop.photoId ? photoStore.current.get(stop.photoId) ?? null : null);
+  const setPhoto = async (index: number, file: File | null) => {
+    setNotice('');
+    if (!file) { setStops(stops.map((item, i) => (i === index ? { ...item, photoId: undefined } : item))); return; }
+    try {
+      const picture = await readPicture(file, 900);
+      const id = nextPhoto.current++; photoStore.current.set(id, picture);
+      setStops(stops.map((item, i) => (i === index ? { ...item, photoId: id } : item)));
+    } catch { setNotice(ui.photoFailed); }
+  };
+  const addLogo = async (file: File | null) => {
+    setNotice(''); setResult(null); setPicture(null);
+    if (!file) { setLogo(null); return; }
+    try { setLogo(await readPicture(file, 500)); } catch { setNotice(ui.photoFailed); }
+  };
+  const addMusic = async (file: File | null) => {
+    setNotice(''); setResult(null);
+    if (!file) { setMusic(null); return; }
+    try { setMusic(await readMusic(file)); } catch { setNotice(ui.musicFailed); }
+  };
+  const hops = stops.length - 1;
+  const legMovers = Array.from({ length: hops }, (_, i) => options.legMovers[i] ?? 'same');
+  const setLeg = (index: number, value: string) => update({ legMovers: legMovers.map((item, i) => (i === index ? (value as GlobeOptions['mover'] | 'same') : item)) });
 
   // Each stop needs a few seconds to be shown well, so more stops means a longer minimum.
   const minSeconds = Math.max(5, 3 * (stops.length - 1) + 2);
   const seconds = Math.min(30, Math.max(options.seconds, minSeconds));
-  const timeline = useMemo(() => buildTimeline(stops, { ...options, seconds }), [stops, options, seconds]);
+  const photoStops = stops.map((stop) => !!photoOf(stop));
+  const photoKey = photoStops.join();
+  const timeline = useMemo(() => buildTimeline(stops, { ...options, seconds, photoStops }), [stops, options, seconds, photoKey]); // eslint-disable-line react-hooks/exhaustive-deps
   const same = stops.some((a, i) => stops.some((b, j) => i !== j && Math.abs(a.lat - b.lat) < 0.01 && Math.abs(a.lon - b.lon) < 0.01 && Math.abs(i - j) === 1));
 
   // Preview size: short side 480 pixels.
@@ -158,8 +225,8 @@ export const GlobeVideoMaker: React.FC = () => {
   const paint = useCallback((target: HTMLCanvasElement, seconds: number) => {
     const ctx = target.getContext('2d');
     if (!ctx) return;
-    renderGlobe(ctx, { width: target.width, height: target.height, frame: timeline.frameAt(seconds), stops, world, style: styleById(options.styleId), options });
-  }, [timeline, stops, options]);
+    renderGlobe(ctx, { width: target.width, height: target.height, frame: timeline.frameAt(seconds), stops, world, style: styleById(options.styleId), options: { ...options, legMovers }, photos: stops.map(photoOf), logo });
+  }, [timeline, stops, options, logo, photoKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => { if (canvas.current && !playing) paint(canvas.current, time); }, [paint, time, playing, previewW, previewH]);
 
@@ -179,9 +246,10 @@ export const GlobeVideoMaker: React.FC = () => {
 
   const togglePlay = () => { if (playing) setPlaying(false); else { if (time >= timeline.duration - 0.05) setTime(0); setPlaying(true); } };
 
-  const fileBase = `globe-${stops[0]!.label}-to-${stops[stops.length - 1]!.label}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const fileBase = normalise(`globe-${stops[0]!.label}-to-${stops[stops.length - 1]!.label}`).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-  const useSmooth = mode === 'smooth' && smooth.ok;
+  const useSmooth = mode === 'smooth' && smooth.ok && (!music || aac);
+  const musicFallsBack = !!music && mode === 'smooth' && smooth.ok && !aac;
   const canMake = support.ok || smooth.ok;
 
   const makeVideo = async () => {
@@ -192,11 +260,12 @@ export const GlobeVideoMaker: React.FC = () => {
     try { lock = await (navigator as unknown as { wakeLock?: { request: (type: string) => Promise<{ release: () => Promise<void> }> } }).wakeLock?.request('screen') ?? null; } catch { /* not allowed: carry on */ }
     try {
       if (useSmooth) {
-        const done = await encodeOffline({ canvas: target, codec: smooth.codec, duration: timeline.duration, fps, paint: (seconds) => paint(target, seconds), onProgress: setProgress, signal: control.signal });
+        const sound = music ? await encodeAac(await renderMusic(music, timeline.duration, volume / 100)) : undefined;
+        const done = await encodeOffline({ canvas: target, codec: smooth.codec, duration: timeline.duration, fps, paint: (seconds) => paint(target, seconds), onProgress: setProgress, signal: control.signal, audio: sound });
         if (done) setResult({ url: URL.createObjectURL(done.blob), name: `${fileBase}.mp4`, size: done.blob.size, extension: 'mp4', slow: 0 });
         return;
       }
-      const done = await recordCanvas({ canvas: target, duration: timeline.duration, fps: 30, paint: (seconds) => paint(target, seconds), onProgress: setProgress, signal: control.signal });
+      const done = await recordCanvas({ canvas: target, duration: timeline.duration, fps: 30, paint: (seconds) => paint(target, seconds), onProgress: setProgress, signal: control.signal, music: music ? { buffer: music.buffer, volume: volume / 100 } : undefined });
       if (done) {
         const fps = done.frames / timeline.duration;
         setResult({ url: URL.createObjectURL(done.blob), name: `${fileBase}.${done.support.extension}`, size: done.blob.size, extension: done.support.extension, slow: fps < 27 ? Math.round(fps) : 0 });
@@ -213,7 +282,7 @@ export const GlobeVideoMaker: React.FC = () => {
 
   const addStop = () => { if (stops.length < MAX_STOPS) setStops([...stops.slice(0, -1), find('Dubai'), stops[stops.length - 1]!]); };
   const swap = () => setStops([...stops].reverse());
-  const reset = () => { try { localStorage.removeItem(STORAGE_KEY); } catch { /* storage blocked */ } setSaved(defaultSaved()); setResult(null); setTime(0); setMessage(''); };
+  const reset = () => { try { localStorage.removeItem(STORAGE_KEY); } catch { /* storage blocked */ } setSaved(defaultSaved()); setResult(null); setTime(0); setMessage(''); setNotice(''); setLogo(null); setMusic(null); photoStore.current.clear(); };
   const ratio = `${full.width} / ${full.height}`;
 
   return (
@@ -236,13 +305,14 @@ export const GlobeVideoMaker: React.FC = () => {
         <h2 className={heading}>{ui.places}</h2>
         <p className="text-xs text-slate-600">{ui.placesHint}</p>
         {stops.map((stop, index) => (
-          <StopEditor key={index} title={index === 0 ? ui.stopA : index === stops.length - 1 ? ui.stopB : ui.stopMid} stop={stop} onChange={(next) => setStop(index, next)} onRemove={index > 0 && index < stops.length - 1 ? () => setStops(stops.filter((_, i) => i !== index)) : undefined} />
+          <StopEditor key={index} title={index === 0 ? ui.stopA : index === stops.length - 1 ? ui.stopB : ui.stopMid} stop={stop} onChange={(next) => setStop(index, next)} onRemove={index > 0 && index < stops.length - 1 ? () => setStops(stops.filter((_, i) => i !== index)) : undefined} photo={photoOf(stop)} onPhoto={(file) => void setPhoto(index, file)} />
         ))}
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={swap} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><ArrowUp className="h-4 w-4" aria-hidden="true" /><ArrowDown className="-ml-3 h-4 w-4" aria-hidden="true" />{ui.swap}</button>
           {stops.length < MAX_STOPS && <button type="button" onClick={addStop} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><Plus className="h-4 w-4" aria-hidden="true" />{ui.addStop}</button>}
         </div>
         {same && <Note>{ui.sameStops}</Note>}
+        {notice && <Note>{notice}</Note>}
       </section>
 
       <section className={`${card} space-y-4`}>
@@ -256,11 +326,49 @@ export const GlobeVideoMaker: React.FC = () => {
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.arc}</p><ChoiceButtons label={ui.arc} value={options.arc} onChange={(value) => update({ arc: value as GlobeOptions['arc'] })} options={names(ui.arcs)} /></div>
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.mover}</p><ChoiceButtons label={ui.mover} value={options.mover} onChange={(value) => update({ mover: value as GlobeOptions['mover'], ...(value === 'plane' ? { arc: 'lifted' as const } : value === 'dot' || value === 'none' ? {} : { arc: 'flat' as const }) })} options={names(ui.movers)} />{['train', 'car', 'bus', 'ship'].includes(options.mover) && <p className="mt-1 text-[11px] text-slate-500">{ui.moverNote}</p>}</div>
           <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.pin}</p><ChoiceButtons label={ui.pin} value={options.pin} onChange={(value) => update({ pin: value as GlobeOptions['pin'] })} options={names(ui.pins)} /></div>
+          {stops.length > 2 && (
+            <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.perLeg}</p>
+              <div className="space-y-2">{legMovers.map((leg, i) => (
+                <div key={i}><p className="text-[11px] font-semibold text-slate-600">{stops[i]!.label} → {stops[i + 1]!.label}</p>
+                  <ChoiceButtons label={`${ui.perLeg} ${i + 1}`} value={leg} onChange={(value) => setLeg(i, value)} options={[{ value: 'same', label: ui.sameVehicle }, ...names(ui.movers).filter((item) => item.value !== 'none')]} /></div>
+              ))}</div></div>
+          )}
+          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.routeColour}</p>
+            <div role="group" aria-label={ui.routeColour} className="flex flex-wrap gap-2">
+              <button type="button" aria-pressed={!options.routeColor} onClick={() => update({ routeColor: '' })} className={`min-h-10 rounded-lg border px-3 text-xs font-semibold ${!options.routeColor ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700'}`}>{ui.lookColour}</button>
+              {ROUTE_COLOURS.map((colour) => <button key={colour} type="button" aria-label={colour} aria-pressed={options.routeColor === colour} onClick={() => update({ routeColor: colour })} style={{ background: colour }} className={`h-10 w-10 rounded-full border-2 ${options.routeColor === colour ? 'border-slate-900' : 'border-slate-200'}`} />)}
+            </div></div>
+          <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.distance}</p><ChoiceButtons label={ui.distance} value={options.distance} onChange={(value) => update({ distance: value as GlobeOptions['distance'] })} options={names(ui.distances)} /></div>
+          <Toggle label={ui.night} hint={ui.nightHint} checked={options.night} onChange={(value) => update({ night: value })} />
           <Toggle label={ui.highlight} hint={ui.highlightHint} checked={options.highlight} onChange={(value) => update({ highlight: value })} />
           <Toggle label={ui.labels} checked={options.labels} onChange={(value) => update({ labels: value })} />
           <label className="block text-xs font-semibold text-slate-700">{ui.caption}
             <input value={options.caption} maxLength={60} placeholder={ui.captionPlaceholder} onChange={(event) => update({ caption: event.target.value })} className={fieldClass} />
           </label>
+        </div>
+      </section>
+
+      <section className={`${card} space-y-4`}>
+        <h2 className={heading}>{ui.brandMusic}</h2>
+        <div>
+          <p className="mb-1 text-xs font-semibold text-slate-700">{ui.logo}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><ImageIcon className="h-4 w-4" aria-hidden="true" />{logo ? ui.changeLogo : ui.addLogo}
+              <input type="file" accept="image/*" className="sr-only" onChange={(event) => { const file = event.target.files?.[0] ?? null; event.target.value = ''; if (file) void addLogo(file); }} /></label>
+            {logo && <><img src={logoThumb} alt="" className="h-11 max-w-[5rem] rounded-lg border border-slate-200 bg-slate-100 object-contain" /><button type="button" onClick={() => void addLogo(null)} className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50">{ui.removeLogo}</button></>}
+          </div>
+          {logo && <div className="mt-2 space-y-2"><ChoiceButtons label={ui.logoCorner} value={options.logoCorner} onChange={(value) => update({ logoCorner: value as GlobeOptions['logoCorner'] })} options={names(ui.corners)} /><ChoiceButtons label={ui.logoSize} value={options.logoSize} onChange={(value) => update({ logoSize: value as GlobeOptions['logoSize'] })} options={names(ui.logoSizes)} /></div>}
+        </div>
+        <div>
+          <p className="mb-1 text-xs font-semibold text-slate-700">{ui.music}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50"><MusicIcon className="h-4 w-4" aria-hidden="true" />{music ? ui.changeMusic : ui.addMusic}
+              <input type="file" accept="audio/*" className="sr-only" onChange={(event) => { const file = event.target.files?.[0] ?? null; event.target.value = ''; if (file) void addMusic(file); }} /></label>
+            {music && <><span className="max-w-[12rem] truncate text-xs text-slate-700" title={music.name}>{music.name}</span><button type="button" onClick={() => void addMusic(null)} className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50">{ui.removeMusic}</button></>}
+          </div>
+          {music && <label className="mt-2 block text-xs font-semibold text-slate-700"><span className="flex justify-between"><span>{ui.volume}</span><span className="font-bold text-slate-900">{volume}%</span></span><input type="range" min={0} max={100} step={5} value={volume} onChange={(event) => { setVolume(Number(event.target.value)); setResult(null); }} className="mt-1 w-full accent-orange-700" /></label>}
+          <p className="mt-1 text-[11px] text-slate-500">{ui.musicHint}</p>
+          {musicFallsBack && <Note>{ui.musicQuick}</Note>}
         </div>
       </section>
 

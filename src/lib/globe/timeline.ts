@@ -14,15 +14,19 @@ export function stopZoom(stop: Stop): number {
 interface Phase { start: number; end: number; kind: 'hold' | 'travel'; index: number }
 
 /** Plans the video: a hold on the first stop, a move to each next stop, and a hold at the end. Returns a function that gives the picture at any time. */
-export function buildTimeline(stops: Stop[], options: Pick<GlobeOptions, 'motion' | 'seconds' | 'caption'>) {
+export function buildTimeline(stops: Stop[], options: Pick<GlobeOptions, 'motion' | 'seconds' | 'caption'> & { photoStops?: boolean[] }) {
   const total = Math.max(2, options.seconds);
   const hops = Math.max(0, stops.length - 1);
   const vecs: Vec[] = stops.map((stop) => toVec(stop.lon, stop.lat));
   const zooms = stops.map((stop) => stopZoom(stop));
   const dist = (i: number) => angleBetween(vecs[i], vecs[i + 1]) * 180 / Math.PI;
 
-  const firstHold = total * 0.14, lastHold = total * 0.2, midHold = total * 0.07;
-  const travelBudget = Math.max(total * 0.3, total - firstHold - lastHold - midHold * Math.max(0, hops - 1));
+  // A stop with a photo is held longer so the photo can be read.
+  const photoHold = Math.min(2.2, total * 0.25);
+  const holdFor = (index: number, base: number) => (options.photoStops?.[index] ? Math.max(base, photoHold) : base);
+  const firstHold = holdFor(0, total * 0.14), lastHold = holdFor(stops.length - 1, total * 0.2);
+  const midHolds = Array.from({ length: Math.max(0, hops - 1) }, (_, k) => holdFor(k + 1, total * 0.07));
+  const travelBudget = Math.max(total * 0.3, total - firstHold - lastHold - midHolds.reduce((a, b) => a + b, 0));
   const weights = Array.from({ length: hops }, (_, i) => 12 + dist(i));
   const weightSum = weights.reduce((a, b) => a + b, 0) || 1;
 
@@ -32,7 +36,7 @@ export function buildTimeline(stops: Stop[], options: Pick<GlobeOptions, 'motion
   for (let i = 0; i < hops; i++) {
     const length = (travelBudget * weights[i]) / weightSum;
     phases.push({ start: at, end: at + length, kind: 'travel', index: i }); at += length;
-    const hold = i === hops - 1 ? lastHold : midHold;
+    const hold = i === hops - 1 ? lastHold : midHolds[i]!;
     phases.push({ start: at, end: at + hold, kind: 'hold', index: i + 1 }); at += hold;
   }
   const duration = at;
@@ -44,11 +48,20 @@ export function buildTimeline(stops: Stop[], options: Pick<GlobeOptions, 'motion
     const routes = Array.from({ length: hops }, () => 0);
     const pins = stops.map(() => 0);
     const glow = stops.map(() => 0);
+    const photos = stops.map(() => 0);
     const popIn = (since: number) => clamp((t - since) / 0.5, 0, 1);
 
     // Where each stop is first reached
     const reachedAt = [0, ...phases.filter((p) => p.kind === 'travel').map((p) => p.end)];
     stops.forEach((_, i) => { pins[i] = i === 0 ? popIn(0.15) : popIn(reachedAt[i] ?? duration); glow[i] = i === 0 ? clamp(t / 0.8, 0, 1) : popIn((reachedAt[i] ?? duration) - 0.2); });
+
+    // A photo fades in when its stop is reached and out when the trip leaves it. The last stop keeps its photo to the end.
+    stops.forEach((_, i) => {
+      if (!options.photoStops?.[i]) return;
+      const arrive = i === 0 ? 0.25 : reachedAt[i] ?? duration;
+      const leave = i === stops.length - 1 ? Infinity : phases.find((p) => p.kind === 'travel' && p.index === i)!.start;
+      photos[i] = clamp((t - arrive) / 0.5, 0, 1) * clamp(1 - (t - leave) / 0.4, 0, 1);
+    });
 
     let center: Vec = vecs[0];
     let zoom = zooms[0];
@@ -98,7 +111,7 @@ export function buildTimeline(stops: Stop[], options: Pick<GlobeOptions, 'motion
     }
     const ll = fromVec(center);
     const captionIn = options.caption ? clamp(t / 0.7, 0, 1) * clamp((duration - t) / 0.5 + 0.0001, 0, 1) : 0;
-    return { lon: ll.lon, lat: ll.lat, zoom, routes, pins, glow, head, caption: captionIn, time: t };
+    return { lon: ll.lon, lat: ll.lat, zoom, routes, pins, glow, photos, head, caption: captionIn, time: t };
   };
 
   return { duration, frameAt };
