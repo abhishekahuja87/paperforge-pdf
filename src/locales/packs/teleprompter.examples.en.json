@@ -1,0 +1,30 @@
+{
+  "intro": {
+    "label": "Self-introduction",
+    "hint": "A short hello for a profile video or an interview. Medium speed.",
+    "size": "medium",
+    "speed": 32,
+    "script": "Hello, my name is Riya, and I am glad you are here.\n\nI am a teacher with eight years of experience, and I love making hard ideas easy to follow.\n\nIn this video I will tell you a little about myself, what I teach, and how we can work together.\n\nThank you for watching, and I hope to see you soon."
+  },
+  "pitch": {
+    "label": "Product pitch",
+    "hint": "A sixty second pitch for a shop or a product video. A little faster.",
+    "size": "medium",
+    "speed": 42,
+    "script": "Are you tired of paying too much for good tea?\n\nOur small-batch Assam tea is picked fresh, packed in a day, and sent straight to your door.\n\nNo middlemen, no extra cost, and a full refund if you do not love it.\n\nOrder this week and get free delivery on your first box.\n\nTap the link below, and your first cup is on its way."
+  },
+  "lesson": {
+    "label": "Lesson opening",
+    "hint": "Starts a class video. Slow and clear, with a large text size.",
+    "size": "large",
+    "speed": 28,
+    "script": "Welcome back, everyone.\n\nToday we will learn how to add fractions with different denominators.\n\nFirst, we find a common denominator. Then we change each fraction. Finally, we add the tops and keep the bottom.\n\nWatch carefully, and try the examples with me."
+  },
+  "greeting": {
+    "label": "Greeting in Hindi",
+    "hint": "A festival or birthday message. Shows that Hindi text works.",
+    "size": "large",
+    "speed": 28,
+    "script": "नमस्ते दोस्तों!\n\nआप सभी को दीपावली की हार्दिक शुभकामनाएँ।\n\nइस त्योहार पर आपके घर में खुशियाँ, सेहत और समृद्धि आए।\n\nअपने परिवार के साथ मिठाइयाँ बाँटिए और दीये जलाइए।\n\nधन्यवाद, और आपका दिन शुभ हो!"
+  }
+}

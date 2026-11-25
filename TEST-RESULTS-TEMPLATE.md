@@ -254,6 +254,9 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L24 | Background Remover: photograph a product on white paper, use Product on white, adjust How much to remove, save the transparent PNG and place it on a coloured background in another app | | |
 | L25 | Screen Recorder with Face Bubble: on a laptop use the Tutorial starter, record one minute of a window with your face and voice while switching to another window, stop, and check the saved video plays with sound and the face bubble | | |
 | L26 | WhatsApp Chat to PDF: export one of your own chats from WhatsApp, pick the Memory book starter, save the PDF, and check the dates, names, Hindi or emoji and photos are right | | |
+| L27 | Teleprompter with Video Recording: on a phone use the Self-introduction starter, record 20 seconds while reading, stop and check the video has your voice and no script | | |
+| L28 | Whiteboard Lesson Recorder: on a phone use the Maths lesson starter, record 30 seconds of drawing and talking, stop and check the video shows the drawing and your voice | | |
+| L29 | Before and After Video Maker: use the Room makeover starter with two real photos of the same place, make the video and check the reveal and the tags look right | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

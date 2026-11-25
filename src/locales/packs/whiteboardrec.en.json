@@ -1,0 +1,89 @@
+{
+ "guideSteps": {
+  "whiteboard-lesson-recorder": [
+   [
+    "Pick a starter",
+    "Choose Maths lesson, Blackboard, Phone reel or Silent sketch. A starter sets the board, its shape, the pen thickness and whether your voice is recorded. Tap Try a sample drawing to see the board working."
+   ],
+   [
+    "Choose your pen",
+    "Pick a pen colour or the eraser and a thickness. Under More options you can change the board to white, grid paper, chalkboard or black, and the shape to wide, tall or square."
+   ],
+   [
+    "Start recording and draw",
+    "Tap Start recording and allow your microphone. Draw or write with your finger, a pen or the mouse while you explain. Use Undo to remove the last line, and Pause when you need a break."
+   ],
+   [
+    "Stop, watch and save",
+    "Tap Stop and save. Watch the video of your drawing with your voice and save it."
+   ]
+  ]
+ },
+ "pageGuides": {
+  "whiteboardRecGuide": {
+   "title": "Whiteboard Lesson Recorder: Draw and Record a Video with Your Voice",
+   "subtitle": "Draw or write on a board while you talk and save it as a video with your voice. Free, works on phones and tablets, and stays on your device.",
+   "faq": [
+    [
+     "Is the Whiteboard Lesson Recorder free?",
+     "Yes. It is free, with no sign-up, no watermark and no time limit set by this site. A very long recording uses a lot of memory, so for long lessons record in parts."
+    ],
+    [
+     "Does it work on phones and tablets?",
+     "Yes, that is the main reason for it. A phone browser cannot record the screen, but this tool records its own drawing board, so it works with a finger on a phone or a pen on a tablet. The board does not scroll while you draw on it."
+    ],
+    [
+     "Is my voice recorded?",
+     "Yes, if Record my voice is on. Your browser asks for permission to use the microphone when you start recording. Turn it off to make a silent video that you can add music to later."
+    ],
+    [
+     "What can I draw with?",
+     "Five pen colours, an eraser and three thicknesses. The colours change to suit the board, so a black pen becomes white on a blackboard. You can undo line by line or clear the whole board."
+    ],
+    [
+     "Can I draw on a grid or a blackboard?",
+     "Yes. Under More options choose White, Grid paper, Chalkboard or Black. The Blackboard starter uses a green chalkboard with a white pen. Changing the board keeps your drawing; changing the shape clears it."
+    ],
+    [
+     "What video file do I get?",
+     "An MP4 when your browser can record one, which plays on phones, computers and WhatsApp. Some browsers can only record WebM, and the page tells you when that happens."
+    ],
+    [
+     "Can I type text on the board?",
+     "Not in this version. You write by hand, which is what makes a lesson feel personal. Use a pen thick enough to read on a phone screen."
+    ],
+    [
+     "Is my drawing or voice uploaded anywhere?",
+     "No. The drawing and your voice are recorded on your own device, so nothing is sent to {{siteName}} or anyone else. The video stays in memory until you save it, and only your starter choices are remembered."
+    ]
+   ]
+  }
+ },
+ "toolArticles": {
+  "whiteboard-lesson-recorder": {
+   "sections": [
+    {
+     "heading": "What the Whiteboard Lesson Recorder does",
+     "paragraphs": [
+      "The Whiteboard Lesson Recorder gives you a blank board to draw on and records the drawing as it appears, together with your voice. It makes explaining by hand simple: a maths step, a diagram, a plan or a quick idea.",
+      "It is made for tutors, teachers and anyone who explains better by drawing."
+     ]
+    },
+    {
+     "heading": "Making a lesson people can follow",
+     "paragraphs": [
+      "Write large and thick so it reads on a small phone screen, and keep each board to one idea. Say what you are about to draw before you draw it, and use different pen colours to mark the important parts.",
+      "Clear the board between ideas rather than filling it, and use Pause for a break so the video stays tight."
+     ]
+    },
+    {
+     "heading": "Private, and what to expect",
+     "paragraphs": [
+      "The drawing and your voice are recorded on your own device and never uploaded. Your browser asks for microphone permission first.",
+      "The file type depends on your browser. Do a short test recording first, and use the Video Compressor and Trimmer to cut the start and end or make the file smaller."
+     ]
+    }
+   ]
+  }
+ }
+}

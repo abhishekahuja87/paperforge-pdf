@@ -1,0 +1,89 @@
+{
+ "guideSteps": {
+  "before-and-after-video-maker": [
+   [
+    "Pick a starter",
+    "Choose Room makeover, Hair or salon, Repair or cleaning or Fitness progress. A starter sets how the new photo appears, the length, the title and the tags. Tap Try sample photos to see it first."
+   ],
+   [
+    "Add your two photos",
+    "Choose the before photo and the after photo. Take both from the same spot and angle so the change is easy to see. Type a title for the video."
+   ],
+   [
+    "Check the preview",
+    "Press Play or drag the slider to see the reveal. Under More options you can change the length, tags, colours, photo fit, video shape and size, and add music."
+   ],
+   [
+    "Make the video and save it",
+    "Tap Make the video and wait until it is done. Watch it and save the file for Instagram, WhatsApp or YouTube."
+   ]
+  ]
+ },
+ "pageGuides": {
+  "beforeAfterGuide": {
+   "title": "Before and After Video Maker: Turn Two Photos into a Reveal Video",
+   "subtitle": "Turn two photos into a short before and after reveal video for reels and stories. Free, no watermark, and your photos stay on your device.",
+   "faq": [
+    [
+     "Is the Before and After Video Maker free, and is there a watermark?",
+     "It is free, with no sign-up and no watermark. The video is made on your own device and the file is yours to use."
+    ],
+    [
+     "What kinds of reveal can I make?",
+     "A line that moves from the left or from the top, a reveal that opens from the middle, or a smooth fade. Each starter picks one, and you can change it any time below the photos."
+    ],
+    [
+     "What shape and size will the video be?",
+     "Tall for reels and stories by default. Under More options you can choose square, portrait 4:5 or wide, and 720p or 1080p. Photos fill the video by default, which crops the edges; choose Show the whole photo to keep everything."
+    ],
+    [
+     "Can I add music?",
+     "Yes. Under More options choose a sound file from your device. It fades in and out. Use music you are allowed to use, because some platforms block videos with music they do not recognise."
+    ],
+    [
+     "How do I get a good result?",
+     "Take both photos from the same place, at the same angle and height, in similar light. A photo taken sideways is turned upright automatically. Keep the title short, such as Room makeover."
+    ],
+    [
+     "What video file do I get?",
+     "An MP4 when your browser can make one, which plays on phones, computers and WhatsApp. If the browser can only make WebM, the page says so."
+    ],
+    [
+     "How long is the video?",
+     "Short is about 5 seconds, Medium 8 and Long 12. The first photo is held, then the reveal runs, then the second photo is held so people can look at it."
+    ],
+    [
+     "Are my photos uploaded anywhere?",
+     "No. The photos are read and the video is made on your own device, so nothing is sent to {{siteName}} or anyone else. Only your look choices are remembered in this browser."
+    ]
+   ]
+  }
+ },
+ "toolArticles": {
+  "before-and-after-video-maker": {
+   "sections": [
+    {
+     "heading": "What the Before and After Video Maker does",
+     "paragraphs": [
+      "The Before and After Video Maker turns two photos into a short video that reveals the change, with a line that sweeps across, a reveal that opens from the middle or a smooth fade. It adds a title and BEFORE and AFTER tags so the story is clear without sound.",
+      "It is made for salons, repair and cleaning jobs, home makeovers, fitness progress and anything else that looks better shown than described."
+     ]
+    },
+    {
+     "heading": "Getting a convincing reveal",
+     "paragraphs": [
+      "Take both photos from exactly the same spot, at the same height and in similar light. When the camera does not move, the change is the only thing that does, and the reveal looks sharp.",
+      "Keep the title short, use the Medium length for most jobs, and choose Long when you want people to study both photos."
+     ]
+    },
+    {
+     "heading": "Private, and what to expect",
+     "paragraphs": [
+      "Your photos are read and the video is made on your own device and never uploaded. A long video at 1080p can take a little while on an older phone, so keep the page open until it is done.",
+      "The file type depends on your browser. Play the finished video once before you post it."
+     ]
+    }
+   ]
+  }
+ }
+}

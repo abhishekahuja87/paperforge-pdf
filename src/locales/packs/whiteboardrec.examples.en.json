@@ -1,0 +1,34 @@
+{
+  "maths": {
+    "label": "Maths lesson",
+    "hint": "A white board with a black pen and your voice. The usual setup for explaining a problem.",
+    "board": "white",
+    "shape": "wide",
+    "width": "medium",
+    "voice": true
+  },
+  "blackboard": {
+    "label": "Blackboard",
+    "hint": "A green chalkboard with a white chalk pen and your voice.",
+    "board": "chalk",
+    "shape": "wide",
+    "width": "thick",
+    "voice": true
+  },
+  "reel": {
+    "label": "Phone reel (tall)",
+    "hint": "A tall black board for a phone screen or a reel, with your voice.",
+    "board": "black",
+    "shape": "tall",
+    "width": "thick",
+    "voice": true
+  },
+  "sketch": {
+    "label": "Silent sketch",
+    "hint": "A square white board with no voice. Good for a quick drawing you will add music to later.",
+    "board": "white",
+    "shape": "square",
+    "width": "medium",
+    "voice": false
+  }
+}

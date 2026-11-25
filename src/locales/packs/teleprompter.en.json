@@ -1,0 +1,89 @@
+{
+ "guideSteps": {
+  "teleprompter-with-video-recording": [
+   [
+    "Pick a starter and add your script",
+    "Choose Self-introduction, Product pitch, Lesson opening or Greeting in Hindi, then change the words to your own or paste your script. The page tells you roughly how long it will take to read."
+   ],
+   [
+    "Set the speed and text size",
+    "Start slower than you think. Use the speed slider and the text size buttons, and tap Practice without recording to rehearse. Under More options you can pick the front or back camera and the video size."
+   ],
+   [
+    "Start the camera and record",
+    "Tap Start camera and allow the camera and microphone, then tap Start recording. After a 3, 2, 1 countdown the words scroll while you read. Look near the camera lens. Use Pause text, Back a bit, Slower or Faster whenever you need."
+   ],
+   [
+    "Stop, watch and save",
+    "Tap Stop and save. Watch the video and save it. The saved video has only you and your voice, not the script."
+   ]
+  ]
+ },
+ "pageGuides": {
+  "teleprompterGuide": {
+   "title": "Teleprompter with Video Recording: Read Your Script on Camera",
+   "subtitle": "Scroll your script over the camera and record a video of yourself reading it. Free, no watermark, and your video stays on your device.",
+   "faq": [
+    [
+     "Is the Teleprompter free, and is there a watermark?",
+     "It is free, with no sign-up, no watermark and no time limit set by this site. A very long recording uses a lot of memory on your device, so for long videos record in parts."
+    ],
+    [
+     "Does the script show in the recorded video?",
+     "No. The script is shown over the camera picture on your screen only. The saved video is the plain camera picture and your voice, so viewers never see the words."
+    ],
+    [
+     "How do I get the right scrolling speed?",
+     "Start slower than you think and use the Practice button to rehearse. The page shows the time it will take at the current speed. While recording you can tap Slower or Faster, pause the text, or go back a few lines. A speed that feels easy when you practise usually looks natural on video."
+    ],
+    [
+     "Does it work on a phone?",
+     "Yes, it is made for phones. Put the phone on a stand, hold it upright or sideways, and look near the camera lens. It uses the front camera by default, and you can choose the back camera under More options."
+    ],
+    [
+     "Does it work with Hindi and other languages?",
+     "Yes. The script is plain text shown by your own browser, so Hindi, other scripts and emoji appear as they do on your screen. There is a Hindi sample you can try."
+    ],
+    [
+     "What video file do I get?",
+     "An MP4 when your browser can record one, which plays on phones, computers and WhatsApp. Some browsers can only record WebM, and the page tells you when that happens. You can change a WebM to MP4 with the Video Compressor and Trimmer."
+    ],
+    [
+     "Why does my browser ask for the camera and microphone?",
+     "A web page cannot use them without your permission. The camera is needed to film you, and the microphone to record your voice. You can turn off Record my voice for a silent video. If you blocked them by mistake, allow them for this site in your browser settings."
+    ],
+    [
+     "Is my video or script uploaded anywhere?",
+     "No. The camera is recorded on your own device, so nothing is sent to {{siteName}} or anyone else. The video stays in memory until you save it. Your script and settings are remembered in this browser only, so they are there next time."
+    ]
+   ]
+  }
+ },
+ "toolArticles": {
+  "teleprompter-with-video-recording": {
+   "sections": [
+    {
+     "heading": "What the Teleprompter does",
+     "paragraphs": [
+      "The Teleprompter shows your script as large moving text over your camera picture, so you can read to the camera without looking away or forgetting your words. You record yourself, and the saved video has only you and your voice.",
+      "It is made for sellers, teachers, creators and anyone who films a message and wants to sound natural."
+     ]
+    },
+    {
+     "heading": "Reading naturally on camera",
+     "paragraphs": [
+      "Write the way you speak, with short sentences and a blank line between parts so the text has room to breathe. Use Practice a couple of times and choose a speed you can follow without rushing.",
+      "Put the phone on a stand at eye level and look near the camera lens, not at the middle of the screen. A short pause at the end of each part sounds better than reading straight through."
+     ]
+    },
+    {
+     "heading": "Private, and what to expect",
+     "paragraphs": [
+      "Your camera and microphone are recorded on your own device and never uploaded. Your browser asks for permission first, and shows an indicator while the camera is on.",
+      "The camera quality and the file type depend on your phone and browser. Record a short test first, and use the Video Compressor and Trimmer to cut the start and end or make the file smaller."
+     ]
+    }
+   ]
+  }
+ }
+}

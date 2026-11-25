@@ -19,6 +19,27 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/before-and-after-video-maker',
+    tool: 'Before and After Video Maker',
+    title: 'New: make a before and after reveal video from two photos',
+    summary: 'Add a before photo and an after photo and save a short video where a line or a fade reveals the change, with a title and BEFORE and AFTER tags. Four starters and sample photos to try first. No watermark, and nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
+    path: '/whiteboard-lesson-recorder',
+    tool: 'Whiteboard Lesson Recorder',
+    title: 'New: draw on a whiteboard while you talk and save the lesson as a video',
+    summary: 'Draw or write with your finger, a pen or the mouse on a white, grid, chalk or black board and record the drawing with your voice. Pens, eraser, undo, pause and a sample drawing to try first. Works on phones and tablets. Nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
+    path: '/teleprompter-with-video-recording',
+    tool: 'Teleprompter with Video Recording',
+    title: 'New: a teleprompter that scrolls your script over the camera and records you',
+    summary: 'Paste your script and it scrolls over your camera picture while you record a video with your voice. Set the speed and text size, practise first, and try a sample script straight away. The script shows only on your screen, and nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
     path: '/whatsapp-chat-to-pdf',
     tool: 'WhatsApp Chat to PDF',
     title: 'New: turn a WhatsApp chat into a PDF, as chat bubbles or a plain record',

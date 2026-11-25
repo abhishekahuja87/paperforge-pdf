@@ -48,13 +48,16 @@ import voiceclean from './packs/voiceclean.catalog.en.json';
 import bgremove from './packs/bgremove.catalog.en.json';
 import screenrec from './packs/screenrec.catalog.en.json';
 import whatsappchat from './packs/whatsappchat.catalog.en.json';
+import teleprompter from './packs/teleprompter.catalog.en.json';
+import whiteboardrec from './packs/whiteboardrec.catalog.en.json';
+import beforeafter from './packs/beforeafter.catalog.en.json';
 
 /**
  * The English text every page needs: the main file (en.json) plus each pack's tool catalog (title and short
  * description). The long per-tool text (guide steps, FAQs, articles) is in ./content and loads on demand.
  * To add a pack: create ./packs/<name>.catalog.en.json and add it to CATALOGS here.
  */
-const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec, whatsappchat];
+const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec, whatsappchat, teleprompter, whiteboardrec, beforeafter];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
 type Catalog = (typeof base)['toolCatalog'] & UnionToIntersection<(typeof CATALOGS)[number]['toolCatalog']>;

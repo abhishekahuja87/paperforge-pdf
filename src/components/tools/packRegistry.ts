@@ -42,6 +42,9 @@ import { VOICECLEAN_COMPONENTS } from './voiceclean/registry';
 import { BGREMOVE_COMPONENTS } from './bgremove/registry';
 import { SCREENREC_COMPONENTS } from './screenrec/registry';
 import { WHATSAPP_COMPONENTS } from './whatsapp/registry';
+import { TELEPROMPTER_COMPONENTS } from './teleprompter/registry';
+import { WHITEBOARD_COMPONENTS } from './whiteboard/registry';
+import { BEFOREAFTER_COMPONENTS } from './beforeafter/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -91,4 +94,7 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...BGREMOVE_COMPONENTS,
   ...SCREENREC_COMPONENTS,
   ...WHATSAPP_COMPONENTS,
+  ...TELEPROMPTER_COMPONENTS,
+  ...WHITEBOARD_COMPONENTS,
+  ...BEFOREAFTER_COMPONENTS,
 };

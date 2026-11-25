@@ -1,0 +1,63 @@
+{
+  "start": "1. Pick a starter",
+  "starters": "Quick starters",
+  "startersHint": "A starter picks the board, its shape, the pen thickness and whether your voice is recorded. Tap Try a sample drawing to see something on the board straight away.",
+  "unsupported": "This browser cannot record the board. Try a recent Chrome, Edge, Firefox or Safari. You can still draw without recording.",
+  "board": "2. Draw on the board",
+  "boardHint": "Draw with your finger, a pen or the mouse. Everything you draw is in the video, so draw as you talk.",
+  "pen": "Pen colour",
+  "pens": {
+    "main": "Main",
+    "red": "Red",
+    "green": "Green",
+    "blue": "Blue",
+    "orange": "Orange"
+  },
+  "eraser": "Eraser",
+  "thickness": "Thickness",
+  "widths": {
+    "thin": "Thin",
+    "medium": "Medium",
+    "thick": "Thick"
+  },
+  "undo": "Undo",
+  "clear": "Clear board",
+  "clearConfirm": "Tap again to clear",
+  "sample": "Try a sample drawing",
+  "more": "More options",
+  "background": "Board",
+  "boards": {
+    "white": "White",
+    "grid": "Grid paper",
+    "chalk": "Chalkboard",
+    "black": "Black"
+  },
+  "shape": "Shape",
+  "shapes": {
+    "wide": "Wide (16:9)",
+    "tall": "Tall (9:16)",
+    "square": "Square"
+  },
+  "shapeHint": "Changing the shape clears the board.",
+  "voice": "Record my voice",
+  "voiceHint": "Uses your microphone. Your browser asks for permission.",
+  "record": "3. Record",
+  "recordHint": "Start recording, then draw and talk. Pause when you need a break, and stop to save the video.",
+  "begin": "Start recording",
+  "pause": "Pause",
+  "resume": "Resume",
+  "stopSave": "Stop and save",
+  "recording": "Recording",
+  "paused": "Paused",
+  "denied": "The microphone could not be opened. Allow it for this site in your browser settings, or turn off Record my voice.",
+  "failed": "The video could not be saved. Try again.",
+  "tooShort": "The recording was too short to save. Record for a few seconds and try again.",
+  "ready": "Your video is ready",
+  "saveVideo": "Save video",
+  "mp4Note": "Saved as an MP4 file that plays on phones, computers and WhatsApp.",
+  "webmNote": "Saved as a WebM file because this browser cannot record MP4. It plays in most browsers; use the Video Compressor and Trimmer to make an MP4 if you need one.",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to start over",
+  "notSaved": "Your drawing and recording stay on this device and are never uploaded. Only your starter choices are remembered in this browser.",
+  "boardLabel": "Drawing board"
+}
