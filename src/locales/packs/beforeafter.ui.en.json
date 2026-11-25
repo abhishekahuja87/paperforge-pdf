@@ -1,0 +1,80 @@
+{
+  "start": "1. Pick a starter",
+  "starters": "Quick starters",
+  "startersHint": "A starter picks how the new photo is revealed, the length, the title and the tags. Tap Try sample photos to see it work straight away.",
+  "photos": "2. Add your two photos",
+  "photosHint": "The before photo and the after photo. Take both from the same spot and angle so the change is easy to see.",
+  "before": "Before photo",
+  "after": "After photo",
+  "choose": "Choose photo",
+  "replace": "Change photo",
+  "sampleButton": "Try sample photos",
+  "readFailed": "This photo could not be read. Try a JPG or PNG picture.",
+  "titleLabel": "Title on the video",
+  "titlePlaceholder": "For example Room makeover",
+  "reveal": "How the new photo appears",
+  "reveals": {
+    "wipe": "Line from the left",
+    "wipeDown": "Line from the top",
+    "curtain": "Opens from the middle",
+    "fade": "Fade"
+  },
+  "preview": "3. Check the preview",
+  "play": "Play",
+  "pause": "Pause",
+  "scrub": "Preview position",
+  "previewEmpty": "Add both photos or try the sample photos to see the preview.",
+  "more": "More options",
+  "length": "Length",
+  "lengths": {
+    "short": "Short, 5 s",
+    "medium": "Medium, 8 s",
+    "long": "Long, 12 s"
+  },
+  "tags": "Show BEFORE and AFTER tags",
+  "tagBefore": "BEFORE",
+  "tagAfter": "AFTER",
+  "accent": "Tag and title colour",
+  "accents": {
+    "orange": "Orange",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "fit": "Photo fit",
+  "fits": {
+    "fill": "Fill the video (crops the edges)",
+    "fit": "Show the whole photo"
+  },
+  "shape": "Video shape",
+  "shapes": {
+    "reel": "Tall, for reels and stories",
+    "square": "Square",
+    "portrait": "Portrait 4:5",
+    "wide": "Wide"
+  },
+  "quality": "Video size",
+  "qualities": {
+    "720": "720p (smaller file)",
+    "1080": "1080p (sharper)"
+  },
+  "music": "Music (optional)",
+  "musicHint": "Pick a song or sound from your device. It fades in and out. Use music you are allowed to use.",
+  "addMusic": "Choose music",
+  "removeMusic": "Remove music",
+  "musicAdded": "Music: {name}",
+  "musicFailed": "This sound file could not be read. Try an MP3, M4A or WAV file.",
+  "make": "Make the video",
+  "making": "Making the video\u2026 {done}%",
+  "keepOpen": "Keep this page open until it is done.",
+  "cancel": "Stop",
+  "failed": "The video could not be made. Try a smaller video size.",
+  "noRecord": "This browser cannot save videos. Try a recent Chrome, Edge, Safari or Firefox.",
+  "ready": "Your video is ready",
+  "saveVideo": "Save video",
+  "mp4Note": "Saved as an MP4 file that plays on phones, computers and WhatsApp.",
+  "webmNote": "Saved as a WebM file because this browser cannot make MP4. It plays in most browsers.",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to start over",
+  "notSaved": "Your photos and video stay on this device and are never uploaded. Only your look choices are remembered in this browser.",
+  "photoCanvas": "Preview of the before and after video"
+}

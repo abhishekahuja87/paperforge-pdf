@@ -1,0 +1,38 @@
+{
+  "makeover": {
+    "label": "Room makeover",
+    "hint": "A line sweeps across from the left to show the new room. Medium length, with a title and tags.",
+    "reveal": "wipe",
+    "length": "medium",
+    "title": "Room makeover",
+    "labels": true,
+    "accent": "orange"
+  },
+  "hair": {
+    "label": "Hair or salon",
+    "hint": "A smooth fade from the first photo to the second. Short, for a quick reel.",
+    "reveal": "fade",
+    "length": "short",
+    "title": "Hair makeover",
+    "labels": true,
+    "accent": "dark"
+  },
+  "repair": {
+    "label": "Repair or cleaning",
+    "hint": "The new look is pulled down from the top. Medium length.",
+    "reveal": "wipeDown",
+    "length": "medium",
+    "title": "Before and after",
+    "labels": true,
+    "accent": "light"
+  },
+  "progress": {
+    "label": "Fitness progress",
+    "hint": "The second photo opens from the middle. Long, so people can look at both.",
+    "reveal": "curtain",
+    "length": "long",
+    "title": "My progress",
+    "labels": true,
+    "accent": "orange"
+  }
+}
