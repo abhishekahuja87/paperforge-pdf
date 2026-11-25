@@ -37,6 +37,7 @@ import { PHOTOSTORY_COMPONENTS } from './photostory/registry';
 import { CAPTIONS_COMPONENTS } from './captions/registry';
 import { AUDIOCLIP_COMPONENTS } from './audioclip/registry';
 import { APPDEMO_COMPONENTS } from './appdemo/registry';
+import { VIDEOCOMPRESS_COMPONENTS } from './videoedit/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -81,4 +82,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...CAPTIONS_COMPONENTS,
   ...AUDIOCLIP_COMPONENTS,
   ...APPDEMO_COMPONENTS,
+  ...VIDEOCOMPRESS_COMPONENTS,
 };

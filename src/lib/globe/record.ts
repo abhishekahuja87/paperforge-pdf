@@ -27,8 +27,10 @@ export interface RecordJob {
   paint: (seconds: number) => void;
   onProgress: (fraction: number) => void;
   signal: AbortSignal;
+  /** Bits per second for the picture. Left out, a high quality figure for animations is used. */
+  bitrate?: number;
   /** Music to play into the recording. It starts with the video and fades out at the end. */
-  music?: { buffer: AudioBuffer; volume: number };
+  music?: { buffer: AudioBuffer; volume: number; /** True keeps the volume level all the way, with no fade in or out. Right for the sound of a video. */ plain?: boolean };
 }
 
 /**
@@ -52,12 +54,12 @@ export function recordCanvas(job: RecordJob): Promise<{ blob: Blob; support: Rec
       const gain = sound.createGain();
       const steps = Math.max(2, Math.ceil(job.duration * 20));
       gain.gain.setValueAtTime(0, 0);
-      for (let i = 0; i <= steps; i++) { const t = (i / steps) * job.duration; gain.gain.linearRampToValueAtTime(musicGain(t, job.duration, job.music.volume), t + sound.currentTime); }
+      for (let i = 0; i <= steps; i++) { const t = (i / steps) * job.duration; gain.gain.linearRampToValueAtTime(job.music.plain ? job.music.volume : musicGain(t, job.duration, job.music.volume), t + sound.currentTime); }
       source.connect(gain).connect(target);
       source.start();
       target.stream.getAudioTracks().forEach((track) => live.addTrack(track));
     }
-    const recorder = new MediaRecorder(live, { mimeType: support.mime, videoBitsPerSecond: videoBitrate(job.canvas.width, job.canvas.height) });
+    const recorder = new MediaRecorder(live, { mimeType: support.mime, videoBitsPerSecond: job.bitrate ?? videoBitrate(job.canvas.width, job.canvas.height) });
     const chunks: BlobPart[] = [];
     let frames = 0, cancelled = false, raf = 0;
     recorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };

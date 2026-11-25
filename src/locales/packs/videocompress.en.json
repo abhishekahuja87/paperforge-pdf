@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "video-compressor-and-trimmer": [
+      [
+        "Pick a starter",
+        "Choose WhatsApp, Email, Much smaller, Reel or Story, or Keep quality. A starter sets the size limit and the picture size for you."
+      ],
+      [
+        "Add your video and cut it",
+        "Add a video from your phone or computer. To keep only part of it, play it, pause where you want it to begin and tap Start here, then do the same with End here."
+      ],
+      [
+        "Check the size and options",
+        "The page shows about how big the new file will be. Under More options you can set a size limit, a picture size, quality, frames a second and whether to keep the sound."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make smaller video, keep the page open while it works, then save the new MP4 and share it. The page shows how much smaller it is."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "videoCompressGuide": {
+      "title": "Video Compressor and Trimmer: Make a Video Smaller for WhatsApp or Email",
+      "subtitle": "Cut a video to the part you want and make the file smaller for WhatsApp, email or Instagram. Free, with no watermark, and your video stays on your device.",
+      "faq": [
+        [
+          "Is the Video Compressor and Trimmer free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "How do I make a video small enough for WhatsApp or email?",
+          "Pick the WhatsApp or Email starter, add your video and tap Make smaller video. The tool chooses the quality so the file fits under the size limit. Apps change their limits from time to time, so you can also choose your own size under More options. A long video squeezed into a small size looks softer, so cutting it shorter helps more than anything else."
+        ],
+        [
+          "How do I cut a video to the part I want?",
+          "Play the video and pause where you want it to start, then tap Start here. Play to where you want it to end and tap End here. You can also type the start and end in seconds. The new video holds only that part, with its sound."
+        ],
+        [
+          "Will the video look worse?",
+          "A smaller file always means some loss of detail. A smaller picture size and a fitted size limit keep it clear on a phone screen. If the result looks too soft, choose a bigger size limit, a larger picture size or the High quality choice. The Keep quality starter changes the least."
+        ],
+        [
+          "Which videos does it accept?",
+          "Videos your browser can play, such as MP4 and MOV from phones and WebM from screen recorders. Files up to 1000 MB are accepted, and up to 10 minutes from your start point are used. If a file will not open, try Chrome or convert it first."
+        ],
+        [
+          "How long does it take?",
+          "In Chrome, Edge and recent Safari each picture is read and saved one by one, which can take about as long as the video or longer for long, large videos. Other browsers make the video by playing it, so it takes exactly as long as the video. Keep the page open and the screen on in both cases."
+        ],
+        [
+          "Does it keep the sound, and what format is the new video?",
+          "Yes, the sound is kept unless you turn it off, which makes a silent video that is a little smaller. The new video is saved as an MP4 when your browser can make one, which plays on iPhone, Android and in WhatsApp and Instagram, and as WebM otherwise."
+        ],
+        [
+          "Is my video uploaded anywhere?",
+          "No. The video is read, cut and made smaller on your own device, so nothing is sent to {{siteName}} or anyone else. Only your size and quality choices are remembered on your device, never the video itself."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "video-compressor-and-trimmer": {
+      "sections": [
+        {
+          "heading": "What the Video Compressor and Trimmer does",
+          "paragraphs": [
+            "The Video Compressor and Trimmer makes a video file smaller and lets you keep only the part you need. You add a video, choose where it starts and ends, pick a size limit or a quality, and save a new MP4.",
+            "Phone videos are large. A minute of video can be tens of megabytes, which is too big for many email services and slow to send in chat apps. This tool makes a smaller copy and leaves your original untouched."
+          ]
+        },
+        {
+          "heading": "Getting the size right",
+          "paragraphs": [
+            "The biggest savings come from three choices. Cut out the parts you do not need, because every second removed shrinks the file. Lower the picture size, since 720p looks clean on a phone and is much smaller than 1080p or 4K. And set a size limit, so the tool picks the quality that fits.",
+            "If a long video must fit a small limit, the picture will look softer. In that case cut it shorter or send it in two parts. Lowering frames a second to 24 also saves space when there is not much fast movement."
+          ]
+        },
+        {
+          "heading": "Private, with nothing extra to download",
+          "paragraphs": [
+            "Everything happens on your own device using your browser's built-in video tools, so the video is not uploaded and nothing extra is downloaded for this tool. There is no watermark.",
+            "Your size and quality choices are remembered for next time, but your video is not. The Start again button clears everything, and it asks twice so you do not lose your settings by accident."
+          ]
+        }
+      ]
+    }
+  }
+}
