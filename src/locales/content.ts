@@ -38,6 +38,7 @@ import bizcards from './packs/bizcards.en.json';
 import hiring from './packs/hiring.en.json';
 import kids from './packs/kids.en.json';
 import coreDepth from './depth/core.en.json';
+import thinDepth from './depth/thin.en.json';
 
 /**
  * The long English text for each tool page: guide steps, FAQs and articles. It is a separate chunk (see
@@ -60,9 +61,9 @@ const merge = <K extends Section>(key: K): Merged<K> => Object.assign({}, baseCo
  */
 interface Depth {
   toolArticles: Record<string, { sections: { heading: string; paragraphs: string[] }[] }>;
-  pageGuides: Record<string, { faq: string[][] }>;
+  pageGuides?: Record<string, { faq: string[][] }>;
 }
-const DEPTH: Depth[] = [coreDepth];
+const DEPTH: Depth[] = [coreDepth, thinDepth];
 
 /** Keeps the closing privacy section or question last, and puts the new material before it. */
 const insertBeforeLast = <T,>(existing: T[], extra: T[]): T[] => [...existing.slice(0, -1), ...extra, ...existing.slice(-1)];
@@ -75,7 +76,7 @@ const withDepth = (articles: Merged<'toolArticles'>, guides: Merged<'pageGuides'
       const current = nextArticles[id];
       if (current) nextArticles[id] = { ...current, sections: insertBeforeLast(current.sections, extra.sections) };
     }
-    for (const [key, extra] of Object.entries(depth.pageGuides)) {
+    for (const [key, extra] of Object.entries(depth.pageGuides ?? {})) {
       const current = nextGuides[key];
       if (current) nextGuides[key] = { ...current, faq: insertBeforeLast(current.faq, extra.faq) };
     }
