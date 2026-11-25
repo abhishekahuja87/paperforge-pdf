@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/sequence-diagram-video-maker',
+    tool: 'Sequence Diagram Video Maker',
+    title: 'New: type a diagram as text and save a video where it draws itself',
+    summary: 'Write steps like Customer->Shop: Place order, add notes, boxes and delays, hide the arrows if you like, and record your voice by tapping through the steps.',
+  },
+  {
+    date: '2026-11-25',
     path: '/handwriting-video-maker',
     tool: 'Handwriting Video Maker',
     title: 'New: a video of your text being written by hand',

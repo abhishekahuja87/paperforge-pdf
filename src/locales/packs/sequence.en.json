@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "sequence-diagram-video-maker": [
+      [
+        "Type your steps",
+        "Write one step per line, like Customer->Shop: Place order. Names appear the first time you use them. Pick an example if you want to see the style first."
+      ],
+      [
+        "Choose the look",
+        "Pick a background, a font and the speed. You can turn the arrows off if you will explain each step in your own voice."
+      ],
+      [
+        "Add your voice (optional)",
+        "Tap Record voice and tap through, speak, and tap Next step as you move on. The picture follows what you say. Or add an audio file."
+      ],
+      [
+        "Make and save the video",
+        "Choose 9:16, 16:9 or 1:1 and tap Make video. Keep the page open while it is drawn, then save the MP4 and use it on its own or inside a longer video."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "sequenceVideoGuide": {
+      "title": "Sequence Diagram Video Maker: Text to Animated Diagram Video, Free",
+      "subtitle": "Type steps like A->B: text and download a video where the diagram draws itself, with your voice if you like. Reel, YouTube and square sizes. Free.",
+      "faq": [
+        [
+          "Is the Sequence Diagram Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "What can I write?",
+          "The text follows the common sequence diagram style. Arrows go solid or dotted with a filled or open head, and can be slanted to show delay or point to the same name. You can add notes beside or over names, state boxes, alt, opt, loop, par, seq and break boxes, active bars, names that are created or destroyed, dividers, delays, a title and numbered steps. The Syntax guide on the page shows each one with an Add button."
+        ],
+        [
+          "Do I have to show arrows?",
+          "No. Turn off Show the arrows and each step shows only its text moving between the names, which suits a video where you explain the step in your own voice. Arrows are shown by default."
+        ],
+        [
+          "How do I add my voice?",
+          "Tap Record voice and tap through, allow the microphone, and speak. Tap Next step each time you move to the next point, and the picture shows that step at that moment. When you finish, the voice goes into the video. You can also add an audio file; the steps are then spread to fit its length."
+        ],
+        [
+          "Can I paste a diagram I made on another site?",
+          "Often yes, because the text style is the same. Includes, references to other diagrams, and parallel and serial blocks are not supported, and any line that cannot be read is listed with its line number so you can fix it."
+        ],
+        [
+          "Which video shapes and sizes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save the finished picture as a PNG."
+        ],
+        [
+          "What if my diagram is long?",
+          "Up to 10 names and 60 steps are allowed. If the diagram is taller than the picture, the view moves down as steps appear while the names stay at the top. For a phone video, 3 to 5 names read best."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The diagram is drawn and the video is made on your own device, and your voice is recorded and mixed there too, so your text, voice and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "sequence-diagram-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Sequence Diagram Video Maker does",
+          "paragraphs": [
+            "The Sequence Diagram Video Maker turns a few lines of text into a video. Each line such as Customer->Shop: Place order becomes an arrow between two names, drawn one step at a time, so people can follow who does what and in which order.",
+            "It is made as a building block for explainer videos. Make a clip for how an order ships, how a login works or how a payment moves, then use it on its own or inside a longer video in your editing app."
+          ]
+        },
+        {
+          "heading": "Choices that change the video",
+          "paragraphs": [
+            "Notes, state boxes and boxes such as alt and loop explain choices and repeats. Active bars show who is busy, and dividers and delays mark the passing of time. A pause line holds the picture while you speak.",
+            "You can hide the arrows and show only the text moving between names, number the steps, and choose a background and font. Record your voice by tapping Next step as you speak, and the picture follows your pace."
+          ]
+        },
+        {
+          "heading": "Where it helps",
+          "paragraphs": [
+            "Teachers explain how a process works, small businesses show how an order or a refund is handled, and developers show how two systems talk. Creators use it for how it works clips in Reels and Shorts.",
+            "Everything is drawn and saved on your device, so your text and voice are not uploaded. Keep names few and steps short so the video stays readable on a phone."
+          ]
+        }
+      ]
+    }
+  }
+}

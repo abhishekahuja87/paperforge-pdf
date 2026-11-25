@@ -96,7 +96,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'barcode-generator',
   ] },
   { id: 'media', icon: 'layers', tools: [
-    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker',
+    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker', 'sequence-diagram-video-maker',
   ] },
   { id: 'dev', icon: 'file-code', tools: [
     'json-formatter', 'json-viewer', 'json-to-csv-converter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',

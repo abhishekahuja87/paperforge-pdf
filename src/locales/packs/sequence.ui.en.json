@@ -1,0 +1,178 @@
+{
+  "preview": "Preview",
+  "play": "Play",
+  "pause": "Pause",
+  "text": "Your diagram",
+  "textLabel": "Type your diagram, one step per line",
+  "textHint": "Write each step as Name->Name: text. Up to 10 names and 60 steps. For a phone video, 3 to 5 names read best.",
+  "examples": "Start from an example",
+  "syntax": "Syntax guide: everything you can write",
+  "syntaxHint": "Tap Add to put a line in your diagram.",
+  "add": "Add",
+  "errors": "Fix these lines",
+  "line": "Line {n}",
+  "look": "Look",
+  "arrows": "Show the arrows",
+  "arrowsHint": "Turn this off to show only the text moving between names, with no arrow lines. Useful when you explain it in your own voice.",
+  "numbers": "Number the steps",
+  "theme": "Background",
+  "themes": {
+    "light": "White",
+    "dark": "Black",
+    "chalk": "Chalkboard",
+    "paper": "Paper"
+  },
+  "font": "Font",
+  "fonts": {
+    "clean": "Clean",
+    "friendly": "Friendly"
+  },
+  "speed": "Speed of steps",
+  "speeds": {
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast"
+  },
+  "shape": "Shape and quality",
+  "shapes": {
+    "reel": "9:16 Reel, Short",
+    "wide": "16:9 YouTube",
+    "square": "1:1 Square",
+    "portrait": "4:5 Post"
+  },
+  "quality": "Quality",
+  "qualities": {
+    "720": "720p",
+    "1080": "1080p",
+    "2160": "4K (slowest)"
+  },
+  "fourKHint": "4K needs a recent computer or phone and takes the longest. The file is large.",
+  "voice": "Voice (optional)",
+  "voiceHint": "Record your voice while you tap through the steps, so the picture follows what you say. Or add an audio file you already have. Your voice stays on your device.",
+  "voiceRecord": "Record voice and tap through",
+  "voiceFile": "Add an audio file",
+  "voiceRemove": "Remove voice",
+  "voiceTapTitle": "Recording: say it, then tap Next step",
+  "voiceStart": "Start recording",
+  "voiceNext": "Next step",
+  "voiceFinish": "Finish recording",
+  "voiceCancel": "Cancel",
+  "voiceStep": "Step {done} of {total}",
+  "voiceReady": "Tap Next step each time you move to the next point. Nothing shows before your first tap.",
+  "voiceBlocked": "The microphone could not be used. Allow the microphone for this page, or add an audio file instead.",
+  "voiceUnsupported": "This browser cannot record from the microphone. Add an audio file instead.",
+  "voiceReadFailed": "That audio could not be read. Try an MP3, M4A or WAV file.",
+  "voiceTimed": "Voice added: {name}, {seconds} seconds. The steps follow the moments you tapped.",
+  "voiceFitted": "Voice added: {name}, {seconds} seconds. The steps are spread to fit it.",
+  "voiceChanged": "Voice added: {name}, {seconds} seconds. You changed the number of steps after recording, so the steps are spread to fit the voice.",
+  "voiceFit": "Spread the steps to fit the voice",
+  "voiceNoSound": "This browser cannot put sound into the video. The video will be made without it. You can add your voice in your editing app.",
+  "make": "Make video",
+  "cancel": "Cancel",
+  "keepOpenSmooth": "Drawing every frame: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
+  "keepOpen": "Keep this screen on and stay on this page while the video records. It takes as long as the video.",
+  "ready": "Your video is ready.",
+  "saveVideo": "Save video",
+  "smoothNote": "Saved as an MP4 file with every frame drawn, at 30 frames a second.",
+  "mp4Note": "Saved as an MP4 file.",
+  "webmNote": "This browser saves WebM video. It plays in Chrome, Edge and Firefox. If an app does not accept it, open this page in Chrome on a computer or a recent Android phone and save again.",
+  "noRecord": "This browser cannot record video. You can still preview and save a picture. Try a recent Chrome, Edge, Safari or Firefox to make the video.",
+  "failed": "The video could not be made. Try 720p or fewer steps, and keep this page open while it records.",
+  "makePicture": "Save picture (PNG)",
+  "pictureReady": "Your picture is ready.",
+  "savePicture": "Save picture",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to reset everything",
+  "empty": "Write a first step above, for example: Customer->Shop: Place order",
+  "lengthNote": "{seconds} seconds, {steps} steps.",
+  "scrollNote": "This diagram is taller than the picture, so the view moves down as the steps appear.",
+  "tip": "Tip: save the video, then drop it into Instagram Edits, CapCut or InShot. If you added your voice here, the sound is already in the file.",
+  "credit": "The diagram text uses the WebSequenceDiagrams style, so many existing diagrams can be pasted in. Includes, references and parallel blocks are not supported.",
+  "syntaxItems": [
+    {
+      "title": "Arrow",
+      "note": "Name, arrow, name, then a colon and the text. Names are made the first time you use them.",
+      "code": "A->B: Hello"
+    },
+    {
+      "title": "Open arrow head",
+      "note": "Two > signs give an open head.",
+      "code": "A->>B: Open head"
+    },
+    {
+      "title": "Dotted arrow",
+      "note": "Two dashes give a dotted line, often used for a reply.",
+      "code": "A-->B: Dotted\nA-->>B: Dotted, open head"
+    },
+    {
+      "title": "Slow arrow",
+      "note": "A number in brackets slants the arrow down, to show it takes time.",
+      "code": "A->(3)B: Takes a while"
+    },
+    {
+      "title": "Arrow to itself",
+      "note": "The same name on both sides.",
+      "code": "A->A: Thinks about it"
+    },
+    {
+      "title": "From or to outside",
+      "note": "A bracket on one side starts or ends the arrow at the edge of the picture.",
+      "code": "[->A: Comes in\nA->]: Goes out"
+    },
+    {
+      "title": "Names, order and shapes",
+      "note": "Declare a name to set the order, give a long name a short one with as, or pick a shape: actor, database, cloud, queue or collections.",
+      "code": "participant:actor User\nparticipant:database \"Order store\" as DB"
+    },
+    {
+      "title": "New line in text",
+      "note": "Type \\n where the text should break.",
+      "code": "A->B: First line\\nSecond line"
+    },
+    {
+      "title": "Notes",
+      "note": "Beside a name or over one or two names. Use a note with several lines and end note for long text.",
+      "code": "note left of A: Left\nnote right of A: Right\nnote over A: Over\nnote over A, B: Over two"
+    },
+    {
+      "title": "Note with several lines",
+      "note": "Close it with end note.",
+      "code": "note over A\nLine one\nLine two\nend note"
+    },
+    {
+      "title": "State",
+      "note": "A rounded box on a name, for a status.",
+      "code": "state over A: WAITING"
+    },
+    {
+      "title": "Boxes around steps",
+      "note": "alt, opt, loop, par, seq, break and group. Each ends with end. Add else inside alt for the other case. Boxes can sit inside each other.",
+      "code": "alt it works\n  A->B: Yes\nelse it fails\n  A->B: No\nend"
+    },
+    {
+      "title": "Active bars",
+      "note": "A + after the arrow starts a bar on the receiver, a - ends the sender's bar. You can also write activate and deactivate.",
+      "code": "A->+B: Start\nB-->-A: Done"
+    },
+    {
+      "title": "Create and destroy",
+      "note": "A star creates the receiver at that point. destroy ends its line with a cross.",
+      "code": "A->*B: Create B\ndestroy B"
+    },
+    {
+      "title": "Divider and delay",
+      "note": "A double line with text, and a gap with text.",
+      "code": "== Next morning ==\n...Some time later..."
+    },
+    {
+      "title": "Pause (video only)",
+      "note": "Holds the picture for the seconds you write, from 0.5 to 10. Nothing is drawn. Useful while you are speaking.",
+      "code": "pause 3"
+    },
+    {
+      "title": "Title, numbers and comments",
+      "note": "A title shows at the top, autonumber adds a number to every arrow, and a line starting with # is ignored.",
+      "code": "title My diagram\nautonumber\n# This line is a comment"
+    }
+  ]
+}
