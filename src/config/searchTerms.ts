@@ -55,6 +55,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'speak-to-captions-video-maker': ['auto captions', 'speech to text', 'voice to subtitles', 'srt', 'hindi captions', 'subtitles', 'talk to captions', 'reel captions'],
   'video-compressor-and-trimmer': ['compress video', 'video compressor', 'reduce video size', 'trim video', 'cut video', 'whatsapp video size', 'make video smaller', 'video trimmer'],
   'burn-subtitles-into-video': ['add subtitles to video', 'burn subtitles', 'srt to video', 'hardcode subtitles', 'captions on video', 'hardsub', 'vtt', 'subtitle burner'],
+  'voice-noise-remover': ['remove background noise', 'noise remover', 'noise reduction', 'clean audio', 'voice cleaner', 'make audio louder', 'remove silence', 'denoise'],
   'app-demo-video-maker': ['app demo', 'screenshots to video', 'phone mockup', 'laptop mockup', 'website demo', 'product demo', 'walkthrough', 'screen recording'],
   'audio-clip-video-maker': ['audio to video', 'audiogram', 'podcast video', 'waveform', 'sound bars', 'mp3 to video', 'voice note video', 'audio visualizer'],
   'tap-to-time-captions': ['srt', 'subtitles', 'captions', 'subtitle file', 'vtt', 'lyrics timing', 'hindi subtitles', 'sync captions'],

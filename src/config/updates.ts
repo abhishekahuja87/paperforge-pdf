@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/voice-noise-remover',
+    tool: 'Voice Clean-up',
+    title: 'New: clean up a voice recording by removing background noise and evening out the volume',
+    summary: 'Add or record a voice, reduce hiss, hum and room noise, even out and raise the volume, cut silence, and compare the original with the cleaned sound before saving a WAV or a small file. Nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
     path: '/burn-subtitles-into-video',
     tool: 'Subtitles Burner',
     title: 'New: add an SRT or VTT subtitle file to a video and save it with the captions on the picture',
