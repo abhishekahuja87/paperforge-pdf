@@ -52,6 +52,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'grayscale-pdf': ['pdf black and white', 'remove colour from pdf', 'save ink'],
   'extract-images-from-pdf': ['save pictures from pdf', 'pdf photos', 'get images out of pdf'],
   'audio-cutter-and-joiner': ['trim mp3', 'join audio', 'voice note cutter', 'ringtone'],
+  'region-map-video-maker': ['map video', 'countries visited', 'world map animation', 'travel map', 'highlight countries', 'where we deliver'],
   'explainer-video-maker': ['explainer', 'slides video', 'ppt video', 'arrow text', 'voice over', 'how it works'],
   'sequence-diagram-video-maker': ['sequence diagram', 'flowchart video', 'explainer', 'voice over', 'arrows', 'process video'],
   'handwriting-video-maker': ['write on text', 'handwriting animation', 'whiteboard video', 'text animation', 'reel text', 'explainer'],

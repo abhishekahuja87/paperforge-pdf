@@ -1,0 +1,134 @@
+{
+  "preview": "Preview",
+  "play": "Play",
+  "pause": "Pause",
+  "add": "Add",
+  "errors": "Fix these lines",
+  "line": "Line {n}",
+  "text": "Your places",
+  "textLabel": "Type your places, one line per step",
+  "textHint": "Each line is one step. Write a country, or several separated by commas, and a note after a colon. Up to 40 steps.",
+  "examples": "Start from an example",
+  "syntax": "Syntax guide: everything you can write",
+  "syntaxHint": "Tap Add to put a line in your list.",
+  "empty": "Write a first line above, for example: India",
+  "lengthNote": "{seconds} seconds, {steps} steps.",
+  "look": "Look",
+  "style": "Map style",
+  "styles": {
+    "clean": "Clean",
+    "dark": "Night",
+    "paper": "Paper",
+    "bold": "Bold"
+  },
+  "font": "Font",
+  "fonts": {
+    "clean": "Clean",
+    "friendly": "Friendly"
+  },
+  "speed": "Speed of steps",
+  "speeds": {
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast"
+  },
+  "zoom": "Fly the camera to each place",
+  "keep": "Keep earlier places lit",
+  "counter": "Show how many places so far",
+  "finale": "Zoom out to show everything at the end",
+  "wordOne": "{n} place",
+  "wordMany": "{n} places",
+  "wordTotal": "{n} places in all",
+  "voice": "Voice (optional)",
+  "voiceHint": "Record your voice while you tap through the steps, so each place lights up when you say it. Or add an audio file you already have. Your voice stays on your device.",
+  "voiceRecord": "Record voice and tap through",
+  "voiceFile": "Add an audio file",
+  "voiceRemove": "Remove voice",
+  "voiceTapTitle": "Recording: say it, then tap Next step",
+  "voiceNext": "Next step",
+  "voiceFinish": "Finish recording",
+  "voiceCancel": "Cancel",
+  "voiceStep": "Step {done} of {total}",
+  "voiceReady": "Tap Next step each time you move to the next place. The map shows the whole world until your first tap.",
+  "voiceBlocked": "The microphone could not be used. Allow the microphone for this page, or add an audio file instead.",
+  "voiceUnsupported": "This browser cannot record from the microphone. Add an audio file instead.",
+  "voiceReadFailed": "That audio could not be read. Try an MP3, M4A or WAV file.",
+  "voiceTimed": "Voice added: {name}, {seconds} seconds. The steps follow the moments you tapped.",
+  "voiceFitted": "Voice added: {name}, {seconds} seconds. The steps are spread to fit it.",
+  "voiceChanged": "Voice added: {name}, {seconds} seconds. You changed the number of steps after recording, so the steps are spread to fit the voice.",
+  "voiceFit": "Spread the steps to fit the voice",
+  "voiceNoSound": "This browser cannot put sound into the video. The video will be made without it. You can add your voice in your editing app.",
+  "shape": "Shape and quality",
+  "shapes": {
+    "reel": "9:16 Reel, Short",
+    "wide": "16:9 YouTube",
+    "square": "1:1 Square",
+    "portrait": "4:5 Post"
+  },
+  "quality": "Quality",
+  "qualities": {
+    "720": "720p",
+    "1080": "1080p",
+    "2160": "4K (slowest)"
+  },
+  "fourKHint": "4K needs a recent computer or phone and takes the longest. The file is large.",
+  "tip": "Tip: save the video, then drop it into Instagram Edits, CapCut or InShot. If you added your voice here, the sound is already in the file.",
+  "credit": "Country borders follow India's official map. Only big cities can be pinned by name; for any other place write its latitude and longitude.",
+  "make": "Make video",
+  "cancel": "Cancel",
+  "keepOpenSmooth": "Drawing every frame: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
+  "keepOpen": "Keep this screen on and stay on this page while the video records. It takes as long as the video.",
+  "ready": "Your video is ready.",
+  "saveVideo": "Save video",
+  "smoothNote": "Saved as an MP4 file with every frame drawn, at 30 frames a second.",
+  "mp4Note": "Saved as an MP4 file.",
+  "webmNote": "This browser saves WebM video. It plays in Chrome, Edge and Firefox. If an app does not accept it, open this page in Chrome on a computer or a recent Android phone and save again.",
+  "noRecord": "This browser cannot record video. You can still preview and save a picture. Try a recent Chrome, Edge, Safari or Firefox to make the video.",
+  "failed": "The video could not be made. Try 720p or fewer steps, and keep this page open while it records.",
+  "makePicture": "Save picture (PNG)",
+  "pictureReady": "Your picture is ready.",
+  "savePicture": "Save picture",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to reset everything",
+  "countries": "Country list",
+  "countriesHint": "Search for a country, then tap Add to put it in your list.",
+  "countrySearch": "Search countries",
+  "noMatch": "No country found.",
+  "syntaxItems": [
+    {
+      "title": "A country",
+      "note": "The country lights up, the map flies to it and a card shows its name. Add a note after a colon.",
+      "code": "India: Home"
+    },
+    {
+      "title": "Several countries in one step",
+      "note": "Separate names with commas. They light up together and the map fits all of them.",
+      "code": "France, Italy, Spain: Europe trip"
+    },
+    {
+      "title": "A pin on a city",
+      "note": "For big cities. Add Country after the city name if two cities share a name.",
+      "code": "pin: Paris, France: Eiffel Tower"
+    },
+    {
+      "title": "A pin on any point",
+      "note": "Write latitude, then longitude, then a name.",
+      "code": "pin: 19.07, 72.87 Mumbai: Support team"
+    },
+    {
+      "title": "Zoom out to the world",
+      "note": "Shows the whole world with everything lit so far. A note is optional.",
+      "code": "world: All of them"
+    },
+    {
+      "title": "A pause",
+      "note": "Holds the picture for 2 seconds, or the number you write.",
+      "code": "pause 3"
+    },
+    {
+      "title": "A title",
+      "note": "Stays at the top of the video.",
+      "code": "title: Countries I visited"
+    }
+  ]
+}

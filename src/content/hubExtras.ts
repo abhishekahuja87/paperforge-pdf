@@ -288,10 +288,11 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Make a video of text being written by hand", tool: "handwriting-video-maker", name: "Handwriting Video Maker", note: "Type up to six lines, pick a font and a whiteboard, chalkboard or green-screen look, and save a write-on clip." },
       { task: "Turn a process into an animated diagram video", tool: "sequence-diagram-video-maker", name: "Sequence Diagram Video Maker", note: "Type steps like Customer->Shop: Place order, hide the arrows if you like, and record your voice over it." },
       { task: "Make a PPT-style explainer video with text, arrows and pictures", tool: "explainer-video-maker", name: "Explainer Video Maker", note: "Type lines like left: Factory, arrow: ships goods, right: Port. Each slides in, with or without your voice." },
+      { task: "Make a map video of countries I visited or places we deliver to", tool: "region-map-video-maker", name: "Map Video Maker", note: "Type country names. Each lights up as the map flies to it, with pins on big cities and an optional voice." },
     ],
     situations: [
       { who: "Creators and travellers", text: "Make a globe video that flies from your home city to your destination for a Reel, a Short or a YouTube intro." },
-      { who: "Explainer and teaching videos", text: "Write the steps of a process, a formula or a hook line as a short write-on clip, or draw a process as an animated diagram with your own voice, to place inside a longer video." },
+      { who: "Explainer and teaching videos", text: "Write the steps of a process, a formula or a hook line as a short write-on clip, or draw a process as an animated diagram with your own voice, to place inside a longer video, or light up the countries you visited on a world map." },
       { who: "Phones and voice notes", text: "Trim a long voice note, or join several short ones, and save the result as a WAV file." },
       { who: "Teachers and students", text: "Cut a lecture recording to the part you need." },
       { who: "Anyone sharing audio", text: "Nothing is uploaded, so private recordings stay on your device." },

@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "region-map-video-maker": [
+      [
+        "Type your places",
+        "Write one line per step, like India: Home, then France, Italy, Spain: Europe trip. Pick an example if you want to see how it looks first."
+      ],
+      [
+        "Add pins and a title (optional)",
+        "Add pin: Mumbai for a city, or a latitude and longitude for any point. Add title: and world: lines, and pick a map style such as Night, Paper or Bold."
+      ],
+      [
+        "Add your voice (optional)",
+        "Tap Record voice and tap through, speak, and tap Next step as you move on, so each place lights up when you say it. Or leave the voice out and let each step stay long enough to read."
+      ],
+      [
+        "Make and save the video",
+        "Choose 9:16, 16:9 or 1:1 and tap Make video. Keep the page open while it is drawn, then save the MP4 and use it on its own or inside a longer video."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "regionMapVideoGuide": {
+      "title": "Map Video Maker: Light Up Countries One by One, Free, No Watermark",
+      "subtitle": "Type country names and save a video of a world map where each one lights up with a zoom and a label, with pins and your voice if you like. Free.",
+      "faq": [
+        [
+          "Is the Map Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "What does the video show?",
+          "A flat world map. Each country you list lights up in turn, the camera flies to it and a card names it with a note you wrote. You can also drop pins on big cities or on any point, zoom out to the whole world and end with a count of all the places."
+        ],
+        [
+          "What can I write?",
+          "A country name, or several separated by commas, and a note after a colon. Other lines are pin: for a city or a latitude and longitude, world: to zoom out, pause for a hold and title: for a heading. The Syntax guide on the page has an Add button for each."
+        ],
+        [
+          "Does it work for states, districts or small towns?",
+          "Not yet. It draws countries. For a state, district or town, drop a pin on a big city nearby or write its latitude and longitude after pin:."
+        ],
+        [
+          "Do I need a voice?",
+          "No. Without a voice each place stays on screen long enough to read. To add one, tap Record voice and tap through, and tap Next step as you speak, so each place lights up when you say it. You can also add an audio file."
+        ],
+        [
+          "Which video shapes and sizes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save the picture as a PNG."
+        ],
+        [
+          "Which looks can I choose?",
+          "Clean, night, paper and bold maps, two fonts, three speeds, and switches for the camera flying to each place, keeping earlier places lit, a running count and the zoom out at the end."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The map is drawn and the video is made on your own device, and your voice is processed there too, so nothing is sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "region-map-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Map Video Maker does",
+          "paragraphs": [
+            "The Map Video Maker turns a list of places into a video of a flat world map. Each country you write lights up, the map flies to it and a card at the bottom shows its name and a short note. Pins can be put on big cities or on any latitude and longitude.",
+            "It is made as a building block. Make a clip for one idea, such as countries you visited or places you deliver to, then use it on its own or inside a longer video in your editing app."
+          ]
+        },
+        {
+          "heading": "Choices that change the video",
+          "paragraphs": [
+            "Write several countries on one line to light them up together, add a world line to zoom out, and add a pause line to hold the picture while you speak. Choose a clean, night, paper or bold map, a font, a speed, whether earlier places stay lit and whether the camera flies to each place.",
+            "With your voice, tap Next step as you speak and each place lights up at that moment. The video ends with a zoom out and a count of all the places."
+          ]
+        },
+        {
+          "heading": "Where it helps",
+          "paragraphs": [
+            "Travellers show where they have been, small businesses show where they deliver, and teachers show where a story happened, with or without a voice.",
+            "Everything is drawn and saved on your device, so your list, pictures and voice are not uploaded. Keep the list short so each place stays on screen long enough to read."
+          ]
+        }
+      ]
+    }
+  }
+}

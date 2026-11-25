@@ -31,6 +31,7 @@ import { GLOBE_COMPONENTS } from './globe/registry';
 import { WRITING_COMPONENTS } from './writing/registry';
 import { SEQUENCE_COMPONENTS } from './sequence/registry';
 import { SLIDES_COMPONENTS } from './slides/registry';
+import { REGIONMAP_COMPONENTS } from './regionmap/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -69,4 +70,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...WRITING_COMPONENTS,
   ...SEQUENCE_COMPONENTS,
   ...SLIDES_COMPONENTS,
+  ...REGIONMAP_COMPONENTS,
 };
