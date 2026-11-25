@@ -39,6 +39,7 @@ import { AUDIOCLIP_COMPONENTS } from './audioclip/registry';
 import { APPDEMO_COMPONENTS } from './appdemo/registry';
 import { VIDEOCOMPRESS_COMPONENTS } from './videoedit/registry';
 import { VOICECLEAN_COMPONENTS } from './voiceclean/registry';
+import { BGREMOVE_COMPONENTS } from './bgremove/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -85,4 +86,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...APPDEMO_COMPONENTS,
   ...VIDEOCOMPRESS_COMPONENTS,
   ...VOICECLEAN_COMPONENTS,
+  ...BGREMOVE_COMPONENTS,
 };

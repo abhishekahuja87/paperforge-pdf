@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/background-remover',
+    tool: 'Background Remover',
+    title: 'New: make a plain background transparent, for products, signatures and logos',
+    summary: 'Add a picture with a plain background and save a transparent PNG, or put white or a colour behind it. It matches colours, so it suits plain backgrounds, and nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
     path: '/voice-noise-remover',
     tool: 'Voice Clean-up',
     title: 'New: clean up a voice recording by removing background noise and evening out the volume',

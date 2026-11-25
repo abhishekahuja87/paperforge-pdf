@@ -251,6 +251,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L21 | Video Compressor and Trimmer: pick the WhatsApp starter, add a one minute phone video, cut it with Start here and End here, make it, check it is under about 15 MB and plays with sound (Android Chrome and iPhone Safari), then send it on WhatsApp | | |
 | L22 | Subtitles Burner: add a phone video and an SRT made with Tap-to-Time Captions, try Reel bold box, make the video and play it with sound and captions on your phone, then post it as a Reel | | |
 | L23 | Voice Clean-up: record a voice note near a fan, use the Noisy room starter, play the original and the cleaned sound with headphones, and send the saved file on WhatsApp | | |
+| L24 | Background Remover: photograph a product on white paper, use Product on white, adjust How much to remove, save the transparent PNG and place it on a coloured background in another app | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 
