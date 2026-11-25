@@ -61,7 +61,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf',
   ] },
   { id: 'images', icon: 'image', tools: [
-    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location', 'bulk-image-tools', 'social-image-resizer', 'gif-maker',
+    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location', 'bulk-image-tools', 'social-image-resizer', 'gif-maker', 'background-remover',
   ] },
   { id: 'tax', icon: 'receipt', tools: [
     'income-tax-calculator', 'salary-calculator', 'hra-calculator', 'gst-calculator', 'gratuity-calculator', 'epf-calculator',
@@ -96,7 +96,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'barcode-generator',
   ] },
   { id: 'media', icon: 'layers', tools: [
-    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker', 'sequence-diagram-video-maker', 'explainer-video-maker', 'region-map-video-maker', 'chart-reveal-video-maker', 'photo-story-video-maker', 'tap-to-time-captions', 'audio-clip-video-maker', 'app-demo-video-maker', 'speak-to-captions-video-maker', 'video-compressor-and-trimmer', 'burn-subtitles-into-video', 'voice-noise-remover', 'background-remover', 'screen-recorder-with-face', 'teleprompter-with-video-recording', 'whiteboard-lesson-recorder', 'before-and-after-video-maker',
+    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker', 'sequence-diagram-video-maker', 'explainer-video-maker', 'region-map-video-maker', 'chart-reveal-video-maker', 'photo-story-video-maker', 'tap-to-time-captions', 'audio-clip-video-maker', 'app-demo-video-maker', 'speak-to-captions-video-maker', 'video-compressor-and-trimmer', 'burn-subtitles-into-video', 'voice-noise-remover', 'screen-recorder-with-face', 'teleprompter-with-video-recording', 'whiteboard-lesson-recorder', 'before-and-after-video-maker',
   ] },
   { id: 'dev', icon: 'file-code', tools: [
     'json-formatter', 'json-viewer', 'json-to-csv-converter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',
