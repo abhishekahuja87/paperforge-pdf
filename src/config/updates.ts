@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/explainer-video-maker',
+    tool: 'Explainer Video Maker',
+    title: 'New: slides with left and right text, arrows and pictures, as a video',
+    summary: 'Type short lines like left: Factory, arrow: ships goods, right: Port and each one slides in, with bullets, big text, your own pictures and an optional voice recorded by tapping through.',
+  },
+  {
+    date: '2026-11-25',
     path: '/sequence-diagram-video-maker',
     tool: 'Sequence Diagram Video Maker',
     title: 'New: type a diagram as text and save a video where it draws itself',

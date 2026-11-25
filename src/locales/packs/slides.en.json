@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "explainer-video-maker": [
+      [
+        "Type your lines",
+        "Write one line per step, like left: Factory, arrow: ships the goods, right: Port. Start a new slide with the word slide. Pick an example if you want to see the style first."
+      ],
+      [
+        "Add pictures (optional)",
+        "Add a photo or logo, then tap Use on left, in middle or on right to put it in your slides."
+      ],
+      [
+        "Add your voice (optional)",
+        "Tap Record voice and tap through, speak, and tap Next step as you move on, so each line appears when you say it. Or leave the voice out and let each step stay long enough to read."
+      ],
+      [
+        "Make and save the video",
+        "Choose 9:16, 16:9 or 1:1 and tap Make video. Keep the page open while it is drawn, then save the MP4 and use it on its own or inside a longer video."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "explainerVideoGuide": {
+      "title": "Explainer Video Maker: Slides With Arrows and Voice, Free, No Watermark",
+      "subtitle": "Type short lines for text on the left and right, arrows, bullets and pictures and save a video where they build up, with your voice if you like. Free.",
+      "faq": [
+        [
+          "Is the Explainer Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "How is it different from a slide deck?",
+          "You type short lines instead of dragging boxes, and each line becomes one step that slides in, like an animated slide. Left, right and middle text, arrows in both directions and downwards, bullet points, one big word or number, and pictures are available, with up to 12 slides and 60 steps."
+        ],
+        [
+          "What can I write?",
+          "Lines start with left:, right:, center:, arrow:, arrow-back:, down:, big:, title: or a dash for a bullet. A line that says slide starts a new slide. The Syntax guide on the page shows each one with an Add button."
+        ],
+        [
+          "How do I add pictures?",
+          "Tap Add a picture, choose a photo or logo, then tap Use on left, Use in middle or Use on right. A line is added for you. Pictures are shrunk on your device and are not saved between visits."
+        ],
+        [
+          "Do I need a voice?",
+          "No. Without a voice each step stays on screen long enough to read, and you can make it slower or faster. With a voice, tap Next step as you speak so each line appears when you say it, or add an audio file and the steps are spread to fit it."
+        ],
+        [
+          "Which video shapes and sizes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save the finished slide as a PNG."
+        ],
+        [
+          "What if a slide has too much text?",
+          "The text is shrunk to fit, and the page tells you which slide is crowded. Splitting it into two slides is easier to read on a phone."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The slides are drawn and the video is made on your own device, and your pictures and voice are processed there too, so nothing is sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "explainer-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Explainer Video Maker does",
+          "paragraphs": [
+            "The Explainer Video Maker turns short typed lines into a video that builds up like an animated slide. A line such as left: Factory slides in on the left, an arrow line draws an arrow with its label, and right: Port slides in on the right.",
+            "It is made as a building block. Make a clip for one idea, then use it on its own or inside a longer video in your editing app."
+          ]
+        },
+        {
+          "heading": "Choices that change the video",
+          "paragraphs": [
+            "Text can go on the left, right or middle, arrows can point both ways or down, and bullet points, one big word or number and your own pictures can be added. A new slide starts with the word slide, and a pause line holds the picture while you speak.",
+            "Choose a background, a font, a speed and whether the left and right text sits in boxes. With your voice, tap Next step as you speak and each line appears at that moment."
+          ]
+        },
+        {
+          "heading": "Where it helps",
+          "paragraphs": [
+            "Teachers explain a process in a few slides, small businesses show before and after or how an order works, and creators make how it works clips for Reels and Shorts, with or without a voice.",
+            "Everything is drawn and saved on your device, so your text, pictures and voice are not uploaded. Keep each slide short so it stays readable on a phone."
+          ]
+        }
+      ]
+    }
+  }
+}

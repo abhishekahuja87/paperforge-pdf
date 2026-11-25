@@ -287,6 +287,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Make a video of a trip from one place to another", tool: "globe-video-maker", name: "Globe Video Maker", note: "Pick A and B, or one origin and many places. Choose a look, save a Reel, YouTube or square video." },
       { task: "Make a video of text being written by hand", tool: "handwriting-video-maker", name: "Handwriting Video Maker", note: "Type up to six lines, pick a font and a whiteboard, chalkboard or green-screen look, and save a write-on clip." },
       { task: "Turn a process into an animated diagram video", tool: "sequence-diagram-video-maker", name: "Sequence Diagram Video Maker", note: "Type steps like Customer->Shop: Place order, hide the arrows if you like, and record your voice over it." },
+      { task: "Make a PPT-style explainer video with text, arrows and pictures", tool: "explainer-video-maker", name: "Explainer Video Maker", note: "Type lines like left: Factory, arrow: ships goods, right: Port. Each slides in, with or without your voice." },
     ],
     situations: [
       { who: "Creators and travellers", text: "Make a globe video that flies from your home city to your destination for a Reel, a Short or a YouTube intro." },

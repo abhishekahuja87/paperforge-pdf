@@ -1,0 +1,26 @@
+{
+  "shipping": {
+    "label": "How shipping works",
+    "code": "slide How shipping works\nleft: Factory in China\narrow: ships the goods\nright: Port of Colombo\nleft: Port of Colombo\narrow: loads the container\nright: Ship to Mumbai\ndown: 18 days at sea\ncenter: Goods arrive\nslide The numbers\nbig: 18 days\n- From factory to door\n- Tracked at every port"
+  },
+  "beforeafter": {
+    "label": "Before and after",
+    "code": "slide Before and after\nleft: Before\nright: After\nleft: Messy files\narrow: our fix\nright: One tidy folder\npause 2\nbig: Saves an hour a day"
+  },
+  "tips": {
+    "label": "Three tips",
+    "code": "slide Three tips for a good video\n- Keep each slide short\n- Say one idea at a time\n- Pause so people can read\nslide\nbig: Try it today"
+  },
+  "question": {
+    "label": "Question and answer",
+    "code": "slide Quick question\ncenter: Why do ships float?\npause 3\nbig: Density\n- A ship is mostly air inside\n- That makes it lighter than the water it pushes aside"
+  },
+  "steps": {
+    "label": "Step by step",
+    "code": "slide How a refund works\ncenter: Customer asks for a refund\ndown: Shop checks the order\ncenter: Order is found\ndown: Money goes back\ncenter: Customer is happy"
+  },
+  "compare": {
+    "label": "Two sides",
+    "code": "slide Online or in the shop?\nleft: Online\nright: In the shop\nleft: Delivered home\narrow-back: or\nright: Try it first\n- Both can be good\n- Choose what suits you"
+  }
+}

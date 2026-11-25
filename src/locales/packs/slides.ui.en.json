@@ -1,0 +1,167 @@
+{
+  "preview": "Preview",
+  "play": "Play",
+  "pause": "Pause",
+  "add": "Add",
+  "errors": "Fix these lines",
+  "line": "Line {n}",
+  "look": "Look",
+  "theme": "Background",
+  "themes": {
+    "light": "White",
+    "dark": "Black",
+    "chalk": "Chalkboard",
+    "paper": "Paper"
+  },
+  "font": "Font",
+  "fonts": {
+    "clean": "Clean",
+    "friendly": "Friendly"
+  },
+  "speed": "Speed of steps",
+  "speeds": {
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast"
+  },
+  "shape": "Shape and quality",
+  "shapes": {
+    "reel": "9:16 Reel, Short",
+    "wide": "16:9 YouTube",
+    "square": "1:1 Square",
+    "portrait": "4:5 Post"
+  },
+  "quality": "Quality",
+  "qualities": {
+    "720": "720p",
+    "1080": "1080p",
+    "2160": "4K (slowest)"
+  },
+  "fourKHint": "4K needs a recent computer or phone and takes the longest. The file is large.",
+  "voice": "Voice (optional)",
+  "voiceRecord": "Record voice and tap through",
+  "voiceFile": "Add an audio file",
+  "voiceRemove": "Remove voice",
+  "voiceTapTitle": "Recording: say it, then tap Next step",
+  "voiceStart": "Start recording",
+  "voiceNext": "Next step",
+  "voiceFinish": "Finish recording",
+  "voiceCancel": "Cancel",
+  "voiceBlocked": "The microphone could not be used. Allow the microphone for this page, or add an audio file instead.",
+  "voiceUnsupported": "This browser cannot record from the microphone. Add an audio file instead.",
+  "voiceReadFailed": "That audio could not be read. Try an MP3, M4A or WAV file.",
+  "voiceTimed": "Voice added: {name}, {seconds} seconds. The steps follow the moments you tapped.",
+  "voiceFitted": "Voice added: {name}, {seconds} seconds. The steps are spread to fit it.",
+  "voiceChanged": "Voice added: {name}, {seconds} seconds. You changed the number of steps after recording, so the steps are spread to fit the voice.",
+  "voiceFit": "Spread the steps to fit the voice",
+  "voiceNoSound": "This browser cannot put sound into the video. The video will be made without it. You can add your voice in your editing app.",
+  "make": "Make video",
+  "cancel": "Cancel",
+  "keepOpenSmooth": "Drawing every frame: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
+  "keepOpen": "Keep this screen on and stay on this page while the video records. It takes as long as the video.",
+  "ready": "Your video is ready.",
+  "saveVideo": "Save video",
+  "smoothNote": "Saved as an MP4 file with every frame drawn, at 30 frames a second.",
+  "mp4Note": "Saved as an MP4 file.",
+  "webmNote": "This browser saves WebM video. It plays in Chrome, Edge and Firefox. If an app does not accept it, open this page in Chrome on a computer or a recent Android phone and save again.",
+  "noRecord": "This browser cannot record video. You can still preview and save a picture. Try a recent Chrome, Edge, Safari or Firefox to make the video.",
+  "failed": "The video could not be made. Try 720p or fewer steps, and keep this page open while it records.",
+  "makePicture": "Save picture (PNG)",
+  "pictureReady": "Your picture is ready.",
+  "savePicture": "Save picture",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to reset everything",
+  "text": "Your slides",
+  "textLabel": "Type your slides, one line per step",
+  "textHint": "Each line appears as one step, in order. Start a new slide with a line that says slide. Up to 12 slides and 60 steps.",
+  "examples": "Start from an example",
+  "syntax": "Syntax guide: everything you can write",
+  "syntaxHint": "Tap Add to put a line in your slides.",
+  "boxes": "Draw boxes around left and right text",
+  "pictures": "Pictures (optional)",
+  "picturesHint": "Add a photo or logo, then tap where to show it: on the left, in the middle or on the right. Up to 6 pictures. They stay on your device and are not saved between visits.",
+  "addPicture": "Add a picture",
+  "useOn": {
+    "left": "Use on left",
+    "center": "Use in middle",
+    "right": "Use on right"
+  },
+  "removePicture": "Remove",
+  "picturesFull": "You can add up to 6 pictures.",
+  "pictureFailed": "That picture could not be read. Try a JPG or PNG file.",
+  "voiceHint": "Record your voice while you tap through the steps, so each step appears when you say it. Or add an audio file you already have. Your voice stays on your device.",
+  "voiceStep": "Step {done} of {total}",
+  "voiceReady": "Tap Next step each time you move to the next point. The first slide title shows until your first tap.",
+  "empty": "Write a first line above, for example: left: Factory",
+  "lengthNote": "{seconds} seconds, {slides} slides, {steps} steps.",
+  "crowdedNote": "Slide {n} has a lot of text, so it is drawn small. Split it into more slides for a bigger, easier read.",
+  "tip": "Tip: save the video, then drop it into Instagram Edits, CapCut or InShot. If you added your voice here, the sound is already in the file.",
+  "credit": "Left, right and middle items sit in rows. A second left, arrow or right line starts a new row.",
+  "syntaxItems": [
+    {
+      "title": "Text on the left, right or middle",
+      "note": "Each line is one step that slides in. A left and a right line next to each other share a row.",
+      "code": "left: Factory\nright: Port\ncenter: Goods arrive"
+    },
+    {
+      "title": "Arrow between left and right",
+      "note": "Put the arrow line between a left and a right line. Its text is written above the arrow.",
+      "code": "left: Factory\narrow: ships the goods\nright: Port"
+    },
+    {
+      "title": "Arrow pointing back",
+      "note": "The same, but the arrow points from right to left.",
+      "code": "left: Shop\narrow-back: sends feedback\nright: Customer"
+    },
+    {
+      "title": "A new row",
+      "note": "A second left, arrow or right in a row starts the next row below.",
+      "code": "left: Port\narrow: loads\nright: Ship\nleft: Ship\narrow: sails\nright: Harbour"
+    },
+    {
+      "title": "Arrow pointing down",
+      "note": "A downward arrow across the middle, with a label beside it.",
+      "code": "down: 18 days at sea"
+    },
+    {
+      "title": "Big text",
+      "note": "One large word or number that pops in.",
+      "code": "big: 18 days"
+    },
+    {
+      "title": "Bullet points",
+      "note": "Start a line with a dash. Each point appears one after another.",
+      "code": "- First point\n- Second point\n- Third point"
+    },
+    {
+      "title": "Heading for a slide",
+      "note": "A title at the top. Writing it after the word slide does the same.",
+      "code": "title: How it works"
+    },
+    {
+      "title": "New slide",
+      "note": "A line that says slide, or three dashes, starts a new slide. Text after the word is its title.",
+      "code": "slide Step two\nleft: Start"
+    },
+    {
+      "title": "Pictures",
+      "note": "Add a picture below, then use left-image, center-image or right-image with its name. Words after the name are a caption.",
+      "code": "left-image: photo1 Our product"
+    },
+    {
+      "title": "New line in text",
+      "note": "Type \\n where the text should break.",
+      "code": "left: First line\\nSecond line"
+    },
+    {
+      "title": "Pause",
+      "note": "Holds the picture for the seconds you write, from 0.5 to 10. Useful while you are speaking.",
+      "code": "pause 3"
+    },
+    {
+      "title": "Comment",
+      "note": "A line starting with # is ignored.",
+      "code": "# This line is a note to myself"
+    }
+  ]
+}
