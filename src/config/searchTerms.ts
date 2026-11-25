@@ -58,6 +58,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'voice-noise-remover': ['remove background noise', 'noise remover', 'noise reduction', 'clean audio', 'voice cleaner', 'make audio louder', 'remove silence', 'denoise'],
   'background-remover': ['remove background', 'background remover', 'transparent png', 'make transparent', 'remove white background', 'signature transparent', 'cut out', 'green screen'],
   'screen-recorder-with-face': ['screen recorder', 'record screen', 'screen recording', 'webcam bubble', 'loom', 'record my screen', 'tutorial video', 'screencast'],
+  'whatsapp-chat-to-pdf': ['whatsapp', 'whatsapp chat', 'chat to pdf', 'print whatsapp', 'export chat', 'whatsapp pdf', 'chat backup'],
   'app-demo-video-maker': ['app demo', 'screenshots to video', 'phone mockup', 'laptop mockup', 'website demo', 'product demo', 'walkthrough', 'screen recording'],
   'audio-clip-video-maker': ['audio to video', 'audiogram', 'podcast video', 'waveform', 'sound bars', 'mp3 to video', 'voice note video', 'audio visualizer'],
   'tap-to-time-captions': ['srt', 'subtitles', 'captions', 'subtitle file', 'vtt', 'lyrics timing', 'hindi subtitles', 'sync captions'],

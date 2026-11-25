@@ -1,0 +1,70 @@
+{
+  "memory": {
+    "label": "Memory book",
+    "hint": "Chat bubbles like in WhatsApp, with a summary page, times and photos if you added a zip.",
+    "style": "bubbles",
+    "size": "medium",
+    "times": true,
+    "summary": true,
+    "photos": true,
+    "system": false,
+    "media": true,
+    "deleted": false
+  },
+  "record": {
+    "label": "Plain record",
+    "hint": "Plain black on white, every message in order with its date and time. Good for printing and keeping.",
+    "style": "plain",
+    "size": "medium",
+    "times": true,
+    "summary": false,
+    "photos": false,
+    "system": true,
+    "media": true,
+    "deleted": true
+  },
+  "clean": {
+    "label": "Just the words",
+    "hint": "Chat bubbles with only the messages people wrote: no times, photo notes, deleted messages or system notes.",
+    "style": "bubbles",
+    "size": "medium",
+    "times": false,
+    "summary": false,
+    "photos": false,
+    "system": false,
+    "media": false,
+    "deleted": false
+  },
+  "ink": {
+    "label": "Save ink and paper",
+    "hint": "Small plain text with no colour, so a long chat takes the fewest pages.",
+    "style": "plain",
+    "size": "small",
+    "times": true,
+    "summary": false,
+    "photos": false,
+    "system": false,
+    "media": false,
+    "deleted": false
+  },
+  "sample": [
+    "12/10/2026, 9:15 am - Messages and calls are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can read or listen to them.",
+    "12/10/2026, 9:15 am - Riya created group \"Family trip\"",
+    "12/10/2026, 9:16 am - Riya: Good morning everyone! 🌞 Let's plan the Goa trip.",
+    "12/10/2026, 9:20 am - Aman: Morning! Which dates work for you?",
+    "12/10/2026, 9:22 am - Papa: सुबह की चाय के बाद बात करते हैं 😊",
+    "12/10/2026, 9:40 am - Riya: How about 24 to 27 December?",
+    "Let me check the train tickets and the hotel prices too.",
+    "12/10/2026, 9:41 am - Aman: Works for me 👍",
+    "12/10/2026, 10:05 am - Papa: ठीक है, मैं छुट्टी ले लूँगा।",
+    "13/10/2026, 8:30 pm - Riya: <Media omitted>",
+    "13/10/2026, 8:31 pm - Riya: Found this hotel near the beach. Rooms are ₹4,200 a night.",
+    "13/10/2026, 8:35 pm - Aman: Looks great! Call me on +91 98765 43210 if you want to book today.",
+    "13/10/2026, 8:36 pm - Papa: This message was deleted",
+    "13/10/2026, 8:50 pm - Papa: कितने लोग जा रहे हैं? पूरा परिवार? 🏖️",
+    "13/10/2026, 8:52 pm - Riya: Five of us. I'll book two rooms.",
+    "14/10/2026, 7:10 am - Aman: Booked the train tickets! 🚆🎉",
+    "14/10/2026, 7:12 am - Riya: Amazing! Thank you so much ❤️",
+    "14/10/2026, 7:15 am - Papa: शाबाश बच्चो! 👏"
+  ]
+}

@@ -41,6 +41,7 @@ import { VIDEOCOMPRESS_COMPONENTS } from './videoedit/registry';
 import { VOICECLEAN_COMPONENTS } from './voiceclean/registry';
 import { BGREMOVE_COMPONENTS } from './bgremove/registry';
 import { SCREENREC_COMPONENTS } from './screenrec/registry';
+import { WHATSAPP_COMPONENTS } from './whatsapp/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -89,4 +90,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...VOICECLEAN_COMPONENTS,
   ...BGREMOVE_COMPONENTS,
   ...SCREENREC_COMPONENTS,
+  ...WHATSAPP_COMPONENTS,
 };

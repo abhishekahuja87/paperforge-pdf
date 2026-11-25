@@ -48,6 +48,7 @@ import subtitleburn from './packs/subtitleburn.en.json';
 import voiceclean from './packs/voiceclean.en.json';
 import bgremove from './packs/bgremove.en.json';
 import screenrec from './packs/screenrec.en.json';
+import whatsappchat from './packs/whatsappchat.en.json';
 import coreDepth from './depth/core.en.json';
 import thinDepth from './depth/thin.en.json';
 
@@ -57,7 +58,7 @@ import thinDepth from './depth/thin.en.json';
  * sections keyed by tool id or guide key, so adding a pack never touches the base file.
  * To add a pack: create ./packs/<name>.en.json (and its catalog file, see core.ts), import it here and add it to PACKS.
  */
-const PACKS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, globePages, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec];
+const PACKS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, globePages, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec, whatsappchat];
 type Pack = (typeof PACKS)[number];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
