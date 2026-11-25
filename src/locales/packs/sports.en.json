@@ -603,6 +603,10 @@
         [
           "Why do school and local courts differ from these sizes?",
           "Recreational, school and club courts are often smaller than the full sizes, and some leagues set their own limits. Follow the rulebook of your league or federation."
+        ],
+        [
+          "Is anything uploaded or saved?",
+          "No. The court diagram is drawn on your own device from the sizes you choose, and nothing is sent to {{siteName}} or anyone else."
         ]
       ]
     },

@@ -130,7 +130,7 @@
   "pageGuides": {
     "kidsMoneyShop": {
       "title": "Money Shop for Kids",
-      "subtitle": "Learn rupee notes and coins by playing shop. Pay the exact price, give change as the shopkeeper, or fill a basket in your own shop with prices you set. Free, private, no sign-up.",
+      "subtitle": "Learn rupee notes and coins by playing shop. Pay the exact price, give change as the shopkeeper, or fill a basket in your own shop. Free, no sign-up.",
       "faq": [
         [
           "What age is the Money Shop for?",
@@ -164,7 +164,7 @@
     },
     "kidsTambola": {
       "title": "Tambola Ticket Generator and Number Caller",
-      "subtitle": "Print tambola (housie) tickets, six per sheet using every number from 1 to 90, and call the numbers on screen with a board and optional voice. Free, private, no sign-up.",
+      "subtitle": "Print tambola (housie) tickets, six per sheet using every number from 1 to 90, and call the numbers on screen with a board and optional voice. Free.",
       "faq": [
         [
           "How are the tickets made?",

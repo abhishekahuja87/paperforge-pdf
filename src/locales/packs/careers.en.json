@@ -58,7 +58,7 @@
   "pageGuides": {
     "resumeBuilder": {
       "title": "Free Resume Builder",
-      "subtitle": "Write your resume in your browser, check it against a recruiter checklist, and save a clean PDF with real, selectable text. No account, no watermark, no payment.",
+      "subtitle": "Write your resume in your browser, check it against a recruiter checklist, and save a clean PDF with real, selectable text. No account, no watermark.",
       "faq": [
         [
           "Is the resume really free to download?",
@@ -142,7 +142,7 @@
     },
     "uploadFileChecker": {
       "title": "Upload File Checker",
-      "subtitle": "Check your PDFs and photos against the limits on an application form or recruiter email before you upload, and see exactly what to fix. Files stay on your device.",
+      "subtitle": "Check your PDFs and photos against the limits on an application form or recruiter email before you upload, and see what to fix. Files stay on your device.",
       "faq": [
         [
           "What does the Upload File Checker look at?",

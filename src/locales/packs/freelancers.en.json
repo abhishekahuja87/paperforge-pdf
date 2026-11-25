@@ -96,7 +96,7 @@
     },
     "quotationGen": {
       "title": "Free Quotation Generator",
-      "subtitle": "Write a professional price quotation with line items, discount, tax, deposit and payment schedule, and save it as a PDF from your browser. No account and no watermark.",
+      "subtitle": "Write a professional price quotation with line items, discount, tax, deposit and payment schedule, and save it as a PDF. No account and no watermark.",
       "faq": [
         [
           "What is the difference between a quotation and an invoice?",
@@ -134,7 +134,7 @@
     },
     "marginCalc": {
       "title": "Profit Margin and Markup Calculator",
-      "subtitle": "Find your profit margin and markup from cost and price, the price for a target margin, what a discount really costs you, and how many sales you need to break even.",
+      "subtitle": "Find your profit margin and markup from cost and price, the price for a target margin, what a discount really costs you, and your break-even sales.",
       "faq": [
         [
           "What is the difference between margin and markup?",
