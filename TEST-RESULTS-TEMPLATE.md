@@ -246,6 +246,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L16 | Photo Story Video Maker: add 3 photos from the phone camera, pick a starter, fill the captions, try Print frame and Big text, tap through with the microphone, make a video, play it with sound, save it | | |
 | L17 | Tap-to-Time Captions: pick a starter, add an audio file, tap through, undo once, change one time, save the SRT and import it in CapCut or YouTube, make a captions video and play it with sound | | |
 | L18 | Audio Clip Video Maker: pick Podcast clip, add a real MP3 or voice note, add a cover picture, try bars and the circle, make a video and play it with sound, post it to Instagram or YouTube | | |
+| L19 | App & Website Demo Video Maker: add 4 real screenshots, pick Online shop order, point at one button with zoom, hide a phone number and check it is unreadable, add one long web page screenshot, make a video and play it with sound | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 
