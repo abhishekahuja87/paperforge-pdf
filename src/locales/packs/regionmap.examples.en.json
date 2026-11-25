@@ -1,0 +1,18 @@
+{
+  "visited": {
+    "label": "Countries I visited",
+    "code": "title: Countries I visited\nIndia: Home\nFrance, Italy, Spain: Europe trip\nJapan: Cherry blossom season\nUnited States\nSingapore: Last stop\nworld"
+  },
+  "deliver": {
+    "label": "Where we deliver",
+    "code": "title: We deliver to\nIndia: Free delivery\npin: Mumbai: Next day\npin: Delhi: Next day\nUnited Arab Emirates: 3 days\nUnited Kingdom: 5 days\nworld: And more soon"
+  },
+  "trip": {
+    "label": "Our trip",
+    "code": "title: Our Europe trip\nFrance: Week 1\nItaly: Week 2\nGreece: Week 3\nTurkey: Week 4\nworld"
+  },
+  "pins": {
+    "label": "Pins on cities",
+    "code": "title: Our offices\npin: London: Head office\npin: Singapore\npin: Sydney: Newest\npin: 19.07, 72.87 Mumbai: Support team\nworld"
+  }
+}

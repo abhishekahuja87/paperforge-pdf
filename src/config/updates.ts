@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/region-map-video-maker',
+    tool: 'Map Video Maker',
+    title: 'New: type countries and save a map video where they light up one by one',
+    summary: 'Write India, then France, Italy, Spain: Europe trip, add pins on big cities, and the map flies to each place with a name card, a running count and an optional voice recorded by tapping through.',
+  },
+  {
+    date: '2026-11-25',
     path: '/explainer-video-maker',
     tool: 'Explainer Video Maker',
     title: 'Five styles, about 35 built-in icons, bigger stacked layout and livelier motion',

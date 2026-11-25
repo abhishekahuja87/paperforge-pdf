@@ -241,6 +241,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L11 | Handwriting Video Maker: type 3 lines, preview writes with the pen, make a 10 s video, play it, save it; try Hindi text and the chalkboard look | | |
 | L12 | Sequence Diagram Video Maker: pick an example, change a line, tap through with the microphone, make a video, play it with sound, save it; turn Show the arrows off | | |
 | L13 | Explainer Video Maker: pick an example, add a picture and use it on the left, tap through with the microphone, make a video, play it with sound, save it | | |
+| L14 | Map Video Maker: pick an example, add a country from the search box, add a pin on a city, tap through with the microphone, make a video, play it with sound, save it | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 
