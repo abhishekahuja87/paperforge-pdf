@@ -20,8 +20,10 @@ export interface EncodeJob {
   codec: string;
   duration: number;
   fps: number;
-  /** Paints the picture for this many seconds from the start. */
-  paint: (seconds: number) => void;
+  /** Paints the picture for this many seconds from the start. It may wait (for a video to move to that moment) before it returns. */
+  paint: (seconds: number) => void | Promise<void>;
+  /** Bits per second for the picture. Left out, a high quality figure for animations is used. */
+  bitrate?: number;
   onProgress: (fraction: number) => void;
   signal: AbortSignal;
   /** Sound to put in the file, already encoded. */
@@ -50,12 +52,12 @@ export async function encodeOffline(job: EncodeJob): Promise<{ blob: Blob; frame
     },
     error: (error) => { failure = error instanceof Error ? error : new Error('Encoding failed.'); },
   });
-  encoder.configure({ codec: job.codec, width: canvas.width, height: canvas.height, bitrate: videoBitrate(canvas.width, canvas.height, fps), framerate: fps, avc: { format: 'avc' }, latencyMode: 'quality', hardwareAcceleration: 'no-preference' });
+  encoder.configure({ codec: job.codec, width: canvas.width, height: canvas.height, bitrate: job.bitrate ?? videoBitrate(canvas.width, canvas.height, fps), framerate: fps, avc: { format: 'avc' }, latencyMode: 'quality', hardwareAcceleration: 'no-preference' });
   try {
     for (let index = 0; index < total; index++) {
       if (job.signal.aborted) return null;
       if (failure) throw failure;
-      job.paint(Math.min(job.duration, index / fps));
+      await job.paint(Math.min(job.duration, index / fps));
       const frame = new VideoFrame(canvas, { timestamp: Math.round((index * 1_000_000) / fps), duration: Math.round(1_000_000 / fps) });
       encoder.encode(frame, { keyFrame: index % (fps * 2) === 0 });
       frame.close();

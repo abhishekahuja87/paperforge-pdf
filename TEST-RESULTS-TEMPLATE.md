@@ -248,6 +248,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L18 | Audio Clip Video Maker: pick Podcast clip, add a real MP3 or voice note, add a cover picture, try bars and the circle, make a video and play it with sound, post it to Instagram or YouTube | | |
 | L19 | App & Website Demo Video Maker: add 4 real screenshots, pick Online shop order, point at one button with zoom, hide a phone number and check it is unreadable, add one long web page screenshot, make a video and play it with sound | | |
 | L20 | Speak-to-Captions Video Maker: read the privacy note, speak a Hindi or English sentence, fix one word, try 2 and 7 words at a time, save the SRT and import it in CapCut, make a video and play it with sound (Android Chrome and iPhone Safari) | | |
+| L21 | Video Compressor and Trimmer: pick the WhatsApp starter, add a one minute phone video, cut it with Start here and End here, make it, check it is under about 15 MB and plays with sound (Android Chrome and iPhone Safari), then send it on WhatsApp | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

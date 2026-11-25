@@ -1,0 +1,42 @@
+{
+  "whatsapp": {
+    "label": "WhatsApp (about 15 MB)",
+    "hint": "Fits a WhatsApp video send. Shrinks the picture to 720p and fits the file under about 15 MB.",
+    "limitMb": 15,
+    "short": 720,
+    "fps": 30,
+    "quality": "medium"
+  },
+  "email": {
+    "label": "Email (about 24 MB)",
+    "hint": "Fits most email attachment limits. 720p and under about 24 MB.",
+    "limitMb": 24,
+    "short": 720,
+    "fps": 30,
+    "quality": "medium"
+  },
+  "small": {
+    "label": "Much smaller",
+    "hint": "The smallest clear video: 480p at 24 frames a second with lower quality. Good for sharing a quick clip.",
+    "limitMb": 0,
+    "short": 480,
+    "fps": 24,
+    "quality": "low"
+  },
+  "reel": {
+    "label": "Reel or Story",
+    "hint": "Up to 1080p, a good quality figure, no size limit. Suits Instagram, YouTube Shorts and Facebook.",
+    "limitMb": 0,
+    "short": 1080,
+    "fps": 30,
+    "quality": "medium"
+  },
+  "keep": {
+    "label": "Keep quality",
+    "hint": "Keeps the picture size and a high quality. Use it mainly to cut a video without making it much smaller.",
+    "limitMb": 0,
+    "short": 0,
+    "fps": 30,
+    "quality": "high"
+  }
+}

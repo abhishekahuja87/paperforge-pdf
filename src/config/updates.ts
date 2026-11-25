@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/video-compressor-and-trimmer',
+    tool: 'Video Compressor and Trimmer',
+    title: 'New: make a video smaller and cut it to the part you want',
+    summary: 'Pick a video, keep only the part you need and fit it under a size limit such as 15 MB for WhatsApp or 24 MB for email. It stays on your device, with no watermark.',
+  },
+  {
+    date: '2026-11-25',
     path: '/speak-to-captions-video-maker',
     tool: 'Speak-to-Captions Video Maker',
     title: 'New: talk and get timed captions, with SRT files and a captions video',
