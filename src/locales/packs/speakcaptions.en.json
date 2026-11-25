@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "speak-to-captions-video-maker": [
+      [
+        "Choose a starter and your language",
+        "Pick a quick starter such as Reel talk or Hindi voice-over, and check the language you will speak and how many words should show at a time."
+      ],
+      [
+        "Press Start and speak",
+        "Read the note about where your voice goes, press Start speaking and talk in short sentences. The words appear as you speak. Tap Stop when you are done."
+      ],
+      [
+        "Fix the words",
+        "Read each phrase and change any word the browser got wrong. Remove a phrase you do not want. Use the timing nudge if captions look late."
+      ],
+      [
+        "Save your files",
+        "Check the preview, then save the SRT or WebVTT file, or make a captions video with your recorded voice. Import the SRT in CapCut, YouTube or Instagram Edits."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "speakCaptionsGuide": {
+      "title": "Speak-to-Captions Video Maker: Talk and Get Timed Captions, Free",
+      "subtitle": "Press record and talk. Your words appear as timed captions, a few at a time. Fix any word, then save SRT or WebVTT files or a captions video. Free.",
+      "faq": [
+        [
+          "Is the Speak-to-Captions Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many caption files or videos you make."
+        ],
+        [
+          "How does it work?",
+          "Choose your language, press Start speaking and talk. Your words appear as you speak, and the tool notes when each phrase was said. Tap Stop, fix any word the browser got wrong, and it turns your phrases into short captions that show a few words at a time, in time with your voice. Then save an SRT or WebVTT file, or make a captions video with your recorded voice."
+        ],
+        [
+          "Which languages work?",
+          "English (India, US and UK), Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam and Punjabi. It depends on the speech service of your browser, so results are best in Chrome, Edge and Safari on a recent phone or computer. If you mix Hindi and English, choose the language you speak most, and fix the words afterwards."
+        ],
+        [
+          "Can I fix the words it got wrong?",
+          "Yes, and you should always read them once. After you stop, every phrase is shown in a box. Change any word, or remove a phrase you do not want, and the captions and the subtitle files follow your changes. Names, brand words and mixed-language sentences are the usual ones to fix."
+        ],
+        [
+          "How many words show at a time?",
+          "You choose, from 2 words for quick punchy captions to 10 words for full lines. Each phrase you spoke is split into groups of that size, and its time is shared between them. You can also colour each word as it is said, put the words on a card, and choose the look and position."
+        ],
+        [
+          "Can I put the captions on my own video?",
+          "Save the SRT file and import it in CapCut, YouTube or Instagram Edits, and it places the captions on your video. This tool also makes a video of the words on a colour or picture background with your recorded voice. It does not draw the captions onto an existing video file."
+        ],
+        [
+          "What is the difference from Tap-to-Time Captions?",
+          "Here the browser listens and writes the words for you, which is fast but needs a speech service. In Tap-to-Time Captions you type the words yourself and tap the timing, which is private and works for any language, even ones the speech services do not know. Choose Tap-to-Time Captions if you do not want your voice sent to a speech service."
+        ],
+        [
+          "Is my voice uploaded anywhere?",
+          "Not to {{siteName}}. The turning of speech into words is done by your browser's own speech service, so in Chrome and Edge your voice is sent to Google or Microsoft for that, and Safari uses Apple. This is stated on the page before you press Start. Your recording and the video are made and kept on your own device, and nothing is sent to us. If you want nothing sent anywhere, use Tap-to-Time Captions instead."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "speak-to-captions-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Speak-to-Captions Video Maker does",
+          "paragraphs": [
+            "The Speak-to-Captions Video Maker turns your speech into timed captions. You press record and talk, and your words appear on screen a few at a time, in time with your voice. You can then fix any word, save a subtitle file for CapCut, YouTube or Instagram Edits, or make a captions video with your recorded voice.",
+            "It is made as a building block for creators. Talk through an idea, a quote or a sale announcement, and have captions ready in a minute instead of typing them and setting each time by hand."
+          ]
+        },
+        {
+          "heading": "Where your voice goes, plainly",
+          "paragraphs": [
+            "Your browser does the listening. In Chrome and Edge it sends your voice to Google or Microsoft to be turned into words, and Safari uses Apple. This site does not receive your voice, and the video and files are made on your own device. The page tells you this before you press Start, so you can choose.",
+            "If you want nothing to leave your device, use Tap-to-Time Captions. You type the words yourself and tap the timing, so no speech service is involved, and it works for any language."
+          ]
+        },
+        {
+          "heading": "Getting better captions",
+          "paragraphs": [
+            "Speak in short sentences, with a small pause between them, close to the microphone and away from noise. Choose the language you speak most. Always read the words once, because names, brand words and mixed Hindi and English are the usual mistakes.",
+            "Two or three words at a time suits quick Reels and Shorts. Five to seven words suit calm talking and tutorials. Putting the captions in the middle with the word colour turned on is a popular look."
+          ]
+        }
+      ]
+    }
+  }
+}

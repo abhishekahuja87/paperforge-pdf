@@ -1,0 +1,80 @@
+{
+  "reel": {
+    "label": "Reel talk (English)",
+    "lang": "en-IN",
+    "words": 3,
+    "options": {
+      "look": "black",
+      "position": "middle",
+      "size": "large",
+      "animation": "pop",
+      "highlight": true,
+      "boxed": false
+    }
+  },
+  "hindi": {
+    "label": "Hindi voice-over",
+    "lang": "hi-IN",
+    "words": 3,
+    "options": {
+      "look": "night",
+      "position": "middle",
+      "size": "large",
+      "animation": "fade",
+      "highlight": true,
+      "boxed": false
+    }
+  },
+  "lines": {
+    "label": "Full lines at the bottom",
+    "lang": "en-IN",
+    "words": 7,
+    "options": {
+      "look": "clean",
+      "position": "bottom",
+      "size": "small",
+      "animation": "fade",
+      "highlight": false,
+      "boxed": true
+    }
+  },
+  "quote": {
+    "label": "Quote style",
+    "lang": "en-IN",
+    "words": 5,
+    "options": {
+      "look": "paper",
+      "position": "middle",
+      "size": "medium",
+      "animation": "fade",
+      "highlight": false,
+      "boxed": false
+    }
+  },
+  "tamil": {
+    "label": "Tamil",
+    "lang": "ta-IN",
+    "words": 4,
+    "options": {
+      "look": "bold",
+      "position": "middle",
+      "size": "medium",
+      "animation": "pop",
+      "highlight": false,
+      "boxed": false
+    }
+  },
+  "us": {
+    "label": "English (US)",
+    "lang": "en-US",
+    "words": 4,
+    "options": {
+      "look": "night",
+      "position": "bottom",
+      "size": "medium",
+      "animation": "fade",
+      "highlight": true,
+      "boxed": false
+    }
+  }
+}
