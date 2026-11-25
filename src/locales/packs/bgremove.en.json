@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "background-remover": [
+      [
+        "Pick a starter",
+        "Choose Product on white, Signature or logo, Document or scan, Plain wall portrait or Green or blue screen. A starter sets how close a colour must be to the background to be removed."
+      ],
+      [
+        "Add your picture",
+        "Add a photo or scan, or try the sample picture. The tool finds the background colour from the edges. If it picks wrong, tap the background in the picture."
+      ],
+      [
+        "Adjust it",
+        "Use How much to remove until the background is gone but your subject is not. Under More options, soften the edge, remove a light outline, or keep white parts inside the subject."
+      ],
+      [
+        "Choose the background and save",
+        "Keep it transparent, or fill it with white, black or a colour. Tap Save, then use the picture on a poster, a shop listing or a document."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "bgRemoveGuide": {
+      "title": "Background Remover: Make a Plain Background Transparent",
+      "subtitle": "Remove a plain background from a product photo, signature, logo or scan and save a transparent PNG. Free, no watermark, and your picture stays on your device.",
+      "faq": [
+        [
+          "Is the Background Remover free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many pictures you make."
+        ],
+        [
+          "What kind of pictures does it work on?",
+          "Pictures with a plain, even background: a product on a white sheet, a signature or stamp on paper, a logo, a scan, a person in front of a plain wall, or a solid green or blue screen. It matches colours, so it is not made for busy backgrounds such as a street or a crowded room."
+        ],
+        [
+          "Why did it remove part of my subject?",
+          "If the subject has the same colour as the background, such as a white shirt on a white wall, the tool cannot tell them apart. Lower How much to remove, keep Only remove background touching the edges turned on, or tap the background to choose its colour exactly. A subject that is much darker or brighter than the background works best."
+        ],
+        [
+          "Why is some background left?",
+          "Raise How much to remove. If the background has shadows or a gradient, tap the main background colour in the picture, then raise the amount a little at a time."
+        ],
+        [
+          "How do I get a clean edge without a white outline?",
+          "Use Remove the light outline and Soften the edge under More options. The tool also takes the old background colour out of the soft edge, which reduces the pale rim."
+        ],
+        [
+          "What is the difference between a transparent PNG and a filled picture?",
+          "A transparent PNG has no background at all, so you can place it over another picture, a poster or a coloured page. If you choose white, black or a colour, the picture is saved as a JPG with that colour behind it."
+        ],
+        [
+          "How large can the picture be?",
+          "Any photo or scan your browser can open. Large pictures are reduced to 1600 pixels on the longest side so the tool stays fast on a phone, which is plenty for a listing, a document or social media."
+        ],
+        [
+          "Is my picture uploaded anywhere?",
+          "No. The picture is read and changed on your own device, so nothing is sent to {{siteName}} or anyone else. Only your settings are remembered on your device, never the picture."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "background-remover": {
+      "sections": [
+        {
+          "heading": "What the Background Remover does",
+          "paragraphs": [
+            "The Background Remover makes a plain background transparent. It finds the background colour at the edges of your picture and removes everything that is close to it, with a soft edge so the cut looks natural. You can save a transparent PNG or put a new colour behind the picture.",
+            "It works by matching colours rather than recognising people or objects, so it is best for products on white, signatures, logos, stamps, scans and a plain wall, and it is honest about that on the page."
+          ]
+        },
+        {
+          "heading": "Getting a clean cut",
+          "paragraphs": [
+            "Take the photo against one plain colour with even light, and keep the subject a different colour from the background. Shadows on the background are the most common problem, so use soft light from the front or from a window. Then raise or lower How much to remove until the edges look right.",
+            "For a signature, write on white paper with a dark pen, take the photo in good light and use the Signature or logo starter. The paper becomes transparent and the ink stays."
+          ]
+        },
+        {
+          "heading": "Private and nothing extra to download",
+          "paragraphs": [
+            "Everything happens on your own device, so your picture is not uploaded and nothing extra is downloaded for this tool. There is no watermark.",
+            "Your settings are remembered for next time, but your picture is not. Start again clears everything and asks twice."
+          ]
+        }
+      ]
+    }
+  }
+}

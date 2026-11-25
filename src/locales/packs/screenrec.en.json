@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "screen-recorder-with-face": [
+      [
+        "Pick a starter",
+        "Choose Tutorial, Presentation, Big face, Screen and voice, or Screen only. A starter sets whether your face shows, where it sits and whether your voice is recorded."
+      ],
+      [
+        "Check your options",
+        "Under More options you can change the corner, size and shape of your face bubble, mirror it, add the sound of the screen, and turn the 3, 2, 1 countdown on or off."
+      ],
+      [
+        "Start and choose what to share",
+        "Tap Start recording. Your browser asks which screen, window or tab to share and asks permission for your camera and microphone. Then switch to what you want to show."
+      ],
+      [
+        "Stop, watch and save",
+        "Come back to this page and tap Stop and save, or use your browser's Stop sharing button. Watch the recording and save the video."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "screenRecordGuide": {
+      "title": "Screen Recorder with Face Bubble: Record Your Screen and Voice",
+      "subtitle": "Record your computer screen with your face in a small bubble and your voice. Free, with no time limit or watermark, and the video stays on your device.",
+      "faq": [
+        [
+          "Is the Screen Recorder free, and is there a watermark or a time limit?",
+          "It is free, with no sign-up, no watermark and no time limit set by this site. A very long recording uses a lot of memory on your device, so for long sessions record in parts."
+        ],
+        [
+          "Does it work on a phone?",
+          "No. Phone and tablet browsers do not allow web pages to record the screen, so this tool is for laptops and desktops. Use your phone's built-in screen recorder for phone screens. The page shows a clear message on devices that cannot record."
+        ],
+        [
+          "Which browsers does it work in?",
+          "Recent Chrome, Edge and Firefox on a computer. Safari on a Mac can share the screen in recent versions but may behave differently. Sharing the sound of a tab or the screen depends on the browser and the operating system."
+        ],
+        [
+          "Does recording continue when I switch to another window?",
+          "Yes, that is the point. Start recording, pick the window or tab to share, and switch to it. The recording continues in the background. Come back to this page and tap Stop and save, or use your browser's Stop sharing button, which also ends and saves the recording."
+        ],
+        [
+          "Can I record my voice and my face?",
+          "Yes. Your face appears in a small circle or rounded square in the corner you choose, and your voice is recorded from your microphone. You can turn either off, and you can also add the sound from the screen you share. Your browser asks permission for the camera and microphone first."
+        ],
+        [
+          "What video file do I get?",
+          "An MP4 when your browser can record one, which plays on most phones and computers, and WebM otherwise. To cut the start and end, or make the file smaller for WhatsApp or email, open it in the Video Compressor and Trimmer on this site."
+        ],
+        [
+          "Why does my browser ask me to choose a screen?",
+          "Browsers always ask you to choose a screen, window or tab, so a page can never record without you knowing. Your browser shows a sharing indicator while it records."
+        ],
+        [
+          "Is my recording uploaded anywhere?",
+          "No. The screen, camera and microphone are put together and recorded on your own device, so nothing is sent to {{siteName}} or anyone else. The video is kept in memory until you save it, and only your options are remembered."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "screen-recorder-with-face": {
+      "sections": [
+        {
+          "heading": "What the Screen Recorder does",
+          "paragraphs": [
+            "The Screen Recorder records your computer screen, a window or a browser tab, with your face in a small bubble in a corner and your voice. It is made for tutorials, software demos, lessons and quick messages that are easier to show than to write.",
+            "Everything is put together on your own device and saved as a video file, with no watermark and no sign-up."
+          ]
+        },
+        {
+          "heading": "Making a recording people can follow",
+          "paragraphs": [
+            "Close notifications and extra tabs before you start, and share a single window or tab rather than the whole screen when you can, so the picture stays focused. Speak a little slower than you would in conversation, and say what you are about to click before you click it.",
+            "Put your face bubble where it does not cover anything important, usually a bottom corner, and keep it small enough that the screen stays the star. The countdown gives you three seconds to switch to the window you are recording."
+          ]
+        },
+        {
+          "heading": "Private, and for computers",
+          "paragraphs": [
+            "Your browser asks you to choose what to share, and shows an indicator while it records, so nothing is recorded without your knowledge. The recording is not uploaded and is kept in memory until you save it.",
+            "Phone browsers cannot record the screen, so use this on a laptop or desktop. When you are done, cut and shrink the video with the Video Compressor and Trimmer."
+          ]
+        }
+      ]
+    }
+  }
+}

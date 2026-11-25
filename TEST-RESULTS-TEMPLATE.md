@@ -249,6 +249,10 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L19 | App & Website Demo Video Maker: add 4 real screenshots, pick Online shop order, point at one button with zoom, hide a phone number and check it is unreadable, add one long web page screenshot, make a video and play it with sound | | |
 | L20 | Speak-to-Captions Video Maker: read the privacy note, speak a Hindi or English sentence, fix one word, try 2 and 7 words at a time, save the SRT and import it in CapCut, make a video and play it with sound (Android Chrome and iPhone Safari) | | |
 | L21 | Video Compressor and Trimmer: pick the WhatsApp starter, add a one minute phone video, cut it with Start here and End here, make it, check it is under about 15 MB and plays with sound (Android Chrome and iPhone Safari), then send it on WhatsApp | | |
+| L22 | Subtitles Burner: add a phone video and an SRT made with Tap-to-Time Captions, try Reel bold box, make the video and play it with sound and captions on your phone, then post it as a Reel | | |
+| L23 | Voice Clean-up: record a voice note near a fan, use the Noisy room starter, play the original and the cleaned sound with headphones, and send the saved file on WhatsApp | | |
+| L24 | Background Remover: photograph a product on white paper, use Product on white, adjust How much to remove, save the transparent PNG and place it on a coloured background in another app | | |
+| L25 | Screen Recorder with Face Bubble: on a laptop use the Tutorial starter, record one minute of a window with your face and voice while switching to another window, stop, and check the saved video plays with sound and the face bubble | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

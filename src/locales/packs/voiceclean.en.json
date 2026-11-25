@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "voice-noise-remover": [
+      [
+        "Pick a starter",
+        "Choose Voice note, Podcast or interview, Noisy room, Fan or hum, or Just louder. A starter sets how strongly the noise is reduced."
+      ],
+      [
+        "Add or record your voice",
+        "Add a voice note, a call recording or a video, or record now with your microphone. The sample sound lets you try the tool first."
+      ],
+      [
+        "Check the options",
+        "Under More options you can change the noise reduction, remove low rumble, even out the volume, make it louder and cut or shorten silence."
+      ],
+      [
+        "Clean up, compare and save",
+        "Tap Clean up audio, then play the original and the cleaned sound to compare. Save a WAV file, or make a smaller file that is easier to share."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "voiceCleanGuide": {
+      "title": "Voice Clean-up: Remove Background Noise from a Voice Recording",
+      "subtitle": "Remove background hiss, hum and room noise from a voice note, even out the volume and cut silence. Free, with no watermark, and your audio stays on your device.",
+      "faq": [
+        [
+          "Is the Voice Clean-up tool free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many recordings you clean."
+        ],
+        [
+          "What kind of noise can it remove?",
+          "Steady background noise such as hiss, fan or air conditioner hum, traffic rumble and room noise. It learns what the noise sounds like from the quietest parts of your recording and turns it down. It cannot remove sudden sounds like a door slam, or other people talking, and it cannot fix an echo."
+        ],
+        [
+          "Why does the voice sometimes sound thin or watery?",
+          "Strong noise reduction also turns down parts of the voice that are as quiet as the noise. If that happens, choose Light or Medium. The tool shows how many decibels quieter the background became, and you can play the original and cleaned sound one after the other."
+        ],
+        [
+          "What do Even out the volume and Make it louder do?",
+          "Even out the volume makes the loud parts a little quieter and the quiet parts easier to hear. Make it louder then raises the whole recording as far as it can go without distortion. Together they help with a quiet phone recording."
+        ],
+        [
+          "How does it cut silence?",
+          "Cut start and end removes the quiet bit before and after you speak, keeping a short margin. Also shorten long pauses reduces pauses longer than about a second to a short gap, so the recording moves faster. Nothing in the middle of speech is cut."
+        ],
+        [
+          "Which files can I use, and how long can they be?",
+          "Most audio files your browser can play, such as MP3, M4A, WAV and OGG, and video files, whose sound is used. You can also record with your microphone. Recordings up to 15 minutes are accepted, and a longer one takes longer to clean."
+        ],
+        [
+          "What can I save?",
+          "A WAV file, which is full quality and works in editing apps but is large, and a smaller M4A or WebM file made while the sound plays, which takes as long as the audio and is easier to share. The file type depends on your browser."
+        ],
+        [
+          "Is my audio uploaded anywhere?",
+          "No. The sound is read and cleaned on your own device, so nothing is sent to {{siteName}} or anyone else. Only your settings are remembered on your device, never your recording."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "voice-noise-remover": {
+      "sections": [
+        {
+          "heading": "What the Voice Clean-up tool does",
+          "paragraphs": [
+            "The Voice Clean-up tool improves a spoken recording. It reduces steady background noise such as hiss and hum, evens out the volume, makes quiet recordings louder, and cuts the silence at the start and end. You can compare the original and the cleaned sound before you save.",
+            "It suits voice notes, call recordings, lecture recordings, podcast clips and the sound of a video, the everyday recordings that were made on a phone in a room that was not quiet."
+          ]
+        },
+        {
+          "heading": "Getting a good result",
+          "paragraphs": [
+            "Start with the Voice note starter and listen with headphones. If the noise is still there, try Strong. If the voice sounds thin or watery, go back to Light. The tool learns the noise from the quietest parts, so a recording with a few small pauses works best.",
+            "For the best recordings, hold the phone close to your mouth, record in a small room with soft things like curtains, and switch off fans for a moment. Cleaning up helps, but a good recording needs less of it."
+          ]
+        },
+        {
+          "heading": "Private and nothing extra to download",
+          "paragraphs": [
+            "Everything happens on your own device using your browser's built-in audio tools, so your recording is not uploaded and nothing extra is downloaded for this tool. There is no watermark.",
+            "Your settings are remembered for next time, but your recording is not. Start again clears everything and asks twice."
+          ]
+        }
+      ]
+    }
+  }
+}

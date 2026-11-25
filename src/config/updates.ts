@@ -19,6 +19,34 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/screen-recorder-with-face',
+    tool: 'Screen Recorder with Face Bubble',
+    title: 'New: record your screen with your face in a bubble and your voice, on a computer',
+    summary: 'Pick a window or tab, choose where your face bubble sits, and record with your voice, a 3, 2, 1 countdown and pause. No time limit or watermark, and nothing is uploaded. For laptops and desktops.',
+  },
+  {
+    date: '2026-11-25',
+    path: '/background-remover',
+    tool: 'Background Remover',
+    title: 'New: make a plain background transparent, for products, signatures and logos',
+    summary: 'Add a picture with a plain background and save a transparent PNG, or put white or a colour behind it. It matches colours, so it suits plain backgrounds, and nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
+    path: '/voice-noise-remover',
+    tool: 'Voice Clean-up',
+    title: 'New: clean up a voice recording by removing background noise and evening out the volume',
+    summary: 'Add or record a voice, reduce hiss, hum and room noise, even out and raise the volume, cut silence, and compare the original with the cleaned sound before saving a WAV or a small file. Nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
+    path: '/burn-subtitles-into-video',
+    tool: 'Subtitles Burner',
+    title: 'New: add an SRT or VTT subtitle file to a video and save it with the captions on the picture',
+    summary: 'Add a video and a subtitle file, pick a colour, place and size, preview the captions over the video and save a new video with the words burned in. Nothing is uploaded and there is no watermark.',
+  },
+  {
+    date: '2026-11-25',
     path: '/video-compressor-and-trimmer',
     tool: 'Video Compressor and Trimmer',
     title: 'New: make a video smaller and cut it to the part you want',

@@ -1,0 +1,42 @@
+{
+  "product": {
+    "label": "Product on white",
+    "hint": "For a product or object on a white or light plain background. Removes only the background that touches the edges.",
+    "tolerance": 28,
+    "edgesOnly": true,
+    "shrink": 1,
+    "smooth": 1
+  },
+  "signature": {
+    "label": "Signature or logo",
+    "hint": "For a signature, stamp or logo on white paper. Removes every pixel of the paper colour and keeps the edges sharp.",
+    "tolerance": 38,
+    "edgesOnly": false,
+    "shrink": 0,
+    "smooth": 0
+  },
+  "scan": {
+    "label": "Document or scan",
+    "hint": "For text or drawings on a paper scan. Removes the paper colour everywhere and keeps the ink.",
+    "tolerance": 45,
+    "edgesOnly": false,
+    "shrink": 0,
+    "smooth": 1
+  },
+  "portrait": {
+    "label": "Plain wall portrait",
+    "hint": "For a person in front of a plain wall. Gentle, removes only what touches the edges and softens the cut. A shirt the same colour as the wall will lose parts.",
+    "tolerance": 20,
+    "edgesOnly": true,
+    "shrink": 1,
+    "smooth": 2
+  },
+  "screen": {
+    "label": "Green or blue screen",
+    "hint": "For a person or thing in front of a solid green or blue sheet. Tap the screen colour in the picture if the automatic one is wrong.",
+    "tolerance": 48,
+    "edgesOnly": false,
+    "shrink": 1,
+    "smooth": 1
+  }
+}

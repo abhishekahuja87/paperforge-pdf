@@ -1,0 +1,47 @@
+{
+  "voicenote": {
+    "label": "Voice note",
+    "hint": "Medium noise reduction, steadier volume, louder, and silence cut at the start and end. A good first try for most recordings.",
+    "noise": "medium",
+    "rumble": true,
+    "level": true,
+    "louder": true,
+    "silence": "ends"
+  },
+  "podcast": {
+    "label": "Podcast or interview",
+    "hint": "Light noise reduction that keeps the voice natural, with steadier volume and louder sound. Pauses are kept as they are.",
+    "noise": "light",
+    "rumble": true,
+    "level": true,
+    "louder": true,
+    "silence": "keep"
+  },
+  "noisy": {
+    "label": "Noisy room",
+    "hint": "Strong noise reduction for a fan, traffic or a busy room. It can make a voice sound a little thinner.",
+    "noise": "strong",
+    "rumble": true,
+    "level": true,
+    "louder": true,
+    "silence": "ends"
+  },
+  "hum": {
+    "label": "Fan or hum",
+    "hint": "Strong noise reduction and a low rumble filter for a steady buzz from a fan, AC or electrical hum. The volume is not evened out.",
+    "noise": "strong",
+    "rumble": true,
+    "level": false,
+    "louder": true,
+    "silence": "keep"
+  },
+  "louder": {
+    "label": "Just louder",
+    "hint": "No noise reduction. Evens out the volume and makes a quiet recording louder.",
+    "noise": "off",
+    "rumble": false,
+    "level": true,
+    "louder": true,
+    "silence": "keep"
+  }
+}
