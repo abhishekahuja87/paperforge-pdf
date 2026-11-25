@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "chart-reveal-video-maker": [
+      [
+        "Pick a chart and type your numbers",
+        "Choose Bars, Line, Pie, Donut or Race, or start from an example. Write one line for each step, like Jan: 40, and add a note after a bar sign if you want words on the card."
+      ],
+      [
+        "Choose the look and the numbers",
+        "Pick Clean, Night, Paper or Bold, a colour for each bar or one colour, and which one to highlight at the end. Set rupee or dollar signs, how big numbers are written and the words for the end card."
+      ],
+      [
+        "Add your voice (optional)",
+        "Tap Record voice and tap through, speak, and tap Next step as you say each number, so each bar or slice appears when you say it. Or leave the voice out and let each step stay long enough to read."
+      ],
+      [
+        "Make and save the video",
+        "Choose 9:16, 16:9 or 1:1 and tap Make video. Keep the page open while it is drawn, then save the MP4 and use it on its own or inside a longer video."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "chartVideoGuide": {
+      "title": "Chart Reveal Video Maker: Bar, Line, Pie and Race Chart Videos, Free",
+      "subtitle": "Type numbers like Jan: 40 and save a video of a chart that builds up step by step, with notes, an end card and your voice if you like. Free.",
+      "faq": [
+        [
+          "Is the Chart Reveal Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "What kinds of chart can it make?",
+          "Bars, horizontal bars, a line, a pie, a donut and a race chart. Bars, the line, the pie and the donut take one number on each line. The race chart takes several names on each line and moves the bars as the numbers change."
+        ],
+        [
+          "How do I write my numbers?",
+          "One line for each step, such as Jan: 40. Add a bar sign and words after the number, like Apr: 120 | Best month, to show them on a card. A sign such as ₹ or $ in front and a percent sign after are fine, and so are commas. Lines that start with title:, end: or pause set a heading, an end card and a hold. The Syntax guide on the page shows each one with an Add button."
+        ],
+        [
+          "How is a race chart written?",
+          "Choose Race, then write one line for each moment with a number for every name, for example 2024: Ravi=320, Meena=380, Kabir=450. The bars slide into their new places as the numbers change. The Followers race example shows it."
+        ],
+        [
+          "Can I show big numbers the Indian way?",
+          "Yes. Choose 1,00,000 for Indian grouping, 100,000 for international grouping or no commas. You can also put ₹, $ or % on every number, and change the words on the card at the end."
+        ],
+        [
+          "Do I need a voice?",
+          "No. Without a voice each step stays on screen long enough to read. To add one, tap Record voice and tap through, and tap Next step as you say each number, so each bar or slice appears at that moment. You can also add an audio file."
+        ],
+        [
+          "Which video shapes and sizes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save the picture as a PNG."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The chart is drawn and the video is made on your own device, and your voice is processed there too, so nothing is sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "chart-reveal-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Chart Reveal Video Maker does",
+          "paragraphs": [
+            "The Chart Reveal Video Maker turns a few typed numbers into a short video of a chart drawing itself. A line such as Jan: 40 grows a bar with a number counting up, the next line grows the next bar, and at the end the highest one is highlighted and a card shows your words.",
+            "It is made as a building block. Make a clip for one idea, such as sales growing or a budget split, then use it on its own or inside a longer video in your editing app."
+          ]
+        },
+        {
+          "heading": "Choosing the right chart",
+          "paragraphs": [
+            "Use bars for a few groups or months, horizontal bars for long names or a ranking, a line for growth over time, and a pie or donut for shares of a whole. The race chart is for comparing several names over time, such as followers each year, with the bars swapping places as the numbers change.",
+            "Choose a clean, night, paper or bold look, a different colour for each bar or one colour, and which one to highlight at the end. Numbers can be written the Indian way, with a rupee or dollar sign in front and a percent sign after, and bars can be sorted biggest first."
+          ]
+        },
+        {
+          "heading": "Where it helps",
+          "paragraphs": [
+            "Small businesses show sales or customers growing, creators show followers over a month, teachers show class marks or votes, and families show where a budget goes. With your voice, tap Next step as you speak each number and every bar or slice appears when you say it.",
+            "Everything is drawn and saved on your device, so your numbers and voice are not uploaded. Keep the chart to a few steps so each one stays readable on a phone."
+          ]
+        }
+      ]
+    }
+  }
+}

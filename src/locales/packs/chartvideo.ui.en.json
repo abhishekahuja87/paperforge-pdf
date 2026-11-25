@@ -1,0 +1,174 @@
+{
+  "preview": "Preview",
+  "play": "Play",
+  "pause": "Pause",
+  "add": "Add",
+  "errors": "Fix these lines",
+  "line": "Line {n}",
+  "examples": "Start from an example",
+  "syntax": "Syntax guide: everything you can write",
+  "syntaxHint": "Tap Add to put a line in your list.",
+  "lengthNote": "{seconds} seconds, {steps} steps.",
+  "speed": "Speed of steps",
+  "speeds": {
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast"
+  },
+  "voice": "Voice (optional)",
+  "voiceHint": "Record your voice while you tap through the steps, so each bar or slice appears when you say it. Or add an audio file you already have. Your voice stays on your device.",
+  "voiceRecord": "Record voice and tap through",
+  "voiceFile": "Add an audio file",
+  "voiceRemove": "Remove voice",
+  "voiceTapTitle": "Recording: say it, then tap Next step",
+  "voiceNext": "Next step",
+  "voiceFinish": "Finish recording",
+  "voiceCancel": "Cancel",
+  "voiceStep": "Step {done} of {total}",
+  "voiceReady": "Tap Next step each time you move to the next number. The chart is empty until your first tap.",
+  "voiceBlocked": "The microphone could not be used. Allow the microphone for this page, or add an audio file instead.",
+  "voiceUnsupported": "This browser cannot record from the microphone. Add an audio file instead.",
+  "voiceReadFailed": "That audio could not be read. Try an MP3, M4A or WAV file.",
+  "voiceTimed": "Voice added: {name}, {seconds} seconds. The steps follow the moments you tapped.",
+  "voiceFitted": "Voice added: {name}, {seconds} seconds. The steps are spread to fit it.",
+  "voiceChanged": "Voice added: {name}, {seconds} seconds. You changed the number of steps after recording, so the steps are spread to fit the voice.",
+  "voiceFit": "Spread the steps to fit the voice",
+  "voiceNoSound": "This browser cannot put sound into the video. The video will be made without it. You can add your voice in your editing app.",
+  "shape": "Shape and quality",
+  "shapes": {
+    "reel": "9:16 Reel, Short",
+    "wide": "16:9 YouTube",
+    "square": "1:1 Square",
+    "portrait": "4:5 Post"
+  },
+  "quality": "Quality",
+  "qualities": {
+    "720": "720p",
+    "1080": "1080p",
+    "2160": "4K (slowest)"
+  },
+  "fourKHint": "4K needs a recent computer or phone and takes the longest. The file is large.",
+  "tip": "Tip: save the video, then drop it into Instagram Edits, CapCut or InShot. If you added your voice here, the sound is already in the file.",
+  "make": "Make video",
+  "cancel": "Cancel",
+  "keepOpenSmooth": "Drawing every frame: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
+  "keepOpen": "Keep this screen on and stay on this page while the video records. It takes as long as the video.",
+  "ready": "Your video is ready.",
+  "saveVideo": "Save video",
+  "smoothNote": "Saved as an MP4 file with every frame drawn, at 30 frames a second.",
+  "mp4Note": "Saved as an MP4 file.",
+  "webmNote": "This browser saves WebM video. It plays in Chrome, Edge and Firefox. If an app does not accept it, open this page in Chrome on a computer or a recent Android phone and save again.",
+  "noRecord": "This browser cannot record video. You can still preview and save a picture. Try a recent Chrome, Edge, Safari or Firefox to make the video.",
+  "failed": "The video could not be made. Try 720p or fewer steps, and keep this page open while it records.",
+  "makePicture": "Save picture (PNG)",
+  "pictureReady": "Your picture is ready.",
+  "savePicture": "Save picture",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to reset everything",
+  "endText": "Words on the card at the end",
+  "text": "Your numbers",
+  "textLabel": "Type your numbers, one line per step",
+  "textHint": "Each line is one step that appears in order. Write a label, a colon and a number, like Jan: 40. Add a note after a bar sign to show it on the card. Up to 50 steps.",
+  "empty": "Write a first line above, for example: Jan: 40",
+  "chart": "Chart and look",
+  "type": "Chart type",
+  "types": {
+    "bar": "Bars",
+    "hbar": "Horizontal bars",
+    "line": "Line",
+    "pie": "Pie",
+    "donut": "Donut",
+    "race": "Race"
+  },
+  "typeHint": {
+    "bar": "Each line grows a bar, one after another. Good for months or a few groups.",
+    "hbar": "Bars that grow sideways, with the names on the left. Good for long names and rankings.",
+    "line": "A line that draws itself point by point. Good for growth over time.",
+    "pie": "Slices that sweep in, with a list of names and numbers. Good for shares of a whole.",
+    "donut": "A ring that fills slice by slice, with the total in the middle.",
+    "race": "Each line is one moment with a number for every name, like 2021: Ravi=100, Meena=80. The bars swap places as the numbers change."
+  },
+  "style": "Look",
+  "styles": {
+    "clean": "Clean",
+    "dark": "Night",
+    "paper": "Paper",
+    "bold": "Bold"
+  },
+  "font": "Font",
+  "fonts": {
+    "clean": "Clean",
+    "friendly": "Friendly"
+  },
+  "highlight": "Highlight at the end",
+  "highlights": {
+    "max": "Highest",
+    "last": "Last one",
+    "none": "None"
+  },
+  "sort": "Order of bars",
+  "sorts": {
+    "none": "As typed",
+    "desc": "Biggest first",
+    "asc": "Smallest first"
+  },
+  "top": "Bars shown in the race",
+  "tops": {
+    "5": "Top 5",
+    "8": "Top 8",
+    "12": "Top 12"
+  },
+  "values": "Show the numbers",
+  "countUp": "Count the numbers up as the bars grow",
+  "grid": "Show grid lines and side numbers",
+  "multi": "A different colour for each bar",
+  "numbers": "Numbers and words",
+  "grouping": "How big numbers are written",
+  "groupings": {
+    "indian": "1,00,000 (Indian)",
+    "intl": "100,000 (International)",
+    "none": "100000 (No commas)"
+  },
+  "prefix": "Before each number",
+  "suffix": "After each number",
+  "endPlaceholder": "For example: 3 times more in four months",
+  "numbersHint": "Put a sign such as ₹ or $ before the number, or % after it, and it shows on every number. An end: line in your numbers overrides the end card box.",
+  "credit": "Use plain positive numbers. Commas are fine, so 1,20,000 works. The chart scales itself to your biggest number.",
+  "syntaxItems": [
+    {
+      "title": "A number for a label",
+      "note": "Each line is one step. Bars, lines, pies and donuts all use this.",
+      "code": "Jan: 40"
+    },
+    {
+      "title": "A note on the card",
+      "note": "Put a bar sign and some words after the number. They show on a card at the bottom while that step plays.",
+      "code": "Apr: 120 | Best month so far"
+    },
+    {
+      "title": "Rupees, dollars and percent",
+      "note": "A sign in front or a percent sign after is fine, and commas too.",
+      "code": "Sales: ₹1,20,000"
+    },
+    {
+      "title": "A race with several names",
+      "note": "Choose the Race chart. Each line is one moment, with Name=number for every name.",
+      "code": "2024: Ravi=320, Meena=380, Kabir=450"
+    },
+    {
+      "title": "Words at the end",
+      "note": "Shown on a card when the chart finishes, after the highest one is highlighted.",
+      "code": "end: 3 times more in four months"
+    },
+    {
+      "title": "A pause",
+      "note": "Holds the picture for 2 seconds, or the number you write.",
+      "code": "pause 3"
+    },
+    {
+      "title": "A title",
+      "note": "Stays at the top of the video.",
+      "code": "title: Our sales this year"
+    }
+  ]
+}
