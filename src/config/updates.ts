@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-25',
+    path: '/handwriting-video-maker',
+    tool: 'Handwriting Video Maker',
+    title: 'New: a video of your text being written by hand',
+    summary: 'Type up to six lines and save a short video where a pen writes them out, with an underline, four fonts and whiteboard, chalkboard or green-screen looks, ready to drop into your editing app.',
+  },
+  {
     date: '2026-11-24',
     path: '/globe-video-maker',
     tool: 'Globe Video Maker',

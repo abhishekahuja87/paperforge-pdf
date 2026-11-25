@@ -28,6 +28,7 @@ import { UNLIMITED_COMPONENTS } from './unlimited/registry';
 import { DEVTOOLS_COMPONENTS } from './devtools/registry';
 import { MORE_COMPONENTS } from './more/registry';
 import { GLOBE_COMPONENTS } from './globe/registry';
+import { WRITING_COMPONENTS } from './writing/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -63,4 +64,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...DEVTOOLS_COMPONENTS,
   ...MORE_COMPONENTS,
   ...GLOBE_COMPONENTS,
+  ...WRITING_COMPONENTS,
 };
