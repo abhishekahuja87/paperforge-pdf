@@ -1,0 +1,22 @@
+{
+  "reel": {
+    "label": "Reel intro",
+    "script": "Hi, I am Priya\nI make small things by hand\nToday I will show you how\nIt takes only five minutes\nStay till the end"
+  },
+  "shop": {
+    "label": "Shop sale (Hinglish)",
+    "script": "Namaste doston\nHamari Diwali sale shuru ho gayi hai\nSaari sarees par flat 30 percent off\nSirf is hafte tak\nAbhi order karo, link bio mein hai"
+  },
+  "shayari": {
+    "label": "Poem or shayari",
+    "script": "Raat ke andhere mein bhi\nEk roshni si rehti hai\nJo tum saath ho to\nHar baat achhi lagti hai"
+  },
+  "tips": {
+    "label": "Three tips",
+    "script": "Three tips to save money\nTip one: write down what you spend\nTip two: pay yourself first\nTip three: wait a day before buying\nFollow for more"
+  },
+  "recipe": {
+    "label": "Recipe steps",
+    "script": "Easy masala chai\nBoil water with ginger\nAdd tea leaves and let it brew\nPour in the milk\nStrain, serve and enjoy"
+  }
+}

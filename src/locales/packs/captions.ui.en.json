@@ -1,0 +1,82 @@
+{
+  "preview": "Preview",
+  "play": "Play",
+  "pause": "Pause",
+  "shape": "Shape and quality",
+  "shapes": {
+    "reel": "9:16 Reel, Short",
+    "wide": "16:9 YouTube",
+    "square": "1:1 Square",
+    "portrait": "4:5 Post"
+  },
+  "quality": "Quality",
+  "qualities": {
+    "720": "720p",
+    "1080": "1080p",
+    "2160": "4K (slowest)"
+  },
+  "fourKHint": "4K needs a recent computer or phone and takes the longest. The file is large.",
+  "make": "Make video",
+  "cancel": "Cancel",
+  "keepOpenSmooth": "Drawing every frame: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
+  "keepOpen": "Keep this screen on and stay on this page while the video records. It takes as long as the video.",
+  "ready": "Your video is ready.",
+  "saveVideo": "Save video",
+  "smoothNote": "Saved as an MP4 file with every frame drawn, at 30 frames a second.",
+  "mp4Note": "Saved as an MP4 file.",
+  "webmNote": "This browser saves WebM video. It plays in Chrome, Edge and Firefox. If an app does not accept it, open this page in Chrome on a computer or a recent Android phone and save again.",
+  "noRecord": "This browser cannot record video. You can still preview and save a picture. Try a recent Chrome, Edge, Safari or Firefox to make the video.",
+  "failed": "The video could not be made. Try 720p or fewer steps, and keep this page open while it records.",
+  "makePicture": "Save picture (PNG)",
+  "pictureReady": "Your picture is ready.",
+  "savePicture": "Save picture",
+  "fonts": {
+    "clean": "Clean",
+    "friendly": "Friendly"
+  },
+  "font": "Font",
+  "tip": "Tip: this makes a video of the words on a plain or picture background, with your sound. To put captions on your own video, save the subtitle file and import it in CapCut, YouTube or Instagram Edits.",
+  "lengthNote": "{seconds} seconds, {count} captions.",
+  "empty": "The preview shows here once there is at least one caption.",
+  "subtitles": "Subtitle files",
+  "subtitlesHint": "SRT works in CapCut, YouTube, Instagram Edits, Premiere and most editors. WebVTT works for web pages and some players. Both are plain text files made on your device.",
+  "srtReady": "Your SRT file is ready.",
+  "saveSrt": "Save SRT file",
+  "vttReady": "Your WebVTT file is ready.",
+  "saveVtt": "Save WebVTT file",
+  "more": "More options: look, text and background",
+  "look": "Colours",
+  "looks": {
+    "clean": "Clean",
+    "night": "Night",
+    "paper": "Paper",
+    "bold": "Bold",
+    "black": "Black"
+  },
+  "position": "Where the words go",
+  "positions": {
+    "middle": "Middle",
+    "bottom": "Lower",
+    "top": "Top"
+  },
+  "size": "Text size",
+  "sizes": {
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large"
+  },
+  "animation": "How a caption appears",
+  "animations": {
+    "fade": "Fade",
+    "pop": "Pop",
+    "none": "Instant"
+  },
+  "highlight": "Colour each word as it is said",
+  "boxed": "Put the words on a card",
+  "background": "Background picture (optional)",
+  "backgroundAdd": "Add a picture",
+  "backgroundRemove": "Remove picture",
+  "backgroundHint": "A photo behind the words, darkened so the words are easy to read. Words turn white on a photo.",
+  "backgroundFailed": "That picture could not be read. Try a JPG, PNG or WebP file.",
+  "videoTitle": "Make a video"
+}
