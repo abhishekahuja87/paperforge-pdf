@@ -53,6 +53,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/photo-and-image-tools": {
     tasks: [
+      { task: "Make a plain background transparent", tool: "background-remover", name: "Background Remover", note: "Remove a white or plain background from a product, signature or logo and save a transparent PNG. Nothing is uploaded." },
       { task: "Make a photo smaller in file size", tool: "image-compressor", name: "Image Compressor", note: "Lower the file size and see the saving." },
       { task: "Change a photo to JPG, PNG or WebP", tool: "image-converter", name: "Image Converter", note: "Convert between common formats." },
       { task: "Get a photo or signature to 20, 50 or 100 KB", tool: "image-resizer", name: "Image Resizer (KB and Pixels)", note: "Hit a size limit or exact pixels for an online form." },
@@ -294,7 +295,6 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Make a video smaller or cut it", tool: "video-compressor-and-trimmer", name: "Video Compressor and Trimmer", note: "Keep the part you want and fit the file under a size limit for WhatsApp or email. Your video is not uploaded." },
       { task: "Put subtitles onto a video", tool: "burn-subtitles-into-video", name: "Subtitles Burner", note: "Add an SRT or VTT file and save a video with the captions drawn on it. Nothing is uploaded." },
       { task: "Remove background noise from a voice recording", tool: "voice-noise-remover", name: "Voice Clean-up", note: "Reduce hiss and hum, even out the volume and cut silence, then compare before and after. Nothing is uploaded." },
-      { task: "Make a plain background transparent", tool: "background-remover", name: "Background Remover", note: "Remove a white or plain background from a product, signature or logo and save a transparent PNG. Nothing is uploaded." },
       { task: "Record your screen with your face and voice", tool: "screen-recorder-with-face", name: "Screen Recorder with Face Bubble", note: "For laptops and desktops. Face in a corner bubble, your voice, pause and a countdown. Nothing is uploaded." },
       { task: "Read a script while recording a video", tool: "teleprompter-with-video-recording", name: "Teleprompter with Video Recording", note: "Your script scrolls over the camera and only you are recorded. Speed, size and practice mode. Nothing is uploaded." },
       { task: "Draw on a whiteboard and record a lesson", tool: "whiteboard-lesson-recorder", name: "Whiteboard Lesson Recorder", note: "Draw with a finger or pen while you talk and save a video. Phones and tablets work. Nothing is uploaded." },
