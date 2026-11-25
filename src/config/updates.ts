@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/screen-recorder-with-face',
+    tool: 'Screen Recorder with Face Bubble',
+    title: 'New: record your screen with your face in a bubble and your voice, on a computer',
+    summary: 'Pick a window or tab, choose where your face bubble sits, and record with your voice, a 3, 2, 1 countdown and pause. No time limit or watermark, and nothing is uploaded. For laptops and desktops.',
+  },
+  {
+    date: '2026-11-25',
     path: '/background-remover',
     tool: 'Background Remover',
     title: 'New: make a plain background transparent, for products, signatures and logos',

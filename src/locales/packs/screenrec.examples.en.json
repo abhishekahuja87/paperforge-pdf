@@ -1,0 +1,47 @@
+{
+  "tutorial": {
+    "label": "Tutorial",
+    "hint": "Your face in a medium circle at the bottom left, with your voice. The usual setup for how-to videos.",
+    "show": true,
+    "corner": "bl",
+    "size": "medium",
+    "shape": "circle",
+    "mic": true
+  },
+  "present": {
+    "label": "Presentation",
+    "hint": "A small circle at the bottom right so it stays out of the way of slides, with your voice.",
+    "show": true,
+    "corner": "br",
+    "size": "small",
+    "shape": "circle",
+    "mic": true
+  },
+  "big": {
+    "label": "Big face",
+    "hint": "A large rounded square at the bottom right. Good for a short message with something on screen behind you.",
+    "show": true,
+    "corner": "br",
+    "size": "large",
+    "shape": "rounded",
+    "mic": true
+  },
+  "screen": {
+    "label": "Screen and voice",
+    "hint": "No camera. Records the screen with your voice only.",
+    "show": false,
+    "corner": "bl",
+    "size": "medium",
+    "shape": "circle",
+    "mic": true
+  },
+  "silent": {
+    "label": "Screen only",
+    "hint": "No camera and no microphone. Records the screen as a silent video.",
+    "show": false,
+    "corner": "bl",
+    "size": "medium",
+    "shape": "circle",
+    "mic": false
+  }
+}
