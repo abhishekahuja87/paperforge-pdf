@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "handwriting-video-maker": [
+      [
+        "Type your lines",
+        "Write up to six short lines, one per row. Each line is written one after the other, so use the first line as a title and the rest as points."
+      ],
+      [
+        "Choose the look",
+        "Pick a handwriting font, an ink colour, a background such as whiteboard or chalkboard, the speed, and whether to show the pen and an underline under the title."
+      ],
+      [
+        "Set shape and quality",
+        "Choose 9:16 for Reels and Shorts, 16:9 for YouTube or 1:1 for posts, then 720p or 1080p. 4K appears when your browser can make it."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make video and keep the page open while it is drawn. Then save the MP4 and drop it into your editing app, or save the last frame as a picture."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "handwritingVideoGuide": {
+      "title": "Handwriting Video Maker: Write-On Text Animation, Free, No Watermark",
+      "subtitle": "Type your lines and download a short video of them being written by hand with a pen. Four fonts, Reel, YouTube and square sizes. Free, no watermark.",
+      "faq": [
+        [
+          "Is the Handwriting Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "How does the writing effect work?",
+          "The tool draws your text, finds the centre line of every letter and then reveals the letters stroke by stroke in the order a pen would move, so words look written rather than faded in. It is a drawn effect, not a recording of a real hand."
+        ],
+        [
+          "Which fonts and languages can I use?",
+          "Four handwriting-style fonts are included for English and other Latin-script text. Other scripts such as Hindi are written too, using a font your device already has, so the look depends on your phone or computer."
+        ],
+        [
+          "Can I use it for explainer and whiteboard-style videos?",
+          "Yes. Use the whiteboard or chalkboard background with one point per line, for example the steps of a process. The clip is short on purpose, so you can place it inside a longer video in your editing app."
+        ],
+        [
+          "What can I change?",
+          "Up to six lines of up to 40 characters, the font, ink colour, background, writing speed, an optional pen and an optional underline under the first line. The first line can be made larger for a title."
+        ],
+        [
+          "Which video shapes and sizes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube and 1:1 for square posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save the finished frame as a PNG."
+        ],
+        [
+          "How long does it take, and does it add sound?",
+          "In Smooth mode every frame is drawn one by one, so a fast phone takes about the length of the clip and a slower one takes longer. Keep the page open and the screen on. The clip has no sound, so add music or a voice-over in your editing app."
+        ],
+        [
+          "Is anything uploaded anywhere?",
+          "No. The text is drawn and the video is made on your own device, so your words and video are not sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "handwriting-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Handwriting Video Maker does",
+          "paragraphs": [
+            "The Handwriting Video Maker turns a few lines of text into a short video in which the words are written out by hand, letter by letter, with an optional pen and an underline that draws itself under the title.",
+            "It is made to be a building block. Make a ten second clip for a title, a list of steps or a quote, then place it in an editing app such as CapCut, InShot or Instagram Edits on top of your other footage."
+          ]
+        },
+        {
+          "heading": "Choices that change the video",
+          "paragraphs": [
+            "Four fonts range from flowing script to a clean print style. The background can be a whiteboard, chalkboard, paper, black or a green screen that you can key out in your editing app, with ink to match. Writing speed can be slow, normal or fast, and the pen can be shown or hidden.",
+            "Each line is written after the previous one. A longer line takes longer, so the length of the clip follows your text and your speed."
+          ]
+        },
+        {
+          "heading": "Where it helps",
+          "paragraphs": [
+            "Explainer videos use written steps to hold attention: how an order is shipped, how a loan is repaid, how to cook a dish. Teachers write a formula or a word, creators write a hook at the start of a Reel, and small businesses write an offer.",
+            "Everything is drawn and saved on your device, so your text is not uploaded. Keep text short so it stays readable on a phone."
+          ]
+        }
+      ]
+    }
+  }
+}
