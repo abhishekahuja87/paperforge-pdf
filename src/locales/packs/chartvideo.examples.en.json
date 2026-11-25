@@ -1,0 +1,32 @@
+{
+  "sales": {
+    "label": "Monthly sales (bars)",
+    "type": "bar",
+    "code": "title: Our sales this year\nJan: 40\nFeb: 55 | Diwali offers start\nMar: 80\nApr: 120 | Best month so far\nend: 3 times more in four months"
+  },
+  "growth": {
+    "label": "Followers growth (line)",
+    "type": "line",
+    "code": "title: Followers this month\nWeek 1: 120\nWeek 2: 180\nWeek 3: 260 | First reel gets shared\nWeek 4: 540\nWeek 5: 800\nend: 800 followers in 5 weeks"
+  },
+  "budget": {
+    "label": "Where the money goes (donut)",
+    "type": "donut",
+    "code": "title: Where the monthly budget goes\nRent: 35\nFood: 25\nTravel: 10 | Mostly the metro\nSavings: 20\nFun: 10\nend: One fifth goes to savings"
+  },
+  "votes": {
+    "label": "Class votes (pie)",
+    "type": "pie",
+    "code": "title: Class monitor votes\nAarav: 14\nDiya: 11\nKabir: 8\nMeera: 7\nend: Aarav wins with 14 votes"
+  },
+  "marks": {
+    "label": "Test marks (horizontal bars)",
+    "type": "hbar",
+    "code": "title: Class test marks\nAarav: 82\nDiya: 91 | Top of the class\nKabir: 67\nMeera: 75\nRohan: 58\nend: Class average improved"
+  },
+  "race": {
+    "label": "Followers race",
+    "type": "race",
+    "code": "title: Followers race\n2021: Ravi=100, Meena=80, Kabir=60, Diya=40\n2022: Ravi=150, Meena=190, Kabir=120, Diya=90\n2023: Ravi=210, Meena=300, Kabir=260, Diya=200 | Meena leads\n2024: Ravi=320, Meena=380, Kabir=450, Diya=400\nend: Kabir finishes first"
+  }
+}

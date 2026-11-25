@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/chart-reveal-video-maker',
+    tool: 'Chart Reveal Video Maker',
+    title: 'New: type numbers and save a bar, line, pie, donut or race chart video',
+    summary: 'Write lines like Jan: 40 and each one grows a bar, draws a point or fills a slice, with notes on a card, an end highlight, Indian or international number style and your voice recorded by tapping through.',
+  },
+  {
+    date: '2026-11-25',
     path: '/region-map-video-maker',
     tool: 'Map Video Maker',
     title: 'Your own words for the count and the end card, or turn them off',
