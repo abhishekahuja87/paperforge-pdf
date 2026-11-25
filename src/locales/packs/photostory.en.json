@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "photo-story-video-maker": [
+      [
+        "Add your photos",
+        "Tap Add photos and choose up to 10, or start from a quick starter such as Trip story, Product showcase or Birthday tribute. Use Up and Down to put them in order."
+      ],
+      [
+        "Write your words",
+        "Type a few words under each photo, and a title card and an end card if you want them. A starter gives you suggested captions to fill in and change."
+      ],
+      [
+        "Choose the look",
+        "Pick the colours, how each photo fits, the caption style, the slow move and how photos change. Tap Play to watch it, and add your voice by tapping through if you like."
+      ],
+      [
+        "Make and save the video",
+        "Choose 9:16, 16:9 or 1:1 and tap Make video. Keep the page open while it is drawn, then save the MP4 and post it or add it to a longer video."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "photoStoryGuide": {
+      "title": "Photo Story Video Maker: Photos to Video with Captions, Free",
+      "subtitle": "Add up to 10 photos with captions and save a video with a slow zoom, a title card, an end card and your voice if you like. Free, with no watermark.",
+      "faq": [
+        [
+          "Is the Photo Story Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "How many photos can I use?",
+          "Up to 10 photos in one story. Each one can have its own caption, its own move and its own time on screen. For a longer video, make two or three stories and join them in your editing app."
+        ],
+        [
+          "What is the slow zoom on each photo?",
+          "Each photo moves very slowly, zooming in, zooming out or panning sideways, so a still photo feels alive. It is often called the Ken Burns effect. Leave the move on Automatic and it changes from photo to photo, or choose one for every photo, or Still for none."
+        ],
+        [
+          "Will my photos be cropped?",
+          "Your choice. Fill the screen crops the edges so the photo covers the whole video. Whole photo keeps everything in view with a soft blurred copy behind it. Print frame puts each photo in a white frame, slightly tilted."
+        ],
+        [
+          "Do I need to add my voice?",
+          "No. Without a voice each photo stays long enough to read its caption. To add one, tap Record voice and tap through, speak, and tap Next step as you move to the next photo, so each photo changes at that moment. You can also add an audio file such as a song or a recorded message."
+        ],
+        [
+          "Which shapes and sizes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save one frame as a PNG picture."
+        ],
+        [
+          "Are my photos kept between visits?",
+          "No. Your photos stay only on this page while you work, so make the video before you leave. Your settings and words, such as the title and the look, are remembered on your own device so you can carry on later."
+        ],
+        [
+          "Are my photos uploaded anywhere?",
+          "No. The photos are read, drawn and turned into a video on your own device, and your voice is processed there too, so nothing is sent to {{siteName}} or anyone else."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "photo-story-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Photo Story Video Maker does",
+          "paragraphs": [
+            "The Photo Story Video Maker turns a handful of photos into a short video. Each photo moves slowly, a caption slides in over it, and a title card and an end card open and close the story. You write the words, and the video is ready to post as a Reel, a Short or a status.",
+            "It is made as a building block for creators. Make one story for a trip, a product or a birthday, then use it on its own or drop it into Instagram Edits, CapCut or InShot to join it with other clips."
+          ]
+        },
+        {
+          "heading": "Making a story people watch to the end",
+          "paragraphs": [
+            "Keep captions short, a few words that add something the photo does not already say. Put the best photo first and the most important photo last. Five to eight photos usually make a story of 25 to 40 seconds, which is long enough to feel complete and short enough to finish.",
+            "Mix the moves, so some photos zoom in and others pan, and keep the change between photos simple. A fade feels calm, a slide feels like a story, a zoom feels lively and a cut feels sharp. If you have a voice, speak one short line for each photo and tap Next step as you move on."
+          ]
+        },
+        {
+          "heading": "Choosing a starter and a look",
+          "paragraphs": [
+            "A trip story works well with the Clean look and a slide. A product showcase suits the Bold look with big text, and a birthday tribute suits the Paper look with print frames. Before and after photos suit Night with cinema bars and no movement, so the change is easy to see.",
+            "Everything happens on your own device. Your photos are not uploaded, there is no watermark, and your settings are remembered so you can make the next story quickly."
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -289,6 +289,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Turn a process into an animated diagram video", tool: "sequence-diagram-video-maker", name: "Sequence Diagram Video Maker", note: "Type steps like Customer->Shop: Place order, hide the arrows if you like, and record your voice over it." },
       { task: "Make a PPT-style explainer video with text, arrows and pictures", tool: "explainer-video-maker", name: "Explainer Video Maker", note: "Type lines like left: Factory, arrow: ships goods, right: Port. Each slides in, with or without your voice." },
       { task: "Make a map video of countries I visited or places we deliver to", tool: "region-map-video-maker", name: "Map Video Maker", note: "Type country names. Each lights up as the map flies to it, with pins on big cities and an optional voice." },
+      { task: "Turn photos with captions into a story video with a slow zoom", tool: "photo-story-video-maker", name: "Photo Story Video Maker", note: "Add up to 10 photos and a few words for each, with a title card, an end card and a slow zoom, for trips, products and birthdays." },
       { task: "Turn numbers into an animated bar, line, pie or race chart video", tool: "chart-reveal-video-maker", name: "Chart Reveal Video Maker", note: "Type lines like Jan: 40. Bars grow, a line draws, a pie fills or a race moves, with notes and an end card." },
     ],
     situations: [
