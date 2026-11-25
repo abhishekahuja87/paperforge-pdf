@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/audio-clip-video-maker',
+    tool: 'Audio Clip Video Maker',
+    title: 'New: turn a voice note, podcast clip or song into a video with moving sound bars',
+    summary: 'Add audio, a cover picture, a title and optional words, and get a video with bars, a wave or a circle that move to the real sound, ready for Instagram, YouTube or Facebook.',
+  },
+  {
+    date: '2026-11-25',
     path: '/tap-to-time-captions',
     tool: 'Tap-to-Time Captions',
     title: 'New: make SRT subtitle files by tapping while your audio plays',

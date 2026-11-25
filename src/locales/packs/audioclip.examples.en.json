@@ -1,0 +1,47 @@
+{
+  "podcast": {
+    "label": "Podcast clip",
+    "title": "Episode 12: Starting small",
+    "subtitle": "The Priya Podcast",
+    "look": "night",
+    "visual": "bars",
+    "shape": "rounded",
+    "words": ""
+  },
+  "song": {
+    "label": "Song snippet",
+    "title": "My new song",
+    "subtitle": "Out now on all apps",
+    "look": "black",
+    "visual": "circle",
+    "shape": "circle",
+    "words": ""
+  },
+  "quote": {
+    "label": "Voice note quote",
+    "title": "A thought for today",
+    "subtitle": "Voice note",
+    "look": "paper",
+    "visual": "wave",
+    "shape": "rounded",
+    "words": "Start before you feel ready\nSmall steps still count\nKeep going"
+  },
+  "poem": {
+    "label": "Poem reading",
+    "title": "Raat ki baat",
+    "subtitle": "Read by me",
+    "look": "clean",
+    "visual": "mirror",
+    "shape": "circle",
+    "words": "Raat ke andhere mein bhi\nEk roshni si rehti hai\nJo tum saath ho to\nHar baat achhi lagti hai"
+  },
+  "news": {
+    "label": "Announcement",
+    "title": "Big sale this weekend",
+    "subtitle": "Listen to the details",
+    "look": "bold",
+    "visual": "bars",
+    "shape": "rounded",
+    "words": "Flat 30 percent off\nSaturday and Sunday only\nLink in bio"
+  }
+}
