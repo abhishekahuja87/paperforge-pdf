@@ -1551,6 +1551,14 @@
           "Section 80C up to ₹1,50,000, NPS extra up to ₹50,000, home loan interest up to ₹2,00,000, and health insurance (80D) up to a combined ₹1,00,000. HRA exemption and other deductions are used as you enter them, so enter only what you are entitled to."
         ],
         [
+          "How do I decide between the old and the new regime?",
+          "Compare the two totals the calculator shows for the same income. The old regime only wins when the deductions and exemptions you can really claim are large enough to outweigh the lower slab rates of the new regime, so try different amounts in the deduction boxes and see where the result changes."
+        ],
+        [
+          "Is this an official tax computation I can file with?",
+          "No. It is an estimate to help you compare and plan. Your return and your tax liability are decided by the rules and forms of the tax department, so check the final figures on the official portal or with a qualified tax professional before you file."
+        ],
+        [
           "Is my financial information sent anywhere?",
           "No. The calculation runs in your browser as you type. Nothing you enter is uploaded to {{siteName}}; the page still loads advertising and other resources from the network."
         ]

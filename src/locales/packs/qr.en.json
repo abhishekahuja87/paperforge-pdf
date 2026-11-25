@@ -76,7 +76,7 @@
   "pageGuides": {
     "qrGeneratorGuide": {
       "title": "QR Code Generator: Free, No Expiry, PNG and SVG Download",
-      "subtitle": "Type a link or choose another kind of content, style the code, check that it reads back correctly and download it as PNG or SVG. Free, no sign-up, no tracking and no expiry date.",
+      "subtitle": "Type a link or other content, style the code, check that it reads back correctly and download it as PNG or SVG. Free, no sign-up, no tracking, no expiry.",
       "faq": [
         [
           "Is the QR code generator free, and does the code expire?",
@@ -122,7 +122,7 @@
     },
     "wifiQrGuide": {
       "title": "Wi-Fi QR Code Generator: Let Guests Join Without Typing the Password",
-      "subtitle": "Enter your network name and password, and make a QR code that guests scan with their camera to join. Print table cards for a home, cafe, office or rental. Free and private.",
+      "subtitle": "Enter your network name and password, and make a QR code that guests scan with their camera to join. Print table cards for home, cafe or office. Free.",
       "faq": [
         [
           "How does a Wi-Fi QR code work?",
@@ -164,7 +164,7 @@
     },
     "vcardQrGuide": {
       "title": "vCard QR Code Generator: Business Card QR That Saves Your Contact",
-      "subtitle": "Enter your name, phone, email, company and website and make a QR code that saves your contact when scanned. For business cards, badges, email signatures and event stands.",
+      "subtitle": "Enter your name, phone, email, company and website and make a QR code that saves your contact when scanned. For cards, badges, signatures and event stands.",
       "faq": [
         [
           "What is a vCard QR code?",
@@ -206,7 +206,7 @@
     },
     "bulkQrGuide": {
       "title": "Bulk QR Code Generator: Many QR Codes at Once, ZIP Download",
-      "subtitle": "Paste a list of labels and links and get every QR code in a ZIP of PNG or SVG files, or print a labelled sheet. Free, no limits on scans, and nothing is uploaded.",
+      "subtitle": "Paste a list of labels and links and get every QR code in a ZIP of PNG or SVG files, or print a labelled sheet. Free, and nothing is uploaded.",
       "faq": [
         [
           "Is the bulk QR code generator free?",

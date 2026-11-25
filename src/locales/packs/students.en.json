@@ -114,7 +114,7 @@
     },
     "finalGradeCalc": {
       "title": "Final Grade Calculator",
-      "subtitle": "Enter the weight and score of each part of a course to see your current average, your best and worst possible final grade, and the score you need on what is left.",
+      "subtitle": "Enter the weight and score of each part of a course to see your current average, your best and worst final grade, and the score you need on what is left.",
       "faq": [
         [
           "How do I calculate my final grade?",
