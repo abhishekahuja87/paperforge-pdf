@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-25',
     path: '/explainer-video-maker',
     tool: 'Explainer Video Maker',
+    title: 'Five styles, about 35 built-in icons, bigger stacked layout and livelier motion',
+    summary: 'Choose Clean, Bold, Cartoon, Neon or Chalkboard, add icons such as a truck or a ship, get larger text on Reels with the arrow between stacked boxes, and pick pop-in or typed text with a gentle zoom on each step.',
+  },
+  {
+    date: '2026-11-25',
+    path: '/explainer-video-maker',
+    tool: 'Explainer Video Maker',
     title: 'New: slides with left and right text, arrows and pictures, as a video',
     summary: 'Type short lines like left: Factory, arrow: ships goods, right: Port and each one slides in, with bullets, big text, your own pictures and an optional voice recorded by tapping through.',
   },

@@ -6,8 +6,8 @@
         "Write one line per step, like left: Factory, arrow: ships the goods, right: Port. Start a new slide with the word slide. Pick an example if you want to see the style first."
       ],
       [
-        "Add pictures (optional)",
-        "Add a photo or logo, then tap Use on left, in middle or on right to put it in your slides."
+        "Add icons and pictures (optional)",
+        "Tap an icon in the list to add it, or add a photo or logo and tap Use on left, in middle or on right. Pick a style such as Bold, Cartoon or Neon."
       ],
       [
         "Add your voice (optional)",
@@ -30,11 +30,11 @@
         ],
         [
           "How is it different from a slide deck?",
-          "You type short lines instead of dragging boxes, and each line becomes one step that slides in, like an animated slide. Left, right and middle text, arrows in both directions and downwards, bullet points, one big word or number, and pictures are available, with up to 12 slides and 60 steps."
+          "You type short lines instead of dragging boxes, and each line becomes one step that pops in, like an animated slide. Left, right and middle text, arrows in both directions and downwards, bullet points, one big word or number, about 30 built-in icons and your own pictures are available, with up to 12 slides and 60 steps."
         ],
         [
           "What can I write?",
-          "Lines start with left:, right:, center:, arrow:, arrow-back:, down:, big:, title: or a dash for a bullet. A line that says slide starts a new slide. The Syntax guide on the page shows each one with an Add button."
+          "Lines start with left:, right:, center:, icon:, arrow:, arrow-back:, down:, big:, title: or a dash for a bullet. A line that says slide starts a new slide. To put an icon inside a box, write its name between colons, like left: :truck: Delivery. The Syntax guide and the icon list on the page show everything with Add buttons."
         ],
         [
           "How do I add pictures?",
@@ -46,7 +46,7 @@
         ],
         [
           "Which video shapes and sizes does it make?",
-          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save the finished slide as a PNG."
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. Five styles (clean, bold, cartoon, neon and chalkboard) change the colours and boxes, and on tall videos the left item, arrow and right item stack so the text is big. It saves MP4 when your browser can make it and WebM otherwise. You can also save the finished slide as a PNG."
         ],
         [
           "What if a slide has too much text?",
@@ -72,8 +72,8 @@
         {
           "heading": "Choices that change the video",
           "paragraphs": [
-            "Text can go on the left, right or middle, arrows can point both ways or down, and bullet points, one big word or number and your own pictures can be added. A new slide starts with the word slide, and a pause line holds the picture while you speak.",
-            "Choose a background, a font, a speed and whether the left and right text sits in boxes. With your voice, tap Next step as you speak and each line appears at that moment."
+            "Text can go on the left, right or middle, arrows can point both ways or down, and bullet points, one big word or number, built-in icons and your own pictures can be added. A new slide starts with the word slide, and a pause line holds the picture while you speak.",
+            "Choose one of five styles, a font, a speed, whether text pops in or is typed, and whether the picture zooms in a little on each step. With your voice, tap Next step as you speak and each line appears at that moment."
           ]
         },
         {

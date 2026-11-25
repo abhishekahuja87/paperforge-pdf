@@ -11,8 +11,10 @@ import ui from '../../../locales/packs/slides.ui.en.json';
 import examples from '../../../locales/packs/slides.examples.en.json';
 import '../shops/posterFonts.css';
 import { parseDeck, type StepInfo } from '../../../lib/slides/parse';
-import { buildTimeline, makeRenderer, type Pic, type Renderer, type SlideOptions } from '../../../lib/slides/scene';
-import { THEMES, type FontId, type SpeedId, type ThemeId } from '../../../lib/sequence/scene';
+import { buildTimeline, makeRenderer, type LayoutId, type Pic, type RevealId, type Renderer, type SlideOptions } from '../../../lib/slides/scene';
+import { STYLES, type StyleId } from '../../../lib/slides/styles';
+import { drawIcon, ICON_NAMES } from '../../../lib/slides/icons';
+import type { FontId, SpeedId } from '../../../lib/sequence/scene';
 import { canRecordVoice, paddedVoice, playVoice, readVoiceFile, renderVoice, startVoiceRecording, type Voice, type VoiceRecorder } from '../../../lib/sequence/voice';
 import { canEncodeAac, encodeAac } from '../../../lib/globe/audio';
 import { canEncodeOffline, encodeOffline } from '../../../lib/globe/encode';
@@ -23,7 +25,7 @@ type Shape = 'reel' | 'wide' | 'square' | 'portrait';
 interface Saved { code: string; options: SlideOptions; shape: Shape; quality: 720 | 1080 | 2160 }
 type ExampleId = keyof typeof examples;
 
-const DEFAULTS: Saved = { code: examples.shipping.code, options: { boxes: true, theme: 'light', font: 'clean', speed: 'normal' }, shape: 'reel', quality: 1080 };
+const DEFAULTS: Saved = { code: examples.shipping.code, options: { style: 'clean', font: 'clean', speed: 'normal', layout: 'auto', reveal: 'pop', zoom: true, boxes: true }, shape: 'reel', quality: 1080 };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
 const MAX_CODE = 6000;
 
@@ -40,6 +42,16 @@ function describe(step: StepInfo): string {
   const label: Record<StepInfo['kind'], string> = { left: 'Left', right: 'Right', center: 'Middle', arrow: 'Arrow', bullet: 'Point', big: 'Big', down: 'Arrow down', pause: 'Pause' };
   return `${label[step.kind]}${step.text ? `: ${step.text.replace(/\n/g, ' ')}` : ''}`;
 }
+
+/** One icon, drawn small on its own canvas for the icon list. */
+const IconPreview: React.FC<{ name: string; style: StyleId }> = ({ name, style }) => {
+  const ref = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    const ctx = ref.current?.getContext('2d'); if (!ctx) return;
+    ctx.clearRect(0, 0, 96, 96); drawIcon(ctx, name, 48, 48, 72, { line: '#1f2937', fill: '#fdba74', detail: '#ffffff' }); void style;
+  }, [name, style]);
+  return <canvas ref={ref} width={96} height={96} className="h-12 w-12" aria-hidden="true" />;
+};
 
 interface Added { name: string; label: string; pic: Pic; url: string }
 const MAX_PICTURES = 6;
@@ -120,8 +132,8 @@ export const ExplainerVideoMaker: React.FC = () => {
   useEffect(() => {
     const ctx = canvas.current?.getContext('2d');
     if (!ctx) return;
-    if (preview) preview.paint(ctx, Math.min(time, duration)); else { ctx.fillStyle = THEMES[options.theme].bg; ctx.fillRect(0, 0, previewW, previewH); }
-  }, [preview, time, duration, options.theme, previewW, previewH]);
+    if (preview) preview.paint(ctx, Math.min(time, duration)); else { ctx.fillStyle = (Array.isArray(STYLES[options.style].bg) ? STYLES[options.style].bg[0] : STYLES[options.style].bg as string); ctx.fillRect(0, 0, previewW, previewH); }
+  }, [preview, time, duration, options.style, previewW, previewH]);
 
   // Play the preview, with the voice if there is one.
   useEffect(() => {
@@ -286,13 +298,29 @@ export const ExplainerVideoMaker: React.FC = () => {
 
       <section className={`${card} space-y-4`}>
         <h2 className={heading}>{ui.look}</h2>
-        <Toggle label={ui.boxes} checked={options.boxes} onChange={(value) => update({ boxes: value })} />
-        <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.theme}</p>
-          <ChoiceButtons label={ui.theme} value={options.theme} onChange={(value) => update({ theme: value as ThemeId })} options={names(ui.themes)} /></div>
+        <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.style}</p>
+          <ChoiceButtons label={ui.style} value={options.style} onChange={(value) => update({ style: value as StyleId, font: STYLES[value as StyleId].font })} options={names(ui.styles)} /></div>
+        <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.layout}</p>
+          <ChoiceButtons label={ui.layout} value={options.layout} onChange={(value) => update({ layout: value as LayoutId })} options={names(ui.layouts)} />
+          <p className="mt-1 text-[11px] text-slate-500">{ui.layoutHint}</p></div>
+        <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.reveal}</p>
+          <ChoiceButtons label={ui.reveal} value={options.reveal} onChange={(value) => update({ reveal: value as RevealId })} options={names(ui.reveals)} /></div>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.font}</p>
           <ChoiceButtons label={ui.font} value={options.font} onChange={(value) => update({ font: value as FontId })} options={names(ui.fonts)} /></div>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.speed}</p>
           <ChoiceButtons label={ui.speed} value={options.speed} onChange={(value) => update({ speed: value as SpeedId })} options={names(ui.speeds)} /></div>
+        <Toggle label={ui.zoom} checked={options.zoom} onChange={(value) => update({ zoom: value })} />
+        <Toggle label={ui.boxes} checked={options.boxes} onChange={(value) => update({ boxes: value })} />
+      </section>
+
+      <section className={`${card} space-y-3`}>
+        <h2 className={heading}>{ui.icons}</h2>
+        <p className="text-[11px] text-slate-500">{ui.iconsHint}</p>
+        <ul className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+          {ICON_NAMES.map((name) => (
+            <li key={name}><button type="button" disabled={busy} onClick={() => setCode(`${code.replace(/\n+$/, '')}\nicon: ${name} ${ui.iconCaption}`)} aria-label={`${ui.addIcon} ${name}`} className="flex min-h-14 w-full flex-col items-center rounded-xl border border-slate-200 bg-white p-1 hover:bg-slate-50 disabled:opacity-40"><IconPreview name={name} style={options.style} /><span className="text-[11px] font-semibold text-slate-700">{name}</span></button></li>
+          ))}
+        </ul>
       </section>
 
       <section className={`${card} space-y-3`}>

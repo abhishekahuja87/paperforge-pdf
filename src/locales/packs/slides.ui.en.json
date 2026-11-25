@@ -7,17 +7,7 @@
   "line": "Line {n}",
   "look": "Look",
   "theme": "Background",
-  "themes": {
-    "light": "White",
-    "dark": "Black",
-    "chalk": "Chalkboard",
-    "paper": "Paper"
-  },
   "font": "Font",
-  "fonts": {
-    "clean": "Clean",
-    "friendly": "Friendly"
-  },
   "speed": "Speed of steps",
   "speeds": {
     "slow": "Slow",
@@ -144,6 +134,11 @@
       "code": "slide Step two\nleft: Start"
     },
     {
+      "title": "Icons",
+      "note": "An icon on its own line, with a caption after the name. Or put the name between colons at the start of left, right or middle text to show the icon above the words. The icon list below shows every name.",
+      "code": "icon: truck Delivery\nleft: :factory: Factory\nright: :ship: Ship"
+    },
+    {
       "title": "Pictures",
       "note": "Add a picture below, then use left-image, center-image or right-image with its name. Words after the name are a caption.",
       "code": "left-image: photo1 Our product"
@@ -163,5 +158,34 @@
       "note": "A line starting with # is ignored.",
       "code": "# This line is a note to myself"
     }
-  ]
+  ],
+  "style": "Style",
+  "styles": {
+    "clean": "Clean",
+    "bold": "Bold",
+    "cartoon": "Cartoon",
+    "neon": "Neon",
+    "chalk": "Chalkboard"
+  },
+  "layout": "Layout of left and right items",
+  "layouts": {
+    "auto": "Automatic",
+    "side": "Side by side",
+    "stacked": "One above the other"
+  },
+  "layoutHint": "Automatic stacks the left item, the arrow and the right item on tall videos like Reels, so the text can be bigger, and puts them side by side on wide videos.",
+  "reveal": "How text appears",
+  "reveals": {
+    "pop": "Pop in",
+    "type": "Typed letter by letter"
+  },
+  "fonts": {
+    "clean": "Clean",
+    "friendly": "Friendly"
+  },
+  "zoom": "Zoom in a little on each step",
+  "icons": "Icons",
+  "iconsHint": "Tap an icon to add it as its own line. To put one inside a box, write its name between colons before the text, like left: :truck: Delivery.",
+  "iconCaption": "Caption",
+  "addIcon": "Add icon"
 }
