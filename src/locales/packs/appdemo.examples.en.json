@@ -1,0 +1,75 @@
+{
+  "shop": {
+    "label": "Online shop order",
+    "device": "phone",
+    "look": "clean",
+    "transition": "slide",
+    "label_style": "card",
+    "speed": "normal",
+    "hints": [
+      "Open the shop and see the offers",
+      "Pick your size",
+      "Use code DIWALI for the discount",
+      "Order placed, it is that easy",
+      "Scroll to see more designs"
+    ]
+  },
+  "app": {
+    "label": "App feature tour",
+    "device": "phone",
+    "look": "night",
+    "transition": "fade",
+    "label_style": "big",
+    "speed": "normal",
+    "hints": [
+      "Meet the new app",
+      "Everything in one place",
+      "Set your goal in one tap",
+      "See your progress every day",
+      "Download it today"
+    ]
+  },
+  "site": {
+    "label": "Website walkthrough",
+    "device": "laptop",
+    "look": "black",
+    "transition": "fade",
+    "label_style": "card",
+    "speed": "normal",
+    "hints": [
+      "This is the home page",
+      "Find what you need quickly",
+      "Every product has clear details",
+      "Checkout takes a minute",
+      "Questions? Contact us here"
+    ]
+  },
+  "how": {
+    "label": "Tutorial steps",
+    "device": "phone",
+    "look": "paper",
+    "transition": "slide",
+    "label_style": "card",
+    "speed": "slow",
+    "hints": [
+      "Step 1: open Settings",
+      "Step 2: tap Privacy",
+      "Step 3: turn on the option",
+      "Step 4: you are done"
+    ]
+  },
+  "portfolio": {
+    "label": "Portfolio showcase",
+    "device": "laptop",
+    "look": "bold",
+    "transition": "zoom",
+    "label_style": "big",
+    "speed": "fast",
+    "hints": [
+      "My latest work",
+      "A clean new design",
+      "Made for mobile too",
+      "Let us work together"
+    ]
+  }
+}

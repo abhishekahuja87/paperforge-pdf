@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/app-demo-video-maker',
+    tool: 'App & Website Demo Video Maker',
+    title: 'New: turn screenshots into a demo video in a phone or laptop frame',
+    summary: 'Add screenshots of your app or website, point at what matters with a tap circle, arrow or box, zoom in, hide private details and let long pages scroll. No screen recording needed.',
+  },
+  {
+    date: '2026-11-25',
     path: '/audio-clip-video-maker',
     tool: 'Audio Clip Video Maker',
     title: 'New: turn a voice note, podcast clip or song into a video with moving sound bars',

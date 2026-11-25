@@ -966,7 +966,7 @@
     },
     "media": {
       "name": "Audio and video tools",
-      "description": "Cut, join and fade audio files and voice notes, make a globe video that flies from one place to another, a video of text written by hand, an animated diagram video with a voice-over, an explainer slides video, and a world map video that lights up countries, bar, line, pie and race chart videos from your numbers, a photo story video with captions, SRT subtitle files made by tapping, and audio clip videos with sound bars. Everything runs on your device, so your recordings are not uploaded."
+      "description": "Cut, join and fade audio files and voice notes, make a globe video that flies from one place to another, a video of text written by hand, an animated diagram video with a voice-over, an explainer slides video, and a world map video that lights up countries, bar, line, pie and race chart videos from your numbers, a photo story video with captions, SRT subtitle files made by tapping, audio clip videos with sound bars, and app demo videos made from screenshots. Everything runs on your device, so your recordings are not uploaded."
     },
     "dev": {
       "name": "Developer and data tools",

@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "app-demo-video-maker": [
+      [
+        "Pick a starter and add your screens",
+        "Choose Online shop order, App feature tour, Website walkthrough, Tutorial steps or Portfolio showcase, then add your screenshots in order, or try the sample screens."
+      ],
+      [
+        "Point at what matters",
+        "Tap the small picture to place a tap circle, arrow or box, and turn on zoom. Hide private details, and write a short sentence for each screen."
+      ],
+      [
+        "Choose the look",
+        "Pick a phone or laptop frame, the colours, how screens change and how words appear. Tap Play to watch it, and add your voice by tapping through if you like."
+      ],
+      [
+        "Make and save the video",
+        "Choose 9:16, 16:9 or 1:1 and tap Make video. Keep the page open while it is drawn, then save the MP4 and post it or add it to a longer video."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "appDemoGuide": {
+      "title": "App & Website Demo Video Maker: Screenshots in a Phone Frame",
+      "subtitle": "Put screenshots of your app or website in a phone or laptop frame with tap circles, arrows, zoom and scrolling. A clean demo video without screen recording. Free.",
+      "faq": [
+        [
+          "Is the App and Website Demo Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "How is this different from a screen recording?",
+          "A screen recording captures everything you do, including mistakes, slow loading, pop-up notifications and private details. This tool builds the video from screenshots, so you control every step. It works even when the app is not finished, you can hide private details, and fixing one step means swapping one screenshot instead of recording again."
+        ],
+        [
+          "Which screenshots should I use?",
+          "Any PNG or JPG, taken on a phone or computer or saved from a design tool. Phone screenshots look best in the Phone frame, and website screenshots in the Laptop frame. Up to 8 screens are used, shown in the order you add them. Use Up and Down to change the order."
+        ],
+        [
+          "How do I point at something?",
+          "Tap the small picture of a screen where the spot is, then choose a tap circle, an arrow or a box. Turn on Zoom in on the spot and the video moves closer to it for a moment. Write a short sentence for the screen and it appears under the frame."
+        ],
+        [
+          "Can I hide private details like a name or a phone number?",
+          "Yes. Switch what a tap on the small picture does to Sets the spot to hide, tap the part to cover and turn on Hide private details. That part is blurred into blocks in the video. Choose a small, wide or block area. Always play the video once and check that nothing private is still visible."
+        ],
+        [
+          "What happens to a very long page?",
+          "A screenshot much taller than the screen, such as a whole web page or a long list, glides from the top to the bottom, like a thumb swiping. You can turn this off under More options."
+        ],
+        [
+          "Can I add my voice?",
+          "Yes, and it is optional. Tap Record voice and tap through, speak, and tap Next step as you move to the next screen, so each screen changes when you say it. You can also add an audio file. Which video shapes and sizes you can save: 9:16 for Reels, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it."
+        ],
+        [
+          "Are my screenshots uploaded anywhere?",
+          "No. The screenshots are read, drawn and turned into a video on your own device, and your voice is processed there too, so nothing is sent to {{siteName}} or anyone else. Your settings are remembered on your device, but your screenshots are not."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "app-demo-video-maker": {
+      "sections": [
+        {
+          "heading": "What the App and Website Demo Video Maker does",
+          "paragraphs": [
+            "The App and Website Demo Video Maker turns screenshots into a clean demo video. Each screenshot sits inside a phone or laptop frame, a tap circle, arrow or box shows where to look, the video zooms in on that spot, long pages scroll smoothly, and a short sentence appears under the frame.",
+            "It is made as a building block for people who build an app, run an online shop, teach a tool or show their work. Make the clip here, then post it on its own or drop it into Instagram Edits, CapCut or InShot."
+          ]
+        },
+        {
+          "heading": "Why screenshots instead of a screen recording",
+          "paragraphs": [
+            "A screen recording shows everything, including slow loading, a wrong tap, a notification and your private details. A demo built from screenshots is steady and repeatable. It works for an app that is only a design, and fixing one step means swapping one screenshot instead of recording the whole thing again.",
+            "If you do have a clean recording that already looks right, you do not need this tool. It is for a polished clip without recording skills."
+          ]
+        },
+        {
+          "heading": "Making a demo people follow",
+          "paragraphs": [
+            "Show one idea in each screen and keep the sentence short, such as Pick your size or Use code DIWALI. Point at the one thing that matters and zoom in on it. Five to eight screens make a clip of 25 to 40 seconds.",
+            "Everything happens on your own device. Your screenshots are not uploaded, there is no watermark, and your settings are remembered so the next demo is quick."
+          ]
+        }
+      ]
+    }
+  }
+}
