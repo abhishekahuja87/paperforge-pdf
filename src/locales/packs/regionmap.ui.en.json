@@ -34,7 +34,7 @@
   },
   "zoom": "Fly the camera to each place",
   "keep": "Keep earlier places lit",
-  "counter": "Show how many places so far",
+  "counter": "Show a running count on the video",
   "finale": "Zoom out to show everything at the end",
   "wordOne": "{n} place",
   "wordMany": "{n} places",
@@ -130,5 +130,9 @@
       "note": "Stays at the top of the video.",
       "code": "title: Countries I visited"
     }
-  ]
+  ],
+  "endCard": "Show a card with the total at the end",
+  "counterText": "Your words for the running count",
+  "endText": "Your words for the end card",
+  "textOptionsHint": "Write {n} where the number should go, for example: {n} countries visited. Leave a box empty for the standard words."
 }

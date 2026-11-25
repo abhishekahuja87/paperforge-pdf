@@ -28,7 +28,7 @@ type Shape = 'reel' | 'wide' | 'square' | 'portrait';
 interface Saved { code: string; options: MapOptions; shape: Shape; quality: 720 | 1080 | 2160 }
 type ExampleId = keyof typeof examples;
 
-const DEFAULTS: Saved = { code: examples.visited.code, options: { style: 'clean', font: 'clean', speed: 'normal', zoom: true, keep: true, counter: true, finale: true }, shape: 'reel', quality: 1080 };
+const DEFAULTS: Saved = { code: examples.visited.code, options: { style: 'clean', font: 'clean', speed: 'normal', zoom: true, keep: true, counter: true, finale: true, endCard: true, counterText: '', endText: '' }, shape: 'reel', quality: 1080 };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
 const MAX_CODE = 4000;
 const WORDS = { one: ui.wordOne, many: ui.wordMany, total: ui.wordTotal };
@@ -292,6 +292,12 @@ export const RegionMapVideoMaker: React.FC = () => {
         <Toggle label={ui.keep} checked={options.keep} onChange={(value) => update({ keep: value })} />
         <Toggle label={ui.counter} checked={options.counter} onChange={(value) => update({ counter: value })} />
         <Toggle label={ui.finale} checked={options.finale} onChange={(value) => update({ finale: value })} />
+        {options.finale && <Toggle label={ui.endCard} checked={options.endCard} onChange={(value) => update({ endCard: value })} />}
+        {options.counter && <label className="block text-xs font-semibold text-slate-700">{ui.counterText}
+          <input type="text" value={options.counterText} maxLength={40} placeholder={ui.wordMany} onChange={(event) => update({ counterText: event.target.value })} className="mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200" /></label>}
+        {options.finale && options.endCard && <label className="block text-xs font-semibold text-slate-700">{ui.endText}
+          <input type="text" value={options.endText} maxLength={60} placeholder={ui.wordTotal} onChange={(event) => update({ endText: event.target.value })} className="mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200" /></label>}
+        <p className="text-[11px] text-slate-500">{ui.textOptionsHint}</p>
       </section>
 
       <section className={`${card} space-y-3`}>

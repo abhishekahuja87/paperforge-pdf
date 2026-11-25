@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-25',
     path: '/region-map-video-maker',
     tool: 'Map Video Maker',
+    title: 'Your own words for the count and the end card, or turn them off',
+    summary: 'The running count and the total card at the end can each be switched off, and you can write your own words such as {n} countries visited.',
+  },
+  {
+    date: '2026-11-25',
+    path: '/region-map-video-maker',
+    tool: 'Map Video Maker',
     title: 'New: type countries and save a map video where they light up one by one',
     summary: 'Write India, then France, Italy, Spain: Europe trip, add pins on big cities, and the map flies to each place with a name card, a running count and an optional voice recorded by tapping through.',
   },

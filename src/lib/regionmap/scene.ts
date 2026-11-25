@@ -22,7 +22,9 @@ export const STYLES: Record<StyleId, MapStyle> = {
   bold: { sea: '#fde047', land: '#ffffff', border: '#111111', lit: '#f43f5e', current: '#be123c', ink: '#111111', card: '#ffffff', cardInk: '#111111', accent: '#be123c', line: 2.4, glow: false, font: 'clean' },
 };
 
-export interface MapOptions { style: StyleId; font: FontId; speed: SpeedId; zoom: boolean; keep: boolean; counter: boolean; finale: boolean }
+export interface MapOptions { style: StyleId; font: FontId; speed: SpeedId; zoom: boolean; keep: boolean; counter: boolean; finale: boolean;
+  /** Show the card with the total at the end. */ endCard: boolean;
+  /** Own wording for the running count and the end card, with {n} for the number. Empty uses the standard words. */ counterText: string; endText: string }
 
 /** Words that go on the picture, so they can live in the locale file. */
 export interface MapWords { one: string; many: string; total: string }
@@ -218,7 +220,7 @@ export function makeRenderer(deck: MapDeck, atlas: Atlas, options: MapOptions, w
     }
     const count = new Set(visible.flatMap((k) => { const step = deck.steps[k]!; return step.kind === 'region' ? step.regions.map((r) => r.id) : step.kind === 'pin' ? [`pin${k}`] : []; })).size;
     if (options.counter && total > 1 && count > 0) {
-      const label = (count === 1 ? words.one : words.many).replace('{n}', String(count));
+      const label = (options.counterText.trim() || (count === 1 ? words.one : words.many)).replace('{n}', String(count));
       ctx.font = `700 ${Math.round(U * 0.032)}px ${FONT_FAMILIES[options.font]}`; const w = ctx.measureText(label).width + U * 0.05; const h = U * 0.06;
       ctx.fillStyle = style.card; ctx.globalAlpha = 0.92; roundRect(ctx, W - pad - w, topBand + U * 0.01, w, h, h / 2); ctx.fill(); ctx.globalAlpha = 1;
       ctx.fillStyle = style.cardInk; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(label, W - pad - w / 2, topBand + U * 0.01 + h / 2 + U * 0.002);
@@ -227,7 +229,7 @@ export function makeRenderer(deck: MapDeck, atlas: Atlas, options: MapOptions, w
     // The card at the bottom: the name of the place and a note.
     let label = ''; let note = ''; let from = 0; let cardStep = -1;
     deck.steps.forEach((step, k) => { if (step.kind !== 'pause' && (shows(step) ? litAt(k) : timeline.starts[k]!) <= t) cardStep = k; });
-    if (finished && count > 0) { label = words.total.replace('{n}', String(count)); note = ''; from = timeline.finaleAt + 0.5; }
+    if (finished) { if (options.endCard && count > 0) { label = (options.endText.trim() || words.total).replace('{n}', String(count)); note = ''; from = timeline.finaleAt + 0.5; } }
     else if (cardStep >= 0) {
       const step = deck.steps[cardStep]!;
       if (step.kind === 'region' || step.kind === 'pin') { label = step.label; note = step.caption; from = litAt(cardStep); }
