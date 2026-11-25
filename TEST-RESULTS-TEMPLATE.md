@@ -239,6 +239,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L9 | Globe Video Maker: face photo as the marker and a place picture with credit at a stop | | |
 | L10 | Globe Video Maker: a note on a stop, an intro card, an ending card with facts | | |
 | L11 | Handwriting Video Maker: type 3 lines, preview writes with the pen, make a 10 s video, play it, save it; try Hindi text and the chalkboard look | | |
+| L12 | Sequence Diagram Video Maker: pick an example, change a line, tap through with the microphone, make a video, play it with sound, save it; turn Show the arrows off | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

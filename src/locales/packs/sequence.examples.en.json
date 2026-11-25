@@ -1,0 +1,42 @@
+{
+  "order": {
+    "label": "Order from a shop",
+    "code": "title Order from a shop\nCustomer->Shop: Place order\nShop->Payment: Take payment\nPayment-->Shop: Paid\nShop-->Customer: Order confirmed"
+  },
+  "shipping": {
+    "label": "How an export order ships",
+    "code": "title How an export order ships\nBuyer->Factory: Sends an order\nFactory->Port: Loads the container\nPort->Ship: Container is lifted on\nShip->Port2: Sails for 18 days\nPort2->Buyer: Delivers to the door\nnote over Buyer: Goods arrive"
+  },
+  "arrows": {
+    "label": "All arrow types",
+    "code": "title Arrow types\nA->B: Solid, filled head\nA->>B: Solid, open head\nA-->B: Dotted, filled head\nA-->>B: Dotted, open head\nA->(3)B: Slow, slanted arrow\nA->A: An arrow to itself"
+  },
+  "notes": {
+    "label": "Notes and states",
+    "code": "title Notes\nA->B: Hello\nnote left of A: Left note\nnote right of B: Right note\nnote over A: Over one name\nnote over A, B: Over two names\nnote over B\nA note on\nseveral lines\nend note\nstate over B: WAITING"
+  },
+  "groups": {
+    "label": "If, else and loops",
+    "code": "title Boxes around steps\nUser->App: Log in\nalt password correct\n  App->User: Welcome\nelse wrong password\n  App->User: Try again\nend\nloop every minute\n  App->Server: Check for news\nend\nopt user is new\n  App->User: Show a tour\nend\npar\n  App->Mail: Send email\nend"
+  },
+  "bars": {
+    "label": "Bars, create and destroy",
+    "code": "title Active bars\nClient->+Server: Request\nServer->*+Worker: Start a worker\nWorker-->-Server: Done\nServer-->-Client: Response\ndestroy Worker"
+  },
+  "shapes": {
+    "label": "Name shapes",
+    "code": "title Name shapes\nparticipant:actor Person\nparticipant Plain\nparticipant:database Store\nparticipant:cloud \"The Internet\" as Net\nparticipant:queue Jobs\nparticipant:collections Cache\nPerson->Plain: A box\nPlain->Store: A database\nPlain->Net: A cloud"
+  },
+  "dividers": {
+    "label": "Dividers, delays and pauses",
+    "code": "title Dividers, delays and pauses\nA->B: Morning request\n== Later that day ==\nB->A: Reply\n...Three days pass...\nA->B: Follow up\npause 3\nB->A: Final answer"
+  },
+  "outside": {
+    "label": "Arrows from and to outside",
+    "code": "title From and to outside\n[->A: Customer calls\nA->B: Pass it on\nB->]: Ship the parcel"
+  },
+  "login": {
+    "label": "Login with a code",
+    "code": "title Login with a code\nautonumber\nparticipant:actor User\nparticipant App\nparticipant:cloud SMS\nUser->App: Enter phone number\nApp->SMS: Send code\nSMS-->User: Code arrives\nUser->App: Enter code\nalt code is right\n  App->User: You are in\nelse code is wrong\n  App->User: Try again\nend"
+  }
+}

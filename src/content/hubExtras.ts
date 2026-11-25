@@ -286,10 +286,11 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Add a fade in and fade out", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Listen before you save." },
       { task: "Make a video of a trip from one place to another", tool: "globe-video-maker", name: "Globe Video Maker", note: "Pick A and B, or one origin and many places. Choose a look, save a Reel, YouTube or square video." },
       { task: "Make a video of text being written by hand", tool: "handwriting-video-maker", name: "Handwriting Video Maker", note: "Type up to six lines, pick a font and a whiteboard, chalkboard or green-screen look, and save a write-on clip." },
+      { task: "Turn a process into an animated diagram video", tool: "sequence-diagram-video-maker", name: "Sequence Diagram Video Maker", note: "Type steps like Customer->Shop: Place order, hide the arrows if you like, and record your voice over it." },
     ],
     situations: [
       { who: "Creators and travellers", text: "Make a globe video that flies from your home city to your destination for a Reel, a Short or a YouTube intro." },
-      { who: "Explainer and teaching videos", text: "Write the steps of a process, a formula or a hook line as a short write-on clip to place inside a longer video." },
+      { who: "Explainer and teaching videos", text: "Write the steps of a process, a formula or a hook line as a short write-on clip, or draw a process as an animated diagram with your own voice, to place inside a longer video." },
       { who: "Phones and voice notes", text: "Trim a long voice note, or join several short ones, and save the result as a WAV file." },
       { who: "Teachers and students", text: "Cut a lecture recording to the part you need." },
       { who: "Anyone sharing audio", text: "Nothing is uploaded, so private recordings stay on your device." },

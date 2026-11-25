@@ -19,6 +19,7 @@ import devtools from './packs/devtools.catalog.en.json';
 import more from './packs/more.catalog.en.json';
 import globe from './packs/globe.catalog.en.json';
 import writing from './packs/writing.catalog.en.json';
+import sequence from './packs/sequence.catalog.en.json';
 import qr from './packs/qr.catalog.en.json';
 import vcard from './packs/vcard.catalog.en.json';
 import flashcards from './packs/flashcards.catalog.en.json';
@@ -39,7 +40,7 @@ import kids from './packs/kids.catalog.en.json';
  * description). The long per-tool text (guide steps, FAQs, articles) is in ./content and loads on demand.
  * To add a pack: create ./packs/<name>.catalog.en.json and add it to CATALOGS here.
  */
-const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, writing];
+const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, writing, sequence];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
 type Catalog = (typeof base)['toolCatalog'] & UnionToIntersection<(typeof CATALOGS)[number]['toolCatalog']>;
