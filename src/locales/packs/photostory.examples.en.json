@@ -1,0 +1,110 @@
+{
+  "trip": {
+    "label": "Trip story",
+    "title": "Our Goa trip",
+    "end": "Thanks for watching",
+    "look": "clean",
+    "transition": "slide",
+    "caption": "bar",
+    "fill": "fill",
+    "motion": "auto",
+    "speed": "normal",
+    "hints": [
+      "Day 1: we reached and the sea was right there",
+      "The best breakfast of the trip",
+      "Sunset that stopped everyone",
+      "The hidden spot nobody told us about",
+      "Last evening, no one wanted to leave"
+    ]
+  },
+  "product": {
+    "label": "Product showcase",
+    "title": "New this week",
+    "end": "Order today, link in bio",
+    "look": "bold",
+    "transition": "zoom",
+    "caption": "center",
+    "fill": "fill",
+    "motion": "in",
+    "speed": "fast",
+    "hints": [
+      "Meet the new one",
+      "Made with care, in small batches",
+      "Look at the detail",
+      "Three colours to pick from",
+      "Ready to ship today"
+    ]
+  },
+  "birthday": {
+    "label": "Birthday tribute",
+    "title": "Happy Birthday!",
+    "end": "With love, from all of us",
+    "look": "paper",
+    "transition": "fade",
+    "caption": "bar",
+    "fill": "polaroid",
+    "motion": "auto",
+    "speed": "slow",
+    "hints": [
+      "Where it all began",
+      "Always smiling",
+      "Our favourite memory together",
+      "The one who makes everything fun",
+      "Here is to many more years"
+    ]
+  },
+  "before": {
+    "label": "Before and after",
+    "title": "The change",
+    "end": "Same place, new look",
+    "look": "night",
+    "transition": "fade",
+    "caption": "cinema",
+    "fill": "fit",
+    "motion": "none",
+    "speed": "normal",
+    "hints": [
+      "Before",
+      "Work in progress",
+      "After",
+      "The details",
+      "The final look"
+    ]
+  },
+  "recipe": {
+    "label": "Recipe steps",
+    "title": "Easy paneer wrap",
+    "end": "Save this for later",
+    "look": "clean",
+    "transition": "cut",
+    "caption": "center",
+    "fill": "fill",
+    "motion": "in",
+    "speed": "normal",
+    "hints": [
+      "What you need",
+      "Step 1: cut and mix",
+      "Step 2: cook it well",
+      "Step 3: roll it up",
+      "Ready to eat"
+    ]
+  },
+  "event": {
+    "label": "Event recap",
+    "title": "The night we loved",
+    "end": "See you next year",
+    "look": "night",
+    "transition": "zoom",
+    "caption": "bar",
+    "fill": "fill",
+    "motion": "auto",
+    "speed": "normal",
+    "hints": [
+      "Doors open",
+      "The first dance",
+      "Everyone on the floor",
+      "The photo we all wanted",
+      "That was a wrap"
+    ]
+  }
+}

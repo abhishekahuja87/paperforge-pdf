@@ -243,6 +243,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L13 | Explainer Video Maker: pick an example, add a picture and use it on the left, tap through with the microphone, make a video, play it with sound, save it | | |
 | L14 | Map Video Maker: pick an example, add a country from the search box, add a pin on a city, tap through with the microphone, make a video, play it with sound, save it | | |
 | L15 | Chart Reveal Video Maker: pick each of the six examples, edit a number, switch chart type, set a rupee sign and the Indian number style, add an end card, tap through with the microphone, make a video, play it with sound, save it | | |
+| L16 | Photo Story Video Maker: add 3 photos from the phone camera, pick a starter, fill the captions, try Print frame and Big text, tap through with the microphone, make a video, play it with sound, save it | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

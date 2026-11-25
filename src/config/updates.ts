@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/photo-story-video-maker',
+    tool: 'Photo Story Video Maker',
+    title: 'New: turn up to 10 photos with captions into a video with a slow zoom',
+    summary: 'Add photos, write a few words under each, and get a video with a title card, an end card, a slow zoom or pan on every photo and your voice recorded by tapping through. Six quick starters help you begin.',
+  },
+  {
+    date: '2026-11-25',
     path: '/chart-reveal-video-maker',
     tool: 'Chart Reveal Video Maker',
     title: 'New: type numbers and save a bar, line, pie, donut or race chart video',
