@@ -1,0 +1,89 @@
+{
+ "guideSteps": {
+  "whatsapp-chat-to-pdf": [
+   [
+    "Export the chat from WhatsApp",
+    "Open the chat in WhatsApp and use Export chat. Choose Without media for a small text file, or Include media if you want the photos in the PDF. Save it to your phone."
+   ],
+   [
+    "Pick a starter and add the file",
+    "Choose Memory book, Plain record, Just the words or Save ink and paper, then choose your file. You can also tap Try a sample chat to see how it looks first."
+   ],
+   [
+    "Choose what to include",
+    "Set a date range, leave out people, or keep only messages with a word. Check the preview pages, and change the look, text size or paper under More options."
+   ],
+   [
+    "Make the PDF and save it",
+    "Tap Make the PDF and wait until it is done. Then save the file. To share it safely, turn on Hide phone numbers before you make it."
+   ]
+  ]
+ },
+ "pageGuides": {
+  "whatsappChatGuide": {
+   "title": "WhatsApp Chat to PDF: Save a Chat with Hindi, Emoji and Photos",
+   "subtitle": "Turn an exported WhatsApp chat into a PDF with dates, people and photos. Hindi and emoji come out right. Free, and your chat stays on your device.",
+   "faq": [
+    [
+     "How do I save a WhatsApp chat as a PDF?",
+     "Use Export chat inside WhatsApp to get a text file or a zip, then pick it in this tool and tap Make the PDF. WhatsApp itself does not make a PDF, so this tool turns the export into one. You can try it first with the sample chat."
+    ],
+    [
+     "Is WhatsApp Chat to PDF free, and does it add a watermark?",
+     "It is free, with no sign-up and no watermark. A very long chat is limited to 600 pages at a time, so choose a date range for bigger chats and make more than one PDF."
+    ],
+    [
+     "Do Hindi, other languages and emoji work?",
+     "Yes. Each page is drawn by your own browser with your device's fonts, so Hindi, other scripts and emoji look as they do on your screen. Because the pages are saved as pictures, the text in the PDF cannot be selected or searched."
+    ],
+    [
+     "Can I include photos?",
+     "Yes, if you export with Include media and pick the zip file itself. Up to 200 photos from the chosen messages are shown in the Chat bubbles look. A text-only export has no photos, so a short note is shown in their place."
+    ],
+    [
+     "The dates look wrong. What should I do?",
+     "Exports write dates in the order of your phone's settings. The tool checks the dates to work out day first or month first. When the file could be read either way, a choice appears so you can switch and check the page. Day first is used until you change it."
+    ],
+    [
+     "Can I print only part of a chat?",
+     "Yes. Set a From date and To date, hide people you do not want, or keep only the messages that contain a word. The preview and the page count update straight away, and you can also drop system notes, deleted messages and photo notes."
+    ],
+    [
+     "Can I hide phone numbers before I share the PDF?",
+     "Yes. Turn on Hide phone numbers under More options. Phone numbers in names and in messages are replaced by dots and the last three digits. Check the preview before you share, because other private details in the messages are not changed."
+    ],
+    [
+     "Is my chat uploaded anywhere?",
+     "No. The file is read and the pages are drawn on your own device, so nothing is sent to {{siteName}} or anyone else. Your chat is not saved either. Only your look and message choices are remembered in this browser."
+    ]
+   ]
+  }
+ },
+ "toolArticles": {
+  "whatsapp-chat-to-pdf": {
+   "sections": [
+    {
+     "heading": "What WhatsApp Chat to PDF does",
+     "paragraphs": [
+      "WhatsApp lets you export a chat as a text file, but not as something you can easily read, print or keep. This tool turns that export into a clean PDF, either as chat bubbles that look like the app or as a plain transcript with dates and times.",
+      "You choose which days, people and messages to keep, add a summary page, and see every page in a preview before you make the file. Hindi, other scripts and emoji come out right."
+     ]
+    },
+    {
+     "heading": "Getting a good result",
+     "paragraphs": [
+      "Export the chat with Include media if you want photos, and pick the zip itself. For a printed record, use the Plain record starter, which shows every message with its time. For a keepsake, use Memory book, which adds a summary page and shows photos in bubbles.",
+      "If a chat is long, set a date range and make one PDF for each year or trip. Turn on Hide phone numbers when the PDF will be shared with someone else, and look through the preview first, because the tool cannot tell which other details in a message are private."
+     ]
+    },
+    {
+     "heading": "Private, and what to expect",
+     "paragraphs": [
+      "Your chat is read and drawn on your own device. It is never uploaded or stored, and only your look choices are remembered in this browser.",
+      "The PDF pages are pictures, so the text cannot be selected or searched. The PDF is a printout of the exported text and photos, and it carries no proof that the messages are genuine. Keep the original export if you may need it."
+     ]
+    }
+   ]
+  }
+ }
+}

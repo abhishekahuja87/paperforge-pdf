@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/whatsapp-chat-to-pdf',
+    tool: 'WhatsApp Chat to PDF',
+    title: 'New: turn a WhatsApp chat into a PDF, as chat bubbles or a plain record',
+    summary: 'Pick the text file or zip from WhatsApp\'s Export chat, choose dates and people, and save a PDF with Hindi and emoji intact, photos from a zip, and a summary page. Try it with a sample chat first. Nothing is uploaded.',
+  },
+  {
+    date: '2026-11-25',
     path: '/screen-recorder-with-face',
     tool: 'Screen Recorder with Face Bubble',
     title: 'New: record your screen with your face in a bubble and your voice, on a computer',

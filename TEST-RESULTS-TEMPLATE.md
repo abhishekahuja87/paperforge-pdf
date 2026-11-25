@@ -253,6 +253,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L23 | Voice Clean-up: record a voice note near a fan, use the Noisy room starter, play the original and the cleaned sound with headphones, and send the saved file on WhatsApp | | |
 | L24 | Background Remover: photograph a product on white paper, use Product on white, adjust How much to remove, save the transparent PNG and place it on a coloured background in another app | | |
 | L25 | Screen Recorder with Face Bubble: on a laptop use the Tutorial starter, record one minute of a window with your face and voice while switching to another window, stop, and check the saved video plays with sound and the face bubble | | |
+| L26 | WhatsApp Chat to PDF: export one of your own chats from WhatsApp, pick the Memory book starter, save the PDF, and check the dates, names, Hindi or emoji and photos are right | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 
