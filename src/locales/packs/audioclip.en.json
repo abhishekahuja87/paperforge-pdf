@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "audio-clip-video-maker": [
+      [
+        "Pick a starter and write your title",
+        "Choose Podcast clip, Song snippet, Voice note quote, Poem reading or Announcement, then change the title and the name under it."
+      ],
+      [
+        "Add your audio",
+        "Add a voice note, podcast clip or song, or try the sample sound first. If it is long, choose where to start under More options."
+      ],
+      [
+        "Choose the look",
+        "Pick the colours, bars, wave or circle, a cover picture and optional words. Tap Play to watch and hear it."
+      ],
+      [
+        "Make and save the video",
+        "Choose 9:16, 16:9 or 1:1 and tap Make video. Keep the page open while it is drawn, then save the MP4 and post it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "audioClipGuide": {
+      "title": "Audio Clip Video Maker: Turn Audio into a Video with Sound Bars",
+      "subtitle": "Add a voice note, podcast clip or song and get a video with moving sound bars, a cover picture, a title and optional words. Free, with no watermark.",
+      "faq": [
+        [
+          "Is the Audio Clip Video Maker free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "Why turn audio into a video?",
+          "Instagram, YouTube, Facebook and most social apps accept video but not audio files. This tool puts your audio under a picture, a title and moving sound bars, so a podcast clip, a voice note, a song snippet or a poem reading can be posted."
+        ],
+        [
+          "How long can the clip be?",
+          "Up to 180 seconds, or 3 minutes. If your audio is longer, choose the start time under More options and the part from there is used. A longer clip takes longer to make, because every frame is drawn on your device."
+        ],
+        [
+          "Do the bars follow my real sound?",
+          "Yes. The bars, wave or circle are drawn from the actual sound at each moment, so they rise with loud parts and drop in quiet ones. You can choose bars, mirror bars, a wave line or a circle around the cover, and how many bars to show."
+        ],
+        [
+          "What cover picture should I use?",
+          "A square picture works best, such as a logo, a podcast cover or your face. Without a picture, the tool shows a colour block with the first letter of your title. You can show the picture as a rounded square or a circle."
+        ],
+        [
+          "Can I show words on the video?",
+          "Yes. Write one line for each caption and the lines appear one after another across the clip. For words that match your voice exactly, make a subtitle file with Tap-to-Time Captions and import it in your editing app."
+        ],
+        [
+          "Which video shapes and sizes does it make?",
+          "9:16 for Reels, Stories and Shorts, 16:9 for YouTube, 1:1 and 4:5 for posts, at 720p or 1080p, and 4K where your browser supports it. It saves MP4 when your browser can make it and WebM otherwise. You can also save one frame as a PNG picture."
+        ],
+        [
+          "Is my audio uploaded anywhere?",
+          "No. The audio is read, analysed and turned into a video on your own device, so nothing is sent to {{siteName}} or anyone else. Your title and settings are remembered on your device, but your audio and picture are not."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "audio-clip-video-maker": {
+      "sections": [
+        {
+          "heading": "What the Audio Clip Video Maker does",
+          "paragraphs": [
+            "The Audio Clip Video Maker turns an audio file into a video. Your clip plays under a cover picture and a title, with bars or a wave that move to the real sound, a progress line and, if you like, words on screen. It is often called an audiogram.",
+            "Social apps such as Instagram, YouTube and Facebook take video, not audio files, so this is the way to post a podcast clip, a voice note, a song snippet or a poem reading. It is a building block, so you can post it on its own or drop it into CapCut or InShot."
+          ]
+        },
+        {
+          "heading": "Making an audio clip people stop for",
+          "paragraphs": [
+            "Choose the best 20 to 45 seconds of your audio, not the whole thing. Open with the most interesting sentence, and use the trim start to jump straight to it. Put a clear title on screen so people know what they are hearing before they unmute.",
+            "A cover picture makes the clip look like a real show. Use a square logo or a face, and pick a look that matches it. Bars suit speech and wave suits a single voice, while the circle around a round cover suits music."
+          ]
+        },
+        {
+          "heading": "Private and simple",
+          "paragraphs": [
+            "Everything happens on your own device. Your audio is not uploaded, there is no watermark, and your title and settings are remembered so the next clip is quick.",
+            "If you want words that match what is said, write them as lines for an even spread, or make a subtitle file with Tap-to-Time Captions and import it in your editing app."
+          ]
+        }
+      ]
+    }
+  }
+}
