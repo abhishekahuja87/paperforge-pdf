@@ -34,6 +34,7 @@ import { SLIDES_COMPONENTS } from './slides/registry';
 import { REGIONMAP_COMPONENTS } from './regionmap/registry';
 import { CHARTVIDEO_COMPONENTS } from './chartvideo/registry';
 import { PHOTOSTORY_COMPONENTS } from './photostory/registry';
+import { CAPTIONS_COMPONENTS } from './captions/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -75,4 +76,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...REGIONMAP_COMPONENTS,
   ...CHARTVIDEO_COMPONENTS,
   ...PHOTOSTORY_COMPONENTS,
+  ...CAPTIONS_COMPONENTS,
 };

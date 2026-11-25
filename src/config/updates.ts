@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/tap-to-time-captions',
+    tool: 'Tap-to-Time Captions',
+    title: 'New: make SRT subtitle files by tapping while your audio plays',
+    summary: 'Paste your own lines, play your audio and tap when each line starts. Save an SRT or WebVTT file for CapCut, YouTube or Instagram Edits, or a captions video. No speech recognition, so it is private and works in any language.',
+  },
+  {
+    date: '2026-11-25',
     path: '/photo-story-video-maker',
     tool: 'Photo Story Video Maker',
     title: 'New: turn up to 10 photos with captions into a video with a slow zoom',

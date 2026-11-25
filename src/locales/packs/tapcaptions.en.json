@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "tap-to-time-captions": [
+      [
+        "Write or paste your lines",
+        "Pick a quick starter or paste your script, with one short line for each caption. Three to eight words a line is easy to read."
+      ],
+      [
+        "Add your audio",
+        "Add a voice note, a song or a video file. Or choose No audio and tap along to a video playing somewhere else."
+      ],
+      [
+        "Tap when each line starts",
+        "Press Start. Each time a new line begins in the audio, tap the big button or press Space. Use Undo if you tap too early or too late."
+      ],
+      [
+        "Check and save",
+        "Fix any time with the plus and minus buttons, then save the SRT or WebVTT file, or make a captions video. Import the SRT in CapCut, YouTube or Instagram Edits."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "tapCaptionsGuide": {
+      "title": "Tap-to-Time Captions: Make SRT Subtitles by Tapping, Free",
+      "subtitle": "Paste your own lines, play your audio and tap when each line starts. Save SRT or WebVTT subtitle files, or a captions video. Free, private, any language.",
+      "faq": [
+        [
+          "Is Tap-to-Time Captions free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many caption files or videos you make."
+        ],
+        [
+          "How does it work?",
+          "You paste your captions with one short line for each caption, add your audio or video file, and press Start. The sound plays, and each time a new line begins you tap the big button or press the Space key. The tool notes the exact moment of each tap and turns them into a subtitle file."
+        ],
+        [
+          "Which subtitle files does it make?",
+          "SRT and WebVTT. SRT works in CapCut, YouTube, Instagram Edits, Premiere Pro, DaVinci Resolve and most other editors. WebVTT is for web pages and some video players. Both are plain text files."
+        ],
+        [
+          "Does it work for Hindi or mixed Hindi and English?",
+          "Yes. There is no speech recognition, so it does not matter which language you speak. You type the words yourself, so names, Hindi words and mixed sentences are always written the way you want. If your phone cannot show a script in the video, the subtitle file still carries the exact words."
+        ],
+        [
+          "What if I tap at the wrong time?",
+          "Tap Undo last tap and the sound goes back a little, so you can tap again. You can also move any caption by a tenth of a second with the plus and minus buttons, or type an exact time. Under More options, the tap delay fix moves every caption slightly earlier, because people usually tap a moment after they hear the line."
+        ],
+        [
+          "Can I put the captions on my own video?",
+          "Import the SRT file in your editing app, such as CapCut or YouTube, and it places the captions on your video. This tool also makes a video of the words on a colour or picture background with your sound, which suits quotes, lyrics, poems and voice notes. It does not draw the captions onto an existing video file."
+        ],
+        [
+          "Which audio files can I add?",
+          "MP3, M4A, WAV and OGG, and most video files if your browser can read their sound. If a video file does not load, add its sound as an MP3 or M4A. You can also choose No audio and tap along to a video playing on another device."
+        ],
+        [
+          "Is my audio uploaded anywhere?",
+          "No. The audio is played and read on your own device, and the files are made there too, so nothing is sent to {{siteName}} or anyone else. Your words and settings are kept on your device so you can carry on later, but the audio is not."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "tap-to-time-captions": {
+      "sections": [
+        {
+          "heading": "What Tap-to-Time Captions does",
+          "paragraphs": [
+            "Tap-to-Time Captions makes subtitle files that match your audio exactly, without speech recognition. You supply the words, one short line for each caption, and you tap each time a new line begins while the audio plays. The tool turns your taps into a standard SRT or WebVTT file.",
+            "It is made as a building block for creators. Make the subtitle file here, then import it in CapCut, YouTube, Instagram Edits or any editor, or make a simple captions video with your sound."
+          ]
+        },
+        {
+          "heading": "Why type the words yourself",
+          "paragraphs": [
+            "Automatic captions often get names, brand words and Hindi or mixed Hindi and English wrong, and many apps charge for them. When you type the words, they are always right, and the tapping only sets the timing. Nothing is sent to a speech service, so it is private, and it works in any language you can type.",
+            "Keep each line short, about three to eight words, so it can be read in a moment. Break a sentence where you would pause when speaking."
+          ]
+        },
+        {
+          "heading": "Getting the timing right",
+          "paragraphs": [
+            "Tap when a line starts, not when it ends. People tap a little late, so the tap delay fix moves every caption slightly earlier, and 0.2 seconds suits most people. If you made a mistake, tap Undo and tap again, or move one caption by a tenth of a second.",
+            "Everything happens on your own device. Your audio is not uploaded, and there is no watermark."
+          ]
+        }
+      ]
+    }
+  }
+}
