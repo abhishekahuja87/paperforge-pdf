@@ -4,9 +4,11 @@
  * No drawing happens here. Problems are collected with their line number.
  */
 
+import { isIcon } from './icons';
+
 export type Zone = 'left' | 'right' | 'center';
 
-export interface Cell { text: string; /** Name of an added picture, or ''. */ image: string; step: number; line: number }
+export interface Cell { text: string; /** Name of an added picture, or ''. */ image: string; /** Name of a built-in icon, or ''. */ icon: string; step: number; line: number }
 export interface Arrow { label: string; back: boolean; step: number; line: number }
 export interface PairRow { kind: 'pair'; left?: Cell; right?: Cell; arrow?: Arrow }
 export interface CenterRow { kind: 'center'; cell: Cell }
@@ -40,12 +42,16 @@ export function parseDeck(source: string, images: string[]): Deck {
     if (!row || row[slot]) { row = { kind: 'pair' }; slide!.rows.push(row); }
     return row;
   };
-  const cell = (zone: Zone, text: string, image: string, line: number) => {
+  const cell = (zone: Zone, rawText: string, image: string, line: number, forcedIcon = '') => {
     if (!ensure()) return;
+    let text = rawText; let icon = forcedIcon;
+    const token = !image && !icon ? text.match(/^:([A-Za-z0-9]+):\s*(.*)$/s) : null;
+    if (token) { icon = token[1]!.toLowerCase(); text = token[2]!; }
+    if (icon && !isIcon(icon)) { issue(line, `There is no icon called "${icon}". Open the icon list below to see the names.`); icon = ''; }
     if (image && !images.includes(image)) issue(line, `There is no picture called "${image}". Add a picture below, then use the button that appears under it.`);
     if (text.length > LIMITS.text) issue(line, `Text can be ${LIMITS.text} letters at most.`);
     const n = step(zone, text, line); if (n < 0) return;
-    const value: Cell = { text: text.slice(0, LIMITS.text), image, step: n, line };
+    const value: Cell = { text: text.slice(0, LIMITS.text), image, icon, step: n, line };
     if (zone === 'center') { slide!.rows.push({ kind: 'center', cell: value }); row = null; return; }
     pair(zone)[zone] = value;
   };
@@ -62,6 +68,7 @@ export function parseDeck(source: string, images: string[]): Deck {
       const rest = m[2]!.trim(); const [name, ...caption] = rest.split(/\s+/);
       cell(zone, clean(caption.join(' ')), name ?? '', lineNo); return;
     }
+    if ((m = text.match(/^icon\s*:\s*([A-Za-z0-9]+)\s*(.*)$/i))) { cell('center', clean(m[2]!), '', lineNo, m[1]!.toLowerCase()); return; }
     if ((m = text.match(/^(left|right|center|centre|middle)\s*:\s*(.*)$/i))) {
       const word = m[1]!.toLowerCase(); cell(word === 'left' ? 'left' : word === 'right' ? 'right' : 'center', clean(m[2]!), '', lineNo); return;
     }
@@ -85,7 +92,7 @@ export function parseDeck(source: string, images: string[]): Deck {
     if ((m = text.match(/^pause(?:\s+(\d+(?:\.\d+)?))?$/i))) {
       if (!ensure()) return; step('pause', '', lineNo, Math.min(10, Math.max(0.5, m[1] ? Number(m[1]) : 2))); return;
     }
-    issue(lineNo, `I could not read this line: "${text.slice(0, 40)}${text.length > 40 ? '…' : ''}". Start it with left:, right:, center:, arrow:, big:, down:, title:, a dash for a bullet, or slide.`);
+    issue(lineNo, `I could not read this line: "${text.slice(0, 40)}${text.length > 40 ? '…' : ''}". Start it with left:, right:, center:, icon:, arrow:, big:, down:, title:, a dash for a bullet, or slide.`);
   });
 
   // A slide with only a title still needs a moment on screen.

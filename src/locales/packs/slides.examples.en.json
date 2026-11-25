@@ -1,7 +1,15 @@
 {
   "shipping": {
     "label": "How shipping works",
-    "code": "slide How shipping works\nleft: Factory in China\narrow: ships the goods\nright: Port of Colombo\nleft: Port of Colombo\narrow: loads the container\nright: Ship to Mumbai\ndown: 18 days at sea\ncenter: Goods arrive\nslide The numbers\nbig: 18 days\n- From factory to door\n- Tracked at every port"
+    "code": "slide How shipping works\nleft: :factory: Factory in China\narrow: ships the goods\nright: :ship: Port of Colombo\ndown: 18 days at sea\ncenter: :house: Goods reach your door\nslide The numbers\nbig: 18 days\n- From factory to door\n- Tracked at every port"
+  },
+  "icons": {
+    "label": "Icons in action",
+    "code": "slide Order to doorstep\nicon: cart You place an order\ndown: Packed and sent\nicon: truck On the way\ndown: Delivered\nicon: house At your door"
+  },
+  "phone": {
+    "label": "App in three steps",
+    "code": "slide How the app works\nleft: :phone: Open the app\narrow: tap once\nright: :check: Done\nslide\nbig: Simple\n- No sign up\n- Works offline"
   },
   "beforeafter": {
     "label": "Before and after",
