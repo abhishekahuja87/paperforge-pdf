@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "burn-subtitles-into-video": [
+      [
+        "Pick a look",
+        "Choose Classic white, Yellow movie, Reel bold box, Light box or Top line. A starter sets the colour, place and size of the captions."
+      ],
+      [
+        "Add your video",
+        "Add a video from your phone or computer. It plays in the preview with your captions on top."
+      ],
+      [
+        "Add your subtitles",
+        "Add an SRT or WebVTT file, or paste the text. You can fix words in the box, and Use sample captions shows how it looks before you have a file."
+      ],
+      [
+        "Make and save the video",
+        "Tap Make video with captions, keep the page open while it works, then save the new MP4 and post it. The captions are part of the picture."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "subtitleBurnGuide": {
+      "title": "Subtitles Burner: Add Captions to a Video from an SRT File",
+      "subtitle": "Add an SRT or VTT subtitle file to your video and save a new video with the captions drawn on it. Free, no watermark, and your video stays on your device.",
+      "faq": [
+        [
+          "Is the Subtitles Burner free, and is there a watermark?",
+          "It is free, with no sign-up, no watermark and no limit on how many videos you make."
+        ],
+        [
+          "What does it mean to burn subtitles into a video?",
+          "The words are drawn onto the picture itself, so they show in every app and cannot be turned off. This is also called hardcoded or open captions. It suits Instagram Reels, Facebook, WhatsApp and TikTok-style clips, where many people watch with the sound off."
+        ],
+        [
+          "Where do I get a subtitle file?",
+          "Make one with Tap-to-Time Captions or Speak-to-Captions on this site, or export an SRT or WebVTT file from an editing app or a captions service. You can also paste subtitle text into the box and fix words there."
+        ],
+        [
+          "Which subtitle formats work?",
+          "SRT and WebVTT files. Each caption needs a start time and an end time, such as 00:00:01,000 --> 00:00:03,500. Parts the tool cannot read are skipped and counted, so you can see what was left out."
+        ],
+        [
+          "The captions show a little early or late. What can I do?",
+          "Open More options and move all captions later or earlier by a few tenths of a second. A value like 0.5 moves every caption half a second later, and a minus number moves them earlier."
+        ],
+        [
+          "Can I choose how the captions look?",
+          "Yes. Choose white or yellow text with an outline, or text in a dark or light box, at the bottom, middle or top, in small, medium or large size, in two fonts. The preview shows the captions over your video as it plays."
+        ],
+        [
+          "How long does it take, and what is the video size?",
+          "The new video is drawn picture by picture on your device, so a longer or larger video takes longer. Chrome and Edge are fastest, and other browsers make it by playing it, which takes as long as the video. It keeps the original sound, and files up to 1000 MB and 10 minutes are used. You can lower the picture size to make a smaller file."
+        ],
+        [
+          "Is my video or subtitle file uploaded anywhere?",
+          "No. The video and the subtitles are read and drawn on your own device, so nothing is sent to {{siteName}} or anyone else. Only your look choices are remembered on your device, never the video or the words."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "burn-subtitles-into-video": {
+      "sections": [
+        {
+          "heading": "What the Subtitles Burner does",
+          "paragraphs": [
+            "The Subtitles Burner takes your video and a subtitle file and saves a new video with the words drawn onto the picture. These are called burned-in, hardcoded or open captions, because they are part of the video and show wherever it is played.",
+            "Most subtitle files, such as SRT and WebVTT, only work when the player supports them. Social apps often ignore them, so burning the words in is the reliable way to make sure people see them."
+          ]
+        },
+        {
+          "heading": "Captions people actually read",
+          "paragraphs": [
+            "Keep each caption short, one or two lines, and keep it on screen long enough to read. White text with an outline works on almost any video, and a dark box keeps the words readable over busy backgrounds.",
+            "On Reels and Shorts the app puts buttons and your name near the bottom, so place captions in the middle or at the top. Use the preview to check that the words do not cover faces or important parts of the picture."
+          ]
+        },
+        {
+          "heading": "Private and nothing extra to download",
+          "paragraphs": [
+            "Everything happens on your own device using your browser's built-in video tools, so the video and the words are not uploaded and nothing extra is downloaded for this tool. There is no watermark.",
+            "Your look choices are remembered for next time, but your video and subtitles are not. Start again clears everything and asks twice."
+          ]
+        }
+      ]
+    }
+  }
+}

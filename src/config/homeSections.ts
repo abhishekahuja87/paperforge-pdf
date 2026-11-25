@@ -96,7 +96,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'barcode-generator',
   ] },
   { id: 'media', icon: 'layers', tools: [
-    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker', 'sequence-diagram-video-maker', 'explainer-video-maker', 'region-map-video-maker', 'chart-reveal-video-maker', 'photo-story-video-maker', 'tap-to-time-captions', 'audio-clip-video-maker', 'app-demo-video-maker', 'speak-to-captions-video-maker', 'video-compressor-and-trimmer',
+    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker', 'sequence-diagram-video-maker', 'explainer-video-maker', 'region-map-video-maker', 'chart-reveal-video-maker', 'photo-story-video-maker', 'tap-to-time-captions', 'audio-clip-video-maker', 'app-demo-video-maker', 'speak-to-captions-video-maker', 'video-compressor-and-trimmer', 'burn-subtitles-into-video',
   ] },
   { id: 'dev', icon: 'file-code', tools: [
     'json-formatter', 'json-viewer', 'json-to-csv-converter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',

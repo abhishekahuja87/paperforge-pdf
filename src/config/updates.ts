@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/burn-subtitles-into-video',
+    tool: 'Subtitles Burner',
+    title: 'New: add an SRT or VTT subtitle file to a video and save it with the captions on the picture',
+    summary: 'Add a video and a subtitle file, pick a colour, place and size, preview the captions over the video and save a new video with the words burned in. Nothing is uploaded and there is no watermark.',
+  },
+  {
+    date: '2026-11-25',
     path: '/video-compressor-and-trimmer',
     tool: 'Video Compressor and Trimmer',
     title: 'New: make a video smaller and cut it to the part you want',
