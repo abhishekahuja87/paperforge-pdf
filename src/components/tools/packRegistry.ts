@@ -30,6 +30,7 @@ import { MORE_COMPONENTS } from './more/registry';
 import { GLOBE_COMPONENTS } from './globe/registry';
 import { WRITING_COMPONENTS } from './writing/registry';
 import { SEQUENCE_COMPONENTS } from './sequence/registry';
+import { SLIDES_COMPONENTS } from './slides/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -67,4 +68,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...GLOBE_COMPONENTS,
   ...WRITING_COMPONENTS,
   ...SEQUENCE_COMPONENTS,
+  ...SLIDES_COMPONENTS,
 };

@@ -966,7 +966,7 @@
     },
     "media": {
       "name": "Audio and video tools",
-      "description": "Cut, join and fade audio files and voice notes, make a globe video that flies from one place to another, a video of text written by hand, and an animated diagram video with a voice-over. Everything runs on your device, so your recordings are not uploaded."
+      "description": "Cut, join and fade audio files and voice notes, make a globe video that flies from one place to another, a video of text written by hand, an animated diagram video with a voice-over, and an explainer slides video. Everything runs on your device, so your recordings are not uploaded."
     },
     "dev": {
       "name": "Developer and data tools",
