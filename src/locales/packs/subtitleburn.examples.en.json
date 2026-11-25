@@ -1,0 +1,42 @@
+{
+  "classic": {
+    "label": "Classic white",
+    "hint": "White text with a black outline at the bottom. Reads well on almost any video.",
+    "look": "white",
+    "position": "bottom",
+    "size": "medium",
+    "font": "clean"
+  },
+  "movie": {
+    "label": "Yellow movie",
+    "hint": "Yellow text with a black outline at the bottom, like film subtitles.",
+    "look": "yellow",
+    "position": "bottom",
+    "size": "medium",
+    "font": "clean"
+  },
+  "reel": {
+    "label": "Reel bold box",
+    "hint": "Large white text in a dark box in the middle. Suits Reels, Shorts and Stories.",
+    "look": "dark",
+    "position": "middle",
+    "size": "large",
+    "font": "friendly"
+  },
+  "box": {
+    "label": "Light box",
+    "hint": "Dark text in a light box at the bottom. Calm and easy to read.",
+    "look": "light",
+    "position": "bottom",
+    "size": "medium",
+    "font": "clean"
+  },
+  "top": {
+    "label": "Top line",
+    "hint": "Small white text at the top, out of the way of the bottom of the screen where apps show buttons.",
+    "look": "white",
+    "position": "top",
+    "size": "small",
+    "font": "clean"
+  }
+}

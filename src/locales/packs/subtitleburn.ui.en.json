@@ -1,0 +1,93 @@
+{
+  "start": "1. Pick a look",
+  "starters": "Quick starters",
+  "startersHint": "A starter sets the colour, place and size of the captions. You can change them under More options.",
+  "pick": "2. Add your video",
+  "pickHint": "Pick a video from your phone or computer, up to {max} MB. It is not uploaded.",
+  "addVideo": "Add video",
+  "changeVideo": "Choose another video",
+  "previewLabel": "Your video with captions",
+  "info": "{name}, {size}, {w} by {h} pixels, {seconds} seconds.",
+  "tooLong": "Only the first {max} minutes are used.",
+  "readingSound": "Reading the sound of your video...",
+  "noSoundFound": "The sound of this video could not be read, or it has none. The new video will have no sound.",
+  "fileFailed": "This video could not be opened. Try an MP4 or MOV file, or open this page in Chrome.",
+  "tooBig": "This file is bigger than {max} MB. Cut it shorter with your phone's own editor first, then add it here.",
+  "words": "3. Add your subtitles",
+  "wordsHint": "Add an SRT or WebVTT file, or paste the text below. No file yet? Tap Use sample captions to see how it looks, or make a file with Tap-to-Time Captions or Speak-to-Captions.",
+  "addSubtitles": "Add subtitle file",
+  "useSample": "Use sample captions",
+  "sampleLines": [
+    "Your captions show here",
+    "Add your SRT file to replace these",
+    "Then tap Make video"
+  ],
+  "textLabel": "Subtitle text (you can fix it here)",
+  "textPlaceholder": "1\n00:00:01,000 --> 00:00:03,500\nHello and welcome\n\n2\n00:00:04,000 --> 00:00:06,000\nThis is the second caption",
+  "found": "{count} captions found.",
+  "skipped": "{count} parts could not be read and were skipped.",
+  "noCues": "No captions were found in that file. It should be an SRT or WebVTT file with lines like 00:00:01,000 --> 00:00:03,000.",
+  "subtitleFailed": "That file could not be read.",
+  "beyond": "{count} captions start after the end of the video and will not show.",
+  "needCaptions": "Add subtitles above to make the video.",
+  "finish": "4. Make the video",
+  "more": "More options",
+  "look": "Colour",
+  "looks": {
+    "white": "White with outline",
+    "yellow": "Yellow with outline",
+    "dark": "White in dark box",
+    "light": "Dark in light box"
+  },
+  "position": "Place",
+  "positions": {
+    "bottom": "Bottom",
+    "middle": "Middle",
+    "top": "Top"
+  },
+  "positionHint": "Phone apps put buttons and your name near the bottom, so the middle or top can be cleaner for Reels.",
+  "textSize": "Text size",
+  "sizes": {
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large"
+  },
+  "font": "Font",
+  "fonts": {
+    "clean": "Clean",
+    "friendly": "Friendly"
+  },
+  "shift": "Move all captions later (seconds, use a minus to move them earlier)",
+  "shiftHint": "If the words show a little early or late, move them here. 0.5 moves every caption half a second later.",
+  "pictureSize": "Picture size",
+  "pictureSizes": {
+    "0": "Original",
+    "1080": "1080p",
+    "720": "720p",
+    "480": "480p"
+  },
+  "pictureSizeHint": "Smaller makes a smaller file. A video is never made bigger than the original.",
+  "quality": "Quality",
+  "qualities": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "qualityHint": "High keeps the most detail. Medium is smaller and still looks good on a phone.",
+  "estimate": "New video: about {size}, {w} by {h}, {seconds} seconds.",
+  "noMake": "This browser cannot make a video file. Try a recent Chrome, Edge or Safari.",
+  "slowNote": "This browser makes the video by playing it, so it takes as long as the video. Keep this page open. Chrome and Edge are faster.",
+  "make": "Make video with captions",
+  "cancel": "Cancel",
+  "keepOpenSmooth": "Making the video: {done}% done, about {left} seconds left. Keep this screen on and stay on this page.",
+  "keepOpen": "Keep this screen on and stay on this page while the video is made. It takes as long as the video.",
+  "failed": "The video could not be made. Try a smaller picture size, or a recent Chrome.",
+  "ready": "Your video is ready.",
+  "saveVideo": "Save video",
+  "smoothNote": "Saved as an MP4 file with every frame drawn.",
+  "mp4Note": "Saved as an MP4 file.",
+  "webmNote": "This browser saves WebM video. It plays in Chrome, Edge and Firefox. If an app does not accept it, open this page in Chrome on a computer or a recent Android phone and save again.",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to clear everything",
+  "notSaved": "Your video and subtitles are never uploaded. Only your look choices are remembered on this device."
+}
