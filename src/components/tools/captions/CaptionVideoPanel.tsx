@@ -48,10 +48,12 @@ interface Props {
   fileBase: string;
   /** Called when a video, picture or file has been made stale by a change, so the page can hide an old result. */
   disabled?: boolean;
+  /** When the id changes, these look options are applied, for the quick starters of the page that uses this panel. */
+  preset?: { id: number; options: Partial<CaptionOptions> };
 }
 
 /** Preview, look, subtitle files and the video itself for a list of captions. Shared by the tools that make captions. Drawn and recorded on your device. */
-export const CaptionVideoPanel: React.FC<Props> = ({ storageKey, cues, voice, duration, fileBase, disabled }) => {
+export const CaptionVideoPanel: React.FC<Props> = ({ storageKey, cues, voice, duration, fileBase, disabled, preset }) => {
   const [saved, setSaved] = useState<Saved>(() => load(storageKey));
   const { options, shape, quality } = saved;
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -87,6 +89,7 @@ export const CaptionVideoPanel: React.FC<Props> = ({ storageKey, cues, voice, du
 
   const reset = () => { setResult(null); setPicture(null); };
   useEffect(() => { reset(); }, [cues, voice]);
+  useEffect(() => { if (preset && preset.id > 0) setSaved((current) => ({ ...current, options: { ...current.options, ...preset.options } })); }, [preset?.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const update = (patch: Partial<CaptionOptions>) => { reset(); setSaved((current) => ({ ...current, options: { ...current.options, ...patch } })); };
   const total = Math.max(duration, 1);
   const previewScale = Math.min(1, 640 / Math.max(full.width, full.height));

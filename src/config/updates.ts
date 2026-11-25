@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-25',
+    path: '/speak-to-captions-video-maker',
+    tool: 'Speak-to-Captions Video Maker',
+    title: 'New: talk and get timed captions, with SRT files and a captions video',
+    summary: 'Press record and speak. Your words appear as captions a few at a time, in time with your voice. Fix any word, then save SRT or WebVTT files or a video. The page says plainly that the browser sends your voice to its speech service.',
+  },
+  {
+    date: '2026-11-25',
     path: '/app-demo-video-maker',
     tool: 'App & Website Demo Video Maker',
     title: 'New: turn screenshots into a demo video in a phone or laptop frame',

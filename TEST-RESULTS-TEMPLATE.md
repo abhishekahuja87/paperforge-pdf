@@ -247,6 +247,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L17 | Tap-to-Time Captions: pick a starter, add an audio file, tap through, undo once, change one time, save the SRT and import it in CapCut or YouTube, make a captions video and play it with sound | | |
 | L18 | Audio Clip Video Maker: pick Podcast clip, add a real MP3 or voice note, add a cover picture, try bars and the circle, make a video and play it with sound, post it to Instagram or YouTube | | |
 | L19 | App & Website Demo Video Maker: add 4 real screenshots, pick Online shop order, point at one button with zoom, hide a phone number and check it is unreadable, add one long web page screenshot, make a video and play it with sound | | |
+| L20 | Speak-to-Captions Video Maker: read the privacy note, speak a Hindi or English sentence, fix one word, try 2 and 7 words at a time, save the SRT and import it in CapCut, make a video and play it with sound (Android Chrome and iPhone Safari) | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

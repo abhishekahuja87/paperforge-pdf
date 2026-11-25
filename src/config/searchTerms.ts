@@ -52,6 +52,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'grayscale-pdf': ['pdf black and white', 'remove colour from pdf', 'save ink'],
   'extract-images-from-pdf': ['save pictures from pdf', 'pdf photos', 'get images out of pdf'],
   'audio-cutter-and-joiner': ['trim mp3', 'join audio', 'voice note cutter', 'ringtone'],
+  'speak-to-captions-video-maker': ['auto captions', 'speech to text', 'voice to subtitles', 'srt', 'hindi captions', 'subtitles', 'talk to captions', 'reel captions'],
   'app-demo-video-maker': ['app demo', 'screenshots to video', 'phone mockup', 'laptop mockup', 'website demo', 'product demo', 'walkthrough', 'screen recording'],
   'audio-clip-video-maker': ['audio to video', 'audiogram', 'podcast video', 'waveform', 'sound bars', 'mp3 to video', 'voice note video', 'audio visualizer'],
   'tap-to-time-captions': ['srt', 'subtitles', 'captions', 'subtitle file', 'vtt', 'lyrics timing', 'hindi subtitles', 'sync captions'],
