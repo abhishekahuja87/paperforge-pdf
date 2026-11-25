@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "blur-faces-or-plates-in-video": [
+      [
+        "Pick what to hide",
+        "Choose Hide a face, Hide a number plate, Black box or Blur an area. A starter sets the look of every box. Tap Try a sample video to see how it works before you use your own video."
+      ],
+      [
+        "Choose the video",
+        "Choose a video from your phone or computer. It is not uploaded. The video appears with a player so you can play it and see where things are."
+      ],
+      [
+        "Put a box over each thing",
+        "Tap Add a box and drag it onto the face or plate, then drag its corner to make it bigger. Play the video to check. If the thing moves, tick This one moves and drag the dashed box to where the thing ends up."
+      ],
+      [
+        "Check and make the video",
+        "Pause on a moment and tap Show the effect on this frame to see the hiding. Then tap Hide them and make the video, watch it once and save it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "videoBlurGuide": {
+      "title": "Blur Faces or Number Plates in a Video: Hide Them, Free",
+      "subtitle": "Put boxes over faces or number plates in a video and save a new video with them blurred or blocked out. Free, no watermark, nothing uploaded.",
+      "faq": [
+        [
+          "Is it free, and is there a watermark?",
+          "It is free, with no sign-up and no watermark. The video is made on your own device, and the file is yours to use."
+        ],
+        [
+          "Does it find faces and plates by itself?",
+          "No. You place the boxes yourself, which keeps the video on your device and gives you full control. Add one box for each face or plate, and make the box a little bigger than the thing it covers."
+        ],
+        [
+          "What if the face or car moves?",
+          "Tick This one moves for that box, then drag the dashed box to where the thing is at the end. The box slides between the two places over the time you choose. For a path with turns, use several boxes, each for a part of the video."
+        ],
+        [
+          "Can I hide something for only part of the video?",
+          "Yes. Each box has a start time and an end time. Use the buttons to take the time from the playing video, or type the seconds. Leave the end empty to cover until the end."
+        ],
+        [
+          "How well is the face or number hidden?",
+          "Strong turns the box into a few large blocks, so a face or a number cannot be made out. Light and Medium keep more detail. Use Black box when nothing may show at all. Always watch the finished video once, and check every box stays on its target."
+        ],
+        [
+          "What happens to the sound?",
+          "The sound is kept by default. Switch Keep the sound off in More options to make a silent video, for example when voices must not be heard either."
+        ],
+        [
+          "What video do I get?",
+          "An MP4 when your browser can make one, which plays on phones, computers and WhatsApp. Some browsers can only make WebM, and the page says so. A very long video takes time, so videos are limited to the first 10 minutes."
+        ],
+        [
+          "Is my video uploaded anywhere?",
+          "No. The video is read and the new one is made on your own device, so nothing is sent to {{siteName}} or anyone else. Only your look choices are remembered in this browser, not the video or the boxes."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "blur-faces-or-plates-in-video": {
+      "sections": [
+        {
+          "heading": "What the Blur Faces or Number Plates tool does",
+          "paragraphs": [
+            "This tool hides parts of a video. You put boxes over faces, number plates, screens or anything private, and it saves a new video where those parts are blurred, turned into blocks or covered with black. The rest of the video stays as it was.",
+            "It is useful before you post a clip from the street, a school event or a shop, when you do not want people or vehicles to be recognised."
+          ]
+        },
+        {
+          "heading": "Getting a safe result",
+          "paragraphs": [
+            "Make each box a little bigger than the face or plate, because people and cars move. For a moving subject, use This one moves, or split the video into parts with several boxes. Use the Strong setting or the Black box for anything that must not be read.",
+            "Always check the result. Play the whole new video once and watch every box stay on its target. The boxes are placed by you and do not follow anyone automatically."
+          ]
+        },
+        {
+          "heading": "Private, and what to expect",
+          "paragraphs": [
+            "Your video is read and the new one is made on your own device and is never uploaded. This is useful because the clips you want to hide things in are often private ones.",
+            "Making the video can take as long as the video on some browsers, so keep the page open. The original file is not changed."
+          ]
+        }
+      ]
+    }
+  }
+}

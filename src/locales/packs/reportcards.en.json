@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "report-card-and-rank-list-maker": [
+      [
+        "Pick a starter",
+        "Choose Half-yearly, With pass and fail, Grades only or Rank list only. A starter sets what is printed. The preview shows a sample class until you add your own marks, and Use sample marks fills the box for you."
+      ],
+      [
+        "Paste the marks",
+        "Copy the marks from your spreadsheet and paste them in. The first row names the columns: Name, then Roll if you have it, then one column for each subject. Write a subject like Maths (50) to set its maximum marks, and write AB for an absent student."
+      ],
+      [
+        "Check the pages",
+        "Fill in the school, exam and class, then look at a report card and the rank list in the preview. Under More options write your own grade bands, switch on a pass mark, and choose whether to show marks, grades, ranks or all of them."
+      ],
+      [
+        "Make and save",
+        "Tap Make the report cards. Save one PDF with the rank list and every card, or a zip with a separate PDF for each student to send to parents. You can also save the results as a CSV file for Excel."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "reportCardsGuide": {
+      "title": "Report Card and Rank List Maker: Cards for a Whole Class from Marks",
+      "subtitle": "Paste a class's marks and make a report card for each student and a rank list, as one PDF or a zip. Your own grade bands. Nothing is uploaded.",
+      "faq": [
+        [
+          "Is the Report Card and Rank List Maker free?",
+          "Yes. It is free, with no sign-up and no watermark. The cards and the rank list are made on your device and are yours to print or send."
+        ],
+        [
+          "How do I get my marks into the tool?",
+          "Select the cells in your spreadsheet, copy them and paste them into the box. Commas and semicolons also work. The first row must name the columns, with the name first. Roll number is optional."
+        ],
+        [
+          "Who decides the grades and the pass mark?",
+          "You do. The grade bands under More options are only an example, one line for each grade with the lowest percentage and an optional remark. The pass mark is off until you switch it on and type your school's own figure. The tool does not apply any board's rule."
+        ],
+        [
+          "How are ranks worked out?",
+          "By total marks, highest first. Students with the same total share a rank. An absent student scores zero in that subject. The rank list shows the class average and the highest percentage."
+        ],
+        [
+          "Can I make cards with grades only?",
+          "Yes. Switch on Show grades only to hide the marks, or switch off the rank on each card. You can also make just the rank list, or just the cards."
+        ],
+        [
+          "How many students can I do at once?",
+          "Up to 300. For a bigger school, make one class or section at a time, which also keeps each PDF easy to print and share."
+        ],
+        [
+          "What can I do with the zip?",
+          "The zip holds one PDF for each student, named by roll number and name, so you can send each parent only their own child's card on WhatsApp or email. A rank list PDF is added when you keep the rank list switched on."
+        ],
+        [
+          "Are the marks uploaded or saved?",
+          "No. The marks are read and the cards are drawn on your own device, so nothing is sent to {{siteName}} or anyone else. The marks are not saved: only the school name, exam name and your options are remembered in this browser."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "report-card-and-rank-list-maker": {
+      "sections": [
+        {
+          "heading": "What the Report Card and Rank List Maker does",
+          "paragraphs": [
+            "The Report Card and Rank List Maker turns a class's marks into a report card for each student and a rank list for the class. You paste the marks from your spreadsheet, write your school and exam names, and the tool works out the totals, the percentages, the grades and the ranks.",
+            "It is made for teachers who keep marks in Excel or Google Sheets and need neat pages to print or send to parents, without building a template for every student."
+          ]
+        },
+        {
+          "heading": "Keeping it your own",
+          "paragraphs": [
+            "Every rule here is yours. The grade bands, the remarks and the pass mark are typed by you under More options, because they differ between schools and boards. The built-in bands are only an example to show the format.",
+            "Check the first card and the rank list before you make the whole class. If a subject has a different maximum, write it in the heading, such as Science (80), or change the number under the box."
+          ]
+        },
+        {
+          "heading": "Private, and what to expect",
+          "paragraphs": [
+            "The marks of your students are sensitive, so nothing is uploaded. The cards are drawn and the PDF is made on your device, and the marks are not kept after you close the page.",
+            "Cards are saved as pictures inside the PDF, so the text cannot be selected. Keep the spreadsheet as your master record, and use the CSV file when you want the totals and ranks back in Excel."
+          ]
+        }
+      ]
+    }
+  }
+}

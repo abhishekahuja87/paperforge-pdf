@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "pdf-table-to-excel": [
+      [
+        "Pick a starter",
+        "Choose Bank statement, Marksheet, Invoice or One sheet per page. A starter sets how rows are joined and which lines are kept. Tap Try a sample PDF to see a result before you use your own file."
+      ],
+      [
+        "Choose the PDF",
+        "Choose a PDF that was made on a computer, such as a statement you downloaded. If it asks for a password, type it. A photo or a scan has no text to read, so make it searchable first with Scan to Searchable PDF."
+      ],
+      [
+        "Check the table",
+        "The first rows appear as a table. If a long description is split over two lines, or the heading repeats on every page, change the choices under More options, and the table updates at once."
+      ],
+      [
+        "Save the file",
+        "Tap Save as Excel, or choose CSV under More options. Open the file in Excel, Google Sheets or Numbers and fix anything small there."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "pdfTableGuide": {
+      "title": "PDF Table to Excel: Turn a PDF Table into a Spreadsheet",
+      "subtitle": "Turn the table in a bank statement, marksheet or invoice PDF into an Excel or CSV file. Free, and your PDF never leaves your device.",
+      "faq": [
+        [
+          "Is PDF Table to Excel free, and is my PDF uploaded?",
+          "It is free, with no sign-up and no limit. The PDF is read on your own device and is not uploaded anywhere, which matters for bank statements and marksheets."
+        ],
+        [
+          "Which PDFs does it work on?",
+          "PDFs that contain real text, such as statements, invoices and marksheets downloaded from a bank, a school or an accounts program. A photo or a scan is a picture with no text, so run it through Scan to Searchable PDF first."
+        ],
+        [
+          "How does it find the columns?",
+          "It looks at where the text sits on each page and finds the places where many rows have text. That works well for tidy tables. If a table has no clear columns, each line becomes one row, and the tool tells you so."
+        ],
+        [
+          "Why is a description split over two lines?",
+          "Some statements wrap a long description onto a second line. Switch on Join a line that wraps onto the next line under More options to put it back in one cell. The Bank statement starter does this for you."
+        ],
+        [
+          "Will the numbers work in Excel?",
+          "Plain numbers such as 1,234.50 or 1,23,456 are saved as real numbers, so Excel can add them up. Phone numbers, account numbers and anything starting with 0 stay as text, and so do dates and amounts with a currency symbol or Dr or Cr. Switch the option off to keep everything as text."
+        ],
+        [
+          "What about a PDF with many pages?",
+          "All pages go into one sheet by default, and a heading row that repeats on every page can be removed. Switch off Put all pages in one sheet to get one sheet for each page in Excel. The first 300 pages are read."
+        ],
+        [
+          "Is the result always exact?",
+          "No. Check it against the PDF before you rely on it, especially with unusual layouts, merged cells or tables that run across the page edge. It reads the text positions, so a table drawn as a picture cannot be read."
+        ],
+        [
+          "What stays on my device?",
+          "Everything. The PDF is read and the file is made in your browser, so nothing is sent to {{siteName}} or anyone else, and nothing from the PDF is saved after you close the page."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "pdf-table-to-excel": {
+      "sections": [
+        {
+          "heading": "What PDF Table to Excel does",
+          "paragraphs": [
+            "PDF Table to Excel reads the text in a PDF, works out the rows and columns of the table and saves them as an Excel (.xlsx) or CSV file. It is meant for bank statements, marksheets, invoices and similar documents that you would otherwise copy from a PDF line by line.",
+            "It reads the position of every piece of text, so it can tell the cells of a table apart even when the PDF has no table lines."
+          ]
+        },
+        {
+          "heading": "Getting a clean result",
+          "paragraphs": [
+            "Pick the starter closest to your document. Bank statements often have long descriptions on two lines and a heading on every page, so the Bank statement starter joins the lines and drops the repeats.",
+            "Look at the preview before saving. If the first rows are an address block or a title, switch on Start at the table heading. If a column holds numbers with symbols, keep Save numbers as numbers on and check the totals in Excel."
+          ]
+        },
+        {
+          "heading": "Private, and what to expect",
+          "paragraphs": [
+            "A statement is private, so the PDF is read in your browser and never uploaded. The tool keeps nothing after you close the page.",
+            "It cannot read scanned pages, pictures of tables or locked text that will not copy. For those, use Scan to Searchable PDF first. Always compare a few rows and the totals with the original before you use the numbers."
+          ]
+        }
+      ]
+    }
+  }
+}

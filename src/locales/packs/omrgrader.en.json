@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "omr-scanner-and-grader": [
+      [
+        "Pick the sheet size",
+        "Choose 10, 20, 50 or 100 questions. Under More options you can set the exact number of questions, four or five options (A to D or A to E) and the digits in the roll number."
+      ],
+      [
+        "Print the answer sheets",
+        "Save the sheet as a PDF and print one on plain A4 paper for each student. Students fill one circle for each question with a dark pen or pencil, and write and fill their roll number."
+      ],
+      [
+        "Type the answer key",
+        "Type the right answers in order, such as ABCDDCBA, or as pairs such as 1A 2C 3B. Set the marks for a right answer and any marks taken off for a wrong one under More options."
+      ],
+      [
+        "Photograph and mark",
+        "Take one photo of each filled sheet from above in good light, with all four black corner squares in the picture, and add the photos. You see each roll number, score and the photo marked in colour. Save the marks as Excel or CSV."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "omrGraderGuide": {
+      "title": "OMR Scanner and Grader: Mark Answer Sheets from Phone Photos",
+      "subtitle": "Print an answer sheet, photograph the filled ones with your phone and get roll numbers and marks from your key. Photos stay on your device.",
+      "faq": [
+        [
+          "Is the OMR Scanner and Grader free, and are the photos uploaded?",
+          "It is free, with no sign-up. The photos are read on your own device and are never uploaded, so student sheets stay private."
+        ],
+        [
+          "Can it read any OMR sheet?",
+          "No. It reads the answer sheets that this tool prints, because it needs the four black corner squares and the exact layout of the circles. Print the sheet from this page and use it for your test."
+        ],
+        [
+          "How should I take the photos?",
+          "Hold the phone above the sheet, in good light and with no shadow of your hand, so that all four black corner squares are in the picture. The sheet can be tilted or turned any way, even upside down."
+        ],
+        [
+          "How many questions and options can a sheet have?",
+          "Up to 100 questions with four or five options each (A to D or A to E), and a roll number of two to five digits. Up to 200 photos can be read in one go."
+        ],
+        [
+          "What if a circle is read wrongly?",
+          "The photo is shown with a green ring for each right answer, a red ring for a wrong answer and an orange ring on the right answer that was missed, so you can check at a glance. If faint marks are missed, choose Light pencil under More options. If rubbing marks are counted, choose Dark only."
+        ],
+        [
+          "How are blank answers and double marks treated?",
+          "A blank answer and two marks on one question earn nothing and lose nothing. Only a wrong answer can lose marks, and only if you set negative marking, which is off unless you type a figure."
+        ],
+        [
+          "What can I save?",
+          "An Excel or CSV file with the roll number, photo name, right, wrong, blank and double counts, marks, total and percentage, and optionally every answer. You can correct a roll number on screen before you save."
+        ],
+        [
+          "Where do the roll numbers and marks go?",
+          "Nowhere. The photos, roll numbers and marks stay on your device, so nothing is sent to {{siteName}} or anyone else. Only your sheet size and marking choices are remembered in this browser."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "omr-scanner-and-grader": {
+      "sections": [
+        {
+          "heading": "What the OMR Scanner and Grader does",
+          "paragraphs": [
+            "The OMR Scanner and Grader lets a teacher mark multiple-choice tests with a phone and a printer. You print an answer sheet from this page, students fill it in, and you take a photo of each sheet. The tool finds the sheet in the photo, reads the filled circles and the roll number, compares the answers with your key and gives the marks.",
+            "It saves the results as an Excel or CSV file, so a whole class can be marked in minutes without an OMR machine."
+          ]
+        },
+        {
+          "heading": "Getting reliable readings",
+          "paragraphs": [
+            "Print at full size on plain white paper and ask students to fill the circles completely with a dark pen or a soft pencil. Take the photos from straight above, in even light, with the whole sheet and its four corner squares in view.",
+            "Look at the coloured photo for any sheet that looks odd. A roll number with a question mark means a digit was not filled or was filled twice, and you can type the correct number on screen."
+          ]
+        },
+        {
+          "heading": "Private, and what to expect",
+          "paragraphs": [
+            "The photos of answer sheets are read on your own device and are never uploaded. Nothing about the students is saved after you close the page.",
+            "It works for the sheets printed by this tool. A badly folded sheet, a photo with a corner cut off or a very dim photo may not be readable, and the tool will say so. Check a few sheets by hand before you rely on the marks."
+          ]
+        }
+      ]
+    }
+  }
+}

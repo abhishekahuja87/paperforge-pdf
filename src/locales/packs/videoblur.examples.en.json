@@ -1,0 +1,6 @@
+{
+  "face": { "label": "Hide a face", "hint": "An oval over the face, blurred hard. Add one box for each person.", "style": "blur", "shape": "oval", "strength": "strong" },
+  "plate": { "label": "Hide a number plate", "hint": "A rectangle over the plate, turned into large blocks. Tick This one moves for a car that drives across the picture.", "style": "pixel", "shape": "rect", "strength": "strong" },
+  "black": { "label": "Black box", "hint": "A solid black rectangle. Nothing shows through it, so this hides the most.", "style": "black", "shape": "rect", "strength": "strong" },
+  "area": { "label": "Blur an area", "hint": "A softer blur over any part of the picture, such as a screen, a letter or a name tag.", "style": "blur", "shape": "rect", "strength": "medium" }
+}

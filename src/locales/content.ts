@@ -52,6 +52,11 @@ import whatsappchat from './packs/whatsappchat.en.json';
 import teleprompter from './packs/teleprompter.en.json';
 import whiteboardrec from './packs/whiteboardrec.en.json';
 import beforeafter from './packs/beforeafter.en.json';
+import bulkcertificates from './packs/bulkcertificates.en.json';
+import reportcards from './packs/reportcards.en.json';
+import pdftable from './packs/pdftable.en.json';
+import omrgrader from './packs/omrgrader.en.json';
+import videoblur from './packs/videoblur.en.json';
 import coreDepth from './depth/core.en.json';
 import thinDepth from './depth/thin.en.json';
 
@@ -61,7 +66,7 @@ import thinDepth from './depth/thin.en.json';
  * sections keyed by tool id or guide key, so adding a pack never touches the base file.
  * To add a pack: create ./packs/<name>.en.json (and its catalog file, see core.ts), import it here and add it to PACKS.
  */
-const PACKS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, globePages, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec, whatsappchat, teleprompter, whiteboardrec, beforeafter];
+const PACKS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, globePages, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec, whatsappchat, teleprompter, whiteboardrec, beforeafter, bulkcertificates, reportcards, pdftable, omrgrader, videoblur];
 type Pack = (typeof PACKS)[number];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;

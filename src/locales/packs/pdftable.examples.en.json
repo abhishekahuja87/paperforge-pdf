@@ -1,0 +1,6 @@
+{
+  "bank": { "label": "Bank statement", "hint": "Joins a long description that wraps onto a second line, drops the heading row that repeats on each page and starts at the table heading. All pages go into one sheet.", "merge": true, "dropHeaders": true, "joinWrapped": true, "skipIntro": true },
+  "marks": { "label": "Marksheet", "hint": "Keeps every line above the table (school, class, exam) and puts all pages into one sheet. Roll numbers and marks become numbers.", "merge": true, "dropHeaders": true, "joinWrapped": false, "skipIntro": false },
+  "invoice": { "label": "Invoice", "hint": "Keeps the lines above the table (seller, invoice number) and the totals below it. Quantities and amounts become numbers.", "merge": true, "dropHeaders": false, "joinWrapped": true, "skipIntro": false },
+  "pages": { "label": "One sheet per page", "hint": "Keeps each page of the PDF on its own sheet, with nothing removed.", "merge": false, "dropHeaders": false, "joinWrapped": false, "skipIntro": false }
+}

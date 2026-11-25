@@ -918,7 +918,7 @@
   "homeCollections": {
     "pdf": {
       "name": "PDF tools",
-      "description": "Everything for PDF files without uploading them: merge, split, compress, rotate and reorder pages, add page numbers or watermarks, protect or unlock with a password, extract text, scan paper into searchable PDFs (OCR), and convert to and from images."
+      "description": "Everything for PDF files without uploading them: merge, split, compress, rotate and reorder pages, add page numbers or watermarks, protect or unlock with a password, extract text, scan paper into searchable PDFs (OCR), turn a table in a PDF into Excel, and convert to and from images."
     },
     "images": {
       "name": "Photo and image tools",
@@ -942,7 +942,7 @@
     },
     "printables": {
       "name": "Printables and templates",
-      "description": "Print at home: graph, dot grid, hexagon and lined paper, Cornell notes, calligraphy and cross-stitch grids, planners, calendars, menus, double-sided flashcards, and health sheets such as a medicine chart, health log and emergency card, a milk and maid calendar, household budget and warranty record, pet health sheets a weekly cleaning schedule, a habit tracker, a wedding shagun register, a baby feeding log, many more record sheets, a vehicle service log, certificates, name tags and labels, recipe cards and rangoli dot grids. Choose the size, spacing and margins before you print."
+      "description": "Print at home: graph, dot grid, hexagon and lined paper, Cornell notes, calligraphy and cross-stitch grids, planners, calendars, menus, double-sided flashcards, and health sheets such as a medicine chart, health log and emergency card, a milk and maid calendar, household budget and warranty record, pet health sheets a weekly cleaning schedule, a habit tracker, a wedding shagun register, a baby feeding log, many more record sheets, a vehicle service log, certificates for one name or a whole list, name tags and labels, recipe cards and rangoli dot grids. Choose the size, spacing and margins before you print."
     },
     "work": {
       "name": "Jobs and business tools",
@@ -954,7 +954,7 @@
     },
     "study": {
       "name": "Student and writing tools",
-      "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts, case conversion and a printable class attendance register with marks, lesson plan, timetable and homework diary sheets, plus an exam timetable planner, revision planner, assignment tracker and a printable OMR answer sheet."
+      "description": "For students and writers: GPA and CGPA, the grade you need on a final, study plans, citations in APA, MLA, Chicago and Harvard, word counts, case conversion and a printable class attendance register with marks, lesson plan, timetable and homework diary sheets, plus an exam timetable planner, revision planner, assignment tracker a printable OMR answer sheet, an OMR scanner and grader that marks photographed sheets, and report cards with a rank list made from pasted marks."
     },
     "kids": {
       "name": "Kids learning tools",
@@ -966,7 +966,7 @@
     },
     "media": {
       "name": "Audio and video tools",
-      "description": "Cut, join and fade audio files and voice notes, make a globe video that flies from one place to another, a video of text written by hand, an animated diagram video with a voice-over, an explainer slides video, and a world map video that lights up countries, bar, line, pie and race chart videos from your numbers, a photo story video with captions, SRT subtitle files made by tapping, audio clip videos with sound bars, app demo videos made from screenshots, captions from speech, a video compressor and trimmer, a subtitles burner, voice clean-up for audio, a screen recorder with a face bubble, a teleprompter that records your video, a whiteboard lesson recorder, and a before and after video maker. Everything runs on your device, so your recordings are not uploaded."
+      "description": "Cut, join and fade audio files and voice notes, make a globe video that flies from one place to another, a video of text written by hand, an animated diagram video with a voice-over, an explainer slides video, and a world map video that lights up countries, bar, line, pie and race chart videos from your numbers, a photo story video with captions, SRT subtitle files made by tapping, audio clip videos with sound bars, app demo videos made from screenshots, captions from speech, a video compressor and trimmer, a subtitles burner, voice clean-up for audio, a screen recorder with a face bubble, a teleprompter that records your video, a whiteboard lesson recorder, a before and after video maker, and a face and number plate blur for video. Everything runs on your device, so your recordings are not uploaded."
     },
     "dev": {
       "name": "Developer and data tools",

@@ -1,0 +1,58 @@
+{
+  "participation": {
+    "label": "Participation",
+    "hint": "Certificate of Participation for an event, workshop or competition. A classic gold border.",
+    "design": "classic",
+    "accent": "gold",
+    "title": "Certificate of Participation",
+    "preface": "This certificate is proudly presented to",
+    "reason": "for taking part in the Annual Sports Day 2026",
+    "signOneRole": "Class Teacher",
+    "signTwoRole": "Principal",
+    "organisation": "Sunrise Public School"
+  },
+  "achievement": {
+    "label": "Achievement",
+    "hint": "Certificate of Achievement for a winner or a top performer. A bold modern band.",
+    "design": "modern",
+    "accent": "orange",
+    "title": "Certificate of Achievement",
+    "preface": "This certificate is awarded to",
+    "reason": "for outstanding performance and hard work",
+    "signOneRole": "Coach",
+    "signTwoRole": "Principal",
+    "organisation": "Sunrise Public School"
+  },
+  "appreciation": {
+    "label": "Appreciation",
+    "hint": "A thank-you certificate for volunteers, teachers or helpers. Simple and clean.",
+    "design": "simple",
+    "accent": "green",
+    "title": "Certificate of Appreciation",
+    "preface": "With sincere thanks, this certificate is given to",
+    "reason": "for your help and support",
+    "signOneRole": "Organiser",
+    "signTwoRole": "Director",
+    "organisation": "Sunrise Community Group"
+  },
+  "completion": {
+    "label": "Course completion",
+    "hint": "A bright, friendly certificate for kids or a short course.",
+    "design": "bright",
+    "accent": "maroon",
+    "title": "Certificate of Completion",
+    "preface": "Congratulations to",
+    "reason": "for successfully completing the Summer Art Course",
+    "signOneRole": "Instructor",
+    "signTwoRole": "Centre Head",
+    "organisation": "Rainbow Learning Centre"
+  },
+  "sampleNames": [
+    "Riya Sharma | for winning first place in the 100 m race",
+    "Aman Verma",
+    "Priya Singh",
+    "राहुल मेहता",
+    "Fatima Khan",
+    "Gurpreet Kaur"
+  ]
+}
