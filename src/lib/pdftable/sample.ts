@@ -38,5 +38,5 @@ export async function makeSamplePdf(): Promise<File> {
       else { draw(page, y, row, font); y -= 18; }
     });
   });
-  return new File([await doc.save()], 'sample-bank-statement.pdf', { type: 'application/pdf' });
+  return new File([new Uint8Array(await doc.save()).buffer as ArrayBuffer], 'sample-bank-statement.pdf', { type: 'application/pdf' });
 }
