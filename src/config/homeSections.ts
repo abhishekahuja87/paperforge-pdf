@@ -20,7 +20,7 @@ export const MOST_USED = [
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */
 export const NEW_TOOLS = [
-  'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'classroom-quiz-display', 'workout-planner', 'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'json-to-csv-converter', 'json-viewer', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf', 'whatsapp-chat-to-pdf', 'audio-cutter-and-joiner'
+  'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'classroom-quiz-display', 'workout-planner', 'printable-meal-planner', 'rent-receipt-generator', 'price-tag-maker', 'bulk-qr-code-generator', 'offer-poster-maker', 'screenshot-redactor', 'sports-court-size-guide', 'exercise-library', 'solar-system-explorer', 'learn-the-clock', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'json-to-csv-converter', 'json-viewer', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf', 'whatsapp-chat-to-pdf', 'audio-cutter-and-joiner', 'bulk-certificate-maker', 'report-card-and-rank-list-maker', 'pdf-table-to-excel', 'omr-scanner-and-grader', 'blur-faces-or-plates-in-video'
 ];
 
 /** Studio-style tools shown as a slim row. Scanning and display have their own topics below. */
@@ -58,7 +58,7 @@ export interface CollectionSpec {
 export const COLLECTIONS: CollectionSpec[] = [
   { id: 'pdf', icon: 'file-text', tools: [
     'merge-pdf', 'split-pdf', 'compress-pdf', 'rotate-pdf', 'delete-pdf-pages', 'organize-pdf', 'image-to-pdf', 'digitize-documents', 'pdf-to-images', 'extract-text', 'add-page-numbers',
-    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf',
+    'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf', 'whatsapp-chat-to-pdf', 'pdf-table-to-excel',
   ] },
   { id: 'images', icon: 'image', tools: [
     'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location', 'bulk-image-tools', 'social-image-resizer', 'gif-maker', 'background-remover',
@@ -77,7 +77,7 @@ export const COLLECTIONS: CollectionSpec[] = [
   ] },
   { id: 'printables', icon: 'layers', tools: [
     'printable-paper-maker', 'printable-planner-maker', 'printable-meal-planner', 'printable-flashcard-maker', 'medicine-schedule-chart-printable', 'milk-maid-attendance-calendar-printable', 'pet-health-record-card-printable', 'weekly-cleaning-schedule-printable', 'wedding-shagun-register-printable', 'baby-feeding-log-printable', 'habit-tracker-printable', 'certificate-of-achievement-printable', 'name-tag-sticker-sheet-printable', 'recipe-card-printable', 'rangoli-dot-grid-printable',
-    'vehicle-service-log-printable',
+    'vehicle-service-log-printable', 'bulk-certificate-maker',
   ] },
   { id: 'work', icon: 'receipt', tools: [
     'resume-builder', 'job-description-builder', 'notice-period-calculator', 'upload-file-checker', 'freelance-rate-calculator', 'quotation-generator', 'margin-markup-calculator', 'gst-invoice-generator', 'rent-receipt-generator',
@@ -85,7 +85,7 @@ export const COLLECTIONS: CollectionSpec[] = [
   ] },
   { id: 'present', icon: 'presentation', tools: ['display-studio', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'classroom-quiz-display'] },
   { id: 'study', icon: 'type', tools: [
-    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'question-paper-template-printable'
+    'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'omr-scanner-and-grader', 'question-paper-template-printable', 'report-card-and-rank-list-maker'
   ] },
   { id: 'kids', icon: 'clock', tools: [
     'learn-the-clock', 'addition-with-carrying-for-kids', 'subtraction-with-borrowing-for-kids', 'long-multiplication-for-kids', 'long-division-for-kids', 'kids-money-shop', 'tambola-ticket-generator', 'shadow-explorer-for-kids', 'solar-system-explorer', 'math-worksheet-generator-printable', 'maze-generator-printable',
@@ -96,7 +96,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'barcode-generator',
   ] },
   { id: 'media', icon: 'layers', tools: [
-    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker', 'sequence-diagram-video-maker', 'explainer-video-maker', 'region-map-video-maker', 'chart-reveal-video-maker', 'photo-story-video-maker', 'tap-to-time-captions', 'audio-clip-video-maker', 'app-demo-video-maker', 'speak-to-captions-video-maker', 'video-compressor-and-trimmer', 'burn-subtitles-into-video', 'voice-noise-remover', 'screen-recorder-with-face', 'teleprompter-with-video-recording', 'whiteboard-lesson-recorder', 'before-and-after-video-maker',
+    'audio-cutter-and-joiner', 'globe-video-maker', 'handwriting-video-maker', 'sequence-diagram-video-maker', 'explainer-video-maker', 'region-map-video-maker', 'chart-reveal-video-maker', 'photo-story-video-maker', 'tap-to-time-captions', 'audio-clip-video-maker', 'app-demo-video-maker', 'speak-to-captions-video-maker', 'video-compressor-and-trimmer', 'burn-subtitles-into-video', 'voice-noise-remover', 'screen-recorder-with-face', 'teleprompter-with-video-recording', 'whiteboard-lesson-recorder', 'before-and-after-video-maker', 'blur-faces-or-plates-in-video',
   ] },
   { id: 'dev', icon: 'file-code', tools: [
     'json-formatter', 'json-viewer', 'json-to-csv-converter', 'base64-tool', 'url-encoder-decoder', 'timestamp-converter', 'uuid-generator', 'color-converter', 'password-generator', 'lorem-ipsum-generator',

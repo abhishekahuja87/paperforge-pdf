@@ -9,6 +9,7 @@ export interface HubExtras { tasks: HubTask[]; situations: HubSituation[] }
 export const HUB_EXTRAS: Record<string, HubExtras> = {
   "/pdf-tools": {
     tasks: [
+      { task: "Turn a table in a PDF into Excel", tool: "pdf-table-to-excel", name: "PDF Table to Excel", note: "Bank statements, marksheets and invoices with real text. Excel or CSV, numbers as numbers." },
       { task: "Join several PDFs into one", tool: "merge-pdf", name: "Merge PDF", note: "Put the files in order and download a single PDF." },
       { task: "Pull pages out of a PDF", tool: "split-pdf", name: "Split PDF", note: "Keep only the pages you need." },
       { task: "Change a PDF to A4, Letter or A5", tool: "resize-pdf-page-size", name: "Resize PDF Page Size", note: "Fit, fill or stretch every page." },
@@ -177,6 +178,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/printables-and-templates": {
     tasks: [
+      { task: "Make a certificate for every name in a list", tool: "bulk-certificate-maker", name: "Bulk Certificate Maker", note: "Four starters and four designs. One PDF, or a zip with a PDF for each person." },
       { task: "Keep a vehicle service record", tool: "vehicle-service-log-printable", name: "Vehicle Service Log Printable", note: "Date, odometer, work done and next service." },
       { task: "Print dot grid, graph, lined or Cornell paper", tool: "printable-paper-maker", name: "Printable Paper Maker", note: "Many paper types in one maker." },
       { task: "Print a monthly calendar or weekly planner", tool: "printable-planner-maker", name: "Printable Calendar and Planner Maker", note: "Monthly, weekly, daily or year page." },
@@ -243,6 +245,8 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/student-and-writing-tools": {
     tasks: [
+      { task: "Mark multiple-choice answer sheets with your phone", tool: "omr-scanner-and-grader", name: "OMR Scanner and Grader", note: "Print the sheet, photograph the filled ones, get roll numbers and marks as Excel or CSV." },
+      { task: "Make report cards and a rank list from marks", tool: "report-card-and-rank-list-maker", name: "Report Card and Rank List Maker", note: "Paste the marks, set your own grade bands and save one PDF or a zip with a card for each student." },
       { task: "Work out GPA, CGPA or percentage", tool: "gpa-cgpa-calculator", name: "GPA and CGPA Calculator", note: "Also the grade you need next." },
       { task: "See what you need on the final exam", tool: "final-grade-calculator", name: "Final Grade Calculator", note: "Current grade and target." },
       { task: "Make citations", tool: "citation-generator", name: "Citation Generator", note: "APA, MLA, Chicago and Harvard." },
@@ -283,6 +287,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/audio-and-video-tools": {
     tasks: [
+      { task: "Blur a face or number plate in a video", tool: "blur-faces-or-plates-in-video", name: "Blur Faces or Number Plates in a Video", note: "Put a box over it, tick that it moves, and save a new video. No watermark. Nothing is uploaded." },
       { task: "Cut a part out of a recording", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Choose the start and end on the sound wave." },
       { task: "Join voice notes or songs into one file", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Put the files in the order you want." },
       { task: "Add a fade in and fade out", tool: "audio-cutter-and-joiner", name: "Audio Cutter and Joiner", note: "Listen before you save." },

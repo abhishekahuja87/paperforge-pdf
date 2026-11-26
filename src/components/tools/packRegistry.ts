@@ -45,6 +45,10 @@ import { WHATSAPP_COMPONENTS } from './whatsapp/registry';
 import { TELEPROMPTER_COMPONENTS } from './teleprompter/registry';
 import { WHITEBOARD_COMPONENTS } from './whiteboard/registry';
 import { BEFOREAFTER_COMPONENTS } from './beforeafter/registry';
+import { BULKCERTIFICATES_COMPONENTS } from './certificates/registry';
+import { REPORTCARDS_COMPONENTS } from './reportcards/registry';
+import { PDFTABLE_COMPONENTS } from './pdftable/registry';
+import { OMR_COMPONENTS } from './omr/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -97,4 +101,8 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...TELEPROMPTER_COMPONENTS,
   ...WHITEBOARD_COMPONENTS,
   ...BEFOREAFTER_COMPONENTS,
+  ...BULKCERTIFICATES_COMPONENTS,
+  ...REPORTCARDS_COMPONENTS,
+  ...PDFTABLE_COMPONENTS,
+  ...OMR_COMPONENTS,
 };

@@ -257,6 +257,11 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L27 | Teleprompter with Video Recording: on a phone use the Self-introduction starter, record 20 seconds while reading, stop and check the video has your voice and no script | | |
 | L28 | Whiteboard Lesson Recorder: on a phone use the Maths lesson starter, record 30 seconds of drawing and talking, stop and check the video shows the drawing and your voice | | |
 | L29 | Before and After Video Maker: use the Room makeover starter with two real photos of the same place, make the video and check the reveal and the tags look right | | |
+| L30 | Bulk Certificate Maker: use the Participation starter with the sample names, make the one PDF and the zip, print one page at Actual size and check the border and name are not cut off | | |
+| L31 | Report Card and Rank List Maker: use the With pass and fail starter with the sample marks, change one grade band and the pass mark, make the PDF and check a card, the rank list and a Fail row | | |
+| L32 | PDF Table to Excel: use the Bank statement starter with the sample PDF, save the Excel file and check the totals; then try one real statement and compare a few rows with the PDF | | |
+| L33 | OMR Scanner and Grader: print the 20 question sheet, fill it in with a pen and a pencil, photograph it on a phone and check the roll number, answers and score against the paper | | |
+| L34 | Blur Faces or Number Plates in a Video: use the sample video, make the video and check the face and the moving plate stay hidden all the way; then try a real phone video with a face | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

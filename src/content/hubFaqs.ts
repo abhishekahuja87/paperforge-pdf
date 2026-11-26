@@ -12,6 +12,7 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
   '/pdf-tools': {
     related: ['/photo-and-image-tools', '/jobs-and-business-tools', '/qr-and-sharing-tools'],
     faqs: [
+      { q: 'How do I turn a PDF table into an Excel file?', a: 'Open {pdf-table-to-excel}, pick a starter such as Bank statement, choose the PDF and check the table that appears. Then tap Save as Excel. It works on PDFs with real text, not scans, and nothing is uploaded. Check the result against the PDF before you rely on the numbers.' },
       { q: 'How do I save a WhatsApp chat as a PDF?', a: 'In WhatsApp open the chat, use Export chat and save the text file or zip. Then open {whatsapp-chat-to-pdf}, pick a starter such as Memory book, choose the file, check the preview and tap Make the PDF. You can limit it to some dates or people first. The chat is read on your device and is not uploaded.' },
       { q: 'How do I take one page, or a few pages, out of a PDF?', a: 'Open {split-pdf}, choose the file and type the pages in the Pages to Extract box. Use commas for single pages and a dash for a range, for example 1, 4, 7 or 2-5, or mix them as 1-3, 5, 8. You save a new PDF with only those pages and the original is untouched. To keep most of a file and drop a few pages, {delete-pdf-pages} is quicker.' },
       { q: 'How do I cut a long scan into separate documents?', a: 'Use {smart-split-pdf}. It can split every N pages, at blank separator pages, at bookmarks, or by a largest file size, and it shows the list of parts before you download them all as one ZIP. Blank-page detection can miss a page with a stamp or shadow, so read the list first.' },
@@ -81,6 +82,7 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
   '/printables-and-templates': {
     related: ['/kids-learning-tools', '/jobs-and-business-tools', '/student-and-writing-tools'],
     faqs: [
+      { q: 'How do I make certificates for a whole class or event?', a: 'Open {bulk-certificate-maker}, pick a starter such as Participation, paste one name on each line and tap Make the certificates. You get one PDF with a page for each person, or a zip with a separate PDF for each name. The names are not uploaded.' },
       { q: 'How do I print graph paper?', a: '{graph-paper-generator} prints graph paper with 2.5, 5 or 10 mm squares and darker major lines. For dot grid, lined, Cornell, isometric, music or tracker paper, use {printable-paper-maker}. Print at actual size so the squares stay the right size.' },
       { q: 'Can I make a cross stitch grid for my fabric?', a: '{cross-stitch-pattern-grid-generator} makes printable graph paper sized for your Aida count, so each square on the paper matches a stitch on the cloth.' },
       { q: 'How do I print flashcards that line up on both sides?', a: '{printable-flashcard-maker} prints every answer behind its question, as a two-sided sheet or a fold-over card. Print one page first and hold it to the light to check that the front and back match before printing the rest.' },
@@ -103,6 +105,8 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
   '/student-and-writing-tools': {
     related: ['/kids-learning-tools', '/printables-and-templates', '/everyday-tools'],
     faqs: [
+      { q: 'How do I check OMR sheets with my phone?', a: 'Open {omr-scanner-and-grader}, pick the number of questions and print the answer sheet. After students fill it in, type your answer key and add a photo of each sheet with all four black corner squares in view. You get each roll number and score, and can save the marks as Excel or CSV. The photos are not uploaded.' },
+      { q: 'How do I make report cards for a whole class?', a: 'Open {report-card-and-rank-list-maker}, pick a starter, paste the marks from your spreadsheet with a header row, fill in the school and exam, and tap Make the report cards. You get one PDF, or a zip with a card for each student. The grade bands and pass mark are yours to set, and nothing is uploaded.' },
       { q: 'How do I make an MLA or APA citation?', a: 'Open {citation-generator}, choose the Citation style and the type of source, and fill in the details. It makes the citation and a sorted reference list in four styles. Check the result against your teacher\'s or journal\'s guide, because some courses add their own rules.' },
       { q: 'How do I show the same source in another style?', a: 'Change the Citation style box in {citation-generator} and the same details are written in the new style. Then copy the result. If details are missing, the tool lists them, because most styles expect them.' },
       { q: 'How do I count words or reading time?', a: '{word-counter} counts words, characters, sentences and reading time as you type or paste. Use it to check a limit on an essay or application.' },
@@ -145,6 +149,7 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
   '/audio-and-video-tools': {
     related: ['/photo-and-image-tools', '/qr-and-sharing-tools', '/developer-and-data-tools'],
     faqs: [
+      { q: 'How do I blur a face or number plate in a video?', a: 'Open {blur-faces-or-plates-in-video}, pick a starter such as Hide a face, choose your video, tap Add a box and drag it over the face or plate. Tick This one moves if it moves, then tap Hide them and make the video. You place the boxes yourself, there is no watermark and nothing is uploaded.' },
       { q: 'How do I cut part of an audio file?', a: 'Open {audio-cutter-and-joiner}, choose the file, set the start and end of the part you want and save it. You can add fades at the start and the end.' },
       { q: 'Can I join two audio files into one?', a: 'Yes. Add the files in {audio-cutter-and-joiner} in the order you want and save one new file.' },
       { q: 'Can I make a ringtone?', a: 'Cut the part you like with {audio-cutter-and-joiner} and save it. Your phone decides which file types it accepts as a ringtone, so check that after saving.' },

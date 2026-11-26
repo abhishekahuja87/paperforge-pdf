@@ -1,0 +1,44 @@
+{
+  "halfyearly": {
+    "label": "Report cards",
+    "hint": "A report card for every student with marks, grades, percentage and rank, and a rank list first.",
+    "gradesOnly": false,
+    "showPass": false,
+    "showRank": true,
+    "rankList": true,
+    "cards": true,
+    "exam": "Half-Yearly Examination 2026"
+  },
+  "withpass": {
+    "label": "With pass or fail",
+    "hint": "Adds a Pass or Fail result using the pass mark you set. Failed subjects show in red.",
+    "gradesOnly": false,
+    "showPass": true,
+    "showRank": true,
+    "rankList": true,
+    "cards": true,
+    "exam": "Annual Examination 2026"
+  },
+  "grades": {
+    "label": "Grades only",
+    "hint": "Shows only the grade for each subject and no marks, for classes that report grades.",
+    "gradesOnly": true,
+    "showPass": false,
+    "showRank": false,
+    "rankList": false,
+    "cards": true,
+    "exam": "Term 1 Assessment"
+  },
+  "ranks": {
+    "label": "Rank list only",
+    "hint": "Only the class rank list, with totals, percentages and grades.",
+    "gradesOnly": false,
+    "showPass": false,
+    "showRank": true,
+    "rankList": true,
+    "cards": false,
+    "exam": "Unit Test 2"
+  },
+  "sample": "Name\tRoll\tMaths (100)\tScience (100)\tEnglish (100)\tHindi (100)\tSocial Science (100)\nRiya Sharma\t1\t92\t88\t95\t90\t85\nAman Verma\t2\t76\t81\t70\t78\t74\nPriya Singh\t3\t58\t62\t71\t66\t60\nराहुल मेहता\t4\t45\t52\t48\t55\t50\nFatima Khan\t5\t88\t91\t84\t79\t90\nGurpreet Kaur\t6\t67\t72\t65\t70\t68\nArjun Nair\t7\t30\t28\t41\t35\t33\nSneha Patil\t8\t81\t79\tAB\t85\t77",
+  "bands": "90 A+ Excellent\n80 A Very good\n70 B+ Good\n60 B Satisfactory\n50 C Fair\n40 D Needs improvement\n0 E Needs more effort"
+}

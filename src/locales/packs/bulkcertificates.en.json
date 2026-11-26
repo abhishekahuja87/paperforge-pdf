@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "bulk-certificate-maker": [
+      [
+        "Pick a starter",
+        "Choose Participation, Achievement, Appreciation or Course completion. A starter sets the design, the heading and the wording. Tap Use sample names to see how it looks before you add your own."
+      ],
+      [
+        "Paste the names",
+        "Type or paste one name on each line, for example a column copied from a spreadsheet. To give one person a different line, write the name, a bar sign and the line, such as Riya Sharma | for winning first place."
+      ],
+      [
+        "Check the certificate",
+        "Look at the preview and use the arrows to see other names. Under More options you can change the line above the name, the date, two signature lines, the design, the colour and the paper size."
+      ],
+      [
+        "Make and save",
+        "Tap Make the certificates. Save one PDF with a page for each person, or a zip with a separate PDF for every name, which is handy for sending each person their own certificate on WhatsApp."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "bulkCertificatesGuide": {
+      "title": "Bulk Certificate Maker: Make Certificates for a Whole List of Names",
+      "subtitle": "Paste a list of names and make a certificate for each one, as one PDF or a zip. Free, no sign-up, and the names stay on your device.",
+      "faq": [
+        [
+          "Is the Bulk Certificate Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how often you use it. The certificates are yours to print and share."
+        ],
+        [
+          "How many certificates can I make at once?",
+          "Up to 500 in one PDF and up to 200 in a zip with a PDF for each person. For a longer list, split the names into parts and make each part separately."
+        ],
+        [
+          "Can each person have a different line on the certificate?",
+          "Yes. Write the name, then a | sign, then the line for that person, for example Aman Verma | for the best project. People without their own line get the line you typed for everyone."
+        ],
+        [
+          "Can I use names in Hindi or another language?",
+          "Names are drawn the way your device shows them, so Hindi and other scripts work when your device has a font for them. Check the preview for one such name before you make the whole batch."
+        ],
+        [
+          "Which designs and colours can I choose?",
+          "Four designs (a classic border, a modern band, a simple one and a bright, playful one) in four colours (gold, orange, green and maroon), on A4 or Letter paper. Pick a starter first, then change anything under More options."
+        ],
+        [
+          "Can I add signatures?",
+          "You can add two signature lines with a name and a title under each. Leave a name empty to keep just the line, and sign by hand after printing. There is no option to add a logo or a picture."
+        ],
+        [
+          "How do I print the certificates well?",
+          "In the print window choose Actual size or 100% and turn off Fit to page, because printers keep their own unprintable border. Print one page first to check, and use thicker paper for a finer look."
+        ],
+        [
+          "Are the names uploaded anywhere?",
+          "No. The certificates are drawn and the PDF is made on your own device, so the names are never sent to {{siteName}} or anyone else. The names are not even remembered: only your wording and design choices are saved in this browser."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "bulk-certificate-maker": {
+      "sections": [
+        {
+          "heading": "What the Bulk Certificate Maker does",
+          "paragraphs": [
+            "The Bulk Certificate Maker turns a list of names into a certificate for each person. You choose a starter, write the wording once and paste the names. The tool draws every certificate with the right name and saves them as one PDF or as a zip with a separate PDF for each person.",
+            "It is made for schools, coaching classes, workshops, sports days, clubs and offices that need the same certificate for many people, without typing each name into a template again and again."
+          ]
+        },
+        {
+          "heading": "Getting tidy results",
+          "paragraphs": [
+            "Check the spelling of the names before you make the batch, because a mistake is repeated on paper. The preview shows one name at a time, so look at the longest name in your list as well as the first one.",
+            "Use a short line under the name, such as for taking part in Sports Day 2026. For a few winners, give them their own line with the bar sign. Print one page on plain paper before you use good paper for all of them."
+          ]
+        },
+        {
+          "heading": "Private, and what to expect",
+          "paragraphs": [
+            "The names and the certificates stay on your own device. Nothing is uploaded, and the list is not saved after you close the page.",
+            "A long batch can take a little while on an older phone, so keep the page open until it finishes. Certificates are saved as pictures inside the PDF, so the text cannot be selected or searched."
+          ]
+        }
+      ]
+    }
+  }
+}

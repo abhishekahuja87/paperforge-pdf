@@ -1,0 +1,6 @@
+{
+  "q20": { "label": "20 questions, A to D", "hint": "A short test or class quiz. One column of 20 questions with four options each.", "questions": 20, "options": 4, "digits": 3 },
+  "q50": { "label": "50 questions, A to D", "hint": "A unit test. Two columns of 25 questions with four options each.", "questions": 50, "options": 4, "digits": 3 },
+  "q100": { "label": "100 questions, A to E", "hint": "A full mock paper. Four columns of 25 questions with five options each, and a 4-digit roll number.", "questions": 100, "options": 5, "digits": 4 },
+  "q10": { "label": "10 questions, A to D", "hint": "A quick check at the end of a lesson.", "questions": 10, "options": 4, "digits": 2 }
+}

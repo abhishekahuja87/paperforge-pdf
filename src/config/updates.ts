@@ -18,6 +18,41 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-26',
+    path: '/blur-faces-or-plates-in-video',
+    tool: 'Blur Faces or Number Plates in a Video',
+    title: 'New: blur faces or number plates in a video',
+    summary: 'Put boxes over faces, number plates or anything private in a video and save a new video with them blurred, blocked or covered in black. Boxes can move and can be shown only for part of the video. No watermark, and the video never leaves your device.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/omr-scanner-and-grader',
+    tool: 'OMR Scanner and Grader',
+    title: 'New: mark answer sheets from phone photos',
+    summary: 'Print an answer sheet, photograph the filled ones with your phone and get the roll number and marks of each student from your answer key, saved as Excel or CSV. Sample photos to try first, and the photos never leave your device.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/pdf-table-to-excel',
+    tool: 'PDF Table to Excel',
+    title: 'New: turn a table in a PDF into an Excel or CSV file',
+    summary: 'Choose a PDF with a table, such as a bank statement, marksheet or invoice, and save it as an Excel or CSV file. Four starters, a sample PDF to try first, numbers saved as numbers, and the PDF never leaves your device.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/report-card-and-rank-list-maker',
+    tool: 'Report Card and Rank List Maker',
+    title: 'New: make report cards and a rank list from pasted marks',
+    summary: 'Paste a class\'s marks and save a report card for every student and a rank list, as one PDF or a zip. Your own grade bands and pass mark, four starters, a sample class to try first, and the marks never leave your device.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/bulk-certificate-maker',
+    tool: 'Bulk Certificate Maker',
+    title: 'New: make a certificate for every name in a list',
+    summary: 'Paste a list of names and save one PDF with a certificate for each person, or a zip with a separate PDF for every name. Four starters, four designs, sample names to try first, and the names never leave your device.',
+  },
+  {
     date: '2026-11-25',
     path: '/before-and-after-video-maker',
     tool: 'Before and After Video Maker',
