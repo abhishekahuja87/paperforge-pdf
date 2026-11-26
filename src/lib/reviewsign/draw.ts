@@ -26,7 +26,7 @@ export const SIZES: Record<SizeId, { w: number; h: number; pageW: number; pageH:
 };
 
 export interface SignInput {
-  theme: ThemeId; border: BorderId; showRating: boolean; headline: string; scanLabel: string; subline: string; business: string; address: string; tagline: string; link: string;
+  theme: ThemeId; border: BorderId; showRating: boolean; headline: string; scanLabel: string; subline: string; business: string; address: string; tagline: string; qrs: { url: string; caption: string }[];
   rating: string; count: string; reviewsWord: string; caps: boolean;
   logo: { source: CanvasImageSource; width: number; height: number } | null;
 }
@@ -79,7 +79,8 @@ export function drawSign(input: SignInput, size: SizeId, px: number): HTMLCanvas
   drawBorder(ctx, W, H, u, t, input.border === 'auto' ? t.border : input.border);
   const cx = W / 2, up = (s: string) => (input.caps ? s.toUpperCase() : s);
   const rating = input.showRating ? parseRating(input.rating) : null, count = input.showRating ? parseCount(input.count) : null;
-  const link = normaliseLink(input.link), qr = encodeQr(link || 'https://example.com/review', 'M');
+  const qrs = (input.qrs.length ? input.qrs : [{ url: '', caption: '' }]).slice(0, 4).map((q) => ({ qr: encodeQr(q.url || 'https://example.com/review', 'M'), caption: q.caption.trim() }));
+  const n = qrs.length, multi = n > 1, rows = n === 4 ? 2 : 1, gapX = 4 * u, capH = multi ? 7 * u : 0;
   // Headline: as large as fits in three lines.
   const headline = up(input.headline.trim() || ' ');
   let headSize = 11 * u, lines: string[] = [];
@@ -87,18 +88,26 @@ export function drawSign(input: SignInput, size: SizeId, px: number): HTMLCanvas
   const headH = lines.length * headSize * 1.14;
   const addressLines = (() => { ctx.font = `400 ${3 * u}px ${FONT}`; return input.address.trim() ? wrap(ctx, input.address.trim(), 76 * u).slice(0, 4) : []; })();
   // Everything below the headline, measured so the tile can shrink when the details are long.
-    let tile = 50 * u;
-  const need = (tileSize: number) => 12 * u + headH + 4 * u + 5 * u + tileSize + 5 * u + 3.4 * u + 6 * u + 7 * u + addressLines.length * 4.1 * u + (rating ? (count ? 17 * u : 11 * u) : 0) + 10 * u;
-  while (tile > 28 * u && need(tile) > H) tile -= 2 * u;
+  let tile = (n === 1 ? 50 : n === 2 ? 38 : n === 3 ? 25 : 33) * u;
+  const blockH = (tileSize: number) => rows * (tileSize + capH) + (rows - 1) * 3 * u;
+  const need = (tileSize: number) => 12 * u + headH + 4 * u + 5 * u + blockH(tileSize) + 5 * u + 3.4 * u + 6 * u + 7 * u + addressLines.length * 4.1 * u + (rating ? (count ? 17 * u : 11 * u) : count ? 8 * u : 0) + 10 * u;
+  while (tile > (multi ? 20 : 28) * u && need(tile) > H) tile -= 2 * u;
   let y = 12 * u + headSize * 0.95;
   ctx.fillStyle = t.accent; ctx.font = `700 ${headSize}px ${FONT}`; lines.forEach((l) => { ctx.fillText(l, cx, y); y += headSize * 1.14; });
   y = y - headSize * 1.14 + 6 * u;
   ctx.fillStyle = t.text; ctx.font = `600 ${3.6 * u}px ${FONT}`; ctx.fillText(up(input.scanLabel.trim()), cx, y + 3 * u); y += 6 * u;
   // QR tile: white with a quiet border so phones read it on any colour.
-  const tx = cx - tile / 2; ctx.fillStyle = '#ffffff'; roundRect(ctx, tx, y, tile, tile, 2.2 * u); ctx.fill();
-  const pad = tile * 0.07, mod = Math.max(1, Math.floor((tile - pad * 2) / qr.size)), qrSide = mod * qr.size, qx = Math.round(cx - qrSide / 2), qy = Math.round(y + (tile - qrSide) / 2);
-  ctx.fillStyle = '#000000'; for (let r = 0; r < qr.size; r += 1) for (let c = 0; c < qr.size; c += 1) if (qr.modules[r]![c]) ctx.fillRect(qx + c * mod, qy + r * mod, mod, mod);
-  y += tile + 5 * u;
+  const drawTile = (item: (typeof qrs)[number], left: number, top: number) => {
+    ctx.fillStyle = '#ffffff'; roundRect(ctx, left, top, tile, tile, 2.2 * u); ctx.fill();
+    const pad = tile * 0.07, mod = Math.max(1, Math.floor((tile - pad * 2) / item.qr.size)), side = mod * item.qr.size, qx = Math.round(left + (tile - side) / 2), qy = Math.round(top + (tile - side) / 2);
+    ctx.fillStyle = '#000000'; for (let r = 0; r < item.qr.size; r += 1) for (let c = 0; c < item.qr.size; c += 1) if (item.qr.modules[r]![c]) ctx.fillRect(qx + c * mod, qy + r * mod, mod, mod);
+    if (multi && item.caption) { ctx.fillStyle = t.text; ctx.font = `600 ${2.5 * u}px ${FONT}`; wrap(ctx, up(item.caption), tile + gapX * 0.8).slice(0, 2).forEach((l, i) => ctx.fillText(l, left + tile / 2, top + tile + 3.6 * u + i * 3 * u)); }
+  };
+  qrs.forEach((item, i) => {
+    const inRow = n === 4 ? 2 : n, rowIndex = Math.floor(i / inRow), colIndex = i % inRow, rowW = inRow * tile + (inRow - 1) * gapX;
+    drawTile(item, cx - rowW / 2 + colIndex * (tile + gapX), y + rowIndex * (tile + capH + 3 * u));
+  });
+  y += blockH(tile) + 5 * u;
   ctx.fillStyle = t.text; ctx.font = `600 ${2.9 * u}px ${FONT}`; ctx.fillText(up(input.subline.trim()), cx, y); y += 7 * u;
   // Business name with the small logo to its left, centred together.
   const logo = input.logo, logoGap = 2.4 * u, logoMax = { w: 14 * u, h: 10 * u };
@@ -123,6 +132,7 @@ export function drawSign(input: SignInput, size: SizeId, px: number): HTMLCanvas
     y += r + 5.6 * u;
     if (count) { ctx.fillStyle = t.muted; ctx.font = `500 ${3.4 * u}px ${FONT}`; ctx.fillText(`${count.toLocaleString('en-IN')} ${input.reviewsWord.trim() || 'Reviews'}`, sx + 2 * gap, y); y += 2 * u; }
   }
+  if (!rating && count) { y += 4 * u; ctx.fillStyle = t.text; ctx.font = `700 ${4.6 * u}px ${FONT}`; ctx.fillText(`${count.toLocaleString('en-IN')} ${input.reviewsWord.trim() || 'Reviews'}`, cx, y); y += 2 * u; }
   if (input.tagline.trim() && y < H - 14 * u) { ctx.fillStyle = t.muted; ctx.font = `500 ${2.3 * u}px ${FONT}`; ctx.fillText(up(input.tagline.trim()), cx, H - 10 * u); }
   return canvas;
 }
