@@ -26,11 +26,11 @@
   "count": "Number of reviews (optional)",
   "countPlaceholder": "For example 320",
   "reviewsWord": "Word for reviews",
-  "ratingHint": "Off by default. Type only the real figures from your Google page, and update them when they change.",
-  "logo": "Small logo above the name (optional)",
+  "ratingHint": "Shows stars and your review count. Switch it off if you do not want them. Use only the real figures from your Google page, and update them when they change.",
+  "logo": "Small logo next to the name (optional)",
   "logoChoose": "Choose a logo",
   "logoRemove": "Remove logo",
-  "logoHint": "Shown small in the centre, above your business name. Leave it out for a text-only sign.",
+  "logoHint": "Shown small, just left of your business name. Leave it out for a text-only sign.",
   "logoFailed": "That picture could not be read. Try a PNG or JPG.",
   "caps": "Capital letters",
   "theme": "Colours",
@@ -42,7 +42,12 @@
     "green": "Green",
     "maroon": "Maroon and gold",
     "black": "Black and rose",
-    "pink": "Light pink"
+    "pink": "Light pink",
+    "teal": "Teal and gold",
+    "plum": "Plum and gold",
+    "cream": "Cream",
+    "mint": "Mint",
+    "sky": "Sky"
   },
   "size": "Paper size",
   "sizes": {
@@ -79,7 +84,9 @@
     "single": "Single line",
     "corners": "Corners",
     "dotted": "Dots",
-    "none": "No border"
+    "none": "No border",
+    "rounded": "Rounded"
   },
-  "showRating": "Show a star rating and review count"
+  "showRating": "Show a star rating and review count",
+  "ratingSample": "These are sample figures (4.8 and 250). Replace them with your real rating and review count, or switch this option off, before you print."
 }
