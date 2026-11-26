@@ -49,6 +49,7 @@ import { CERTIFICATES_COMPONENTS } from './certificates/registry';
 import { REPORTCARDS_COMPONENTS } from './reportcards/registry';
 import { PDFTABLE_COMPONENTS } from './pdftable/registry';
 import { OMR_COMPONENTS } from './omr/registry';
+import { REVIEWSIGN_COMPONENTS } from './reviewsign/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -105,4 +106,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...REPORTCARDS_COMPONENTS,
   ...PDFTABLE_COMPONENTS,
   ...OMR_COMPONENTS,
+  ...REVIEWSIGN_COMPONENTS,
 };

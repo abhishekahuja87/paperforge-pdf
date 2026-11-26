@@ -157,11 +157,11 @@ export const HUBS: Hub[] = [
     path: "/jobs-and-business-tools",
     collection: "work",
     title: "Free Jobs, Freelancing and Small Business Tools",
-    subtitle: "Resume, invoices, quotations, rent receipts, price tags, visiting cards, posters and registers for work and shops.",
-    description: "Free tools for work: resume builder, GST invoice, quotation, rent receipt, freelance rate and margin calculators, price tags, visiting cards and posters.",
+    subtitle: "Resume, invoices, quotations, rent receipts, price tags, visiting cards, posters, review-us desk signs and registers for work and shops.",
+    description: "Free tools for work: resume builder, GST invoice, quotation, rent receipt, freelance rate and margin calculators, price tags, visiting cards, posters and a review-us desk sign.",
     sections: [
       { heading: "What you can do here", paragraphs: [
-        "Build a resume, write a job description, check a file before an online application, price your freelance work, make a quotation, invoice or rent receipt, work out margin and markup, and design price tags, posters, visiting cards, ID cards and stamps for a shop or business.",
+        "Build a resume, write a job description, check a file before an online application, price your freelance work, make a quotation, invoice or rent receipt, work out margin and markup, and design price tags, posters, visiting cards, ID cards and stamps for a shop or business, and make a scan-to-review sign with your Google review link to stand on the counter.",
       ] },
       { heading: "Check before you send", paragraphs: [
         "Invoices, receipts and quotations made here are documents you fill in yourself. Check amounts, tax details and names before you send them, and follow the rules that apply to your business.",

@@ -213,6 +213,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/jobs-and-business-tools": {
     tasks: [
+      { task: "Print a scan-to-review sign for your counter", tool: "review-us-sign-maker", name: "Review Us Sign Maker", note: "Paste your Google review link. Stand-up tent, eight themes, optional logo. Nothing is uploaded." },
       { task: "Build a resume", tool: "resume-builder", name: "Free Resume Builder", note: "Save it as a PDF." },
       { task: "Write a job description", tool: "job-description-builder", name: "Job Description Builder", note: "Eight ready templates, PDF or plain text." },
       { task: "Find your last working day", tool: "notice-period-calculator", name: "Notice Period Calculator", note: "Includes buyout cost and gap." },

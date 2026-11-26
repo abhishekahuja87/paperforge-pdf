@@ -262,6 +262,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L32 | PDF Table to Excel: use the Bank statement starter with the sample PDF, save the Excel file and check the totals; then try one real statement and compare a few rows with the PDF | | |
 | L33 | OMR Scanner and Grader: print the 20 question sheet, fill it in with a pen and a pencil, photograph it on a phone and check the roll number, answers and score against the paper | | |
 | L34 | Blur Faces or Number Plates in a Video: use the sample video, make the video and check the face and the moving plate stay hidden all the way; then try a real phone video with a face | | |
+| L35 | Review Us Sign Maker: use the Enjoyed your visit starter with your own business name and review link, make the tent PDF, print at Actual size, cut and fold it, and scan both faces with two phones | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 
