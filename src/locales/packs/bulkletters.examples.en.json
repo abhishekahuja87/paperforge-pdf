@@ -1,0 +1,217 @@
+{
+  "fee": {
+    "label": "Fee reminder",
+    "hint": "For schools and tuition classes. Uses Student Name, Class, Parent Name, Amount and Due Date.",
+    "subject": "Fee reminder for {student name}",
+    "addressee": "{parent name}\nParent of {student name}, Class {class}",
+    "body": "Dear {parent name},\n\nThis is a gentle reminder that the fee of {amount|inr} for {student name} (Class {class}) is still pending. Kindly pay it at the school office by {due date}.\n\nIf you have already paid, please ignore this letter and share the receipt number with us.\n\nThank you for your support.",
+    "closing": "Yours sincerely,",
+    "signName": "[Name of the person signing]",
+    "signRole": "[Title, for example Accounts Office]",
+    "nameColumn": "Student Name",
+    "headers": [
+      "Student Name",
+      "Class",
+      "Parent Name",
+      "Amount",
+      "Due Date"
+    ],
+    "rows": [
+      [
+        "Riya Sharma",
+        "7B",
+        "Mr. Anil Sharma",
+        "12500",
+        "10-12-2026"
+      ],
+      [
+        "Aman Verma",
+        "6A",
+        "Mrs. Seema Verma",
+        "9800",
+        "10-12-2026"
+      ],
+      [
+        "Priya Singh",
+        "8C",
+        "Mr. Rakesh Singh",
+        "15250",
+        "15-12-2026"
+      ],
+      [
+        "Kabir Khan",
+        "7B",
+        "Mrs. Nazia Khan",
+        "12500",
+        "10-12-2026"
+      ]
+    ]
+  },
+  "society": {
+    "label": "Society dues notice",
+    "hint": "For housing societies. Uses Flat, Owner Name, Month, Amount and Due Date.",
+    "subject": "Maintenance dues for flat {flat}",
+    "addressee": "{owner name}\nFlat {flat}",
+    "body": "Dear {owner name},\n\nThe maintenance charge of {amount|inr} for {month} for flat {flat} is due on {due date}. Please pay it at the society office or in the usual way.\n\nIf you have already paid, kindly ignore this notice.\n\nThank you for your cooperation.",
+    "closing": "Regards,",
+    "signName": "[Name of the secretary or treasurer]",
+    "signRole": "[Society name]",
+    "nameColumn": "Flat",
+    "headers": [
+      "Flat",
+      "Owner Name",
+      "Month",
+      "Amount",
+      "Due Date"
+    ],
+    "rows": [
+      [
+        "A-101",
+        "Mr. Suresh Nair",
+        "December 2026",
+        "3200",
+        "10-12-2026"
+      ],
+      [
+        "A-102",
+        "Mrs. Kavita Rao",
+        "December 2026",
+        "3200",
+        "10-12-2026"
+      ],
+      [
+        "B-204",
+        "Mr. Imran Sheikh",
+        "December 2026",
+        "4100",
+        "10-12-2026"
+      ],
+      [
+        "B-305",
+        "Mrs. Pooja Mehta",
+        "December 2026",
+        "4100",
+        "10-12-2026"
+      ]
+    ]
+  },
+  "invite": {
+    "label": "Invitation",
+    "hint": "For events. Uses Guest Name and any other columns you add.",
+    "subject": "Invitation to [name of the event]",
+    "addressee": "{guest name}",
+    "body": "Dear {guest name},\n\nWe would be delighted to have you with us at [name of the event].\n\nDate: [date]\nTime: [time]\nVenue: [place]\n\nPlease let us know if you can come. We look forward to seeing you.",
+    "closing": "With warm regards,",
+    "signName": "[Host name]",
+    "signRole": "",
+    "nameColumn": "Guest Name",
+    "headers": [
+      "Guest Name",
+      "Phone"
+    ],
+    "rows": [
+      [
+        "Mr. and Mrs. Gupta",
+        "9876500001"
+      ],
+      [
+        "Dr. Meera Iyer",
+        "9876500002"
+      ],
+      [
+        "Mr. Arjun Patel",
+        "9876500003"
+      ],
+      [
+        "Ms. Fatima Ali",
+        "9876500004"
+      ]
+    ]
+  },
+  "thanks": {
+    "label": "Customer thank-you",
+    "hint": "For shops. Uses Customer Name, Order and Amount.",
+    "subject": "Thank you for your order",
+    "addressee": "{customer name}",
+    "body": "Dear {customer name},\n\nThank you for shopping with us. Your order {order} of {amount|inr} is complete. We hope you enjoy it, and we would love to see you again.\n\nIf you have any question, please call us on [your phone number].",
+    "closing": "Warm regards,",
+    "signName": "[Your name]",
+    "signRole": "[Your shop]",
+    "nameColumn": "Customer Name",
+    "headers": [
+      "Customer Name",
+      "Order",
+      "Amount"
+    ],
+    "rows": [
+      [
+        "Neha Kapoor",
+        "#1042",
+        "2450"
+      ],
+      [
+        "Rohan Das",
+        "#1043",
+        "899"
+      ],
+      [
+        "Sunita Devi",
+        "#1044",
+        "15600"
+      ],
+      [
+        "Vikram Joshi",
+        "#1045",
+        "3200"
+      ]
+    ]
+  },
+  "offer": {
+    "label": "Offer letter",
+    "hint": "A general format. Uses Name, Role, Start Date and Monthly Pay. Check the wording with your own advisor before you use it.",
+    "subject": "Offer of the position of {role}",
+    "addressee": "{name}",
+    "body": "Dear {name},\n\nWe are pleased to offer you the position of {role}, starting on {start date}. Your monthly pay will be {monthly pay|inr}.\n\nPlease sign and return a copy of this letter to confirm that you accept. We look forward to working with you.",
+    "closing": "Yours sincerely,",
+    "signName": "[Name of the person signing]",
+    "signRole": "[Title]",
+    "nameColumn": "Name",
+    "headers": [
+      "Name",
+      "Role",
+      "Start Date",
+      "Monthly Pay"
+    ],
+    "rows": [
+      [
+        "Ananya Rao",
+        "Sales Executive",
+        "01-01-2027",
+        "28000"
+      ],
+      [
+        "Mohit Kumar",
+        "Accounts Assistant",
+        "01-01-2027",
+        "24000"
+      ],
+      [
+        "Shreya Jain",
+        "Store Supervisor",
+        "15-01-2027",
+        "32000"
+      ],
+      [
+        "Dev Malhotra",
+        "Delivery Executive",
+        "01-02-2027",
+        "20000"
+      ]
+    ]
+  },
+  "sample": {
+    "business": "Sunrise Public School",
+    "tagline": "Learning with care",
+    "contact": "12 Market Road, Your City · 98xxxxxxxx"
+  }
+}

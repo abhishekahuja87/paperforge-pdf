@@ -213,6 +213,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/jobs-and-business-tools": {
     tasks: [
+      { task: "Send a letter to every name in a list", tool: "bulk-letter-maker", name: "Bulk Letter Maker", note: "Fee reminders, dues notices, invitations. Paste a list or upload CSV or Excel. PDF or zip." },
       { task: "Print a scan-to-review or follow-us sign", tool: "review-us-sign-maker", name: "Review Us Sign Maker", note: "Google, Instagram, Facebook, Zomato, WhatsApp and more, up to four codes. Stand-up tent, thirteen themes." },
       { task: "Build a resume", tool: "resume-builder", name: "Free Resume Builder", note: "Save it as a PDF." },
       { task: "Write a job description", tool: "job-description-builder", name: "Job Description Builder", note: "Eight ready templates, PDF or plain text." },
