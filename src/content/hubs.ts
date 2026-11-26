@@ -157,11 +157,11 @@ export const HUBS: Hub[] = [
     path: "/jobs-and-business-tools",
     collection: "work",
     title: "Free Jobs, Freelancing and Small Business Tools",
-    subtitle: "Resume, invoices, quotations, rent receipts, price tags, visiting cards, posters, scan-to-review and follow-us signs, bulk letters from a list and registers for work and shops.",
-    description: "Free tools for work: resume builder, GST invoice, quotation, rent receipt, freelance rate and margin calculators, price tags, visiting cards, posters and a scan-to-review or follow-us sign, and bulk letters from a CSV or Excel list.",
+    subtitle: "Resume, invoices, quotations, rent receipts, price tags, visiting cards, posters, scan-to-review and follow-us signs, bulk letters from a list, Excel workbooks for invoices, attendance and delivery bills, and registers for work and shops.",
+    description: "Free tools for work: resume builder, GST invoice, quotation, rent receipt, freelance rate and margin calculators, price tags, visiting cards, posters and a scan-to-review or follow-us sign, bulk letters from a CSV or Excel list, and Excel workbooks for invoices, attendance, delivery bills and project timelines.",
     sections: [
       { heading: "What you can do here", paragraphs: [
-        "Build a resume, write a job description, check a file before an online application, price your freelance work, make a quotation, invoice or rent receipt, work out margin and markup, and design price tags, posters, visiting cards, ID cards and stamps for a shop or business, and make a counter sign with QR codes for your Google review, Instagram, Facebook, Zomato or WhatsApp, and write one letter that is filled in for every row of a list, such as fee reminders or society dues notices.",
+        "Build a resume, write a job description, check a file before an online application, price your freelance work, make a quotation, invoice or rent receipt, work out margin and markup, and design price tags, posters, visiting cards, ID cards and stamps for a shop or business, and make a counter sign with QR codes for your Google review, Instagram, Facebook, Zomato or WhatsApp, and write one letter that is filled in for every row of a list, such as fee reminders or society dues notices, and download an Excel workbook that does the sums for you, such as an invoice, an attendance register, a monthly delivery bill or a Gantt chart.",
       ] },
       { heading: "Check before you send", paragraphs: [
         "Invoices, receipts and quotations made here are documents you fill in yourself. Check amounts, tax details and names before you send them, and follow the rules that apply to your business.",

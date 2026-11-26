@@ -1,0 +1,332 @@
+{
+  "guideSteps": {
+    "gantt-chart-excel-maker": [
+      [
+        "Pick the kind of project",
+        "Choose Website launch, Event plan, Home renovation or Exam preparation to see a ready example, then type your own project name. Pick your region so dates and paper size match how you write them."
+      ],
+      [
+        "Add your tasks",
+        "Paste your tasks from a sheet or upload a CSV or Excel file. Give each task a start and an end date, or a start date and a number of days. The tool shows what it read, so you can check the dates before anything is made."
+      ],
+      [
+        "Check the preview",
+        "The preview shows your timeline as it will look in Excel: green for the part that is done, light orange for what is left, red for late tasks and a yellow column for today. Choose days for a short project or weeks for a long one."
+      ],
+      [
+        "Download and keep planning",
+        "Save the Excel file and open it. Change a date or a percent done and the bars, status and totals follow. The Owners sheet shows how many tasks each person has, how many are done and how many are late."
+      ]
+    ],
+    "attendance-register-excel-maker": [
+      [
+        "Choose who it is for",
+        "Pick Office, Shop, School staff or Workers. This sets the days off and how many months to include. Then type your organisation name and choose the first month and year."
+      ],
+      [
+        "Set days off and holidays",
+        "Tick the days of the week that are off, and type your holidays, one a line, with the date first. These are greyed on every month sheet. Choose an alert percentage so low attendance turns red."
+      ],
+      [
+        "Add your people",
+        "Paste your names or upload a CSV or Excel file. A name column is needed and an ID column is optional. The tool shows what it read. If you add nothing, the file has empty rows ready to type in."
+      ],
+      [
+        "Download and mark attendance",
+        "Open the file, and for each person and day pick a code from the drop-down: present, absent, leave or half day. The columns on the right and the Summary sheet add up days worked, leave and attendance percentage."
+      ]
+    ],
+    "invoice-excel-template-maker": [
+      [
+        "Choose the kind of invoice",
+        "Pick Freelancer, Shop, Services or Quotation. This sets the title, the number of lines and a starting note. Type your business name, address and contact details."
+      ],
+      [
+        "Name your taxes",
+        "Type up to three taxes, such as VAT or Sales tax, and the rate for each. Leave them empty if you do not charge tax. The tool does not know your tax rules, so the names and rates are exactly what you type."
+      ],
+      [
+        "Add your items and customers",
+        "Paste or upload your price list and your customer list, or skip this and type them in the file. The invoice then fills the price from the item you pick and the address from the customer you pick."
+      ],
+      [
+        "Download, print and track",
+        "Open the Excel file, choose a customer, pick items and type quantities. Print the Invoice sheet or save it as a PDF, then add the invoice to the Invoice Log to see who has paid, who owes and who is late."
+      ]
+    ],
+    "delivery-bill-excel-maker": [
+      [
+        "Pick what you deliver",
+        "Choose Milk, Tiffin, Newspaper or Water cans, then type your business name, the unit and the month. Pick your region so money and dates look right."
+      ],
+      [
+        "Add your customers",
+        "Paste your customers or upload a CSV or Excel file with a name column. Phone, price per unit, usual quantity per day and last month's balance are optional. For anything missing, the tool uses the price and quantity you type."
+      ],
+      [
+        "Check the preview",
+        "The preview shows every customer with the usual quantity filled in for every day. Days that differ show in orange, and a day with nothing delivered shows in red. Paid and pending customers get their own colours."
+      ],
+      [
+        "Download and use it every day",
+        "Open the Excel file and change only the days that were different. Type what each customer paid. Use the Bills sheet to print one customer's bill and the Reminders sheet to open WhatsApp with a message ready for customers who still owe."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "ganttExcelGuide": {
+      "title": "Gantt Chart Excel Maker: Project Timeline from Your Task List (Free)",
+      "subtitle": "Make an Excel Gantt chart from your own tasks. Bars, the today column, late tasks and totals fill in by themselves. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Gantt Chart Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How does the Gantt chart work without macros?",
+          "Each cell of the timeline has a colour rule that compares the date at the top of its column with the start and end dates of its row and with the percent done. When you change a date, the rule runs again and the bar moves. Because there are no macros, the file opens without a security warning and works in other spreadsheet apps."
+        ],
+        [
+          "What should my task list look like?",
+          "One task on each row, with a heading in the first row. A task name is needed. Start and end dates are best, or a start date and a number of days. Owner and percent done are optional. The tool matches your headings, shows what it read and lets you pick a column yourself if it guessed wrong."
+        ],
+        [
+          "Will it open in Google Sheets or WPS Office?",
+          "The workbook uses common formulas and colour rules that Excel, Google Sheets, WPS Office and LibreOffice all understand. Colours and column widths can look a little different from one app to another, so look over the Plan sheet the first time you open it."
+        ],
+        [
+          "How does it decide a task is late?",
+          "A task is late when its end date is before today and it is not 100 percent done. Today is read from your computer when you open the file, so the status and the yellow today column stay up to date by themselves."
+        ],
+        [
+          "Can I switch between days and weeks?",
+          "Yes. Pick Days or Weeks above the timeline inside the file, and change the date it starts on to move through time. You can also choose a unit before you download, or let the tool pick one from the length of your project."
+        ],
+        [
+          "Can I add more tasks later?",
+          "Yes. Empty rows are kept under your tasks, and you choose how many. Type new tasks in them and the bars and totals include them. If you need more rows than you kept, make the workbook again with more spare rows and paste your tasks in."
+        ],
+        [
+          "Is my task list uploaded or saved on a server?",
+          "No. The tasks, the dates and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "attendanceExcelGuide": {
+      "title": "Attendance Register Excel Maker: Monthly Sheets for Your Staff (Free)",
+      "subtitle": "Make an Excel attendance register for your own staff, months, days off and holidays. Pick a code for each day and the totals fill in. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Attendance Register Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many registers you make. The file is built on your own device."
+        ],
+        [
+          "How do the weekends and holidays work?",
+          "You tick the weekly days off and list your holidays once. Every month sheet then greys those days and leaves them out of the working-day count, so the attendance percentage is based on the days people were expected to work."
+        ],
+        [
+          "What do the codes mean?",
+          "The default codes are P for present, A for absent, L for leave and HD for half day, which counts as half present. You can rename the codes on the Settings sheet. Each day is a drop-down, so entries stay consistent and the totals are correct."
+        ],
+        [
+          "Can I make a register for a whole year?",
+          "Yes. Choose 12 months and the workbook has one sheet for each month plus a Summary sheet. Names are typed once on the first month and appear on the others."
+        ],
+        [
+          "How is the attendance percentage worked out?",
+          "Days present, with half days counted as half, divided by the working days in the month. Working days are the days that are not a day off or a holiday. The limit that turns a percentage red is a number you choose, and it is only a colour, not a rule."
+        ],
+        [
+          "Will it work in Google Sheets or WPS Office?",
+          "The workbook uses common formulas, drop-downs and colour rules that Excel, Google Sheets, WPS Office and LibreOffice all understand. Open one month sheet first and check the colours and drop-downs in your app."
+        ],
+        [
+          "Can I reuse a month sheet for another month?",
+          "Yes. Change the month cell at the top of the sheet and the days, weekdays, weekends and holidays update. Clear the old codes first, because the entries stay where they are."
+        ],
+        [
+          "Is my staff list uploaded or saved on a server?",
+          "No. The names, the register and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "invoiceExcelGuide": {
+      "title": "Invoice Excel Template Maker: Printable Invoice with Your Own Taxes (Free)",
+      "subtitle": "Make an Excel invoice that fills prices and addresses from your lists, adds your own taxes and keeps an invoice log. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Invoice Excel Template Maker free?",
+          "Yes. It is free, with no sign-up, no watermark on your invoices and no limit on how many templates you make. The file is built on your own device."
+        ],
+        [
+          "Does it know my country's tax rules?",
+          "No. You type the name of each tax and its rate, and the invoice adds them to the subtotal. Check your own rules for what to charge, how to number invoices and what to print on them. Rates and rules change, so nothing is built in."
+        ],
+        [
+          "How does the price fill in?",
+          "Pick an item in a line and its price is looked up from the Items sheet. You can type over the price for one invoice, and you can type an item that is not in the list. A discount column is optional."
+        ],
+        [
+          "Can it print on A4 or Letter?",
+          "Yes. Choose your region and the paper size is set for you. The Invoice sheet is set to fit one page wide, so you can print it or save it as a PDF from Excel."
+        ],
+        [
+          "How does the Invoice Log work?",
+          "Add one line for each invoice you send, with the number, date, customer and amount. Type what was paid and the due date. The log works out the balance and marks each invoice Paid, Part paid, Unpaid or Late, and shows the totals and a chart."
+        ],
+        [
+          "Does it write the amount in words?",
+          "No. It adds up the lines, the taxes and any shipping, and can round the total. Amount in words is not included, so write it in by hand if your documents need it."
+        ],
+        [
+          "Will it work in Google Sheets or WPS Office?",
+          "The workbook uses common formulas and drop-downs that Excel, Google Sheets, WPS Office and LibreOffice all understand. Check the Invoice sheet in your app the first time, especially the print layout."
+        ],
+        [
+          "Are my customers and prices uploaded or saved on a server?",
+          "No. The lists and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your lists are never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "deliveryBillExcelGuide": {
+      "title": "Monthly Delivery Bill Excel Maker: Milk, Tiffin, Newspaper and Water Can (Free)",
+      "subtitle": "Make an Excel sheet for milk, tiffin, newspaper or water-can bills. Usual quantities are pre-filled, bills and reminders are worked out. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Monthly Delivery Bill Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "Who is this for?",
+          "Anyone who delivers the same thing regularly and bills once a month: milk and tiffin sellers, newspaper and magazine agents, water can suppliers, laundry and cleaning rounds, and meal prep. Set the product and unit and everything else follows."
+        ],
+        [
+          "Why is every day already filled in?",
+          "Most days a customer takes the same amount, so the sheet fills each day with their usual quantity. You only change the days that were different. Different days turn orange and days with nothing delivered turn red, which makes mistakes easy to spot."
+        ],
+        [
+          "How are the bills worked out?",
+          "Total units for the month multiplied by the price per unit, plus any opening balance from last month, minus what the customer paid. The status shows Paid, Part paid or Pending. Prices are whatever you type for each customer."
+        ],
+        [
+          "How do the WhatsApp reminders work?",
+          "The Reminders sheet shows a Send reminder link for each customer who owes money and has a phone number. Clicking it opens WhatsApp with a message ready, and you press send yourself. The file never sends anything. Use a phone number with no spaces, and set the country code in the region settings."
+        ],
+        [
+          "How do I do next month?",
+          "Make a new workbook for the new month and put last month's balance in the opening balance column. You can also upload your customer list again, with the balances, so nothing needs to be typed twice."
+        ],
+        [
+          "Will it work in Google Sheets or WPS Office?",
+          "The workbook uses common formulas, drop-downs and colour rules that Excel, Google Sheets, WPS Office and LibreOffice all understand. Open the Entry and Reminders sheets in your app first and check that the colours and links work."
+        ],
+        [
+          "Is my customer list uploaded or saved on a server?",
+          "No. The names, phone numbers, balances and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "gantt-chart-excel-maker": {
+      "sections": [
+        {
+          "heading": "What a Gantt chart in Excel is for",
+          "paragraphs": [
+            "A Gantt chart lays your tasks out against a calendar, so you can see what starts when, what overlaps and what is running late. Many people want one in Excel because they already have the program and can change a date without learning new software.",
+            "This tool makes the workbook for you. You give it the tasks and dates, and it builds a sheet with a timeline that colours itself, a status for every task and a summary for each person."
+          ]
+        },
+        {
+          "heading": "Choosing days or weeks, and keeping dates clean",
+          "paragraphs": [
+            "Use days for projects of a few weeks, where each column is one day and weekends are shaded. Use weeks for longer projects, where each column is a week and the whole plan fits on a screen. You can change this inside the file.",
+            "Dates are the part that most often goes wrong. Keep one date format in your list, check the What we read panel before you make the file, and look at the Plan sheet once to confirm the bars sit where you expect."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your task list is never uploaded. The workbook has no macros and no links to the internet.",
+            "Late and done are worked out only from the dates and percentages you type. Review the plan with your team before you rely on it."
+          ]
+        }
+      ]
+    },
+    "attendance-register-excel-maker": {
+      "sections": [
+        {
+          "heading": "What the register does",
+          "paragraphs": [
+            "An attendance register records, for each person and each day, whether they were present, absent, on leave or worked half a day. This tool builds that register as an Excel workbook, with a sheet for every month and a summary across months.",
+            "You decide the people, the months, the weekly days off and the holidays. The workbook then greys the days off for you and adds up each person's days."
+          ]
+        },
+        {
+          "heading": "Setting it up so the numbers are right",
+          "paragraphs": [
+            "Fill in the Settings sheet first, because every month follows it. List all holidays, including ones that fall on a day off, and choose which weekdays are off. Type each person's name once, on the first month.",
+            "Use the drop-down in every cell rather than typing, so codes stay the same. Leave days off blank, as they are already greyed and are not counted."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your list of names is never uploaded. The workbook has no macros and does not connect to the internet.",
+            "The register only counts what you enter. Leave rules, pay rules and attendance limits are your own, so check any totals against your policies before you use them for pay."
+          ]
+        }
+      ]
+    },
+    "invoice-excel-template-maker": {
+      "sections": [
+        {
+          "heading": "What the invoice workbook does",
+          "paragraphs": [
+            "This tool builds an invoice as an Excel workbook that does the sums for you. It has a printable Invoice sheet, an Items sheet for your prices, a Customers sheet for your addresses and an Invoice Log that tracks payments.",
+            "Pick a customer and the address appears. Pick an item and the price appears. Type a quantity and the line, the taxes and the total are worked out."
+          ]
+        },
+        {
+          "heading": "Setting up taxes and numbering",
+          "paragraphs": [
+            "You choose up to three taxes and type each rate yourself. This keeps the workbook usable in any country and for any kind of tax. It also means you are responsible for the right names and rates.",
+            "The invoice number is a plain box you can change, so use whatever numbering your business follows. Keep one running list in the Invoice Log so numbers are not repeated."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your customer and price lists are never uploaded. The workbook has no macros and does not connect to the internet.",
+            "Check a few invoices by hand before you send them, including the taxes and the rounding. This tool is not an accounting or tax program, and the totals are only as correct as the rates you type."
+          ]
+        }
+      ]
+    },
+    "delivery-bill-excel-maker": {
+      "sections": [
+        {
+          "heading": "Why a pre-filled sheet saves time",
+          "paragraphs": [
+            "A blank grid of customers and days takes a long time to fill in each month. Most customers take the same amount every day, so this workbook fills in their usual quantity for you. You only touch the days that were different, such as a holiday or a double order.",
+            "The totals, the amount, the balance and the status are worked out automatically, and a printable bill for each customer is on its own sheet."
+          ]
+        },
+        {
+          "heading": "Keeping balances and reminders tidy",
+          "paragraphs": [
+            "Type last month's unpaid amount as the opening balance, and what each customer pays in the Paid column. The balance then shows what is still owed, and the status shows who is paid, part paid or pending.",
+            "The Reminders sheet gives each customer who owes money a link that opens WhatsApp with a polite message ready. You read it, and you press send."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your customer names, phone numbers and balances are never uploaded. The workbook has no macros and does not connect to the internet.",
+            "Check one or two bills by hand before you hand them out. Prices and quantities are only what you type, so make sure they match what you agreed with each customer."
+          ]
+        }
+      ]
+    }
+  }
+}
