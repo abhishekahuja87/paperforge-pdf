@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-26',
+    path: '/review-us-sign-maker',
+    tool: 'Review Us Sign Maker',
+    title: 'New: make a scan-to-review sign for your counter',
+    summary: 'Paste your Google review link and print a stand-up tent card or a frame sign with a QR code, your name and a small logo. Eight colour themes and borders, and an optional star rating.',
+  },
+  {
+    date: '2026-11-26',
     path: '/blur-faces-or-plates-in-video',
     tool: 'Blur Faces or Number Plates in a Video',
     title: 'New: blur faces or number plates in a video',

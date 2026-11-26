@@ -1,0 +1,43 @@
+{
+  "listening": {
+    "label": "We are listening",
+    "hint": "Dark blue and gold, like the signs in hotels and restaurants.",
+    "theme": "darkgold",
+    "headline": "We are listening to you!",
+    "scanLabel": "Scan the",
+    "subline": "Your reviews are valuable to us",
+    "tagline": "Thank you for visiting"
+  },
+  "enjoyed": {
+    "label": "Enjoyed your visit?",
+    "hint": "Warm orange. Friendly wording for shops and cafes.",
+    "theme": "orange",
+    "headline": "Enjoyed your visit?",
+    "scanLabel": "Scan to leave a",
+    "subline": "Google review, it takes 20 seconds",
+    "tagline": "Thank you for your support"
+  },
+  "how": {
+    "label": "How did we do?",
+    "hint": "Clean white. Saves ink when you print at home.",
+    "theme": "white",
+    "headline": "How did we do?",
+    "scanLabel": "Scan to write a",
+    "subline": "review about your visit",
+    "tagline": "We read every review"
+  },
+  "hindi": {
+    "label": "Hindi",
+    "hint": "Maroon and gold, in Hindi.",
+    "theme": "maroon",
+    "headline": "आपकी राय हमारे लिए ज़रूरी है",
+    "scanLabel": "रिव्यू लिखने के लिए",
+    "subline": "QR कोड स्कैन करें",
+    "tagline": "धन्यवाद, फिर पधारिए"
+  },
+  "sample": {
+    "business": "Sample Cafe",
+    "address": "12 Market Road, Your City",
+    "link": "https://example.com/review"
+  }
+}
