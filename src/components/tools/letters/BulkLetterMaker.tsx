@@ -192,6 +192,7 @@ export const BulkLetterMaker: React.FC = () => {
         {busy
           ? <button type="button" onClick={() => { cancelled.current = true; }} className={`${buttonClass} w-full`}>{ui.cancel}</button>
           : <MainActionButton onClick={() => void makeFile()} disabled={!canMake}><FileText className="h-5 w-5" aria-hidden="true" />{ui.make}</MainActionButton>}
+        {!busy && !canMake && <p role="status" className="text-xs font-semibold text-red-700">{!table ? ui.whyNoList : rows.length > MAX_LETTERS ? ui.tooMany.replace('{max}', String(MAX_LETTERS)) : missing.length > 0 ? ui.missing : ui.whyBrackets.replace('{list}', prompts.join(', '))}</p>}
         {message && <Note>{message}</Note>}
         {output.result && (
           <div className="space-y-2">

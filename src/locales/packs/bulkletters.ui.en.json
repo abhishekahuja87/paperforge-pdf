@@ -28,6 +28,8 @@
   "builtIn": "today's date",
   "noList": "Add your list above to check the fields. The preview shows sample rows until then.",
   "missing": "Fix the fields marked red: add a column with that heading, or change the letter.",
+  "whyNoList": "To enable this button, add your list above: paste it, upload a file, or tap Use the sample list.",
+  "whyBrackets": "To enable this button, replace the parts in [square brackets] in the letter, including the signature and subject: {list}",
   "brackets": "Replace the parts in [square brackets] with your own words: {list}",
   "tooMany": "The most you can make at once is {max} letters. Split your list into parts.",
   "preview": "4. Check the letter",

@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-26',
+    path: '/bulk-letter-maker',
+    tool: 'Bulk Letter Maker',
+    title: 'Clear reason when Make letters is greyed out',
+    summary: 'If the button is not ready, a red line beside it now says why, for example that the [square bracket] parts of the letter still need your own words, or that the list is missing.',
+  },
+  {
+    date: '2026-11-26',
     path: '/delivery-bill-excel-maker',
     tool: 'Monthly Delivery Bill Excel Maker',
     title: 'New: Monthly Delivery Bill Excel Maker',
