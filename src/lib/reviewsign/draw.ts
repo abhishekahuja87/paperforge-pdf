@@ -1,9 +1,9 @@
 /** Drawing the "Review us" desk sign: a headline, a QR code that opens your review page, and your details. */
 import { encodeQr } from '../qr/encoder';
 
-export type ThemeId = 'darkgold' | 'royal' | 'white' | 'orange' | 'green' | 'maroon' | 'black' | 'pink';
+export type ThemeId = 'darkgold' | 'royal' | 'white' | 'orange' | 'green' | 'maroon' | 'black' | 'pink' | 'teal' | 'plum' | 'cream' | 'mint' | 'sky';
 export type SizeId = 'tent' | 'a6' | 'a5' | 'a4' | 'four';
-export type BorderId = 'auto' | 'double' | 'single' | 'corners' | 'dotted' | 'none';
+export type BorderId = 'auto' | 'double' | 'single' | 'corners' | 'dotted' | 'rounded' | 'none';
 export interface Theme { bg: string; text: string; muted: string; accent: string; ring: string; light: boolean; border: Exclude<BorderId, 'auto'> }
 export const THEMES: Record<ThemeId, Theme> = {
   darkgold: { bg: '#1c2b38', text: '#ffffff', muted: '#cbd5e1', accent: '#e9c24f', ring: '#e9c24f', light: false, border: 'double' },
@@ -13,6 +13,11 @@ export const THEMES: Record<ThemeId, Theme> = {
   green: { bg: '#14532d', text: '#ffffff', muted: '#dcfce7', accent: '#fde047', ring: '#fde047', light: false, border: 'double' },
   maroon: { bg: '#5b1a1a', text: '#ffffff', muted: '#fde8e8', accent: '#f2c75c', ring: '#f2c75c', light: false, border: 'corners' },
   black: { bg: '#111111', text: '#ffffff', muted: '#d4d4d4', accent: '#f0b9a0', ring: '#f0b9a0', light: false, border: 'single' },
+  teal: { bg: '#0f4c4c', text: '#ffffff', muted: '#ccfbf1', accent: '#f4d35e', ring: '#f4d35e', light: false, border: 'rounded' },
+  plum: { bg: '#3b0764', text: '#ffffff', muted: '#f3e8ff', accent: '#f5c451', ring: '#f5c451', light: false, border: 'double' },
+  cream: { bg: '#fff7ed', text: '#431407', muted: '#78350f', accent: '#9a3412', ring: '#b45309', light: true, border: 'corners' },
+  mint: { bg: '#ecfdf5', text: '#064e3b', muted: '#065f46', accent: '#047857', ring: '#047857', light: true, border: 'dotted' },
+  sky: { bg: '#f0f9ff', text: '#0c4a6e', muted: '#075985', accent: '#0369a1', ring: '#0369a1', light: true, border: 'rounded' },
   pink: { bg: '#fdf2f8', text: '#500724', muted: '#831843', accent: '#be185d', ring: '#be185d', light: true, border: 'double' },
 };
 /** Paper sizes in millimetres. "four" is four small A6 signs on one A4 page. "tent" is two A6 panels in one strip that folds into a stand. */
@@ -57,6 +62,7 @@ function drawBorder(ctx: CanvasRenderingContext2D, W: number, H: number, u: numb
   if (style === 'none') return;
   if (style === 'single') { ctx.lineWidth = thin * 1.6; ctx.strokeRect(m, m, W - 2 * m, H - 2 * m); }
   if (style === 'double') { ctx.lineWidth = thin * 1.6; ctx.strokeRect(m, m, W - 2 * m, H - 2 * m); ctx.lineWidth = thin * 0.7; ctx.strokeRect(m + 1.8 * u, m + 1.8 * u, W - 2 * m - 3.6 * u, H - 2 * m - 3.6 * u); }
+  if (style === 'rounded') { ctx.lineWidth = thin * 1.8; roundRect(ctx, m, m, W - 2 * m, H - 2 * m, 6 * u); ctx.stroke(); ctx.lineWidth = thin * 0.7; roundRect(ctx, m + 1.8 * u, m + 1.8 * u, W - 2 * m - 3.6 * u, H - 2 * m - 3.6 * u, 4.4 * u); ctx.stroke(); }
   if (style === 'dotted') { const r = 0.55 * u, step = 2.6 * u; for (let x = m; x <= W - m + 0.1; x += step) for (const y of [m, H - m]) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); } for (let y = m + step; y < H - m - 0.1; y += step) for (const x of [m, W - m]) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); } }
   if (style === 'corners') {
     ctx.lineWidth = thin * 0.8; ctx.strokeRect(m + 1.2 * u, m + 1.2 * u, W - 2 * m - 2.4 * u, H - 2 * m - 2.4 * u); ctx.lineWidth = thin * 2.2; const k = 12 * u;
@@ -81,9 +87,8 @@ export function drawSign(input: SignInput, size: SizeId, px: number): HTMLCanvas
   const headH = lines.length * headSize * 1.14;
   const addressLines = (() => { ctx.font = `400 ${3 * u}px ${FONT}`; return input.address.trim() ? wrap(ctx, input.address.trim(), 76 * u).slice(0, 4) : []; })();
   // Everything below the headline, measured so the tile can shrink when the details are long.
-  const logoH = input.logo ? 11 * u : 0;
-  let tile = 50 * u;
-  const need = (tileSize: number) => 12 * u + headH + 4 * u + 5 * u + tileSize + 5 * u + 3.4 * u + 6 * u + 7 * u + addressLines.length * 4.1 * u + (rating ? 11 * u : 0) + logoH + 10 * u;
+    let tile = 50 * u;
+  const need = (tileSize: number) => 12 * u + headH + 4 * u + 5 * u + tileSize + 5 * u + 3.4 * u + 6 * u + 7 * u + addressLines.length * 4.1 * u + (rating ? (count ? 17 * u : 11 * u) : 0) + 10 * u;
   while (tile > 28 * u && need(tile) > H) tile -= 2 * u;
   let y = 12 * u + headSize * 0.95;
   ctx.fillStyle = t.accent; ctx.font = `700 ${headSize}px ${FONT}`; lines.forEach((l) => { ctx.fillText(l, cx, y); y += headSize * 1.14; });
@@ -95,20 +100,28 @@ export function drawSign(input: SignInput, size: SizeId, px: number): HTMLCanvas
   ctx.fillStyle = '#000000'; for (let r = 0; r < qr.size; r += 1) for (let c = 0; c < qr.size; c += 1) if (qr.modules[r]![c]) ctx.fillRect(qx + c * mod, qy + r * mod, mod, mod);
   y += tile + 5 * u;
   ctx.fillStyle = t.text; ctx.font = `600 ${2.9 * u}px ${FONT}`; ctx.fillText(up(input.subline.trim()), cx, y); y += 7 * u;
-  // Small logo (if any), then business name and address.
-  if (input.logo) { const k = Math.min(24 * u / input.logo.width, 9 * u / input.logo.height), w = input.logo.width * k, h = input.logo.height * k; ctx.drawImage(input.logo.source, cx - w / 2, y - 3 * u, w, h); y += 11 * u; }
-  let nameSize = 6 * u; ctx.font = `700 ${nameSize}px ${FONT}`; while (ctx.measureText(input.business || ' ').width > 82 * u && nameSize > 3.2 * u) { nameSize -= 0.3 * u; ctx.font = `700 ${nameSize}px ${FONT}`; }
-  ctx.fillStyle = t.text; ctx.fillText(input.business.trim(), cx, y); y += 4.6 * u;
+  // Business name with the small logo to its left, centred together.
+  const logo = input.logo, logoGap = 2.4 * u, logoMax = { w: 14 * u, h: 10 * u };
+  const logoSize = logo ? (() => { const k = Math.min(logoMax.w / logo.width, logoMax.h / logo.height); return { w: logo.width * k, h: logo.height * k }; })() : { w: 0, h: 0 };
+  const room = 82 * u - (logo ? logoSize.w + logoGap : 0);
+  let nameSize = 6 * u; ctx.font = `700 ${nameSize}px ${FONT}`; while (ctx.measureText(input.business || ' ').width > room && nameSize > 3.2 * u) { nameSize -= 0.3 * u; ctx.font = `700 ${nameSize}px ${FONT}`; }
+  const nameW = ctx.measureText(input.business.trim()).width, rowW = nameW + (logo ? logoSize.w + logoGap : 0), rowX = cx - rowW / 2;
+  if (logo) ctx.drawImage(logo.source, rowX, y - nameSize * 0.36 - logoSize.h / 2, logoSize.w, logoSize.h);
+  ctx.fillStyle = t.text; ctx.textAlign = 'left'; ctx.fillText(input.business.trim(), rowX + (logo ? logoSize.w + logoGap : 0), y); ctx.textAlign = 'center';
+  y += Math.max(4.6 * u, logo ? logoSize.h / 2 - nameSize * 0.36 + 3 * u : 0);
   ctx.fillStyle = t.muted; ctx.font = `400 ${3 * u}px ${FONT}`; addressLines.forEach((l) => { ctx.fillText(l, cx, y); y += 4.1 * u; });
-  // Rating row, only with a real rating the owner typed.
+  // Rating row: the number and the stars are centred as one group, and the count sits under the middle star.
   if (rating) {
-    y += 3 * u; const r = 3 * u, gap = 7.2 * u, total = gap * 4, sx = cx - total / 2 + 7 * u;
-    ctx.fillStyle = t.text; ctx.font = `700 ${6 * u}px ${FONT}`; ctx.textAlign = 'right'; ctx.fillText(rating.toFixed(1), sx - 6 * u, y + 1.6 * u); ctx.textAlign = 'center';
+    y += 4 * u; const r = 3 * u, gap = 7 * u, starsW = gap * 4 + 2 * r, numSize = 6 * u;
+    ctx.font = `700 ${numSize}px ${FONT}`; const numW = ctx.measureText(rating.toFixed(1)).width, space = 3 * u, groupW = numW + space + starsW, gx = cx - groupW / 2;
+    ctx.fillStyle = t.text; ctx.textAlign = 'left'; ctx.fillText(rating.toFixed(1), gx, y + numSize * 0.36); ctx.textAlign = 'center';
+    const sx = gx + numW + space + r;
     for (let i = 0; i < 5; i += 1) {
       const fill = Math.max(0, Math.min(1, rating - i)), x = sx + i * gap;
       ctx.save(); star(ctx, x, y, r); ctx.fillStyle = 'rgba(255,255,255,0.22)'; if (t.light) ctx.fillStyle = '#e5e7eb'; ctx.fill(); ctx.clip(); ctx.fillStyle = '#f5b50a'; ctx.fillRect(x - r, y - r, 2 * r * fill, 2 * r); ctx.restore();
     }
-    y += 6 * u; if (count) { ctx.fillStyle = t.muted; ctx.font = `500 ${3.6 * u}px ${FONT}`; ctx.fillText(`${count.toLocaleString('en-IN')} ${input.reviewsWord.trim() || 'Reviews'}`, cx, y); y += 3 * u; }
+    y += r + 5.6 * u;
+    if (count) { ctx.fillStyle = t.muted; ctx.font = `500 ${3.4 * u}px ${FONT}`; ctx.fillText(`${count.toLocaleString('en-IN')} ${input.reviewsWord.trim() || 'Reviews'}`, sx + 2 * gap, y); y += 2 * u; }
   }
   if (input.tagline.trim() && y < H - 14 * u) { ctx.fillStyle = t.muted; ctx.font = `500 ${2.3 * u}px ${FONT}`; ctx.fillText(up(input.tagline.trim()), cx, H - 10 * u); }
   return canvas;

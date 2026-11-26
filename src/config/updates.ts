@@ -21,8 +21,15 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-26',
     path: '/review-us-sign-maker',
     tool: 'Review Us Sign Maker',
+    title: 'Review Us Sign Maker: more themes, logo beside the name',
+    summary: 'Thirteen colour themes and a rounded border, a small logo placed left of the business name, and a tidier star rating with the review count centred under the stars. Sample figures can be changed or switched off.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/review-us-sign-maker',
+    tool: 'Review Us Sign Maker',
     title: 'New: make a scan-to-review sign for your counter',
-    summary: 'Paste your Google review link and print a stand-up tent card or a frame sign with a QR code, your name and a small logo. Eight colour themes and borders, and an optional star rating.',
+    summary: 'Paste your Google review link and print a stand-up tent card or a frame sign with a QR code, your name and a small logo. Thirteen colour themes and borders, and an optional star rating.',
   },
   {
     date: '2026-11-26',

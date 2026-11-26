@@ -19,13 +19,14 @@ import '../shops/posterFonts.css';
 import { SIZES, drawPage, drawSign, normaliseLink, type BorderId, type SignInput, type SizeId, type ThemeId } from '../../../lib/reviewsign/draw';
 
 const STORAGE_KEY = 'mdu_review_sign_v1';
+const SAMPLE_RATING = '4.8', SAMPLE_COUNT = '250';
 type StarterId = 'listening' | 'enjoyed' | 'how' | 'hindi';
 const STARTER_IDS: StarterId[] = ['listening', 'enjoyed', 'how', 'hindi'];
 type OutputId = 'pdf' | 'png';
 interface Saved { theme: ThemeId; border: BorderId; showRating: boolean; headline: string; scanLabel: string; subline: string; tagline: string; business: string; address: string; link: string; rating: string; count: string; reviewsWord: string; caps: boolean; size: SizeId; output: OutputId }
 
-const fromStarter = (id: StarterId): Partial<Saved> => { const s = ex[id]; return { theme: s.theme as ThemeId, headline: s.headline, scanLabel: s.scanLabel, subline: s.subline, tagline: s.tagline, caps: id !== 'hindi' }; };
-const DEFAULTS: Saved = { business: '', address: '', link: '', rating: '', count: '', reviewsWord: 'Reviews', size: 'tent', output: 'pdf', theme: 'darkgold', border: 'auto', showRating: false, headline: '', scanLabel: '', subline: '', tagline: '', caps: true, ...fromStarter('listening') } as Saved;
+const fromStarter = (id: StarterId): Partial<Saved> => { const s = ex[id]; return { theme: s.theme as ThemeId, headline: s.headline, scanLabel: s.scanLabel, subline: s.subline, tagline: s.tagline, caps: id !== 'hindi', showRating: true, rating: SAMPLE_RATING, count: SAMPLE_COUNT }; };
+const DEFAULTS: Saved = { business: '', address: '', link: '', rating: '', count: '', reviewsWord: 'Reviews', size: 'tent', output: 'pdf', theme: 'darkgold', border: 'auto', headline: '', scanLabel: '', subline: '', tagline: '', caps: true, ...fromStarter('listening') } as Saved;
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
 const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
 const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
@@ -66,7 +67,7 @@ export const ReviewSignMaker: React.FC = () => {
       <input type="text" value={saved[key] as string} maxLength={max} placeholder={placeholder} onChange={(e) => change({ [key]: e.target.value } as Partial<Saved>)} className={inputClass} /></label>
   );
   const activeStarter = STARTER_IDS.find((id) => { const s = fromStarter(id) as Record<string, string>; return (['theme', 'headline', 'scanLabel', 'subline'] as const).every((k) => s[k] === saved[k]); }) ?? '';
-  const sample = () => change({ business: ex.sample.business, address: ex.sample.address });
+  const sample = () => change({ business: ex.sample.business, address: ex.sample.address, showRating: true, rating: SAMPLE_RATING, count: SAMPLE_COUNT });
 
   const pickLogo = async (file: File | undefined) => {
     if (!file) return; setMessage(''); output.clear();
@@ -111,6 +112,7 @@ export const ReviewSignMaker: React.FC = () => {
       <section className={card}>
         <h2 className={heading}>{ui.preview}</h2>
         <div className="mt-3 flex justify-center rounded-xl bg-slate-200 p-3"><canvas ref={canvas} role="img" aria-label={ui.previewLabel} className="h-auto w-full max-w-xs rounded shadow" /></div>
+        {saved.showRating && saved.rating === SAMPLE_RATING && saved.count === SAMPLE_COUNT && <div className="mt-3"><Note>{ui.ratingSample}</Note></div>}
       </section>
 
       <section className={card}>
