@@ -21,6 +21,13 @@ const ENTRIES: SiteUpdate[] = [
     date: '2026-11-26',
     path: '/review-us-sign-maker',
     tool: 'Review Us Sign Maker',
+    title: 'Review Us Sign Maker now works for Instagram, Facebook, Zomato and more',
+    summary: 'Choose where each QR code goes: Google review, Instagram or Facebook follow, YouTube, WhatsApp, Zomato, Swiggy, TripAdvisor, Justdial, Google Maps, an online store, an app, a menu and more. Put up to four codes on one sign.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/review-us-sign-maker',
+    tool: 'Review Us Sign Maker',
     title: 'Review Us Sign Maker: more themes, logo beside the name',
     summary: 'Thirteen colour themes and a rounded border, a small logo placed left of the business name, and a tidier star rating with the review count centred under the stars. Sample figures can be changed or switched off.',
   },

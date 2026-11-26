@@ -17,44 +17,62 @@
         "Make and print",
         "Choose the stand-up tent, a frame size or four small signs on one A4, then make the PDF or picture. Print at Actual size, cut along the marks, fold on the dashed line and scan it with your phone before you put it on the counter."
       ]
+    ],
+    "reviewSignGuide": [
+      [
+        "Pick a starter",
+        "Choose We are listening, Enjoyed your visit, Follow on Instagram, Rate us on Zomato, Connect with us or another starter. A starter sets the colours, the wording and the QR codes, and you can change every line later."
+      ],
+      [
+        "Choose where each QR code goes",
+        "Pick a place: Google review, Instagram, Facebook, YouTube, WhatsApp, Zomato, Swiggy, TripAdvisor, Justdial, Google Maps, an online store, an app, your website, a menu, Telegram, LinkedIn or any link. Paste the link, or type a handle like @mycafe or a WhatsApp number. Add up to four codes for one sign."
+      ],
+      [
+        "Add your details and check the sign",
+        "Type your business name and an address or phone line. The preview updates as you type. Under More options you can change the lines, pick one of thirteen colour themes and a border, add a small logo beside your name, and change or switch off the star rating or follower count."
+      ],
+      [
+        "Make and print",
+        "Choose the stand-up tent, a frame size or four small signs on one A4, then make the PDF or picture. Print at Actual size, cut along the marks, fold on the dashed line and scan every code with your phone before you put it on the counter."
+      ]
     ]
   },
   "pageGuides": {
     "reviewSignGuide": {
-      "title": "Review Us Sign Maker: Print a Scan-to-Review QR Sign for Your Counter",
-      "subtitle": "Make a scan-to-review sign with a QR code to your Google review link, as a stand-up tent card or a frame sign. Free, no sign-up, nothing uploaded.",
+      "title": "Review Us Sign Maker: Print a Scan-to-Review or Follow-Us QR Sign",
+      "subtitle": "Make a counter sign with QR codes for Google reviews, Instagram or Facebook follows, Zomato ratings and more. Free, no sign-up, nothing uploaded.",
       "faq": [
         [
           "Is the Review Us Sign Maker free?",
           "Yes. It is free, with no sign-up, no watermark and no limit on how often you use it. The sign is made on your own device."
         ],
         [
-          "Where do I find my Google review link?",
-          "Open your Google Business Profile and look for the option to get more reviews or share a review form. Copy the link it shows and paste it into the tool. The names of the buttons can change over time, so look for the one that gives you a short link for customers."
+          "Which places can the QR code open?",
+          "Google review, Instagram, Facebook, YouTube, WhatsApp, Zomato, Swiggy, TripAdvisor, Justdial, Google Maps directions, an online store or marketplace page, an app page, your website, a menu, Telegram, LinkedIn, or any other web address. Pick the place and the tool shows how to find that link."
+        ],
+        [
+          "Can I put more than one QR code on a sign?",
+          "Yes. Add up to four codes, each with its own place and a short label under it, for example Google review, Instagram, WhatsApp and menu. With one code the sign is bigger and easiest to scan. With four, each code is smaller, so print on A5 or larger when you can."
         ],
         [
           "How does the stand-up tent work?",
-          "The tent layout prints two strips on one A4 page. Cut along the marks, fold each strip on the dashed line and stand it on the counter. The back half is printed upside down on purpose, so both faces read upright and both QR codes work."
+          "The tent layout prints two strips on one A4 page. Cut along the marks, fold each strip on the dashed line and stand it on the counter. The back half is printed upside down on purpose, so both faces read upright and every QR code works."
         ],
         [
-          "Can I add a logo?",
-          "Yes. Under More options, choose a logo and it appears small, just left of your business name. Without a logo the sign is text only. A PNG with a clear background looks best."
+          "Where do I find my review or profile link?",
+          "Open your page or profile in the app or website, use Share and copy the link. For Google, open your Business Profile and look for the option to get more reviews. The names of buttons change over time. For Instagram, Facebook, YouTube and Telegram you can type a handle like @mycafe, and for WhatsApp a phone number."
         ],
         [
-          "Should I show a star rating and review count?",
-          "It is optional. A starter shows sample figures (4.8 and 250) so you can see the layout, and a warning reminds you to replace them. Type only the real figures from your Google page and update them when they change, or switch the option off. A sign with old or made-up numbers can mislead customers."
+          "Should I show a star rating, review count or follower count?",
+          "It is optional and you can switch it off. A starter shows sample figures so you can see the layout, and a warning reminds you to replace them. Type only your real figures and update them when they change. A sign with old or made-up numbers can mislead customers."
         ],
         [
           "Can I offer a discount or a gift for a review?",
-          "Google asks businesses not to offer rewards in exchange for reviews, and to invite reviews from all customers, not only happy ones. Keep the sign simple and honest, and check Google's current rules for your business."
-        ],
-        [
-          "Will the QR code scan from a printout?",
-          "Yes, when it is printed at a reasonable size on clean paper. The code is dark on a white tile with a quiet margin, so it reads on every colour theme. Always scan the printed sign with your phone before you display it."
+          "Google asks businesses not to offer rewards in exchange for reviews, and to invite reviews from all customers, not only happy ones. Other sites have their own rules, so check them. Keep the sign simple and honest."
         ],
         [
           "Are my details uploaded or saved on a server?",
-          "No. The business name, link and logo stay on your device and the sign is made in your browser. {{siteName}} does not receive them. Your last settings are remembered on this device only, and Start again clears them."
+          "No. The business name, links and logo stay on your device and the sign is made in your browser. {{siteName}} does not receive them. Your last settings are remembered on this device only, and Start again clears them."
         ]
       ]
     }
@@ -65,15 +83,15 @@
         {
           "heading": "What the Review Us Sign Maker does",
           "paragraphs": [
-            "The Review Us Sign Maker turns your Google review link into a printed sign with a QR code. A customer points their phone at it and lands on your review box in a few seconds. It suits cafes, salons, clinics, hotels, shops and any place with a counter or table.",
-            "Pick a starter, add your business name and link, and the preview shows the sign at once. You can add an address, a small logo and, if you want, a star rating with the number of reviews."
+            "The Review Us Sign Maker turns a link into a printed sign with a QR code. A customer points their phone at it and lands on your Google review box, your Instagram or Facebook page, your Zomato listing, a WhatsApp chat or any page you choose. It suits cafes, salons, clinics, hotels, shops and any place with a counter or table.",
+            "Pick a starter, choose where the QR code goes, add your business name, and the preview shows the sign at once. You can put up to four codes on one sign, add a small logo beside your name and, if you want, a star rating or follower count."
           ]
         },
         {
           "heading": "Getting a sign that works",
           "paragraphs": [
-            "Print on clean paper at Actual size, and keep the QR code large and flat. Avoid glossy lamination that reflects light, because glare is the most common reason a code will not scan. Test it with two different phones before you put it out.",
-            "Use the stand-up tent for counters and tables, and the A5 or A4 size for a frame on a wall. The four-in-one page is handy for handing a small sign to each branch or table."
+            "Print on clean paper at Actual size, and keep each QR code large and flat. Avoid glossy lamination that reflects light, because glare is the most common reason a code will not scan. Test every code with two different phones before you put the sign out.",
+            "Use the stand-up tent for counters and tables, and the A5 or A4 size for a frame on a wall. One code per sign is the easiest to scan. If you put four codes on one sign, choose A5 or larger."
           ]
         },
         {

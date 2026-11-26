@@ -6,7 +6,10 @@
     "headline": "We are listening to you!",
     "scanLabel": "Scan the",
     "subline": "Your reviews are valuable to us",
-    "tagline": "Thank you for visiting"
+    "tagline": "Thank you for visiting",
+    "platforms": [
+      "google"
+    ]
   },
   "enjoyed": {
     "label": "Enjoyed your visit?",
@@ -15,7 +18,10 @@
     "headline": "Enjoyed your visit?",
     "scanLabel": "Scan to leave a",
     "subline": "Google review, it takes 20 seconds",
-    "tagline": "Thank you for your support"
+    "tagline": "Thank you for your support",
+    "platforms": [
+      "google"
+    ]
   },
   "how": {
     "label": "How did we do?",
@@ -24,7 +30,10 @@
     "headline": "How did we do?",
     "scanLabel": "Scan to write a",
     "subline": "review about your visit",
-    "tagline": "We read every review"
+    "tagline": "We read every review",
+    "platforms": [
+      "google"
+    ]
   },
   "hindi": {
     "label": "Hindi",
@@ -33,11 +42,241 @@
     "headline": "आपकी राय हमारे लिए ज़रूरी है",
     "scanLabel": "रिव्यू लिखने के लिए",
     "subline": "QR कोड स्कैन करें",
-    "tagline": "धन्यवाद, फिर पधारिए"
+    "tagline": "धन्यवाद, फिर पधारिए",
+    "platforms": [
+      "google"
+    ]
   },
   "sample": {
     "business": "Sample Cafe",
     "address": "12 Market Road, Your City",
     "link": "https://example.com/review"
+  },
+  "platforms": {
+    "google": {
+      "label": "Google review",
+      "headline": "We are listening to you!",
+      "scanLabel": "Scan the",
+      "subline": "Your reviews are valuable to us",
+      "caption": "Review us on Google",
+      "reviewsWord": "Reviews",
+      "placeholder": "https://g.page/r/...",
+      "hint": "Open your Google Business Profile, choose Get more reviews, and copy the link. The wording of these buttons may change. Paste it here and the QR code opens your review box.",
+      "figures": "rating"
+    },
+    "instagram": {
+      "label": "Instagram follow",
+      "headline": "Follow us on Instagram",
+      "scanLabel": "Scan to follow",
+      "subline": "We share new offers and updates there",
+      "caption": "Follow on Instagram",
+      "reviewsWord": "Followers",
+      "placeholder": "@yourhandle",
+      "hint": "Type your handle, like @mycafe, or paste your profile link. People who scan it land on your profile.",
+      "figures": "count"
+    },
+    "facebook": {
+      "label": "Facebook follow or review",
+      "headline": "Find us on Facebook",
+      "scanLabel": "Scan to follow or review us",
+      "subline": "Like our page for updates and offers",
+      "caption": "Follow on Facebook",
+      "reviewsWord": "Followers",
+      "placeholder": "@yourpage",
+      "hint": "Type your page name, like @mycafe, or paste your page link. Open it in the app, tap Share and copy the link. The wording of these buttons may change.",
+      "figures": "count"
+    },
+    "youtube": {
+      "label": "YouTube subscribe",
+      "headline": "Subscribe on YouTube",
+      "scanLabel": "Scan to subscribe",
+      "subline": "New videos every week",
+      "caption": "Subscribe on YouTube",
+      "reviewsWord": "Subscribers",
+      "placeholder": "@yourchannel",
+      "hint": "Type your channel handle, like @mychannel, or paste your channel link.",
+      "figures": "count"
+    },
+    "whatsapp": {
+      "label": "WhatsApp chat",
+      "headline": "Chat with us on WhatsApp",
+      "scanLabel": "Scan to message us",
+      "subline": "Orders, questions and bookings",
+      "caption": "Message on WhatsApp",
+      "reviewsWord": "Followers",
+      "placeholder": "98xxxxxxxx",
+      "hint": "Type your WhatsApp number. Ten digits are treated as an Indian number, or add the country code. People who scan it open a chat with you.",
+      "figures": "none"
+    },
+    "zomato": {
+      "label": "Zomato rating",
+      "headline": "Loved your meal?",
+      "scanLabel": "Scan to rate us on Zomato",
+      "subline": "Your rating helps other food lovers",
+      "caption": "Rate us on Zomato",
+      "reviewsWord": "Ratings",
+      "placeholder": "https://www.zomato.com/...",
+      "hint": "Open your restaurant page on Zomato and copy its link. Open it in the app, tap Share and copy the link. The wording of these buttons may change.",
+      "figures": "rating"
+    },
+    "swiggy": {
+      "label": "Swiggy rating",
+      "headline": "Enjoyed your order?",
+      "scanLabel": "Scan to find us on Swiggy",
+      "subline": "Rate us and order again",
+      "caption": "Order on Swiggy",
+      "reviewsWord": "Ratings",
+      "placeholder": "https://www.swiggy.com/...",
+      "hint": "Open your restaurant page on Swiggy and copy its link. Open it in the app, tap Share and copy the link. The wording of these buttons may change.",
+      "figures": "rating"
+    },
+    "tripadvisor": {
+      "label": "TripAdvisor review",
+      "headline": "How was your stay?",
+      "scanLabel": "Scan to review us on TripAdvisor",
+      "subline": "Your review helps other travellers",
+      "caption": "Review on TripAdvisor",
+      "reviewsWord": "Reviews",
+      "placeholder": "https://www.tripadvisor.in/...",
+      "hint": "Open your listing on TripAdvisor and copy the page link. Open it in the app, tap Share and copy the link. The wording of these buttons may change.",
+      "figures": "rating"
+    },
+    "justdial": {
+      "label": "Justdial rating",
+      "headline": "Rate us on Justdial",
+      "scanLabel": "Scan to rate us",
+      "subline": "Your rating helps others find us",
+      "caption": "Rate us on Justdial",
+      "reviewsWord": "Ratings",
+      "placeholder": "https://www.justdial.com/...",
+      "hint": "Open your business listing on Justdial and copy the link. Open it in the app, tap Share and copy the link. The wording of these buttons may change.",
+      "figures": "rating"
+    },
+    "maps": {
+      "label": "Google Maps directions",
+      "headline": "Find us easily",
+      "scanLabel": "Scan for directions",
+      "subline": "Open our location in Google Maps",
+      "caption": "Get directions",
+      "reviewsWord": "Reviews",
+      "placeholder": "https://maps.app.goo.gl/...",
+      "hint": "Open your place in Google Maps, tap Share and copy the link. People who scan it get directions.",
+      "figures": "none"
+    },
+    "marketplace": {
+      "label": "Amazon, Flipkart or Meesho",
+      "headline": "Shop with us online",
+      "scanLabel": "Scan to visit our store",
+      "subline": "Read reviews and order from home",
+      "caption": "Shop online",
+      "reviewsWord": "Reviews",
+      "placeholder": "https://www.amazon.in/...",
+      "hint": "Copy the link to your store or product page from the marketplace where you sell.",
+      "figures": "rating"
+    },
+    "apps": {
+      "label": "Play Store or App Store",
+      "headline": "Get our app",
+      "scanLabel": "Scan to install and rate",
+      "subline": "Your rating helps us improve",
+      "caption": "Get our app",
+      "reviewsWord": "Ratings",
+      "placeholder": "https://play.google.com/...",
+      "hint": "Copy the link to your app page on the Play Store or the App Store.",
+      "figures": "rating"
+    },
+    "website": {
+      "label": "Website",
+      "headline": "Visit our website",
+      "scanLabel": "Scan to open",
+      "subline": "Everything about us in one place",
+      "caption": "Visit our website",
+      "reviewsWord": "Reviews",
+      "placeholder": "https://www.yoursite.com",
+      "hint": "Type or paste your website address.",
+      "figures": "none"
+    },
+    "menu": {
+      "label": "Menu",
+      "headline": "Our menu",
+      "scanLabel": "Scan to see the menu",
+      "subline": "Fresh and updated",
+      "caption": "See our menu",
+      "reviewsWord": "Reviews",
+      "placeholder": "https://...",
+      "hint": "Paste the link to your online menu, a menu page or a PDF you have uploaded somewhere.",
+      "figures": "none"
+    },
+    "telegram": {
+      "label": "Telegram",
+      "headline": "Join us on Telegram",
+      "scanLabel": "Scan to join",
+      "subline": "Updates and offers in one place",
+      "caption": "Join on Telegram",
+      "reviewsWord": "Members",
+      "placeholder": "@yourchannel",
+      "hint": "Type your channel name, like @mychannel, or paste the invite link.",
+      "figures": "count"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "headline": "Follow us on LinkedIn",
+      "scanLabel": "Scan to follow",
+      "subline": "News and openings",
+      "caption": "Follow on LinkedIn",
+      "reviewsWord": "Followers",
+      "placeholder": "https://www.linkedin.com/company/...",
+      "hint": "Open your company page on LinkedIn and copy its link.",
+      "figures": "count"
+    },
+    "other": {
+      "label": "Other link",
+      "headline": "Scan to visit",
+      "scanLabel": "Scan to open",
+      "subline": "Point your phone camera at the code",
+      "caption": "Scan me",
+      "reviewsWord": "Reviews",
+      "placeholder": "https://...",
+      "hint": "Paste any web address, such as a form, a booking page or an offer page.",
+      "figures": "none"
+    }
+  },
+  "follow": {
+    "label": "Follow on Instagram",
+    "hint": "Pink and bold. Asks people to follow your profile.",
+    "theme": "pink",
+    "headline": "Follow us on Instagram",
+    "scanLabel": "Scan to follow",
+    "subline": "New offers and updates every week",
+    "tagline": "Thank you for visiting",
+    "platforms": [
+      "instagram"
+    ]
+  },
+  "zomato": {
+    "label": "Rate us on Zomato",
+    "hint": "Maroon and gold. For restaurants and cafes.",
+    "theme": "maroon",
+    "headline": "Loved your meal?",
+    "scanLabel": "Scan to rate us on Zomato",
+    "subline": "Your rating helps other food lovers",
+    "tagline": "Thank you for dining with us",
+    "platforms": [
+      "zomato"
+    ]
+  },
+  "connect": {
+    "label": "Connect with us",
+    "hint": "Three codes on one sign: Google review, Instagram and WhatsApp. Change any of them.",
+    "theme": "royal",
+    "headline": "Connect with us!",
+    "scanLabel": "Scan any code",
+    "subline": "We love to hear from you",
+    "tagline": "Thank you for visiting",
+    "platforms": [
+      "google",
+      "instagram",
+      "whatsapp"
+    ]
   }
 }
