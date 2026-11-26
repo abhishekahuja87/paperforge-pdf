@@ -19,6 +19,13 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-26',
+    path: '/bulk-letter-maker',
+    tool: 'Bulk Letter Maker',
+    title: 'New: Bulk Letter Maker, with CSV and Excel upload',
+    summary: 'Write one letter and fill it from a pasted list, a CSV or an Excel file. A check panel shows what was read, and the PDF or zip has one letter for every row. Starters for fee reminders, dues notices, invitations, thank-yous and offer letters.',
+  },
+  {
+    date: '2026-11-26',
     path: '/review-us-sign-maker',
     tool: 'Review Us Sign Maker',
     title: 'Review Us Sign Maker now works for Instagram, Facebook, Zomato and more',

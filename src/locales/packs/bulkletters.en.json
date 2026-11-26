@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "bulk-letter-maker": [
+      [
+        "Pick a starter",
+        "Choose Fee reminder, Society dues notice, Invitation, Customer thank-you or Offer letter. A starter fills in the wording and shows the columns it expects, so you can see how your list should look."
+      ],
+      [
+        "Write the letter",
+        "Change the subject and the letter. Wherever a detail belongs to each person, type a column heading in curly brackets, like {name} or {amount}. Add |inr for rupees, like {amount|inr}, and use {date} for today. Add your school or business name and, if you like, a logo."
+      ],
+      [
+        "Add your list and check it",
+        "Paste the cells from Excel or Google Sheets, or upload a CSV or Excel file. The tool shows what it read: the sheet, the row and column count, the first and last rows, and anything odd such as merged cells or hidden rows. Each field in your letter is checked against your column headings."
+      ],
+      [
+        "Make the letters",
+        "Check the preview and flip through the rows. Then make one PDF with every letter, or a zip with a separate PDF for each person. Print them, or send each person their own file."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "bulkLettersGuide": {
+      "title": "Bulk Letter Maker: Make a Letter for Every Row of Your List (CSV or Excel)",
+      "subtitle": "Write one letter and fill it from a CSV, Excel or pasted list. One PDF or a zip, one letter per row. Free, no sign-up, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Bulk Letter Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how often you use it. The letters are made on your own device."
+        ],
+        [
+          "How should I arrange my Excel or CSV list?",
+          "Put one heading for each column in the first row and one person or item on each row, with no empty rows between them. Avoid merged cells, pictures and a totals row at the bottom. The tool shows a sample sheet, and you can download a sample CSV or Excel file to copy the layout."
+        ],
+        [
+          "Which files can I upload?",
+          "Excel files in the .xlsx format, and CSV files. For an older .xls file, open it in Excel and use Save as to make an .xlsx or CSV. You can also copy cells from Excel or Google Sheets and paste them in. If the Excel file has more than one sheet, you choose which sheet to use."
+        ],
+        [
+          "How do I know the tool read my list correctly?",
+          "After you add the list, a panel shows the file and sheet used, how many rows and columns were found, the detected type of each column, and the first five and last two rows so you can compare the start and the end with your sheet. It also warns about merged cells, hidden rows, formulas with no saved result, empty rows and repeated rows."
+        ],
+        [
+          "How do the curly-bracket fields work?",
+          "Type a column heading in curly brackets where the detail should go. If your list has a column called Parent Name, then {parent name} in the letter is replaced by each row's value. Capital letters and spaces do not matter. The tool lists every field and tells you which column it matched, and it will not make the letters while a field has no matching column."
+        ],
+        [
+          "Can I write amounts in rupees?",
+          "Yes. Add |inr after a number field, for example {amount|inr}, and 12500 prints as ₹12,500. You can also use |upper, |lower and |title to change capital letters. The amounts and dates are exactly what is in your list, and nothing is calculated for you."
+        ],
+        [
+          "Can I make the letters in Hindi or another language?",
+          "Yes. You can type the letter and the list in Hindi or other languages your device can show. The letters are drawn as pictures on each page, so the PDF text cannot be selected or searched. Keep your original list as the master copy."
+        ],
+        [
+          "Is my list uploaded or saved on a server?",
+          "No. The list, the letters and the logo stay on your device, and {{siteName}} does not receive them. Your letter wording and letterhead are remembered on this device only, and the list is never saved. Start again clears everything."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "bulk-letter-maker": {
+      "sections": [
+        {
+          "heading": "What the Bulk Letter Maker does",
+          "paragraphs": [
+            "The Bulk Letter Maker writes one letter for every row of a list. You type the letter once, put the details that change in curly brackets, and add a list from Excel, a CSV file or pasted cells. It saves one PDF with all the letters, or a zip with a separate PDF for each person.",
+            "It suits schools sending fee reminders, housing societies sending dues notices, shops thanking customers, and anyone sending invitations or offer letters to many people."
+          ]
+        },
+        {
+          "heading": "Getting a list that reads cleanly",
+          "paragraphs": [
+            "Keep the first row for headings and put one person on each row. Remove totals rows, merged cells and blank lines, because they can turn into extra letters or missing details. Phone numbers and roll numbers that start with 0 should be formatted as Text in Excel before you type them.",
+            "Use the panel that shows what was read. Compare the first and last rows with your sheet, and fix anything it warns about before you make the letters."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your list of names and amounts is never uploaded. The tool only fills in the words and draws the pages.",
+            "Read a few letters in the preview before you print a whole batch, especially the longest name and the largest amount. The offer letter is a general format, so check the wording with your own advisor before you use it."
+          ]
+        }
+      ]
+    }
+  }
+}

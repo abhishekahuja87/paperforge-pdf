@@ -62,6 +62,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'teleprompter-with-video-recording': ['teleprompter', 'prompter', 'script scroller', 'read script', 'autocue', 'video script'],
   'whiteboard-lesson-recorder': ['whiteboard', 'blackboard', 'draw and record', 'lesson recorder', 'teaching video', 'chalkboard'],
   'before-and-after-video-maker': ['before after', 'before and after', 'transformation video', 'reveal video', 'makeover video', 'slider video'],
+  'bulk-letter-maker': ['bulk letters', 'mail merge', 'letters from excel', 'fee reminder letter', 'dues notice', 'personalised letter', 'letters from csv', 'merge letter'],
   'review-us-sign-maker': ['review us', 'google review qr', 'scan to review', 'review sign', 'review qr code', 'feedback qr', 'table tent', 'counter sign', 'instagram follow qr', 'facebook qr', 'zomato qr', 'whatsapp qr sign', 'scan me sign'],
   'bulk-certificate-maker': ['bulk certificate', 'certificates from list', 'certificate generator', 'participation certificate', 'mass certificates', 'names list certificate'],
   'report-card-and-rank-list-maker': ['report card', 'rank list', 'marksheet', 'progress report', 'class result', 'student grades'],
