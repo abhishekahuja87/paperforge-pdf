@@ -19,6 +19,34 @@ export interface SiteUpdate {
 const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-26',
+    path: '/delivery-bill-excel-maker',
+    tool: 'Monthly Delivery Bill Excel Maker',
+    title: 'New: Monthly Delivery Bill Excel Maker',
+    summary: 'Make an Excel workbook for milk, tiffin, newspaper or water-can bills. Every day is pre-filled with the usual quantity, bills and balances are worked out, and a WhatsApp reminder link is ready for customers who owe.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/invoice-excel-template-maker',
+    tool: 'Invoice Excel Template Maker',
+    title: 'New: Invoice Excel Template Maker',
+    summary: 'Make an Excel invoice that fills prices and addresses from your own lists, adds up to three taxes you type, and comes with an invoice log that shows who has paid and who is late.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/attendance-register-excel-maker',
+    tool: 'Attendance Register Excel Maker',
+    title: 'New: Attendance Register Excel Maker',
+    summary: 'Make an Excel attendance register with a sheet for every month. Add your names, days off and holidays, pick a code for each day, and the totals and attendance percentage fill in.',
+  },
+  {
+    date: '2026-11-26',
+    path: '/gantt-chart-excel-maker',
+    tool: 'Gantt Chart Excel Maker',
+    title: 'New: Gantt Chart Excel Maker',
+    summary: 'Make an Excel Gantt chart from your own tasks. Paste or upload a task list, check the preview, and download a workbook whose timeline colours itself, with status, late tasks and a summary for each person.',
+  },
+  {
+    date: '2026-11-26',
     path: '/bulk-letter-maker',
     tool: 'Bulk Letter Maker',
     title: 'New: Bulk Letter Maker, with CSV and Excel upload',

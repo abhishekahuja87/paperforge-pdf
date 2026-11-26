@@ -213,6 +213,10 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/jobs-and-business-tools": {
     tasks: [
+      { task: "Make a monthly milk or delivery bill in Excel", tool: "delivery-bill-excel-maker", name: "Monthly Delivery Bill Excel Maker", note: "Usual quantities pre-filled, bills, balances and WhatsApp reminders worked out." },
+      { task: "Make an invoice template in Excel", tool: "invoice-excel-template-maker", name: "Invoice Excel Template Maker", note: "Prices and addresses fill from your lists, with your own taxes and an invoice log." },
+      { task: "Make an attendance register in Excel", tool: "attendance-register-excel-maker", name: "Attendance Register Excel Maker", note: "A sheet for every month with your staff, days off and holidays. Totals fill in by themselves." },
+      { task: "Make a Gantt chart in Excel from my tasks", tool: "gantt-chart-excel-maker", name: "Gantt Chart Excel Maker", note: "A project timeline that colours itself. Paste or upload tasks, download the workbook." },
       { task: "Send a letter to every name in a list", tool: "bulk-letter-maker", name: "Bulk Letter Maker", note: "Fee reminders, dues notices, invitations. Paste a list or upload CSV or Excel. PDF or zip." },
       { task: "Print a scan-to-review or follow-us sign", tool: "review-us-sign-maker", name: "Review Us Sign Maker", note: "Google, Instagram, Facebook, Zomato, WhatsApp and more, up to four codes. Stand-up tent, thirteen themes." },
       { task: "Build a resume", tool: "resume-builder", name: "Free Resume Builder", note: "Save it as a PDF." },

@@ -1,0 +1,20 @@
+{
+  "toolCatalog": {
+    "gantt-chart-excel-maker": [
+      "Gantt Chart Excel Maker: Project Timeline from Your Task List (Free)",
+      "Make a Gantt chart in Excel from your own tasks. Type or upload tasks with dates and get a workbook whose timeline colours itself, with status, late tasks and a people summary. Free, no macros."
+    ],
+    "attendance-register-excel-maker": [
+      "Attendance Register Excel Maker: Monthly Sheets for Your Staff (Free)",
+      "Make an attendance register in Excel with a sheet for every month. Add your names, days off and holidays, then pick a code for each day. Totals and attendance percentage fill in. Free, no macros."
+    ],
+    "invoice-excel-template-maker": [
+      "Invoice Excel Template Maker: Printable Invoice with Your Own Taxes (Free)",
+      "Make an invoice template in Excel that fills prices and addresses from your own item and customer lists. Choose up to three taxes and rates, print it, and track who has paid. Free, no macros."
+    ],
+    "delivery-bill-excel-maker": [
+      "Monthly Delivery Bill Excel Maker: Milk, Tiffin, Newspaper and Water Can (Free)",
+      "Make a monthly delivery bill in Excel for milk, tiffin, newspapers or water cans. Each customer starts with the usual quantity, you change only the days that differ, and bills and reminders are worked out."
+    ]
+  }
+}

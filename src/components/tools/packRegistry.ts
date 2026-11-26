@@ -51,6 +51,7 @@ import { PDFTABLE_COMPONENTS } from './pdftable/registry';
 import { OMR_COMPONENTS } from './omr/registry';
 import { REVIEWSIGN_COMPONENTS } from './reviewsign/registry';
 import { BULKLETTERS_COMPONENTS } from './letters/registry';
+import { WORKBOOKS_COMPONENTS } from './workbooks/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -109,4 +110,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...OMR_COMPONENTS,
   ...REVIEWSIGN_COMPONENTS,
   ...BULKLETTERS_COMPONENTS,
+  ...WORKBOOKS_COMPONENTS,
 };

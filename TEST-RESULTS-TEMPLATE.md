@@ -264,6 +264,10 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L34 | Blur Faces or Number Plates in a Video: use the sample video, make the video and check the face and the moving plate stay hidden all the way; then try a real phone video with a face | | |
 | L35 | Review Us Sign Maker: use the Enjoyed your visit starter with your own business name and review link, then try Connect with us with three real links; make the tent PDF, print at Actual size, cut and fold it, and scan both faces with two phones | | |
 | L36 | Bulk Letter Maker: use the Fee reminder starter with your own list as an Excel file (include a date column and a phone number starting with 0), check the What we read panel against your sheet, make the PDF and the zip, and print one letter at Actual size | | |
+| L37 | Gantt Chart Excel Maker: use the Website launch starter, download the Excel file and open it in Excel or Google Sheets: check the bars, the yellow today column, a late task in red, the Owners sheet, and that changing a date or Done % moves the bars | | |
+| L38 | Attendance Register Excel Maker: use the Office starter with 3 months and two holidays, download the Excel file and open it: mark some days with the drop-down and check the weekends and holidays are grey, the totals and attendance percentage update, and the Summary sheet adds the months | | |
+| L39 | Invoice Excel Template Maker: use the Freelancer starter, add one tax and your own item and customer lists, download the Excel file and open it: pick a customer and items, check the totals by hand, print the Invoice sheet, and add a line to the Invoice Log | | |
+| L40 | Monthly Delivery Bill Excel Maker: use the Milk starter with your own customer list as an Excel file, download the workbook and open it: change a few days, type a payment, print one bill, and click a WhatsApp reminder link to check the message and phone number | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

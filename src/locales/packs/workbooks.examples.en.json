@@ -1,0 +1,507 @@
+{
+ "gantt": {
+  "starters": {
+   "website": {
+    "label": "Website launch",
+    "hint": "Plan, design, build, test and launch a website.",
+    "project": "Website launch",
+    "tasks": [
+     {
+      "task": "Plan and scope",
+      "owner": "Asha",
+      "from": 0,
+      "days": 5,
+      "done": 1
+     },
+     {
+      "task": "Design the first version",
+      "owner": "Ben",
+      "from": 5,
+      "days": 9,
+      "done": 1
+     },
+     {
+      "task": "Build the main pages",
+      "owner": "Chitra",
+      "from": 8,
+      "days": 9,
+      "done": 0.7
+     },
+     {
+      "task": "Connect forms and payments",
+      "owner": "Dev",
+      "from": 14,
+      "days": 12,
+      "done": 0.4
+     },
+     {
+      "task": "Test with real users",
+      "owner": "Asha",
+      "from": 22,
+      "days": 10,
+      "done": 0.1
+     },
+     {
+      "task": "Fix what the tests found",
+      "owner": "Ben",
+      "from": 30,
+      "days": 7,
+      "done": 0
+     },
+     {
+      "task": "Write the help pages",
+      "owner": "Chitra",
+      "from": 36,
+      "days": 6,
+      "done": 0
+     },
+     {
+      "task": "Launch",
+      "owner": "Dev",
+      "from": 41,
+      "days": 5,
+      "done": 0
+     }
+    ]
+   },
+   "event": {
+    "label": "Event plan",
+    "hint": "A conference, wedding, party or school function.",
+    "project": "Event plan",
+    "tasks": [
+     {
+      "task": "Fix the date and budget",
+      "owner": "Asha",
+      "from": 0,
+      "days": 4,
+      "done": 1
+     },
+     {
+      "task": "Book the venue",
+      "owner": "Ben",
+      "from": 3,
+      "days": 7,
+      "done": 1
+     },
+     {
+      "task": "Invite guests",
+      "owner": "Chitra",
+      "from": 8,
+      "days": 10,
+      "done": 0.8
+     },
+     {
+      "task": "Book food and music",
+      "owner": "Dev",
+      "from": 10,
+      "days": 12,
+      "done": 0.5
+     },
+     {
+      "task": "Print signs and badges",
+      "owner": "Asha",
+      "from": 20,
+      "days": 6,
+      "done": 0.2
+     },
+     {
+      "task": "Confirm guest numbers",
+      "owner": "Ben",
+      "from": 24,
+      "days": 5,
+      "done": 0
+     },
+     {
+      "task": "Set up the venue",
+      "owner": "Chitra",
+      "from": 30,
+      "days": 3,
+      "done": 0
+     },
+     {
+      "task": "Event day",
+      "owner": "Dev",
+      "from": 33,
+      "days": 1,
+      "done": 0
+     }
+    ]
+   },
+   "home": {
+    "label": "Home renovation",
+    "hint": "Rooms, workers and materials in order.",
+    "project": "Home renovation",
+    "tasks": [
+     {
+      "task": "Choose a design",
+      "owner": "Asha",
+      "from": 0,
+      "days": 7,
+      "done": 1
+     },
+     {
+      "task": "Get quotes",
+      "owner": "Ben",
+      "from": 5,
+      "days": 8,
+      "done": 1
+     },
+     {
+      "task": "Order materials",
+      "owner": "Chitra",
+      "from": 12,
+      "days": 6,
+      "done": 0.8
+     },
+     {
+      "task": "Remove old fittings",
+      "owner": "Dev",
+      "from": 16,
+      "days": 5,
+      "done": 0.6
+     },
+     {
+      "task": "Electrical and plumbing",
+      "owner": "Ben",
+      "from": 20,
+      "days": 10,
+      "done": 0.3
+     },
+     {
+      "task": "Walls and flooring",
+      "owner": "Chitra",
+      "from": 29,
+      "days": 14,
+      "done": 0
+     },
+     {
+      "task": "Furniture and fittings",
+      "owner": "Dev",
+      "from": 42,
+      "days": 10,
+      "done": 0
+     },
+     {
+      "task": "Final clean and handover",
+      "owner": "Asha",
+      "from": 52,
+      "days": 4,
+      "done": 0
+     }
+    ]
+   },
+   "study": {
+    "label": "Exam preparation",
+    "hint": "Spread subjects and revision before the exams.",
+    "project": "Exam preparation",
+    "tasks": [
+     {
+      "task": "List all topics",
+      "owner": "Me",
+      "from": 0,
+      "days": 3,
+      "done": 1
+     },
+     {
+      "task": "Finish subject one",
+      "owner": "Me",
+      "from": 3,
+      "days": 12,
+      "done": 1
+     },
+     {
+      "task": "Finish subject two",
+      "owner": "Me",
+      "from": 15,
+      "days": 12,
+      "done": 0.7
+     },
+     {
+      "task": "Finish subject three",
+      "owner": "Me",
+      "from": 27,
+      "days": 12,
+      "done": 0.3
+     },
+     {
+      "task": "First revision",
+      "owner": "Me",
+      "from": 39,
+      "days": 10,
+      "done": 0
+     },
+     {
+      "task": "Practice papers",
+      "owner": "Me",
+      "from": 49,
+      "days": 10,
+      "done": 0
+     },
+     {
+      "task": "Second revision",
+      "owner": "Me",
+      "from": 59,
+      "days": 7,
+      "done": 0
+     },
+     {
+      "task": "Exam week",
+      "owner": "Me",
+      "from": 66,
+      "days": 7,
+      "done": 0
+     }
+    ]
+   }
+  },
+  "sampleHeaders": [
+   "Task",
+   "Owner",
+   "Start",
+   "End",
+   "Done"
+  ],
+  "sampleRows": [
+   [
+    "Plan and scope",
+    "Asha",
+    "2026-12-01",
+    "2026-12-05",
+    "100%"
+   ],
+   [
+    "Design",
+    "Ben",
+    "2026-12-06",
+    "2026-12-14",
+    "50%"
+   ],
+   [
+    "Build",
+    "Chitra",
+    "2026-12-10",
+    "2026-12-24",
+    "0%"
+   ]
+  ]
+ },
+ "attendance": {
+  "starters": {
+   "office": {
+    "label": "Office, Monday to Friday",
+    "hint": "Saturday and Sunday are off.",
+    "org": "",
+    "weekOff": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true
+    ],
+    "months": 3
+   },
+   "shop": {
+    "label": "Shop, six days a week",
+    "hint": "Only Sunday is off.",
+    "org": "",
+    "weekOff": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "months": 3
+   },
+   "school": {
+    "label": "School or college staff",
+    "hint": "A full year, Saturday and Sunday off. Add the school holidays below.",
+    "org": "",
+    "weekOff": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true
+    ],
+    "months": 12
+   },
+   "factory": {
+    "label": "Workers, one day off",
+    "hint": "Sunday is off. Mark the day off for shifts yourself.",
+    "org": "",
+    "weekOff": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "months": 1
+   }
+  },
+  "sampleHeaders": [
+   "Name",
+   "ID"
+  ],
+  "sampleRows": [
+   [
+    "Alex Morgan",
+    "E001"
+   ],
+   [
+    "Priya Nair",
+    "E002"
+   ],
+   [
+    "Chen Wei",
+    "E003"
+   ]
+  ],
+  "holidayPlaceholder": "2026-12-25 Winter holiday\n2027-01-01 New year"
+ },
+ "invoice": {
+  "starters": {
+   "freelance": {
+    "label": "Freelancer or agency",
+    "hint": "Hours and projects, with an optional discount.",
+    "title": "INVOICE",
+    "discount": true,
+    "lines": 10,
+    "notes": "Payment is due within 15 days. Please add the invoice number to your payment."
+   },
+   "shop": {
+    "label": "Shop or seller",
+    "hint": "Many items, quantities and prices.",
+    "title": "INVOICE",
+    "discount": true,
+    "lines": 25,
+    "notes": "Goods once sold will not be taken back unless damaged. Thank you for shopping with us."
+   },
+   "service": {
+    "label": "Services or classes",
+    "hint": "A few lines, no discount column.",
+    "title": "INVOICE",
+    "discount": false,
+    "lines": 10,
+    "notes": "Please pay by the due date. Thank you."
+   },
+   "quote": {
+    "label": "Quotation or estimate",
+    "hint": "The same sheet, titled QUOTATION.",
+    "title": "QUOTATION",
+    "discount": true,
+    "lines": 15,
+    "notes": "This quotation is valid for 15 days from the date above."
+   }
+  },
+  "itemHeaders": [
+   "Item",
+   "Description",
+   "Price"
+  ],
+  "itemRows": [
+   [
+    "Consulting hour",
+    "One hour of work",
+    "60"
+   ],
+   [
+    "Design work",
+    "Per page",
+    "120"
+   ]
+  ],
+  "customerHeaders": [
+   "Name",
+   "Address",
+   "Phone"
+  ],
+  "customerRows": [
+   [
+    "Blue Door Cafe",
+    "12 Market Street",
+    "555-0101"
+   ],
+   [
+    "Green Leaf Studio",
+    "48 Park Road",
+    "555-0102"
+   ]
+  ]
+ },
+ "billing": {
+  "starters": {
+   "milk": {
+    "label": "Milk",
+    "hint": "Daily milk by the litre.",
+    "product": "Milk",
+    "unit": "litre",
+    "qty": 1
+   },
+   "tiffin": {
+    "label": "Tiffin or meals",
+    "hint": "One box or meal a day.",
+    "product": "Tiffin",
+    "unit": "box",
+    "qty": 1
+   },
+   "newspaper": {
+    "label": "Newspaper",
+    "hint": "One copy a day.",
+    "product": "Newspaper",
+    "unit": "copy",
+    "qty": 1
+   },
+   "water": {
+    "label": "Water cans",
+    "hint": "A can every day or every few days.",
+    "product": "Water",
+    "unit": "can",
+    "qty": 1
+   }
+  },
+  "sampleHeaders": [
+   "Name",
+   "Phone",
+   "Price",
+   "Usual qty",
+   "Opening balance",
+   "Address"
+  ],
+  "sampleRows": [
+   [
+    "Asha Rao",
+    "9000000001",
+    "50",
+    "1",
+    "0",
+    "Flat 101"
+   ],
+   [
+    "Ben Carter",
+    "9000000002",
+    "50",
+    "2",
+    "100",
+    "Flat 204"
+   ],
+   [
+    "Chitra Iyer",
+    "9000000003",
+    "50",
+    "1.5",
+    "0",
+    "Flat 305"
+   ]
+  ]
+ }
+}
