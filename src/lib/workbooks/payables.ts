@@ -21,7 +21,7 @@ export function buildPayables(o: PayablesOptions, now = new Date()): Book {
   suppliers.validate({ range: `C${first}:C${last}`, kind: 'whole', min: 0, max: 365 });
 
   const today = todaySerial(now), Su = (col: string) => `${q(t.sheetSuppliers)}!$${col}$${first}:$${col}$${last}`;
-  const sample = o.sample ? T.payables.sample.bills.map((b) => [today - b.ago, o.rows[b.supplier]?.name, b.no, b.amount, b.days ?? undefined, undefined, b.paid ?? undefined, b.paidAgo === undefined ? undefined : today - b.paidAgo]) : [];
+  const sample = o.sample ? T.payables.sample.bills.map((b) => [today - b.ago, o.rows[b.supplier]?.name, b.no, b.amount, b.days ?? undefined, undefined, b.paid ?? undefined, b.paidAgo == null ? undefined : today - b.paidAgo]) : [];
   const bills = listSheet(t.sheetBills, t.billsTitle, t.billsSub, [{ head: t.colBillDate, width: 13, fmt: o.region.date, align: 'center' }, { head: t.colSupplier, width: 28 }, { head: t.colBillNo, width: 13 }, { head: t.colAmount, width: 14, fmt: money }, { head: t.colDaysBill, width: 12, fmt: '0', align: 'center' }, { head: t.colDue, width: 13, fmt: o.region.date, align: 'center' }, { head: t.colPaid, width: 14, fmt: money }, { head: t.colPaidDate, width: 13, fmt: o.region.date, align: 'center' }, { head: t.colBalance, width: 14, fmt: money }, { head: t.colLeft, width: 11, fmt: '0', align: 'center' }, { head: t.colStatus, width: 13 }], sample, o.logRows);
   for (let r = bFirst; r <= bLast; r += 1) {
     const lookup = `IFERROR(IF(INDEX(${Su('C')},MATCH(B${r},${Su('A')},0))="",${defaultDays},INDEX(${Su('C')},MATCH(B${r},${Su('A')},0))),${defaultDays})`;
