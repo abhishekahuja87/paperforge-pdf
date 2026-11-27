@@ -163,27 +163,44 @@ export function getCollections(): HomeCollection[] {
   return all.filter((group) => group.tools.length + group.presets.length > 0);
 }
 
+/** Escapes text so it can be placed inside a regular expression. */
+const escapeForRegExp = (text: string): string => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 /**
- * Search across every available tool so a tool is always findable, including workspace tools by their
- * featured wording.
+ * How well a tool matches a search, lower is better:
+ * 0 the tool's name, 1 a search phrase or keyword written for finding it, 2 only its description or workspace text, 3 no match.
+ * A query has to start a word ("merge" matches "Merge PDF" but not "emerge"), or every word of a longer query has to appear.
+ */
+function searchTier(tool: ToolItem, query: string, language: string): number {
+  const startsWord = (text: string): boolean => new RegExp(`(^|[^\\p{L}\\p{N}])${escapeForRegExp(query)}`, 'u').test(text.toLowerCase());
+  const words = query.split(/\s+/).filter((word) => word.length > 2);
+  const hasAllWords = (text: string): boolean => words.length > 1 && words.every((word) => text.toLowerCase().includes(word));
+  const fits = (text: string): boolean => startsWord(text) || hasAllWords(text);
+  const localized = getToolCopy(tool, language);
+  if ([tool.title, localized.title].some(fits)) return 0;
+  if (searchTermsFor(tool.id, tool.keywords).some(fits)) return 1;
+  if (matchesQuery(tool, query, language)) return 2;
+  if (!WORKSPACES.includes(tool.id) || !isFeaturedId(tool.id)) return 3;
+  const featured = [featuredInfo(tool, language), getFeaturedCopy(tool.id, 'en')];
+  if (featured.some((copy) => fits(copy.title))) return 1;
+  return featured.some((copy) => [copy.useCase, copy.description, ...copy.highlights].some((text) => text.toLowerCase().includes(query))) ? 2 : 3;
+}
+
+/**
+ * Search across every available tool so a tool is always findable, including workspace tools by their featured wording.
+ * Tools whose name or search phrases match come first; tools that only mention the word in their description are listed
+ * only when nothing better matched, so "merge" shows Merge PDF and its close relatives, not every page that says "merge".
  */
 export function getSearchResults(query: string, language = 'en'): ToolItem[] {
   const normalized = query.trim().toLowerCase();
-  /** Lower is better: the title, then a listed phrase or keyword, then a match found anywhere else. */
-  const rank = (tool: ToolItem): number => {
-    if (!normalized) return 0;
-    if (tool.title.toLowerCase().includes(normalized)) return 0;
-    if (searchTermsFor(tool.id, tool.keywords).some((term) => term.toLowerCase().includes(normalized))) return 1;
-    return 2;
-  };
-  const found = TOOLS.filter((tool) => {
-    if (!tool.isAvailable) return false;
-    if (matchesQuery(tool, query, language)) return true;
-    if (!WORKSPACES.includes(tool.id) || !isFeaturedId(tool.id)) return false;
-    const localized = featuredInfo(tool, language);
-    const english = getFeaturedCopy(tool.id, 'en');
-    return [localized.title, localized.useCase, localized.description, ...localized.highlights, english.title, english.useCase, english.description, ...english.highlights]
-      .some((text) => text.toLowerCase().includes(normalized));
-  });
-  return found.map((tool, index) => ({ tool, index, score: rank(tool) })).sort((a, b) => a.score - b.score || a.index - b.index).map((entry) => entry.tool);
+  const scored = TOOLS.filter((tool) => tool.isAvailable).map((tool, index) => ({
+    tool,
+    index,
+    tier: normalized ? searchTier(tool, normalized, language) : 0,
+    // Inside the name tier: the name that starts with the query first, then the shorter name.
+    exact: normalized && homeTitle(tool.title).toLowerCase().startsWith(normalized) ? 0 : 1,
+  })).filter((entry) => entry.tier < 3);
+  const best = scored.filter((entry) => entry.tier < 2);
+  const shown = best.length > 0 ? best : scored;
+  return shown.sort((a, b) => a.tier - b.tier || a.exact - b.exact || a.index - b.index).map((entry) => entry.tool);
 }

@@ -20,6 +20,13 @@ export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
     path: '/',
+    tool: 'Search',
+    title: 'Search shows the best matches first',
+    summary: 'Searching for a word like merge now lists the tools named for it, then tools found through their search phrases, and no longer fills the list with every page that only mentions the word.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/',
     tool: 'Home page',
     title: 'Home page now shows every topic',
     summary: 'Each topic tile on the home page now says what it holds (for example Merge, split, fill, sign for PDF tools), and the Excel section is now called Excel templates and makers.',

@@ -270,6 +270,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L40 | Monthly Delivery Bill Excel Maker: use the Milk starter with your own customer list as an Excel file, download the workbook and open it: change a few days, type a payment, print one bill, and click a WhatsApp reminder link to check the message and phone number | | |
 | L41 | Excel template makers section: open the section page from the home hero tile, check four tools are listed, the FAQ links work, and each workbook tool's top link returns to this page | | |
 | L42 | Home page hero: headline, description, and all 15 topic tiles with their short lines of jobs. Check they fit on a phone (two lines at most) and each tile opens its section | | |
+| L43 | Home search: merge, split, compress, qr, emi, invoice, excel, reduce pdf size. The tool named for the word is first and the list is short and relevant | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 
