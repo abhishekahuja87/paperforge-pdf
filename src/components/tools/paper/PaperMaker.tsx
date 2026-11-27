@@ -100,7 +100,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
     <section className="mx-auto min-w-0">
       <style>{`@media print { body * { visibility: hidden !important; } #paper-print, #paper-print * { visibility: visible !important; } #paper-print { position: fixed; left: 0; top: 0; width: ${sheet.width}mm !important; height: ${sheet.height}mm !important; box-shadow: none !important; border: 0 !important; } #paper-print svg { width: ${sheet.width}mm !important; height: ${sheet.height}mm !important; max-height: none !important; } @page { size: ${sheet.width}mm ${sheet.height}mm; margin: 0; } }`}</style>
 
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] print:hidden">
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] print:m-0 print:block print:h-0 print:overflow-hidden">
         <div className="order-2 space-y-4 lg:order-1">
           <div className={card}>
             <h2 className={heading}>Choose the paper</h2>
