@@ -25,28 +25,56 @@
    "A) option: its options, one on each line",
    "Answer: B: the answer, shown after the question or at the end"
   ],
-  "look": "Look",
+  "look": "Design",
   "font": "Font",
   "looks": [
    {
     "value": "blue",
-    "label": "Blue"
+    "label": "Classic Blue"
+   },
+   {
+    "value": "navygold",
+    "label": "Navy and Gold"
+   },
+   {
+    "value": "teal",
+    "label": "Teal Modern"
    },
    {
     "value": "green",
-    "label": "Green"
+    "label": "Fresh Green"
    },
    {
     "value": "orange",
-    "label": "Orange"
+    "label": "Sunset"
+   },
+   {
+    "value": "purple",
+    "label": "Royal Purple"
+   },
+   {
+    "value": "rose",
+    "label": "Rose"
+   },
+   {
+    "value": "sky",
+    "label": "Sky"
+   },
+   {
+    "value": "pastel",
+    "label": "Soft Pastel"
    },
    {
     "value": "dark",
-    "label": "Dark"
+    "label": "Midnight"
+   },
+   {
+    "value": "bold",
+    "label": "Bold Black and Yellow"
    },
    {
     "value": "mono",
-    "label": "Black and white"
+    "label": "Black and White"
    }
   ],
   "fonts": [
@@ -61,6 +89,18 @@
    {
     "value": "Georgia",
     "label": "Georgia"
+   },
+   {
+    "value": "Verdana",
+    "label": "Verdana"
+   },
+   {
+    "value": "Trebuchet MS",
+    "label": "Trebuchet"
+   },
+   {
+    "value": "Times New Roman",
+    "label": "Times New Roman"
    }
   ],
   "agenda": "Add an agenda slide",
@@ -99,7 +139,8 @@
    "Titles are real slide titles, so the outline view and screen readers can find them.",
    "It has no macros, no pictures and no links to the internet."
   ],
-  "startedAgain": "All boxes and the outline are back to the starter text."
+  "startedAgain": "All boxes and the outline are back to the starter text.",
+  "designHint": "Pick a design. The preview below changes straight away. You can still change the font."
  },
  "tools": {
   "text-to-powerpoint-maker": {
@@ -143,7 +184,8 @@
      "contact": "",
      "outline": "# First slide\n- First point\n- Second point"
     }
-   }
+   },
+   "look": "blue"
   },
   "pitch-deck-powerpoint-maker": {
    "file": "pitch-deck",
@@ -168,7 +210,8 @@
      "contact": "[Website or phone]",
      "outline": "> [Product name]: [the main benefit in one line]\n# The need\n- [What customers struggle with]\n- [What they have tried]\n# Meet [Product name]\n- [Feature 1 and what it gives the customer]\n- [Feature 2 and what it gives the customer]\n- [Feature 3 and what it gives the customer]\n# Why people will choose it\n== Before\n- [How it is done today]\n== With [Product name]\n- [How it is done now]\n# Plans and prices\n| Plan | Includes | Price |\n| [Plan 1] | [  ] | [  ] |\n| [Plan 2] | [  ] | [  ] |\n# Launch plan\n- [Date and place]\n- [How customers can buy]"
     }
-   }
+   },
+   "look": "navygold"
   },
   "business-proposal-powerpoint-maker": {
    "file": "proposal",
@@ -193,7 +236,8 @@
      "contact": "[Website, email, phone]",
      "outline": "# About us\n- [What the company does]\n- [Year started and place]\n- [Size of the team]\n# What we offer\n== Products\n- [Product 1]\n- [Product 2]\n== Services\n- [Service 1]\n- [Service 2]\n# Our customers\n- [Types of customers you serve]\n- [A few names you can share, with permission]\n# Why customers choose us\n- [Reason 1]\n- [Reason 2]\n- [Reason 3]\n# Contact\n- [Address]\n- [Phone and email]"
     }
-   }
+   },
+   "look": "teal"
   },
   "lesson-powerpoint-maker": {
    "file": "lesson",
@@ -218,7 +262,8 @@
      "contact": "",
      "outline": "# What to revise\n- [Topic 1]\n- [Topic 2]\n- [Topic 3]\n# Key words\n| Word | Meaning |\n| [Word 1] | [  ] |\n| [Word 2] | [  ] |\n| [Word 3] | [  ] |\n# Compare\n== [First idea]\n- [Point]\n- [Point]\n== [Second idea]\n- [Point]\n- [Point]\n> [The one rule to remember]\n# Exam tips\n- [Tip 1]\n- [Tip 2]"
     }
-   }
+   },
+   "look": "green"
   },
   "project-status-powerpoint-maker": {
    "file": "status-update",
@@ -243,7 +288,8 @@
      "contact": "",
      "outline": "# Highlights\n- [Win 1]\n- [Win 2]\n# Results against plan\n| Measure | Plan | Actual |\n| [Measure 1] | [  ] | [  ] |\n| [Measure 2] | [  ] | [  ] |\n| [Measure 3] | [  ] | [  ] |\n# What we learned\n== Keep doing\n- [Point]\n== Change\n- [Point]\n# Focus for next month\n- [Priority 1]\n- [Priority 2]\n- [Priority 3]"
     }
-   }
+   },
+   "look": "sky"
   },
   "school-project-powerpoint-maker": {
    "file": "project-presentation",
@@ -268,7 +314,8 @@
      "contact": "References are on the last slide",
      "outline": "# Outline\n- [Part 1]\n- [Part 2]\n- [Part 3]\n# Background\n- [What the reader should know first]\n# [Part 1]\n- [Point]\n- [Point]\n# [Part 2]\n- [Point]\n- [Point]\n# [Part 3]\n- [Point]\n- [Point]\n# Conclusion\n- [Main takeaway]\n- [Open questions]\n# References\n- [Book, paper or website you used]"
     }
-   }
+   },
+   "look": "orange"
   },
   "quiz-powerpoint-maker": {
    "file": "quiz",
@@ -293,7 +340,8 @@
      "contact": "",
      "outline": "Q: [Your question 1]\nA) [Option]\nB) [Option]\nC) [Option]\nD) [Option]\nAnswer: [Letter]\nQ: [Your question 2]\nA) [Option]\nB) [Option]\nC) [Option]\nD) [Option]\nAnswer: [Letter]\nQ: [Your question 3]\nA) [Option]\nB) [Option]\nC) [Option]\nD) [Option]\nAnswer: [Letter]"
     }
-   }
+   },
+   "look": "purple"
   },
   "event-programme-powerpoint-maker": {
    "file": "event-programme",
@@ -318,7 +366,8 @@
      "contact": "[Contact]",
      "outline": "# Welcome\n- [Why we are here]\n- [What you will take home]\n# Agenda\n| Time | Session | Led by |\n| [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] |\n# Ground rules\n- [Rule 1]\n- [Rule 2]\n- [Rule 3]\n# Close\n- [What happens next]\n- [How to give feedback]"
     }
-   }
+   },
+   "look": "rose"
   }
  }
 }

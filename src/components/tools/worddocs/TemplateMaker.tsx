@@ -14,15 +14,17 @@ import { isoFrom } from '../../../lib/docs/kit';
 import T from '../../../locales/packs/worddocs.templates.text.en.json';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { buttonClass, inputClass, useRegion } from '../workbooks/shared';
+import { designOf } from '../../../lib/docs/designs';
+import { DesignPicker } from './DesignPicker';
 import { DocPreview } from './DocPreview';
 
 const c = T.common;
 export interface TemplateDef { id: string; file: string; title: string; subtitle: string; sections: TplSection[] }
 type Custom = { h: string; text: string };
-interface State { title: string; subtitle: string; org: string; author: string; date: string; version: string; cover: boolean; contents: boolean; pageNumbers: boolean; numbered: boolean; font: string; accent: string; on: Record<string, boolean>; text: Record<string, string>; custom: Custom[] }
+interface State { title: string; subtitle: string; org: string; author: string; date: string; version: string; cover: boolean; contents: boolean; pageNumbers: boolean; numbered: boolean; font: string; design: string; on: Record<string, boolean>; text: Record<string, string>; custom: Custom[] }
 
 const initial = (t: TemplateDef): State => ({
-  title: t.title, subtitle: t.subtitle, org: '', author: '', date: isoFrom(new Date(), 0), version: '1.0', cover: true, contents: true, pageNumbers: true, numbered: true, font: 'Calibri', accent: '1F4E79',
+  title: t.title, subtitle: t.subtitle, org: '', author: '', date: isoFrom(new Date(), 0), version: '1.0', cover: true, contents: true, pageNumbers: true, numbered: true, font: 'Calibri', design: 'classic',
   on: Object.fromEntries(t.sections.map((s) => [s.id, true])), text: Object.fromEntries(t.sections.map((s) => [s.id, s.text])), custom: [],
 });
 
@@ -46,7 +48,7 @@ export const TemplateMaker: React.FC<{ template: TemplateDef }> = ({ template })
   const set = <K extends keyof State>(k: K, v: State[K]) => setState((s) => ({ ...s, [k]: v }));
   const input = useMemo(() => ({
     title: state.title, subtitle: state.subtitle, org: state.org, author: state.author, date: state.date, version: state.version, cover: state.cover, contents: state.contents, pageNumbers: state.pageNumbers, numbered: state.numbered,
-    contentsHeading: c.contentsHeading, preparedBy: c.preparedBy, versionLabel: c.versionLabel, font: state.font, accent: state.accent, region,
+    contentsHeading: c.contentsHeading, preparedBy: c.preparedBy, versionLabel: c.versionLabel, font: state.font, design: state.design, region,
     picks: template.sections.map((section) => ({ section, on: state.on[section.id] ?? false, text: state.text[section.id] ?? '' })), custom: state.custom,
   }), [state, template, region]);
   const deferred = useDeferredValue(input);
@@ -87,8 +89,8 @@ export const TemplateMaker: React.FC<{ template: TemplateDef }> = ({ template })
           <Tick label={c.pageNumbers} checked={state.pageNumbers} onChange={(v) => set('pageNumbers', v)} />
           <Tick label={c.numbered} checked={state.numbered} onChange={(v) => set('numbered', v)} />
         </div>
+        <DesignPicker label={c.design} hint={c.designHint} value={state.design} names={c.designs} onChange={(id) => setState((s) => ({ ...s, design: id, font: designOf(id).font }))} />
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{c.font}</p><ChoiceButtons label={c.font} value={state.font} onChange={(v) => set('font', v)} options={c.fonts} /></div>
-        <div><p className="mb-1 text-xs font-semibold text-slate-700">{c.accent}</p><ChoiceButtons label={c.accent} value={state.accent} onChange={(v) => set('accent', v)} options={c.accents} /></div>
       </section>
 
       <section className={`${card} space-y-3`}>
