@@ -8,7 +8,7 @@ export const siteConfig = {
   contactEmail: 'mydailyutils@gmail.com',
   tagline: 'Everyday tools and utilities, right inside your browser.',
   description:
-    'Free PDF, photo and everyday tools with no limits and no sign-up: merge, split, fill, redact and compress PDFs, resize photos in bulk, make and scan QR codes, and tax, loan and savings calculators. Files and numbers are processed in your browser. Request a free tool if you cannot find what you need.',
+    'Free everyday tools and utilities with no limits and no sign-up: PDF tools, photo and image tools, Excel and printable templates, video and audio makers, QR codes, business and student tools, and tax, loan and savings calculators. Files and numbers are processed in your browser. Request a free tool if you cannot find what you need.',
   privacyHook: 'Runs in your browser',
   /** Added after a tool's name in its page title, for example "Merge PDF Online Free, No Upload | MyDailyUtils". */
   toolTitleSuffix: 'Online Free, No Upload',

@@ -166,6 +166,10 @@ Logic checked in Node: credit-weighted GPA, CGPA conversions and the next-term t
 
 Not run in the sandbox. On EMI, Unit converter (change the unit type to Temperature and pick units), Time zone converter, HRA (tick metro), Date difference (Add or subtract mode) and Percentage: change the inputs, press Copy link, open the link in a new tab and confirm every input and the result match. A tampered value (letters in a number field, an unknown option) must be ignored, and the address bar should lose its query once the page loads.
 
+## Home page hero wording (manual check needed)
+
+Not run in the sandbox. After deploying, open the home page on a phone and a desktop: the headline reads "Free online tools, utilities and calculators", every topic tile shows a short line of jobs and a count (it should wrap to at most two lines and not be cut off), and the Excel tile reads "Excel templates and makers". View the page source and check the title and description. In Search Console, request indexing for the home page.
+
 ## Excel template makers section (manual check needed)
 
 Not run in the sandbox. After deploying, open `/excel-template-makers`: the four tools are listed, the tool count says 4, and the FAQ links open the right tools. On the home page check the new "Excel template makers" hero tile and section, and that the Work section no longer lists the four workbook tools. Open each workbook tool: the top link should read Excel template makers and lead to the section page.

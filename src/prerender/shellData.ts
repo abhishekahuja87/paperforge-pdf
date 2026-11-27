@@ -336,7 +336,7 @@ function buildShellPages(): ShellPage[] {
   const home: ShellPage = {
     kind: 'home',
     path: '/',
-    title: 'Free Online Tools & Calculators',
+    title: 'Free Online Tools & Utilities',
     description: siteConfig.description,
     heading: `${en.homeHeading} ${en.homeHeadingAccent}`,
     subtitle: en.homeDescription,
