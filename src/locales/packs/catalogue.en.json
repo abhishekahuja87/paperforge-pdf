@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "product-catalogue-maker": [
+      [
+        "Add your business details",
+        "Type the shop name, the title, your WhatsApp number and other contact details, and add a logo if you have one."
+      ],
+      [
+        "Add products",
+        "Choose many photos at once, or add products one by one. Fix the names, type the prices, and add a short description, a code or a badge."
+      ],
+      [
+        "Pick a design and a layout",
+        "Choose one of 12 designs, then the number of products on a page and the page size. Change the colours, fonts and currency if you like."
+      ],
+      [
+        "Check the pages and download",
+        "Flip through the preview, then download a PDF or a ZIP of page pictures and share it on WhatsApp."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "productCatalogueMakerGuide": {
+      "title": "Product Catalogue Maker: Free Catalogue PDF with Photos and Prices",
+      "subtitle": "Add your products, photos and prices, pick one of 12 designs and download a catalogue as a PDF or as pictures for WhatsApp. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Product Catalogue Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many catalogues you make. The pages are drawn on your own device."
+        ],
+        [
+          "How many products can I add?",
+          "Up to 40 products in one catalogue. Choose many photos at once and each one becomes a product that you then name and price. The catalogue gets a cover and a last page with your contact details."
+        ],
+        [
+          "Can I choose how many products are on a page?",
+          "Yes. Choose 2 big, 4, 6, 9 or a list of 5 on each page. Fewer products give bigger photos, and more products give a shorter catalogue."
+        ],
+        [
+          "Can I add section headings like Best sellers or Gifts?",
+          "Yes. Type a heading in the section box of a product and that product starts a new page with the heading on top. The products after it stay in that section until the next heading."
+        ],
+        [
+          "Can customers order from the catalogue?",
+          "The last page shows your WhatsApp number, phone, email, website and address, and a QR code that opens a WhatsApp chat with you. Share the PDF on WhatsApp and ask people to message you the product code or name."
+        ],
+        [
+          "What size should I choose?",
+          "Choose A4 to print or to send as a PDF, A5 for a smaller printed booklet page, or the phone size for tall pages that fill a phone screen. The ZIP of pictures is handy for WhatsApp status or for sending page by page."
+        ],
+        [
+          "Can I type in Hindi or another language?",
+          "You can type in any language. The fancy fonts only have English letters, so other scripts use a plain system font that depends on your phone or computer. Look at the preview before you share the catalogue."
+        ],
+        [
+          "Are my photos and prices uploaded or saved?",
+          "No. The catalogue is made in your browser and your photos and prices stay on your device. {{siteName}} does not receive them. Your business details are remembered on this device only, and Start again clears them."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "product-catalogue-maker": {
+      "sections": [
+        {
+          "heading": "A catalogue without learning a design app",
+          "paragraphs": [
+            "Add your shop name and contact details once, then add products. Choose many photos together and each becomes a product named after its file, so you only fix the names and type the prices.",
+            "The cover, the pages and the order page are made for you in one of 12 designs. Choose how many products sit on a page, from 2 big ones to 9 small ones, or a simple list."
+          ]
+        },
+        {
+          "heading": "Make it yours",
+          "paragraphs": [
+            "Pick another colour set, other fonts, a currency sign, and switch prices, descriptions and codes on or off. Add a badge such as New or Sale, an old price that shows crossed out, and section headings like Best sellers.",
+            "Add your logo for the cover and the last page. Choose A4, A5 or a tall phone page, and download a PDF or a ZIP of pictures."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is drawn on your device, so your photos and prices are not uploaded. There are no logos or watermarks on the pages.",
+            "Check each name, price and phone number in the preview before you share the catalogue, and look at how other scripts such as Hindi appear."
+          ]
+        }
+      ]
+    }
+  }
+}

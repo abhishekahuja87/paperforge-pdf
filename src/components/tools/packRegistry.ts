@@ -53,6 +53,8 @@ import { REVIEWSIGN_COMPONENTS } from './reviewsign/registry';
 import { BULKLETTERS_COMPONENTS } from './letters/registry';
 import { WORKBOOKS_COMPONENTS } from './workbooks/registry';
 import { WORDDOCS_COMPONENTS } from './worddocs/registry';
+import { INVITES_COMPONENTS } from './invites/registry';
+import { CATALOGUE_COMPONENTS } from './catalogue/registry';
 import { DECKS_COMPONENTS } from './decks/registry';
 
 /**
@@ -114,5 +116,7 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...BULKLETTERS_COMPONENTS,
   ...WORKBOOKS_COMPONENTS,
   ...WORDDOCS_COMPONENTS,
+  ...INVITES_COMPONENTS,
+  ...CATALOGUE_COMPONENTS,
   ...DECKS_COMPONENTS,
 };
