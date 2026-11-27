@@ -63,4 +63,28 @@ export const WORDDOCS_TOOLS: PackTool[] = [
     id: 'status-report-word-template', kind: 'tplStatusReport', guideKey: 'statusReportWordTemplateGuide', category: 'business', icon: 'file-text', tier: 'popular',
     keywords: ['weekly status report template word', 'project status report format', 'progress report sample', 'status report docx', 'status report template', 'status report word template', 'status report format', 'status report download', 'status report sample', 'free status report template', 'editable status report', 'status report with headings'],
   }, worddocs.toolCatalog),
+  definePackTool({
+    id: 'marketing-plan-word-template', kind: 'tplMarketingPlan', guideKey: 'marketingPlanWordTemplateGuide', category: 'business', icon: 'file-text', tier: 'popular',
+    keywords: ['marketing plan template word', 'marketing plan format in word', 'small business marketing plan', 'marketing plan sample', 'digital marketing plan template', 'marketing plan template', 'marketing plan word template', 'marketing plan format', 'marketing plan download', 'free marketing plan template', 'editable marketing plan', 'marketing plan with headings'],
+  }, worddocs.toolCatalog),
+  definePackTool({
+    id: 'lesson-plan-word-template', kind: 'tplLessonPlan', guideKey: 'lessonPlanWordTemplateGuide', category: 'business', icon: 'file-text', tier: 'popular',
+    keywords: ['lesson plan template word', 'lesson plan format in word', 'lesson plan for teachers', 'lesson plan sample', 'daily lesson plan format', 'lesson plan template', 'lesson plan word template', 'lesson plan format', 'lesson plan download', 'free lesson plan template', 'editable lesson plan', 'lesson plan with headings'],
+  }, worddocs.toolCatalog),
+  definePackTool({
+    id: 'seminar-report-word-template', kind: 'tplSeminarReport', guideKey: 'seminarReportWordTemplateGuide', category: 'business', icon: 'file-text', tier: 'popular',
+    keywords: ['seminar report format in word', 'seminar report template', 'seminar report for engineering students', 'seminar report sample', 'technical seminar report format', 'seminar report word template', 'seminar report format', 'seminar report download', 'free seminar report template', 'editable seminar report', 'seminar report with headings', 'seminar report with contents page'],
+  }, worddocs.toolCatalog),
+  definePackTool({
+    id: 'product-requirements-word-template', kind: 'tplProductRequirements', guideKey: 'productRequirementsWordTemplateGuide', category: 'business', icon: 'file-text', tier: 'popular',
+    keywords: ['prd template word', 'product requirements document template', 'prd format', 'product requirement document sample', 'feature requirements template', 'product requirements template', 'product requirements word template', 'product requirements format', 'product requirements download', 'product requirements sample', 'free product requirements template', 'editable product requirements'],
+  }, worddocs.toolCatalog),
+  definePackTool({
+    id: 'training-manual-word-template', kind: 'tplTrainingManual', guideKey: 'trainingManualWordTemplateGuide', category: 'business', icon: 'file-text', tier: 'popular',
+    keywords: ['training manual template word', 'training manual format', 'employee training manual', 'user manual template', 'staff training guide template', 'training manual template', 'training manual word template', 'training manual download', 'training manual sample', 'free training manual template', 'editable training manual', 'training manual with headings'],
+  }, worddocs.toolCatalog),
+  definePackTool({
+    id: 'grant-proposal-word-template', kind: 'tplGrantProposal', guideKey: 'grantProposalWordTemplateGuide', category: 'business', icon: 'file-text', tier: 'popular',
+    keywords: ['grant proposal template word', 'ngo project proposal format', 'funding proposal template', 'csr proposal format', 'grant application template', 'grant proposal template', 'grant proposal word template', 'grant proposal format', 'grant proposal download', 'grant proposal sample', 'free grant proposal template', 'editable grant proposal'],
+  }, worddocs.toolCatalog),
 ];

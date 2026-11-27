@@ -33,3 +33,21 @@ export const EventPlanTemplate: React.FC = () => <TemplateMaker template={T2['ev
 
 /** status-report Word template. */
 export const StatusReportTemplate: React.FC = () => <TemplateMaker template={T2['status-report']!} />;
+
+/** marketing-plan Word template. */
+export const MarketingPlanTemplate: React.FC = () => <TemplateMaker template={T2['marketing-plan']!} />;
+
+/** lesson-plan Word template. */
+export const LessonPlanTemplate: React.FC = () => <TemplateMaker template={T2['lesson-plan']!} />;
+
+/** seminar-report Word template. */
+export const SeminarReportTemplate: React.FC = () => <TemplateMaker template={T2['seminar-report']!} />;
+
+/** product-requirements Word template. */
+export const ProductRequirementsTemplate: React.FC = () => <TemplateMaker template={T2['product-requirements']!} />;
+
+/** training-manual Word template. */
+export const TrainingManualTemplate: React.FC = () => <TemplateMaker template={T2['training-manual']!} />;
+
+/** grant-proposal Word template. */
+export const GrantProposalTemplate: React.FC = () => <TemplateMaker template={T2['grant-proposal']!} />;

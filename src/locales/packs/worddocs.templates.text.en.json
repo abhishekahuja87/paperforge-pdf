@@ -1046,6 +1046,675 @@
         }
       ],
       "id": "status-report"
+    },
+    "marketing-plan": {
+      "file": "marketing-plan",
+      "title": "Marketing Plan",
+      "subtitle": "[Business or product name]",
+      "sections": [
+        {
+          "h": "Summary",
+          "text": "[Write three or four sentences: what you sell, who it is for, what you want to achieve and how. Write this last.]",
+          "level": 1,
+          "id": "marketing-plan-0"
+        },
+        {
+          "h": "Where we are today",
+          "text": "[Describe the business, its products and how sales are going now, in your own figures.]",
+          "level": 1,
+          "id": "marketing-plan-1"
+        },
+        {
+          "h": "Goals",
+          "text": "- [Goal 1: a result you can count, such as new customers or sales]\n- [Goal 2]\n- [Goal 3]",
+          "level": 1,
+          "id": "marketing-plan-2"
+        },
+        {
+          "h": "Target customers",
+          "text": "[Say who you want to reach: age, place, job, needs and how they buy today.]",
+          "level": 1,
+          "id": "marketing-plan-3"
+        },
+        {
+          "h": "Competitors",
+          "text": "[Name the main competitors and say what they do well and where you can be better.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Competitor",
+              "What they do well",
+              "Where we can be better"
+            ],
+            "rows": 4,
+            "widths": [
+              26,
+              37,
+              37
+            ]
+          },
+          "id": "marketing-plan-4"
+        },
+        {
+          "h": "Message and offer",
+          "text": "[Say what you promise customers, in one or two lines, and what makes you different.]",
+          "level": 1,
+          "id": "marketing-plan-5"
+        },
+        {
+          "h": "Channels and activities",
+          "text": "[List where you will reach customers and what you will do there.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Channel",
+              "Activity",
+              "Who",
+              "When"
+            ],
+            "rows": 6,
+            "widths": [
+              22,
+              40,
+              18,
+              20
+            ]
+          },
+          "id": "marketing-plan-6"
+        },
+        {
+          "h": "Budget",
+          "text": "[List the planned costs. Add a total at the bottom.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Item",
+              "Details",
+              "Cost"
+            ],
+            "rows": 6,
+            "widths": [
+              30,
+              48,
+              22
+            ]
+          },
+          "id": "marketing-plan-7"
+        },
+        {
+          "h": "Calendar",
+          "text": "[Show the main activities month by month.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Month",
+              "Activity",
+              "Owner"
+            ],
+            "rows": 6,
+            "widths": [
+              20,
+              60,
+              20
+            ]
+          },
+          "id": "marketing-plan-8"
+        },
+        {
+          "h": "How we will measure results",
+          "text": "- [Measure 1: what you will count, and how often]\n- [Measure 2]\n- [Measure 3]",
+          "level": 1,
+          "id": "marketing-plan-9"
+        },
+        {
+          "h": "Risks and next steps",
+          "text": "[Say what could go wrong and what happens first.]",
+          "level": 1,
+          "id": "marketing-plan-10"
+        }
+      ],
+      "id": "marketing-plan"
+    },
+    "lesson-plan": {
+      "file": "lesson-plan",
+      "title": "Lesson Plan",
+      "subtitle": "[Subject and topic]",
+      "sections": [
+        {
+          "h": "Class details",
+          "text": "[Write the class, the subject, the number of students, the date and how long the lesson is.]",
+          "level": 1,
+          "id": "lesson-plan-0"
+        },
+        {
+          "h": "Learning objectives",
+          "text": "By the end of the lesson students will be able to:\n- [Objective 1]\n- [Objective 2]\n- [Objective 3]",
+          "level": 1,
+          "id": "lesson-plan-1"
+        },
+        {
+          "h": "Before the lesson",
+          "text": "[Say what students should already know, and what you need to prepare.]",
+          "level": 1,
+          "id": "lesson-plan-2"
+        },
+        {
+          "h": "Materials and resources",
+          "text": "- [Book, chapter or page]\n- [Board, slides or handouts]\n- [Other material]",
+          "level": 1,
+          "id": "lesson-plan-3"
+        },
+        {
+          "h": "Lesson steps",
+          "text": "[Plan the lesson in order, with a time for each part.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Time",
+              "Activity",
+              "What the teacher does",
+              "What students do"
+            ],
+            "rows": 6,
+            "widths": [
+              12,
+              26,
+              31,
+              31
+            ]
+          },
+          "id": "lesson-plan-4"
+        },
+        {
+          "h": "Introduction",
+          "text": "[How you will start and get attention.]",
+          "level": 2,
+          "id": "lesson-plan-5"
+        },
+        {
+          "h": "Main activity",
+          "text": "[The main teaching or practice.]",
+          "level": 2,
+          "id": "lesson-plan-6"
+        },
+        {
+          "h": "Closing",
+          "text": "[How you will sum up and check understanding.]",
+          "level": 2,
+          "id": "lesson-plan-7"
+        },
+        {
+          "h": "Key words and ideas",
+          "text": "- [Word or idea 1]\n- [Word or idea 2]",
+          "level": 1,
+          "id": "lesson-plan-8"
+        },
+        {
+          "h": "Checking understanding",
+          "text": "[Say how you will find out who understood: questions, a short quiz or a task.]",
+          "level": 1,
+          "id": "lesson-plan-9"
+        },
+        {
+          "h": "Homework",
+          "text": "[Describe the task and when it is due.]",
+          "level": 1,
+          "id": "lesson-plan-10"
+        },
+        {
+          "h": "Notes for after the lesson",
+          "text": "[Write what worked, what did not and what to change next time.]",
+          "level": 1,
+          "id": "lesson-plan-11"
+        }
+      ],
+      "id": "lesson-plan"
+    },
+    "seminar-report": {
+      "file": "seminar-report",
+      "title": "Seminar Report",
+      "subtitle": "[Seminar topic]",
+      "sections": [
+        {
+          "h": "Acknowledgement",
+          "text": "[Thank the people who helped: your guide, your teachers and your family.]",
+          "level": 1,
+          "id": "seminar-report-0"
+        },
+        {
+          "h": "Abstract",
+          "text": "[Write a short summary of the topic, what the report covers and the main conclusion. Write this last.]",
+          "level": 1,
+          "id": "seminar-report-1"
+        },
+        {
+          "h": "Introduction",
+          "text": "[Say what the topic is, why it matters and what the report covers.]",
+          "level": 1,
+          "id": "seminar-report-2"
+        },
+        {
+          "h": "Background",
+          "text": "[Explain the ideas a reader needs before the main part.]",
+          "level": 1,
+          "id": "seminar-report-3"
+        },
+        {
+          "h": "Main discussion",
+          "text": "[Explain the topic in detail. Use the sub-headings below or your own.]",
+          "level": 1,
+          "id": "seminar-report-4"
+        },
+        {
+          "h": "[Sub-topic 1]",
+          "text": "[Explain it. Add a diagram or table if it helps.]",
+          "level": 2,
+          "id": "seminar-report-5"
+        },
+        {
+          "h": "[Sub-topic 2]",
+          "text": "[Explain it.]",
+          "level": 2,
+          "id": "seminar-report-6"
+        },
+        {
+          "h": "[Sub-topic 3]",
+          "text": "[Explain it.]",
+          "level": 2,
+          "id": "seminar-report-7"
+        },
+        {
+          "h": "Applications",
+          "text": "- [Where the topic is used]\n- [Who benefits]",
+          "level": 1,
+          "id": "seminar-report-8"
+        },
+        {
+          "h": "Advantages and limits",
+          "text": " ",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Advantages",
+              "Limits"
+            ],
+            "rows": 4,
+            "widths": [
+              50,
+              50
+            ]
+          },
+          "id": "seminar-report-9"
+        },
+        {
+          "h": "Present position and future scope",
+          "text": "[Say where things stand now and what may come next.]",
+          "level": 1,
+          "id": "seminar-report-10"
+        },
+        {
+          "h": "Conclusion",
+          "text": "[Sum up what you found in a few sentences.]",
+          "level": 1,
+          "id": "seminar-report-11"
+        },
+        {
+          "h": "References",
+          "text": "[List the books, papers and websites you used, one per line, in the format your college asks for.]",
+          "level": 1,
+          "id": "seminar-report-12"
+        }
+      ],
+      "id": "seminar-report"
+    },
+    "product-requirements": {
+      "file": "product-requirements",
+      "title": "Product Requirements",
+      "subtitle": "[Product or feature name]",
+      "sections": [
+        {
+          "h": "Summary",
+          "text": "[Say in two or three sentences what you are building, for whom, and why now.]",
+          "level": 1,
+          "id": "product-requirements-0"
+        },
+        {
+          "h": "Problem",
+          "text": "[Describe the problem users have today, with any facts or quotes you have.]",
+          "level": 1,
+          "id": "product-requirements-1"
+        },
+        {
+          "h": "Goals and non-goals",
+          "text": "Goals:\n- [Goal 1]\n- [Goal 2]\nNot in this release:\n- [Not a goal 1]",
+          "level": 1,
+          "id": "product-requirements-2"
+        },
+        {
+          "h": "Users",
+          "text": "[Say who will use it and what they want to do.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "User",
+              "Need",
+              "Today they"
+            ],
+            "rows": 4,
+            "widths": [
+              24,
+              38,
+              38
+            ]
+          },
+          "id": "product-requirements-3"
+        },
+        {
+          "h": "User stories",
+          "text": "- As a [user], I want to [do something], so that [reason].\n- As a [user], I want to [do something], so that [reason].",
+          "level": 1,
+          "id": "product-requirements-4"
+        },
+        {
+          "h": "Requirements",
+          "text": "[List what the product must do. Mark each as must, should or could.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "No.",
+              "Requirement",
+              "Priority",
+              "Notes"
+            ],
+            "rows": 8,
+            "widths": [
+              8,
+              58,
+              14,
+              20
+            ]
+          },
+          "id": "product-requirements-5"
+        },
+        {
+          "h": "Flow and screens",
+          "text": "[Describe the steps a user takes, or add a link to the designs.]",
+          "level": 1,
+          "id": "product-requirements-6"
+        },
+        {
+          "h": "Open questions",
+          "text": "- [Question and who will answer it]",
+          "level": 1,
+          "id": "product-requirements-7"
+        },
+        {
+          "h": "How success will be measured",
+          "text": "- [Measure 1 and target]\n- [Measure 2 and target]",
+          "level": 1,
+          "id": "product-requirements-8"
+        },
+        {
+          "h": "Timeline",
+          "text": "[Show the main steps and dates.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Step",
+              "Owner",
+              "Date"
+            ],
+            "rows": 5,
+            "widths": [
+              50,
+              28,
+              22
+            ]
+          },
+          "id": "product-requirements-9"
+        },
+        {
+          "h": "Risks and dependencies",
+          "text": "[Say what could slow this down and what you rely on.]",
+          "level": 1,
+          "id": "product-requirements-10"
+        }
+      ],
+      "id": "product-requirements"
+    },
+    "training-manual": {
+      "file": "training-manual",
+      "title": "Training Manual",
+      "subtitle": "[Topic or role]",
+      "sections": [
+        {
+          "h": "About this manual",
+          "text": "[Say who it is for, what it covers and how to use it.]",
+          "level": 1,
+          "id": "training-manual-0"
+        },
+        {
+          "h": "What you will learn",
+          "text": "- [Skill or topic 1]\n- [Skill or topic 2]\n- [Skill or topic 3]",
+          "level": 1,
+          "id": "training-manual-1"
+        },
+        {
+          "h": "Before you start",
+          "text": "[Say what the learner needs to know, bring or set up.]",
+          "level": 1,
+          "id": "training-manual-2"
+        },
+        {
+          "h": "Module 1: [name]",
+          "text": "[Explain the topic in short steps.]",
+          "level": 1,
+          "id": "training-manual-3"
+        },
+        {
+          "h": "Steps",
+          "text": "1. [Step one]\n2. [Step two]\n3. [Step three]",
+          "level": 2,
+          "id": "training-manual-4"
+        },
+        {
+          "h": "Practice",
+          "text": "[Give a short task the learner can try.]",
+          "level": 2,
+          "id": "training-manual-5"
+        },
+        {
+          "h": "Module 2: [name]",
+          "text": "[Explain the topic in short steps.]",
+          "level": 1,
+          "id": "training-manual-6"
+        },
+        {
+          "h": "Steps",
+          "text": "[Write the steps.]",
+          "level": 2,
+          "id": "training-manual-7"
+        },
+        {
+          "h": "Practice",
+          "text": "[Give a short task.]",
+          "level": 2,
+          "id": "training-manual-8"
+        },
+        {
+          "h": "Module 3: [name]",
+          "text": "[Explain the topic in short steps.]",
+          "level": 1,
+          "id": "training-manual-9"
+        },
+        {
+          "h": "Common mistakes",
+          "text": "- [Mistake and how to avoid it]\n- [Mistake and how to avoid it]",
+          "level": 1,
+          "id": "training-manual-10"
+        },
+        {
+          "h": "Quick reference",
+          "text": "[Add a short list or table the learner can keep nearby.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Task",
+              "How",
+              "Who to ask"
+            ],
+            "rows": 6,
+            "widths": [
+              30,
+              45,
+              25
+            ]
+          },
+          "id": "training-manual-11"
+        },
+        {
+          "h": "Check your learning",
+          "text": "[Add questions or a short test.]",
+          "level": 1,
+          "id": "training-manual-12"
+        },
+        {
+          "h": "Where to get help",
+          "text": "[Say who to ask and how.]",
+          "level": 1,
+          "id": "training-manual-13"
+        }
+      ],
+      "id": "training-manual"
+    },
+    "grant-proposal": {
+      "file": "grant-proposal",
+      "title": "Grant Proposal",
+      "subtitle": "[Project name]",
+      "sections": [
+        {
+          "h": "Summary",
+          "text": "[Write a short summary: who you are, what you will do, for whom, for how long and how much you ask for. Write this last.]",
+          "level": 1,
+          "id": "grant-proposal-0"
+        },
+        {
+          "h": "About the organisation",
+          "text": "[Say who you are, what you do and what you have achieved so far.]",
+          "level": 1,
+          "id": "grant-proposal-1"
+        },
+        {
+          "h": "The need",
+          "text": "[Describe the problem and who is affected, with facts and figures you can name a source for.]",
+          "level": 1,
+          "id": "grant-proposal-2"
+        },
+        {
+          "h": "Project description",
+          "text": "[Describe what you will do, step by step, and why this will work.]",
+          "level": 1,
+          "id": "grant-proposal-3"
+        },
+        {
+          "h": "Goals and outcomes",
+          "text": "- [Goal 1 and the result you expect]\n- [Goal 2 and the result you expect]",
+          "level": 1,
+          "id": "grant-proposal-4"
+        },
+        {
+          "h": "Who will benefit",
+          "text": "[Say who and how many people, and how you will reach them.]",
+          "level": 1,
+          "id": "grant-proposal-5"
+        },
+        {
+          "h": "Activities and timeline",
+          "text": "[List the main activities with dates.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Activity",
+              "Start",
+              "End",
+              "Responsible"
+            ],
+            "rows": 6,
+            "widths": [
+              44,
+              16,
+              16,
+              24
+            ]
+          },
+          "id": "grant-proposal-6"
+        },
+        {
+          "h": "Team",
+          "text": "[Say who will do the work and what they bring.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Name",
+              "Role",
+              "Experience"
+            ],
+            "rows": 4,
+            "widths": [
+              28,
+              24,
+              48
+            ]
+          },
+          "id": "grant-proposal-7"
+        },
+        {
+          "h": "Budget",
+          "text": "[List each cost. Add a total, and say what you ask for and what comes from elsewhere.]",
+          "level": 1,
+          "table": {
+            "headers": [
+              "Item",
+              "Details",
+              "Cost",
+              "Asked from this grant"
+            ],
+            "rows": 8,
+            "widths": [
+              28,
+              34,
+              19,
+              19
+            ]
+          },
+          "id": "grant-proposal-8"
+        },
+        {
+          "h": "How we will measure and report",
+          "text": "- [What you will count]\n- [How often you will report]",
+          "level": 1,
+          "id": "grant-proposal-9"
+        },
+        {
+          "h": "Sustainability",
+          "text": "[Say what happens after the grant ends.]",
+          "level": 1,
+          "id": "grant-proposal-10"
+        },
+        {
+          "h": "Risks",
+          "text": "[List what could go wrong and how you will handle it.]",
+          "level": 1,
+          "id": "grant-proposal-11"
+        },
+        {
+          "h": "Contact and attachments",
+          "text": "[Give a contact person, and list the documents attached.]",
+          "level": 1,
+          "id": "grant-proposal-12"
+        }
+      ],
+      "id": "grant-proposal"
     }
   }
 }

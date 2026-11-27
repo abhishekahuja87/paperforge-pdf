@@ -269,6 +269,114 @@
         "Make the Word file",
         "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
       ]
+    ],
+    "marketing-plan-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Pick a design, and turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has summary, where you are today, goals, target customers, competitors, message and offer, channels, budget, calendar, measures and risks. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "lesson-plan-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Pick a design, and turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has class details, learning objectives, materials, timed lesson steps, key words, checking understanding, homework and notes for after the lesson. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "seminar-report-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Pick a design, and turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has acknowledgement, abstract, introduction, background, main discussion, applications, advantages and limits, conclusion and references. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "product-requirements-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Pick a design, and turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has summary, problem, goals, users, user stories, requirements with priority, flow, open questions, success measures, timeline and risks. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "training-manual-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Pick a design, and turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has about this manual, what you will learn, modules with steps and practice, common mistakes, a quick reference and a check of learning. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "grant-proposal-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Pick a design, and turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has summary, about the organisation, the need, project description, goals, beneficiaries, timeline, team, budget, reporting, sustainability and risks. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
     ]
   },
   "pageGuides": {
@@ -841,6 +949,234 @@
           "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
         ]
       ]
+    },
+    "marketingPlanWordTemplateGuide": {
+      "title": "Marketing Plan Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "No Word needed. Start a marketing plan with a cover, contents, headings and tables, in 12 designs. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Marketing Plan Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the marketing plan template include?",
+          "It includes summary, where you are today, goals, target customers, competitors, message and offer, channels, budget, calendar, measures and risks. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I change the colours, design and font?",
+          "Yes. Choose one of 12 designs and each one changes the colours, the title page and the heading style. Then pick a font. The preview changes straight away."
+        ],
+        [
+          "Do I need Word to make this?",
+          "No. You do not need Word, or any app or account, to make it: this page builds the .docx file in your browser, free. Later, when you want to change it, it opens in Word, Google Docs, WPS Office and LibreOffice. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my marketing plan uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "lessonPlanWordTemplateGuide": {
+      "title": "Lesson Plan Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "No Word needed. Start a lesson plan with a cover, contents, headings and tables, in 12 designs. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Lesson Plan Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the lesson plan template include?",
+          "It includes class details, learning objectives, materials, timed lesson steps, key words, checking understanding, homework and notes for after the lesson. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I change the colours, design and font?",
+          "Yes. Choose one of 12 designs and each one changes the colours, the title page and the heading style. Then pick a font. The preview changes straight away."
+        ],
+        [
+          "Do I need Word to make this?",
+          "No. You do not need Word, or any app or account, to make it: this page builds the .docx file in your browser, free. Later, when you want to change it, it opens in Word, Google Docs, WPS Office and LibreOffice. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my lesson plan uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "seminarReportWordTemplateGuide": {
+      "title": "Seminar Report Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "No Word needed. Start a seminar report with a cover, contents, headings and tables, in 12 designs. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Seminar Report Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the seminar report template include?",
+          "It includes acknowledgement, abstract, introduction, background, main discussion, applications, advantages and limits, conclusion and references. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I change the colours, design and font?",
+          "Yes. Choose one of 12 designs and each one changes the colours, the title page and the heading style. Then pick a font. The preview changes straight away."
+        ],
+        [
+          "Do I need Word to make this?",
+          "No. You do not need Word, or any app or account, to make it: this page builds the .docx file in your browser, free. Later, when you want to change it, it opens in Word, Google Docs, WPS Office and LibreOffice. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my seminar report uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "productRequirementsWordTemplateGuide": {
+      "title": "Product Requirements Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "No Word needed. Start a product requirements document (PRD) with a cover, contents, headings and tables, in 12 designs. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Product Requirements Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the product requirements template include?",
+          "It includes summary, problem, goals, users, user stories, requirements with priority, flow, open questions, success measures, timeline and risks. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I change the colours, design and font?",
+          "Yes. Choose one of 12 designs and each one changes the colours, the title page and the heading style. Then pick a font. The preview changes straight away."
+        ],
+        [
+          "Do I need Word to make this?",
+          "No. You do not need Word, or any app or account, to make it: this page builds the .docx file in your browser, free. Later, when you want to change it, it opens in Word, Google Docs, WPS Office and LibreOffice. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my product requirements uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "trainingManualWordTemplateGuide": {
+      "title": "Training Manual Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "No Word needed. Start a training manual with a cover, contents, headings and tables, in 12 designs. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Training Manual Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the training manual template include?",
+          "It includes about this manual, what you will learn, modules with steps and practice, common mistakes, a quick reference and a check of learning. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I change the colours, design and font?",
+          "Yes. Choose one of 12 designs and each one changes the colours, the title page and the heading style. Then pick a font. The preview changes straight away."
+        ],
+        [
+          "Do I need Word to make this?",
+          "No. You do not need Word, or any app or account, to make it: this page builds the .docx file in your browser, free. Later, when you want to change it, it opens in Word, Google Docs, WPS Office and LibreOffice. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my training manual uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "grantProposalWordTemplateGuide": {
+      "title": "Grant Proposal Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "No Word needed. Start a grant proposal with a cover, contents, headings and tables, in 12 designs. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Grant Proposal Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the grant proposal template include?",
+          "It includes summary, about the organisation, the need, project description, goals, beneficiaries, timeline, team, budget, reporting, sustainability and risks. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I change the colours, design and font?",
+          "Yes. Choose one of 12 designs and each one changes the colours, the title page and the heading style. Then pick a font. The preview changes straight away."
+        ],
+        [
+          "Do I need Word to make this?",
+          "No. You do not need Word, or any app or account, to make it: this page builds the .docx file in your browser, free. Later, when you want to change it, it opens in Word, Google Docs, WPS Office and LibreOffice. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my grant proposal uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -1215,6 +1551,162 @@
           "paragraphs": [
             "A project status report is usually read by a manager, a client or a steering group. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
             "This tool gives you the structure: period, progress, plans for next period, milestones, issues and risks, decisions needed and budget status. You write the real content in Word. Keep it to one or two pages, and put the decisions you need at the top.",
+            "You do not need Word to make it. The file is built in your browser, and you only need Word, Google Docs or WPS Office later if you want to keep editing it."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "marketing-plan-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a marketing plan",
+          "paragraphs": [
+            "A marketing plan is usually read by an owner, a manager, a partner or an investor. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: summary, where you are today, goals, target customers, competitors, message and offer, channels, budget, calendar, measures and risks. You write the real content in Word. Use your own figures for goals and budget. The template does not add any numbers.",
+            "You do not need Word to make it. The file is built in your browser, and you only need Word, Google Docs or WPS Office later if you want to keep editing it."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "lesson-plan-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a lesson plan",
+          "paragraphs": [
+            "A lesson plan is usually read by a teacher, a head of school or a trainee teacher. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: class details, learning objectives, materials, timed lesson steps, key words, checking understanding, homework and notes for after the lesson. You write the real content in Word. Give each step a time, so the lesson fits the period.",
+            "You do not need Word to make it. The file is built in your browser, and you only need Word, Google Docs or WPS Office later if you want to keep editing it."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "seminar-report-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a seminar report",
+          "paragraphs": [
+            "A seminar report is usually read by your college, your guide or a seminar examiner. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: acknowledgement, abstract, introduction, background, main discussion, applications, advantages and limits, conclusion and references. You write the real content in Word. Check your college format. Colleges often have their own rules for margins and fonts.",
+            "You do not need Word to make it. The file is built in your browser, and you only need Word, Google Docs or WPS Office later if you want to keep editing it."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "product-requirements-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a product requirements document (PRD)",
+          "paragraphs": [
+            "A product requirements document (PRD) is usually read by a product team, developers, designers and managers. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: summary, problem, goals, users, user stories, requirements with priority, flow, open questions, success measures, timeline and risks. You write the real content in Word. Write what users need first, and the solution after.",
+            "You do not need Word to make it. The file is built in your browser, and you only need Word, Google Docs or WPS Office later if you want to keep editing it."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "training-manual-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a training manual",
+          "paragraphs": [
+            "A training manual is usually read by new staff, volunteers, students or customers. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: about this manual, what you will learn, modules with steps and practice, common mistakes, a quick reference and a check of learning. You write the real content in Word. Keep each step to one action and add a practice task after each module.",
+            "You do not need Word to make it. The file is built in your browser, and you only need Word, Google Docs or WPS Office later if you want to keep editing it."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "grant-proposal-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a grant proposal",
+          "paragraphs": [
+            "A grant proposal is usually read by a funder, a foundation, a CSR team or a government office. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: summary, about the organisation, the need, project description, goals, beneficiaries, timeline, team, budget, reporting, sustainability and risks. You write the real content in Word. Use facts and figures you can name a source for, and follow the funder own format if it has one.",
             "You do not need Word to make it. The file is built in your browser, and you only need Word, Google Docs or WPS Office later if you want to keep editing it."
           ]
         },
