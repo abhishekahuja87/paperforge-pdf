@@ -109,7 +109,7 @@ export const VideoBlur: React.FC = () => {
 
   const reset = () => { setResult(null); setMessage(''); setChecked(false); };
   const change = (patch: Partial<Saved>) => { reset(); setSaved((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; change({ style: s.style as StyleId, shape: s.shape as ShapeId, strength: s.strength as StrengthId }); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; change({ style: s.style as StyleId, shape: s.shape as ShapeId, strength: s.strength as StrengthId }); };
   const activeStarter = (Object.keys(starters) as StarterId[]).find((id) => { const s = starters[id]; return s.style === saved.style && s.shape === saved.shape && s.strength === saved.strength; }) ?? '';
 
   const addFile = async (picked: File, withBoxes: Box[] = []) => {
@@ -192,7 +192,7 @@ export const VideoBlur: React.FC = () => {
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
-        <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+        <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
         <p className="text-[11px] text-slate-500">{activeStarter ? starters[activeStarter as StarterId].hint : ui.startersHint}</p>
       </section>
 

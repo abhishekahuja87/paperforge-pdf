@@ -75,7 +75,11 @@ export interface ShellLink {
 export interface ShellGroup {
   name: string;
   links: ShellLink[];
+  /** Which pages list this group: 'all', a topic page path (that topic page and its tools) or 'only:<path>' (that one page). */
+  showOn: string;
 }
+
+export { REDIRECTS } from '../config/redirects';
 
 export const SHELL_SITE = { name: siteConfig.name, shortName: siteConfig.shortName, url: siteConfig.url };
 
@@ -287,34 +291,52 @@ function toLink(tool: ToolItem): ShellLink {
   return { path: tool.path, title: copy.heading, description: copy.subtitle };
 }
 
-/** Same grouping as the site footer, so every tool is linked from every static page. */
+const hubPathOf = (collectionId: string) => HUBS.find((hub) => hub.collection === collectionId)?.path ?? 'all';
+const hubPathOfPage = (path: string) => hubForTool(path.replace(/^\//, ''))?.path ?? 'all';
+
+/**
+ * Link groups for the static pages. Each page lists only the tools of its own topic (titles only), every
+ * topic page and the company pages, so the shared list does not outweigh the page's own text. Every tool
+ * is still linked from its topic page, the sitemap and the app's footer.
+ */
 export function getShellGroups(): ShellGroup[] {
-  return getTopics()
-    .map((topic) => ({
-      name: topic.id === 'workspaces' ? en.workspaces : (en.homeCollections as Record<string, { name: string }>)[topic.id]?.name ?? topic.id,
-      tools: topic.tools,
-    }))
-    .filter((group) => group.tools.length > 0)
-    .map((group) => ({ name: group.name, links: group.tools.map(toLink) }))
-    .concat([{
+  const topicName = (id: string) => (id === 'workspaces' ? en.workspaces : (en.homeCollections as Record<string, { name: string }>)[id]?.name ?? id);
+  const groups: ShellGroup[] = [];
+  for (const topic of getTopics()) {
+    if (topic.id !== 'other') {
+      groups.push({ name: topicName(topic.id), links: topic.tools.map(toLink), showOn: topic.id === 'workspaces' ? 'all' : hubPathOf(topic.id) });
+      continue;
+    }
+    // Option pages kept off the home page (VARIANT_PAGES) are listed with the topic page they link up to.
+    const byHub = new Map<string, ToolItem[]>();
+    for (const tool of topic.tools) {
+      const path = hubPathOfPage(tool.path);
+      byHub.set(path, [...(byHub.get(path) ?? []), tool]);
+    }
+    for (const [path, tools] of byHub) {
+      const hub = HUBS.find((entry) => entry.path === path);
+      groups.push({ name: hub ? `More ${hubLabel(hub.title)}` : 'More tools', links: tools.map(toLink), showOn: `only:${path}` });
+    }
+  }
+  const family = (name: string, pages: readonly { path: string; name: string }[]): ShellGroup[] =>
+    pages.length === 0 ? [] : [{ name, links: pages.map((page) => ({ path: page.path, title: page.name, description: '' })), showOn: hubPathOfPage(pages[0].path) }];
+  return groups.concat(
+    family('Court size pages', COURT_PAGES),
+    family('Tournament schedules', FIXTURE_PAGES),
+    family('Globe video pages', GLOBE_PAGES),
+    [{
       name: 'Sections',
       links: HUBS.map((hub) => ({ path: hub.path, title: hubLabel(hub.title), description: '' })),
-    }, {
-      name: 'Court size pages',
-      links: COURT_PAGES.map((page) => ({ path: page.path, title: page.name, description: '' })),
-    }, {
-      name: 'Tournament schedules',
-      links: FIXTURE_PAGES.map((page) => ({ path: page.path, title: page.name, description: '' })),
-    }, {
-      name: 'Globe video pages',
-      links: GLOBE_PAGES.map((page) => ({ path: page.path, title: page.name, description: '' })),
+      showOn: 'all',
     }, {
       name: 'Guides',
       links: [
         { path: '/guides', title: 'All guides', description: '' },
-        ...GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, title: guide.title, description: guide.description })),
+        ...GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, title: guide.title, description: '' })),
       ],
-    }]);
+      showOn: 'only:/guides',
+    }],
+  );
 }
 
 export function getShellPages(): ShellPage[] {

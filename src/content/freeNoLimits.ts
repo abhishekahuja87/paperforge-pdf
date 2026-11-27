@@ -9,7 +9,7 @@ export const FREE_NO_LIMITS = {
   title: 'Why MyDailyUtils is free: no limits, no sign-up, nothing uploaded',
   subtitle: 'Every tool here is free to use, with no daily limit, no account and no watermark. This page explains how that works.',
   description:
-    'How MyDailyUtils stays free with no sign-up, no limits and no upload: tools run in your browser and advertising pays the bills. See what is free, from PDF and photo tools to calculators and printables.',
+    'How MyDailyUtils stays free with no sign-up, no limits and no upload: the tools run in your browser and advertising pays for the site.',
   sections: [
     {
       heading: 'Why is it free?',

@@ -100,7 +100,7 @@ export const BeforeAfterMaker: React.FC = () => {
   };
   const addSample = () => { const pics = samplePics(); setBefore(pics.before); setAfter(pics.after); setPhotoMessage(''); output.clear(); setTime(0); setPlaying(false); };
   const addMusic = async (file: File) => { setMusicMessage(''); try { setMusic(await readMusic(file)); output.clear(); } catch { setMusicMessage(ui.musicFailed); } };
-  const useStarter = (id: StarterId) => { const s = starters[id]; change({ reveal: s.reveal as RevealId, length: s.length as LengthId, title: s.title, labels: s.labels, accent: s.accent as AccentId }); setTime(0); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; change({ reveal: s.reveal as RevealId, length: s.length as LengthId, title: s.title, labels: s.labels, accent: s.accent as AccentId }); setTime(0); };
   const activeStarter = STARTER_IDS.find((id) => (['reveal', 'length', 'title', 'labels', 'accent'] as const).every((field) => starters[id][field] === saved[field])) ?? '';
 
   const useOffline = smooth.ok && (!music || aac);
@@ -143,7 +143,7 @@ export const BeforeAfterMaker: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter].hint : ui.startersHint}</p></div>
       </section>
 

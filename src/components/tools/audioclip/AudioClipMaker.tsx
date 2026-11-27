@@ -142,7 +142,7 @@ export const AudioClipMaker: React.FC = () => {
   const addAudio = async (file: File) => { setSoundMessage(''); try { takeAudio(await readVoiceFile(file)); } catch { setSoundMessage(ui.audioFailed); } };
   const addSample = async () => { setSoundMessage(''); try { takeAudio(await sampleSound()); } catch { setSoundMessage(ui.audioFailed); } };
   const addCover = async (file: File) => { setCoverMessage(''); try { setCover(await readCover(file)); reset(); } catch { setCoverMessage(ui.coverFailed); } };
-  const useStarter = (id: StarterId) => { const s = starters[id]; reset(); setSaved((current) => ({ ...current, title: s.title, subtitle: s.subtitle, words: s.words, options: { ...current.options, look: s.look as ClipLookId, font: CLIP_LOOKS[s.look as ClipLookId].font, visual: s.visual as VisualId, coverShape: s.shape as CoverShapeId } })); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; reset(); setSaved((current) => ({ ...current, title: s.title, subtitle: s.subtitle, words: s.words, options: { ...current.options, look: s.look as ClipLookId, font: CLIP_LOOKS[s.look as ClipLookId].font, visual: s.visual as VisualId, coverShape: s.shape as CoverShapeId } })); };
 
   const needsSmooth = quality === 2160;
   const useSmooth = smooth.ok && aac;
@@ -186,7 +186,7 @@ export const AudioClipMaker: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={(Object.keys(starters) as StarterId[]).find((id) => starters[id].title === title) ?? ''} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={(Object.keys(starters) as StarterId[]).find((id) => starters[id].title === title) ?? ''} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{ui.startersHint}</p></div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <label className="block text-xs font-semibold text-slate-700">{ui.titleLabel}

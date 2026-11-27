@@ -8,14 +8,15 @@ import type { ToolIconName } from './tools';
  * shows up, under "More tools", so a newly added tool is never hidden by accident.
  */
 
-/** "Most used" tiles. Reorder with real traffic (Search Console or Analytics) when you have it. */
 /**
- * The "Our popular tools" row on the home page (the name MOST_USED is kept for the code). Mix of the everyday favourites and the tools
- * that many other sites charge for or limit (fillable PDFs, smart split, redaction, bulk photos), which are free and unlimited here.
+ * The "Our popular tools" row on the home page (the name MOST_USED is kept for the code). Chosen from Google Search Console
+ * (11 to 25 November 2026): the tool pages Google already shows most often, so the home page links to the pages that are
+ * closest to getting clicks. Merge, compress and the other classics got almost no impressions in that period; they stay in their
+ * topics. Re-check with Search Console every month or two and reorder by impressions and position.
  */
 export const MOST_USED = [
-  'merge-pdf', 'compress-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'redact-pdf', 'income-tax-calculator',
-  'emi-calculator', 'bulk-image-tools', 'social-image-resizer', 'sign-pdf', 'remove-photo-location', 'resume-builder',
+  'pdf-booklet-maker', 'resize-pdf-page-size', 'organize-pdf', 'make-pdf-fillable', 'image-resizer', 'sports-court-size-guide',
+  'visiting-card-maker', 'quotation-generator', 'rent-receipt-generator', 'audio-cutter-and-joiner', 'math-worksheet-generator-printable', 'compare-pdf-and-text',
 ];
 
 /** Recently added tools. They get a small "New" tag on their tile in the topic lists. Drop the oldest when a new tool ships. */

@@ -106,7 +106,7 @@ export const SubtitleBurner: React.FC = () => {
 
   const reset = () => { setResult(null); setMessage(''); };
   const change = (patch: Partial<BurnOptions>) => { reset(); setSaved((current) => ({ ...current, options: { ...current.options, ...patch } })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; change({ look: s.look as BurnLookId, position: s.position as BurnPositionId, size: s.size as BurnSizeId, font: s.font as FontId }); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; change({ look: s.look as BurnLookId, position: s.position as BurnPositionId, size: s.size as BurnSizeId, font: s.font as FontId }); };
   const activeStarter = (Object.keys(starters) as StarterId[]).find((id) => { const s = starters[id]; return s.look === options.look && s.position === options.position && s.size === options.size && s.font === options.font; }) ?? '';
 
   const addFile = async (picked: File) => {
@@ -151,7 +151,7 @@ export const SubtitleBurner: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter as StarterId].hint : ui.startersHint}</p></div>
       </section>
 

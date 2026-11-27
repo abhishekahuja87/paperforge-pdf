@@ -72,7 +72,7 @@ export const SpeakCaptions: React.FC = () => {
     setProblem(''); setVoice(null);
     setSegments(ui.sampleSentences.map((text, k) => ({ text, start: 0.5 + k * 3.2, end: 3.3 + k * 3.2 })));
   };
-  const useStarter = (id: StarterId) => { if (listening) return; const s = starters[id]; setSaved((current) => ({ ...current, lang: s.lang, words: s.words })); setPreset((current) => ({ id: current.id + 1, options: s.options as Partial<CaptionOptions> })); };
+  const applyStarter = (id: StarterId) => { if (listening) return; const s = starters[id]; setSaved((current) => ({ ...current, lang: s.lang, words: s.words })); setPreset((current) => ({ id: current.id + 1, options: s.options as Partial<CaptionOptions> })); };
   const edit = (k: number, text: string) => setSegments((current) => current.map((item, index) => (index === k ? { ...item, text } : item)));
   const removeRow = (k: number) => setSegments((current) => current.filter((_, index) => index !== k));
   const startAgain = () => { session.current?.stop(); session.current = null; recorder.current?.cancel(); recorder.current = null; setListening(false); setSegments([]); setVoice(null); setProblem(''); setSaved(DEFAULTS); };
@@ -88,7 +88,7 @@ export const SpeakCaptions: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value="" onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value="" onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{ui.startersHint}</p></div>
         <label className="block text-xs font-semibold text-slate-700">{ui.language}
           <select value={lang} disabled={listening} onChange={(event) => setSaved({ ...saved, lang: event.target.value })} className={rowInput}>{names(LANGUAGES).map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</select></label>

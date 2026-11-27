@@ -8,6 +8,7 @@ import type { Hub } from '../content/hubs';
 import { HUB_EXTRAS } from '../content/hubExtras';
 import { HUB_FAQS } from '../content/hubFaqs';
 import { LinkedText } from '../components/common/LinkedText';
+import { linkPieces } from '../lib/toolLinks';
 import { hubGuides } from '../content/hubGuides';
 import { HERO_TILES } from '../config/heroTiles';
 
@@ -39,7 +40,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
       {intro.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>
-          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} /></p>)}
+          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText pieces={linkPieces(paragraph, { auto: true, seen })} /></p>)}
         </section>
       ))}
       {extras && extras.tasks.length > 0 && (
@@ -75,7 +76,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
             {extras.situations.map((item) => (
               <div key={item.who} className="rounded-xl border border-stone-200 bg-white p-3">
                 <h3 className="text-sm font-bold text-stone-900">{item.who}</h3>
-                <p className="mt-1 text-[13px] leading-6 text-stone-700"><LinkedText text={item.text} auto seen={seen} /></p>
+                <p className="mt-1 text-[13px] leading-6 text-stone-700"><LinkedText pieces={linkPieces(item.text, { auto: true, seen })} /></p>
               </div>
             ))}
           </div>
@@ -110,7 +111,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
       {rest.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>
-          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} /></p>)}
+          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText pieces={linkPieces(paragraph, { auto: true, seen })} /></p>)}
         </section>
       ))}
       <section id="all-tools" className="scroll-mt-20 space-y-3">

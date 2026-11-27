@@ -8,6 +8,7 @@ import { FoldToggle } from './FoldToggle';
 import { GuideRegistryContext } from './guideRegistry';
 import { useArticleSections } from './ToolArticle';
 import { LinkedText } from './LinkedText';
+import { linkPieces } from '../../lib/toolLinks';
 
 export interface GuideStep {
   title: string;
@@ -63,13 +64,13 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
         key: `article-${section.heading}`,
         title: section.heading,
         level: 2 as const,
-        children: <>{section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} exclude={pathname} /></p>)}</>,
+        children: <>{section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText pieces={linkPieces(paragraph, { auto: true, seen, exclude: pathname })} /></p>)}</>,
       })),
       ...faqs.map((faq) => ({
         key: `faq-${faq.question}`,
         title: faq.question,
         level: 3 as const,
-        children: <p><LinkedText text={faq.answer} auto seen={seen} exclude={pathname} /></p>,
+        children: <p><LinkedText pieces={linkPieces(faq.answer, { auto: true, seen, exclude: pathname })} /></p>,
       })),
     ];
     // One column: steps (three across when wide), then the accordion, then the privacy note.
