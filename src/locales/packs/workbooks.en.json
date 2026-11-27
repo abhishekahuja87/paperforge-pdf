@@ -71,6 +71,132 @@
         "Download and use it every day",
         "Open the Excel file and change only the days that were different. Type what each customer paid. Use the Bills sheet to print one customer's bill and the Reminders sheet to open WhatsApp with a message ready for customers who still owe."
       ]
+    ],
+    "stock-register-excel-maker": [
+      [
+        "Pick your kind of shop",
+        "Choose Shop or kirana, Kitchen or cafe, or Office or stationery to see ready item lists, then type your business name. Pick your region so money and dates match how you write them."
+      ],
+      [
+        "Add your items",
+        "Paste your items from a sheet or upload a CSV or Excel file. A name is needed. Unit, opening stock, reorder level, cost and selling price are optional. The tool shows what it read, so you can check before anything is made."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the sheets: Items, Stock Log, Stock, Order List and Summary. Choose With sample data to see stock moving, or Blank to start clean."
+      ],
+      [
+        "Download and start logging",
+        "Download the .xlsx. On the Stock Log sheet add one row for every purchase, sale or adjustment. Stock updates, low items turn red and the Order List shows what to buy."
+      ]
+    ],
+    "credit-ledger-excel-maker": [
+      [
+        "Pick your kind of khata",
+        "Choose Shop or kirana, Wholesale or trade, or Services or tuition, type your business name and the credit period in days that you allow."
+      ],
+      [
+        "Add your customers",
+        "Paste your customers or upload a CSV or Excel file. A name is needed. Phone, opening balance, credit limit and a note are optional. Choose With sample data to see it filled in."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Customers, Entries, Balances, Statement and Summary. Balances shows what each person owes and how old it is."
+      ],
+      [
+        "Download and keep it daily",
+        "Download the .xlsx. On the Entries sheet add a row each time you give credit or receive a payment. Use the WhatsApp link on the Balances sheet to send a reminder to anyone who is overdue."
+      ]
+    ],
+    "timesheet-excel-maker": [
+      [
+        "Set your hours and overtime",
+        "Type the normal hours in a day and the overtime multiplier you use, for example 1.5. These are your own rules, so use the numbers from your agreement."
+      ],
+      [
+        "Add your people",
+        "Paste your people or upload a CSV or Excel file. A name is needed. Role and hourly rate are optional. Choose With sample data to see two weeks logged."
+      ],
+      [
+        "Check the preview",
+        "The preview shows People, Time Log and Totals. Each shift shows hours, overtime and pay."
+      ],
+      [
+        "Download and log shifts",
+        "Download the .xlsx. On the Time Log add a row for each shift: the date, the person, start, end and any break. Totals shows hours, overtime hours and pay for each person."
+      ]
+    ],
+    "fees-rent-tracker-excel-maker": [
+      [
+        "Say what you collect",
+        "Choose Tuition or school fees, Rent, or Society or gym, or type your own word such as Fee. It is used in headings and in the reminder message."
+      ],
+      [
+        "Add your people",
+        "Paste your list or upload a CSV or Excel file. A name is needed. Phone, class or flat, monthly amount and opening balance are optional."
+      ],
+      [
+        "Check the preview",
+        "The preview shows People, Tracker, Pending, Receipt and Summary. The tracker has a column for each of twelve months."
+      ],
+      [
+        "Download and record payments",
+        "Download the .xlsx. In the Tracker type the amount paid in each month. Pending shows who owes what, with a WhatsApp link for a reminder. Receipt prints a receipt for one payment."
+      ]
+    ],
+    "daily-cash-book-excel-maker": [
+      [
+        "Pick your kind of business",
+        "Choose Shop, Freelancer or service, or Home business to see sample income and expense categories, then type your business name."
+      ],
+      [
+        "Set your payment modes",
+        "Type up to four modes such as Cash, Bank, UPI, and the balance in each at the start, separated by commas."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Lists, Cash Book, Month and Year. The Cash Book shows a running balance for each mode."
+      ],
+      [
+        "Download and record daily",
+        "Download the .xlsx. Add a row for each receipt or payment with the mode and category. Month and Year show income, expenses and what is left."
+      ]
+    ],
+    "budget-planner-excel-maker": [
+      [
+        "Pick whose budget it is",
+        "Choose Household, Student or Small business to see sample income and spending lines, and name your budget."
+      ],
+      [
+        "Add your lines",
+        "Paste your income and spending lines or upload a CSV or Excel file. Each row needs a kind (income or expense) and a name. A planned amount per month is optional."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Settings, Budget and Summary. The Budget has a plan and an actual column for each month."
+      ],
+      [
+        "Download and fill in actuals",
+        "Download the .xlsx. Each month type what you actually earned and spent. The Summary shows left over, percent saved and charts."
+      ]
+    ],
+    "supplier-payment-tracker-excel-maker": [
+      [
+        "Set your credit days",
+        "Type the default credit days and how many days before the due date you want a warning. Use the days from your own agreements."
+      ],
+      [
+        "Add your suppliers",
+        "Paste your suppliers or upload a CSV or Excel file. A name is needed. Phone, credit days and a note are optional."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Suppliers, Bills, Totals and Summary. Each bill shows its due date and status."
+      ],
+      [
+        "Download and log bills",
+        "Download the .xlsx. Add a row for every bill and type the amount and date when you pay. Overdue bills turn red and due-soon bills turn yellow."
+      ]
     ]
   },
   "pageGuides": {
@@ -225,6 +351,272 @@
           "No. The names, phone numbers, balances and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
         ]
       ]
+    },
+    "stockExcelGuide": {
+      "title": "Stock Register Excel Maker: Inventory with Reorder Alert (Free)",
+      "subtitle": "Make a stock register in Excel with reorder alerts, an order list and stock value. Add your items, log stock in and out. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Stock Register Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How do I record stock coming in and going out?",
+          "Open the Stock Log sheet and add a row for each movement: the date, the item from a drop-down, whether it came in or went out, and the quantity. The Stock sheet adds everything up for you, so you never type the current stock yourself."
+        ],
+        [
+          "How does the reorder alert work?",
+          "You type a reorder level for each item. When the current stock falls to that level or below, the status on the Stock sheet changes to Order now (or Out of stock) and the item appears on the Order List. The level is only the number you type, so set it from how fast you sell and how long suppliers take."
+        ],
+        [
+          "What is the Order List?",
+          "A sheet that picks out every item at or below its reorder level and shows how much to order. The suggested quantity is a multiple of the reorder level that you choose in Settings, with an estimated cost, and you can order a different quantity."
+        ],
+        [
+          "Can it show the value of my stock?",
+          "Yes, if you type a cost for each item. The Stock sheet multiplies current stock by cost, and the Summary shows the total value and the number of items that are low or out. Sale price gives the value of your stock at selling prices too."
+        ],
+        [
+          "How many items and log rows can I use?",
+          "You choose spare rows for new items and the number of log rows when you make the file. The defaults suit a small shop and can be raised under More options."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my item list uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "ledgerExcelGuide": {
+      "title": "Credit Ledger (Udhaar Khata) Excel Maker: Customer Dues with Ageing (Free)",
+      "subtitle": "Make an udhaar khata in Excel with balances, ageing, credit limit alerts and WhatsApp reminders. Log credit and payments. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Credit Ledger Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How do I record credit and payments?",
+          "On the Entries sheet add a row with the date, the customer from a drop-down, whether it is credit given or a payment received, the amount and a note. Balances and the statement update by themselves."
+        ],
+        [
+          "What do the ageing columns mean?",
+          "They split what a customer owes by how old it is, in steps of the credit period you typed. Payments are counted against the oldest credit first, so the older columns shrink before the newer ones."
+        ],
+        [
+          "How does the WhatsApp reminder work?",
+          "Each customer with a phone number gets a link on the Balances sheet. Tapping it opens WhatsApp with your message already filled in with their name and amount. You press send yourself. Nothing is sent from the file."
+        ],
+        [
+          "What is the credit limit for?",
+          "If you type a limit for a customer, the status shows a warning when their balance goes over it. It is only the number you type, so decide the limit from how much you are willing to risk with each person."
+        ],
+        [
+          "Can I print a statement for one customer?",
+          "Yes. Pick the customer on the Statement sheet and it lists their entries with a running balance, ready to print or save as a PDF."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my customer list uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "timesheetExcelGuide": {
+      "title": "Timesheet Excel Maker: Hours and Overtime for Your Team (Free)",
+      "subtitle": "Make a timesheet in Excel that works out hours, overtime and pay from start and end times. Your own rates and rules. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Timesheet Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How are hours and overtime worked out?",
+          "Hours are the end time minus the start time minus any break (in minutes). Hours up to the normal hours you typed are regular and hours above are overtime. Overnight shifts are handled when the end time is earlier than the start."
+        ],
+        [
+          "How is pay worked out?",
+          "Regular hours are paid at the hourly rate you typed for the person. Overtime hours are paid at that rate times the multiplier you typed. The tool does not know any wage rules, so use the figures from your own agreement."
+        ],
+        [
+          "Can I use it without hourly rates?",
+          "Yes. Leave the rates empty and you still get days, hours and overtime for each person. Pay is only worked out for people who have a rate."
+        ],
+        [
+          "Can I see a total for each person?",
+          "Yes. The Totals sheet adds up days, regular hours, overtime hours and pay for each person for the period you set in Settings."
+        ],
+        [
+          "How many shifts can it hold?",
+          "You choose the number of log rows when you make the file. The default suits a small team for a few months and can be raised under More options."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my timesheet uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "feesExcelGuide": {
+      "title": "Fees and Rent Tracker Excel Maker: Monthly Dues with Reminders (Free)",
+      "subtitle": "Make a fee, rent or maintenance tracker in Excel with twelve months, pending list, WhatsApp reminders and receipts. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Fees and Rent Tracker Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How do I record a payment?",
+          "In the Tracker, find the person and type the amount paid under the month. Pending is the monthly amount for the months so far, plus any opening balance, minus everything paid."
+        ],
+        [
+          "Which months does it show?",
+          "You type the first month in Settings and the tracker shows twelve months from it. A month turns green when paid in full, amber when part paid and red when due and unpaid."
+        ],
+        [
+          "How do reminders work?",
+          "On the Pending sheet each person with a phone number gets a WhatsApp link with your message filled in with their name and amount. You press send yourself. Nothing is sent from the file."
+        ],
+        [
+          "Can I print a receipt?",
+          "Yes. Pick the person and month on the Receipt sheet and it fills in a receipt you can print or save as a PDF."
+        ],
+        [
+          "What is the opening balance?",
+          "Money already due from before you started the tracker. It is added to what is pending until you record payments against it."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my list uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "cashbookExcelGuide": {
+      "title": "Daily Cash Book Excel Maker: Income, Expenses and Balance (Free)",
+      "subtitle": "Make a daily cash book in Excel with income, expenses, balance per payment mode and monthly and yearly summaries. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Daily Cash Book Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How do I record money in and out?",
+          "On the Cash Book sheet add a row with the date, a note, the payment mode, and the amount under Received with its category, or under Paid with its category. The balance for each mode is worked out for you."
+        ],
+        [
+          "What are the categories for?",
+          "They group income and expenses so the Month and Year sheets can show where money came from and where it went. You can edit the categories on the Lists sheet."
+        ],
+        [
+          "Can I track cash, bank and UPI separately?",
+          "Yes. You choose up to four modes and the opening balance of each. The Cash Book shows the balance of every mode and the total."
+        ],
+        [
+          "Does it show profit?",
+          "It shows income minus expenses for each month and for the year. It is a simple cash view, not a full set of accounts, so check it with your accountant if you need formal books."
+        ],
+        [
+          "Can I see a chart?",
+          "Yes. The Month sheet has a chart of each day and a breakdown by category, and the Year sheet shows every month side by side."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my business figures uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "budgetExcelGuide": {
+      "title": "Budget Planner Excel Maker: Monthly Plan vs Actual (Free)",
+      "subtitle": "Make a budget planner in Excel with plan against actual for twelve months, what is left over and charts. Your own lines. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Budget Planner Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How does plan against actual work?",
+          "For each line you have a planned amount per month, and you type the actual amount in each month. The sheet shows the difference and colours lines that went over plan."
+        ],
+        [
+          "Can I add more lines?",
+          "Yes. You choose how many spare income and spending rows to keep when you make the file."
+        ],
+        [
+          "What does left over mean?",
+          "Income minus spending, planned and actual. The Summary shows both and the share of income that was left over."
+        ],
+        [
+          "Does it work for a business?",
+          "Yes. Choose Small business to see sample lines for a business, or use your own."
+        ],
+        [
+          "Can I start in any month?",
+          "Yes. The year runs for twelve months from the first month you type in Settings, and months that have not happened yet stay empty."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my budget uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "payablesExcelGuide": {
+      "title": "Supplier Payment Tracker Excel Maker: Bills, Due Dates, Overdue (Free)",
+      "subtitle": "Make a supplier payment tracker in Excel with due dates, overdue and due-soon bills and totals for each supplier. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Supplier Payment Tracker Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How is the due date worked out?",
+          "It is the bill date plus the credit days. The days come from the bill if you typed them, otherwise from the supplier, otherwise from the default in Settings."
+        ],
+        [
+          "What do the statuses mean?",
+          "Paid means the balance is zero. Overdue means the due date has passed. Due soon means it falls within the warning days you set. Not due is everything else."
+        ],
+        [
+          "Can I part-pay a bill?",
+          "Yes. Type what you paid and the date. The balance shows what is left and the bill stays open until it is zero."
+        ],
+        [
+          "Can I see what I owe each supplier?",
+          "Yes. The Totals sheet shows billed, paid, balance, overdue and due-soon amounts for each supplier, and Summary shows the total payable with charts."
+        ],
+        [
+          "Can I filter to the bills I need to pay?",
+          "Yes. Use the filter on the Status heading of the Bills sheet."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my supplier list uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -324,6 +716,181 @@
           "paragraphs": [
             "Everything is made on your device, so your customer names, phone numbers and balances are never uploaded. The workbook has no macros and does not connect to the internet.",
             "Check one or two bills by hand before you hand them out. Prices and quantities are only what you type, so make sure they match what you agreed with each customer."
+          ]
+        }
+      ]
+    },
+    "stock-register-excel-maker": {
+      "sections": [
+        {
+          "heading": "Why a stock register still matters",
+          "paragraphs": [
+            "Running out of a fast-selling item costs sales, and stock that sits on the shelf ties up money. A stock register tells you which is which, without a paid inventory app.",
+            "This tool builds the register for you. You list the items once, log every purchase and sale, and the workbook works out the current stock, the value and what is running low."
+          ]
+        },
+        {
+          "heading": "Setting reorder levels",
+          "paragraphs": [
+            "A reorder level is the stock at which you should order again. A common way to think of it is the number you sell in the time a supplier takes to deliver, plus a small cushion. Only you know your own sales and delivery times, so the tool never guesses a level.",
+            "Review the levels every few months. Items that sell faster than before need a higher level."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your items and prices are never uploaded. The workbook has no macros and no links to the internet.",
+            "Stock is worked out only from the movements you log, so a missed entry will show as a wrong count. Do a physical count now and then and fix the log."
+          ]
+        }
+      ]
+    },
+    "credit-ledger-excel-maker": {
+      "sections": [
+        {
+          "heading": "What a credit ledger is for",
+          "paragraphs": [
+            "Many shops and small businesses sell on credit and keep the account in a notebook. A ledger in Excel does the same job, but adds up balances, shows who is overdue and finds an old entry in seconds.",
+            "This tool builds the workbook. You add customers once, record each credit and payment, and the sheets show every balance, how old it is and who to remind."
+          ]
+        },
+        {
+          "heading": "Keeping credit under control",
+          "paragraphs": [
+            "Overdue credit is easier to collect when you ask early and politely. The ageing columns show how long each amount has been waiting, so you know whom to call first.",
+            "Set a credit limit for people you are not sure about, and look at the limit status when you are about to give more."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so customer names, phone numbers and balances are never uploaded. The workbook has no macros.",
+            "Balances are only as correct as the entries you make. Agree the balance with the customer if there is any doubt."
+          ]
+        }
+      ]
+    },
+    "timesheet-excel-maker": {
+      "sections": [
+        {
+          "heading": "Why track hours in a sheet",
+          "paragraphs": [
+            "Hourly work, shifts and overtime are easy to get wrong when added up by hand. A timesheet that does the sums gives the same answer every time and is easy to show to the person being paid.",
+            "This tool builds the timesheet for you with your own normal hours, overtime multiplier and rates."
+          ]
+        },
+        {
+          "heading": "Getting the times right",
+          "paragraphs": [
+            "Type times in the same way for every row, such as 9:00 and 18:30. Enter the break in minutes. For night shifts the end time can be earlier than the start and the tool will count past midnight.",
+            "Look at the first few rows after you enter them to be sure the hours match what you expect."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so names, hours and pay are never uploaded. The workbook has no macros.",
+            "Pay rules differ by place and agreement, and the tool does not apply any. Check the totals against your own rules before paying anyone."
+          ]
+        }
+      ]
+    },
+    "fees-rent-tracker-excel-maker": {
+      "sections": [
+        {
+          "heading": "Collecting the same amount every month",
+          "paragraphs": [
+            "Schools, landlords and societies collect a fixed amount from many people each month. A simple tracker shows who has paid, who has not, and how much is pending.",
+            "This tool builds that tracker. You list the people and the monthly amount, and the sheets add up the rest."
+          ]
+        },
+        {
+          "heading": "Reminding politely",
+          "paragraphs": [
+            "Most late payments are forgetfulness. A short polite message with the amount works better than a long one. The reminder link fills in the name and amount, and you can change the wording before you build the file.",
+            "Keep a receipt for every payment so there is no argument later."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so names, phone numbers and payments are never uploaded. The workbook has no macros.",
+            "Amounts are only what you type. Check totals against your bank or cash before you rely on them."
+          ]
+        }
+      ]
+    },
+    "daily-cash-book-excel-maker": {
+      "sections": [
+        {
+          "heading": "A cash book is the simplest set of accounts",
+          "paragraphs": [
+            "Writing down every rupee that comes in and goes out, each day, is the base of almost all small-business accounting. A cash book in Excel makes the sums automatic.",
+            "This tool builds a cash book with your payment modes and categories, plus monthly and yearly summaries."
+          ]
+        },
+        {
+          "heading": "Keeping it up to date",
+          "paragraphs": [
+            "It is easier to log at the end of each day than to catch up at the end of the month. Keep bills and UPI screenshots until you have entered them.",
+            "Compare the balance for each mode with your actual cash and bank balance now and then."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your income and expenses are never uploaded. The workbook has no macros.",
+            "This is a record of money you type, not tax or accounting advice. Check with a professional where it matters."
+          ]
+        }
+      ]
+    },
+    "budget-planner-excel-maker": {
+      "sections": [
+        {
+          "heading": "Why plan before you spend",
+          "paragraphs": [
+            "A budget turns vague worry about money into numbers. Planning what you expect to earn and spend, and comparing it with what happens, shows where money goes.",
+            "This tool builds a budget with your own lines for a full year."
+          ]
+        },
+        {
+          "heading": "Making a plan you can keep",
+          "paragraphs": [
+            "Start from your real last few months, not from what you wish you spent. Put fixed items such as rent first, then variable ones. Leave a line for things you did not expect.",
+            "Look at the actual column once a month and adjust the plan."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your income and spending are never uploaded. The workbook has no macros.",
+            "The figures are only what you type. This is a planning aid, not financial advice."
+          ]
+        }
+      ]
+    },
+    "supplier-payment-tracker-excel-maker": {
+      "sections": [
+        {
+          "heading": "Paying suppliers on time",
+          "paragraphs": [
+            "Buying on credit helps cash flow, but missed due dates can cost goodwill or discounts. A tracker that shows what is due soon helps you plan cash.",
+            "This tool builds the tracker with your own credit days."
+          ]
+        },
+        {
+          "heading": "Credit days and due dates",
+          "paragraphs": [
+            "Credit days are what you agree with each supplier. The tool never assumes them. Set a default, and give a supplier or a single bill its own days where it differs.",
+            "Check the due dates against the supplier's own bill."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so supplier names and amounts are never uploaded. The workbook has no macros.",
+            "Amounts and dates are only what you type. Check against your supplier statements."
           ]
         }
       ]
