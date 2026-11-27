@@ -21,4 +21,4 @@ MyDailyUtils started with one aim: build the ordinary utilities that already exi
 
 ## Tell people what got better
 
-Every user-visible improvement to a tool needs an entry at the top of `src/config/updates.ts` (date, tool route, short title, one-line benefit). It appears on `/whats-new`, as a note above the tool for 45 days and in the home page "What's new" strip. Also describe the new feature in the tool's own page copy (article, steps, FAQ), not only in the code.
+Every user-visible improvement to a tool needs an entry at the top of the list in `src/config/updateEntries.ts` (date, tool route, short title, one-line benefit). It appears on `/whats-new`, as a note above the tool for 45 days and in the home page "What's new" strip. Also describe the new feature in the tool's own page copy (article, steps, FAQ), not only in the code.

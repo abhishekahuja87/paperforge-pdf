@@ -111,7 +111,7 @@ Core guides are in `src/content/guides.ts`. Guides that go with a tool pack are 
 
 ### What's new (improvement notices)
 
-`config/updates.ts` is the dated list of improvements. the per-tool note above each tool was removed (it only pushed the tool down); the home page shows the latest three recent ones; `/whats-new` lists all and is pre-rendered and in the sitemap; the footer links to it. Add an entry with every improvement (see AGENTS.md).
+`config/updateEntries.ts` is the dated list (`config/updates.ts` sorts it and has the helpers) of improvements. the per-tool note above each tool was removed (it only pushed the tool down); the home page shows the latest three recent ones; `/whats-new` lists all and is pre-rendered and in the sitemap; the footer links to it. Add an entry with every improvement (see AGENTS.md).
 ### Tool extras, batch 2 (Nov 2026)
 
 - Age calculator: eligibility check (`lib/utilities/ageEligibility.ts`): minimum and maximum age, relaxation years and two wordings of the upper limit ("up to 30" means until the day before turning 31; "below 30" means not yet turned 30). Shows first and last eligible dates; 29 February birthdays complete a year on 1 March.
@@ -170,7 +170,7 @@ The written article sections and the questions now share one list and one look (
 
 The guide column is now a single stack (steps, then the one accordion, then the privacy note) at `max-w-3xl`; steps sit three across from `@xl`. The earlier side-by-side column was dropped because it wasted space.
 
-Tool pages no longer show the update note (`ToolUpdateNote` deleted). Every change is logged day by day in `config/updates.ts` and shown on `/whats-new`.
+Tool pages no longer show the update note (`ToolUpdateNote` deleted). Every change is logged day by day in `config/updateEntries.ts` and shown on `/whats-new`.
 
 Tool header is now compact: back link left and a filled Focus mode button right; on md+ the title sits left and the description plus "runs in your browser" right. "Collapse all / Expand all" is `FoldToggle`, rendered above the accordion (state shared via `GuideRegistryContext.folds`).
 
