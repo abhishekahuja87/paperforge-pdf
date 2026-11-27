@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
-import { fieldClass } from '../utilities/common';
+import { CalcFooter, Note, SelectField, calcCard } from '../../common/CalcKit';
+import { fieldClass } from '../../common/FieldKit';
 import { CURRENCIES, formatMoney } from '../../../lib/freelancers/currency';
 import { HRA_PAN_LIMIT, MAX_RECEIPT_MONTHS, formatDay, isPanShape, monthSpan, rentMonths, rupeesInWords } from '../../../lib/household/rent';
 

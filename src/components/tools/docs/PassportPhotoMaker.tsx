@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Download, ImagePlus } from 'lucide-react';
 import { CameraButton } from '../../common/CameraButton';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { canvasToBlob, coverRect, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle2, RotateCcw, XCircle } from 'lucide-react';
-import { card } from '../../paper/controls';
+import { card } from '../../../common/PanelKit';
 import { SCENE, SHADOW_LEVELS, describe, makeShadowQuestion, type ShadowLevel, type ShadowQuestion } from '../../../../lib/kids/shadow';
 import { ShadowScene } from './ShadowScene';
 

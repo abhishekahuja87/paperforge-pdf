@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, Plus, Printer, RotateCcw, Trash2 } from 'lucide-react';
-import { Note, SelectField } from '../../finance/ui';
-import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
+import { Note, SelectField } from '../../common/CalcKit';
+import { ChoiceButtons, DateField, fieldClass } from '../../common/FieldKit';
 import { buildPdfFromSheets } from '../../../lib/paper/pdf';
 import { PAGE_SIZES, WEIGHTS, type PageSizeId, type Weight } from '../../../lib/paper/types';
 import { buildCarePages } from '../../../lib/care/layout';
@@ -10,7 +10,7 @@ import {
   FOOD_NOTES, KINDS, LOG_COLUMNS, MAX_AMOUNT, MAX_DAYS, MAX_LOG_PAGES, MAX_MEDICINES, MAX_NAME, MAX_STRENGTH, MAX_TEXT, MAX_WEEKS, SLOTS,
   defaultCare, emptyMedicine, type CareKind, type CareSettings, type FoodNote, type LogColumn, type MedicineRow, type Slot,
 } from '../../../lib/care/types';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { StylePicker } from '../paper/StylePicker';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';

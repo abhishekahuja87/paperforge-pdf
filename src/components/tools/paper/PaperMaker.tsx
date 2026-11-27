@@ -1,15 +1,15 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Download, FolderOpen, Printer, RotateCcw, Save } from 'lucide-react';
-import { Note, SelectField } from '../../finance/ui';
-import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
+import { Note, SelectField } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
 import { buildSheet, hasBackSide } from '../../../lib/paper/geometry';
 import { buildPaperPdf } from '../../../lib/paper/pdf';
 import { forStyle, parseSettingsFile, serializeSettings } from '../../../lib/paper/settings';
 import { encodeShare, decodeShare } from '../../../lib/paper/share';
 import { DEFAULT_SETTINGS, HEADER_LABELS, PAGE_SIZES, STORY_RATIOS, STYLES, WEIGHTS, canTwoUp, type HeaderField, type PaperSettings, type PaperStyle, type Weight } from '../../../lib/paper/types';
 import { SheetPreview } from './SheetPreview';
-import { Slider, Toggle, card, heading } from './controls';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { StylePicker } from './StylePicker';
 import { generateFileName } from '../../../lib/pdf/naming';
 

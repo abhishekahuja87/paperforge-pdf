@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Check, Clipboard } from 'lucide-react';
-import { copyText } from '../../../lib/browserTools';
-import { acceptDate, useShared } from '../../../lib/shareState';
+import { copyText } from '../../lib/browserTools';
+import { acceptDate, useShared } from '../../lib/shareState';
 
 export const fieldClass = 'mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900';
 

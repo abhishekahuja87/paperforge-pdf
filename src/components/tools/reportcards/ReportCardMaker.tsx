@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, FileText } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -15,6 +15,7 @@ import '../shops/posterFonts.css';
 import { compute, gradeFor, parseBands, parseMarks, type Parsed } from '../../../lib/reportcards/marks';
 import { drawCard, drawRankPage, PAGE, rankPageCount, type CardOptions } from '../../../lib/reportcards/draw';
 import { makeReportPdf, makeReportZip, resultsCsv } from '../../../lib/reportcards/make';
+import { buttonClass, inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_report_cards_v1';
 const MAX_STUDENTS = 300;
@@ -24,8 +25,6 @@ type OutputId = 'pdf' | 'zip';
 interface Saved { school: string; exam: string; classLabel: string; bands: string; passOn: boolean; passMark: number; gradesOnly: boolean; showRank: boolean; rankList: boolean; cards: boolean; output: OutputId }
 const DEFAULTS: Saved = { school: 'Sunrise Public School', exam: starters.halfyearly.exam, classLabel: '7 B', bands: starters.bands, passOn: false, passMark: 33, gradesOnly: false, showRank: true, rankList: true, cards: true, output: 'pdf' };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const SAMPLE = parseMarks(starters.sample)!;
 
 function load(): Saved {

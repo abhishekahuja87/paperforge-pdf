@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { Stat, StatGrid, calcCard } from '../../finance/ui';
-import { CopyButton, fieldClass } from './common';
+import { Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { CopyButton, fieldClass } from '../../common/FieldKit';
 import { analyzeText, textExtras } from '../../../lib/utilities/text';
 
 const minutes = (value: number) => (value === 0 ? '0 sec' : value < 1 ? `${Math.max(1, Math.round(value * 60))} sec` : `${value.toFixed(1)} min`);

@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
 import { Download, Printer } from 'lucide-react';
-import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
-import { fieldClass } from '../utilities/common';
+import { CalcFooter, Note, SelectField, calcCard } from '../../common/CalcKit';
+import { fieldClass } from '../../common/FieldKit';
 import { downloadBlob } from '../../../lib/browserTools';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { encodeQr, type QrCode } from '../../../lib/qr/encoder';

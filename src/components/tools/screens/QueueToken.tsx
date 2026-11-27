@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Maximize, Minus, Plus, RotateCcw } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import { beep } from '../../../lib/screens/beep';
 import { callNext, formatToken, type TokenState } from '../../../lib/screens/clock';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';

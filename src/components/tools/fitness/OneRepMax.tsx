@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { InputGrid, Note, NumberField, ResultActions, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { InputGrid, Note, NumberField, ResultActions, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { parseAmount } from '../../../lib/finance/format';
 import { BARS, PERCENT_ROWS, brzycki, epley, estimateOneRepMax, formatWeight, plateLoad, type WeightUnit } from '../../../lib/fitness/strength';
 import { chipClass } from '../shared/toolStyles';

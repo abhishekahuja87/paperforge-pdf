@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Undo2 } from 'lucide-react';
-import { calcCard, SelectField } from '../../finance/ui';
+import { calcCard, SelectField } from '../../common/CalcKit';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { SCORE_SPORTS, matchView, sportInfo, type MatchSetup, type ScoreSportId, type Side } from '../../../lib/sports/scoring';
 import { ConfirmButton } from '../shared/ConfirmButton';

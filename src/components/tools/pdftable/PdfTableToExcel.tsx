@@ -5,9 +5,9 @@ import { PdfFileBar } from '../../common/PdfFileBar';
 import { useProtectedPdf } from '../../common/ProtectedPdfGate';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { usePdfPageCount } from '../../../lib/pdf/pageCount';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { formatBytes } from '../../../lib/browserTools';
@@ -18,12 +18,12 @@ import { toCsv, toXlsx } from '../../../lib/pdftable/write';
 import { makeSamplePdf } from '../../../lib/pdftable/sample';
 import ui from '../../../locales/packs/pdftable.ui.en.json';
 import starters from '../../../locales/packs/pdftable.examples.en.json';
+import { buttonClass } from '../../common/styles';
 
 type StarterId = 'bank' | 'marks' | 'invoice' | 'pages';
 const STARTER_IDS: StarterId[] = ['bank', 'marks', 'invoice', 'pages'];
 type OutputId = 'xlsx' | 'csv';
 const PREVIEW_ROWS = 25;
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 
 /** Turn the table inside a PDF into an Excel or CSV file. Works on PDFs that have real text, such as bank statements, marksheets and invoices. Everything happens on your device. */
 export const PdfTableToExcel: React.FC = () => {

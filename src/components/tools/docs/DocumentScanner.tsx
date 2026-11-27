@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, RotateCcw, RotateCw, Trash2 } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Slider, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Slider, card, heading } from '../../common/PanelKit';
 import { FileDropZone } from '../../common/FileDropZone';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult, StartOverButton } from '../../common/SaveResult';

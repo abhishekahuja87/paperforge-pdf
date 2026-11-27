@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { CalcFooter, InputGrid, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { parseAmount } from '../../../lib/finance/format';
 import { splitBill } from '../../../lib/utilities/more';
 import { formatMoney } from '../../../lib/settle/settle';

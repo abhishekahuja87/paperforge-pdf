@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { Download, Plus, Trash2 } from 'lucide-react';
-import { CopyButton, fieldClass } from './common';
-import { Note } from '../../finance/ui';
-import { card, heading } from '../paper/controls';
+import { CopyButton, fieldClass } from '../../common/FieldKit';
+import { Note } from '../../common/CalcKit';
+import { card, heading } from '../../common/PanelKit';
 import { MAX_PEOPLE, computeSettlement, formatMoney, settlementText, type Expense, type Person } from '../../../lib/settle/settle';
 import { renderSettleCard } from '../../../lib/settle/card';
 

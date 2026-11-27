@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Download, ImagePlus, Trash2 } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Slider, card, heading } from '../../common/PanelKit';
 import { canvasToBlob, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 
 type Format = 'keep' | 'jpg' | 'png' | 'webp';

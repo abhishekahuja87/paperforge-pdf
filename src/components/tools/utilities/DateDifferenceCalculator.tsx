@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, NumberField, ResultActions, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { ChoiceButtons, DateField } from './common';
+import { CalcFooter, InputGrid, NumberField, ResultActions, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, DateField } from '../../common/FieldKit';
 import { WEEKDAYS, addDays, addMonths, diffYmd, formatDate, parseDateInput, todayInput, totalDays, weekdaysBetween } from '../../../lib/utilities/dates';
 
 const Difference: React.FC = () => {

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { parseAmount } from '../../../lib/finance/format';
 import { bmi, bmiCategory, dailyCalories, healthyRange, type ActivityLevel, type BmiScale } from '../../../lib/utilities/more';
 

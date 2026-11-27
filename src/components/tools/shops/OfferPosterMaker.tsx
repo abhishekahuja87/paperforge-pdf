@@ -1,8 +1,8 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { Download, ImagePlus } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { Toggle, Slider, card, heading } from '../paper/controls';
-import { fieldClass } from '../utilities/common';
+import { Note } from '../../common/CalcKit';
+import { Toggle, Slider, card, heading } from '../../common/PanelKit';
+import { fieldClass } from '../../common/FieldKit';
 import { POSTER_THEMES, findPosterTheme } from '../../../config/posterThemes';
 import { loadSamplePhotos } from '../../../lib/poster/samples';
 import { POSTER_COUNTS, POSTER_SAMPLE_PRODUCTS, POSTER_SAMPLE_SHOP, POSTER_SHOP_STORAGE_KEY } from '../../../config/posterSamples';

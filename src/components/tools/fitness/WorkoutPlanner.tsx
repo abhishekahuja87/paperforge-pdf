@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Check, Copy, LayoutGrid, Play, Trash2 } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import { EXERCISES } from '../../../lib/fitness/exercises';
 import {
   BLOCKS, PLAN_STORAGE_KEY, buildSlides, clampSeconds, emptyPlan, formatDuration, itemFromExercise, planItemCount, planToText, readSavedPlan, totalSeconds,

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Maximize, RotateCcw, Shuffle } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { Toggle, card, heading } from '../paper/controls';
-import { fieldClass } from '../utilities/common';
+import { Note } from '../../common/CalcKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
+import { fieldClass } from '../../common/FieldKit';
 import { parseList, randomInt, shuffled } from '../../../lib/toolkit/pick';
 import { THEME_STYLES } from '../../../lib/screens/themes';
 import type { Theme } from '../../../lib/screens/timed';

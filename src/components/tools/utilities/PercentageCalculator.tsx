@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CalcFooter, calcCard } from '../../finance/ui';
-import { fieldClass } from './common';
+import { CalcFooter, calcCard } from '../../common/CalcKit';
+import { fieldClass } from '../../common/FieldKit';
 import { acceptNumber, useShared } from '../../../lib/shareState';
 
 const fmt = (value: number) => (Number.isFinite(value) ? Number(value.toFixed(4)).toLocaleString('en-IN', { maximumFractionDigits: 4 }) : '—');

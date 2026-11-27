@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowUp, Download, ImagePlus, Trash2 } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { encodeGif } from '../../../lib/unlimited/gif';
 

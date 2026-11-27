@@ -1,12 +1,13 @@
 import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
-import { ChoiceButtons } from '../utilities/common';
-import { card, heading } from '../paper/controls';
-import { Note } from '../../finance/ui';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
+import { Note } from '../../common/CalcKit';
 import { saveBlob } from '../../../lib/images/canvas';
 import { toCsv, toXlsx } from '../../../lib/pdftable/write';
 import { MAX_ROWS, TableReadError, readFile, readText, type RawTable } from '../../../lib/table/read';
 import { shape, suggestMapping, type Field, type Shaped } from '../../../lib/table/shape';
 import ui from '../../../locales/packs/tableinput.ui.en.json';
+import { buttonClass } from '../../common/styles';
 
 export type { Field } from '../../../lib/table/shape';
 export interface TableValue { headers: string[]; rows: string[][]; mapping: Record<string, number>; shaped: Shaped; raw: RawTable }
@@ -23,7 +24,6 @@ interface Props {
   intro?: string;
 }
 
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const selectClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
 const NO_FIELDS: Field[] = [];
 const fill = (text: string, values: Record<string, string | number>) => Object.entries(values).reduce((out, [k, v]) => out.replace(`{${k}}`, String(v)), text);

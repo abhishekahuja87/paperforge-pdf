@@ -2,7 +2,7 @@ import React from 'react';
 import type { FontId } from '../../../lib/paper/geometry';
 import { resolveTheme, type StyleChoice } from '../../../lib/paper/style';
 import { FONTS, THEMES, type ThemeId } from '../../../lib/records/theme';
-import { ChoiceButtons } from '../utilities/common';
+import { ChoiceButtons } from '../../common/FieldKit';
 
 /** Colour theme and font buttons shared by every printable maker. */
 export const StylePicker: React.FC<{ value: StyleChoice; onChange: (patch: { theme: ThemeId } | { font: FontId }) => void }> = ({ value, onChange }) => {

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { CopyButton, fieldClass } from '../common';
+import { CopyButton, fieldClass } from '../../../common/FieldKit';
 import { batchToCsv, convertBatch } from '../../../../lib/utilities/timestampTools';
 import { ZoneSelect, realZone } from './ZoneSelect';
 

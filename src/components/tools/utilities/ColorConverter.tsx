@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
-import { calcCard } from '../../finance/ui';
-import { CopyButton, fieldClass } from './common';
+import { calcCard } from '../../common/CalcKit';
+import { CopyButton, fieldClass } from '../../common/FieldKit';
 import { contrastRatio, hslToRgb, parseHex, rgbToHsl, toHex, type Rgb } from '../../../lib/utilities/dev';
 
 const Result: React.FC<{ label: string; value: string }> = ({ label, value }) => (

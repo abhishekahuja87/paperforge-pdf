@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { calcCard } from '../../finance/ui';
-import { ChoiceButtons, CopyButton, fieldClass } from './common';
+import { calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
 import { cleanupText, convertCase, type CaseStyle, type CleanupOp } from '../../../lib/utilities/text';
 
 const STYLES: { value: CaseStyle; label: string }[] = [

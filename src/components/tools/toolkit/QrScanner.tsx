@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Camera, ImageUp, Square } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { card, heading } from '../paper/controls';
-import { CopyButton } from '../utilities/common';
+import { Note } from '../../common/CalcKit';
+import { card, heading } from '../../common/PanelKit';
+import { CopyButton } from '../../common/FieldKit';
 import { CameraButton } from '../../common/CameraButton';
 import { parseQr, type QrInfo } from '../../../lib/toolkit/qrParse';
 

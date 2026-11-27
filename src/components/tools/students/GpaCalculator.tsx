@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
 import { CONVERSIONS, GRADE_SCALES, cgpaToPercent, percentToCgpa, requiredNextTerm, weightedAverage, type ConversionMethod } from '../../../lib/students/gpa';
 import { RowButton, RowInput, nextRowId } from '../shared/rows';
 

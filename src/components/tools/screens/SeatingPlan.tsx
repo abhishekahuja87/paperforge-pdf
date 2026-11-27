@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Copy, Maximize, Shuffle } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import { copyText } from '../../../lib/browserTools';
 import { isRecord, num, oneOf, str } from '../../../lib/screens/read';
 import { seatGrid, seatNames, seatText, swapSeats, type SeatMode } from '../../../lib/screens/seating';

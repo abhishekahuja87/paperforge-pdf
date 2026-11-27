@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
 import { ClipboardPaste, Download, Undo2 } from 'lucide-react';
 import { FileDropZone } from '../../common/FileDropZone';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { MAX_PIXELS, exportSize, paintRegions, rectFromPoints, type RedactStyle, type Region } from '../../../lib/privacy/redact';
 import { generateFileName } from '../../../lib/pdf/naming';
 

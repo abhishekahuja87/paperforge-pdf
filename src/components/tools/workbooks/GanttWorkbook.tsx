@@ -1,7 +1,7 @@
 import React, { useDeferredValue, useMemo, useState } from 'react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
 import { TableInput, type TableValue } from '../shared/TableInput';
 import { buildGantt, sampleGantt, suggestTimeline, type GanttTask } from '../../../lib/workbooks/gantt';
 import { parseDate, parseShare } from '../../../lib/workbooks/dates';

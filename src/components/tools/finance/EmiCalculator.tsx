@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, NumberField, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { fieldClass } from '../utilities/common';
+import { CalcFooter, InputGrid, NumberField, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { fieldClass } from '../../common/FieldKit';
 import { formatInr, parseAmount } from '../../../lib/finance/format';
 import { NO_EXTRAS, adviseLoan, buildSchedule, durationText, hasExtras, monthLabel, parseExtras, yearlyRows, type ExtraInputs } from '../../../lib/finance/emiSchedule';
 import EmiExtraPayments from './EmiExtraPayments';

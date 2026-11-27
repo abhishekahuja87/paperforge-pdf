@@ -9,9 +9,9 @@ import {Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { displayRectToPage, displaySize, normRotation } from '../../../lib/unlimited/geometry';
 

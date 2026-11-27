@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Download, ShieldCheck, Trash2 } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { card, heading } from '../../common/PanelKit';
 import { CameraButton } from '../../common/CameraButton';
 import { canvasToBlob, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { hasHiddenDetails, prettyTaken, readPhotoFacts, type PhotoFacts } from '../../../lib/safeshare/exif';

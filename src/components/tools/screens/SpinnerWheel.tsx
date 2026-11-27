@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Maximize, RotateCcw } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import { beep } from '../../../lib/screens/beep';
 import { bool, isRecord, str } from '../../../lib/screens/read';
 import { THEME_STYLES } from '../../../lib/screens/themes';

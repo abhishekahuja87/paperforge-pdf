@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { InputGrid, Note, NumberField, ResultActions, SimpleTable, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { InputGrid, Note, NumberField, ResultActions, SimpleTable, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { parseAmount } from '../../../lib/finance/format';
 import { RACES, formatClock, fromKm, paceSeconds, riegel, speed, splits, toKm, toSeconds, type DistanceUnit } from '../../../lib/fitness/running';
 import { chipClass } from '../shared/toolStyles';

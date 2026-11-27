@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
-import { card } from '../../paper/controls';
+import { card } from '../../../common/PanelKit';
 import { SUBJECTS, SCENE, describe, sunTime, type SubjectId } from '../../../../lib/kids/shadow';
 import { ShadowScene } from './ShadowScene';
 

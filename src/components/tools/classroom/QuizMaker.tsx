@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ClipboardPaste, Copy, Download, FileUp, ListPlus, Play, Plus, Trash2 } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import {
   DEFAULT_QUIZ_SHOW, MODES, blankQuestion, buildQuizSlides, clampSeconds, emptyQuiz, formatDuration, newKey, parseQuizText, prepareQuiz, quizIssues, quizToText, readQuiz,
   totalSeconds, trueFalseQuestion, withoutImages, type Quiz, type QuizMode, type QuizQuestion, type QuizShow,

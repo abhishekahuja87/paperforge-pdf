@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Eraser, Undo2 } from 'lucide-react';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider } from '../paper/controls';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Slider } from '../../common/PanelKit';
 import { trimToPng } from '../../../lib/images/canvas';
 import type { Logo } from '../../../lib/paper/image';
 

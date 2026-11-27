@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Shuffle } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
 import { parseList, shuffled, splitTeams } from '../../../lib/toolkit/pick';
 
 type Mode = 'teams' | 'order';

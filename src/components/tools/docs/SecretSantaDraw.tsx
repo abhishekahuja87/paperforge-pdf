@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, RotateCcw, Shuffle } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { fieldClass } from '../utilities/common';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { fieldClass } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
 import { MAX_PEOPLE, MIN_PEOPLE, drawSanta, parseNames, parsePairs } from '../../../lib/fun/santa';
 
 /** Draw names for Secret Santa on one phone: pass it around and each person taps their own name. Nothing is sent anywhere. */

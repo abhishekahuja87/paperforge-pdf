@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
-import { calcCard } from '../../finance/ui';
+import { calcCard } from '../../common/CalcKit';
 import { ExercisePictures } from '../shared/ExercisePictures';
 import { MOTION_CSS } from '../shared/flipCss';
 import {

@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Download, FileDown } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { drawBarcode, encodeCode128, encodeEan13, type Barcode } from '../../../lib/toolkit/barcode';
 import { canvasToBlob, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';

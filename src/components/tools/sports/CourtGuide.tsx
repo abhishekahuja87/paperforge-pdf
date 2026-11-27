@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { CalcFooter, Note, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { CalcFooter, Note, SelectField, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { CHECKED_ON, SOURCES, SPORTS, findSport } from '../../../lib/sports/courtData';
 import { spaceNeeded } from '../../../lib/sports/fit';
 import { formatLength } from '../../../lib/sports/units';

@@ -1,9 +1,9 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
 import { Download, FileText, LayoutGrid } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { Toggle, card, heading } from '../paper/controls';
-import { fieldClass } from '../utilities/common';
+import { Note } from '../../common/CalcKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
+import { fieldClass } from '../../common/FieldKit';
 import { CARD_H, CARD_W, drawCard, type CardData } from '../../../lib/cards/cardRender';
 import { CARD_TEMPLATES, DEFAULT_CARD_TEMPLATE, getCardTemplate, isCardTemplateId } from '../../../lib/cards/cardTemplates';
 import { buildCardPdf, type CardPdfMode } from '../../../lib/cards/cardPdf';

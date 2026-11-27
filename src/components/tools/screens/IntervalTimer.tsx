@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { Play } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';
 import { buildIntervalSlides, clampInt, formatDuration, totalSeconds, type IntervalConfig } from '../../../lib/screens/timed';
 import { usePersisted } from '../../../lib/screens/usePersisted';

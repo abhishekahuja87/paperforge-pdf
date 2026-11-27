@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ImagePlus, Music, Pause, Play, Video } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -16,6 +16,7 @@ import { makeRenderer, samplePics, totalSeconds, type AccentId, type BeforeAfter
 import { canEncodeAac, encodeAac, readMusic, renderMusic, type Music as MusicTrack } from '../../../lib/globe/audio';
 import { canEncodeOffline, encodeOffline } from '../../../lib/globe/encode';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
+import { buttonClass, inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_before_after_v1';
 type ShapeId = 'reel' | 'square' | 'portrait' | 'wide';
@@ -24,8 +25,6 @@ type StarterId = keyof typeof starters;
 const STARTER_IDS = Object.keys(starters) as StarterId[];
 const DEFAULTS: Saved = { reveal: 'wipe', fit: 'fill', labels: true, title: starters.makeover.title, length: 'medium', accent: 'orange', shape: 'reel', quality: 1080 };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const words = { before: ui.tagBefore, after: ui.tagAfter };
 
 function load(): Saved {

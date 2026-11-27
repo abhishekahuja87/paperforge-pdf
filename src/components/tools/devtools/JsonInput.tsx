@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FileDropZone } from '../../common/FileDropZone';
 import { MainActionButton } from '../../common/MainActionButton';
 import { UploadNote } from '../../common/UploadNote';
-import { fieldClass } from '../utilities/common';
+import { fieldClass } from '../../common/FieldKit';
 import { relaxJson } from '../../../lib/devtools/jsonTree';
 
 const MAX_BYTES = 50 * 1024 * 1024;

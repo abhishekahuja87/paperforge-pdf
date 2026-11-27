@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { InputGrid, NumberField, SelectField } from '../../finance/ui';
+import { InputGrid, NumberField, SelectField } from '../../common/CalcKit';
 import { checkAll } from '../../../lib/sports/fit';
 import { formatLength, toMetres } from '../../../lib/sports/units';
 import text from '../../../locales/packs/sports.courts.en.json';

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Note } from '../../finance/ui';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { SignaturePad } from './SignaturePad';
 import { canvasToBlob, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import type { Logo } from '../../../lib/paper/image';

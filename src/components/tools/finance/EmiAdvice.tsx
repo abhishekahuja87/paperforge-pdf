@@ -1,5 +1,5 @@
 import React from 'react';
-import { Note } from '../../finance/ui';
+import { Note } from '../../common/CalcKit';
 import { formatInr } from '../../../lib/finance/format';
 import { durationText, type Advice } from '../../../lib/finance/emiSchedule';
 

@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useMemo, useState } from 'react';
 import { Download } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';

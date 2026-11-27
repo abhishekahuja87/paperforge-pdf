@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
-import { fieldClass } from '../utilities/common';
+import { CalcFooter, Note, SelectField, calcCard } from '../../common/CalcKit';
+import { fieldClass } from '../../common/FieldKit';
 import { todayInput } from '../../../lib/utilities/dates';
 import { CURRENCIES, formatMoney } from '../../../lib/freelancers/currency';
 import { addDays, quoteTotals, splitMilestones, type QuoteLine } from '../../../lib/freelancers/quote';
