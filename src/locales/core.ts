@@ -58,14 +58,15 @@ import omrgrader from './packs/omrgrader.catalog.en.json';
 import videoblur from './packs/videoblur.catalog.en.json';
 import reviewsign from './packs/reviewsign.catalog.en.json';
 import bulkletters from './packs/bulkletters.catalog.en.json';
-import workbooks from './packs/workbooks.catalog.en.json';
+import workbooks from './packs/workbooks.catalog.en.json'
+import worddocs from './packs/worddocs.catalog.en.json';
 
 /**
  * The English text every page needs: the main file (en.json) plus each pack's tool catalog (title and short
  * description). The long per-tool text (guide steps, FAQs, articles) is in ./content and loads on demand.
  * To add a pack: create ./packs/<name>.catalog.en.json and add it to CATALOGS here.
  */
-const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec, whatsappchat, teleprompter, whiteboardrec, beforeafter, bulkcertificates, reportcards, pdftable, omrgrader, videoblur, reviewsign, bulkletters, workbooks];
+const CATALOGS = [careers, students, freelancers, stationery, planners, care, records, secure, qr, vcard, flashcards, privacy, shops, household, sports, fitness, screens, classroom, explainers, bizcards, hiring, kids, teach, clean, sheets, makers, docs, toolkit, safeshare, unlimited, devtools, more, globe, writing, sequence, slides, regionmap, chartvideo, photostory, tapcaptions, audioclip, appdemo, speakcaptions, videocompress, subtitleburn, voiceclean, bgremove, screenrec, whatsappchat, teleprompter, whiteboardrec, beforeafter, bulkcertificates, reportcards, pdftable, omrgrader, videoblur, reviewsign, bulkletters, workbooks, worddocs];
 
 type UnionToIntersection<U> = (U extends unknown ? (value: U) => void : never) extends (value: infer I) => void ? I : never;
 type Catalog = (typeof base)['toolCatalog'] & UnionToIntersection<(typeof CATALOGS)[number]['toolCatalog']>;

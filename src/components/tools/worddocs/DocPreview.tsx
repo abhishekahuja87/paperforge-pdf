@@ -1,0 +1,34 @@
+import React from 'react';
+import { PAPER, runsOf, type Block, type DocModel, type Para, type Run } from '../../../lib/docx/model';
+
+const PAGE_PX = 600;
+/** The document drawn as a page, from the same description that is saved as the Word file. Line breaks can differ a little in Word. */
+export const DocPreview: React.FC<{ doc: DocModel }> = ({ doc }) => {
+  const paper = PAPER[doc.paper], px = PAGE_PX / paper.w, pt = (PAGE_PX / ((paper.w / 25.4) * 72)), margin = (doc.margin ?? 20) * px, base = (doc.size ?? 11) * pt;
+  const run = (r: Run, key: string, base: { bold?: boolean; italic?: boolean; color?: string; size?: number }) => {
+    const bold = r.bold ?? base.bold, italic = r.italic ?? base.italic, color = r.color ?? base.color, size = r.size ?? base.size;
+    return <span key={key} style={{ fontWeight: bold ? 700 : undefined, fontStyle: italic ? 'italic' : undefined, color: color ? `#${color}` : undefined, fontSize: size ? `${size * pt}px` : undefined, whiteSpace: 'pre-wrap' }}>{r.text}</span>;
+  };
+  const para = (p: Para, i: number) => (
+    <div key={i} style={{ textAlign: p.align === 'both' ? 'justify' : p.align, fontSize: `${(p.size ?? doc.size ?? 11) * pt}px`, fontWeight: p.bold ? 700 : undefined, fontStyle: p.italic ? 'italic' : undefined, color: p.color ? `#${p.color}` : undefined, marginTop: (p.before ?? 0) * pt, marginBottom: (p.after ?? 6) * pt, paddingLeft: (p.indent ?? 0) * pt + (p.bullet ? 14 * pt : 0), position: 'relative', borderBottom: p.rule ? `1px solid #${p.rule}` : undefined, paddingBottom: p.rule ? 1 : undefined, minHeight: runsOf(p.runs).every((r) => !r.text) ? base * 0.4 : undefined }}>
+      {p.bullet && <span style={{ position: 'absolute', left: 3 * pt }}>•</span>}
+      {runsOf(p.runs).map((r, k) => run(r, `${i}-${k}`, p))}
+    </div>
+  );
+  const table = (b: Extract<Block, { type: 'table' }>, i: number) => {
+    const total = b.widths.reduce((a, c) => a + c, 0) || 1;
+    return (
+      <table key={i} style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed', marginBottom: 2 * pt }}>
+        <colgroup>{b.widths.map((w, k) => <col key={k} style={{ width: `${(w / total) * 100}%` }} />)}</colgroup>
+        <tbody>{b.rows.map((row, r) => <tr key={r}>{row.map((c, k) => <td key={k} style={{ padding: `${2 * pt}px ${4 * pt}px`, border: b.lines ? `1px solid #${b.lines}` : undefined, background: c.fill ? `#${c.fill}` : undefined, textAlign: c.align === 'both' ? 'justify' : c.align, fontSize: `${(c.size ?? doc.size ?? 11) * pt}px`, fontWeight: c.bold ? 700 : undefined, color: c.color ? `#${c.color}` : undefined, verticalAlign: 'top', wordBreak: 'break-word' }}>{runsOf(c.runs).map((x, q) => run(x, `${k}-${q}`, c))}</td>)}</tr>)}</tbody>
+      </table>
+    );
+  };
+  return (
+    <div className="overflow-x-auto rounded-xl bg-slate-100 p-2 sm:p-4">
+      <div className="mx-auto bg-white shadow-sm" style={{ width: PAGE_PX, maxWidth: 'none', minHeight: PAGE_PX * (paper.h / paper.w) * 0.5, padding: margin, fontFamily: `${doc.font ?? 'Calibri'}, Carlito, Arial, sans-serif`, fontSize: base, lineHeight: 1.25, color: '#111' }}>
+        {doc.blocks.map((b, i) => (b.type === 'p' ? para(b, i) : b.type === 'table' ? table(b, i) : <hr key={i} className="my-4 border-dashed" />))}
+      </div>
+    </div>
+  );
+};

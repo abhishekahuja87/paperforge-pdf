@@ -1,0 +1,1261 @@
+{
+ "common": {
+  "start": "Start here",
+  "starters": "Pick a starting point",
+  "startersNote": "Choosing one replaces what you typed.",
+  "look": "Look",
+  "region": "Where are you?",
+  "previewTitle": "Preview",
+  "previewNote": "This is how the document will look. Word may break lines a little differently.",
+  "download": "Make Word file",
+  "preparing": "Making the file...",
+  "ready": "Your Word file is ready",
+  "save": "Save Word file",
+  "failed": "The file could not be made. Please try again.",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to clear everything",
+  "notSaved": "Nothing you type here is saved or uploaded. Start again clears the form.",
+  "bracket": "Some parts are still in [square brackets]. Replace them with your own words before you send the document.",
+  "add": "Add another",
+  "remove": "Remove",
+  "moveUp": "Move up",
+  "entry": "Entry",
+  "empty": "Nothing added yet.",
+  "fileNotes": [
+   "The file is a normal .docx that opens in Word, Google Docs, WPS Office and LibreOffice.",
+   "It has no macros and no links to the internet.",
+   "Look it over in your own app before you send it: fonts and line breaks can differ a little."
+  ],
+  "tokenHint": "Words in {curly brackets} are filled in from the fields above."
+ },
+ "resume": {
+  "form": {
+   "groups": [
+    {
+     "title": "About you",
+     "fields": [
+      {
+       "label": "Full name",
+       "key": "name",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Job title or headline",
+       "key": "headline",
+       "kind": "text",
+       "max": 80,
+       "placeholder": "For example Sales Executive"
+      },
+      {
+       "label": "Email",
+       "key": "email",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Phone",
+       "key": "phone",
+       "kind": "text",
+       "max": 30
+      },
+      {
+       "label": "City",
+       "key": "city",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Link (LinkedIn or portfolio)",
+       "key": "link",
+       "kind": "text",
+       "max": 100
+      },
+      {
+       "label": "Summary",
+       "key": "summary",
+       "kind": "textarea",
+       "rows": 4,
+       "max": 600,
+       "hint": "Two or three lines about what you do best."
+      }
+     ]
+    },
+    {
+     "title": "Skills and extras",
+     "fields": [
+      {
+       "label": "Skills",
+       "key": "skills",
+       "kind": "text",
+       "max": 300,
+       "hint": "Separate with commas."
+      },
+      {
+       "label": "Languages, certificates or other points",
+       "key": "extra",
+       "kind": "textarea",
+       "rows": 3,
+       "max": 500,
+       "hint": "One point on each line."
+      }
+     ]
+    }
+   ],
+   "lists": [
+    {
+     "key": "jobs",
+     "title": "Work experience",
+     "add": "Add a job",
+     "max": 6,
+     "columns": [
+      {
+       "label": "Job title",
+       "key": "role",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Company",
+       "key": "company",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Dates",
+       "key": "dates",
+       "kind": "text",
+       "max": 40,
+       "placeholder": "Apr 2022 - Present"
+      },
+      {
+       "label": "What you did",
+       "key": "points",
+       "kind": "textarea",
+       "rows": 4,
+       "max": 700,
+       "hint": "One point on each line."
+      }
+     ]
+    },
+    {
+     "key": "schools",
+     "title": "Education",
+     "add": "Add a course",
+     "max": 4,
+     "columns": [
+      {
+       "label": "Course or degree",
+       "key": "degree",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "School or college",
+       "key": "school",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Years",
+       "key": "years",
+       "kind": "text",
+       "max": 30
+      },
+      {
+       "label": "Note (optional)",
+       "key": "note",
+       "kind": "text",
+       "max": 120
+      }
+     ]
+    }
+   ],
+   "looks": [
+    {
+     "value": "classic",
+     "label": "Classic: centred name, black"
+    },
+    {
+     "value": "clean",
+     "label": "Clean: left name, coloured headings"
+    }
+   ]
+  },
+  "doc": {
+   "summary": "Summary",
+   "experience": "Experience",
+   "education": "Education",
+   "skills": "Skills",
+   "extra": "Additional"
+  },
+  "starters": {
+   "fresher": {
+    "label": "Fresher",
+    "hint": "First job, with education first.",
+    "values": {
+     "name": "Asha Rao",
+     "headline": "Fresh graduate, Commerce",
+     "email": "asha.rao@example.com",
+     "phone": "+91 90000 00001",
+     "city": "Pune",
+     "link": "",
+     "summary": "Recent B.Com graduate with strong Excel and communication skills. Looking for an entry-level role in accounts or customer support where I can learn quickly and contribute from day one.",
+     "skills": "MS Excel, Tally basics, Typing 40 wpm, Customer communication, Teamwork",
+     "extra": "English, Hindi and Marathi\nCompleted a short course in Tally"
+    },
+    "lists": {
+     "jobs": [
+      {
+       "role": "Intern, Accounts",
+       "company": "Sun Traders",
+       "dates": "Jun 2026 - Aug 2026",
+       "points": "Entered daily sales and purchase bills\nHelped match bank entries with the books\nPrepared a weekly stock sheet in Excel"
+      }
+     ],
+     "schools": [
+      {
+       "degree": "B.Com",
+       "school": "City College, Pune",
+       "years": "2023 - 2026",
+       "note": "First class"
+      },
+      {
+       "degree": "Class 12, Commerce",
+       "school": "Model Junior College",
+       "years": "2021 - 2023",
+       "note": ""
+      }
+     ]
+    }
+   },
+   "experienced": {
+    "label": "Experienced",
+    "hint": "Several jobs, with results.",
+    "values": {
+     "name": "Ravi Kumar",
+     "headline": "Sales Manager",
+     "email": "ravi.kumar@example.com",
+     "phone": "+91 90000 00002",
+     "city": "Bengaluru",
+     "link": "linkedin.com/in/ravikumar",
+     "summary": "Sales manager with 9 years of experience leading field teams and growing retail accounts. Strong at planning territories, training new hires and keeping customers for the long term.",
+     "skills": "Team leadership, Key accounts, Negotiation, Forecasting, CRM tools",
+     "extra": "Fluent in English, Hindi and Kannada"
+    },
+    "lists": {
+     "jobs": [
+      {
+       "role": "Sales Manager",
+       "company": "Metro Supplies",
+       "dates": "Apr 2021 - Present",
+       "points": "Lead a team of 12 sales executives across 4 districts\nGrew repeat orders from key accounts by planning monthly visits\nTrained 8 new hires who now run their own routes"
+      },
+      {
+       "role": "Senior Sales Executive",
+       "company": "Kiran Stores",
+       "dates": "Jun 2017 - Mar 2021",
+       "points": "Handled 60 retail accounts\nIntroduced a weekly follow-up sheet that cut missed orders"
+      }
+     ],
+     "schools": [
+      {
+       "degree": "MBA, Marketing",
+       "school": "State University",
+       "years": "2015 - 2017",
+       "note": ""
+      },
+      {
+       "degree": "B.Com",
+       "school": "City College",
+       "years": "2012 - 2015",
+       "note": ""
+      }
+     ]
+    }
+   },
+   "blank": {
+    "label": "Blank",
+    "hint": "Start with empty boxes.",
+    "values": {
+     "name": "",
+     "headline": "",
+     "email": "",
+     "phone": "",
+     "city": "",
+     "link": "",
+     "summary": "",
+     "skills": "",
+     "extra": ""
+    },
+    "lists": {
+     "jobs": [],
+     "schools": []
+    }
+   }
+  }
+ },
+ "cover": {
+  "form": {
+   "groups": [
+    {
+     "title": "Your details",
+     "fields": [
+      {
+       "label": "Your name",
+       "key": "name",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Your address",
+       "key": "address",
+       "kind": "textarea",
+       "rows": 2,
+       "max": 200
+      },
+      {
+       "label": "Phone",
+       "key": "phone",
+       "kind": "text",
+       "max": 30
+      },
+      {
+       "label": "Email",
+       "key": "email",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Date",
+       "key": "date",
+       "kind": "date"
+      }
+     ]
+    },
+    {
+     "title": "Who you are writing to",
+     "fields": [
+      {
+       "label": "Name",
+       "key": "recipient",
+       "kind": "text",
+       "max": 60,
+       "hint": "Leave empty to write Dear Hiring Manager."
+      },
+      {
+       "label": "Their job title",
+       "key": "recipientTitle",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Company",
+       "key": "company",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Company address",
+       "key": "companyAddress",
+       "kind": "textarea",
+       "rows": 2,
+       "max": 200
+      },
+      {
+       "label": "Job you are applying for",
+       "key": "role",
+       "kind": "text",
+       "max": 80
+      }
+     ]
+    },
+    {
+     "title": "The letter",
+     "fields": [
+      {
+       "label": "Opening",
+       "key": "p1",
+       "kind": "textarea",
+       "rows": 3,
+       "max": 700,
+       "hint": "Say which job you want and why you are writing."
+      },
+      {
+       "label": "Why you fit",
+       "key": "p2",
+       "kind": "textarea",
+       "rows": 5,
+       "max": 1200,
+       "hint": "Two or three things from your work that match the job. Words in {curly brackets} such as {role} and {company} are filled in."
+      },
+      {
+       "label": "Closing",
+       "key": "p3",
+       "kind": "textarea",
+       "rows": 3,
+       "max": 600
+      },
+      {
+       "label": "Sign-off",
+       "key": "signoff",
+       "kind": "select",
+       "options": [
+        {
+         "value": "Yours sincerely",
+         "label": "Yours sincerely"
+        },
+        {
+         "value": "Best regards",
+         "label": "Best regards"
+        },
+        {
+         "value": "Yours faithfully",
+         "label": "Yours faithfully"
+        },
+        {
+         "value": "Thank you",
+         "label": "Thank you"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lists": []
+  },
+  "doc": {
+   "dear": "Dear",
+   "team": "Hiring Manager",
+   "subject": "Application for",
+   "enclosed": "Enclosure: Resume"
+  },
+  "starters": {
+   "general": {
+    "label": "General job",
+    "hint": "A short, plain letter.",
+    "values": {
+     "name": "Asha Rao",
+     "address": "12 Garden Road\nPune 411001",
+     "phone": "+91 90000 00001",
+     "email": "asha.rao@example.com",
+     "date": "@today",
+     "recipient": "",
+     "recipientTitle": "",
+     "company": "Sun Traders",
+     "companyAddress": "45 Market Street\nPune 411002",
+     "role": "Accounts Assistant",
+     "p1": "I am writing to apply for the post of {role} at {company}. I have just finished my B.Com and I would like to start my career in an accounts team like yours.",
+     "p2": "During my internship I entered daily sales and purchase bills, helped match bank entries with the books and prepared a weekly stock sheet in Excel. I work carefully, I learn quickly and I am comfortable with Tally and Excel.",
+     "p3": "I have attached my resume. I would be glad to meet you and answer any questions. Thank you for your time and consideration.",
+     "signoff": "Yours sincerely"
+    },
+    "lists": {}
+   },
+   "experienced": {
+    "label": "Experienced role",
+    "hint": "For someone changing jobs.",
+    "values": {
+     "name": "Ravi Kumar",
+     "address": "7 Lake View\nBengaluru 560001",
+     "phone": "+91 90000 00002",
+     "email": "ravi.kumar@example.com",
+     "date": "@today",
+     "recipient": "Meena Shah",
+     "recipientTitle": "Head of Sales",
+     "company": "Royal Mart",
+     "companyAddress": "10 Brigade Road\nBengaluru 560025",
+     "role": "Regional Sales Manager",
+     "p1": "I would like to apply for the position of {role} at {company}. With nine years in field sales and the last four leading a team of twelve, I believe I can help {company} grow in the region.",
+     "p2": "In my current role I plan territories, train new hires and look after the key accounts that bring repeat orders. My team has kept missed orders low by following a simple weekly follow-up routine that I introduced.",
+     "p3": "I would welcome a chance to discuss how I can help your team. My resume is attached. Thank you for considering my application.",
+     "signoff": "Best regards"
+    },
+    "lists": {}
+   },
+   "blank": {
+    "label": "Blank",
+    "hint": "Start with empty boxes.",
+    "values": {
+     "name": "",
+     "address": "",
+     "phone": "",
+     "email": "",
+     "date": "@today",
+     "recipient": "",
+     "recipientTitle": "",
+     "company": "",
+     "companyAddress": "",
+     "role": "",
+     "p1": "",
+     "p2": "",
+     "p3": "",
+     "signoff": "Yours sincerely"
+    },
+    "lists": {}
+   }
+  }
+ },
+ "resignation": {
+  "form": {
+   "groups": [
+    {
+     "title": "Your details",
+     "fields": [
+      {
+       "label": "Your name",
+       "key": "name",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Your job title",
+       "key": "designation",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Department or employee ID (optional)",
+       "key": "department",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Date of this letter",
+       "key": "date",
+       "kind": "date"
+      }
+     ]
+    },
+    {
+     "title": "Who you are writing to",
+     "fields": [
+      {
+       "label": "Name",
+       "key": "to",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Their job title",
+       "key": "toTitle",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Company",
+       "key": "company",
+       "kind": "text",
+       "max": 80
+      }
+     ]
+    },
+    {
+     "title": "The letter",
+     "fields": [
+      {
+       "label": "Last working day",
+       "key": "lastDay",
+       "kind": "date"
+      },
+      {
+       "label": "Letter",
+       "key": "body",
+       "kind": "textarea",
+       "rows": 9,
+       "max": 1800,
+       "hint": "Words in {curly brackets} such as {lastDay}, {designation} and {company} are filled in. Check the last working day against your own notice period."
+      },
+      {
+       "label": "Sign-off",
+       "key": "signoff",
+       "kind": "select",
+       "options": [
+        {
+         "value": "Yours sincerely",
+         "label": "Yours sincerely"
+        },
+        {
+         "value": "Best regards",
+         "label": "Best regards"
+        },
+        {
+         "value": "Thank you",
+         "label": "Thank you"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lists": []
+  },
+  "doc": {
+   "dear": "Dear",
+   "subject": "Subject: Resignation from the post of"
+  },
+  "notes": {
+   "gap": "From the date of the letter to the last working day: {n} days. Check this against your notice period.",
+   "before": "The last working day is before the date of the letter."
+  },
+  "starters": {
+   "standard": {
+    "label": "Standard notice",
+    "hint": "Polite, with a handover.",
+    "values": {
+     "name": "Asha Rao",
+     "designation": "Accounts Assistant",
+     "department": "Accounts",
+     "date": "@today",
+     "to": "Mr. Sharma",
+     "toTitle": "Accounts Manager",
+     "company": "Sun Traders",
+     "lastDay": "@+30",
+     "body": "I am writing to resign from my position as {designation} at {company}. My last working day will be {lastDay}.\n\nI am thankful for the opportunities and the support I have received during my time here. I have learnt a great deal from the team.\n\nI will do all I can to hand over my work smoothly before I leave. Please let me know how I can help with the transition.\n\nThank you once again.",
+     "signoff": "Yours sincerely"
+    },
+    "lists": {}
+   },
+   "short": {
+    "label": "Short and simple",
+    "hint": "A few lines only.",
+    "values": {
+     "name": "Ravi Kumar",
+     "designation": "Sales Executive",
+     "department": "",
+     "date": "@today",
+     "to": "Sir or Madam",
+     "toTitle": "",
+     "company": "Metro Supplies",
+     "lastDay": "@+30",
+     "body": "Please accept this letter as my resignation from the post of {designation} at {company}. My last working day will be {lastDay}.\n\nThank you for the opportunity to work with you.",
+     "signoff": "Yours sincerely"
+    },
+    "lists": {}
+   },
+   "blank": {
+    "label": "Blank",
+    "hint": "Start with empty boxes.",
+    "values": {
+     "name": "",
+     "designation": "",
+     "department": "",
+     "date": "@today",
+     "to": "",
+     "toTitle": "",
+     "company": "",
+     "lastDay": "",
+     "body": "",
+     "signoff": "Yours sincerely"
+    },
+    "lists": {}
+   }
+  }
+ },
+ "leave": {
+  "form": {
+   "groups": [
+    {
+     "title": "Who is writing",
+     "fields": [
+      {
+       "label": "Name of the person on leave",
+       "key": "name",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Class and roll number, or job title",
+       "key": "detail",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Written by",
+       "key": "writer",
+       "kind": "text",
+       "max": 60,
+       "hint": "Your name. For a child, the parent or guardian."
+      },
+      {
+       "label": "Date of this letter",
+       "key": "date",
+       "kind": "date"
+      }
+     ]
+    },
+    {
+     "title": "Who you are writing to",
+     "fields": [
+      {
+       "label": "Name or title",
+       "key": "to",
+       "kind": "text",
+       "max": 80,
+       "placeholder": "The Principal, or Mr. Sharma"
+      },
+      {
+       "label": "School or company",
+       "key": "org",
+       "kind": "text",
+       "max": 80
+      }
+     ]
+    },
+    {
+     "title": "The leave",
+     "fields": [
+      {
+       "label": "Leave from",
+       "key": "from",
+       "kind": "date"
+      },
+      {
+       "label": "Leave to",
+       "key": "until",
+       "kind": "date"
+      },
+      {
+       "label": "Reason",
+       "key": "reason",
+       "kind": "text",
+       "max": 200,
+       "placeholder": "For example a family function"
+      },
+      {
+       "label": "Letter",
+       "key": "body",
+       "kind": "textarea",
+       "rows": 6,
+       "max": 1200,
+       "hint": "Words in {curly brackets} such as {from}, {until}, {days} and {reason} are filled in."
+      },
+      {
+       "label": "Phone number during leave (optional)",
+       "key": "contact",
+       "kind": "text",
+       "max": 30
+      },
+      {
+       "label": "Sign-off",
+       "key": "signoff",
+       "kind": "select",
+       "options": [
+        {
+         "value": "Yours faithfully",
+         "label": "Yours faithfully"
+        },
+        {
+         "value": "Yours sincerely",
+         "label": "Yours sincerely"
+        },
+        {
+         "value": "Thank you",
+         "label": "Thank you"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lists": []
+  },
+  "doc": {
+   "subject": "Subject: Application for leave",
+   "contact": "I can be reached on {contact} if needed.",
+   "one": "1 day"
+  },
+  "notes": {
+   "days": "This leave is {n} days, counting both dates.",
+   "before": "The end date is before the start date."
+  },
+  "starters": {
+   "school": {
+    "label": "Child at school",
+    "hint": "A parent writes to the class teacher.",
+    "values": {
+     "name": "Kabir Rao",
+     "detail": "Class 6 B, Roll number 14",
+     "writer": "Asha Rao (mother)",
+     "date": "@today",
+     "to": "The Class Teacher",
+     "org": "City Public School",
+     "from": "@+2",
+     "reason": "a family function out of town",
+     "body": "Respected Madam,\n\nI request you to grant my son {name} ({detail}) leave from {from} to {until} ({days}) because of {reason}.\n\nHe will complete the missed work after he returns. Kindly grant him leave for these days.",
+     "contact": "",
+     "signoff": "Yours faithfully",
+     "until": "@+3"
+    },
+    "lists": {}
+   },
+   "office": {
+    "label": "Employee at work",
+    "hint": "A short note to a manager.",
+    "values": {
+     "name": "Ravi Kumar",
+     "detail": "Sales Executive",
+     "writer": "Ravi Kumar",
+     "date": "@today",
+     "to": "Mr. Sharma",
+     "org": "Metro Supplies",
+     "from": "@+2",
+     "reason": "a family function",
+     "body": "Dear Sir,\n\nI would like to request leave from {from} to {until} ({days}) because of {reason}.\n\nI will finish my pending work before I go and hand over anything urgent to my colleagues. Kindly approve my leave.",
+     "contact": "+91 90000 00002",
+     "signoff": "Yours sincerely",
+     "until": "@+3"
+    },
+    "lists": {}
+   },
+   "blank": {
+    "label": "Blank",
+    "hint": "Start with empty boxes.",
+    "values": {
+     "name": "",
+     "detail": "",
+     "writer": "",
+     "date": "@today",
+     "to": "",
+     "org": "",
+     "from": "",
+     "reason": "",
+     "body": "",
+     "contact": "",
+     "signoff": "Yours faithfully",
+     "until": ""
+    },
+    "lists": {}
+   }
+  }
+ },
+ "minutes": {
+  "form": {
+   "groups": [
+    {
+     "title": "The meeting",
+     "fields": [
+      {
+       "label": "Meeting title",
+       "key": "title",
+       "kind": "text",
+       "max": 100
+      },
+      {
+       "label": "Date",
+       "key": "date",
+       "kind": "date"
+      },
+      {
+       "label": "Time",
+       "key": "time",
+       "kind": "text",
+       "max": 30
+      },
+      {
+       "label": "Place",
+       "key": "place",
+       "kind": "text",
+       "max": 80
+      },
+      {
+       "label": "Chair",
+       "key": "chair",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Notes taken by",
+       "key": "taker",
+       "kind": "text",
+       "max": 60
+      }
+     ]
+    },
+    {
+     "title": "People and agenda",
+     "fields": [
+      {
+       "label": "Present",
+       "key": "present",
+       "kind": "textarea",
+       "rows": 4,
+       "max": 500,
+       "hint": "One name on each line."
+      },
+      {
+       "label": "Absent",
+       "key": "absent",
+       "kind": "textarea",
+       "rows": 2,
+       "max": 300,
+       "hint": "One name on each line."
+      },
+      {
+       "label": "Agenda",
+       "key": "agenda",
+       "kind": "textarea",
+       "rows": 4,
+       "max": 500,
+       "hint": "One item on each line."
+      }
+     ]
+    },
+    {
+     "title": "Outcome",
+     "fields": [
+      {
+       "label": "Decisions",
+       "key": "decisions",
+       "kind": "textarea",
+       "rows": 4,
+       "max": 800,
+       "hint": "One decision on each line."
+      },
+      {
+       "label": "Next meeting",
+       "key": "next",
+       "kind": "text",
+       "max": 100
+      }
+     ]
+    }
+   ],
+   "lists": [
+    {
+     "key": "discussion",
+     "title": "Discussion",
+     "add": "Add a point",
+     "max": 10,
+     "columns": [
+      {
+       "label": "Topic",
+       "key": "topic",
+       "kind": "text",
+       "max": 100
+      },
+      {
+       "label": "What was said",
+       "key": "notes",
+       "kind": "textarea",
+       "rows": 3,
+       "max": 500
+      }
+     ]
+    },
+    {
+     "key": "actions",
+     "title": "Action items",
+     "add": "Add an action",
+     "max": 12,
+     "columns": [
+      {
+       "label": "What to do",
+       "key": "what",
+       "kind": "text",
+       "max": 160
+      },
+      {
+       "label": "Who",
+       "key": "owner",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "By when",
+       "key": "due",
+       "kind": "date"
+      }
+     ]
+    }
+   ]
+  },
+  "doc": {
+   "minutes": "Minutes of Meeting",
+   "date": "Date",
+   "time": "Time",
+   "place": "Place",
+   "chair": "Chair",
+   "taker": "Notes by",
+   "present": "Present",
+   "absent": "Absent",
+   "agenda": "Agenda",
+   "discussion": "Discussion",
+   "decisions": "Decisions",
+   "actions": "Action items",
+   "what": "Action",
+   "owner": "Who",
+   "due": "By when",
+   "next": "Next meeting"
+  },
+  "starters": {
+   "team": {
+    "label": "Team meeting",
+    "hint": "Weekly check-in.",
+    "values": {
+     "title": "Weekly team meeting",
+     "date": "@today",
+     "time": "10:30 am",
+     "place": "Conference room",
+     "chair": "Meena Shah",
+     "taker": "Asha Rao",
+     "present": "Meena Shah\nAsha Rao\nRavi Kumar\nImran Khan",
+     "absent": "Sunita Das",
+     "agenda": "Review of last week\nOrders in progress\nStock and supplies\nAny other business",
+     "decisions": "Orders for next week will be confirmed by Thursday.\nStock will be counted on Saturday morning.",
+     "next": "Same time next week"
+    },
+    "lists": {
+     "discussion": [
+      {
+       "topic": "Review of last week",
+       "notes": "All deliveries were completed. Two orders were late because of a supplier delay."
+      },
+      {
+       "topic": "Stock and supplies",
+       "notes": "Packing material is running low. A new order will be placed."
+      }
+     ],
+     "actions": [
+      {
+       "what": "Place the packing material order",
+       "owner": "Ravi Kumar",
+       "due": "@+2"
+      },
+      {
+       "what": "Count stock and share the sheet",
+       "owner": "Asha Rao",
+       "due": "@+4"
+      }
+     ]
+    }
+   },
+   "committee": {
+    "label": "Society or committee",
+    "hint": "Formal minutes with decisions.",
+    "values": {
+     "title": "Monthly committee meeting",
+     "date": "@today",
+     "time": "6:00 pm",
+     "place": "Clubhouse",
+     "chair": "Mr. Sharma",
+     "taker": "Mrs. Das",
+     "present": "Mr. Sharma\nMrs. Das\nMr. Khan\nMrs. Shah",
+     "absent": "Mr. Patel",
+     "agenda": "Minutes of the last meeting\nMaintenance work\nAccounts for the month\nAny other business",
+     "decisions": "The minutes of the last meeting were approved.\nThe lift repair work will go ahead after three quotes are compared.",
+     "next": "First Sunday of next month"
+    },
+    "lists": {
+     "discussion": [
+      {
+       "topic": "Maintenance work",
+       "notes": "Three quotes for the lift repair were presented and discussed."
+      }
+     ],
+     "actions": [
+      {
+       "what": "Share the three lift repair quotes with all members",
+       "owner": "Mrs. Das",
+       "due": "@+5"
+      }
+     ]
+    }
+   },
+   "blank": {
+    "label": "Blank",
+    "hint": "Start with empty boxes.",
+    "values": {
+     "title": "",
+     "date": "@today",
+     "time": "",
+     "place": "",
+     "chair": "",
+     "taker": "",
+     "present": "",
+     "absent": "",
+     "agenda": "",
+     "decisions": "",
+     "next": ""
+    },
+    "lists": {
+     "discussion": [],
+     "actions": []
+    }
+   }
+  }
+ },
+ "notice": {
+  "form": {
+   "groups": [
+    {
+     "title": "Who is giving the notice",
+     "fields": [
+      {
+       "label": "Name of the school, society or office",
+       "key": "org",
+       "kind": "text",
+       "max": 100
+      },
+      {
+       "label": "Address or contact line",
+       "key": "orgLine",
+       "kind": "text",
+       "max": 160
+      },
+      {
+       "label": "Heading",
+       "key": "heading",
+       "kind": "text",
+       "max": 40,
+       "placeholder": "NOTICE"
+      },
+      {
+       "label": "Reference number (optional)",
+       "key": "ref",
+       "kind": "text",
+       "max": 40
+      },
+      {
+       "label": "Date",
+       "key": "date",
+       "kind": "date"
+      }
+     ]
+    },
+    {
+     "title": "The notice",
+     "fields": [
+      {
+       "label": "Subject",
+       "key": "subject",
+       "kind": "text",
+       "max": 140
+      },
+      {
+       "label": "Notice",
+       "key": "body",
+       "kind": "textarea",
+       "rows": 8,
+       "max": 1800,
+       "hint": "Leave a blank line between paragraphs."
+      },
+      {
+       "label": "For (optional)",
+       "key": "for",
+       "kind": "textarea",
+       "rows": 2,
+       "max": 200,
+       "hint": "For example All parents, or All residents."
+      }
+     ]
+    },
+    {
+     "title": "Signed by",
+     "fields": [
+      {
+       "label": "Name",
+       "key": "signName",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Job title",
+       "key": "signTitle",
+       "kind": "text",
+       "max": 60
+      },
+      {
+       "label": "Contact (optional)",
+       "key": "contact",
+       "kind": "text",
+       "max": 80
+      }
+     ]
+    }
+   ],
+   "lists": []
+  },
+  "doc": {
+   "ref": "Ref",
+   "date": "Date",
+   "to": "To",
+   "subject": "Subject",
+   "contact": "Contact"
+  },
+  "starters": {
+   "school": {
+    "label": "School circular",
+    "hint": "A notice to parents.",
+    "values": {
+     "org": "City Public School",
+     "orgLine": "12 School Road, Pune 411001",
+     "heading": "NOTICE",
+     "ref": "CPS/2026/118",
+     "date": "@today",
+     "subject": "Parent-teacher meeting",
+     "body": "This is to inform all parents that the parent-teacher meeting for Classes 1 to 5 will be held at the school on [date] from [time].\n\nParents are requested to attend and collect the progress report of their child. Please carry the school diary.",
+     "for": "All parents of Classes 1 to 5",
+     "signName": "Mrs. Meena Shah",
+     "signTitle": "Principal",
+     "contact": ""
+    },
+    "lists": {}
+   },
+   "society": {
+    "label": "Society or RWA",
+    "hint": "A notice to residents.",
+    "values": {
+     "org": "Green Park Residents Association",
+     "orgLine": "Green Park, Pune 411001",
+     "heading": "NOTICE",
+     "ref": "",
+     "date": "@today",
+     "subject": "Water supply will be off for tank cleaning",
+     "body": "The water tank will be cleaned on [date]. The water supply will be off from [time] to [time].\n\nResidents are requested to store enough water in advance. We regret the inconvenience.",
+     "for": "All residents",
+     "signName": "Mr. Sharma",
+     "signTitle": "Secretary",
+     "contact": "+91 90000 00003"
+    },
+    "lists": {}
+   },
+   "office": {
+    "label": "Office notice",
+    "hint": "A notice to staff.",
+    "values": {
+     "org": "Metro Supplies",
+     "orgLine": "45 Market Street, Bengaluru 560001",
+     "heading": "NOTICE",
+     "ref": "",
+     "date": "@today",
+     "subject": "Office closed for stock taking",
+     "body": "The office will remain closed on [date] for stock taking. All staff are requested to report at the warehouse at [time].\n\nNormal work will resume the next working day.",
+     "for": "All staff",
+     "signName": "Ravi Kumar",
+     "signTitle": "Manager",
+     "contact": ""
+    },
+    "lists": {}
+   },
+   "blank": {
+    "label": "Blank",
+    "hint": "Start with empty boxes.",
+    "values": {
+     "org": "",
+     "orgLine": "",
+     "heading": "NOTICE",
+     "ref": "",
+     "date": "@today",
+     "subject": "",
+     "body": "",
+     "for": "",
+     "signName": "",
+     "signTitle": "",
+     "contact": ""
+    },
+    "lists": {}
+   }
+  }
+ }
+}

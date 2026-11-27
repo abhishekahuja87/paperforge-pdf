@@ -377,6 +377,22 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { who: "Teachers", text: "Run a quiz, an exam clock or a spelling bee on the class screen." },
     ],
   },
+  "/word-document-makers": {
+    tasks: [
+      { task: "Make a resume in Word format", tool: "resume-word-maker", name: "Resume Word Maker", note: "Fresher or experienced, classic or clean look." },
+      { task: "Write a cover letter in Word format", tool: "cover-letter-word-maker", name: "Cover Letter Word Maker", note: "Address blocks, greeting and sign-off." },
+      { task: "Write a resignation letter in Word format", tool: "resignation-letter-word-maker", name: "Resignation Letter Word Maker", note: "Last working day and a notice check." },
+      { task: "Write a leave application for school or office", tool: "leave-application-word-maker", name: "Leave Application Word Maker", note: "Dates, reason and the day count." },
+      { task: "Write meeting minutes in Word format", tool: "meeting-minutes-word-maker", name: "Meeting Minutes Word Maker", note: "Attendees, decisions and action items." },
+      { task: "Write a notice or circular in Word format", tool: "notice-word-maker", name: "Notice and Circular Word Maker", note: "Heading, reference, subject and signature." },
+    ],
+    situations: [
+      { who: "Job seekers", text: "Make a resume and a cover letter in Word that you can edit for every application." },
+      { who: "Employees leaving or taking time off", text: "Write a resignation letter with your last working day, or a leave application with the days counted." },
+      { who: "Parents and students", text: "Write a leave letter to a class teacher, with the dates and reason filled in." },
+      { who: "Teams, societies and committees", text: "Keep meeting minutes with decisions and action items, and put out a notice or circular." },
+    ],
+  },
   "/excel-template-makers": {
     tasks: [
       { task: "Make a Gantt chart in Excel from my tasks", tool: "gantt-chart-excel-maker", name: "Gantt Chart Excel Maker", note: "A timeline that colours itself." },

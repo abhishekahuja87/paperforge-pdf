@@ -1,0 +1,494 @@
+{
+  "guideSteps": {
+    "resume-word-maker": [
+      [
+        "Pick a starting point",
+        "Choose Fresher, Experienced or Blank. A starter fills in sample details so you can see how the resume looks, and you replace them with your own."
+      ],
+      [
+        "Fill in your details",
+        "Type your name, contact details and summary. Add each job and course with the Add buttons, and put one point on each line under what you did."
+      ],
+      [
+        "Check the preview",
+        "Choose the Classic look (centred name, black headings) or the Clean look (left name, coloured headings) and look at the preview as you type."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and save the .docx. Open it in Word, Google Docs or WPS Office to change anything you like."
+      ]
+    ],
+    "cover-letter-word-maker": [
+      [
+        "Pick a starting point",
+        "Choose General job, Experienced role or Blank. The sample shows how a short, clear letter reads."
+      ],
+      [
+        "Fill in the boxes",
+        "Type your details and the company. Then write three short parts: an opening, why you fit, and a closing. Use {role} and {company} to fill those in automatically."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the full letter with your address, the date, the greeting and the sign-off. Leave the name empty to write Dear Hiring Manager."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and save the .docx. Open it in Word or Google Docs to change anything before you send it."
+      ]
+    ],
+    "resignation-letter-word-maker": [
+      [
+        "Pick a starting point",
+        "Choose Standard notice, Short and simple or Blank. The sample shows a polite message with a handover line."
+      ],
+      [
+        "Fill in the details",
+        "Type your name, job title, the person you write to and the company. Pick the date of the letter and your last working day."
+      ],
+      [
+        "Edit the message",
+        "Change the letter text as you like. Words in {curly brackets} such as {lastDay}, {designation} and {company} are filled in for you."
+      ],
+      [
+        "Make the Word file",
+        "Check the days between the letter and your last day, then tap Make Word file. Open the .docx in Word or Google Docs to make final changes."
+      ]
+    ],
+    "leave-application-word-maker": [
+      [
+        "Pick a starting point",
+        "Choose Child at school, Employee at work or Blank. The school sample is written by a parent to the class teacher, and the office sample to a manager."
+      ],
+      [
+        "Fill in the boxes",
+        "Type the name, class or job title, who you write to, the first and last day of leave and the reason. The number of days is counted for you."
+      ],
+      [
+        "Edit the message",
+        "Change the letter text if you like. Words in {curly brackets} such as {from}, {until}, {days} and {reason} are filled in."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and save the .docx. Open it in Word or Google Docs to print or send."
+      ]
+    ],
+    "meeting-minutes-word-maker": [
+      [
+        "Pick a starting point",
+        "Choose Team meeting, Society or committee or Blank. The samples show a full set of minutes you can change."
+      ],
+      [
+        "Fill in the meeting",
+        "Type the title, date, time, place, chair and who took the notes. List who was present and absent, and the agenda, one item on each line."
+      ],
+      [
+        "Add what happened",
+        "Add a discussion point for each topic and a line for each decision. Add an action item for each job, with who will do it and by when."
+      ],
+      [
+        "Make the Word file",
+        "Check the preview, then tap Make Word file. Open the .docx in Word or Google Docs to share with everyone who attended."
+      ]
+    ],
+    "notice-word-maker": [
+      [
+        "Pick a starting point",
+        "Choose School circular, Society or RWA, Office notice or Blank. The samples show a short, clear notice."
+      ],
+      [
+        "Fill in the details",
+        "Type the name of the school, society or office, the date, the subject and who it is for. Add a reference number if you use one."
+      ],
+      [
+        "Write the message",
+        "Type the notice. Leave a blank line between paragraphs. Replace anything in [square brackets], such as the date and time."
+      ],
+      [
+        "Make the Word file",
+        "Check the preview, then tap Make Word file. Open the .docx in Word or Google Docs to print or share it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "resumeWordGuide": {
+      "title": "Resume Word Maker: Free Resume in Word (.docx) Format",
+      "subtitle": "Make a resume in Word (.docx) format with a classic or clean look. Add jobs and education, preview it and download an editable file. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Resume Word Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many documents you make. The file is made on your own device."
+        ],
+        [
+          "What is different from a PDF resume?",
+          "The file is a Word document, so you can open it and change any line, font or space afterwards. A PDF is better for sending a final copy, and a Word file is better when you want to keep editing it or when an employer asks for Word."
+        ],
+        [
+          "Is the layout friendly for applicant tracking systems?",
+          "It uses plain headings, normal paragraphs and simple lists, with no pictures or text boxes. Programs that read resumes can usually follow that kind of layout, but no tool can promise how every system reads a file."
+        ],
+        [
+          "Can I add more than one job?",
+          "Yes. Use Add a job for each one, up to six, and Add a course for education, up to four. Put one point on each line and they become bullets."
+        ],
+        [
+          "Which look should I choose?",
+          "Classic has a centred name and black headings, and suits formal jobs. Clean has a left-aligned name and blue headings, and suits modern workplaces. You can switch at any time and the preview changes."
+        ],
+        [
+          "Can I use it for a first job with no experience?",
+          "Yes. Choose Fresher and use the summary, education, skills and any internship or projects. Leave the job list empty if you have none."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my resume details uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    },
+    "coverWordGuide": {
+      "title": "Cover Letter Word Maker: Free Cover Letter in Word (.docx)",
+      "subtitle": "Make a cover letter in Word (.docx) format with address blocks, a greeting, three short parts and a sign-off. Preview it and download. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Cover Letter Word Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many documents you make. The file is made on your own device."
+        ],
+        [
+          "What should I write in each part?",
+          "The opening says which job you want and why you are writing. The middle shows two or three things from your work that match the job. The closing thanks the reader and says your resume is attached. Keep it to one page."
+        ],
+        [
+          "What if I do not know the name?",
+          "Leave the name empty and the letter starts with Dear Hiring Manager. If you can find the name of the person, use it, because it reads more personally."
+        ],
+        [
+          "What are {role} and {company} for?",
+          "They are filled in from the boxes above, so you do not type the job and company twice. They are replaced in the letter, and you can also type the real words if you prefer."
+        ],
+        [
+          "Does it check for parts I forgot to change?",
+          "Yes. If anything is still in [square brackets], the page shows a reminder, so you do not send a letter that still says [date]."
+        ],
+        [
+          "Which sign-off should I use?",
+          "Yours sincerely when you know the name, Yours faithfully when you do not, or Best regards for a friendlier tone. Use what is normal where you live and work."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my letter uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    },
+    "resignationWordGuide": {
+      "title": "Resignation Letter Word Maker: Free Resignation Letter (.docx)",
+      "subtitle": "Make a resignation letter in Word (.docx) format with your last working day, a polite message and a check of the days of notice. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Resignation Letter Word Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many documents you make. The file is made on your own device."
+        ],
+        [
+          "How does the notice check work?",
+          "The page counts the days from the date of the letter to the last working day you pick and shows the number. Compare it with the notice period in your own contract. The tool does not know your notice period."
+        ],
+        [
+          "What should a resignation letter say?",
+          "Say that you are resigning, from which job, and your last working day. A short thanks and an offer to hand over work are polite and enough. You do not have to explain your reasons."
+        ],
+        [
+          "Can I change the wording?",
+          "Yes. The letter box is open for editing. Words in curly brackets are filled in from the boxes above, and you can also type everything yourself."
+        ],
+        [
+          "Is the letter legally valid?",
+          "The tool only lays out a letter with the words you give it. Whether and how you must give notice depends on your contract and local rules, so check them or ask your employer or a professional if you are unsure."
+        ],
+        [
+          "Should I send it by email or on paper?",
+          "Follow your company's way. Many employers accept an email with the letter attached, and some want a signed paper copy. Keep a copy for yourself either way."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my letter uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    },
+    "leaveWordGuide": {
+      "title": "Leave Application Word Maker: School and Office Leave Letter (.docx)",
+      "subtitle": "Make a leave application in Word (.docx) format for school or office, with dates, reason and the number of days counted for you. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Leave Application Word Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many documents you make. The file is made on your own device."
+        ],
+        [
+          "Who writes a school leave letter?",
+          "Usually a parent or guardian writes to the class teacher or principal. Type the child's name and class in the first boxes and your own name as the writer. The sample shows how it reads."
+        ],
+        [
+          "How are the days counted?",
+          "The page counts both the first and the last day you pick, so leave from the 10th to the 12th is 3 days. It shows the number before you download."
+        ],
+        [
+          "Can I ask for one day of leave?",
+          "Yes. Pick the same date in both boxes and the letter says 1 day."
+        ],
+        [
+          "What should I write as the reason?",
+          "A short, honest reason is enough, such as a family function or illness. You choose the words, and the tool does not add any medical or legal statements."
+        ],
+        [
+          "Can I change the greeting and wording?",
+          "Yes. The letter box is open for editing. You can also change the sign-off, add a phone number for the leave period and edit anything in Word afterwards."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my letter uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    },
+    "minutesWordGuide": {
+      "title": "Meeting Minutes Word Maker: Free Minutes Template (.docx)",
+      "subtitle": "Make meeting minutes in Word (.docx) format with attendees, agenda, discussion, decisions and an action items table. Preview it and download. Free.",
+      "faq": [
+        [
+          "Is the Meeting Minutes Word Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many documents you make. The file is made on your own device."
+        ],
+        [
+          "What should meeting minutes include?",
+          "The date, time and place, who came and who did not, the agenda, a short note of what was discussed, the decisions made and the action items with an owner and a date. This tool has a box or list for each."
+        ],
+        [
+          "What is the action items table?",
+          "A table of what needs to be done, who will do it and by when. It is the most useful part of minutes, because it turns the meeting into work that can be checked later."
+        ],
+        [
+          "Can I add more than one discussion point?",
+          "Yes. Use Add a point for each topic, up to ten, and Add an action up to twelve times."
+        ],
+        [
+          "Can I use it for a society or committee meeting?",
+          "Yes. Choose the Society or committee starter for a more formal set of minutes with the approval of the last minutes and decisions."
+        ],
+        [
+          "Can I send the minutes to people?",
+          "Download the Word file and send it by email or share it in any app. The tool does not send anything itself."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my minutes uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    },
+    "noticeWordGuide": {
+      "title": "Notice and Circular Word Maker: School, Society and Office Notice (.docx)",
+      "subtitle": "Make a notice or circular in Word (.docx) format for a school, society or office, with a heading, reference, subject, message and signature. Free.",
+      "faq": [
+        [
+          "Is the Notice and Circular Word Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many documents you make. The file is made on your own device."
+        ],
+        [
+          "What goes in a notice?",
+          "The name of the issuer, a heading such as NOTICE, the date, a short subject, who it is for, the message and the name and title of the person who signs it. This tool has a box for each."
+        ],
+        [
+          "What is the reference number?",
+          "An optional number your school or office uses to file notices, for example CPS/2026/118. Leave it empty if you do not use one."
+        ],
+        [
+          "Will it remind me to fill in dates?",
+          "Yes. If any part is still in [square brackets], the page shows a reminder so a notice does not go out saying [date]."
+        ],
+        [
+          "Can I change the heading?",
+          "Yes. NOTICE is the default, and you can type CIRCULAR, ANNOUNCEMENT or anything else."
+        ],
+        [
+          "Can I print it for a notice board?",
+          "Yes. Open the .docx in Word and print it, or save it as a PDF from Word or Google Docs."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my notice uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "resume-word-maker": {
+      "sections": [
+        {
+          "heading": "A resume you can keep editing",
+          "paragraphs": [
+            "Many people need a Word resume because they change it for every job. A Word file lets you reorder lines, trim it to one page and keep several versions.",
+            "This tool builds the first version for you from simple boxes."
+          ]
+        },
+        {
+          "heading": "Writing it well",
+          "paragraphs": [
+            "Put your strongest points first and keep each point to one line. Start with a verb, such as led, built or handled, and use numbers where you have them.",
+            "Keep it to one page if you have a few years of experience, and two pages at most for long careers."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your personal details is never uploaded. The Word file has no macros and no links to the internet.",
+            "Check names, dates and contact details before you send the resume."
+          ]
+        }
+      ]
+    },
+    "cover-letter-word-maker": {
+      "sections": [
+        {
+          "heading": "What a cover letter does",
+          "paragraphs": [
+            "A cover letter introduces you and tells the reader in a few lines why you are right for the job. It should add something to the resume, not repeat it.",
+            "This tool lays the letter out properly so you only think about the words."
+          ]
+        },
+        {
+          "heading": "Keeping it short",
+          "paragraphs": [
+            "Three short paragraphs are enough. Name the job and the company, give your best two reasons, and say how to reach you.",
+            "Read it aloud once. If a sentence is hard to say, shorten it."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your details is never uploaded. The Word file has no macros and no links to the internet.",
+            "Check the company name, job title and spelling of names before you send the letter."
+          ]
+        }
+      ]
+    },
+    "resignation-letter-word-maker": {
+      "sections": [
+        {
+          "heading": "Resigning politely",
+          "paragraphs": [
+            "A resignation letter is a short, formal note. It tells your employer you are leaving and when, and it keeps the relationship good for the future.",
+            "This tool gives you a clean layout and a sample you can change."
+          ]
+        },
+        {
+          "heading": "Checking the dates",
+          "paragraphs": [
+            "The last working day is the date that matters most. Check it against your notice period and any leave you plan to take.",
+            "If you agree a different date with your manager, change it in the letter."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your details is never uploaded. The Word file has no macros and no links to the internet.",
+            "The letter is only as correct as what you type. Read it once more before you send it."
+          ]
+        }
+      ]
+    },
+    "leave-application-word-maker": {
+      "sections": [
+        {
+          "heading": "A leave letter that is easy to approve",
+          "paragraphs": [
+            "A leave application is easiest to approve when it says clearly who is asking, which days and why. A short, polite letter with these three things is all that is needed.",
+            "This tool lays it out with the date, the subject line and the sign-off."
+          ]
+        },
+        {
+          "heading": "Dates and days",
+          "paragraphs": [
+            "Check that the first and last day are right and that the day count matches what you expect. If a holiday or weekend falls inside the dates, mention it in the letter if it matters.",
+            "Give the letter early where you can, and keep a copy."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your details is never uploaded. The Word file has no macros and no links to the internet.",
+            "Read the letter once more before you send it, especially names and dates."
+          ]
+        }
+      ]
+    },
+    "meeting-minutes-word-maker": {
+      "sections": [
+        {
+          "heading": "Why write minutes",
+          "paragraphs": [
+            "Minutes are a short record of what a meeting decided and who agreed to do what. They stop arguments about what was said and make sure follow-up happens.",
+            "This tool gives you a clear layout so you only write the content."
+          ]
+        },
+        {
+          "heading": "Writing them well",
+          "paragraphs": [
+            "Write minutes the same day, while everyone remembers. Record decisions and actions more carefully than the discussion.",
+            "Put a date next to every action so the next meeting can start by checking them."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your notes is never uploaded. The Word file has no macros and no links to the internet.",
+            "Check names, dates and decisions with the chair before you share the minutes."
+          ]
+        }
+      ]
+    },
+    "notice-word-maker": {
+      "sections": [
+        {
+          "heading": "A notice people actually read",
+          "paragraphs": [
+            "A good notice is short, says what is happening and when, and tells people what to do. Put the key date and time in the subject or the first line.",
+            "This tool gives it a neat official layout."
+          ]
+        },
+        {
+          "heading": "Checking before it goes out",
+          "paragraphs": [
+            "Check the date, time, place and any contact number. Ask someone else to read it once if it matters.",
+            "Keep a copy with the reference number so you can find it later."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your notice is never uploaded. The Word file has no macros and no links to the internet.",
+            "Check every date and name before you print or share the notice."
+          ]
+        }
+      ]
+    }
+  }
+}

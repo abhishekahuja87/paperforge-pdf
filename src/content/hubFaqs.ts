@@ -214,6 +214,18 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
       { q: 'Is anything uploaded?', a: 'No. What you add is kept on your device and is not sent to MyDailyUtils.' },
     ],
   },
+  '/word-document-makers': {
+    related: ['/jobs-and-business-tools', '/excel-template-makers', '/student-and-writing-tools'],
+    faqs: [
+      { q: 'How do I make a resume in Word format?', a: 'Open {resume-word-maker}, pick Fresher, Experienced or Blank, and fill in your details. Add each job and course, choose the Classic or Clean look, check the preview and make the Word file. You can edit it afterwards in Word, Google Docs or WPS Office.' },
+      { q: 'How do I write a cover letter in Word?', a: 'Open {cover-letter-word-maker}, type your details and the company, and write the opening, why you fit and the closing. The letter is laid out with address blocks, a greeting and a sign-off, and you download it as a .docx.' },
+      { q: 'How do I write a resignation letter with my last working day?', a: 'Open {resignation-letter-word-maker}, fill in your details and pick the date of the letter and your last working day. The page shows the days between them so you can check your notice period. Then make the Word file and edit it if you need to.' },
+      { q: 'How do I write a leave application for school or office?', a: 'Open {leave-application-word-maker}, choose Child at school or Employee at work, pick the first and last day and type the reason. The number of days is counted for you and the letter is ready to download as a Word file.' },
+      { q: 'How do I write meeting minutes or a notice in Word?', a: 'Use {meeting-minutes-word-maker} for the attendees, agenda, decisions and action items, and {notice-word-maker} for a school, society or office notice with a heading, subject and signature.' },
+      { q: 'Do these documents add legal or workplace rules?', a: 'No. They only lay out the words you type. Notice periods, leave rules and what a document must contain depend on your contract, school or local rules, so check those yourself.' },
+      { q: 'Is my data uploaded?', a: 'No. The document is made on your device and what you type is not sent or saved. The {page:why-trust-us|Why trust us} page shows how to check this yourself.' },
+    ],
+  },
   '/excel-template-makers': {
     related: ['/jobs-and-business-tools', '/printables-and-templates', '/student-and-writing-tools'],
     faqs: [
