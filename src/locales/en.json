@@ -974,7 +974,7 @@
     },
     "excel": {
       "name": "Excel templates and makers",
-      "description": "Make a real Excel workbook for the job: an invoice, a stock register, an udhaar ledger, a daily cash book, a timesheet with overtime, a fee or rent tracker, a budget planner, a supplier payment tracker, a monthly attendance register, a Gantt chart or a delivery bill. Each file has formulas, drop-downs and colours already set up, and is made on your device."
+      "description": "Make a real Excel workbook for the job: an invoice, a stock register, an udhaar ledger, a cash book, a timesheet, a fee or rent tracker, a budget, supplier payments, a lead tracker, an expense claim, a job book, a vehicle log, a marks sheet, an attendance register, a Gantt chart or a delivery bill. Each file has formulas, drop-downs and colours already set up, and is made on your device."
     },
     "other": {
       "name": "More tools",

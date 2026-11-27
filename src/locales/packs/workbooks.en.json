@@ -197,6 +197,96 @@
         "Download and log bills",
         "Download the .xlsx. Add a row for every bill and type the amount and date when you pay. Overdue bills turn red and due-soon bills turn yellow."
       ]
+    ],
+    "lead-tracker-excel-maker": [
+      [
+        "Pick what you sell",
+        "Choose Shop or small business, Coaching or classes, or Services, repairs or events to see sample enquiries. Type your business name and the places your enquiries come from."
+      ],
+      [
+        "Add your enquiries",
+        "Paste your current enquiries or upload a CSV or Excel file. A name is needed. Phone, source, what they want and the value are optional."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Settings, Lists, Leads and Summary. Choose With sample data to see follow-ups and stages filled in, or Blank to start clean."
+      ],
+      [
+        "Download and follow up",
+        "Download the .xlsx. Set a next follow-up date for each lead. The Follow-up column shows Overdue, Today or Upcoming, and the Chat link opens WhatsApp with your message ready."
+      ]
+    ],
+    "expense-claim-excel-maker": [
+      [
+        "Pick the kind of claim",
+        "Choose Work travel, Office or shop, or Personal reimbursement to see sample categories and limits. Type the organisation and the claimant name."
+      ],
+      [
+        "Add your categories",
+        "Paste your expense types or upload a CSV or Excel file. A category name is needed. A limit per claim is optional."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Settings, Categories, Claims and Summary. Choose With sample data to see approved, pending and rejected claims."
+      ],
+      [
+        "Download and fill in claims",
+        "Download the .xlsx. Add a row for each expense. The approver changes the Status. Summary adds up what was claimed, approved, paid and still to pay, and you can print it."
+      ]
+    ],
+    "job-order-tracker-excel-maker": [
+      [
+        "Pick the kind of work",
+        "Choose Tailor or boutique, Repair shop, or Printing, gifts or bakery to see sample customers. Type your business name and how many days before the due date you want a warning."
+      ],
+      [
+        "Add your customers",
+        "Paste your customers or upload a CSV or Excel file. A name is needed. Phone and a note are optional."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Settings, Customers, Jobs and Summary. Choose With sample data to see jobs in each status."
+      ],
+      [
+        "Download and log jobs",
+        "Download the .xlsx. Add a row for each job with the amount, advance and due date. Change the Status as work moves. Overdue and Due soon flags and the balance fill in."
+      ]
+    ],
+    "vehicle-log-book-excel-maker": [
+      [
+        "Pick your vehicles",
+        "Choose Delivery vehicles, Family car and bike, or Taxi or travel business to see sample vehicles, then type your business or owner name."
+      ],
+      [
+        "Add your vehicles",
+        "Paste your vehicles or upload a CSV or Excel file. A name is needed. Registration number and a note are optional."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Settings, Vehicles, Log and Totals. Choose With sample data to see trips and fuel filled in."
+      ],
+      [
+        "Download and log trips",
+        "Download the .xlsx. For each trip or fill-up add the start and end meter readings, the litres and the cost. Distance, cost per km and km per litre fill in, and Totals shows each vehicle."
+      ]
+    ],
+    "marks-rank-sheet-excel-maker": [
+      [
+        "Pick your class",
+        "Choose Primary school, Secondary school or Tuition test to set sample subjects and maximum marks. Type the sheet title."
+      ],
+      [
+        "Add your students",
+        "Paste your students or upload a CSV or Excel file. A name is needed. Roll number is optional. Change the subjects and the pass mark to suit you."
+      ],
+      [
+        "Check the preview",
+        "The preview shows Settings, Marks and Summary. Choose With sample data to see marks, grades and ranks filled in."
+      ],
+      [
+        "Download and type marks",
+        "Download the .xlsx. Type each student's marks. Total, percentage, Pass or Fail, grade and rank fill in, and Summary shows class averages."
+      ]
     ]
   },
   "pageGuides": {
@@ -617,6 +707,196 @@
           "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
         ]
       ]
+    },
+    "leadsExcelGuide": {
+      "title": "Lead and Enquiry Tracker Excel Maker: Follow-ups and Win Rate (Free)",
+      "subtitle": "Make a lead and enquiry tracker in Excel with stages, follow-up dates, overdue alerts, WhatsApp links and win rate. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Lead and Enquiry Tracker Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "What stages does it use?",
+          "New, Contacted, Quote sent, Won and Lost. They are fixed so the Summary can count them. You can change the sources of your enquiries on the Lists sheet."
+        ],
+        [
+          "How do follow-up reminders work?",
+          "You type the next follow-up date for each lead. The tracker compares it with today and shows Overdue, Today or Upcoming. Leads that are Won or Lost are not shown as follow-ups."
+        ],
+        [
+          "How does the WhatsApp link work?",
+          "Each lead with a phone number gets a Chat link that opens WhatsApp with your message filled in with their name and your business. You press send yourself. Nothing is sent from the file."
+        ],
+        [
+          "What does the win rate mean?",
+          "It is the number of leads you won divided by the number you won or lost. Leads still open are not counted until they close."
+        ],
+        [
+          "Can I see which source brings the most enquiries?",
+          "Yes. Summary counts enquiries and wins for each source and shows a chart."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my enquiry list uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "expensesExcelGuide": {
+      "title": "Expense Claim Excel Maker: Reimbursement Sheet with Limits (Free)",
+      "subtitle": "Make an expense claim sheet in Excel with categories, limit checks, receipts, approval status and totals. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Expense Claim Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "What do the limits do?",
+          "If you type a limit per claim for a category, any expense above it is marked Over limit and turns red. The limit is only the number you type, so use your own policy."
+        ],
+        [
+          "How does approval work?",
+          "Each claim has a Status: Pending, Approved, Rejected or Paid. The approver changes it from the drop-down. Summary shows the total in each status."
+        ],
+        [
+          "What does the receipt column do?",
+          "You mark Yes or No. A claim without a receipt is flagged so you can add it before you submit."
+        ],
+        [
+          "Can I print it for approval?",
+          "Yes. The Summary and Claims sheets are set up to print. You can also save them as a PDF from Excel or Google Sheets."
+        ],
+        [
+          "Can I add my own categories?",
+          "Yes. List them on the Categories sheet and pick them from the drop-down on each claim."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my claims uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "jobsExcelGuide": {
+      "title": "Job and Order Tracker Excel Maker: Due Dates, Advance, Balance (Free)",
+      "subtitle": "Make a job and order tracker in Excel with status, due dates, advance, balance and overdue flags. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Job and Order Tracker Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "What statuses are there?",
+          "Received, In progress, Ready, Delivered and Cancelled. Change the status from the drop-down as the work moves."
+        ],
+        [
+          "How are overdue jobs found?",
+          "A job that is not Delivered or Cancelled and whose due date has passed is marked Overdue. A job due within the warning days you set is marked Due soon."
+        ],
+        [
+          "How is the balance worked out?",
+          "Balance is the amount minus the advance. The Payment column shows Paid, Part paid or Unpaid for each job, and Summary adds up the balance still to collect."
+        ],
+        [
+          "Can I see what is ready for pickup?",
+          "Yes. Summary counts jobs that are Ready, and you can filter the Status column to list them."
+        ],
+        [
+          "Can I add a customer later?",
+          "Yes. Pick a name from the list or type a new one straight into the Jobs sheet."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my order list uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "vehicleExcelGuide": {
+      "title": "Vehicle Log Book Excel Maker: Trips, Fuel and Mileage (Free)",
+      "subtitle": "Make a vehicle log book in Excel with trips, fuel, other costs, cost per km and km per litre for each vehicle. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Vehicle Log Book Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How is distance worked out?",
+          "It is the end meter reading minus the start reading. If the end is lower than the start, the row shows a red check so you can fix it."
+        ],
+        [
+          "How is km per litre worked out?",
+          "For each row, the distance divided by the litres you typed. In Totals it uses only the rows where you typed litres, so trips without fuel do not spoil the average."
+        ],
+        [
+          "What is cost per km?",
+          "The total cost of the row, fuel plus other costs, divided by its distance. Totals shows it for each vehicle."
+        ],
+        [
+          "Where do I put tolls and repairs?",
+          "In Other cost. They count in the total cost and the cost per km, but not in fuel."
+        ],
+        [
+          "Can I track more than one vehicle?",
+          "Yes. Add them on the Vehicles sheet and pick one on each row. Totals shows each vehicle and a chart of cost."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my vehicle log uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
+    },
+    "gradebookExcelGuide": {
+      "title": "Marks and Rank Sheet Excel Maker: Total, Percentage, Grade (Free)",
+      "subtitle": "Make a marks and rank sheet in Excel with total, percentage, pass or fail, grade, rank and subject averages. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Marks and Rank Sheet Excel Maker free?",
+          "Yes. It is free, with no sign-up and no limit on how many workbooks you make. The file is built on your own device."
+        ],
+        [
+          "How is the pass or fail decided?",
+          "A student passes when every subject mark is at or above the pass percentage you type in Settings. Any mark below it turns red and the student shows Fail. Use your own school or board rule."
+        ],
+        [
+          "How are grades decided?",
+          "From the grade scale on the Settings sheet: the lowest percentage for each grade. The scale is only a starting point, so change it to your own."
+        ],
+        [
+          "How is rank worked out?",
+          "By total marks. The highest total is rank 1, and students with the same total share a rank."
+        ],
+        [
+          "What if a student missed a subject?",
+          "Leave the box empty. The percentage is worked out from the subjects that have marks, so the student is not penalised for an empty box."
+        ],
+        [
+          "Can I use different maximum marks?",
+          "The same maximum applies to every subject, which you set in Settings. For a test out of 50, set 50 and the percentages are worked out from it."
+        ],
+        [
+          "Does it work in Google Sheets, WPS Office and without macros?",
+          "The workbook uses common formulas, drop-down lists and colour rules that Excel, Google Sheets, WPS Office and LibreOffice understand. There are no macros, so it opens without a security warning. Colours and widths can look a little different from one app to another, so look over each sheet the first time you open it."
+        ],
+        [
+          "Is my student list uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -891,6 +1171,131 @@
           "paragraphs": [
             "Everything is made on your device, so supplier names and amounts are never uploaded. The workbook has no macros.",
             "Amounts and dates are only what you type. Check against your supplier statements."
+          ]
+        }
+      ]
+    },
+    "lead-tracker-excel-maker": {
+      "sections": [
+        {
+          "heading": "Why track enquiries",
+          "paragraphs": [
+            "Most sales are lost because nobody followed up, not because the customer said no. Writing every enquiry down with a next date turns a pile of messages into a list of things to do today.",
+            "This tool builds a simple tracker for it, with no paid CRM."
+          ]
+        },
+        {
+          "heading": "Following up without being pushy",
+          "paragraphs": [
+            "A short, friendly message works better than a long one. The Chat link fills in the name and your business, and you can change the wording before you build the file.",
+            "Move the stage as things happen so the summary stays true."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your customer list is never uploaded. The workbook has no macros and no links to the internet.",
+            "Values and dates are only what you type. Check them against your own records."
+          ]
+        }
+      ]
+    },
+    "expense-claim-excel-maker": {
+      "sections": [
+        {
+          "heading": "Why use a claim sheet",
+          "paragraphs": [
+            "Reimbursements are easier to approve when every expense is on one page with its category, amount and receipt. A claim sheet also stops forgotten receipts and surprise totals.",
+            "This tool builds one with limits and approval status built in."
+          ]
+        },
+        {
+          "heading": "Making limits useful",
+          "paragraphs": [
+            "A limit per category helps catch mistakes before they reach the approver. Set limits from your own policy, and leave a category empty if it should have none.",
+            "Look at the Over limit flags before you submit and add a note for any you need to explain."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your claims is never uploaded. The workbook has no macros and no links to the internet.",
+            "Amounts, limits and statuses are only what you type. Check against your receipts and policy."
+          ]
+        }
+      ]
+    },
+    "job-order-tracker-excel-maker": {
+      "sections": [
+        {
+          "heading": "Keeping custom orders on track",
+          "paragraphs": [
+            "Custom work has a promise date and often an advance. Writing every job down with its due date and balance helps you finish on time and collect what is left.",
+            "This tool builds the order book for you with flags for late jobs."
+          ]
+        },
+        {
+          "heading": "Using status well",
+          "paragraphs": [
+            "Update the status when the work changes hands, not at the end of the day. A job marked Ready is a reminder to call the customer.",
+            "Check the balance when a job is Delivered so nothing is left unpaid."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your customer and order details is never uploaded. The workbook has no macros and no links to the internet.",
+            "Amounts and dates are only what you type. Check them against your own records."
+          ]
+        }
+      ]
+    },
+    "vehicle-log-book-excel-maker": {
+      "sections": [
+        {
+          "heading": "Why keep a log",
+          "paragraphs": [
+            "Fuel and running costs add up quietly. A log shows what each vehicle really costs per kilometre and which one is using more fuel than it should.",
+            "This tool builds the log for cars, bikes and fleets."
+          ]
+        },
+        {
+          "heading": "Getting good readings",
+          "paragraphs": [
+            "Write the meter reading at the start and end of each trip. Fill the tank to the same level each time you record litres, so km per litre is comparable.",
+            "Look at the Totals sheet once a month to spot a vehicle whose cost per km is rising."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your vehicle details is never uploaded. The workbook has no macros and no links to the internet.",
+            "Mileage depends on the readings and litres you type. Check any figure that looks odd against the meter."
+          ]
+        }
+      ]
+    },
+    "marks-rank-sheet-excel-maker": {
+      "sections": [
+        {
+          "heading": "A marks sheet that does the sums",
+          "paragraphs": [
+            "Adding marks, working out percentages and ranking a class by hand takes time and invites mistakes. A sheet with formulas gives the same answer every time.",
+            "This tool builds the sheet with your subjects, maximum marks and pass mark."
+          ]
+        },
+        {
+          "heading": "Setting the rules",
+          "paragraphs": [
+            "Type your own pass mark and grade scale. Different schools and boards use different rules, so the tool never assumes one.",
+            "Check the first few students by hand to be sure the sheet follows your rule."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so your student list and marks is never uploaded. The workbook has no macros and no links to the internet.",
+            "Results follow the marks and rules you type. Review them before you share or print."
           ]
         }
       ]

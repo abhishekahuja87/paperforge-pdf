@@ -47,4 +47,24 @@ export const WORKBOOKS_TOOLS: PackTool[] = [
     id: 'supplier-payment-tracker-excel-maker', kind: 'workbookPayables', guideKey: 'payablesExcelGuide', category: 'business', icon: 'receipt', tier: 'popular',
     keywords: ['supplier payment tracker excel', 'accounts payable excel template', 'vendor payment tracker', 'bill due date tracker excel', 'creditors list excel', 'purchase bill tracker excel', 'payment due reminder excel', 'supplier ledger excel', 'payables ageing excel', 'vendor bills tracker', 'supplier credit days excel', 'pending supplier payments sheet'],
   }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'lead-tracker-excel-maker', kind: 'workbookLeads', guideKey: 'leadsExcelGuide', category: 'business', icon: 'contact', tier: 'popular',
+    keywords: ['lead tracker excel', 'enquiry register excel', 'customer enquiry tracker', 'sales pipeline excel template', 'follow up tracker excel', 'crm excel sheet free', 'lead management excel', 'inquiry log excel', 'sales leads sheet', 'admission enquiry register', 'quotation follow up sheet', 'small business crm excel'],
+  }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'expense-claim-excel-maker', kind: 'workbookExpenses', guideKey: 'expensesExcelGuide', category: 'business', icon: 'receipt', tier: 'popular',
+    keywords: ['expense claim form excel', 'reimbursement sheet excel', 'travel expense report excel', 'expense report template', 'staff expense claim format', 'claim form excel with limits', 'business expense tracker', 'expense approval tracker', 'petty expense sheet excel', 'monthly expense report excel', 'employee reimbursement form', 'expense sheet with receipts'],
+  }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'job-order-tracker-excel-maker', kind: 'workbookJobs', guideKey: 'jobsExcelGuide', category: 'business', icon: 'file-text', tier: 'popular',
+    keywords: ['order tracker excel', 'job tracker excel', 'tailor order register', 'repair shop job card excel', 'custom order tracking sheet', 'work order tracker', 'delivery date tracker excel', 'customer order register', 'boutique order book excel', 'job status tracker', 'order book with advance and balance', 'pending orders list excel'],
+  }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'vehicle-log-book-excel-maker', kind: 'workbookVehicle', guideKey: 'vehicleExcelGuide', category: 'business', icon: 'grid', tier: 'popular',
+    keywords: ['vehicle log book excel', 'car log book template', 'fuel log excel', 'mileage tracker excel', 'vehicle expense tracker', 'fleet log sheet', 'trip log excel', 'fuel consumption sheet', 'bike fuel tracker', 'cab running log', 'vehicle running cost excel', 'km per litre calculator excel'],
+  }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'marks-rank-sheet-excel-maker', kind: 'workbookGradebook', guideKey: 'gradebookExcelGuide', category: 'business', icon: 'grid', tier: 'popular',
+    keywords: ['marks sheet excel', 'student marksheet excel', 'rank list excel', 'class result sheet', 'gradebook excel template', 'exam result calculator excel', 'total and percentage excel', 'school marks register', 'result sheet with rank', 'pass fail sheet excel', 'marks entry sheet', 'class topper list excel'],
+  }, workbooks.toolCatalog),
 ];

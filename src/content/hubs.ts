@@ -257,11 +257,12 @@ export const HUBS: Hub[] = [
     collection: 'excel',
     title: 'Free Excel Templates and Makers: Invoice, Stock, Ledger, Cash Book and More',
     subtitle: 'Make a ready-to-use Excel workbook for your own job. The formulas, drop-downs and colours are already set up, and the file is made on your device.',
-    description: "Free Excel templates and makers: invoice, stock register, udhaar ledger, timesheet, cash book, fee tracker, budget and more. Download an .xlsx. No sign-up.",
+    description: "Free Excel templates and makers: invoice, stock, ledger, cash book, timesheet, leads, budget, marks sheet and more. Download an .xlsx with formulas. No sign-up.",
     sections: [
       { heading: 'What you can make here', paragraphs: [
         'Each tool builds a real Excel (.xlsx) workbook around your own details. The Gantt Chart Excel Maker turns a task list into a project timeline that colours itself. The Attendance Register Excel Maker makes monthly sheets with weekly offs, holidays and a summary. The Invoice Excel Template Maker makes an invoice with item and customer lists, taxes you type yourself and a log of every invoice. The Delivery Bill Excel Maker makes monthly bills for milk, tiffin, newspaper or water cans, with a reminder link for customers who owe.',
         'For a shop or small business there are also a Stock Register Excel Maker with a reorder alert and order list, a Credit Ledger (udhaar khata) with ageing and WhatsApp reminders, a Daily Cash Book that tracks cash, bank and UPI, and a Supplier Payment Tracker that shows due and overdue bills. The Timesheet Excel Maker works out hours and overtime, the Fees and Rent Tracker follows twelve months of dues with receipts, and the Budget Planner compares plan with actual.',
+        'To stay organised there are a Lead and Enquiry Tracker with follow-up dates and WhatsApp links, an Expense Claim sheet with limits and approval status, a Job and Order Tracker with advance and balance, a Vehicle Log Book with cost per kilometre and kilometres per litre, and a Marks and Rank Sheet for a class.',
       ] },
       { heading: 'How these workbooks work', paragraphs: [
         'You can download a blank workbook, or one filled with sample data to see how it behaves. Choose your region first, so the currency, date order, paper size, tax name and weekly off days match how you work. The sums are ordinary formulas, the drop-downs are real lists and the colours are colour rules, so the file works in Excel, Google Sheets, WPS Office and LibreOffice without macros.',

@@ -12,4 +12,9 @@ export const WORKBOOKS_COMPONENTS: Record<string, LazyExoticComponent<ComponentT
   workbookCashbook: lazy(() => import('./CashbookWorkbook')),
   workbookBudget: lazy(() => import('./BudgetWorkbook')),
   workbookPayables: lazy(() => import('./PayablesWorkbook')),
+  workbookLeads: lazy(() => import('./LeadsWorkbook')),
+  workbookExpenses: lazy(() => import('./ExpensesWorkbook')),
+  workbookJobs: lazy(() => import('./JobsWorkbook')),
+  workbookVehicle: lazy(() => import('./VehicleWorkbook')),
+  workbookGradebook: lazy(() => import('./GradebookWorkbook')),
 };

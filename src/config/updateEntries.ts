@@ -19,6 +19,41 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/lead-tracker-excel-maker',
+    tool: 'Lead and Enquiry Tracker Excel Maker',
+    title: 'New: Lead and Enquiry Tracker Excel Maker',
+    summary: 'Make an Excel lead and enquiry tracker: stages, next follow-up dates, overdue alerts, WhatsApp links and win rate by source.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/expense-claim-excel-maker',
+    tool: 'Expense Claim Excel Maker',
+    title: 'New: Expense Claim Excel Maker',
+    summary: 'Make an Excel expense claim sheet: categories with limits, receipt check, approval status and totals you can print.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/job-order-tracker-excel-maker',
+    tool: 'Job and Order Tracker Excel Maker',
+    title: 'New: Job and Order Tracker Excel Maker',
+    summary: 'Make an Excel job and order tracker: status, due dates, advance and balance, overdue and due-soon flags, and what is left to collect.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/vehicle-log-book-excel-maker',
+    tool: 'Vehicle Log Book Excel Maker',
+    title: 'New: Vehicle Log Book Excel Maker',
+    summary: 'Make an Excel vehicle log book: trips and fuel with meter readings, cost per km, km per litre and totals for each vehicle.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/marks-rank-sheet-excel-maker',
+    tool: 'Marks and Rank Sheet Excel Maker',
+    title: 'New: Marks and Rank Sheet Excel Maker',
+    summary: 'Make an Excel marks sheet: type marks in up to six subjects and get total, percentage, pass or fail, grade, rank and class averages.',
+  },
+  {
+    date: '2026-11-27',
     path: '/stock-register-excel-maker',
     tool: 'Stock Register Excel Maker',
     title: 'New: Stock Register Excel Maker',
