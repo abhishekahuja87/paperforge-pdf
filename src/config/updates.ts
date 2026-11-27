@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-27',
+    path: '/rent-receipt-generator',
+    tool: 'Rent Receipt Generator',
+    title: 'More help on five tool pages',
+    summary: 'The PDF to Images, Tambola Ticket Generator, Addition with Carrying, Rent Receipt Generator and Inflation Calculator pages now explain more: quality choices, how a game runs, how carrying works, keeping receipts and choosing an inflation rate.',
+  },
+  {
     date: '2026-11-26',
     path: '/bulk-letter-maker',
     tool: 'Bulk Letter Maker',

@@ -1,0 +1,94 @@
+{
+  "toolArticles": {
+    "pdf-to-images": {
+      "sections": [
+        {
+          "heading": "Choosing the picture quality",
+          "paragraphs": [
+            "A higher quality setting renders each page with more pixels, so small text and thin lines stay sharp when you zoom in or print the picture. The cost is a bigger file and more memory while the page is drawn. For sharing on a phone or pasting into a slide, a lower setting is usually enough. For printing, or for pictures you plan to crop, choose the higher one.",
+            "If a page looks soft, render it again at a higher quality instead of enlarging the picture afterwards, because enlarging cannot add detail that was never drawn."
+          ]
+        },
+        {
+          "heading": "Working with large PDFs",
+          "paragraphs": [
+            "Everything is drawn on your own device, so a PDF with hundreds of pages or very large page sizes can take a while and may use a lot of memory, especially on an older phone. If the page stops responding, convert a smaller range of pages at a time and save each batch before starting the next.",
+            "Scanned PDFs already contain a picture of each page, so the result looks the same as the original scan. PDFs made from text and vector drawings are redrawn from scratch, which is why their text comes out crisp."
+          ]
+        }
+      ]
+    },
+    "tambola-ticket-generator": {
+      "sections": [
+        {
+          "heading": "How a game of tambola runs",
+          "paragraphs": [
+            "Tambola, also called housie, is played with numbers from 1 to 90. Each player holds a ticket with a grid of numbers. A caller draws numbers one at a time and reads them out, and players mark any number that appears on their ticket.",
+            "Prizes are agreed before the game starts. Common ones are the first row completed, the first player to complete every row, a set of corner numbers, and a full house, which means every number on the ticket. Decide the list of prizes together and write it where everyone can see it."
+          ]
+        },
+        {
+          "heading": "Printing tickets for a party",
+          "paragraphs": [
+            "Print one ticket per player, plus a few spares. Tickets are easier to mark on plain paper with a pen, a crayon or small coins. For a large kitty party or school event, print a few more than the number of guests so late arrivals can join.",
+            "Keep a separate list of the numbers called so far. If two players claim the same prize at the same time, the caller can check the claim against that list before the prize is given."
+          ]
+        }
+      ]
+    },
+    "addition-with-carrying-for-kids": {
+      "sections": [
+        {
+          "heading": "How carrying works, in simple words",
+          "paragraphs": [
+            "When the digits in one column add up to ten or more, only the ones part stays in that column. The tens part moves, or carries, to the next column on the left and is added there. For example, in 27 + 15, the ones column gives 7 + 5 = 12, so write 2 and carry 1 to the tens column, where 2 + 1 + 1 = 4. The answer is 42.",
+            "Children often forget the carried digit or add it to the wrong column. A small box above the tens column to write the carry in is a simple habit that prevents both mistakes."
+          ]
+        },
+        {
+          "heading": "Using the worksheets at home or in class",
+          "paragraphs": [
+            "Start with two-digit numbers where only the ones column carries, then move on to sums where both columns carry, then to three digits. Move up only when a child can finish a page without help.",
+            "Short, regular practice works better than one long session. Five to ten sums a day is enough for most children, and the answer key lets a parent or teacher check the page in a minute."
+          ]
+        }
+      ]
+    },
+    "rent-receipt-generator": {
+      "sections": [
+        {
+          "heading": "Keeping your receipts organised",
+          "paragraphs": [
+            "Make one receipt for each rent period and store them together with a record of how you paid, such as a bank transfer reference. Saving each receipt as a PDF with the month in its name keeps them easy to find when someone asks for them months later.",
+            "If the rent changes during the year, make the receipts for the new amount from the month it changed, so each receipt matches what was actually paid."
+          ]
+        },
+        {
+          "heading": "Before you hand the receipts over",
+          "paragraphs": [
+            "Check the names, the property address, the months and the amounts against your records, because the receipt is only as accurate as what you type. The landlord should sign each receipt, and a revenue stamp is added where that applies to the amount and the place.",
+            "Rules about what an employer or an official office accepts differ, so ask them what they need before you submit. This tool only lays out the receipt from the details you give it."
+          ]
+        }
+      ]
+    },
+    "inflation-calculator": {
+      "sections": [
+        {
+          "heading": "Reading the year-by-year table",
+          "paragraphs": [
+            "The table shows the same amount year by year, so you can see how the effect builds. In the early years the change looks small. The gap widens as the years pass because each year's rise is added to a larger figure than the year before.",
+            "Use the share of buying power lost to compare goals. An amount you need in five years is affected far less than one you need in twenty-five."
+          ]
+        },
+        {
+          "heading": "Choosing a rate to try",
+          "paragraphs": [
+            "There is no single correct rate. Try a low, a middle and a high figure and look at how far apart the results are. If a plan only works at the low rate, it is fragile.",
+            "Costs such as education and medical care often rise faster than everyday prices, so you may want a higher rate for them than for groceries. Check recent published figures for your own country before you decide, since they change from year to year."
+          ]
+        }
+      ]
+    }
+  }
+}
