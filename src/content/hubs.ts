@@ -252,9 +252,9 @@ export const HUBS: Hub[] = [
   {
     path: '/excel-template-makers',
     collection: 'excel',
-    title: 'Free Excel Template Makers: Invoice, Attendance, Gantt and Billing Sheets',
+    title: 'Free Excel Templates and Makers: Invoice, Attendance, Gantt and Billing Sheets',
     subtitle: 'Make a ready-to-use Excel workbook for your own job. The formulas, drop-downs and colours are already set up, and the file is made on your device.',
-    description: 'Free Excel template makers: Gantt chart from a task list, monthly attendance register, invoice workbook with item and customer lists, and monthly delivery bill with reminders. Download an .xlsx, no sign-up.',
+    description: 'Free Excel templates and makers: Gantt chart from a task list, monthly attendance register, invoice workbook with item and customer lists, and monthly delivery bill with reminders. Download an .xlsx, no sign-up.',
     sections: [
       { heading: 'What you can make here', paragraphs: [
         'Each tool builds a real Excel (.xlsx) workbook around your own details. The Gantt Chart Excel Maker turns a task list into a project timeline that colours itself. The Attendance Register Excel Maker makes monthly sheets with weekly offs, holidays and a summary. The Invoice Excel Template Maker makes an invoice with item and customer lists, taxes you type yourself and a log of every invoice. The Delivery Bill Excel Maker makes monthly bills for milk, tiffin, newspaper or water cans, with a reminder link for customers who owe.',

@@ -799,9 +799,9 @@
     "free": "Free, no sign-up",
     "count": "{{count}}+ tools"
   },
-  "homeHeading": "Free online tools and calculators",
-  "homeHeadingAccent": "for PDFs, photos, money and everyday work.",
-  "homeDescription": "PDF and photo tools, tax, salary and loan calculators, QR codes, printable sheets, resume and business tools, study and kids learning, developer tools and more. Pick a topic or search, and use it right here in your browser.",
+  "homeHeading": "Free online tools, utilities and calculators",
+  "homeHeadingAccent": "for PDFs, photos, Excel, video, money and everyday work.",
+  "homeDescription": "PDF and photo tools, Excel templates, video and audio makers, printable sheets, tax, salary and loan calculators, QR codes, resume and business tools, study and kids learning, developer tools and more. Pick a topic or search, and use it right here in your browser.",
   "findTool": "Find a tool",
   "searchTools": "Search tools",
   "searchPlaceholder": "Search tools by name or what they do",
@@ -973,7 +973,7 @@
       "description": "Format JSON, encode Base64 and URLs, convert timestamps and colours, and generate UUIDs, passwords and placeholder text. Everything runs on your device, so keys and data stay with you."
     },
     "excel": {
-      "name": "Excel template makers",
+      "name": "Excel templates and makers",
       "description": "Make a real Excel workbook for the job: a Gantt chart from your task list, a monthly attendance register, an invoice with item and customer lists, or a monthly delivery bill with reminders. Each file has formulas, drop-downs and colours already set up, and is made on your device."
     },
     "other": {

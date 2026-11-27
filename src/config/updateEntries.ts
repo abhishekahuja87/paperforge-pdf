@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/',
+    tool: 'Home page',
+    title: 'Home page now shows every topic',
+    summary: 'Each topic tile on the home page now says what it holds (for example Merge, split, fill, sign for PDF tools), and the Excel section is now called Excel templates and makers.',
+  },
+  {
+    date: '2026-11-27',
     path: '/excel-template-makers',
     tool: 'Excel Template Makers',
     title: 'New section: Excel Template Makers',
