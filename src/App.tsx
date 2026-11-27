@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { REDIRECTS } from './config/redirects';
 import { COURT_PAGES } from './config/courtPages';
 import { FIXTURE_PAGES } from './config/fixturePages';
 import { GLOBE_PAGES } from './config/globePages';
@@ -158,6 +159,7 @@ export const App: React.FC = () => {
               <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              {Object.entries(REDIRECTS).map(([from, to]) => <Route key={from} path={from} element={<Navigate to={to} replace />} />)}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

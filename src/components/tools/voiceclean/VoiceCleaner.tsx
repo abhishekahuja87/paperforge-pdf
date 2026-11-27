@@ -81,7 +81,7 @@ export const VoiceCleaner: React.FC = () => {
   };
   const reset = () => { stopPlaying(); setResult(null); setSmall(null); setFailed(''); };
   const change = (patch: Partial<CleanSettings>) => { reset(); setSettings((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; change({ noise: s.noise as NoiseLevel, rumble: s.rumble, level: s.level, louder: s.louder, silence: s.silence as SilenceMode }); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; change({ noise: s.noise as NoiseLevel, rumble: s.rumble, level: s.level, louder: s.louder, silence: s.silence as SilenceMode }); };
   const activeStarter = (Object.keys(starters) as StarterId[]).find((id) => { const s = starters[id]; return s.noise === settings.noise && s.rumble === settings.rumble && s.level === settings.level && s.louder === settings.louder && s.silence === settings.silence; }) ?? '';
 
   const take = (next: Voice) => { reset(); if (next.seconds > MAX_SECONDS) { setMessage(ui.tooLong.replace('{max}', String(MAX_SECONDS / 60))); setVoice(null); return; } setMessage(''); setVoice(next); };
@@ -123,7 +123,7 @@ export const VoiceCleaner: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter as StarterId].hint : ui.startersHint}</p></div>
       </section>
 

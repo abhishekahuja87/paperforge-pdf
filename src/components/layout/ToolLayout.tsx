@@ -96,9 +96,11 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
               </Link>
               <PromisePill toolId={pathname.replace(/^\/+|\/+$/g, '')} />
             </div>
-            <div className="flex items-start justify-between gap-3">
-              <h1 lang={contentLanguage} className="text-2xl font-black leading-tight tracking-[-0.03em] text-stone-900 sm:text-3xl">{title}</h1>
-              <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+            {/* The title may shrink and wrap long words; when it and the buttons do not fit on one line (long titles on a
+                phone), the buttons move below it instead of pushing past the screen edge. */}
+            <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
+              <h1 lang={contentLanguage} className="min-w-0 flex-[1_1_14rem] text-2xl font-black leading-tight tracking-[-0.03em] text-stone-900 [overflow-wrap:anywhere] sm:text-3xl">{title}</h1>
+              <div className="ml-auto flex max-w-full shrink-0 flex-wrap items-center justify-end gap-2">
               <PinToolButton path={pathname} />
               <button
                 type="button"

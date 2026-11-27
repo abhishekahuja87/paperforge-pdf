@@ -1393,3 +1393,37 @@ Check after deploy:
 - [ ] /pdf-tools: a "Jump to all N tools" button sits above the first section; tapping it scrolls smoothly to the "All N tools" list. N equals the heading of that list.
 - [ ] View page source of a tool page: a link to its section appears before the heading, and a "Sections" group in the footer list links all 14 section pages.
 - [ ] Rich Results Test or Search Console (Breadcrumbs report): the tool page shows three levels.
+
+## Static pages: shorter shared link list (2026-11-27)
+
+The pre-built HTML no longer lists all 474 tools with descriptions on every page. After deploying, open the page source (View source, not Inspect) of /merge-pdf, /gate-pass-printable, /guides/how-to-split-a-pdf and /contact and check:
+- Under the page text there is a "More tools" list with the page's own topic (titles only), Workspaces, Sections (every topic page) and Company. A tool page's own text should be longer than that list.
+- /printables-and-templates also lists the option pages ("More Printable Sheets, Planners and Templates"), and /guides lists every guide. Other pages do not.
+- The company list includes Guides and "Free, no limits".
+- The visible app (header, footer "All tools") is unchanged.
+Checked locally: build writes 476 pages, lint has 0 errors, `check-hub-coverage` passes, and every sitemap page is linked from at least one static page.
+- Linked tool names (2026-11-27): in `pnpm dev`, open /merge-pdf. In "Getting the order right", "Organize PDF" and "Split PDF" are links. Before the fix they were links only in the built site, because the shared "already linked" list was changed while the text was drawn and dev mode draws every component twice. Also check a guide (/guides/how-to-split-a-pdf) and a topic page (/pdf-tools).
+
+## Office files in real Office (2026-11-27)
+
+Every generated file was opened in Microsoft Excel, Word and PowerPoint on Windows (`scripts/check-in-real-office.ps1`):
+- Excel: all 19 makers with sample data open, 27,482 formulas recalculate with no error cells, and every formula result matches the value the app computes for its preview.
+- Word: all 21 makers and templates, all letter starters, all 12 designs (on the cover letter) and the Resume Builder's Word download open; contents tables and page fields update; letters fit on one page.
+- PowerPoint: every starter of all 8 makers and all 12 designs (46 decks) open, with no text spilling out of its box. Before this fix none of them opened: PowerPoint called every deck corrupted (untyped placeholder on the slide master), and heading-only slides broke the file again (empty text box). `node --experimental-strip-types scripts/check-office-files.mjs` guards both.
+
+To repeat after changing a writer: download a few files from each maker into one folder and run `powershell -ExecutionPolicy Bypass -File scripts/check-in-real-office.ps1 -Dir <folder>`.
+
+Not covered: Excel on Mac, Google Sheets/Docs/Slides, WPS and LibreOffice (only Microsoft Office on Windows was available); very long lists near the row limits; print preview and page scaling.
+
+## Search Console follow-ups (2026-11-27)
+- [ ] After deploying, open `/resize-image-to-20kb`, `/signature-resizer` and `/double-sided-flashcards-printable`: each lands on its replacement page with no "page not found".
+- [ ] Home page "Our popular tools" shows Booklet, PDF page size, Organize, Fillable PDF, Image Resizer, Court sizes, Visiting card, Quotation, Rent receipt, Audio cutter, Maths worksheet, Compare.
+- [ ] Home search: "organiser pdf", "rent slip", "signature resize" and "booklet maker" find the right tool first.
+- [ ] On a 360 px phone, /expense-claim-excel-maker and /product-requirements-word-template do not scroll sideways; Pin and Focus mode sit under the title.
+- [ ] In Search Console, use URL Inspection on two of the old addresses after a week to confirm Google sees the redirect.
+
+## Guide and option page depth (2026-11-27)
+- [ ] Open three guides, for example /guides/how-to-calculate-percentages-and-discounts, /guides/how-emi-works-and-how-to-reduce-interest and /guides/how-to-make-barcode-labels-for-your-shop: the new sections appear before the last section (limits or privacy), and the EMI guide mentions extra payments.
+- [ ] Spot-check the worked numbers: EMI of about 8,997 on 10 lakh at 9% for 20 years; EAN-13 check digit 1 for 400638133393; a 45-minute break on a 9:30 to 6:15 day gives 8 hours.
+- [ ] Open /gate-pass-printable and /fuel-mileage-log-printable: a new practical section appears in the article and one new question in the FAQ, with the privacy question still last.
+- [ ] View page source of one guide and one option page: the new text is in the pre-built HTML.

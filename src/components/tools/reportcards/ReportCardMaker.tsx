@@ -75,7 +75,7 @@ export const ReportCardMaker: React.FC = () => {
   }, [options, students, shown, page, fontTick]);
 
   const change = (patch: Partial<Saved>) => { output.clear(); sheet.clear(); setMessage(''); setSaved((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; change({ exam: s.exam, gradesOnly: s.gradesOnly, passOn: s.showPass, showRank: s.showRank, rankList: s.rankList, cards: s.cards }); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; change({ exam: s.exam, gradesOnly: s.gradesOnly, passOn: s.showPass, showRank: s.showRank, rankList: s.rankList, cards: s.cards }); };
   const activeStarter = STARTER_IDS.find((id) => { const s = starters[id]; return s.gradesOnly === saved.gradesOnly && s.showPass === saved.passOn && s.showRank === saved.showRank && s.rankList === saved.rankList && s.cards === saved.cards; }) ?? '';
   const textField = (label: string, key: 'school' | 'exam' | 'classLabel', placeholder = '', maxLength = 80) => (
     <label className="block text-xs font-semibold text-slate-700">{label}<input type="text" value={saved[key]} maxLength={maxLength} placeholder={placeholder} onChange={(event) => change({ [key]: event.target.value } as Partial<Saved>)} className={inputClass} /></label>
@@ -99,7 +99,7 @@ export const ReportCardMaker: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter].hint : ui.startersHint}</p></div>
       </section>
 

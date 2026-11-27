@@ -78,7 +78,7 @@ export const BackgroundRemover: React.FC = () => {
 
   const reset = () => setResult(null);
   const change = (patch: Partial<Saved>) => { reset(); setSaved((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; change({ tolerance: s.tolerance, edgesOnly: s.edgesOnly, shrink: s.shrink, smooth: s.smooth }); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; change({ tolerance: s.tolerance, edgesOnly: s.edgesOnly, shrink: s.shrink, smooth: s.smooth }); };
   const activeStarter = (Object.keys(starters) as StarterId[]).find((id) => { const s = starters[id]; return s.tolerance === tolerance && s.edgesOnly === edgesOnly && s.shrink === shrink && s.smooth === smooth; }) ?? '';
 
   const take = (image: ImageData, label: string) => { reset(); setPicked(null); setShowOriginal(false); setName(label); setPicture(image); };
@@ -110,7 +110,7 @@ export const BackgroundRemover: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter as StarterId].hint : ui.startersHint}</p></div>
         <Note>{ui.honest}</Note>
       </section>

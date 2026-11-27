@@ -67,6 +67,7 @@ import ppt from './packs/ppt.en.json';
 import coreDepth from './depth/core.en.json';
 import thinDepth from './depth/thin.en.json';
 import indexingDepth from './depth/indexing.en.json';
+import optionsDepth from './depth/options.en.json';
 
 /**
  * The long English text for each tool page: guide steps, FAQs and articles. It is a separate chunk (see
@@ -91,7 +92,7 @@ interface Depth {
   toolArticles: Record<string, { sections: { heading: string; paragraphs: string[] }[] }>;
   pageGuides?: Record<string, { faq: string[][] }>;
 }
-const DEPTH: Depth[] = [coreDepth, thinDepth, indexingDepth];
+const DEPTH: Depth[] = [coreDepth, thinDepth, indexingDepth, optionsDepth];
 
 /** Keeps the closing privacy section or question last, and puts the new material before it. */
 const insertBeforeLast = <T,>(existing: T[], extra: T[]): T[] => [...existing.slice(0, -1), ...extra, ...existing.slice(-1)];

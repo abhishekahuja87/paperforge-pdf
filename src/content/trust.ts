@@ -8,7 +8,7 @@ export const TRUST = {
   title: 'Why trust MyDailyUtils',
   subtitle: 'Who runs the site, what stays on your device, what we do collect, and how you can check it yourself.',
   description:
-    'Who runs MyDailyUtils, what happens to your files and numbers, what is collected, how the site is paid for and a two-minute test you can run yourself to see that file tools work offline.',
+    'Who runs MyDailyUtils, what happens to your files, what is collected, how the site is paid for and a quick test to see the tools work offline.',
   sections: [
     {
       heading: 'Who runs this site',

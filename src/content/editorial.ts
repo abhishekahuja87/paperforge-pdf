@@ -8,7 +8,7 @@ export const EDITORIAL = {
   title: 'How we build and check our tools',
   subtitle: 'Our editorial policy: where numbers come from, how tools are tested, how mistakes are fixed and how the site is paid for.',
   description:
-    'How MyDailyUtils builds, checks and corrects its calculators, generators and file tools, where rules and figures come from, how privacy is handled and how the site earns money.',
+    'How MyDailyUtils builds, checks and corrects its tools, where its rules and figures come from, how privacy is handled and how the site earns money.',
   sections: [
     {
       heading: 'Why this site exists',

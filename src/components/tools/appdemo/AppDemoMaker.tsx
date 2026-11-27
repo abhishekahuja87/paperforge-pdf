@@ -174,7 +174,7 @@ export const AppDemoMaker: React.FC = () => {
     else change(item.id, { hide: { ...item.hide, x, y, on: true } });
   };
 
-  const useStarter = (id: StarterId) => {
+  const applyStarter = (id: StarterId) => {
     if (busy) return; const s = starters[id]; reset();
     setSaved((current) => ({ ...current, options: { ...current.options, device: s.device as DeviceId, look: s.look as DemoLookId, font: DEMO_LOOKS[s.look as DemoLookId].font, transition: s.transition as TransitionId, label: s.label_style as LabelId, speed: s.speed as SpeedId } }));
     setHints(s.hints);
@@ -247,7 +247,7 @@ export const AppDemoMaker: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value="" onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value="" onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{ui.startersHint}</p></div>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.frame}</p>
           <ChoiceButtons label={ui.frame} value={options.device} onChange={(value) => update({ device: value as DeviceId })} options={names(ui.frames)} />

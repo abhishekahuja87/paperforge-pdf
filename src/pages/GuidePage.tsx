@@ -4,6 +4,7 @@ import { InfoPageLayout } from '../components/layout/InfoPageLayout';
 import { TOOLS } from '../config/tools';
 import { getGuide } from '../content/guides';
 import { LinkedText } from '../components/common/LinkedText';
+import { linkPieces } from '../lib/toolLinks';
 import { NotFoundPage } from './NotFoundPage';
 
 export const GuidePage: React.FC = () => {
@@ -21,7 +22,7 @@ export const GuidePage: React.FC = () => {
       {guide.sections.map((section) => (
         <section key={section.heading} className="space-y-2">
           <h2 className="text-xl font-bold text-stone-900">{section.heading}</h2>
-          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} /></p>)}
+          {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText pieces={linkPieces(paragraph, { auto: true, seen })} /></p>)}
         </section>
       ))}
       {tools.length > 0 && (

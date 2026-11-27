@@ -106,14 +106,20 @@ function shellBody(page, groups, text, site) {
   }
 
   parts.push(`</main>`);
-  parts.push(`<nav aria-label="${escapeHtml(text.allTools)}">`);
-  parts.push(`<h2>${escapeHtml(text.allTools)}</h2>`);
+  parts.push(`<nav aria-label="More tools">`);
+  parts.push(`<h2>More tools</h2>`);
+  // Only this page's topic, the list of topics and the company pages. Listing every tool with its
+  // description on every page made each static page mostly the same text.
+  const topicPath = page.parent?.path ?? page.path;
   for (const group of groups) {
-    parts.push(`<h3>${escapeHtml(group.name)}</h3>${linkList(group.links)}`);
+    const show = group.showOn === 'all' || group.showOn === topicPath || group.showOn === `only:${page.path}`;
+    if (show) parts.push(`<h3>${escapeHtml(group.name)}</h3>${linkList(group.links.map((link) => ({ ...link, description: '' })))}`);
   }
   parts.push(`<h3>${escapeHtml(text.company)}</h3>`);
   parts.push(linkList([
+    ...(page.path === '/guides' ? [] : [{ path: '/guides', title: 'Guides', description: '' }]),
     { path: '/about', title: text.about, description: '' },
+    { path: '/free-no-limits', title: 'Free, no limits', description: '' },
     { path: '/whats-new', title: text.whatsNew, description: '' },
     { path: '/editorial-policy', title: text.editorialPolicy, description: '' },
     { path: '/why-trust-us', title: text.whyTrustUs || 'Why trust us', description: '' },
@@ -138,7 +144,7 @@ async function main() {
     throw new Error(`dist/index.html does not contain ${ROOT_PLACEHOLDER}; was it already processed?`);
   }
 
-  const { getShellPages, getShellGroups, SHELL_SITE, SHELL_TEXT } = await loadShellData();
+  const { getShellPages, getShellGroups, SHELL_SITE, SHELL_TEXT, REDIRECTS } = await loadShellData();
   const pages = getShellPages();
   const groups = getShellGroups();
 
@@ -157,6 +163,18 @@ async function main() {
       await writeFile(join(distDir, `${page.path.replace(/^\//, '')}.html`), html, 'utf8');
     }
     written += 1;
+  }
+  // Old addresses (src/config/redirects.ts): a tiny page that points search engines and visitors to the new one.
+  const realPaths = new Set(pages.map((page) => page.path));
+  for (const [from, to] of Object.entries(REDIRECTS)) {
+    if (realPaths.has(from)) throw new Error(`redirect source ${from} is still a real page`);
+    if (!realPaths.has(to)) throw new Error(`redirect ${from} points to ${to}, which is not a page`);
+    const url = escapeHtml(new URL(to, SHELL_SITE.url).toString());
+    const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="${url}"><meta http-equiv="refresh" content="0; url=${escapeHtml(to)}"><script>location.replace(${JSON.stringify(to)} + location.search + location.hash)</script></head><body><p>This page has moved to <a href="${escapeHtml(to)}">${url}</a>.</p></body></html>`;
+    const name = from.replace(/^\//, '');
+    await mkdir(join(distDir, name), { recursive: true });
+    await writeFile(join(distDir, name, 'index.html'), html, 'utf8');
+    await writeFile(join(distDir, `${name}.html`), html, 'utf8');
   }
   // The sitemap is built from the same page list, so it can never drift from the real pages.
   // <lastmod> is written only where the updates log records a real change; pages without one say nothing rather than guess.

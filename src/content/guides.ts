@@ -5,6 +5,7 @@
  */
 import { PACK_GUIDES } from './packGuides';
 import { TOOL_GUIDES } from './toolGuides';
+import { GUIDE_DEPTH } from './guideDepth';
 
 export interface GuideSection {
   heading: string;
@@ -241,7 +242,7 @@ const CORE_GUIDES: Guide[] = [
         'Each month, interest is charged on the balance still owed. At the start the balance is highest, so most of the EMI is interest and only a little repays principal. Over time the balance falls, interest shrinks and more of each EMI repays principal. The year-wise table in the EMI Calculator shows this clearly.',
       ] },
       { heading: 'What changes the total cost', paragraphs: [
-        'A lower rate, a larger down payment and a shorter tenure all reduce total interest. A longer tenure makes the EMI smaller but increases the interest paid overall, so compare the total payment, not only the monthly amount. Paying extra towards principal, when your lender allows it, also reduces interest, although the calculator assumes no prepayments.',
+        'A lower rate, a larger down payment and a shorter tenure all reduce total interest. A longer tenure makes the EMI smaller but increases the interest paid overall, so compare the total payment, not only the monthly amount. Paying extra towards principal, when your lender allows it, also reduces interest. The EMI Calculator lets you add extra payments, either repeating (such as 5,000 every 6 months) or one-time (such as a bonus), keeps the EMI the same and shows how much earlier the loan ends and how much interest you save.',
       ] },
       { heading: 'Limits', paragraphs: [
         'The calculator assumes a fixed rate and equal monthly instalments. Floating-rate loans, processing fees and insurance change the real figures, so your lender schedule is the final word.',
@@ -567,7 +568,14 @@ const CORE_GUIDES: Guide[] = [
 ];
 
 /** Every guide: the core ones above plus those that go with the tool packs. */
-export const GUIDES: Guide[] = [...CORE_GUIDES, ...PACK_GUIDES, ...TOOL_GUIDES];
+/** Adds the extra sections from guideDepth.ts before a guide's last section (usually limits or privacy). */
+const withDepth = (guide: Guide): Guide => {
+  const extra = GUIDE_DEPTH[guide.slug];
+  if (!extra || guide.sections.length === 0) return guide;
+  return { ...guide, sections: [...guide.sections.slice(0, -1), ...extra, guide.sections[guide.sections.length - 1]!] };
+};
+
+export const GUIDES: Guide[] = [...CORE_GUIDES, ...PACK_GUIDES, ...TOOL_GUIDES].map(withDepth);
 
 export function getGuide(slug: string | undefined): Guide | undefined {
   return GUIDES.find((guide) => guide.slug === slug);

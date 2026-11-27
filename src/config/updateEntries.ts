@@ -19,6 +19,20 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/guides',
+    tool: 'Guides',
+    title: 'Longer guides with worked examples',
+    summary: 'Forty-eight how-to guides now have worked examples, common mistakes and checklists, such as an EMI example over 15 and 20 years, the EAN-13 check digit and how to spot a fake payment screen.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/printables-and-templates',
+    tool: 'Printable sheets',
+    title: 'Practical tips on sixty printable sheets',
+    summary: 'Sixty printable pages, from the gate pass to the fuel log, now explain how to fill them in and use them well, with a worked example where it helps and one more answered question each.',
+  },
+  {
+    date: '2026-11-27',
     path: '/product-catalogue-maker',
     tool: 'Product Catalogue Maker',
     title: 'New: Product Catalogue Maker',
@@ -37,6 +51,20 @@ export const ENTRIES: SiteUpdate[] = [
     tool: 'Photo and image tools',
     title: 'New: invitation cards in the photo tools',
     summary: 'The Invitation Card Maker is now listed with the photo and image tools.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/powerpoint-makers',
+    tool: 'PowerPoint makers',
+    title: 'PowerPoint files now open in Microsoft PowerPoint',
+    summary: 'Decks made with any PowerPoint maker could be refused by Microsoft PowerPoint as damaged. Every starter and design was rebuilt and checked in PowerPoint itself, and they now open straight away.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/image-resizer',
+    tool: 'Image Resizer',
+    title: 'Old photo and signature resize links work again',
+    summary: 'Old links such as resize image to 20 KB, signature resizer and passport photo resizer now open the Image Resizer, which has all of those sizes as presets, instead of a page not found.',
   },
   {
     date: '2026-11-27',

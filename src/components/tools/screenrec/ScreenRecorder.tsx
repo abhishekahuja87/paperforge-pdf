@@ -47,7 +47,7 @@ export const ScreenRecorder: React.FC = () => {
 
   const setOptions = (patch: Partial<Saved>) => setSaved((current) => ({ ...current, ...patch }));
   const setBubble = (patch: Partial<Saved['bubble']>) => setSaved((current) => ({ ...current, bubble: { ...current.bubble, ...patch } }));
-  const useStarter = (id: StarterId) => { const s = starters[id]; setSaved((current) => ({ ...current, bubble: { ...current.bubble, show: s.show, corner: s.corner as CornerId, size: s.size as BubbleSizeId, shape: s.shape as BubbleShapeId }, mic: s.mic })); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; setSaved((current) => ({ ...current, bubble: { ...current.bubble, show: s.show, corner: s.corner as CornerId, size: s.size as BubbleSizeId, shape: s.shape as BubbleShapeId }, mic: s.mic })); };
   const activeStarter = (Object.keys(starters) as StarterId[]).find((id) => { const s = starters[id]; return s.show === bubble.show && s.corner === bubble.corner && s.size === bubble.size && s.shape === bubble.shape && s.mic === mic; }) ?? '';
 
   const attachCanvas = (next: Session) => { const host = view.current; if (!host) return; host.innerHTML = ''; next.canvas.className = 'block h-auto w-full'; host.appendChild(next.canvas); };
@@ -82,7 +82,7 @@ export const ScreenRecorder: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter as StarterId].hint : ui.startersHint}</p></div>
       </section>
 
