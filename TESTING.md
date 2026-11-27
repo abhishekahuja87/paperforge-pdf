@@ -1,5 +1,14 @@
 # Testing notes
 
+## Automated checks
+
+`pnpm test` opens every prerendered route (from `src/prerender/shellData.ts`,
+478 on 27 Nov 2026) in the app under jsdom and fails if a page shows the error
+screen, falls through to "Page not found", or has no heading. It catches broken
+imports, crashes on first render and routes missing from `App.tsx`. It does not
+click through any tool, check layout, or run in a real browser, so the manual
+checklists below and `TEST-RESULTS-TEMPLATE.md` are still needed.
+
 ## Baseline: November 8, 2026 (everyday utilities)
 
 Checks for the batch that added 12 tools (simple/compound interest, RD, CAGR, age,

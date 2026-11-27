@@ -8,6 +8,7 @@ A growing collection of free, browser-based everyday tools: finance and tax calc
 - `pnpm dev` starts the development server.
 - `pnpm build` type-checks and builds the application.
 - `pnpm lint` runs Oxlint.
+- `pnpm test` runs the Vitest smoke test (`src/test/routes.smoke.test.tsx`, about 2 minutes): every route that the build prerenders must open in the app (jsdom) without the error screen or "Page not found" and must show a heading. Browser APIs jsdom lacks are stubbed in `src/test/setup.ts`; config is in `vitest.config.ts`, kept apart from `vite.config.ts`.
 - `pnpm preview` serves the production build locally.
 
 ## Architecture
