@@ -1,0 +1,806 @@
+{
+ "common": {
+  "sheets": "What is on each sheet (click a name to jump there)",
+  "legendInput": "Type here",
+  "legendCalc": "Calculated",
+  "totals": "Total",
+  "number": "#"
+ },
+ "leave": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "businessPlaceholder": "Shown at the top",
+   "tooMany": "Only the first {n} rows are used.",
+   "starters": "Who is it for?",
+   "listIntro": "Optional. Paste or upload your people. A name column is needed. Department and yearly leave days are optional.",
+   "business": "Business or school name",
+   "warnDays": "Warn when days left are at or below",
+   "warnDaysHint": "A person with this many days left, or fewer, shows as Low.",
+   "spare": "Spare employee rows",
+   "spareHint": "Empty rows kept for new people.",
+   "logRows": "Leave rows",
+   "logRowsHint": "How many leave entries the sheet has room for.",
+   "fieldName": "Employee",
+   "fieldDept": "Department",
+   "fieldDays": "Yearly leave days"
+  },
+  "starters": {
+   "office": {
+    "label": "Office team",
+    "hint": "People with a department and yearly leave days. The days are samples; type your own.",
+    "rows": [
+     [
+      "Asha Rao",
+      "Accounts",
+      "18"
+     ],
+     [
+      "Ravi Kumar",
+      "Sales",
+      "18"
+     ],
+     [
+      "Meena Shah",
+      "Admin",
+      "18"
+     ],
+     [
+      "Imran Khan",
+      "Operations",
+      "18"
+     ],
+     [
+      "Sunita Das",
+      "Support",
+      "18"
+     ],
+     [
+      "Vikram Singh",
+      "Sales",
+      "18"
+     ]
+    ]
+   },
+   "school": {
+    "label": "School or tuition staff",
+    "hint": "Teachers and staff. The days are samples; type your own.",
+    "rows": [
+     [
+      "Anita Sharma",
+      "Primary",
+      "15"
+     ],
+     [
+      "Rakesh Gupta",
+      "Science",
+      "15"
+     ],
+     [
+      "Pooja Nair",
+      "Maths",
+      "15"
+     ],
+     [
+      "Suresh Iyer",
+      "Office",
+      "15"
+     ],
+     [
+      "Farah Ali",
+      "English",
+      "15"
+     ]
+    ]
+   },
+   "small": {
+    "label": "Small business",
+    "hint": "A few staff. The days are samples; type your own.",
+    "rows": [
+     [
+      "Rohit",
+      "Shop",
+      "12"
+     ],
+     [
+      "Kavita",
+      "Shop",
+      "12"
+     ],
+     [
+      "Deepak",
+      "Delivery",
+      "12"
+     ],
+     [
+      "Lata",
+      "Kitchen",
+      "12"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "log": [
+    {
+     "from": -25,
+     "days": 2,
+     "emp": 0,
+     "type": 0,
+     "status": 0,
+     "reason": "Family function"
+    },
+    {
+     "from": -18,
+     "days": 1,
+     "emp": 1,
+     "type": 1,
+     "status": 0,
+     "reason": "Fever"
+    },
+    {
+     "from": -12,
+     "days": 3,
+     "emp": 2,
+     "type": 2,
+     "status": 0,
+     "reason": "Trip home"
+    },
+    {
+     "from": -6,
+     "days": 1,
+     "emp": 3,
+     "type": 0,
+     "status": 0,
+     "reason": "Personal work"
+    },
+    {
+     "from": -2,
+     "days": 2,
+     "emp": 4,
+     "type": 1,
+     "status": 0,
+     "reason": "Not well"
+    },
+    {
+     "from": -1,
+     "days": 3,
+     "emp": 0,
+     "type": 2,
+     "status": 0,
+     "reason": "Holiday"
+    },
+    {
+     "from": 5,
+     "days": 4,
+     "emp": 1,
+     "type": 2,
+     "status": 1,
+     "reason": "Wedding"
+    },
+    {
+     "from": 9,
+     "days": 1,
+     "emp": 5,
+     "type": 0,
+     "status": 1,
+     "reason": "Bank work"
+    },
+    {
+     "from": -30,
+     "days": 2,
+     "emp": 5,
+     "type": 4,
+     "status": 2,
+     "reason": "Extra days"
+    },
+    {
+     "from": -9,
+     "days": 1,
+     "emp": 2,
+     "type": 0,
+     "status": 0,
+     "reason": "Appointment"
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Leave Tracker",
+   "intro": "Keep every person's leave in one place: the yearly leave each person has, every leave taken or asked for, and what is left by type. Low and over-used balances are flagged, and Summary shows who is on leave today and what is waiting for approval. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name and the date your leave year starts. Open Employees and list your people with the leave days each has for the year. You decide the days; the workbook does not add any rules.",
+    "Open Leave Log. Add a row for each leave: the first and last day, the person, the type, whether it is Approved, Pending or Rejected, and a reason. The days are counted for you.",
+    "Open Balances to see what each person has used and what is left, and Summary for the totals. Start a new workbook, or change the year start in Settings, when a new leave year begins."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam aur leave year kab shuru hota hai wo date likhein. Employees mein logon ki list aur har ek ke saal ke leave din likhein. Din aap tay karte hain.",
+    "Leave Log kholein. Har leave ke liye ek row: pehla aur aakhri din, kaun, type, Approved/Pending/Rejected aur karan. Din apne aap ginte hain.",
+    "Balances mein dekhein kisne kitna liya aur kitna bacha. Naya leave year shuru ho to Settings mein date badlein."
+   ],
+   "about": [
+    "Business name, when the leave year starts, and the warning level.",
+    "Your people with their yearly leave days.",
+    "One row for each leave taken or asked for.",
+    "Used, pending and left for every person, with flags.",
+    "Who is on leave today, what is pending, and leave by type."
+   ],
+   "sheetSettings": "Settings",
+   "sheetEmployees": "Employees",
+   "sheetLog": "Leave Log",
+   "sheetBalances": "Balances",
+   "sheetSummary": "Summary",
+   "business": "Business or school name",
+   "yearStart": "Leave year starts on",
+   "asOf": "As of date (today by default)",
+   "warnDays": "Warn when days left are at or below",
+   "settingsHelp": "Leave is counted from the year start for 365 days. Only Approved leave is counted as used.",
+   "employeesTitle": "Employees",
+   "employeesSub": "List each person once with the leave days they have for the year. You can leave the days empty for a person who has none set.",
+   "colEmployee": "Employee",
+   "colDept": "Department",
+   "colEntitled": "Yearly leave days",
+   "types": [
+    "Casual",
+    "Sick",
+    "Earned",
+    "Other",
+    "Unpaid"
+   ],
+   "statuses": [
+    "Approved",
+    "Pending",
+    "Rejected"
+   ],
+   "logTitle": "Leave Log",
+   "logSub": "One row for each leave. Use the same date for First day and Last day for a single day. The days are counted including both dates.",
+   "colFrom": "First day",
+   "colTo": "Last day",
+   "colType": "Leave type",
+   "colStatus": "Status",
+   "colReason": "Reason",
+   "colDays": "Days",
+   "employeeHelp": "Pick a person from your Employees sheet.",
+   "typeHelp": "Unpaid leave is not taken out of the yearly leave days.",
+   "statusHelp": "Only Approved leave counts as used.",
+   "balancesTitle": "Balances",
+   "balancesSub": "Nothing to type here. Used counts Approved leave in the leave year, except Unpaid. Use the filter on Flag to see who is low or over.",
+   "colUsed": "Used",
+   "colPending": "Pending",
+   "colLeft": "Left",
+   "colFlag": "Flag",
+   "over": "Over",
+   "low": "Low",
+   "summaryTitle": "Summary",
+   "kpiPeople": "People",
+   "kpiUsed": "Approved leave days this year",
+   "kpiPending": "Requests waiting",
+   "kpiToday": "On leave today",
+   "kpiOver": "People over their leave",
+   "kpiLow": "People with low leave",
+   "chartType": "Approved leave days by type"
+  }
+ },
+ "sales": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "businessPlaceholder": "Shown at the top",
+   "tooMany": "Only the first {n} rows are used.",
+   "starters": "What do you sell?",
+   "listIntro": "Optional. Paste or upload your items. An item name column is needed. Price and unit are optional.",
+   "business": "Shop or business name",
+   "spare": "Spare item rows",
+   "spareHint": "Empty rows kept for new items.",
+   "logRows": "Sales rows",
+   "logRowsHint": "How many sales the sheet has room for.",
+   "fieldName": "Item",
+   "fieldPrice": "Price",
+   "fieldUnit": "Unit"
+  },
+  "starters": {
+   "shop": {
+    "label": "Shop or kirana",
+    "hint": "Daily goods with sample prices. Type your own prices.",
+    "rows": [
+     [
+      "Rice 5 kg bag",
+      "320",
+      "bag"
+     ],
+     [
+      "Sugar",
+      "46",
+      "kg"
+     ],
+     [
+      "Cooking oil 1 L",
+      "150",
+      "pack"
+     ],
+     [
+      "Tea 250 g",
+      "120",
+      "pack"
+     ],
+     [
+      "Biscuits",
+      "20",
+      "pack"
+     ],
+     [
+      "Soap bar",
+      "38",
+      "piece"
+     ],
+     [
+      "Notebook",
+      "45",
+      "piece"
+     ],
+     [
+      "Pen (blue)",
+      "10",
+      "piece"
+     ]
+    ]
+   },
+   "cafe": {
+    "label": "Cafe or snacks",
+    "hint": "Food and drinks with sample prices.",
+    "rows": [
+     [
+      "Tea",
+      "15",
+      "cup"
+     ],
+     [
+      "Coffee",
+      "30",
+      "cup"
+     ],
+     [
+      "Samosa",
+      "15",
+      "piece"
+     ],
+     [
+      "Sandwich",
+      "60",
+      "plate"
+     ],
+     [
+      "Cold drink",
+      "25",
+      "bottle"
+     ],
+     [
+      "Cake slice",
+      "50",
+      "piece"
+     ]
+    ]
+   },
+   "stationery": {
+    "label": "Stationery or gifts",
+    "hint": "Small items with sample prices.",
+    "rows": [
+     [
+      "Notebook",
+      "40",
+      "piece"
+     ],
+     [
+      "Pen pack",
+      "50",
+      "pack"
+     ],
+     [
+      "Greeting card",
+      "30",
+      "piece"
+     ],
+     [
+      "Gift wrap",
+      "20",
+      "piece"
+     ],
+     [
+      "Art colours",
+      "120",
+      "box"
+     ],
+     [
+      "File folder",
+      "35",
+      "piece"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "log": [
+    {
+     "day": 1,
+     "item": 0,
+     "qty": 4,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 1,
+     "item": 1,
+     "qty": 6,
+     "mode": 1,
+     "note": ""
+    },
+    {
+     "day": 2,
+     "item": 2,
+     "qty": 3,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 2,
+     "item": 3,
+     "qty": 5,
+     "mode": 1,
+     "note": ""
+    },
+    {
+     "day": 3,
+     "item": 4,
+     "qty": 12,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 3,
+     "item": 0,
+     "qty": 2,
+     "mode": 2,
+     "note": ""
+    },
+    {
+     "day": 4,
+     "item": 5,
+     "qty": 8,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 4,
+     "item": 1,
+     "qty": 10,
+     "mode": 1,
+     "note": ""
+    },
+    {
+     "day": 5,
+     "item": 2,
+     "qty": 6,
+     "mode": 3,
+     "note": "Regular customer"
+    },
+    {
+     "day": 5,
+     "item": 3,
+     "qty": 4,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 6,
+     "item": 0,
+     "qty": 5,
+     "mode": 1,
+     "note": ""
+    },
+    {
+     "day": 6,
+     "item": 4,
+     "qty": 15,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 7,
+     "item": 1,
+     "qty": 8,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 7,
+     "item": 5,
+     "qty": 6,
+     "mode": 2,
+     "note": ""
+    },
+    {
+     "day": 8,
+     "item": 2,
+     "qty": 4,
+     "mode": 1,
+     "note": ""
+    },
+    {
+     "day": 9,
+     "item": 3,
+     "qty": 7,
+     "mode": 0,
+     "note": ""
+    },
+    {
+     "day": 9,
+     "item": 0,
+     "qty": 3,
+     "mode": 3,
+     "note": "Pay later"
+    },
+    {
+     "day": 10,
+     "item": 4,
+     "qty": 20,
+     "mode": 0,
+     "note": ""
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Daily Sales Report",
+   "intro": "Record every sale and see the day-by-day sales for a month, split by cash, UPI, card and credit. The Daily sheet adds up each day, Items sold shows your best sellers, and Summary gives the month's total, the best day and charts. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name and the first day of the month you want to see. Open Items and list what you sell with the price of each.",
+    "Open Sales Log. Add a row for each sale: the date, the item, the quantity and how it was paid. The amount comes from the price in Items. To use a different price for one sale, type it in Rate.",
+    "Open Daily to see each day of the month, Items sold for your best sellers and Summary for the totals and charts. Change the month in Settings to look at another month."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam aur us mahine ki pehli tareekh likhein jo dekhna hai. Items mein bechne wala maal aur uski keemat likhein.",
+    "Sales Log kholein. Har bikri ke liye ek row: tareekh, item, matra aur payment kaise hui. Rakam Items ki keemat se aati hai. Kisi bikri mein alag keemat ho to Rate mein likhein.",
+    "Daily mein har din ki bikri, Items sold mein sabse zyada bikne wala maal aur Summary mein kul bikri aur charts dekhein. Doosra mahina dekhne ke liye Settings mein date badlein."
+   ],
+   "about": [
+    "Your business name and the month to show.",
+    "What you sell and the price of each.",
+    "One row for each sale.",
+    "Each day of the month: number of sales, quantity and amount by payment mode.",
+    "How much of each item was sold in the month.",
+    "The month's total, average, best day and charts."
+   ],
+   "sheetSettings": "Settings",
+   "sheetItems": "Items",
+   "sheetLog": "Sales Log",
+   "sheetDaily": "Daily",
+   "sheetSold": "Items sold",
+   "sheetSummary": "Summary",
+   "business": "Shop or business name",
+   "month": "Month to show (type any date in the month)",
+   "settingsHelp": "Daily, Items sold and Summary show the month of this date.",
+   "itemsTitle": "Items",
+   "itemsSub": "List each item once with its usual price. The price is used to work out the amount in the Sales Log.",
+   "colItem": "Item",
+   "colPrice": "Price",
+   "colUnit": "Unit",
+   "logTitle": "Sales Log",
+   "logSub": "One row for each sale. Pick the item and the payment mode from the lists. The amount is quantity times the price, or times Rate when you type one.",
+   "colDate": "Date",
+   "colQty": "Quantity",
+   "colRate": "Rate (optional)",
+   "colMode": "Paid by",
+   "colNote": "Note",
+   "colAmount": "Amount",
+   "modes": [
+    "Cash",
+    "UPI",
+    "Card",
+    "Credit"
+   ],
+   "itemHelp": "Pick an item or type a new one. A new item needs a Rate.",
+   "modeHelp": "Credit means the customer will pay later.",
+   "dailyTitle": "Daily",
+   "dailySub": "Nothing to type here. One row for each day of the month in Settings.",
+   "colSales": "Sales",
+   "colQtyTotal": "Quantity",
+   "totals": "Total",
+   "soldTitle": "Items sold",
+   "soldSub": "Quantity and amount sold for each item in the month, and its share of the month's sales.",
+   "colShare": "Share",
+   "summaryTitle": "Summary",
+   "kpiTotal": "Total sales this month",
+   "kpiSales": "Number of sales",
+   "kpiDays": "Days with sales",
+   "kpiAverage": "Average per day with sales",
+   "kpiBest": "Best day amount",
+   "kpiBestDay": "Best day",
+   "chartMode": "Sales by payment mode",
+   "chartDaily": "Sales for each day"
+  }
+ },
+ "loan": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "businessPlaceholder": "Shown at the top",
+   "tooMany": "Only the first {n} rows are used.",
+   "starters": "What kind of loans?",
+   "listIntro": "Optional. Paste or upload your loans. A loan name column is needed. Amount, yearly interest rate, months and the first EMI date are optional.",
+   "business": "Your name or business name",
+   "soonDays": "Warn this many days before an EMI is due",
+   "soonDaysHint": "An EMI due within this many days shows as Due soon.",
+   "spare": "Spare loan rows",
+   "spareHint": "Empty rows kept for new loans.",
+   "fieldName": "Loan",
+   "fieldAmount": "Amount",
+   "fieldRate": "Interest rate",
+   "fieldMonths": "Months",
+   "fieldFirst": "First EMI date",
+   "fieldNote": "Note"
+  },
+  "starters": {
+   "personal": {
+    "label": "Home and family",
+    "hint": "Sample figures only. Type your own amounts, rates and months.",
+    "rows": [
+     [
+      "Home loan",
+      "2500000",
+      "8.5",
+      "240",
+      "",
+      "Bank A"
+     ],
+     [
+      "Car loan",
+      "600000",
+      "9.5",
+      "60",
+      "",
+      "Bank B"
+     ],
+     [
+      "Two-wheeler loan",
+      "80000",
+      "10",
+      "24",
+      "",
+      ""
+     ],
+     [
+      "Personal loan",
+      "150000",
+      "12",
+      "36",
+      "",
+      "Bank C"
+     ]
+    ]
+   },
+   "business": {
+    "label": "Small business",
+    "hint": "Sample figures only. Type your own amounts, rates and months.",
+    "rows": [
+     [
+      "Machine loan",
+      "900000",
+      "10",
+      "60",
+      "",
+      ""
+     ],
+     [
+      "Working capital loan",
+      "500000",
+      "11",
+      "24",
+      "",
+      ""
+     ],
+     [
+      "Vehicle loan",
+      "700000",
+      "9.5",
+      "48",
+      "",
+      ""
+     ]
+    ]
+   },
+   "single": {
+    "label": "One loan",
+    "hint": "One sample loan. Type your own amount, rate and months.",
+    "rows": [
+     [
+      "My loan",
+      "500000",
+      "9",
+      "60",
+      "",
+      ""
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "paidMonths": [
+    14,
+    6,
+    3,
+    1
+   ]
+  },
+  "sheet": {
+   "title": "Loan and EMI Tracker",
+   "intro": "Keep every loan in one place: the EMI, the total interest, the number of EMIs paid, the balance still to pay and the next due date. The Schedule sheet shows every month's interest and principal for any loan, and Summary adds it all up. The EMI is worked out from the amount, the yearly rate and the months you type. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your name. Open Loans and add a row for each loan: the loan name, the amount, the yearly interest rate, the number of months and the date of the first EMI.",
+    "The EMI, total interest, EMIs paid, balance and next due date are worked out for you. The status shows Due soon when an EMI is close, and Closed when the last EMI is done.",
+    "Open Schedule, pick a loan from the list and see every month: the opening balance, the EMI, how much is interest and how much is principal. Summary shows the totals and a chart."
+   ],
+   "guideHi": [
+    "Settings mein apna naam likhein. Loans mein har loan ke liye ek row: naam, rakam, saalana byaaj dar, mahine aur pehli EMI ki tareekh.",
+    "EMI, kul byaaj, bhari hui EMI, bacha hua balance aur agli tareekh apne aap nikalte hain. EMI paas ho to Due soon dikhta hai.",
+    "Schedule kholein, list se loan chunein aur har mahine ka byaaj aur mool dekhein. Summary mein kul aur chart hai."
+   ],
+   "about": [
+    "Your name and how many days before an EMI to warn you.",
+    "Every loan with its amount, rate, months and first EMI date, and the figures worked out from them.",
+    "Month by month repayment for the loan you pick.",
+    "Total EMI each month, balance still to pay and a chart."
+   ],
+   "sheetSettings": "Settings",
+   "sheetLoans": "Loans",
+   "sheetSchedule": "Schedule",
+   "sheetSummary": "Summary",
+   "business": "Your name or business name",
+   "asOf": "As of date (today by default)",
+   "soonDays": "Warn this many days before an EMI is due",
+   "settingsHelp": "EMIs are counted as paid when their due date is on or before the as of date. Check against your bank statement.",
+   "loansTitle": "Loans",
+   "loansSub": "One row for each loan. Type the first six columns. The rest are worked out. The EMI follows the usual equal monthly instalment formula, so your lender's figure may differ a little.",
+   "colLoan": "Loan",
+   "colAmount": "Amount",
+   "colRate": "Yearly interest %",
+   "colMonths": "Months",
+   "colFirst": "First EMI date",
+   "colNote": "Note",
+   "colEmi": "EMI",
+   "colInterest": "Total interest",
+   "colPayable": "Total payable",
+   "colPaid": "EMIs paid",
+   "colBalance": "Balance",
+   "colNext": "Next due",
+   "colLast": "Last EMI",
+   "colStatus": "Status",
+   "statuses": [
+    "Running",
+    "Due soon",
+    "Closed"
+   ],
+   "rateHelp": "The yearly rate, for example 9.5.",
+   "monthsHelp": "The number of monthly EMIs, from 1 to 360.",
+   "firstHelp": "The date the first EMI is due. Later EMIs fall on the same day of each month.",
+   "scheduleTitle": "Repayment Schedule",
+   "pick": "Pick a loan",
+   "pickHelp": "Pick a loan from your Loans sheet.",
+   "colNo": "EMI no.",
+   "colDate": "Due date",
+   "colOpening": "Opening balance",
+   "colPrincipal": "Principal",
+   "colClosing": "Closing balance",
+   "colMark": "Paid",
+   "markPaid": "Paid",
+   "summaryTitle": "Summary",
+   "kpiRunning": "Loans still running",
+   "kpiEmi": "EMIs due every month",
+   "kpiBalance": "Balance still to pay",
+   "kpiInterest": "Total interest on all loans",
+   "kpiSoon": "EMIs due soon",
+   "kpiClosed": "Loans closed",
+   "chartBalance": "Balance still to pay for each loan"
+  }
+ }
+}

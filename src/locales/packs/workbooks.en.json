@@ -287,6 +287,60 @@
         "Download and type marks",
         "Download the .xlsx. Type each student's marks. Total, percentage, Pass or Fail, grade and rank fill in, and Summary shows class averages."
       ]
+    ],
+    "leave-tracker-excel-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter, then check the preview. The sample rows show how the workbook behaves; the download is blank unless you choose With sample data."
+      ],
+      [
+        "Choose your region",
+        "Pick the currency, date order and paper size that match how you work. Everything can still be changed in the workbook."
+      ],
+      [
+        "Add your list",
+        "Paste or upload your own list if you have one, or type it into the workbook later. The page keeps nothing you type."
+      ],
+      [
+        "Download and fill it in",
+        "Download the .xlsx and open it in Excel, Google Sheets or WPS Office. Type in the white cells; the coloured cells work themselves out."
+      ]
+    ],
+    "daily-sales-report-excel-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter, then check the preview. The sample rows show how the workbook behaves; the download is blank unless you choose With sample data."
+      ],
+      [
+        "Choose your region",
+        "Pick the currency, date order and paper size that match how you work. Everything can still be changed in the workbook."
+      ],
+      [
+        "Add your list",
+        "Paste or upload your own list if you have one, or type it into the workbook later. The page keeps nothing you type."
+      ],
+      [
+        "Download and fill it in",
+        "Download the .xlsx and open it in Excel, Google Sheets or WPS Office. Type in the white cells; the coloured cells work themselves out."
+      ]
+    ],
+    "loan-emi-tracker-excel-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter, then check the preview. The sample rows show how the workbook behaves; the download is blank unless you choose With sample data."
+      ],
+      [
+        "Choose your region",
+        "Pick the currency, date order and paper size that match how you work. Everything can still be changed in the workbook."
+      ],
+      [
+        "Add your list",
+        "Paste or upload your own list if you have one, or type it into the workbook later. The page keeps nothing you type."
+      ],
+      [
+        "Download and fill it in",
+        "Download the .xlsx and open it in Excel, Google Sheets or WPS Office. Type in the white cells; the coloured cells work themselves out."
+      ]
     ]
   },
   "pageGuides": {
@@ -897,6 +951,120 @@
           "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Your settings are remembered in this browser only, and your list is never saved. Start again clears everything."
         ]
       ]
+    },
+    "leaveExcelGuide": {
+      "title": "Leave Tracker Excel Maker: Employee Leave Balance and Log (.xlsx)",
+      "subtitle": "Make a leave tracker in Excel (.xlsx) with the formulas, drop-downs and colours already set up. Pick a starter, check the preview and download.",
+      "faq": [
+        [
+          "Is the Leave Tracker Excel Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many workbooks you make. The file is made on your own device."
+        ],
+        [
+          "What do I type and what is worked out for me?",
+          "You type in the white cells, such as names, dates and amounts. The coloured cells are formulas that work out totals, balances and flags, so you never need to write a formula yourself."
+        ],
+        [
+          "Does it work in Google Sheets and WPS Office?",
+          "Yes. The workbook uses ordinary formulas, drop-down lists and colour rules, with no macros, so it opens in Excel, Google Sheets, WPS Office and LibreOffice. Some small details, such as the exact look of charts, can differ a little between apps."
+        ],
+        [
+          "Can I paste or upload my own list?",
+          "Yes. Paste rows or upload a CSV or Excel file, and match each column to the right field. The first rows are checked in the preview before you download."
+        ],
+        [
+          "Can I use it in Hindi or Hinglish?",
+          "The guide sheet can be written in Hinglish. Choose Hinglish on the page and the Start Here sheet explains the steps in Hinglish."
+        ],
+        [
+          "How many rows does it have room for?",
+          "Under More options you can choose how many spare rows to keep, and how many log rows the workbook has room for. A bigger number makes a bigger file."
+        ],
+        [
+          "Does it give financial, tax or legal advice?",
+          "No. It only does the sums on the numbers you type. Check any figure that matters against your own records, your bank or your agreement."
+        ],
+        [
+          "Is my data uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    },
+    "salesExcelGuide": {
+      "title": "Daily Sales Report Excel Maker: Sales Log with Cash, UPI and Credit (.xlsx)",
+      "subtitle": "Make a daily sales report in Excel (.xlsx) with the formulas, drop-downs and colours already set up. Pick a starter, check the preview and download.",
+      "faq": [
+        [
+          "Is the Daily Sales Report Excel Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many workbooks you make. The file is made on your own device."
+        ],
+        [
+          "What do I type and what is worked out for me?",
+          "You type in the white cells, such as names, dates and amounts. The coloured cells are formulas that work out totals, balances and flags, so you never need to write a formula yourself."
+        ],
+        [
+          "Does it work in Google Sheets and WPS Office?",
+          "Yes. The workbook uses ordinary formulas, drop-down lists and colour rules, with no macros, so it opens in Excel, Google Sheets, WPS Office and LibreOffice. Some small details, such as the exact look of charts, can differ a little between apps."
+        ],
+        [
+          "Can I paste or upload my own list?",
+          "Yes. Paste rows or upload a CSV or Excel file, and match each column to the right field. The first rows are checked in the preview before you download."
+        ],
+        [
+          "Can I use it in Hindi or Hinglish?",
+          "The guide sheet can be written in Hinglish. Choose Hinglish on the page and the Start Here sheet explains the steps in Hinglish."
+        ],
+        [
+          "How many rows does it have room for?",
+          "Under More options you can choose how many spare rows to keep, and how many log rows the workbook has room for. A bigger number makes a bigger file."
+        ],
+        [
+          "Does it give financial, tax or legal advice?",
+          "No. It only does the sums on the numbers you type. Check any figure that matters against your own records, your bank or your agreement."
+        ],
+        [
+          "Is my data uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
+    },
+    "loanExcelGuide": {
+      "title": "Loan and EMI Tracker Excel Maker: EMI, Balance and Repayment Schedule (.xlsx)",
+      "subtitle": "Make a loan and EMI tracker in Excel (.xlsx) with the formulas, drop-downs and colours already set up. Pick a starter, check the preview and download.",
+      "faq": [
+        [
+          "Is the Loan and EMI Tracker Excel Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many workbooks you make. The file is made on your own device."
+        ],
+        [
+          "What do I type and what is worked out for me?",
+          "You type in the white cells, such as names, dates and amounts. The coloured cells are formulas that work out totals, balances and flags, so you never need to write a formula yourself."
+        ],
+        [
+          "Does it work in Google Sheets and WPS Office?",
+          "Yes. The workbook uses ordinary formulas, drop-down lists and colour rules, with no macros, so it opens in Excel, Google Sheets, WPS Office and LibreOffice. Some small details, such as the exact look of charts, can differ a little between apps."
+        ],
+        [
+          "Can I paste or upload my own list?",
+          "Yes. Paste rows or upload a CSV or Excel file, and match each column to the right field. The first rows are checked in the preview before you download."
+        ],
+        [
+          "Can I use it in Hindi or Hinglish?",
+          "The guide sheet can be written in Hinglish. Choose Hinglish on the page and the Start Here sheet explains the steps in Hinglish."
+        ],
+        [
+          "How many rows does it have room for?",
+          "Under More options you can choose how many spare rows to keep, and how many log rows the workbook has room for. A bigger number makes a bigger file."
+        ],
+        [
+          "Does it give financial, tax or legal advice?",
+          "No. It only does the sums on the numbers you type. Check any figure that matters against your own records, your bank or your agreement."
+        ],
+        [
+          "Is my data uploaded or saved on a server?",
+          "No. What you type and the workbook stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -1296,6 +1464,81 @@
           "paragraphs": [
             "Everything is made on your device, so your student list and marks is never uploaded. The workbook has no macros and no links to the internet.",
             "Results follow the marks and rules you type. Review them before you share or print."
+          ]
+        }
+      ]
+    },
+    "leave-tracker-excel-maker": {
+      "sections": [
+        {
+          "heading": "What this workbook is for",
+          "paragraphs": [
+            "A leave tracker is useful for an office team, school staff or a small business. Which people are on leave today, who has the least leave left, and what is waiting for approval.",
+            "Everything is in one Excel file, so you can keep it on your phone or computer and send it to anyone who needs to see it."
+          ]
+        },
+        {
+          "heading": "How to keep it up to date",
+          "paragraphs": [
+            "Type a new row each time something happens: a leave, a sale or an EMI. The coloured cells update by themselves, and the filter on each list helps you find what you need.",
+            "Download a new copy whenever you want to start fresh, for example for a new year or a new month."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The workbook only does arithmetic on the numbers you give it. Check names, dates and amounts against your own records before you rely on a figure."
+          ]
+        }
+      ]
+    },
+    "daily-sales-report-excel-maker": {
+      "sections": [
+        {
+          "heading": "What this workbook is for",
+          "paragraphs": [
+            "A daily sales report is useful for a shop, cafe or small business. Each day of the month with the sales split by cash, UPI, card and credit, and your best sellers.",
+            "Everything is in one Excel file, so you can keep it on your phone or computer and send it to anyone who needs to see it."
+          ]
+        },
+        {
+          "heading": "How to keep it up to date",
+          "paragraphs": [
+            "Type a new row each time something happens: a leave, a sale or an EMI. The coloured cells update by themselves, and the filter on each list helps you find what you need.",
+            "Download a new copy whenever you want to start fresh, for example for a new year or a new month."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The workbook only does arithmetic on the numbers you give it. Check names, dates and amounts against your own records before you rely on a figure."
+          ]
+        }
+      ]
+    },
+    "loan-emi-tracker-excel-maker": {
+      "sections": [
+        {
+          "heading": "What this workbook is for",
+          "paragraphs": [
+            "A loan and EMI tracker is useful for a family, a small business or a freelancer. How much is left on each loan, what the next EMI date is, and how each payment splits into interest and principal.",
+            "Everything is in one Excel file, so you can keep it on your phone or computer and send it to anyone who needs to see it."
+          ]
+        },
+        {
+          "heading": "How to keep it up to date",
+          "paragraphs": [
+            "Type a new row each time something happens: a leave, a sale or an EMI. The coloured cells update by themselves, and the filter on each list helps you find what you need.",
+            "Download a new copy whenever you want to start fresh, for example for a new year or a new month."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The workbook only does arithmetic on the numbers you give it. Check names, dates and amounts against your own records before you rely on a figure."
           ]
         }
       ]
