@@ -22,3 +22,15 @@ MyDailyUtils started with one aim: build the ordinary utilities that already exi
 ## Tell people what got better
 
 Every user-visible improvement to a tool needs an entry at the top of the list in `src/config/updateEntries.ts` (date, tool route, short title, one-line benefit). It appears on `/whats-new`, as a note above the tool for 45 days and in the home page "What's new" strip. Also describe the new feature in the tool's own page copy (article, steps, FAQ), not only in the code.
+
+## When you add or change a tool: keep search and topic pages in step
+
+Every new tool, and every change to what a tool does, must also update the places that people and Google read. Run `node scripts/check-hub-coverage.mjs` before opening the PR; it lists what is missing (it reads source files only).
+
+1. **Search phrases**: add an entry for the tool in `src/config/searchTerms.ts` with 3 to 6 phrases people really type, in lower case (for example `'join pdf files'`). Home search ranks the tool name first, then these phrases and the tool's keywords, and uses the description only when nothing better matched, so a tool with no phrases is hard to find.
+2. **Topic page task table**: add a row (task, tool id, name, one-line note) in `src/content/hubExtras.ts` for the tool's topic.
+3. **Topic page text**: if the tool does something the page text does not mention, add it to the "What you can do" section in `src/content/hubs.ts`. Keep each topic's `description` at 160 characters or fewer (it is the meta description) and its `subtitle` one clear sentence. Rewrite a description that has become a long list; name the main jobs, not every tool.
+4. **Common questions**: if people would search for the job ("how do I ..."), add a question to `src/content/hubFaqs.ts` before the last (privacy) one. Answers must match what the tool really does and contain no tax, salary, medical or legal facts.
+5. **Home page**: if the tool opens a new area, add a hero tile with a `blurb` in `src/config/heroTiles.ts`, mention the area in the home headline text (`homeHeadingAccent`, `homeDescription` in `src/locales/en.json`) and in the home meta description (`index.html`, `src/pages/HomePage2.tsx`, `src/config/site.ts`).
+6. **Names**: tool titles lead with the words people search for ("Merge PDF", "Invoice Excel Template Maker"); a "Maker" suffix suits tools that build a file, a topic name suits a section.
+7. Then the usual: `src/config/updateEntries.ts`, README, TESTING.md and the results template.

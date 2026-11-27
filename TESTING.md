@@ -166,6 +166,10 @@ Logic checked in Node: credit-weighted GPA, CGPA conversions and the next-term t
 
 Not run in the sandbox. On EMI, Unit converter (change the unit type to Temperature and pick units), Time zone converter, HRA (tick metro), Date difference (Add or subtract mode) and Percentage: change the inputs, press Copy link, open the link in a new tab and confirm every input and the result match. A tampered value (letters in a number field, an unknown option) must be ignored, and the address bar should lose its query once the page loads.
 
+## Topic pages review (manual check needed)
+
+Not run in the sandbox. After deploying, open each topic page (PDF, Photo, QR, Everyday, Tax, Loan, Sports, Printables, Work, Student, Kids, Audio and video, Developer, Display, Excel): the line under the heading reads well, the task table lists every tool, the common questions open the right tools, and the Work page has one Excel question while the Excel page has the four specific ones. Search for sign pdf, fill form, qr stand, habit tracker, maze, barcode and random teams: the matching tool is near the top.
+
 ## Home search ranking (manual check needed)
 
 Not run in the sandbox. On the home page search for merge: Merge PDF is first, and only tools named or tagged for merging follow. Then try split, compress, qr, emi, invoice, excel, "reduce pdf size" and a word that only appears in a description: each should show the tool you expect near the top, and a search with no strong match should still list tools that mention the word.

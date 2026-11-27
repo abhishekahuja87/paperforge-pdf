@@ -271,6 +271,7 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L41 | Excel template makers section: open the section page from the home hero tile, check four tools are listed, the FAQ links work, and each workbook tool's top link returns to this page | | |
 | L42 | Home page hero: headline, description, and all 15 topic tiles with their short lines of jobs. Check they fit on a phone (two lines at most) and each tile opens its section | | |
 | L43 | Home search: merge, split, compress, qr, emi, invoice, excel, reduce pdf size. The tool named for the word is first and the list is short and relevant | | |
+| L44 | Topic pages: open all 15 topic pages and read the line under the heading and the common questions; open two tools from each task table. Then search sign pdf, habit tracker, barcode and random teams | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 

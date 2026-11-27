@@ -241,6 +241,9 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Show a menu or price list on a shop screen", tool: "menu-board-display", name: "Menu and Price Board Display", note: "Sections, prices and notes." },
       { task: "Show a now serving queue number", tool: "queue-token-display", name: "Queue Token Display", note: "Press Next to call a number." },
       { task: "Show birthday wishes and notices", tool: "notice-board-display", name: "Notice and Greeting Board Display", note: "Messages with colours and pictures." },
+      { task: "Keep a tuition fee register", tool: "tuition-fee-register-printable", name: "Tuition Fee Register", note: "A printable register to track fees month by month." },
+      { task: "Print an office cleaning checklist", tool: "office-cleaning-checklist-printable", name: "Office Cleaning Checklist", note: "A printable checklist to tick off." },
+      { task: "Put a notice up for a housing society", tool: "society-notice-template-printable", name: "Society Notice Template", note: "A notice with wording you can edit." },
     ],
     situations: [
       { who: "Looking for work", text: "Build a resume, check your files with the Upload File Checker, and plan your last working day." },
@@ -360,6 +363,10 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Run a spelling bee or vocabulary game", tool: "spelling-bee-display", name: "Spelling and Vocabulary Bee Display", note: "Clues and reveals." },
       { task: "Loop or shuffle a playlist", tool: "display-studio", name: "Display and Presentation", note: "Keeps playing." },
       { task: "Show a clock and date and keep the screen awake", tool: "display-studio", name: "Display and Presentation", note: "Useful for a counter or reception." },
+      { task: "Spin a wheel to pick a name or a prize", tool: "spinner-wheel-display", name: "Spinner Wheel Display", note: "A big wheel for a screen." },
+      { task: "Draw lucky winners on a screen", tool: "lucky-draw-display", name: "Lucky Draw Display", note: "Draw winners from your own list." },
+      { task: "Show a class seating plan", tool: "classroom-seating-plan-display", name: "Classroom Seating Plan Display", note: "Arrange or shuffle seats for a class." },
+      { task: "Keep a big team scoreboard", tool: "team-scoreboard-display", name: "Team Scoreboard Display", note: "Add teams and tap to add points." },
     ],
     situations: [
       { who: "Shops", text: "Run offer posters and price lists on a screen by the counter. Make the posters with the Offer Poster Maker." },
