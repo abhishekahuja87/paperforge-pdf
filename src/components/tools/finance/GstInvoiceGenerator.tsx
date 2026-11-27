@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Plus, Printer, Trash2 } from 'lucide-react';
-import { CalcFooter, calcCard } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
+import { CalcFooter, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
 import { formatInrPaise } from '../../../lib/finance/format';
 import { GST_RATES, GST_STATES, checkGstin, computeInvoice, type InvoiceItemInput } from '../../../lib/gst/invoice';
 import { amountToRupeeWords } from '../../../lib/utilities/numberToWords';

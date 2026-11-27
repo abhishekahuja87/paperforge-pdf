@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, Printer, RotateCcw } from 'lucide-react';
-import { Note, SelectField } from '../../finance/ui';
-import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
+import { Note, SelectField } from '../../common/CalcKit';
+import { ChoiceButtons, DateField, fieldClass } from '../../common/FieldKit';
 import { buildPdfFromSheets } from '../../../lib/paper/pdf';
 import type { FontId } from '../../../lib/paper/geometry';
 import { PAGE_SIZES, WEIGHTS, type PageSizeId, type ToneId, type Weight } from '../../../lib/paper/types';
@@ -13,7 +13,7 @@ import { LogoPicker } from '../paper/LogoPicker';
 import { StylePicker } from '../paper/StylePicker';
 import type { Common, Family, Field, SheetDef, Values } from '../../../lib/records';
 import { MAX_LINE, MAX_TEXT } from '../../../lib/records/types';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';
 

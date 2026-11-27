@@ -5,8 +5,8 @@ import { open, pack, seal, ITERATIONS, type Header } from '../../../lib/secure/c
 import { MIN_LENGTH, isAcceptable, makePassphrase, makeRandomPassword, measure } from '../../../lib/secure/strength';
 import { downloadBlob, formatBytes } from '../../../lib/browserTools';
 import { generateFileName } from '../../../lib/pdf/naming';
-import { card, heading } from '../paper/controls';
-import { fieldClass } from '../utilities/common';
+import { card, heading } from '../../common/PanelKit';
+import { fieldClass } from '../../common/FieldKit';
 
 /** What the maker hands over to be locked. */
 export interface Prepared { header: Header; body: Uint8Array; fileBase: string }

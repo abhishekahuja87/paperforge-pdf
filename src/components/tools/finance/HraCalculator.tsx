@@ -1,6 +1,6 @@
 import { useShared } from '../../../lib/shareState';
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { CalcFooter, InputGrid, Note, NumberField, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { computeHra } from '../../../lib/finance/calculators';
 import { formatInr, parseAmount } from '../../../lib/finance/format';
 

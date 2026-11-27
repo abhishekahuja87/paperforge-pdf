@@ -1,8 +1,8 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Camera, Pause, Play, Square, Video } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -12,6 +12,7 @@ import { useResultFile } from '../../../lib/useResultFile';
 import ui from '../../../locales/packs/teleprompter.ui.en.json';
 import starters from '../../../locales/packs/teleprompter.examples.en.json';
 import { canUseCamera, countWords, openCamera, pickRecorderMime, startTake, stopStream, type Take } from '../../../lib/teleprompter/session';
+import { buttonClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_teleprompter_v1';
 type SizeId = 'small' | 'medium' | 'large';
@@ -23,7 +24,6 @@ const SIZE_RATIO: Record<SizeId, number> = { small: 0.07, medium: 0.09, large: 0
 const DIM_ALPHA: Record<DimId, number> = { light: 0.35, medium: 0.55, strong: 0.78 };
 const DEFAULTS: Saved = { script: starters.intro.script, size: 'medium', speed: starters.intro.speed, camera: 'user', quality: 720, voice: true, mirror: false, dim: 'medium', countdown: true };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const clock = (seconds: number) => { const total = Math.max(1, Math.round(seconds)); return total < 60 ? `${total} s` : `${Math.floor(total / 60)} min ${String(total % 60).padStart(2, '0')} s`; };
 
 function load(): Saved {

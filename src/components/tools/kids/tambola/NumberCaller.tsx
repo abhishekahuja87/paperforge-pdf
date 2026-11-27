@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Mic, RotateCcw, Undo2, Volume2, VolumeX } from 'lucide-react';
-import { card, heading } from '../../paper/controls';
+import { card, heading } from '../../../common/PanelKit';
 import { NICKNAMES, spokenNumber } from '../../../../lib/kids/tambola';
 
 const STORAGE_KEY = 'mdu-tambola-v1';

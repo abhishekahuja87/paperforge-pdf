@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, SelectField, calcCard } from '../../finance/ui';
-import { DateField, fieldClass } from './common';
+import { CalcFooter, SelectField, calcCard } from '../../common/CalcKit';
+import { DateField, fieldClass } from '../../common/FieldKit';
 import { acceptTime, useShared } from '../../../lib/shareState';
 import TimeZoneVisual from './TimeZoneVisual';
 import { COMMON_ZONES, formatInZone, zonedTimeToDate } from '../../../lib/utilities/dev';

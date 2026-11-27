@@ -1,8 +1,8 @@
 import React, { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, FileText } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -15,6 +15,7 @@ import { filterChat, parseChat, summarise, type DateOrder } from '../../../lib/w
 import { buildPages, formatDay, paintPage, RATIO, type Labels, type Look, type Photo, type PaperId, type SizeId, type StyleId } from '../../../lib/whatsapp/layout';
 import { loadPhotos, makePdf, MAX_PHOTOS, type SharpnessId } from '../../../lib/whatsapp/make';
 import { looksLikeZip, openZip, type ZipArchive } from '../../../lib/whatsapp/zip';
+import { inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_whatsapp_pdf_v1';
 const MAX_PAGES = 600;
@@ -27,7 +28,6 @@ const STARTER_FIELDS = ['style', 'size', 'times', 'summary', 'photos', 'system',
 
 const DEFAULTS: Saved = { style: 'bubbles', size: 'medium', paper: 'a4', times: true, pageNumbers: true, hideNumbers: false, summary: true, sharpness: 'standard', photos: true, system: false, media: true, deleted: false };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
 const buttonClass = 'min-h-11 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 
 function load(): Saved {

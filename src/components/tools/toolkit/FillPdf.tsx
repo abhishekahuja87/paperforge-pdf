@@ -8,9 +8,9 @@ import { useResultFile } from '../../../lib/useResultFile';
 import {CalendarDays, Trash2 } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { applyFormFields, readFormFields, type FieldEntry, type FormFieldInfo } from '../../../lib/toolkit/formFields';
 

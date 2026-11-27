@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Download, FileUp } from 'lucide-react';
-import { Note, SelectField } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Note, SelectField } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { PAGE_SIZES, type PageSizeId } from '../../../lib/paper/types';
 import { alignmentDeck, buildPages, gridFor, mirrorAxis } from '../../../lib/flashcards/layout';
 import { parseCards, parseTable } from '../../../lib/flashcards/parse';

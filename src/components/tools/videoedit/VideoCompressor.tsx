@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Scissors, Video } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -15,6 +15,7 @@ import type { Voice } from '../../../lib/sequence/voice';
 import { canEncodeAac } from '../../../lib/globe/audio';
 import { canEncodeOffline } from '../../../lib/globe/encode';
 import { recordSupport } from '../../../lib/globe/record';
+import { inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_video_compress_v1';
 const MAX_FILE_MB = 1000;
@@ -24,7 +25,6 @@ type StarterId = keyof typeof starters;
 
 const DEFAULTS: Saved = { limitMb: 15, short: 720, fps: 30, quality: 'medium', sound: true };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
 const secs = (value: number) => value.toFixed(1);
 const mb = (bytes: number) => `${(bytes / 1048576).toFixed(bytes < 10485760 ? 1 : 0)} MB`;
 

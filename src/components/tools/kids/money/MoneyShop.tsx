@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CheckCircle2, Minus, Plus, RotateCcw, Trash2, XCircle } from 'lucide-react';
-import { card } from '../../paper/controls';
+import { card } from '../../../common/PanelKit';
 import { DEFAULT_SHOP, MONEY_LEVELS, breakdown, makeChangeQuestion, makePayQuestion, rupees, sum, type ChangeQuestion, type MoneyLevel, type PayQuestion, type ShopItem } from '../../../../lib/kids/rupees';
 import { Money, MoneyPicker, Tray } from './Money';
 

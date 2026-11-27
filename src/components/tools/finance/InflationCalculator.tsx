@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SimpleTable, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SimpleTable, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { formatInr, parseAmount } from '../../../lib/finance/format';
 import { inflation } from '../../../lib/utilities/more';
 

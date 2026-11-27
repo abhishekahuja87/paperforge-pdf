@@ -3,9 +3,9 @@ import { ScanLine } from 'lucide-react';
 import { FileDropZone } from '../../common/FileDropZone';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { formatBytes } from '../../../lib/browserTools';
 import { generateFileName } from '../../../lib/pdf/naming';
@@ -20,6 +20,7 @@ import type { Cell } from '../../../lib/pdftable/grid';
 import ui from '../../../locales/packs/omrgrader.ui.en.json';
 import starters from '../../../locales/packs/omrgrader.examples.en.json';
 import '../shops/posterFonts.css';
+import { buttonClass, inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_omr_grader_v1';
 const MAX_PHOTOS = 200, SCAN_SIZE = 1800, THUMB_SIZE = 900;
@@ -29,8 +30,6 @@ type OutputId = 'xlsx' | 'csv';
 interface Saved { questions: number; options: 4 | 5; digits: number; title: string; exam: string; copies: number; perRight: number; perWrong: number; sensitivity: SensitivityId; includeAnswers: boolean; output: OutputId }
 const DEFAULTS: Saved = { questions: 20, options: 4, digits: 3, title: ui.sheetTitleDefault, exam: '', copies: 1, perRight: 1, perWrong: 0, sensitivity: 'normal', includeAnswers: true, output: 'xlsx' };
 interface Entry { id: number; name: string; scan: Scan; thumb: Blob | null; thumbScale: number; roll: string | null }
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const clamp = (value: number, low: number, high: number) => Math.max(low, Math.min(high, Number.isFinite(value) ? value : low));
 
 function load(): Saved {

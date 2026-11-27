@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { Download, Shuffle } from 'lucide-react';
-import { Note } from '../../../finance/ui';
-import { card, heading } from '../../paper/controls';
-import { fieldClass } from '../../utilities/common';
+import { Note } from '../../../common/CalcKit';
+import { card, heading } from '../../../common/PanelKit';
+import { fieldClass } from '../../../common/FieldKit';
 import { makeBook, type TambolaTicket } from '../../../../lib/kids/tambola';
 import { TAMBOLA_THEMES, buildTambolaPdf, pdfSafe } from '../../../../lib/kids/tambolaPdf';
 import { generateFileName } from '../../../../lib/pdf/naming';

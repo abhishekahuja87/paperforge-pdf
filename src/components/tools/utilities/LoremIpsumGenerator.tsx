@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { RefreshCw } from 'lucide-react';
-import { InputGrid, NumberField, calcCard } from '../../finance/ui';
-import { ChoiceButtons, CopyButton, fieldClass } from './common';
+import { InputGrid, NumberField, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
 import { loremParagraphs } from '../../../lib/utilities/dev';
 import { englishParagraphs, randomCharacters, randomWords, type CharacterSets } from '../../../lib/utilities/randomText';
 

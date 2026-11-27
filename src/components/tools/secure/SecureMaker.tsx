@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FileDropZone } from '../../common/FileDropZone';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Slider, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Slider, card, heading } from '../../common/PanelKit';
 import { formatBytes } from '../../../lib/browserTools';
 import { ACCENTS, DEFAULT_STYLE, MARGIN_LABELS, PAPERS, SPACING_LABELS, THEMES, docCss, type DocStyle, type MarginId, type PaperId, type SpacingId, type ThemeId } from '../../../lib/secure/docStyle';
 import { sdSanitize } from '../../../lib/secure/sanitizeCore.js';

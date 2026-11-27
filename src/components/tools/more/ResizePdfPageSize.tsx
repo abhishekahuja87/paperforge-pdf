@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
 import { FileDropZone } from '../../common/FileDropZone';
 import { UploadNote } from '../../common/UploadNote';
 import { PdfFileBar } from '../../common/PdfFileBar';

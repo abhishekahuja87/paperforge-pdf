@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, FileText } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { TableInput, type TableValue } from '../shared/TableInput';
 import { MainActionButton } from '../../common/MainActionButton';
@@ -19,6 +19,7 @@ import '../shops/posterFonts.css';
 import { bracketPrompts, findFields, fillTemplate } from '../../../lib/letters/template';
 import { drawLetter, type AccentId, type Letter, type LetterLogo, type LetterWords, type PaperId, type TextSizeId } from '../../../lib/letters/draw';
 import { makeOnePdf, makeZip } from '../../../lib/letters/make';
+import { buttonClass, inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_bulk_letters_v1', MAX_LETTERS = 200;
 type StarterId = 'fee' | 'society' | 'invite' | 'thanks' | 'offer';
@@ -30,8 +31,6 @@ interface Saved { starter: StarterId; business: string; tagline: string; contact
 const fromStarter = (id: StarterId): Partial<Saved> => { const s = ex[id]; return { starter: id, subject: s.subject, addressee: s.addressee, body: s.body, closing: s.closing, signName: s.signName, signRole: s.signRole, nameColumn: s.nameColumn }; };
 const DEFAULTS: Saved = { business: '', tagline: '', contact: '', showLetterhead: true, footer: '', paper: 'a4', accent: 'navy', size: 'normal', dateMode: 'today', dateTyped: '', output: 'pdf', ...fromStarter('fee') } as Saved;
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const today = () => new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 
 function load(): Saved {

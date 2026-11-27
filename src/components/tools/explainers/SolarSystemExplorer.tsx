@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { downloadBlob } from '../../../lib/browserTools';
 import { drawShareCard, shareCardFileName } from '../../../lib/space/shareCard';
 import { acceptDate, acceptNumber, useShared } from '../../../lib/shareState';
-import { calcCard } from '../../finance/ui';
+import { calcCard } from '../../common/CalcKit';
 import {
   PLANETS, WORLDS, ageOn, describeDay, describeYear, formatNumber, getWorld, lightMinutes, volumeRatio, weightOn, widthRatio,
 } from '../../../lib/space/worlds';

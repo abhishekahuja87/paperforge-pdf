@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { SimpleTable, calcCard } from '../../finance/ui';
-import { ChoiceButtons, CopyButton, fieldClass } from './common';
+import { SimpleTable, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
 
 export const UrlEncoderDecoder: React.FC = () => {
   const [mode, setMode] = useState('encode');

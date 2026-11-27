@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { Play } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import { EXERCISES, framesOf, imageUrl, type Exercise } from '../../../lib/fitness/exercises';
 import { bool, isRecord, num, str } from '../../../lib/screens/read';
 import { buildSequenceSlides, clampInt, formatDuration, readTheme, totalSeconds, type Theme } from '../../../lib/screens/timed';

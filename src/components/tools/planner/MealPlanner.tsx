@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, Printer, RotateCcw } from 'lucide-react';
-import { Note, SelectField } from '../../finance/ui';
-import { ChoiceButtons, DateField, fieldClass } from '../utilities/common';
+import { Note, SelectField } from '../../common/CalcKit';
+import { ChoiceButtons, DateField, fieldClass } from '../../common/FieldKit';
 import { buildPdfFromSheets } from '../../../lib/paper/pdf';
 import { PAGE_SIZES, WEIGHTS, type PageSizeId, type Weight } from '../../../lib/paper/types';
 import { buildMealPages } from '../../../lib/mealplan/layout';
 import { weekdayName, monthName } from '../../../lib/planner/dates';
 import { KINDS, MAX_COUNT, MAX_DISH, MEAL_CHOICES, defaultMeal, type MealKind, type MealSettings } from '../../../lib/mealplan/types';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { StylePicker } from '../paper/StylePicker';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';

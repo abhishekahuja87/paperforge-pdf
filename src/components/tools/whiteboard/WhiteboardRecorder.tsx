@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Pause, Play, Square, Undo2, Video } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -13,6 +13,7 @@ import ui from '../../../locales/packs/whiteboardrec.ui.en.json';
 import starters from '../../../locales/packs/whiteboardrec.examples.en.json';
 import { Board, BOARD_SIZE, PEN_ROLES, PEN_WIDTH, penColor, sampleStrokes, type BoardId, type PenRole, type ShapeId, type ToolId, type WidthId } from '../../../lib/whiteboard/board';
 import { pickRecorderMime, startTake, stopStream, type Take } from '../../../lib/teleprompter/session';
+import { buttonClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_whiteboard_rec_v1';
 interface Saved { board: BoardId; shape: ShapeId; width: WidthId; voice: boolean }
@@ -20,7 +21,6 @@ type StarterId = keyof typeof starters;
 const STARTER_IDS = Object.keys(starters) as StarterId[];
 const DEFAULTS: Saved = { board: 'white', shape: 'wide', width: 'medium', voice: true };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const clock = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
 
 function load(): Saved {

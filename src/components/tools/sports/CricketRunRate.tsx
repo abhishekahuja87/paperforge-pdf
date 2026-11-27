@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { parseAmount } from '../../../lib/finance/format';
 import { chase, battingAverage, bowlingAverage, bowlingStrikeRate, economy, netRunRate, oversToBalls, runRate, strikeRate, type InningsLine } from '../../../lib/sports/cricket';
 import { chipClass, ghostButton, smallInput } from '../shared/toolStyles';

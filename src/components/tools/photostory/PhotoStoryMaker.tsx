@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Image as ImageIcon, Mic, Pause, Play, Video } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -16,6 +16,7 @@ import { canRecordVoice, paddedVoice, playVoice, readVoiceFile, renderVoice, sta
 import { canEncodeAac, encodeAac } from '../../../lib/globe/audio';
 import { canEncodeOffline, encodeOffline } from '../../../lib/globe/encode';
 import { recordCanvas, recordSupport, videoSize } from '../../../lib/globe/record';
+import { inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_photo_story_v1';
 const MAX_PHOTOS = 10;
@@ -26,7 +27,6 @@ type StarterId = keyof typeof starters;
 
 const DEFAULTS: Saved = { title: '', end: '', options: { look: 'clean', font: 'clean', speed: 'normal', transition: 'fade', caption: 'bar', fill: 'fill', motion: 'auto' }, shape: 'reel', quality: 1080 };
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
 const smallButton = 'min-h-10 rounded-lg border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 
 function load(): Saved {

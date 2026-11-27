@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
 import { CURRENCIES, formatMoney } from '../../../lib/freelancers/currency';
 import { breakEvenUnits, discountImpact, marginFromMarkup, marginOf, markupFromMargin, markupOf, priceForMargin, priceForMarkup } from '../../../lib/freelancers/margin';
 

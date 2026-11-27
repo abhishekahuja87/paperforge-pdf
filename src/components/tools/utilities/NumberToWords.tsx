@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, Note, NumberField, SelectField, calcCard } from '../../finance/ui';
-import { ChoiceButtons, CopyButton } from './common';
+import { CalcFooter, Note, NumberField, SelectField, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton } from '../../common/FieldKit';
 import { MAX_WORDS_VALUE, amountToRupeeWords, integerToIndianWords, integerToInternationalWords } from '../../../lib/utilities/numberToWords';
 import { parseAmount } from '../../../lib/finance/format';
 

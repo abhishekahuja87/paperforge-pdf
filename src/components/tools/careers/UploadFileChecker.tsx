@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, CircleAlert, CircleX } from 'lucide-react';
 import { FileDropZone } from '../../common/FileDropZone';
-import { InputGrid, Note, NumberField, SelectField, calcCard } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
+import { InputGrid, Note, NumberField, SelectField, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
 import { cleanFileName, evaluateFile, extensionOf, kindOf, worstLevel, type FileCheck, type FileInfo, type FileLimits } from '../../../lib/careers/fileCheck';
 import { probePdf } from '../../../lib/pdf/probe';
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Printer } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -18,6 +18,7 @@ import ex from '../../../locales/packs/reviewsign.examples.en.json';
 import '../shops/posterFonts.css';
 import { SIZES, drawPage, drawSign, type BorderId, type SignInput, type SizeId, type ThemeId } from '../../../lib/reviewsign/draw';
 import { PLATFORM_IDS, linkFor, type PlatformId } from '../../../lib/reviewsign/platforms';
+import { buttonClass, inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_review_sign_v2';
 const SAMPLE_URL = 'https://example.com/review', MAX_QR = 4;
@@ -42,8 +43,6 @@ const fromStarter = (id: StarterId, current: Item[] = []): Partial<Saved> => {
 };
 const DEFAULTS: Saved = { business: '', address: '', rating: '', count: '', reviewsWord: 'Reviews', size: 'tent', output: 'pdf', theme: 'darkgold', border: 'auto', headline: '', scanLabel: '', subline: '', tagline: '', caps: true, showRating: true, sampleFigures: true, items: [], ...fromStarter('listening') } as Saved;
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 
 function load(): Saved {
   try { const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null') as Partial<Saved> | null; if (raw && typeof raw.headline === 'string' && Array.isArray(raw.items) && raw.items.length > 0) return { ...DEFAULTS, ...raw }; } catch { /* nothing saved or storage blocked */ }

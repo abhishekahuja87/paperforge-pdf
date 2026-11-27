@@ -1,8 +1,8 @@
 import React, { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
 import { ArrowDown, ArrowUp, Download, Plus, Printer, Trash2, Upload } from 'lucide-react';
-import { calcCard } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
+import { calcCard } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
 import { downloadBlob } from '../../../lib/browserTools';
 import {
   analyseResume, coerceResume, emptyResume, newEducation, newExperience, newProject, sampleResume,

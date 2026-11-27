@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Minus, Pause, Play, Plus, Undo2 } from 'lucide-react';
-import { calcCard, SelectField } from '../../finance/ui';
+import { calcCard, SelectField } from '../../common/CalcKit';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { QUICK_GAMES, clockText, elapsed, gameInfo, leader, totals, type Entry, type Side } from '../../../lib/sports/quickScore';
 import { ConfirmButton } from '../shared/ConfirmButton';

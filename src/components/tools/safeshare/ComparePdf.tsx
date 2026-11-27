@@ -2,9 +2,9 @@ import React, { useMemo, useState } from 'react';
 import { FileDropZone } from '../../common/FileDropZone';
 import { PdfFileBar } from '../../common/PdfFileBar';
 import { useProtectedPdf } from '../../common/ProtectedPdfGate';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { diffTokens, tokenize, type DiffUnit } from '../../../lib/safeshare/diff';
 import { extractTextFromPdf } from '../../../lib/pdf/extractText';
 

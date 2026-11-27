@@ -1,6 +1,6 @@
 import React from 'react';
 import { amountInWords, parseAmount } from '../../lib/finance/format';
-import { CopyButton } from '../tools/utilities/common';
+import { CopyButton } from './FieldKit';
 import { acceptNumber, useShared } from '../../lib/shareState';
 
 export const calcCard = 'mx-auto min-w-0 rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6';

@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, FileText } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -14,6 +14,7 @@ import starters from '../../../locales/packs/bulkcertificates.examples.en.json';
 import '../shops/posterFonts.css';
 import { drawWhole, parsePeople, type AccentId, type CertificateLook, type CertificateWords, type DesignId, type PaperId } from '../../../lib/certificates/draw';
 import { makeOnePdf, makeZip } from '../../../lib/certificates/make';
+import { buttonClass, inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_bulk_certificates_v1';
 const MAX_PDF = 500, MAX_ZIP = 200;
@@ -27,8 +28,6 @@ const longDate = (iso: string) => { const [y, m, d] = iso.split('-').map(Number)
 const fromStarter = (id: StarterId): Partial<Saved> => { const s = starters[id]; return { design: s.design as DesignId, accent: s.accent as AccentId, title: s.title, preface: s.preface, reason: s.reason, signOneRole: s.signOneRole, signTwoRole: s.signTwoRole, organisation: s.organisation }; };
 const DEFAULTS: Saved = { design: 'classic', accent: 'gold', paper: 'a4', output: 'pdf', title: '', preface: '', reason: '', organisation: '', date: today(), signOneName: '', signOneRole: '', signTwoName: '', signTwoRole: '', ...fromStarter('participation') } as Saved;
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 
 function load(): Saved {
   try {

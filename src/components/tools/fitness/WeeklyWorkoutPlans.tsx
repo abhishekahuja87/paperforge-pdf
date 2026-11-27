@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Copy, MonitorPlay } from 'lucide-react';
-import { calcCard, Note } from '../../finance/ui';
+import { calcCard, Note } from '../../common/CalcKit';
 import { EQUIPMENT, EXERCISES, imageUrl } from '../../../lib/fitness/exercises';
 import { PLAN_STORAGE_KEY, newKey, todayIso, type WorkoutItem, type WorkoutPlan } from '../../../lib/fitness/workout';
 import { KINDS, WEEKLY_PLANS, dayMinutes, type Move, type PlanDay, type PlanKind, type WeeklyPlan } from '../../../lib/fitness/weeklyPlans';

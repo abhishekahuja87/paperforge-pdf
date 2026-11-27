@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Pause, Play } from 'lucide-react';
-import { CopyButton } from '../common';
+import { CopyButton } from '../../../common/FieldKit';
 
 /** The current Unix time, ticking every second, with copy buttons. */
 export const LiveEpoch: React.FC = () => {

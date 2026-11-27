@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
 import { FileDropZone } from '../../common/FileDropZone';
 import { UploadNote } from '../../common/UploadNote';
 import { PdfFileBar } from '../../common/PdfFileBar';

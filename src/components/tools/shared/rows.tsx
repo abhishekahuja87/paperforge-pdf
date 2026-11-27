@@ -1,5 +1,5 @@
 import React from 'react';
-import { fieldClass } from '../utilities/common';
+import { fieldClass } from '../../common/FieldKit';
 
 /** Small helpers shared by the student tools that edit a list of rows. */
 let counter = 0;

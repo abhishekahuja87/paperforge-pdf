@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
-import { ChoiceButtons, CopyButton, fieldClass } from '../utilities/common';
+import { CalcFooter, Note, SelectField, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
 import { buildCitation, emptyCitation, toHtml, toPlainText, type CitationInput, type CitationStyle, type SourceType } from '../../../lib/students/citation';
 import { RowButton, nextRowId } from '../shared/rows';
 

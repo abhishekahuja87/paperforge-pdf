@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
 import { Printer } from 'lucide-react';
-import { CalcFooter, Note, SelectField, calcCard } from '../../finance/ui';
-import { fieldClass } from '../utilities/common';
-import { Toggle } from '../paper/controls';
+import { CalcFooter, Note, SelectField, calcCard } from '../../common/CalcKit';
+import { fieldClass } from '../../common/FieldKit';
+import { Toggle } from '../../common/PanelKit';
 import { code128Svg, canEncode128 } from '../../../lib/barcode/code128';
 import { encodeQr } from '../../../lib/qr/encoder';
 import { defaultStyle, qrSvg } from '../../../lib/qr/render';

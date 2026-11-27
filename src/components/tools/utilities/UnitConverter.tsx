@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowLeftRight } from 'lucide-react';
-import { CalcFooter, SelectField, SimpleTable, Stat, calcCard } from '../../finance/ui';
-import { ChoiceButtons, CopyButton, fieldClass } from './common';
+import { CalcFooter, SelectField, SimpleTable, Stat, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
 import { UNIT_CATEGORIES, convertUnit } from '../../../lib/utilities/units';
 import { acceptNumber, useShared } from '../../../lib/shareState';
 

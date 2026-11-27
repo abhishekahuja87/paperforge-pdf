@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../finance/ui';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, SimpleTable, Stat, StatGrid, calcCard } from '../../common/CalcKit';
 import { CURRENCIES, formatMoney } from '../../../lib/freelancers/currency';
 import { computeRate, incomeAtRate, projectPrice, type RateInput } from '../../../lib/freelancers/rate';
 

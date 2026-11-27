@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Copy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FIXTURE_PAGES } from '../../../config/fixturePages';
-import { SimpleTable, calcCard, SelectField, NumberField, InputGrid } from '../../finance/ui';
+import { SimpleTable, calcCard, SelectField, NumberField, InputGrid } from '../../common/CalcKit';
 import { parseAmount } from '../../../lib/finance/format';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { knockoutRounds, parseTeams, pointsTable, roundRobin, type Result } from '../../../lib/sports/fixtures';

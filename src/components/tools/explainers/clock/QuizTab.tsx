@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { CheckCircle2, RotateCcw, XCircle } from 'lucide-react';
-import { card } from '../../paper/controls';
+import { card } from '../../../common/PanelKit';
 import { CLOCK_LEVELS, capitalise, digital, randomTime, readOptions, sameTime, timeWords, type ClockLevel, type ClockTime } from '../../../../lib/kids/clockTime';
 import { ClockFace } from './ClockFace';
 

@@ -1,7 +1,7 @@
 import React, { useDeferredValue, useMemo, useState } from 'react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { TableInput, type TableValue } from '../shared/TableInput';
 import { buildBilling, SAMPLE_CUSTOMERS, type BillingCustomer } from '../../../lib/workbooks/billing';
 import { parseAmount } from '../../../lib/workbooks/dates';

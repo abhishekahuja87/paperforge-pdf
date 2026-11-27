@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { DateField } from '../utilities/common';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { DateField } from '../../common/FieldKit';
 import { buildStudyPlan, planToText } from '../../../lib/students/planner';
 import { todayInput } from '../../../lib/utilities/dates';
 import { RowButton, RowInput, nextRowId } from '../shared/rows';

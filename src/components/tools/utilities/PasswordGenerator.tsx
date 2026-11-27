@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { RefreshCw } from 'lucide-react';
-import { calcCard } from '../../finance/ui';
-import { ChoiceButtons, CopyButton } from './common';
+import { calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, CopyButton } from '../../common/FieldKit';
 import { crackTime, entropyBits, generatePassword, generatePin, type PasswordOptions } from '../../../lib/utilities/password';
 
 const Check: React.FC<{ label: string; checked: boolean; onChange: (v: boolean) => void }> = ({ label, checked, onChange }) => (

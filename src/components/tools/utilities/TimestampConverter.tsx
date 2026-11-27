@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, SimpleTable, calcCard } from '../../finance/ui';
-import { CopyButton, DateField, fieldClass } from './common';
+import { CalcFooter, SimpleTable, calcCard } from '../../common/CalcKit';
+import { CopyButton, DateField, fieldClass } from '../../common/FieldKit';
 import { zonedTimeToDate } from '../../../lib/utilities/dev';
 import { dateFacts, formatWithOffset, parseEpoch, toRfc2822 } from '../../../lib/utilities/timestampTools';
 import { LiveEpoch } from './timestamp/LiveEpoch';

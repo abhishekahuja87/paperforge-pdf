@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, ResultActions, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { DateField } from './common';
-import { NumberField, SelectField } from '../../finance/ui';
+import { CalcFooter, InputGrid, ResultActions, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { DateField } from '../../common/FieldKit';
+import { NumberField, SelectField } from '../../common/CalcKit';
 import { checkEligibility, type UpperLimitRule } from '../../../lib/utilities/ageEligibility';
 import { WEEKDAYS, diffYmd, formatDate, nextBirthday, parseDateInput, todayInput, totalDays, zodiacSign } from '../../../lib/utilities/dates';
 

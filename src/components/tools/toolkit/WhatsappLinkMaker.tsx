@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { ExternalLink, Download } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { CopyButton, fieldClass } from '../utilities/common';
-import { card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { CopyButton, fieldClass } from '../../common/FieldKit';
+import { card, heading } from '../../common/PanelKit';
 import { COUNTRIES, buildWhatsappLink } from '../../../lib/toolkit/whatsapp';
 import { encodeQr } from '../../../lib/qr/encoder';
 import { defaultStyle, qrPng, qrSvg } from '../../../lib/qr/render';

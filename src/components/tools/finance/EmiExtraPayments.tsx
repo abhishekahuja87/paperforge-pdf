@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberField } from '../../finance/ui';
+import { NumberField } from '../../common/CalcKit';
 import { RowButton, RowInput, nextRowId } from '../shared/rows';
 import type { ExtraInputs } from '../../../lib/finance/emiSchedule';
 

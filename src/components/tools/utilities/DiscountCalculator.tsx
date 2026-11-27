@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { ChoiceButtons } from './common';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
 import { formatInrPaise, parseAmount } from '../../../lib/finance/format';
 
 export const DiscountCalculator: React.FC = () => {

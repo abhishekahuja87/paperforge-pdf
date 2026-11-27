@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { COMMON_ZONES } from '../../../../lib/utilities/dev';
 import { allTimeZones } from '../../../../lib/utilities/timestampTools';
-import { fieldClass } from '../common';
+import { fieldClass } from '../../../common/FieldKit';
 
 /** A time zone picker: the zones people use most first, then every zone the browser knows. Value "local" means the browser's own zone. */
 export const ZoneSelect: React.FC<{ label: string; value: string; onChange: (zone: string) => void }> = ({ label, value, onChange }) => {

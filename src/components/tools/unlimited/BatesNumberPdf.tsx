@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowDown, ArrowUp, Trash2 } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons, fieldClass } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { FileDropZone } from '../../common/FileDropZone';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult, StartOverButton } from '../../common/SaveResult';

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../finance/ui';
-import { ChoiceButtons, DateField } from '../utilities/common';
+import { CalcFooter, InputGrid, Note, NumberField, ResultActions, SelectField, Stat, StatGrid, calcCard } from '../../common/CalcKit';
+import { ChoiceButtons, DateField } from '../../common/FieldKit';
 import { WEEKDAYS, formatDate, parseDateInput, todayInput } from '../../../lib/utilities/dates';
 import { computeNotice } from '../../../lib/careers/notice';
 const money = (value: number) => value.toLocaleString('en-IN');

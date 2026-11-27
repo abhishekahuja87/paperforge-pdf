@@ -3,9 +3,9 @@ import { ColorField } from '../../common/ColorPicker';
 import { Link } from 'react-router-dom';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { Download, Printer, ShieldCheck, AlertTriangle } from 'lucide-react';
-import { Note, SelectField } from '../../finance/ui';
-import { CopyButton, fieldClass } from '../utilities/common';
-import { Slider, Toggle, card, heading } from '../paper/controls';
+import { Note, SelectField } from '../../common/CalcKit';
+import { CopyButton, fieldClass } from '../../common/FieldKit';
+import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { encodeQr, maxBytes, type EccLevel, type QrCode } from '../../../lib/qr/encoder';
 import {
   contactPayload, contrastRatio, defaultContact, defaultEmail, defaultEvent, defaultGeo, defaultSms, defaultWhatsApp, defaultWifi, emailPayload, eventPayload, geoPayload,

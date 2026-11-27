@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Shuffle } from 'lucide-react';
-import { Toggle, card } from '../../paper/controls';
-import { fieldClass } from '../../utilities/common';
+import { Toggle, card } from '../../../common/PanelKit';
+import { fieldClass } from '../../../common/FieldKit';
 import { capitalise, digital, randomTime, timeWords, type ClockTime } from '../../../../lib/kids/clockTime';
 import { ClockFace, HOUR_COLOUR, MINUTE_COLOUR } from './ClockFace';
 

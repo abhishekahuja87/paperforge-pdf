@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Copy, Trash2 } from 'lucide-react';
-import { calcCard, Note, SelectField } from '../../finance/ui';
+import { calcCard, Note, SelectField } from '../../common/CalcKit';
 import { usePersisted } from '../../../lib/screens/usePersisted';
 import { EXERCISES } from '../../../lib/fitness/exercises';
 import { exercisesUsed, isRecord, parseSets, progressFor, setsToText, volume, type LogEntry } from '../../../lib/fitness/log';

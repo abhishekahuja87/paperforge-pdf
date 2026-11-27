@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { CopyButton, fieldClass } from '../common';
+import { CopyButton, fieldClass } from '../../../common/FieldKit';
 import { describeGap, parseEpoch, shiftDate, type ShiftUnit } from '../../../../lib/utilities/timestampTools';
 
 const UNITS: ShiftUnit[] = ['seconds', 'minutes', 'hours', 'days', 'weeks', 'months', 'years'];

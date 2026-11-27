@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { EyeOff, Plus, Video } from 'lucide-react';
-import { Note } from '../../finance/ui';
-import { ChoiceButtons } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { Note } from '../../common/CalcKit';
+import { ChoiceButtons } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { MainActionButton } from '../../common/MainActionButton';
 import { SaveResult } from '../../common/SaveResult';
@@ -16,14 +16,13 @@ import type { Voice } from '../../../lib/sequence/voice';
 import { canEncodeAac } from '../../../lib/globe/audio';
 import { canEncodeOffline } from '../../../lib/globe/encode';
 import { recordCanvas, recordSupport } from '../../../lib/globe/record';
+import { buttonClass, inputClass } from '../../common/styles';
 
 const STORAGE_KEY = 'mdu_video_blur_v1';
 const MAX_FILE_MB = 1000, MAX_SECONDS = 600, MAX_BOXES = 10;
 type StarterId = keyof typeof starters;
 interface Saved extends Look { short: number; sound: boolean }
 const DEFAULTS: Saved = { style: 'blur', shape: 'oval', strength: 'strong', short: 0, sound: true };
-const inputClass = 'mt-1 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-normal text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200';
-const buttonClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-40';
 const names = <T extends Record<string, string>>(map: T) => (Object.keys(map) as (keyof T & string)[]).map((value) => ({ value, label: map[value]! }));
 const clamp = (v: number, low: number, high: number) => Math.max(low, Math.min(high, Number.isFinite(v) ? v : low));
 const secs = (v: number) => v.toFixed(1);

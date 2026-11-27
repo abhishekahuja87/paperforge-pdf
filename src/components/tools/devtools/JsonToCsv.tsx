@@ -8,8 +8,8 @@ import { generateFileName } from '../../../lib/pdf/naming';
 import { useResultFile } from '../../../lib/useResultFile';
 import { buildTable, DEFAULT_OPTIONS, findRecordSets, recordsOf, toCsv, type ArrayMode, type CsvOptions, type Delimiter } from '../../../lib/devtools/jsonToCsv';
 import { parseJson } from '../../../lib/devtools/jsonTree';
-import { CopyButton, ChoiceButtons, fieldClass } from '../utilities/common';
-import { Toggle, card, heading } from '../paper/controls';
+import { CopyButton, ChoiceButtons, fieldClass } from '../../common/FieldKit';
+import { Toggle, card, heading } from '../../common/PanelKit';
 import { DataTable } from './DataTable';
 import { JsonInput } from './JsonInput';
 
