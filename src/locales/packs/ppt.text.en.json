@@ -98,7 +98,8 @@
    "The file is a normal .pptx that opens in PowerPoint, Google Slides, WPS Office and LibreOffice Impress.",
    "Titles are real slide titles, so the outline view and screen readers can find them.",
    "It has no macros, no pictures and no links to the internet."
-  ]
+  ],
+  "startedAgain": "All boxes and the outline are back to the starter text."
  },
  "tools": {
   "text-to-powerpoint-maker": {
