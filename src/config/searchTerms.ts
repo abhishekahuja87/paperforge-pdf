@@ -78,7 +78,6 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'job-order-tracker-excel-maker': ['order tracker', 'job tracker', 'tailor order book', 'repair job card', 'custom orders', 'pending orders', 'work order', 'order book'],
   'vehicle-log-book-excel-maker': ['vehicle log book', 'fuel log', 'mileage tracker', 'car expenses', 'fleet log', 'trip log', 'fuel consumption', 'running cost'],
   'marks-rank-sheet-excel-maker': ['marks sheet', 'student marksheet', 'rank list', 'class result', 'gradebook', 'result sheet', 'total and percentage', 'marks entry'],
-  'resume-word-maker': ['resume word', 'cv word', 'resume docx', 'resume template word', 'fresher resume', 'cv format', 'resume maker word', 'editable resume'],
   'cover-letter-word-maker': ['cover letter word', 'application letter', 'job application letter', 'cover letter template', 'cover letter docx', 'cover letter fresher', 'covering letter', 'application letter format'],
   'resignation-letter-word-maker': ['resignation letter', 'resign letter', 'resignation letter format', 'resignation letter word', 'notice period letter', 'resignation letter sample', 'quit job letter', 'resignation docx'],
   'leave-application-word-maker': ['leave application', 'leave letter', 'school leave letter', 'office leave application', 'leave application format', 'sick leave letter', 'leave letter word', 'application for leave'],

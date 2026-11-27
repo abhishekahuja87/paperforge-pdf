@@ -1,4 +1,4 @@
-import React, { useDeferredValue, useEffect, useMemo, useState } from 'react';
+import React, { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { Download } from 'lucide-react';
 import { Note } from '../../common/CalcKit';
 import { ChoiceButtons } from '../../common/FieldKit';
@@ -40,6 +40,8 @@ export const TemplateMaker: React.FC<{ template: TemplateDef }> = ({ template })
   const [region] = useRegion();
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
+  const [notice, setNotice] = useState(false);
+  const justReset = useRef(false);
   const output = useResultFile();
   const set = <K extends keyof State>(k: K, v: State[K]) => setState((s) => ({ ...s, [k]: v }));
   const input = useMemo(() => ({
@@ -50,7 +52,7 @@ export const TemplateMaker: React.FC<{ template: TemplateDef }> = ({ template })
   const deferred = useDeferredValue(input);
   const doc = useMemo(() => buildTemplate(deferred), [deferred]);
   const version = JSON.stringify([state, region.date, region.paper]);
-  useEffect(() => { output.clear(); setMessage(''); }, [version]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { output.clear(); setMessage(''); setNotice(justReset.current); justReset.current = false; }, [version]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const picked = Object.values(state.on).filter(Boolean).length + state.custom.filter((x) => x.h.trim() || x.text.trim()).length;
   const make = async () => {
@@ -129,7 +131,8 @@ export const TemplateMaker: React.FC<{ template: TemplateDef }> = ({ template })
         <MainActionButton onClick={() => void make()} disabled={busy || picked === 0} busy={busy} busyLabel={c.preparing}><Download className="h-5 w-5" aria-hidden="true" />{c.download}</MainActionButton>
         {message && <Note>{message}</Note>}
         {output.result && <SaveResult href={output.result.url} name={output.result.name} label={c.ready} saveLabel={c.save} detail={output.result.detail} />}
-        <div className="flex flex-wrap gap-2"><ConfirmButton label={c.startAgain} confirmLabel={c.startAgainConfirm} onConfirm={() => { setState(initial(template)); setOpen(''); }} disabled={busy} /></div>
+        <div className="flex flex-wrap gap-2"><ConfirmButton label={c.startAgain} confirmLabel={c.startAgainConfirm} onConfirm={() => { justReset.current = true; setNotice(true); setState(initial(template)); setOpen(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }} disabled={busy} /></div>
+        {notice && <p role="status" className="rounded-lg bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700">{c.startedAgain}</p>}
         <p className="text-[11px] text-slate-500">{c.notSaved}</p>
         <ul className="list-disc space-y-1 pl-5 text-[11px] text-slate-500">{c.fileNotes.map((n) => <li key={n}>{n}</li>)}</ul>
       </section>
