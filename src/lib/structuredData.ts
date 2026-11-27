@@ -8,8 +8,8 @@ export type JsonLd = Record<string, unknown>;
 
 const publisher = { '@type': 'Organization', name: siteConfig.name, url: siteConfig.url };
 
-/** WebApplication plus breadcrumb data for one tool page. */
-export function buildToolJsonLd(page: { name: string; description: string; path: string }): JsonLd[] {
+/** WebApplication plus breadcrumb data for one tool page. When the tool belongs to a section page, the breadcrumb is Home > section > tool. */
+export function buildToolJsonLd(page: { name: string; description: string; path: string }, parent?: { name: string; path: string } | null): JsonLd[] {
   const url = new URL(page.path, siteConfig.url).toString();
   return [
     {
@@ -30,7 +30,8 @@ export function buildToolJsonLd(page: { name: string; description: string; path:
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', siteConfig.url).toString() },
-        { '@type': 'ListItem', position: 2, name: page.name, item: url },
+        ...(parent ? [{ '@type': 'ListItem', position: 2, name: parent.name, item: new URL(parent.path, siteConfig.url).toString() }] : []),
+        { '@type': 'ListItem', position: parent ? 3 : 2, name: page.name, item: url },
       ],
     },
   ];
