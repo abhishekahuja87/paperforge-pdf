@@ -1320,7 +1320,7 @@ Check after deploy:
 Checked in the sandbox: the real prerender script on the new data wrote 429 pages; 346 of the 348 tool pages carry the section link (the two studios have none); the Merge PDF page has a Home > PDF Tools > Merge PDF breadcrumb in its JSON-LD. Not run in a browser.
 
 Check after deploy:
-- [ ] /merge-pdf: the small link at the top says "All 34 PDF Tools" (the number matches the section page) and opens /pdf-tools.
+- [ ] /merge-pdf: the small link at the top says "PDF Tools" (as before) and opens /pdf-tools.
 - [ ] Open a sheet variant (for example /cornell-notes-template), a court page (/badminton-court-size) and a globe page: each links to its section (Printables and Templates, Sports and Fitness Tools, Audio and Video Tools).
 - [ ] On a phone the link fits on one or two lines beside the "private" pill and does not push the tool down.
 - [ ] /pdf-tools: a "Jump to all N tools" button sits above the first section; tapping it scrolls smoothly to the "All N tools" list. N equals the heading of that list.
