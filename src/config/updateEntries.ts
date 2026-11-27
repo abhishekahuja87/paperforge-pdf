@@ -19,6 +19,27 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/leave-tracker-excel-maker',
+    tool: 'Leave Tracker Excel Maker',
+    title: 'New: Leave Tracker Excel Maker',
+    summary: 'Make a leave tracker in Excel: yearly leave for each person, a leave log, balances by type, low-balance flags and who is on leave today. Free .xlsx download.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/daily-sales-report-excel-maker',
+    tool: 'Daily Sales Report Excel Maker',
+    title: 'New: Daily Sales Report Excel Maker',
+    summary: 'Make a daily sales report in Excel: log every sale, see each day of the month by cash, UPI, card and credit, best sellers and charts. Free .xlsx download.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/loan-emi-tracker-excel-maker',
+    tool: 'Loan and EMI Tracker Excel Maker',
+    title: 'New: Loan and EMI Tracker Excel Maker',
+    summary: 'Track every loan in Excel: EMI, total interest, EMIs paid, balance and next due date, with a month-by-month repayment schedule. Free .xlsx download.',
+  },
+  {
+    date: '2026-11-27',
     path: '/powerpoint-makers',
     tool: 'PowerPoint makers',
     title: 'New section: PowerPoint makers',

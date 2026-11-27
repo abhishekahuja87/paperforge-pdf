@@ -67,4 +67,16 @@ export const WORKBOOKS_TOOLS: PackTool[] = [
     id: 'marks-rank-sheet-excel-maker', kind: 'workbookGradebook', guideKey: 'gradebookExcelGuide', category: 'business', icon: 'grid', tier: 'popular',
     keywords: ['marks sheet excel', 'student marksheet excel', 'rank list excel', 'class result sheet', 'gradebook excel template', 'exam result calculator excel', 'total and percentage excel', 'school marks register', 'result sheet with rank', 'pass fail sheet excel', 'marks entry sheet', 'class topper list excel'],
   }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'leave-tracker-excel-maker', kind: 'workbookLeave', guideKey: 'leaveExcelGuide', category: 'business', icon: 'grid', tier: 'popular',
+    keywords: ['leave tracker excel template', 'employee leave tracker excel', 'leave record sheet in excel', 'leave balance calculator excel', 'staff leave register format', 'annual leave tracker excel', 'casual leave sick leave tracker', 'teacher leave register excel', 'leave management excel sheet', 'who is on leave today excel', 'leave planner excel template', 'employee leave report excel'],
+  }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'daily-sales-report-excel-maker', kind: 'workbookSales', guideKey: 'salesExcelGuide', category: 'business', icon: 'grid', tier: 'popular',
+    keywords: ['daily sales report excel template', 'daily sales register excel', 'shop sales record excel', 'daily sales sheet format', 'sales tracker for small business', 'cash upi card sales report', 'monthly sales report excel', 'daily collection sheet excel', 'day wise sales report excel', 'best selling items excel', 'cafe sales sheet excel', 'retail sales log excel'],
+  }, workbooks.toolCatalog),
+  definePackTool({
+    id: 'loan-emi-tracker-excel-maker', kind: 'workbookLoan', guideKey: 'loanExcelGuide', category: 'business', icon: 'grid', tier: 'popular',
+    keywords: ['loan emi tracker excel', 'loan repayment schedule excel', 'emi calculator excel sheet', 'loan amortization schedule excel', 'home loan tracker excel', 'multiple loans tracker excel', 'loan balance calculator excel', 'emi due date tracker', 'loan interest and principal split', 'personal loan tracker excel', 'car loan emi sheet excel', 'loan payment schedule template'],
+  }, workbooks.toolCatalog),
 ];

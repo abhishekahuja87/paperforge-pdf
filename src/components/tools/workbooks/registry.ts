@@ -17,4 +17,7 @@ export const WORKBOOKS_COMPONENTS: Record<string, LazyExoticComponent<ComponentT
   workbookJobs: lazy(() => import('./JobsWorkbook')),
   workbookVehicle: lazy(() => import('./VehicleWorkbook')),
   workbookGradebook: lazy(() => import('./GradebookWorkbook')),
+  workbookLeave: lazy(() => import('./LeaveWorkbook')),
+  workbookSales: lazy(() => import('./SalesWorkbook')),
+  workbookLoan: lazy(() => import('./LoanWorkbook')),
 };

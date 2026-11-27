@@ -441,6 +441,9 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Track jobs, orders, advance and balance", tool: "job-order-tracker-excel-maker", name: "Job and Order Tracker Excel Maker", note: "Status, due dates, advance and balance." },
       { task: "Keep a vehicle log with fuel and mileage", tool: "vehicle-log-book-excel-maker", name: "Vehicle Log Book Excel Maker", note: "Trips, fuel, cost per km and km per litre." },
       { task: "Work out marks, grades and rank for a class", tool: "marks-rank-sheet-excel-maker", name: "Marks and Rank Sheet Excel Maker", note: "Total, percentage, grade and rank." },
+      { task: "Track leave for staff or teachers", tool: "leave-tracker-excel-maker", name: "Leave Tracker Excel Maker", note: "Balances, flags and who is on leave today." },
+      { task: "Keep a daily sales report for a shop", tool: "daily-sales-report-excel-maker", name: "Daily Sales Report Excel Maker", note: "Cash, UPI, card and credit by day." },
+      { task: "Track loans and EMIs in one place", tool: "loan-emi-tracker-excel-maker", name: "Loan and EMI Tracker Excel Maker", note: "EMI, balance, next due date and schedule." },
     ],
     situations: [
       { who: "Small shops and home businesses", text: "Make an invoice workbook with your items and customers, and a monthly delivery bill for regular customers." },
