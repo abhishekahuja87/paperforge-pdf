@@ -52,6 +52,7 @@ import { OMR_COMPONENTS } from './omr/registry';
 import { REVIEWSIGN_COMPONENTS } from './reviewsign/registry';
 import { BULKLETTERS_COMPONENTS } from './letters/registry';
 import { WORKBOOKS_COMPONENTS } from './workbooks/registry';
+import { WORDDOCS_COMPONENTS } from './worddocs/registry';
 
 /**
  * Screen for each pack tool, by the `kind` set in its src/config/packs file. Each pack keeps its own registry
@@ -111,4 +112,5 @@ export const PACK_COMPONENTS: Record<string, ComponentType> = {
   ...REVIEWSIGN_COMPONENTS,
   ...BULKLETTERS_COMPONENTS,
   ...WORKBOOKS_COMPONENTS,
+  ...WORDDOCS_COMPONENTS,
 };

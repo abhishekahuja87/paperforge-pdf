@@ -15,7 +15,7 @@ interface HomeTopBannerProps {
 
 const ICONS: Record<HeroTile['icon'], LucideIcon> = {
   file: FileText, image: ImageIcon, receipt: Receipt, trend: TrendingUp, calculator: Calculator, sport: Dumbbell, print: Printer,
-  briefcase: Briefcase, display: Presentation, school: GraduationCap, kids: Baby, share: Share2, code: Code2, audio: Music, excel: Table2,
+  briefcase: Briefcase, display: Presentation, school: GraduationCap, kids: Baby, share: Share2, code: Code2, audio: Music, excel: Table2, word: FileText,
 };
 
 export const HomeTopBanner: React.FC<HomeTopBannerProps> = ({ query, onQueryChange }) => {

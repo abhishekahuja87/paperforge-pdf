@@ -1,0 +1,28 @@
+{
+  "toolCatalog": {
+    "resume-word-maker": [
+      "Resume Word Maker: Free Resume in Word (.docx) Format",
+      "Make a resume in Word format. Fill in your details, pick a classic or clean look, check the preview and download an editable .docx file. Free, nothing uploaded."
+    ],
+    "cover-letter-word-maker": [
+      "Cover Letter Word Maker: Free Cover Letter in Word (.docx)",
+      "Make a cover letter in Word format. Fill in who you are, who you write to and three short parts, then download an editable .docx. Free, nothing uploaded."
+    ],
+    "resignation-letter-word-maker": [
+      "Resignation Letter Word Maker: Free Resignation Letter (.docx)",
+      "Make a resignation letter in Word format. Add your details, the last working day and a polite message, check the days of notice, and download an editable .docx. Free."
+    ],
+    "leave-application-word-maker": [
+      "Leave Application Word Maker: School and Office Leave Letter (.docx)",
+      "Make a leave application in Word format for school or office. Pick the dates, add the reason, see the number of days, and download an editable .docx. Free."
+    ],
+    "meeting-minutes-word-maker": [
+      "Meeting Minutes Word Maker: Free Minutes Template (.docx)",
+      "Make meeting minutes in Word format. Add who came, the agenda, what was said, the decisions and action items with owners and dates. Free, nothing uploaded."
+    ],
+    "notice-word-maker": [
+      "Notice and Circular Word Maker: School, Society and Office Notice (.docx)",
+      "Make a notice or circular in Word format for a school, society or office. Fill in the heading, subject and message and download an editable .docx. Free."
+    ]
+  }
+}

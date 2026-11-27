@@ -13,7 +13,7 @@ export const HomePage2: React.FC = () => {
     <div className="min-h-full space-y-3 bg-[var(--theme-background)] pb-12">
       <PageMetadata
         title="Free Online Tools & Utilities | PDF, Excel, Photo, Video & More"
-        description="Free PDF, photo, Excel, video, printable and business tools plus tax and EMI calculators. No sign-up, no limits, and files stay on your device."
+        description="Free PDF, photo, Excel, Word, video, printable and business tools plus tax and EMI calculators. No sign-up, no limits, and files stay on your device."
         jsonLd={buildHomeJsonLd()}
       />
       <HomeTopBanner query={query} onQueryChange={setQuery} />
