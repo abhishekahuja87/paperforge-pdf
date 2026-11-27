@@ -59,6 +59,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Change a photo to JPG, PNG or WebP", tool: "image-converter", name: "Image Converter", note: "Convert between common formats." },
       { task: "Get a photo or signature to 20, 50 or 100 KB", tool: "image-resizer", name: "Image Resizer (KB and Pixels)", note: "Hit a size limit or exact pixels for an online form." },
       { task: "Resize or convert many photos at once", tool: "bulk-image-tools", name: "Bulk Image Tools", note: "Resize, convert and watermark a whole batch as one ZIP." },
+      { task: "Make an invitation card for a wedding, birthday or party", tool: "invitation-card-maker", name: "Invitation Card Maker", note: "26 designs, your words and photo, as a picture or PDF." },
       { task: "Make one picture fit Instagram, YouTube and more", tool: "social-image-resizer", name: "Social Image Sizes", note: "Post, story, thumbnail, banner and profile sizes together." },
       { task: "Turn pictures into an animated GIF", tool: "gif-maker", name: "GIF Maker", note: "Set the order, timing and size." },
       { task: "See and remove hidden location from a photo", tool: "remove-photo-location", name: "Remove Location and EXIF Data", note: "Shows the place, phone model and time, then saves a clean copy." },

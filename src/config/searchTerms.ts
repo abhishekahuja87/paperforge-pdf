@@ -47,6 +47,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'bulk-image-tools': ['resize many photos', 'batch image', 'bulk watermark'],
   'pdf-bates-numbering': ['bates stamp', 'stamp pages', 'header footer pdf'],
   'social-image-resizer': ['instagram size', 'story size', 'thumbnail size', 'magic resize'],
+  'invitation-card-maker': ['invitation card', 'wedding card maker', 'birthday invitation', 'e invitation', 'housewarming invitation', 'party invite'],
   'resize-pdf-page-size': ['pdf to a4', 'change paper size', 'pdf to letter'],
   'pdf-booklet-maker': ['booklet printing', 'fold and staple', 'two pages per sheet'],
   'grayscale-pdf': ['pdf black and white', 'remove colour from pdf', 'save ink'],
