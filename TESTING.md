@@ -1421,3 +1421,9 @@ Not covered: Excel on Mac, Google Sheets/Docs/Slides, WPS and LibreOffice (only 
 - [ ] Home search: "organiser pdf", "rent slip", "signature resize" and "booklet maker" find the right tool first.
 - [ ] On a 360 px phone, /expense-claim-excel-maker and /product-requirements-word-template do not scroll sideways; Pin and Focus mode sit under the title.
 - [ ] In Search Console, use URL Inspection on two of the old addresses after a week to confirm Google sees the redirect.
+
+## Guide and option page depth (2026-11-27)
+- [ ] Open three guides, for example /guides/how-to-calculate-percentages-and-discounts, /guides/how-emi-works-and-how-to-reduce-interest and /guides/how-to-make-barcode-labels-for-your-shop: the new sections appear before the last section (limits or privacy), and the EMI guide mentions extra payments.
+- [ ] Spot-check the worked numbers: EMI of about 8,997 on 10 lakh at 9% for 20 years; EAN-13 check digit 1 for 400638133393; a 45-minute break on a 9:30 to 6:15 day gives 8 hours.
+- [ ] Open /gate-pass-printable and /fuel-mileage-log-printable: a new practical section appears in the article and one new question in the FAQ, with the privacy question still last.
+- [ ] View page source of one guide and one option page: the new text is in the pre-built HTML.
