@@ -1,0 +1,2305 @@
+{
+ "common": {
+  "sheets": "What is on each sheet (click a name to jump there)",
+  "legendInput": "Type here",
+  "legendCalc": "Calculated",
+  "totals": "Total",
+  "number": "#"
+ },
+ "stock": {
+  "ui": {
+   "start": "Start here",
+   "starters": "What kind of stock?",
+   "listIntro": "Optional. Paste or upload your items. An item name column is needed. Unit, opening stock, reorder level, cost price and sale price are optional.",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample items. Your download will be blank unless you choose With sample data.",
+   "business": "Business name",
+   "businessPlaceholder": "Shown at the top of the sheets",
+   "multiple": "Order up to this many times the reorder level",
+   "multipleHint": "The Order List suggests enough to reach this many times the reorder level. 2 means double.",
+   "spare": "Spare item rows",
+   "spareHint": "Empty rows kept for new items.",
+   "logRows": "Stock log rows",
+   "logRowsHint": "How many stock in and out entries the log has room for.",
+   "tooMany": "Only the first {n} items are used.",
+   "fieldName": "Item",
+   "fieldUnit": "Unit",
+   "fieldOpening": "Opening stock",
+   "fieldReorder": "Reorder level",
+   "fieldCost": "Cost price",
+   "fieldPrice": "Sale price"
+  },
+  "starters": {
+   "shop": {
+    "label": "Shop or kirana",
+    "hint": "Groceries and daily goods.",
+    "rows": [
+     [
+      "Rice 5 kg bag",
+      "bag",
+      "20",
+      "6",
+      "280",
+      "330"
+     ],
+     [
+      "Sugar",
+      "kg",
+      "40",
+      "10",
+      "40",
+      "48"
+     ],
+     [
+      "Cooking oil 1 L",
+      "bottle",
+      "30",
+      "8",
+      "120",
+      "140"
+     ],
+     [
+      "Tea 250 g",
+      "pack",
+      "25",
+      "8",
+      "90",
+      "110"
+     ],
+     [
+      "Biscuits",
+      "pack",
+      "60",
+      "20",
+      "8",
+      "10"
+     ],
+     [
+      "Soap bar",
+      "piece",
+      "50",
+      "15",
+      "25",
+      "32"
+     ],
+     [
+      "Notebook",
+      "piece",
+      "40",
+      "10",
+      "30",
+      "45"
+     ],
+     [
+      "Pen (blue)",
+      "piece",
+      "100",
+      "30",
+      "4",
+      "6"
+     ]
+    ]
+   },
+   "kitchen": {
+    "label": "Kitchen or cafe",
+    "hint": "Ingredients and supplies. Sale price is left empty.",
+    "rows": [
+     [
+      "Wheat flour",
+      "kg",
+      "20",
+      "6",
+      "38",
+      ""
+     ],
+     [
+      "Rice",
+      "kg",
+      "40",
+      "10",
+      "60",
+      ""
+     ],
+     [
+      "Cooking oil",
+      "litre",
+      "30",
+      "8",
+      "130",
+      ""
+     ],
+     [
+      "Tea leaves",
+      "kg",
+      "25",
+      "8",
+      "420",
+      ""
+     ],
+     [
+      "Milk powder",
+      "kg",
+      "60",
+      "20",
+      "350",
+      ""
+     ],
+     [
+      "Dish soap",
+      "bottle",
+      "50",
+      "15",
+      "95",
+      ""
+     ],
+     [
+      "Paper napkins",
+      "pack",
+      "40",
+      "10",
+      "40",
+      ""
+     ],
+     [
+      "Disposable cups",
+      "sleeve",
+      "100",
+      "30",
+      "55",
+      ""
+     ]
+    ]
+   },
+   "office": {
+    "label": "Office or stationery",
+    "hint": "Paper, pens and supplies.",
+    "rows": [
+     [
+      "A4 paper ream",
+      "ream",
+      "20",
+      "6",
+      "230",
+      "290"
+     ],
+     [
+      "Ball pens",
+      "box",
+      "40",
+      "10",
+      "60",
+      "90"
+     ],
+     [
+      "Notebooks",
+      "piece",
+      "30",
+      "8",
+      "30",
+      "45"
+     ],
+     [
+      "Markers",
+      "piece",
+      "25",
+      "8",
+      "25",
+      "40"
+     ],
+     [
+      "Stapler pins",
+      "box",
+      "60",
+      "20",
+      "15",
+      "25"
+     ],
+     [
+      "Glue sticks",
+      "piece",
+      "50",
+      "15",
+      "12",
+      "20"
+     ],
+     [
+      "Files",
+      "piece",
+      "40",
+      "10",
+      "18",
+      "30"
+     ],
+     [
+      "Sticky notes",
+      "pad",
+      "100",
+      "30",
+      "35",
+      "55"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "moves": [
+    {
+     "ago": 20,
+     "item": 0,
+     "kind": "out",
+     "qty": 8,
+     "note": "Sale"
+    },
+    {
+     "ago": 12,
+     "item": 0,
+     "kind": "out",
+     "qty": 6,
+     "note": "Sale"
+    },
+    {
+     "ago": 3,
+     "item": 0,
+     "kind": "out",
+     "qty": 4,
+     "note": "Sale"
+    },
+    {
+     "ago": 18,
+     "item": 1,
+     "kind": "out",
+     "qty": 15,
+     "note": "Sale"
+    },
+    {
+     "ago": 7,
+     "item": 1,
+     "kind": "out",
+     "qty": 12,
+     "note": "Sale"
+    },
+    {
+     "ago": 16,
+     "item": 2,
+     "kind": "out",
+     "qty": 10,
+     "note": "Sale"
+    },
+    {
+     "ago": 9,
+     "item": 2,
+     "kind": "out",
+     "qty": 9,
+     "note": "Sale"
+    },
+    {
+     "ago": 2,
+     "item": 2,
+     "kind": "out",
+     "qty": 5,
+     "note": "Sale"
+    },
+    {
+     "ago": 14,
+     "item": 3,
+     "kind": "in",
+     "qty": 20,
+     "note": "New stock"
+    },
+    {
+     "ago": 5,
+     "item": 3,
+     "kind": "out",
+     "qty": 10,
+     "note": "Sale"
+    },
+    {
+     "ago": 15,
+     "item": 4,
+     "kind": "out",
+     "qty": 25,
+     "note": "Sale"
+    },
+    {
+     "ago": 8,
+     "item": 4,
+     "kind": "out",
+     "qty": 18,
+     "note": "Sale"
+    },
+    {
+     "ago": 1,
+     "item": 4,
+     "kind": "out",
+     "qty": 12,
+     "note": "Sale"
+    },
+    {
+     "ago": 13,
+     "item": 5,
+     "kind": "out",
+     "qty": 30,
+     "note": "Sale"
+    },
+    {
+     "ago": 4,
+     "item": 5,
+     "kind": "out",
+     "qty": 20,
+     "note": "Sale"
+    },
+    {
+     "ago": 11,
+     "item": 6,
+     "kind": "in",
+     "qty": 30,
+     "note": "New stock"
+    },
+    {
+     "ago": 6,
+     "item": 6,
+     "kind": "out",
+     "qty": 12,
+     "note": "Sale"
+    },
+    {
+     "ago": 10,
+     "item": 7,
+     "kind": "out",
+     "qty": 40,
+     "note": "Sale"
+    },
+    {
+     "ago": 3,
+     "item": 7,
+     "kind": "out",
+     "qty": 35,
+     "note": "Sale"
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Stock Register",
+   "intro": "Keep track of what comes in and what goes out. The Stock sheet works out what is left for every item and flags the ones to order, and the Order List gives you a ready shopping list. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name. Open Items and list what you keep: the name, the unit, the stock you have now (Opening stock), the level at which you want to reorder, and the cost and sale price.",
+    "Open Stock Log. Each time stock comes in or goes out, add a row: the date, the item, In or Out, and the quantity. Pick the item from the list so the name always matches.",
+    "The Stock sheet shows what is left for every item and a status: OK, Order now or Out of stock. Use the filter on the Status heading to see only what needs ordering.",
+    "Order List shows every item that needs ordering, with a suggested quantity and an estimated cost. Summary shows the value of your stock and charts."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam likhein. Items mein jo maal rakhte hain uski list likhein: naam, unit, abhi ka stock (Opening stock), kis level par dobara mangwana hai, aur cost aur sale price.",
+    "Stock Log kholein. Jab bhi maal aaye ya jaye, ek row jodein: tareekh, item, In ya Out, aur quantity. Item list se chunein taaki naam hamesha sahi rahe.",
+    "Stock sheet mein har item ka bacha hua maal aur status dikhta hai: OK, Order now ya Out of stock. Status heading ke filter se sirf wo items dekhein jo mangwane hain.",
+    "Order List mein wo saare items hain jo mangwane hain, saath mein sujhai gayi quantity aur andaza kharch. Summary mein stock ki keemat aur chart hain."
+   ],
+   "about": [
+    "Your business name and how much to order up to.",
+    "Every item you keep, with unit, opening stock, reorder level and prices.",
+    "Add a row each time stock comes in or goes out.",
+    "What is left for every item, and its status. Filter on Status.",
+    "A shopping list of items to order, with suggested quantities.",
+    "Totals, the value of your stock and charts."
+   ],
+   "sheetSettings": "Settings",
+   "sheetItems": "Items",
+   "sheetLog": "Stock Log",
+   "sheetStock": "Stock",
+   "sheetOrder": "Order List",
+   "sheetSummary": "Summary",
+   "business": "Business name",
+   "multiple": "Order up to (times the reorder level)",
+   "settingsHelp": "The Order List suggests enough to reach this many times the reorder level. 2 means double the level.",
+   "itemsTitle": "Items",
+   "itemsSub": "List every item once. Opening stock is what you have today. Reorder level is the quantity at or below which you want to order.",
+   "colItem": "Item",
+   "colUnit": "Unit",
+   "colOpening": "Opening stock",
+   "colReorder": "Reorder level",
+   "colCost": "Cost price",
+   "colPrice": "Sale price",
+   "logTitle": "Stock Log",
+   "logSub": "One row each time stock comes in or goes out. Pick the item and In or Out from the lists.",
+   "colDate": "Date",
+   "colType": "In / Out",
+   "colQty": "Quantity",
+   "colNote": "Note",
+   "itemHelp": "Pick an item from your Items sheet.",
+   "typeHelp": "In when stock comes in, Out when it goes out.",
+   "qtyHelp": "A number above 0.",
+   "dateHelp": "The date of the movement.",
+   "typeIn": "In",
+   "typeOut": "Out",
+   "stockTitle": "Stock",
+   "stockSub": "What is left for every item. Nothing to type here. Use the filter on Status to see only the items to order.",
+   "colIn": "In",
+   "colOut": "Out",
+   "colLeft": "Left",
+   "colStatus": "Status",
+   "colValueCost": "Value at cost",
+   "colValuePrice": "Value at sale price",
+   "statusOk": "OK",
+   "statusOrder": "Order now",
+   "statusOut": "Out of stock",
+   "orderTitle": "Order List",
+   "orderSub": "Items that are out of stock or at or below their reorder level, with a suggested quantity to reach the level in Settings.",
+   "colSuggested": "Suggested order",
+   "colEstimate": "Estimated cost",
+   "summaryTitle": "Summary",
+   "kpiItems": "Items",
+   "kpiOut": "Out of stock",
+   "kpiOrder": "To order now",
+   "kpiValueCost": "Stock value at cost",
+   "kpiValuePrice": "Stock value at sale price",
+   "kpiRestock": "Estimated cost to restock",
+   "chartStatus": "Stock status",
+   "chartLeft": "Stock left"
+  }
+ },
+ "ledger": {
+  "ui": {
+   "start": "Start here",
+   "starters": "What kind of khata?",
+   "listIntro": "Optional. Paste or upload your customers. A name column is needed. Phone, opening balance (what they owe at the start), credit limit and a note are optional.",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample customers. Your download will be blank unless you choose With sample data.",
+   "business": "Business name",
+   "businessPlaceholder": "Shown on the statement and in messages",
+   "period": "Credit period in days",
+   "periodHint": "Credit older than this counts as overdue. The ageing columns use this many days for each step.",
+   "message": "Reminder message",
+   "messageHint": "{name}, {amount} and {business} are filled in for each customer.",
+   "defaultMessage": "Hello {name}, a gentle reminder that {amount} is pending with {business}. Please pay when you can. Thank you.",
+   "spare": "Spare customer rows",
+   "spareHint": "Empty rows kept for new customers.",
+   "logRows": "Entry rows",
+   "logRowsHint": "How many credit and payment entries the log has room for.",
+   "tooMany": "Only the first {n} customers are used.",
+   "fieldName": "Customer",
+   "fieldPhone": "Phone",
+   "fieldOpening": "Opening balance",
+   "fieldLimit": "Credit limit",
+   "fieldNote": "Note"
+  },
+  "starters": {
+   "shop": {
+    "label": "Shop or kirana",
+    "hint": "Regular customers who buy on credit.",
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "0",
+      "5000",
+      "Flat 101"
+     ],
+     [
+      "Ben Carter",
+      "9000000002",
+      "1200",
+      "3000",
+      "Flat 204"
+     ],
+     [
+      "Chitra Menon",
+      "9000000003",
+      "0",
+      "1800",
+      "Nearby shop"
+     ],
+     [
+      "Dev Patel",
+      "9000000004",
+      "800",
+      "3000",
+      "Weekly buyer"
+     ],
+     [
+      "Esha Khan",
+      "9000000005",
+      "0",
+      "1500",
+      "New customer"
+     ],
+     [
+      "Farhan Ali",
+      "9000000006",
+      "2500",
+      "4000",
+      "Monthly account"
+     ]
+    ]
+   },
+   "trade": {
+    "label": "Wholesale or trade",
+    "hint": "Business customers with larger balances.",
+    "rows": [
+     [
+      "Sun Traders",
+      "9000000001",
+      "0",
+      "5000",
+      "Net 30"
+     ],
+     [
+      "Metro Supplies",
+      "9000000002",
+      "1200",
+      "3000",
+      "Net 30"
+     ],
+     [
+      "Kiran Stores",
+      "9000000003",
+      "0",
+      "1800",
+      "Net 15"
+     ],
+     [
+      "Patel & Sons",
+      "9000000004",
+      "800",
+      "3000",
+      "Cash and credit"
+     ],
+     [
+      "Royal Mart",
+      "9000000005",
+      "0",
+      "1500",
+      "Net 30"
+     ],
+     [
+      "Delta Retail",
+      "9000000006",
+      "2500",
+      "4000",
+      "Net 45"
+     ]
+    ]
+   },
+   "service": {
+    "label": "Services or tuition",
+    "hint": "Clients and parents who pay later.",
+    "rows": [
+     [
+      "Mr Rao",
+      "9000000001",
+      "0",
+      "5000",
+      "Monthly"
+     ],
+     [
+      "Mrs Carter",
+      "9000000002",
+      "1200",
+      "3000",
+      "Monthly"
+     ],
+     [
+      "Ms Menon",
+      "9000000003",
+      "0",
+      "1800",
+      "Per visit"
+     ],
+     [
+      "Mr Patel",
+      "9000000004",
+      "800",
+      "3000",
+      "Monthly"
+     ],
+     [
+      "Ms Khan",
+      "9000000005",
+      "0",
+      "1500",
+      "Per visit"
+     ],
+     [
+      "Mr Ali",
+      "9000000006",
+      "2500",
+      "4000",
+      "Monthly"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "entries": [
+    {
+     "ago": 5,
+     "customer": 0,
+     "kind": "credit",
+     "amount": 600,
+     "note": "Groceries"
+    },
+    {
+     "ago": 2,
+     "customer": 0,
+     "kind": "credit",
+     "amount": 450,
+     "note": "Groceries"
+    },
+    {
+     "ago": 45,
+     "customer": 1,
+     "kind": "credit",
+     "amount": 900,
+     "note": "Goods"
+    },
+    {
+     "ago": 20,
+     "customer": 1,
+     "kind": "payment",
+     "amount": 500,
+     "note": "Cash"
+    },
+    {
+     "ago": 8,
+     "customer": 1,
+     "kind": "credit",
+     "amount": 700,
+     "note": "Goods"
+    },
+    {
+     "ago": 3,
+     "customer": 2,
+     "kind": "credit",
+     "amount": 1500,
+     "note": "Goods"
+    },
+    {
+     "ago": 1,
+     "customer": 2,
+     "kind": "credit",
+     "amount": 800,
+     "note": "Goods"
+    },
+    {
+     "ago": 1,
+     "customer": 2,
+     "kind": "payment",
+     "amount": 300,
+     "note": "UPI"
+    },
+    {
+     "ago": 10,
+     "customer": 3,
+     "kind": "payment",
+     "amount": 800,
+     "note": "Cash"
+    },
+    {
+     "ago": 4,
+     "customer": 3,
+     "kind": "credit",
+     "amount": 250,
+     "note": "Goods"
+    },
+    {
+     "ago": 70,
+     "customer": 4,
+     "kind": "credit",
+     "amount": 1200,
+     "note": "Goods"
+    },
+    {
+     "ago": 40,
+     "customer": 4,
+     "kind": "payment",
+     "amount": 400,
+     "note": "Cash"
+    },
+    {
+     "ago": 33,
+     "customer": 5,
+     "kind": "credit",
+     "amount": 600,
+     "note": "Goods"
+    },
+    {
+     "ago": 15,
+     "customer": 5,
+     "kind": "payment",
+     "amount": 1000,
+     "note": "UPI"
+    },
+    {
+     "ago": 6,
+     "customer": 5,
+     "kind": "credit",
+     "amount": 300,
+     "note": "Goods"
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Credit Ledger (Udhaar Khata)",
+   "intro": "Keep track of who owes you money. Add a row each time you give credit or receive a payment. The Balances sheet works out what each customer owes, how old it is, who is over their limit, and gives you a WhatsApp reminder link. Print a statement for any customer. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name, the credit period in days and your reminder message. Open Customers and list each customer with a phone number, what they owe at the start (Opening balance) and, if you like, a credit limit.",
+    "Open Entries. Each time you give credit or receive a payment, add a row: the date, the customer, Credit given or Payment received, and the amount. Pick the customer from the list so the name always matches.",
+    "The Balances sheet shows what each customer owes, split by how old it is, and a status: Current, Overdue or Clear. Payments are counted against the oldest credit first. Tap Send reminder to open WhatsApp with the message ready.",
+    "Statement prints one customer's entries with a running balance. Summary shows the total outstanding, what is overdue and charts."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam, credit period (din mein) aur reminder message likhein. Customers mein har customer ka phone, shuru mein kitna baaki hai (Opening balance) aur chahein to credit limit likhein.",
+    "Entries kholein. Jab bhi udhaar do ya paisa aaye, ek row jodein: tareekh, customer, Credit given ya Payment received, aur rakam. Customer list se chunein taaki naam hamesha sahi rahe.",
+    "Balances sheet mein har customer ka baaki, kitna purana hai us hisaab se, aur status dikhta hai: Current, Overdue ya Clear. Payment sabse purane udhaar se kat'ti hai. Send reminder dabane par WhatsApp message ke saath khulta hai.",
+    "Statement mein ek customer ki entries running balance ke saath print hoti hain. Summary mein kul baaki, overdue aur chart hain."
+   ],
+   "about": [
+    "Your business name, the credit period and the reminder message.",
+    "Your customers with phone, opening balance and credit limit.",
+    "Add a row each time you give credit or receive a payment.",
+    "What each customer owes, how old it is, and a WhatsApp reminder link.",
+    "A printable statement for one customer. Pick the name at the top.",
+    "Totals and charts."
+   ],
+   "sheetSettings": "Settings",
+   "sheetCustomers": "Customers",
+   "sheetEntries": "Entries",
+   "sheetBalances": "Balances",
+   "sheetStatement": "Statement",
+   "sheetSummary": "Summary",
+   "business": "Business name",
+   "asOf": "As of date (today by default)",
+   "period": "Credit period (days)",
+   "word": "Money word for messages",
+   "code": "Phone country code",
+   "message": "Reminder message",
+   "settingsHelp": "The As of date is today unless you type another date. Balances and ageing are worked out as of that date.",
+   "customersTitle": "Customers",
+   "customersSub": "List every customer once. Opening balance is what they owed you before this register started. Credit limit is optional.",
+   "colName": "Customer",
+   "colPhone": "Phone",
+   "colOpening": "Opening balance",
+   "colLimit": "Credit limit",
+   "colNote": "Note",
+   "entriesTitle": "Entries",
+   "entriesSub": "One row for every credit given and every payment received. Pick the customer and the type from the lists.",
+   "colDate": "Date",
+   "colCustomer": "Customer",
+   "colType": "Type",
+   "colAmount": "Amount",
+   "colCheck": "Check",
+   "fixRow": "Add the date, customer and type",
+   "typeCredit": "Credit given",
+   "typePayment": "Payment received",
+   "customerHelp": "Pick a customer from your Customers sheet.",
+   "typeHelp": "Credit given when they take goods or service on credit. Payment received when they pay.",
+   "amountHelp": "A number above 0.",
+   "balancesTitle": "Balances",
+   "asOfLabel": "As of",
+   "colGiven": "Credit given",
+   "colPaid": "Paid",
+   "colBalance": "Balance",
+   "colLimitCheck": "Limit",
+   "colStatus": "Status",
+   "colReminder": "Reminder",
+   "days": "days",
+   "older": "Older",
+   "overLimit": "Over limit",
+   "withinLimit": "OK",
+   "statusClear": "Clear",
+   "statusCurrent": "Current",
+   "statusOverdue": "Overdue",
+   "sendReminder": "Send reminder",
+   "statementTitle": "Statement of account",
+   "statementHelp": "Pick the customer to print.",
+   "colRunning": "Balance after",
+   "statementNote": "Shows up to 40 entries for the customer. Balance after is the opening balance plus credit given minus payments, entry by entry.",
+   "summaryTitle": "Summary",
+   "kpiCustomers": "Customers",
+   "kpiOutstanding": "Total outstanding",
+   "kpiOverdue": "Overdue amount",
+   "kpiOverdueCount": "Customers overdue",
+   "kpiOverLimit": "Customers over their limit",
+   "kpiMonth": "Payments received this month",
+   "bucketNew": "Recent",
+   "bucketMid": "Next period",
+   "chartAgeing": "How old the balances are",
+   "chartBalances": "Balance by customer"
+  }
+ },
+ "timesheet": {
+  "ui": {
+   "start": "Start here",
+   "starters": "Who is it for?",
+   "listIntro": "Optional. Paste or upload your people. A name column is needed. Role and hourly rate are optional.",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample people. Your download will be blank unless you choose With sample data.",
+   "business": "Business or team name",
+   "businessPlaceholder": "Shown at the top of the totals",
+   "normal": "Normal hours per day",
+   "normalHint": "Hours up to this in a day are regular. Hours above it are overtime.",
+   "multiplier": "Overtime pay multiplier",
+   "multiplierHint": "Overtime hours are paid at the hourly rate times this number, for example 1.5. Type the figure your own rules use.",
+   "spare": "Spare people rows",
+   "spareHint": "Empty rows kept for new people.",
+   "logRows": "Time log rows",
+   "logRowsHint": "How many shifts the log has room for.",
+   "tooMany": "Only the first {n} people are used.",
+   "fieldName": "Name",
+   "fieldRole": "Role",
+   "fieldRate": "Hourly rate"
+  },
+  "starters": {
+   "shop": {
+    "label": "Shop or small business",
+    "hint": "Staff with shifts and break times.",
+    "rows": [
+     [
+      "Asha Rao",
+      "Cashier",
+      "150"
+     ],
+     [
+      "Ben Carter",
+      "Helper",
+      "120"
+     ],
+     [
+      "Chitra Menon",
+      "Supervisor",
+      "200"
+     ],
+     [
+      "Dev Patel",
+      "Driver",
+      "140"
+     ]
+    ]
+   },
+   "team": {
+    "label": "Freelancers or a team",
+    "hint": "People who log their own hours.",
+    "rows": [
+     [
+      "Asha Rao",
+      "Designer",
+      "600"
+     ],
+     [
+      "Ben Carter",
+      "Developer",
+      "800"
+     ],
+     [
+      "Chitra Menon",
+      "Writer",
+      "500"
+     ],
+     [
+      "Dev Patel",
+      "Support",
+      "400"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "shifts": [
+    {
+     "person": 0,
+     "start": "09:00",
+     "end": "17:30",
+     "brk": 30,
+     "days": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "person": 1,
+     "start": "09:00",
+     "end": "18:30",
+     "brk": 30,
+     "days": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "person": 2,
+     "start": "10:00",
+     "end": "19:00",
+     "brk": 60,
+     "days": [
+      1,
+      2,
+      4,
+      5
+     ]
+    },
+    {
+     "person": 3,
+     "start": "08:00",
+     "end": "18:00",
+     "brk": 30,
+     "days": [
+      1,
+      3,
+      5,
+      6
+     ]
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Timesheet with Overtime",
+   "intro": "Log start and end times, and get hours worked, overtime over the daily limit you set, and totals and pay for any period. Hours above the normal hours in a day count as overtime. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name, the period you want totals for, the normal hours per day and the overtime multiplier. Open People and list each person with an hourly rate if you want pay worked out.",
+    "Open Time Log. For each shift add a row: the date, the person, the start and end time (like 9:00 and 17:30) and the break in minutes. Hours, regular hours and overtime are worked out. Use one row per person per day.",
+    "Open Totals. For the period in Settings it shows each person's days worked, regular and overtime hours, and pay. Change the dates in Settings to see another period.",
+    "Hours above the normal hours in a day are orange in the log. Pay is only what your hourly rate and multiplier give: check it against your own rules before paying anyone."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam, jis period ka total chahiye wo, roz ke normal ghante aur overtime multiplier likhein. People mein har vyakti ka hourly rate likhein agar pay nikalni hai.",
+    "Time Log kholein. Har shift ke liye ek row jodein: tareekh, vyakti, shuru aur khatam ka samay (jaise 9:00 aur 17:30) aur break minute mein. Ghante, regular aur overtime apne aap nikalte hain. Ek vyakti ka ek din ek row.",
+    "Totals kholein. Settings ke period ke liye har vyakti ke din, regular aur overtime ghante aur pay dikhta hai. Dusra period dekhne ke liye Settings mein tareekh badlein.",
+    "Din ke normal ghante se zyada ghante log mein orange dikhte hain. Pay sirf aapke rate aur multiplier se nikalti hai: bhugtan se pehle apne niyam se jaanch lein."
+   ],
+   "about": [
+    "Your business name, the period and the overtime rules.",
+    "Your people with an optional hourly rate.",
+    "Add one row per person per day with start and end times.",
+    "Days, hours and pay for each person in the period."
+   ],
+   "sheetSettings": "Settings",
+   "sheetPeople": "People",
+   "sheetLog": "Time Log",
+   "sheetTotals": "Totals",
+   "business": "Business or team name",
+   "from": "Period from",
+   "to": "Period to",
+   "normal": "Normal hours per day",
+   "multiplier": "Overtime pay multiplier",
+   "settingsHelp": "Totals cover the dates from Period from to Period to. Change them for each pay period. Hours above the normal hours in a day count as overtime.",
+   "peopleTitle": "People",
+   "peopleSub": "List everyone once. The hourly rate is optional: leave it empty if you only want hours.",
+   "colName": "Name",
+   "colRole": "Role",
+   "colRate": "Hourly rate",
+   "logTitle": "Time Log",
+   "logSub": "One row per person per day. Type times like 9:00 and 17:30. A shift that ends after midnight works too.",
+   "colDate": "Date",
+   "colPerson": "Person",
+   "colStart": "Start",
+   "colEnd": "End",
+   "colBreak": "Break (min)",
+   "colHours": "Hours",
+   "colRegular": "Regular",
+   "colOvertime": "Overtime",
+   "colNote": "Note",
+   "personHelp": "Pick a person from your People sheet.",
+   "timeHelp": "A time such as 9:00 or 17:30.",
+   "timeError": "Type a time such as 9:00 or 17:30.",
+   "breakHelp": "Unpaid break in minutes.",
+   "periodLabel": "Period:",
+   "totalsSub": "Hours and pay for the period in Settings. Days worked counts the days with hours. Pay is hours times the hourly rate, with overtime hours times the multiplier as well.",
+   "colDays": "Days",
+   "colTotalHours": "Total hours",
+   "colRegularPay": "Regular pay",
+   "colOvertimePay": "Overtime pay",
+   "colTotalPay": "Total pay",
+   "chartHours": "Hours by person"
+  }
+ },
+ "fees": {
+  "ui": {
+   "start": "Start here",
+   "starters": "What are you collecting?",
+   "listIntro": "Optional. Paste or upload your list. A name column is needed. Phone, group (class, flat or room), monthly amount and opening balance (what was already due) are optional.",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample people. Your download will be blank unless you choose With sample data.",
+   "business": "School, society or business name",
+   "businessPlaceholder": "Shown at the top of the tracker and on receipts",
+   "item": "What you collect",
+   "itemHint": "For example Fee, Rent or Maintenance. Used in headings and in the reminder message.",
+   "message": "Reminder message",
+   "messageHint": "{name}, {amount}, {item} and {business} are filled in for each person.",
+   "defaultMessage": "Hello {name}, a gentle reminder that {amount} of {item} is pending with {business}. Please pay when you can. Thank you.",
+   "spare": "Spare rows",
+   "spareHint": "Empty rows kept for new people.",
+   "tooMany": "Only the first {n} people are used.",
+   "fieldName": "Name",
+   "fieldPhone": "Phone",
+   "fieldGroup": "Class, flat or room",
+   "fieldMonthly": "Monthly amount",
+   "fieldOpening": "Opening balance"
+  },
+  "starters": {
+   "tuition": {
+    "label": "Tuition or school fees",
+    "hint": "Students and a monthly fee.",
+    "set": {
+     "item": "Fee"
+    },
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "Class 5",
+      "2000",
+      "0"
+     ],
+     [
+      "Ben Carter",
+      "9000000002",
+      "Class 5",
+      "2000",
+      "0"
+     ],
+     [
+      "Chitra Menon",
+      "9000000003",
+      "Class 6",
+      "2500",
+      "500"
+     ],
+     [
+      "Dev Patel",
+      "9000000004",
+      "Class 7",
+      "1800",
+      "0"
+     ],
+     [
+      "Esha Khan",
+      "9000000005",
+      "Class 8",
+      "2200",
+      "0"
+     ]
+    ]
+   },
+   "rent": {
+    "label": "Rent",
+    "hint": "Tenants and monthly rent.",
+    "set": {
+     "item": "Rent"
+    },
+    "rows": [
+     [
+      "Mr Rao",
+      "9000000001",
+      "Flat 101",
+      "2000",
+      "0"
+     ],
+     [
+      "Ms Carter",
+      "9000000002",
+      "Flat 102",
+      "2000",
+      "0"
+     ],
+     [
+      "Mr Menon",
+      "9000000003",
+      "Flat 201",
+      "2500",
+      "500"
+     ],
+     [
+      "Mrs Patel",
+      "9000000004",
+      "Flat 202",
+      "1800",
+      "0"
+     ],
+     [
+      "Mr Khan",
+      "9000000005",
+      "Shop 1",
+      "2200",
+      "0"
+     ]
+    ]
+   },
+   "society": {
+    "label": "Society or gym",
+    "hint": "Members and a monthly charge.",
+    "set": {
+     "item": "Maintenance"
+    },
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "A-101",
+      "2000",
+      "0"
+     ],
+     [
+      "Ben Carter",
+      "9000000002",
+      "A-102",
+      "2000",
+      "0"
+     ],
+     [
+      "Chitra Menon",
+      "9000000003",
+      "B-201",
+      "2500",
+      "500"
+     ],
+     [
+      "Dev Patel",
+      "9000000004",
+      "B-202",
+      "1800",
+      "0"
+     ],
+     [
+      "Esha Khan",
+      "9000000005",
+      "C-301",
+      "2200",
+      "0"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "paid": [
+    [
+     2000,
+     2000,
+     2000,
+     2000,
+     2000,
+     2000
+    ],
+    [
+     2000,
+     2000,
+     2000,
+     1000,
+     null,
+     null
+    ],
+    [
+     2500,
+     2500,
+     2500,
+     2500,
+     2500,
+     null
+    ],
+    [
+     1800,
+     1800,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     2200,
+     2200,
+     2200,
+     2200,
+     2200,
+     2200
+    ]
+   ]
+  },
+  "sheet": {
+   "title": "Monthly Fees and Rent Tracker",
+   "intro": "For school or tuition fees, rent, society maintenance or gym memberships. Type what each person paid each month. The tracker works out what is due so far, what is still pending, who has not paid, and gives you a WhatsApp reminder link and a printable receipt. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your name, what you collect, the first month and your reminder message. Open People and list each person with a phone number, a class or flat, the monthly amount and, if something was already due, the opening balance.",
+    "Open Tracker. Type the amount each person paid in the month column. A month turns green when paid in full, amber when part paid and red when it is due and not paid. Months still to come are grey.",
+    "Pending lists everyone who still owes money, with the balance and a Send reminder link that opens WhatsApp with the message ready.",
+    "Receipt makes a printable receipt: pick the person and the month. Summary shows what you expected, what you collected and what is outstanding, with a chart."
+   ],
+   "guideHi": [
+    "Settings mein apna naam, kya collect karte hain, pehla mahina aur reminder message likhein. People mein har vyakti ka phone, class ya flat, mahine ki rakam aur agar pehle se kuch baaki ho to opening balance likhein.",
+    "Tracker kholein. Har mahine ke column mein likhein kisne kitna diya. Poora diya to mahina green, aadha diya to amber aur dena tha par nahi diya to red hota hai. Aane wale mahine grey hain.",
+    "Pending mein un sabki list hai jinse paisa baaki hai, balance aur Send reminder link ke saath jo WhatsApp message ke saath kholta hai.",
+    "Receipt se print karne layak receipt banti hai: vyakti aur mahina chunein. Summary mein expected, collected aur outstanding chart ke saath dikhte hain."
+   ],
+   "about": [
+    "Your name, what you collect, the first month and the reminder message.",
+    "Everyone you collect from, with phone, class or flat, monthly amount and opening balance.",
+    "A grid of what each person paid each month, with what is due and what is pending.",
+    "Everyone who still owes money, with a WhatsApp reminder link.",
+    "A printable receipt for one person and one month.",
+    "What you expected, collected and what is outstanding, with a chart."
+   ],
+   "sheetSettings": "Settings",
+   "sheetPeople": "People",
+   "sheetTracker": "Tracker",
+   "sheetPending": "Pending",
+   "sheetReceipt": "Receipt",
+   "sheetSummary": "Summary",
+   "business": "School, society or business name",
+   "startMonth": "First month",
+   "asOf": "As of date (today by default)",
+   "item": "What you collect",
+   "word": "Money word for messages",
+   "code": "Phone country code",
+   "message": "Reminder message",
+   "settingsHelp": "The tracker shows 12 months from the first month. What is due is worked out up to the As of date.",
+   "peopleTitle": "People",
+   "peopleSub": "List everyone once. Monthly amount is what they pay each month. Opening balance is anything already due before the first month.",
+   "colName": "Name",
+   "colPhone": "Phone",
+   "colGroup": "Class, flat or room",
+   "colMonthly": "Monthly amount",
+   "colOpening": "Opening balance",
+   "trackerSub": "Type what each person paid in the month column. Green means paid in full, amber part paid, red due and not paid, grey a month still to come.",
+   "asOfLabel": "As of",
+   "monthsDue": "Months due",
+   "colDue": "Due so far",
+   "colPaid": "Paid",
+   "colBalance": "Balance",
+   "colStatus": "Status",
+   "statusClear": "Clear",
+   "statusPart": "Part paid",
+   "statusUnpaid": "Unpaid",
+   "collected": "Collected",
+   "expected": "Expected",
+   "cellTitle": "Amount paid",
+   "cellHelp": "What this person paid for this month. Leave empty if nothing was paid.",
+   "cellError": "Type an amount, or leave the box empty.",
+   "pendingTitle": "Pending",
+   "pendingSub": "Everyone with a balance to pay, in the order of the Tracker. Send reminder opens WhatsApp with your message.",
+   "colReminder": "Reminder",
+   "sendReminder": "Send reminder",
+   "receiptTitle": "Receipt",
+   "receiptNo": "Receipt number",
+   "receiptDate": "Date",
+   "receiptFrom": "Received from",
+   "receiptFor": "For the month of",
+   "receiptAmount": "Amount received",
+   "receiptBalance": "Balance still due",
+   "receiptNote": "Received with thanks.",
+   "receiptPick": "Pick a person from your People sheet.",
+   "receiptMonth": "Pick the month from the Tracker.",
+   "summaryTitle": "Summary",
+   "kpiPeople": "People",
+   "kpiExpected": "Expected so far",
+   "kpiCollected": "Collected",
+   "kpiOutstanding": "Outstanding",
+   "kpiOwing": "People who owe",
+   "colMonth": "Month",
+   "chartMonths": "Collected and expected by month"
+  }
+ },
+ "cashbook": {
+  "ui": {
+   "start": "Start here",
+   "starters": "What kind of business?",
+   "listIntro": "Optional. Paste or upload your categories. Each row needs a kind (income or expense) and a name. Without a list the starter's categories are used.",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample entries. Your download will be blank unless you choose With sample data.",
+   "business": "Business name",
+   "businessPlaceholder": "Shown at the top of the sheets",
+   "modes": "Payment modes",
+   "modesHint": "Separate with commas, up to four. For example Cash, Bank, UPI.",
+   "openings": "Balance at the start of each mode",
+   "openingsHint": "Numbers in the same order, separated by commas. For example 5000, 20000, 0.",
+   "logRows": "Cash book rows",
+   "logRowsHint": "How many entries the cash book has room for.",
+   "tooMany": "Only the first {n} categories are used.",
+   "fieldKind": "Kind",
+   "fieldName": "Category"
+  },
+  "starters": {
+   "shop": {
+    "label": "Shop",
+    "hint": "Sales and the usual shop costs.",
+    "rows": [
+     [
+      "income",
+      "Sales"
+     ],
+     [
+      "income",
+      "Other income"
+     ],
+     [
+      "expense",
+      "Stock purchases"
+     ],
+     [
+      "expense",
+      "Rent"
+     ],
+     [
+      "expense",
+      "Salaries"
+     ],
+     [
+      "expense",
+      "Electricity"
+     ],
+     [
+      "expense",
+      "Transport"
+     ],
+     [
+      "expense",
+      "Packaging"
+     ],
+     [
+      "expense",
+      "Phone and internet"
+     ],
+     [
+      "expense",
+      "Repairs"
+     ],
+     [
+      "expense",
+      "Marketing"
+     ],
+     [
+      "expense",
+      "Miscellaneous"
+     ]
+    ]
+   },
+   "freelance": {
+    "label": "Freelancer or service",
+    "hint": "Client payments and work costs.",
+    "rows": [
+     [
+      "income",
+      "Client payments"
+     ],
+     [
+      "income",
+      "Other income"
+     ],
+     [
+      "expense",
+      "Software and tools"
+     ],
+     [
+      "expense",
+      "Internet and phone"
+     ],
+     [
+      "expense",
+      "Travel"
+     ],
+     [
+      "expense",
+      "Marketing"
+     ],
+     [
+      "expense",
+      "Office costs"
+     ],
+     [
+      "expense",
+      "Training"
+     ],
+     [
+      "expense",
+      "Subcontractors"
+     ],
+     [
+      "expense",
+      "Bank charges"
+     ],
+     [
+      "expense",
+      "Miscellaneous"
+     ]
+    ]
+   },
+   "homebiz": {
+    "label": "Home business",
+    "hint": "Orders and the costs of making them.",
+    "rows": [
+     [
+      "income",
+      "Orders"
+     ],
+     [
+      "income",
+      "Other income"
+     ],
+     [
+      "expense",
+      "Raw materials"
+     ],
+     [
+      "expense",
+      "Packaging"
+     ],
+     [
+      "expense",
+      "Delivery"
+     ],
+     [
+      "expense",
+      "Rent"
+     ],
+     [
+      "expense",
+      "Electricity and gas"
+     ],
+     [
+      "expense",
+      "Marketing"
+     ],
+     [
+      "expense",
+      "Equipment"
+     ],
+     [
+      "expense",
+      "Miscellaneous"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "entries": [
+    {
+     "day": 1,
+     "note": "Day's sales",
+     "mode": 0,
+     "kind": "in",
+     "amount": 4200,
+     "cat": 0
+    },
+    {
+     "day": 1,
+     "note": "Stock from supplier",
+     "mode": 1,
+     "kind": "out",
+     "amount": 6500,
+     "cat": 0
+    },
+    {
+     "day": 2,
+     "note": "Day's sales",
+     "mode": 2,
+     "kind": "in",
+     "amount": 3100,
+     "cat": 0
+    },
+    {
+     "day": 3,
+     "note": "Day's sales",
+     "mode": 0,
+     "kind": "in",
+     "amount": 3800,
+     "cat": 0
+    },
+    {
+     "day": 3,
+     "note": "Shop rent",
+     "mode": 1,
+     "kind": "out",
+     "amount": 12000,
+     "cat": 1
+    },
+    {
+     "day": 4,
+     "note": "Day's sales",
+     "mode": 0,
+     "kind": "in",
+     "amount": 4500,
+     "cat": 0
+    },
+    {
+     "day": 5,
+     "note": "Delivery charges",
+     "mode": 0,
+     "kind": "out",
+     "amount": 300,
+     "cat": 4
+    },
+    {
+     "day": 5,
+     "note": "Day's sales",
+     "mode": 2,
+     "kind": "in",
+     "amount": 5200,
+     "cat": 0
+    },
+    {
+     "day": 6,
+     "note": "Old stock sold",
+     "mode": 0,
+     "kind": "in",
+     "amount": 900,
+     "cat": 1
+    },
+    {
+     "day": 7,
+     "note": "Day's sales",
+     "mode": 0,
+     "kind": "in",
+     "amount": 4900,
+     "cat": 0
+    },
+    {
+     "day": 8,
+     "note": "Electricity bill",
+     "mode": 1,
+     "kind": "out",
+     "amount": 1800,
+     "cat": 3
+    },
+    {
+     "day": 9,
+     "note": "Day's sales",
+     "mode": 2,
+     "kind": "in",
+     "amount": 3600,
+     "cat": 0
+    },
+    {
+     "day": 10,
+     "note": "Staff salary",
+     "mode": 1,
+     "kind": "out",
+     "amount": 9000,
+     "cat": 2
+    },
+    {
+     "day": 10,
+     "note": "Day's sales",
+     "mode": 0,
+     "kind": "in",
+     "amount": 4100,
+     "cat": 0
+    },
+    {
+     "day": 12,
+     "note": "Bags and boxes",
+     "mode": 0,
+     "kind": "out",
+     "amount": 650,
+     "cat": 5
+    },
+    {
+     "day": 12,
+     "note": "Day's sales",
+     "mode": 2,
+     "kind": "in",
+     "amount": 5600,
+     "cat": 0
+    },
+    {
+     "day": 14,
+     "note": "Mobile recharge",
+     "mode": 0,
+     "kind": "out",
+     "amount": 400,
+     "cat": 6
+    },
+    {
+     "day": 14,
+     "note": "Day's sales",
+     "mode": 0,
+     "kind": "in",
+     "amount": 3900,
+     "cat": 0
+    },
+    {
+     "day": 16,
+     "note": "Shelf repair",
+     "mode": 0,
+     "kind": "out",
+     "amount": 750,
+     "cat": 7
+    },
+    {
+     "day": 17,
+     "note": "Day's sales",
+     "mode": 2,
+     "kind": "in",
+     "amount": 6100,
+     "cat": 0
+    },
+    {
+     "day": 19,
+     "note": "Stock from supplier",
+     "mode": 1,
+     "kind": "out",
+     "amount": 7200,
+     "cat": 0
+    },
+    {
+     "day": 20,
+     "note": "Day's sales",
+     "mode": 0,
+     "kind": "in",
+     "amount": 4400,
+     "cat": 0
+    },
+    {
+     "day": 22,
+     "note": "Flyers",
+     "mode": 0,
+     "kind": "out",
+     "amount": 500,
+     "cat": 8
+    },
+    {
+     "day": 23,
+     "note": "Day's sales",
+     "mode": 2,
+     "kind": "in",
+     "amount": 5000,
+     "cat": 0
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Daily Cash Book",
+   "intro": "Write down money in and money out as it happens. The Month sheet shows your profit, the balance in each payment mode (cash, bank, UPI) and where the money went, and the Year sheet shows every month. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name and the month. Open Lists and check your income types, expense types and payment modes. Type the balance you start with in each mode. You can change any list.",
+    "Open Cash Book. For each thing that happens add a row: the date, the details, the payment mode, and either money in (with its income type) or money out (with its expense type). Pick from the lists so the names always match.",
+    "Month shows money in, money out and profit for the month in Settings, the balance in each payment mode, a breakdown by category and a chart of each day. Change the month in Settings to look at another month.",
+    "Year shows money in, money out and profit for every month of that year. A red Check on a row means something is missing, such as the date or the type."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam aur mahina likhein. Lists mein apni income type, kharch type aur payment mode dekhein. Har mode mein shuru ka balance likhein. Koi bhi list badal sakte hain.",
+    "Cash Book kholein. Jo bhi hota hai uski ek row jodein: tareekh, vivaran, payment mode, aur ya to aaya hua paisa (income type ke saath) ya gaya hua paisa (kharch type ke saath). Lists se chunein taaki naam hamesha sahi rahe.",
+    "Month mein Settings ke mahine ka aaya paisa, gaya paisa aur munafa, har payment mode ka balance, category ke hisaab se breakdown aur har din ka chart dikhta hai. Dusra mahina dekhne ke liye Settings mein badlein.",
+    "Year mein us saal ke har mahine ka aaya paisa, gaya paisa aur munafa dikhta hai. Row par laal Check ka matlab kuch chhoot gaya hai, jaise tareekh ya type."
+   ],
+   "about": [
+    "Your business name and the month to look at.",
+    "Your income types, expense types and payment modes with their starting balances.",
+    "Add a row for every bit of money in or out.",
+    "Profit, balance in each payment mode, a breakdown by category and a chart of each day.",
+    "Money in, money out and profit for every month of the year."
+   ],
+   "sheetSettings": "Settings",
+   "sheetLists": "Lists",
+   "sheetBook": "Cash Book",
+   "sheetMonth": "Month",
+   "sheetYear": "Year",
+   "business": "Business name",
+   "month": "Month to look at",
+   "settingsHelp": "The Month sheet shows the month you type here. Type any date in that month, or the first of the month.",
+   "listsTitle": "Lists",
+   "listsSub": "Income types, expense types and payment modes used in the dropdown lists. The grey boxes are not used.",
+   "listIncome": "Income types",
+   "listExpense": "Expense types",
+   "listModes": "Payment modes",
+   "listOpening": "Balance at the start",
+   "bookTitle": "Cash Book",
+   "bookSub": "One row for every bit of money in or out. Use Money in with an income type, or Money out with an expense type.",
+   "colDate": "Date",
+   "colDetails": "Details",
+   "colMode": "Mode",
+   "colIn": "Money in",
+   "colInType": "Income type",
+   "colOut": "Money out",
+   "colOutType": "Expense type",
+   "colCheck": "Check",
+   "fixRow": "Add the date and mode",
+   "addType": "Pick a type",
+   "modeHelp": "Pick a payment mode from your Lists sheet.",
+   "typeHelp": "Pick a type from your Lists sheet.",
+   "amountHelp": "A number above 0.",
+   "kpiIn": "Money in",
+   "kpiOut": "Money out",
+   "kpiProfit": "Profit",
+   "modeBalances": "Balance in each mode (to the end of the month)",
+   "totalBalance": "Total",
+   "pnlIncome": "Money in by type",
+   "pnlExpense": "Money out by type",
+   "colAmount": "Amount",
+   "colShare": "Share",
+   "colDay": "Day",
+   "colMonth": "Month",
+   "chartDays": "Money in and out each day",
+   "chartYear": "Money in and out each month"
+  }
+ },
+ "budget": {
+  "ui": {
+   "start": "Start here",
+   "starters": "Whose budget?",
+   "listIntro": "Optional. Paste or upload your income and spending lines. Each row needs a kind (income or expense), a name and, if you like, the planned amount for each month.",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample lines. Your download will be blank unless you choose With sample data.",
+   "name": "Budget name",
+   "namePlaceholder": "For example Household budget",
+   "spareIncome": "Spare income rows",
+   "spareIncomeHint": "Empty rows kept for new income lines.",
+   "spareSpend": "Spare spending rows",
+   "spareSpendHint": "Empty rows kept for new spending lines.",
+   "tooMany": "Only the first {n} lines are used.",
+   "fieldKind": "Kind",
+   "fieldName": "Name",
+   "fieldPlanned": "Planned per month"
+  },
+  "starters": {
+   "home": {
+    "label": "Household",
+    "hint": "Pay, rent, bills, food and savings.",
+    "rows": [
+     [
+      "income",
+      "Salary",
+      "60000"
+     ],
+     [
+      "income",
+      "Other income",
+      "5000"
+     ],
+     [
+      "expense",
+      "Rent",
+      "15000"
+     ],
+     [
+      "expense",
+      "Groceries",
+      "8000"
+     ],
+     [
+      "expense",
+      "Utilities",
+      "3000"
+     ],
+     [
+      "expense",
+      "Transport",
+      "3500"
+     ],
+     [
+      "expense",
+      "Phone and internet",
+      "1200"
+     ],
+     [
+      "expense",
+      "Education",
+      "4000"
+     ],
+     [
+      "expense",
+      "Health",
+      "1500"
+     ],
+     [
+      "expense",
+      "Eating out",
+      "2500"
+     ],
+     [
+      "expense",
+      "Shopping",
+      "3000"
+     ],
+     [
+      "expense",
+      "Entertainment",
+      "1500"
+     ],
+     [
+      "expense",
+      "Savings and investments",
+      "10000"
+     ]
+    ]
+   },
+   "student": {
+    "label": "Student",
+    "hint": "Allowance, fees and everyday costs.",
+    "rows": [
+     [
+      "income",
+      "Allowance",
+      "15000"
+     ],
+     [
+      "income",
+      "Part-time work",
+      "6000"
+     ],
+     [
+      "expense",
+      "Rent or hostel",
+      "7000"
+     ],
+     [
+      "expense",
+      "Food",
+      "4500"
+     ],
+     [
+      "expense",
+      "Transport",
+      "1200"
+     ],
+     [
+      "expense",
+      "Books and supplies",
+      "1500"
+     ],
+     [
+      "expense",
+      "Phone and internet",
+      "800"
+     ],
+     [
+      "expense",
+      "Going out",
+      "1500"
+     ],
+     [
+      "expense",
+      "Subscriptions",
+      "500"
+     ],
+     [
+      "expense",
+      "Savings",
+      "2000"
+     ]
+    ]
+   },
+   "small": {
+    "label": "Small business",
+    "hint": "Sales and the costs of running.",
+    "rows": [
+     [
+      "income",
+      "Sales",
+      "150000"
+     ],
+     [
+      "income",
+      "Other income",
+      "5000"
+     ],
+     [
+      "expense",
+      "Stock and materials",
+      "70000"
+     ],
+     [
+      "expense",
+      "Rent",
+      "20000"
+     ],
+     [
+      "expense",
+      "Salaries",
+      "25000"
+     ],
+     [
+      "expense",
+      "Utilities",
+      "6000"
+     ],
+     [
+      "expense",
+      "Marketing",
+      "5000"
+     ],
+     [
+      "expense",
+      "Transport",
+      "4000"
+     ],
+     [
+      "expense",
+      "Repairs",
+      "2000"
+     ],
+     [
+      "expense",
+      "Miscellaneous",
+      "3000"
+     ]
+    ]
+   }
+  },
+  "sheet": {
+   "title": "Monthly Budget Planner",
+   "intro": "Plan what you expect to earn and spend each month, then type what really happened. The planner shows what is left over each month, how each line compares with your plan, and charts for the year. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type a name for the budget and the first month. The planner covers 12 months from then.",
+    "Open Budget. List your income lines and your spending lines, and type the planned amount per month in the Planned column. Add or rename lines as you like.",
+    "Each month, type what really came in and what you really spent in that month's column. A spending box turns amber when it is above the plan. Left over shows income minus spending, and turns red when it is below zero.",
+    "The last columns compare the real amounts so far with the plan so far. A green figure is better than plan and a red one is worse. Summary shows the totals and a chart for the year."
+   ],
+   "guideHi": [
+    "Settings mein budget ka naam aur pehla mahina likhein. Planner us mahine se 12 mahine ko dekhta hai.",
+    "Budget kholein. Apni income aur kharch ki lines likhein aur Planned column mein har mahine ki yojana likhein. Lines jodein ya naam badlein.",
+    "Har mahine us mahine ke column mein likhein kitna aaya aur kitna kharch hua. Kharch yojana se zyada ho to box amber ho jata hai. Left over mein income minus kharch dikhta hai aur zero se kam ho to red hota hai.",
+    "Aakhri columns mein ab tak ka asli aur ab tak ki yojana ki tulna hai. Green yojana se behtar aur red kharab hai. Summary mein total aur saal ka chart hai."
+   ],
+   "about": [
+    "The name of the budget and the first month.",
+    "Your income and spending lines, the plan, and what really happened each month.",
+    "Totals for the year and a chart of income and spending by month."
+   ],
+   "sheetSettings": "Settings",
+   "sheetBudget": "Budget",
+   "sheetSummary": "Summary",
+   "name": "Budget name",
+   "startMonth": "First month",
+   "asOf": "As of date (today by default)",
+   "settingsHelp": "The budget covers 12 months from the first month. Comparisons with the plan use the months up to the As of date.",
+   "budgetSub": "Type the planned amount for each line, then what really happened each month. Amber means above plan. In the last column a green figure is better than plan and a red one is worse.",
+   "asOfLabel": "As of",
+   "monthsSoFar": "Months so far",
+   "colCategory": "Line",
+   "colPlanned": "Planned per month",
+   "colActual": "Actual so far",
+   "colPlannedSoFar": "Plan so far",
+   "colDiff": "Better or worse than plan",
+   "income": "Income",
+   "spending": "Spending",
+   "totalIncome": "Total income",
+   "totalSpending": "Total spending",
+   "leftOver": "Left over",
+   "cellTitle": "Amount",
+   "cellHelp": "A number, or leave the box empty.",
+   "cellError": "Type an amount, or leave the box empty.",
+   "summaryTitle": "Summary",
+   "kpiPlanIncome": "Planned income per month",
+   "kpiPlanSpend": "Planned spending per month",
+   "kpiPlanLeft": "Planned left over per month",
+   "kpiActIncome": "Income so far",
+   "kpiActSpend": "Spending so far",
+   "kpiActLeft": "Left over so far",
+   "kpiRate": "Share of income left over",
+   "colMonth": "Month",
+   "chartMonths": "Income and spending by month"
+  }
+ },
+ "payables": {
+  "ui": {
+   "start": "Start here",
+   "starters": "What do you buy?",
+   "listIntro": "Optional. Paste or upload your suppliers. A name column is needed. Phone, credit days and a note are optional.",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample suppliers. Your download will be blank unless you choose With sample data.",
+   "business": "Business name",
+   "businessPlaceholder": "Shown at the top of the sheets",
+   "creditDays": "Default credit days",
+   "creditDaysHint": "Used for a bill when neither the bill nor the supplier has its own credit days. Type the days your agreement gives.",
+   "soonDays": "Warn this many days before the due date",
+   "soonDaysHint": "A bill due within this many days shows as Due soon.",
+   "spare": "Spare supplier rows",
+   "spareHint": "Empty rows kept for new suppliers.",
+   "logRows": "Bill rows",
+   "logRowsHint": "How many bills the sheet has room for.",
+   "tooMany": "Only the first {n} suppliers are used.",
+   "fieldName": "Supplier",
+   "fieldPhone": "Phone",
+   "fieldDays": "Credit days",
+   "fieldNote": "Note"
+  },
+  "starters": {
+   "shop": {
+    "label": "Shop",
+    "hint": "Wholesalers and distributors.",
+    "rows": [
+     [
+      "Sun Traders",
+      "9000000001",
+      "30",
+      "Groceries"
+     ],
+     [
+      "Metro Supplies",
+      "9000000002",
+      "45",
+      "Packaging"
+     ],
+     [
+      "Kiran Stores",
+      "9000000003",
+      "15",
+      "Dairy"
+     ],
+     [
+      "Royal Mart",
+      "9000000004",
+      "",
+      "General"
+     ],
+     [
+      "Delta Retail",
+      "9000000005",
+      "60",
+      "Snacks"
+     ]
+    ]
+   },
+   "workshop": {
+    "label": "Workshop or factory",
+    "hint": "Material and parts suppliers.",
+    "rows": [
+     [
+      "Apex Steel",
+      "9000000001",
+      "30",
+      "Steel"
+     ],
+     [
+      "Bright Paints",
+      "9000000002",
+      "45",
+      "Paint"
+     ],
+     [
+      "City Hardware",
+      "9000000003",
+      "15",
+      "Fittings"
+     ],
+     [
+      "Royal Packaging",
+      "9000000004",
+      "",
+      "Boxes"
+     ],
+     [
+      "Delta Tools",
+      "9000000005",
+      "60",
+      "Tools"
+     ]
+    ]
+   },
+   "cafe": {
+    "label": "Cafe or restaurant",
+    "hint": "Food and supply vendors.",
+    "rows": [
+     [
+      "Fresh Farms",
+      "9000000001",
+      "30",
+      "Vegetables"
+     ],
+     [
+      "Daily Dairy",
+      "9000000002",
+      "45",
+      "Milk"
+     ],
+     [
+      "Metro Foods",
+      "9000000003",
+      "15",
+      "Dry goods"
+     ],
+     [
+      "Royal Packaging",
+      "9000000004",
+      "",
+      "Takeaway boxes"
+     ],
+     [
+      "Delta Beverages",
+      "9000000005",
+      "60",
+      "Drinks"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "bills": [
+    {
+     "ago": 50,
+     "supplier": 0,
+     "no": "S-1041",
+     "amount": 12000,
+     "paid": 12000,
+     "paidAgo": 25,
+     "days": null
+    },
+    {
+     "ago": 35,
+     "supplier": 0,
+     "no": "S-1057",
+     "amount": 8000,
+     "paid": null,
+     "paidAgo": null,
+     "days": null
+    },
+    {
+     "ago": 10,
+     "supplier": 0,
+     "no": "S-1083",
+     "amount": 6500,
+     "paid": null,
+     "paidAgo": null,
+     "days": null
+    },
+    {
+     "ago": 60,
+     "supplier": 1,
+     "no": "M-220",
+     "amount": 15000,
+     "paid": 9000,
+     "paidAgo": 30,
+     "days": null
+    },
+    {
+     "ago": 20,
+     "supplier": 1,
+     "no": "M-241",
+     "amount": 4200,
+     "paid": null,
+     "paidAgo": null,
+     "days": null
+    },
+    {
+     "ago": 18,
+     "supplier": 2,
+     "no": "K-77",
+     "amount": 3000,
+     "paid": null,
+     "paidAgo": null,
+     "days": null
+    },
+    {
+     "ago": 10,
+     "supplier": 2,
+     "no": "K-81",
+     "amount": 2500,
+     "paid": null,
+     "paidAgo": null,
+     "days": null
+    },
+    {
+     "ago": 25,
+     "supplier": 3,
+     "no": "R-310",
+     "amount": 9000,
+     "paid": null,
+     "paidAgo": null,
+     "days": null
+    },
+    {
+     "ago": 5,
+     "supplier": 3,
+     "no": "R-318",
+     "amount": 5000,
+     "paid": null,
+     "paidAgo": null,
+     "days": null
+    },
+    {
+     "ago": 40,
+     "supplier": 4,
+     "no": "D-905",
+     "amount": 20000,
+     "paid": 20000,
+     "paidAgo": 12,
+     "days": null
+    },
+    {
+     "ago": 15,
+     "supplier": 4,
+     "no": "D-918",
+     "amount": 7000,
+     "paid": null,
+     "paidAgo": null,
+     "days": 10
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Supplier Payment Tracker",
+   "intro": "Never miss a supplier payment. Type each bill with its date and amount. The tracker works out the due date from the credit days you type, shows what is overdue or due soon, and adds up what you owe each supplier. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name, the default credit days and how many days before the due date you want a warning. Open Suppliers and list each supplier, with their own credit days if they differ.",
+    "Open Bills. For each bill add a row: the bill date, the supplier, the bill number and the amount. The due date is the bill date plus the credit days: from the bill if you type them, otherwise the supplier's, otherwise the default.",
+    "When you pay, type the amount paid and the date in the same row. The balance and status update: Paid, Due soon, Overdue or Not due. Use the filter on the Status heading to see only the bills to pay.",
+    "Totals shows what you owe each supplier and how much is overdue. Summary shows what is payable, overdue and due soon, with charts. Check due dates against your own agreements."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam, default credit days aur due date se kitne din pehle chetavni chahiye wo likhein. Suppliers mein har supplier likhein, agar unke credit days alag hon to wo bhi.",
+    "Bills kholein. Har bill ke liye ek row jodein: bill ki tareekh, supplier, bill number aur rakam. Due date = bill ki tareekh + credit days: bill mein likhe hon to wo, nahi to supplier ke, nahi to default.",
+    "Jab payment karein to usi row mein rakam aur tareekh likhein. Balance aur status badal jate hain: Paid, Due soon, Overdue ya Not due. Status heading ke filter se sirf wo bill dekhein jo dene hain.",
+    "Totals mein har supplier ko kitna dena hai aur kitna overdue hai dikhta hai. Summary mein payable, overdue aur due soon chart ke saath hain. Due date apne samjhaute se milakar dekhein."
+   ],
+   "about": [
+    "Your business name, default credit days and the warning window.",
+    "Your suppliers with phone and their own credit days.",
+    "Every bill with its due date, what was paid and its status.",
+    "What you owe each supplier and how much is overdue or due soon.",
+    "Totals and charts."
+   ],
+   "sheetSettings": "Settings",
+   "sheetSuppliers": "Suppliers",
+   "sheetBills": "Bills",
+   "sheetTotals": "Totals",
+   "sheetSummary": "Summary",
+   "business": "Business name",
+   "asOf": "As of date (today by default)",
+   "creditDays": "Default credit days",
+   "soonDays": "Warn this many days before the due date",
+   "settingsHelp": "Credit days are only what you type. Check them against your agreement with each supplier.",
+   "suppliersTitle": "Suppliers",
+   "suppliersSub": "List every supplier once. Credit days are optional: leave empty to use the default in Settings.",
+   "colSupplier": "Supplier",
+   "colPhone": "Phone",
+   "colDays": "Credit days",
+   "colNote": "Note",
+   "billsTitle": "Bills",
+   "billsSub": "One row for every bill. The due date is worked out for you. Type the amount and date when you pay.",
+   "colBillDate": "Bill date",
+   "colBillNo": "Bill number",
+   "colAmount": "Amount",
+   "colDaysBill": "Credit days for this bill",
+   "colDue": "Due date",
+   "colPaid": "Paid",
+   "colPaidDate": "Paid on",
+   "colBalance": "Balance",
+   "colLeft": "Days left",
+   "colStatus": "Status",
+   "supplierHelp": "Pick a supplier from your Suppliers sheet.",
+   "amountHelp": "The bill amount.",
+   "daysHelp": "Optional. Leave empty to use the supplier's or the default credit days.",
+   "paidHelp": "How much you have paid so far on this bill.",
+   "statusPaid": "Paid",
+   "statusOpen": "Open",
+   "statusOverdue": "Overdue",
+   "statusSoon": "Due soon",
+   "statusNotDue": "Not due",
+   "totalsTitle": "Totals by supplier",
+   "totalsSub": "What you have been billed, what you have paid and what you still owe each supplier.",
+   "colOpenBills": "Open bills",
+   "colBilled": "Billed",
+   "colOverdue": "Overdue",
+   "colSoon": "Due soon",
+   "summaryTitle": "Summary",
+   "kpiPayable": "Total payable",
+   "kpiOverdue": "Overdue",
+   "kpiSoon": "Due soon",
+   "kpiOverdueBills": "Overdue bills",
+   "kpiSoonBills": "Bills due soon",
+   "chartStatus": "What you owe",
+   "chartSuppliers": "Balance by supplier"
+  }
+ }
+}

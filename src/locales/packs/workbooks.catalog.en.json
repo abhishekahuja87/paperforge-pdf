@@ -15,6 +15,34 @@
     "delivery-bill-excel-maker": [
       "Monthly Delivery Bill Excel Maker: Milk, Tiffin, Newspaper and Water Can (Free)",
       "Make a monthly delivery bill in Excel for milk, tiffin, newspapers or water cans. Each customer starts with the usual quantity, you change only the days that differ, and bills and reminders are worked out."
+    ],
+    "stock-register-excel-maker": [
+      "Stock Register Excel Maker: Inventory with Reorder Alert (Free)",
+      "Make a stock register in Excel for a shop or store. List your items, log what comes in and goes out, and see current stock, low-stock alerts and an order list. Free, no macros."
+    ],
+    "credit-ledger-excel-maker": [
+      "Credit Ledger (Udhaar Khata) Excel Maker: Customer Dues with Ageing (Free)",
+      "Make a credit ledger or udhaar khata in Excel. Log credit given and payments received, see what each customer owes, how old it is, and send a WhatsApp reminder. Free, no macros."
+    ],
+    "timesheet-excel-maker": [
+      "Timesheet Excel Maker: Hours and Overtime for Your Team (Free)",
+      "Make a timesheet in Excel. Log start and end times for each person, and the workbook works out hours, overtime and pay at the rates you type. Free, no macros."
+    ],
+    "fees-rent-tracker-excel-maker": [
+      "Fees and Rent Tracker Excel Maker: Monthly Dues with Reminders (Free)",
+      "Make a fee, rent or maintenance tracker in Excel. Tick off each month as people pay, see who is pending, send WhatsApp reminders and print receipts. Free, no macros."
+    ],
+    "daily-cash-book-excel-maker": [
+      "Daily Cash Book Excel Maker: Income, Expenses and Balance (Free)",
+      "Make a daily cash book in Excel. Log money in and out by cash, bank or UPI, see the running balance, and get a monthly and yearly profit summary. Free, no macros."
+    ],
+    "budget-planner-excel-maker": [
+      "Budget Planner Excel Maker: Monthly Plan vs Actual (Free)",
+      "Make a monthly budget planner in Excel. Plan income and spending for the year, type what really happened, and see what is left over in each month. Free, no macros."
+    ],
+    "supplier-payment-tracker-excel-maker": [
+      "Supplier Payment Tracker Excel Maker: Bills, Due Dates, Overdue (Free)",
+      "Make a supplier payment tracker in Excel. Log bills with credit days, see due dates, what is overdue or due soon, and what you owe each supplier. Free, no macros."
     ]
   }
 }
