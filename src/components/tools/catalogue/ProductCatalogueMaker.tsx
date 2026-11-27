@@ -129,7 +129,7 @@ export const ProductCatalogueMaker: React.FC = () => {
           const img = await doc.embedJpg(new Uint8Array(await (await toBlob('image/jpeg')).arrayBuffer()));
           const pg = doc.addPage([size.ptW, size.ptH]); pg.drawImage(img, { x: 0, y: 0, width: size.ptW, height: size.ptH });
         }
-        out = new Blob([await doc.save()], { type: 'application/pdf' });
+        out = new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' });
       } else {
         const JSZip = (await import('jszip')).default, zip = new JSZip();
         for (let i = 0; i < list.length; i += 1) {

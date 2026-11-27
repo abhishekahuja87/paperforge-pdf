@@ -100,7 +100,7 @@ export const InvitationCardMaker: React.FC = () => {
         const { PDFDocument } = await import('pdf-lib');
         const doc = await PDFDocument.create(), img = await doc.embedPng(new Uint8Array(await blob.arrayBuffer()));
         const page = doc.addPage([(size.w * 72) / 150, (size.h * 72) / 150]); page.drawImage(img, { x: 0, y: 0, width: page.getWidth(), height: page.getHeight() });
-        out = new Blob([await doc.save()], { type: 'application/pdf' });
+        out = new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' });
       }
       const url = URL.createObjectURL(out), a = document.createElement('a');
       a.href = url; a.download = generateFileName('invitation', kind, { base: s.names || 'card', details: `${design.id}-${s.size}` }); a.click();
