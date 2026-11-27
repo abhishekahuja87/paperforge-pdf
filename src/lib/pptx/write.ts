@@ -14,13 +14,13 @@ const xfrm = (x: number, y: number, w: number, h: number, tag = 'a:xfrm') => `<$
 
 function paraXml(p: TPara, font: string): string {
   const ind = p.bullet ? ' marL="342900" indent="-285750"' : ' marL="0" indent="0"';
-  const props = `<a:pPr algn="${p.align ?? 'l'}"${ind}><a:spcAft><a:spcPts val="${Math.round((p.after ?? 0) * 100)}"/></a:spcAft>${p.bullet ? `<a:buClr><a:srgbClr val="${p.color}"/></a:buClr><a:buFont typeface="Arial"/><a:buChar char="&#8226;"/>` : '<a:buNone/>'}</a:pPr>`;
+  const props = `<a:pPr algn="${p.align ?? 'l'}"${ind}><a:spcAft><a:spcPts val="${Math.round((p.after ?? 0) * 100)}"/></a:spcAft>${p.bullet ? `<a:buClr><a:srgbClr val="${p.bulletColor ?? p.color}"/></a:buClr><a:buFont typeface="Arial"/><a:buChar char="&#8226;"/>` : '<a:buNone/>'}</a:pPr>`;
   const rpr = `lang="en-US" sz="${Math.round(p.size * 100)}"${p.bold ? ' b="1"' : ''} dirty="0"`;
   return `<a:p>${props}<a:r><a:rPr ${rpr}>${fill(p.color)}<a:latin typeface="${esc(font)}"/><a:cs typeface="${esc(font)}"/></a:rPr><a:t>${esc(p.text)}</a:t></a:r></a:p>`;
 }
 
 function shapeXml(s: Shape, id: number, font: string): string {
-  if (s.t === 'rect') return `<p:sp><p:nvSpPr><p:cNvPr id="${id}" name="Bar ${id}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr>${xfrm(s.x, s.y, s.w, s.h)}<a:prstGeom prst="rect"><a:avLst/></a:prstGeom>${fill(s.fill)}<a:ln><a:noFill/></a:ln></p:spPr></p:sp>`;
+  if (s.t === 'rect' || s.t === 'ellipse') return `<p:sp><p:nvSpPr><p:cNvPr id="${id}" name="Shape ${id}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr>${xfrm(s.x, s.y, s.w, s.h)}<a:prstGeom prst="${s.t}"><a:avLst/></a:prstGeom>${fill(s.fill)}<a:ln><a:noFill/></a:ln></p:spPr></p:sp>`;
   if (s.t === 'text') {
     const nv = s.title ? `<p:cNvPr id="${id}" name="Title ${id}"/><p:cNvSpPr><a:spLocks noGrp="1"/></p:cNvSpPr><p:nvPr><p:ph type="title"/></p:nvPr>` : `<p:cNvPr id="${id}" name="Text ${id}"/><p:cNvSpPr txBox="1"/><p:nvPr/>`;
     return `<p:sp><p:nvSpPr>${nv}</p:nvSpPr><p:spPr>${xfrm(s.x, s.y, s.w, s.h)}<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr><p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" anchor="${s.anchor}"><a:noAutofit/></a:bodyPr><a:lstStyle/>${s.paras.map((p) => paraXml(p, font)).join('')}</p:txBody></p:sp>`;

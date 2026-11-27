@@ -974,15 +974,15 @@
     },
     "excel": {
       "name": "Excel templates and makers",
-      "description": "Make a real Excel workbook for the job: an invoice, a stock register, an udhaar ledger, a cash book, a timesheet, a fee or rent tracker, a budget, supplier payments, a lead tracker, an expense claim, a job book, a vehicle log, a marks sheet, a leave tracker, a daily sales report, a loan and EMI tracker, an attendance register, a Gantt chart or a delivery bill. Each file has formulas, drop-downs and colours already set up, and is made on your device."
+      "description": "No Excel needed: make a real Excel workbook for the job in your browser: an invoice, a stock register, an udhaar ledger, a cash book, a timesheet, a fee or rent tracker, a budget, supplier payments, a lead tracker, an expense claim, a job book, a vehicle log, a marks sheet, a leave tracker, a daily sales report, a loan and EMI tracker, an attendance register, a Gantt chart or a delivery bill. Each file has formulas, drop-downs and colours already set up, and is made on your device."
     },
     "word": {
       "name": "Word document makers",
-      "description": "Make an editable Word (.docx) file from a few boxes: a resume, a cover letter, a resignation letter, a leave application for school or office, meeting minutes with action items, or a notice or circular, or a long template such as a project proposal, report, business plan, SOP, job description, policy, case study, internship report, event plan or status report. Check the preview, download, and change anything in Word. Made on your device."
+      "description": "No Word needed: make an editable Word (.docx) file in your browser from a few boxes, in 12 colour designs. Cover letter, resignation, leave application, minutes, notice, or a long template such as a project proposal, report, business plan or SOP. Check the preview, download, and change anything later in Word, Google Docs or WPS Office. Free, and made on your device."
     },
     "ppt": {
       "name": "PowerPoint makers",
-      "description": "Make an editable PowerPoint (.pptx) file from a text outline: a pitch deck, a client proposal or company profile, lesson slides, a project status update, a school project or seminar, a quiz with answer slides, or an event programme. Check the slides, download, and finish in PowerPoint. Made on your device, nothing uploaded."
+      "description": "No PowerPoint needed: type a text outline and get an editable PowerPoint (.pptx) file in your browser, in 12 colour designs. Pitch deck, client proposal, lesson slides, project status, school project, quiz with answers or event programme. Check the slides, download, and finish in PowerPoint, Google Slides or WPS Office. Free, and made on your device."
     },
     "other": {
       "name": "More tools",

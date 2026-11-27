@@ -14,6 +14,7 @@ import { hasBrackets, resolveDate, type DocInput } from '../../../lib/docs/kit';
 import T from '../../../locales/packs/worddocs.text.en.json';
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { buttonClass, inputClass, useRegion } from '../workbooks/shared';
+import { DesignPicker } from './DesignPicker';
 import { DocPreview } from './DocPreview';
 import type { DocField, DocSpec, DocStarter } from './docSpec';
 
@@ -40,7 +41,7 @@ export const DocMaker: React.FC<{ spec: DocSpec }> = ({ spec }) => {
   const starterIds = Object.keys(spec.starters);
   const [starterId, setStarterId] = useState(starterIds[0]!);
   const [state, setState] = useState(() => resolve(spec.starters[starterIds[0]!]!));
-  const [look, setLook] = useState(spec.form.looks?.[0]?.value ?? '');
+  const [look, setLook] = useState('classic');
   const [region] = useRegion();
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -54,7 +55,7 @@ export const DocMaker: React.FC<{ spec: DocSpec }> = ({ spec }) => {
   useEffect(() => { output.clear(); setMessage(''); setNotice(justReset.current); justReset.current = false; }, [version]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const chooseStarter = (id: string) => { setStarterId(id); setState(resolve(spec.starters[id]!)); };
-  const startAgain = () => { justReset.current = true; setNotice(true); chooseStarter(starterId); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const startAgain = () => { justReset.current = true; setLook('classic'); setNotice(true); chooseStarter(starterId); window.scrollTo({ top: 0, behavior: 'smooth' }); };
   const setValue = (key: string, v: string) => setState((s) => ({ ...s, values: { ...s.values, [key]: v } }));
   const setCell = (list: string, row: number, key: string, v: string) => setState((s) => ({ ...s, lists: { ...s.lists, [list]: (s.lists[list] ?? []).map((r, i) => (i === row ? { ...r, [key]: v } : r)) } }));
   const addRow = (list: string, max: number) => setState((s) => ((s.lists[list] ?? []).length >= max ? s : { ...s, lists: { ...s.lists, [list]: [...(s.lists[list] ?? []), {}] } }));
@@ -83,9 +84,7 @@ export const DocMaker: React.FC<{ spec: DocSpec }> = ({ spec }) => {
           <ChoiceButtons label={c.starters} value={starterId} onChange={chooseStarter} options={starterIds.map((id) => ({ value: id, label: spec.starters[id]!.label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{spec.starters[starterId]!.hint} {c.startersNote}</p>
         </div>
-        {spec.form.looks && spec.form.looks.length > 1 && (
-          <div><p className="mb-1 text-xs font-semibold text-slate-700">{c.look}</p><ChoiceButtons label={c.look} value={look} onChange={setLook} options={spec.form.looks} /></div>
-        )}
+        <DesignPicker label={c.design} hint={c.designHint} value={look} names={c.designs} onChange={setLook} />
       </section>
 
       {spec.form.groups.map((g) => (

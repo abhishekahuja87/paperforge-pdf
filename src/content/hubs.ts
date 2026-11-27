@@ -256,11 +256,15 @@ export const HUBS: Hub[] = [
     path: '/word-document-makers',
     collection: 'word',
     title: 'Free Word Document Makers and Templates: Resume, Letters, Proposals and More',
-    subtitle: 'Fill in a few boxes, check the preview and download an editable Word file. The layout is done for you, and the file is made on your device.',
-    description: "Free Word makers and templates: resume, letters, minutes, project proposal, report, business plan, SOP and more. Edit the .docx. Nothing uploaded.",
+    subtitle: 'No Word needed. Fill in a few boxes, pick a design, check the preview and download an editable Word file. Made free on your device.',
+    description: "No Word needed: free Word makers in 12 designs. Resume, letters, minutes, proposal, report, SOP and more. Download an editable .docx. Nothing uploaded.",
     sections: [
       { heading: 'What you can make here', paragraphs: [
         'Each tool builds a real Word (.docx) file from a few boxes. For a resume, use the Resume Builder in the jobs section, which now saves a Word file as well as a PDF. The Cover Letter Word Maker lays out your address, the company, three short parts and a sign-off. The Resignation Letter Word Maker adds your last working day and counts the days of notice. The Leave Application Word Maker is for school or office and counts the days of leave. The Meeting Minutes Word Maker records who came, what was decided and who will do what by when. The Notice and Circular Word Maker makes a notice for a school, society or office.',
+      ] },
+      { heading: 'No Word needed, and 12 designs', paragraphs: [
+        'You do not need Microsoft Word, a licence or any app to make these documents. Everything is built in your browser, on a phone or a laptop, and you download a normal .docx file. Open it later in Word, Google Docs or WPS Office if you want to keep editing.',
+        'Every tool lets you choose from twelve designs: classic blue, navy and gold, forest green, burgundy, teal, slate, sunset, violet, rose, ocean, black and white and modern charcoal. A design sets the colours, the font, the title style (centred, a colour band, a side bar or a line) and the headings, and the preview changes at once.',
       ] },
       { heading: 'Long document templates', paragraphs: [
         'For bigger documents there are ten templates: Project Proposal, Project Report, Business Plan, SOP, Job Description, Company Policy, Case Study, Internship Report, Event Plan and Status Report. Each one gives a cover page, a contents list, numbered headings, prompts in [square brackets] and tables with the column names ready. Tick the sections you want, change the prompts, add your own sections, and finish the writing in Word.',
@@ -277,11 +281,15 @@ export const HUBS: Hub[] = [
     path: '/powerpoint-makers',
     collection: 'ppt',
     title: 'Free PowerPoint Makers: Pitch Deck, Lesson, Quiz and More',
-    subtitle: 'Type your slides as a simple outline, check the preview and download an editable PowerPoint file. The layout is done for you, and the file is made on your device.',
-    description: "Free PowerPoint makers: pitch deck, proposal, lesson, status update, school project, quiz and event slides. Download an editable .pptx. Nothing uploaded.",
+    subtitle: 'No PowerPoint needed. Type your slides as a simple outline, pick a design, check the preview and download an editable PowerPoint file. Free, on your device.',
+    description: "No PowerPoint needed: free makers in 12 designs. Pitch deck, proposal, lesson, status, school project, quiz and event slides. Editable .pptx. Nothing uploaded.",
     sections: [
       { heading: 'What you can make here', paragraphs: [
         'Each tool builds a real PowerPoint (.pptx) file from a text outline. The Text to PowerPoint Maker turns any outline into slides. The Pitch Deck, Business Proposal, Lesson, Project Status, School Project, Quiz and Event Programme makers start you with a full sample deck for that job, with prompts in square brackets for you to replace.',
+      ] },
+      { heading: 'No PowerPoint needed, and 12 designs', paragraphs: [
+        'You do not need PowerPoint, a licence or any app to make these presentations. The slides are built in your browser, on a phone or a laptop, and you download a normal .pptx file. Open it later in PowerPoint, Google Slides or WPS Office if you want to add pictures or animation.',
+        'Choose from twelve designs: blue, navy and gold, teal, green, orange, purple, rose, sky, soft pastel, dark, bold yellow and black and white. A design sets the colours, the title slide, the heading style, the bullets and the font, and the preview shows every slide as you type.',
       ] },
       { heading: 'How these decks work', paragraphs: [
         'Pick a starting point and edit the outline: a line that starts with # is a new slide, a dash makes a bullet, and a line of cells between bars makes a table. The slides on the page update as you type. When you are happy, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS Office to add pictures, charts and animation.',
@@ -296,7 +304,7 @@ export const HUBS: Hub[] = [
     collection: 'excel',
     title: 'Free Excel Templates and Makers: Invoice, Stock, Ledger, Cash Book and More',
     subtitle: 'Make a ready-to-use Excel workbook for your own job. The formulas, drop-downs and colours are already set up, and the file is made on your device.',
-    description: "Free Excel templates and makers: invoice, stock, ledger, cash book, timesheet, leads, budget, marks sheet and more. Download an .xlsx with formulas. No sign-up.",
+    description: "No Excel needed: free templates and makers for invoice, stock, ledger, cash book, timesheet, budget, marks sheet and more. An .xlsx with formulas. No sign-up.",
     sections: [
       { heading: 'What you can make here', paragraphs: [
         'Each tool builds a real Excel (.xlsx) workbook around your own details. The Gantt Chart Excel Maker turns a task list into a project timeline that colours itself. The Attendance Register Excel Maker makes monthly sheets with weekly offs, holidays and a summary. The Invoice Excel Template Maker makes an invoice with item and customer lists, taxes you type yourself and a log of every invoice. The Delivery Bill Excel Maker makes monthly bills for milk, tiffin, newspaper or water cans, with a reminder link for customers who owe.',

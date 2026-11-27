@@ -4,6 +4,8 @@ export interface DeckSpec {
   /** Start of the file name. */
   id: string;
   starters: Record<string, DeckStarter>;
+  /** The design the page opens with. */
+  look: string;
   agenda: boolean;
   answers: 'each' | 'end' | 'none';
   /** Quiz tools show the question syntax in the help. */

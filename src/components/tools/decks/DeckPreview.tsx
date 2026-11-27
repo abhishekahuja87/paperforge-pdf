@@ -10,13 +10,13 @@ const ANCHOR = { t: 'flex-start', ctr: 'center', b: 'flex-end' } as const;
 
 const drawShape = (s: Shape, i: number, font: string) => {
   const box = { position: 'absolute', left: pctX(s.x), top: pctY(s.y) } as const;
-  if (s.t === 'rect') return <div key={i} style={{ ...box, width: pctX(s.w), height: pctY(s.h), background: `#${s.fill}` }} />;
+  if (s.t === 'rect' || s.t === 'ellipse') return <div key={i} style={{ ...box, width: pctX(s.w), height: pctY(s.h), background: `#${s.fill}`, borderRadius: s.t === 'ellipse' ? '50%' : undefined }} />;
   if (s.t === 'text') {
     return (
       <div key={i} style={{ ...box, width: pctX(s.w), height: pctY(s.h), display: 'flex', flexDirection: 'column', justifyContent: ANCHOR[s.anchor], overflow: 'hidden', fontFamily: `${font}, Carlito, Arial, sans-serif` }}>
         {s.paras.map((p, k) => (
           <div key={k} style={{ position: 'relative', fontSize: cq(p.size), lineHeight: 1.2, fontWeight: p.bold ? 700 : 400, color: `#${p.color}`, textAlign: p.align === 'ctr' ? 'center' : 'left', paddingLeft: p.bullet ? cq(22) : 0, marginBottom: cq(p.after ?? 0), whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
-            {p.bullet && <span style={{ position: 'absolute', left: cq(4) }}>•</span>}{p.text}
+            {p.bullet && <span style={{ position: 'absolute', left: cq(4), color: `#${p.bulletColor ?? p.color}` }}>•</span>}{p.text}
           </div>
         ))}
       </div>

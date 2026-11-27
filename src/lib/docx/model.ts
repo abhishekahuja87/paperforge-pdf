@@ -19,6 +19,10 @@ export interface Para {
   indent?: number;
   /** A thin line under the paragraph, in this colour. */
   rule?: string;
+  /** A solid band of this colour behind the paragraph, with a little room around the text. */
+  fill?: string;
+  /** A thick bar down the left side of the paragraph, in this colour. */
+  bar?: string;
   /** Keep with the next paragraph, so a heading is never left alone at the bottom of a page. */
   keepNext?: boolean;
   /** A real Word heading style, so the Navigation pane and the contents list can find it. */

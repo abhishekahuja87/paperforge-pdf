@@ -15,10 +15,22 @@ function runXml(r: Run, base: { bold?: boolean; italic?: boolean; size?: number;
   return `<w:r>${props ? `<w:rPr>${props}</w:rPr>` : ''}${parts}</w:r>`;
 }
 
+/** Borders and shading of a paragraph: a rule under it, a bar at its left, or a solid band around it. */
+function borderXml(p: Para): string {
+  const side = (n: string, size: number, space: number, color: string) => `<w:${n} w:val="single" w:sz="${size}" w:space="${space}" w:color="${hex(color)}"/>`;
+  const parts = [
+    p.fill ? side('top', 4, 4, p.fill) : '',
+    p.bar ? side('left', 36, 8, p.bar) : p.fill ? side('left', 4, 4, p.fill) : '',
+    p.rule ? side('bottom', 6, 1, p.rule) : p.fill ? side('bottom', 4, 4, p.fill) : '',
+    p.fill ? side('right', 4, 4, p.fill) : '',
+  ].join('');
+  return `${parts ? `<w:pBdr>${parts}</w:pBdr>` : ''}${p.fill ? `<w:shd w:val="clear" w:color="auto" w:fill="${hex(p.fill)}"/>` : ''}`;
+}
+
 function paraXml(p: Para): string {
   const base = { bold: p.bold, italic: p.italic, size: p.size, color: p.color };
   const styleId = p.style === 'h1' ? 'Heading1' : p.style === 'h2' ? 'Heading2' : p.style === 'h3' ? 'Heading3' : '';
-  const props = `${styleId ? `<w:pStyle w:val="${styleId}"/>` : ''}${p.keepNext ? '<w:keepNext/>' : ''}${p.bullet ? '<w:numPr><w:ilvl w:val="0"/><w:numId w:val="1"/></w:numPr>' : ''}${p.rule ? `<w:pBdr><w:bottom w:val="single" w:sz="6" w:space="1" w:color="${hex(p.rule)}"/></w:pBdr>` : ''}<w:spacing w:before="${Math.round((p.before ?? 0) * 20)}" w:after="${Math.round((p.after ?? 6) * 20)}"/>${p.indent ? `<w:ind w:left="${Math.round(p.indent * 20)}"/>` : ''}${p.align ? `<w:jc w:val="${p.align}"/>` : ''}`;
+  const props = `${styleId ? `<w:pStyle w:val="${styleId}"/>` : ''}${p.keepNext ? '<w:keepNext/>' : ''}${p.bullet ? '<w:numPr><w:ilvl w:val="0"/><w:numId w:val="1"/></w:numPr>' : ''}${borderXml(p)}<w:spacing w:before="${Math.round((p.before ?? 0) * 20)}" w:after="${Math.round((p.after ?? 6) * 20)}"/>${p.indent ? `<w:ind w:left="${Math.round(p.indent * 20)}"/>` : ''}${p.align ? `<w:jc w:val="${p.align}"/>` : ''}`;
   return `<w:p><w:pPr>${props}</w:pPr>${runsOf(p.runs).map((r) => runXml(r, base)).join('')}</w:p>`;
 }
 

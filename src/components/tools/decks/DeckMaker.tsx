@@ -9,6 +9,7 @@ import { formatBytes } from '../../../lib/browserTools';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { useResultFile } from '../../../lib/useResultFile';
 import { buildPptx } from '../../../lib/pptx/write';
+import { LOOKS } from '../../../lib/pptx/model';
 import { buildDeck, MAX_SLIDES, type DeckInput } from '../../../lib/decks/outline';
 import { hasBrackets, isoFrom } from '../../../lib/docs/kit';
 import T from '../../../locales/packs/ppt.text.en.json';
@@ -22,7 +23,7 @@ type State = Omit<DeckInput, 'region'>;
 
 const fromStarter = (spec: DeckSpec, id: string): State => {
   const s = spec.starters[id]!;
-  return { title: s.title, subtitle: s.subtitle, author: '', date: isoFrom(new Date(), 0), closing: s.closing, contact: s.contact, outline: s.outline, look: 'blue', font: 'Calibri', agenda: spec.agenda, answers: spec.answers };
+  return { title: s.title, subtitle: s.subtitle, author: '', date: isoFrom(new Date(), 0), closing: s.closing, contact: s.contact, outline: s.outline, look: spec.look, font: LOOKS[spec.look]?.font ?? 'Calibri', agenda: spec.agenda, answers: spec.answers };
 };
 
 /** One page for every PowerPoint maker: pick a starting point, edit the text outline, check the slides, make the .pptx. */
@@ -85,7 +86,21 @@ export const DeckMaker: React.FC<{ spec: DeckSpec }> = ({ spec }) => {
       </section>
 
       <section className={`${card} space-y-3`}>
-        <div><p className="mb-1 text-xs font-semibold text-slate-700">{c.look}</p><ChoiceButtons label={c.look} value={state.look} onChange={(v) => set('look', v)} options={c.looks} /></div>
+        <div>
+          <p className="mb-1 text-xs font-semibold text-slate-700">{c.look}</p>
+          <div role="radiogroup" aria-label={c.look} className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+            {c.looks.map((l) => {
+              const d = LOOKS[l.value]!, on = state.look === l.value;
+              return (
+                <button key={l.value} type="button" role="radio" aria-checked={on} onClick={() => setState((s) => ({ ...s, look: l.value, font: d.font }))} className={`flex items-center gap-2 rounded-xl border px-2.5 py-2 text-left text-xs font-semibold ${on ? 'border-orange-600 bg-orange-50 text-orange-900 ring-1 ring-orange-600' : 'border-slate-200 text-slate-700 hover:bg-slate-50'}`}>
+                  <span className="flex shrink-0 overflow-hidden rounded-md border border-slate-300" aria-hidden="true"><span className="h-7 w-5" style={{ background: `#${d.accent}` }} /><span className="h-7 w-3" style={{ background: `#${d.accent2}` }} /><span className="h-7 w-5" style={{ background: `#${d.bg}` }} /></span>
+                  {l.label}
+                </button>
+              );
+            })}
+          </div>
+          <p className="mt-1 text-[11px] text-slate-500">{c.designHint}</p>
+        </div>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{c.font}</p><ChoiceButtons label={c.font} value={state.font} onChange={(v) => set('font', v)} options={c.fonts} /></div>
         {!spec.quiz && (
           <label className="flex items-start gap-2 text-xs font-semibold text-slate-700">

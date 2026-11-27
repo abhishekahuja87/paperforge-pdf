@@ -19,6 +19,20 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/word-document-makers',
+    tool: 'Word document makers',
+    title: '12 designs for every Word maker, and no Word needed',
+    summary: 'Pick a design (colours, font, title style and headings) for the letters, minutes, notice and all ten long templates. You do not need Word to make the file.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/powerpoint-makers',
+    tool: 'PowerPoint makers',
+    title: '12 slide designs, and no PowerPoint needed',
+    summary: 'Choose from 12 designs, from navy and gold to dark and bold, each with its own title slide, headings, bullets and font. You do not need PowerPoint to make the file.',
+  },
+  {
+    date: '2026-11-27',
     path: '/leave-tracker-excel-maker',
     tool: 'Leave Tracker Excel Maker',
     title: 'New: Leave Tracker Excel Maker',

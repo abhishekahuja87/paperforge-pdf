@@ -4,7 +4,7 @@ import { DeckMaker } from './DeckMaker';
 import type { DeckSpec } from './deckSpec';
 
 const TOOLS = T.tools as unknown as Record<string, Omit<DeckSpec, 'id'> & { file: string }>;
-const spec = (id: string, quiz = false): DeckSpec => { const t = TOOLS[id]!; return { id: t.file, starters: t.starters, agenda: t.agenda, answers: t.answers, quiz }; };
+const spec = (id: string, quiz = false): DeckSpec => { const t = TOOLS[id]!; return { id: t.file, starters: t.starters, look: t.look, agenda: t.agenda, answers: t.answers, quiz }; };
 
 /** text-to-powerpoint-maker page. */
 export const TextToPptPage: React.FC = () => <DeckMaker spec={spec('text-to-powerpoint-maker')} />;
