@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/product-catalogue-maker',
+    tool: 'Product Catalogue Maker',
+    title: 'New: Product Catalogue Maker',
+    summary: 'Make a catalogue with a cover, product pages and a WhatsApp order page from your photos, names and prices. Choose from 12 designs, 5 layouts and 3 page sizes, and download a PDF or page pictures.',
+  },
+  {
+    date: '2026-11-27',
     path: '/invitation-card-maker',
     tool: 'Invitation Card Maker',
     title: 'New: Invitation Card Maker',

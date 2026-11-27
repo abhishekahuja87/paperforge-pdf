@@ -19,11 +19,11 @@ async function decode(blob: Blob): Promise<ImageBitmap | HTMLImageElement> {
 }
 
 /** Reads a photo and shrinks it to MAX_PHOTO_SIDE. The result is a fresh canvas, so camera data is not kept. */
-export async function loadPhoto(blob: Blob): Promise<LoadedImage> {
+export async function loadPhoto(blob: Blob, maxSide: number = MAX_PHOTO_SIDE): Promise<LoadedImage> {
   const bitmap = await decode(blob);
   const w = 'naturalWidth' in bitmap ? bitmap.naturalWidth : bitmap.width;
   const h = 'naturalHeight' in bitmap ? bitmap.naturalHeight : bitmap.height;
-  const k = Math.min(1, MAX_PHOTO_SIDE / Math.max(w, h));
+  const k = Math.min(1, maxSide / Math.max(w, h));
   const canvas = document.createElement('canvas');
   canvas.width = Math.max(1, Math.round(w * k));
   canvas.height = Math.max(1, Math.round(h * k));
