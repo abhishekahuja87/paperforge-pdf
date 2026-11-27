@@ -11,6 +11,7 @@ import type {
   RedactionBox,
   SourceItem,
 } from '../../../lib/documentStudio/types';
+import ui from '../../../locales/packs/docstudio.ui.en.json';
 
 const ACTION_BUTTON = 'inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs font-semibold text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50 disabled:cursor-not-allowed disabled:opacity-40';
 
@@ -41,19 +42,19 @@ export const ContentsEntryModal: React.FC<ModalProps & {
             <h2 id="contents-entry-title" className="text-lg font-bold text-slate-900">{item.contentsTitle ? 'Edit contents entry' : 'Add to table of contents'}</h2>
             <p className="mt-1 text-xs text-slate-500">This entry will link to {outputPageName} in the exported PDF.</p>
           </div>
-          <button type="button" onClick={onClose} aria-label="Close contents entry dialog" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
+          <button type="button" onClick={onClose} aria-label={ui.closeContentsEntryDialog} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
         </div>
         <label className="block text-xs font-semibold text-slate-600">
           Contents title
-          <input autoFocus required value={title} onChange={(event) => setTitle(event.target.value)} maxLength={120} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="e.g. Project overview" />
+          <input autoFocus required value={title} onChange={(event) => setTitle(event.target.value)} maxLength={120} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder={ui.eGProjectOverview} />
         </label>
         <div className="mt-5 flex flex-wrap justify-between gap-2">
           <div>
-            {item.contentsTitle && <button type="button" onClick={onRemove} className="rounded-lg border border-red-200 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50">Remove entry</button>}
+            {item.contentsTitle && <button type="button" onClick={onRemove} className="rounded-lg border border-red-200 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50">{ui.removeEntry}</button>}
           </div>
           <div className="flex gap-2">
-            <button type="button" onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600">Cancel</button>
-            <button type="submit" disabled={!title.trim()} className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50">Save entry</button>
+            <button type="button" onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600">{ui.cancel}</button>
+            <button type="submit" disabled={!title.trim()} className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50">{ui.saveEntry}</button>
           </div>
         </div>
       </form>
@@ -83,10 +84,10 @@ export const CustomPageModal: React.FC<ModalProps & {
       <form onSubmit={submit} ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="custom-page-title" className="max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl">
         <div className="mb-5 flex items-center justify-between">
           <div>
-            <h2 id="custom-page-title" className="text-lg font-bold text-slate-900">Create a custom page</h2>
-            <p className="text-xs text-slate-500">The page is generated locally and added to your input deck.</p>
+            <h2 id="custom-page-title" className="text-lg font-bold text-slate-900">{ui.createACustomPage}</h2>
+            <p className="text-xs text-slate-500">{ui.thePageIsGeneratedLocally}</p>
           </div>
-          <button type="button" onClick={onClose} aria-label="Close dialog" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
+          <button type="button" onClick={onClose} aria-label={ui.closeDialog} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
         </div>
         <div className="grid grid-cols-3 gap-2">
           {([
@@ -125,7 +126,7 @@ export const CustomPageModal: React.FC<ModalProps & {
             ) : (
               <label className="block text-xs font-medium text-slate-600">
                 Note text
-                <textarea value={text} onChange={(event) => setText(event.target.value)} rows={7} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Plain text or simple Markdown" />
+                <textarea value={text} onChange={(event) => setText(event.target.value)} rows={7} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder={ui.plainTextOrSimpleMarkdown} />
               </label>
             )}
           </div>
@@ -137,8 +138,8 @@ export const CustomPageModal: React.FC<ModalProps & {
           </label>
         )}
         <div className="mt-5 flex justify-end gap-2">
-          <button type="button" onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600">Cancel</button>
-          <button type="submit" className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">Add to input deck</button>
+          <button type="button" onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600">{ui.cancel}</button>
+          <button type="submit" className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">{ui.addToInputDeck}</button>
         </div>
       </form>
     </div>
@@ -163,19 +164,19 @@ export const ProtectedPdfPasswordModal: React.FC<ModalProps & {
       <form onSubmit={submit} ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="protected-pdf-title" className="w-full max-w-md rounded-2xl bg-white p-5 shadow-2xl">
         <div className="mb-4 flex items-start justify-between gap-3">
           <div>
-            <h2 id="protected-pdf-title" className="text-lg font-bold text-slate-900">Password-protected PDF</h2>
+            <h2 id="protected-pdf-title" className="text-lg font-bold text-slate-900">{ui.passwordProtectedPdf}</h2>
             <p className="mt-1 break-all text-xs text-slate-500">{fileName}</p>
           </div>
-          <button type="button" onClick={onClose} aria-label="Cancel protected PDF import" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
+          <button type="button" onClick={onClose} aria-label={ui.cancelProtectedPdfImport} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
         </div>
-        <p className="mb-3 text-xs leading-relaxed text-slate-600">Enter the PDF’s open (user) password or owner password. It stays in this browser and is needed to preview and include the pages.</p>
+        <p className="mb-3 text-xs leading-relaxed text-slate-600">{ui.enterThePdfSOpen}</p>
         <label className="block text-xs font-semibold text-slate-600">
           PDF password
           <input autoFocus type="password" autoComplete="off" value={password} onChange={(event) => setPassword(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
         </label>
         {error && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-700">{error}</p>}
         <div className="mt-5 flex justify-end gap-2">
-          <button type="button" disabled={isLoading} onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 disabled:opacity-50">Cancel file</button>
+          <button type="button" disabled={isLoading} onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 disabled:opacity-50">{ui.cancelFile}</button>
           <button type="submit" disabled={!password || isLoading} className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50">{isLoading ? 'Unlocking locally…' : 'Unlock & add pages'}</button>
         </div>
       </form>
@@ -213,18 +214,18 @@ export const SourcePagePreviewModal: React.FC<ModalProps & {
       <div ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="source-page-preview-title" className="flex max-h-[94vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="flex items-start justify-between gap-3 border-b border-slate-200 px-4 py-3 sm:px-6">
           <div className="min-w-0">
-            <h2 id="source-page-preview-title" className="truncate text-base font-bold text-slate-900">Preview source page</h2>
+            <h2 id="source-page-preview-title" className="truncate text-base font-bold text-slate-900">{ui.previewSourcePage}</h2>
             <p className="truncate text-xs text-slate-500">{title} · view only</p>
           </div>
-          <button type="button" onClick={onClose} aria-label="Close source preview" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
+          <button type="button" onClick={onClose} aria-label={ui.closeSourcePreview} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
         </div>
         <div className="flex min-h-[50vh] flex-1 items-center justify-center overflow-auto bg-slate-100 p-4 sm:p-6">
-          {isLoading ? <p className="text-sm text-slate-500">Rendering page preview…</p>
+          {isLoading ? <p className="text-sm text-slate-500">{ui.renderingPagePreview}</p>
             : error ? <p role="alert" className="text-sm text-red-600">{error}</p>
               : preview && <img src={preview.image} alt={`${title} enlarged preview`} className="max-h-[78vh] max-w-full object-contain shadow-lg" />}
         </div>
         <div className="flex justify-end border-t border-slate-200 px-4 py-3 sm:px-6">
-          <button type="button" onClick={onClose} className="rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-700">Close preview</button>
+          <button type="button" onClick={onClose} className="rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-700">{ui.closePreview}</button>
         </div>
       </div>
     </div>
@@ -362,16 +363,16 @@ export const PageEditorModal: React.FC<ModalProps & {
       <div ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="page-editor-title" className="flex max-h-[94vh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="flex items-start justify-between gap-3 border-b border-slate-200 px-4 py-3 sm:px-6">
           <div className="min-w-0">
-            <h2 id="page-editor-title" className="truncate text-base font-bold text-slate-900">Zoom &amp; edit page</h2>
+            <h2 id="page-editor-title" className="truncate text-base font-bold text-slate-900">{ui.zoomEditPage}</h2>
             <p className="truncate text-xs text-slate-500">{item.page.sourceName} · source page {item.page.originalPageNumber}</p>
           </div>
-          <button type="button" onClick={onClose} aria-label="Close page editor" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
+          <button type="button" onClick={onClose} aria-label={ui.closePageEditor} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><X className="h-4 w-4" /></button>
         </div>
 
         <div className="grid min-h-0 flex-1 overflow-y-auto lg:grid-cols-[minmax(0,1fr)_300px]">
           <section className="flex min-h-[65vh] items-center justify-center overflow-auto bg-slate-100 p-4 sm:p-6">
             {isLoading ? (
-              <p className="text-sm text-slate-500">Rendering a high-resolution page preview…</p>
+              <p className="text-sm text-slate-500">{ui.renderingAHighResolutionPage}</p>
             ) : previewError ? (
               <p role="alert" className="text-sm text-red-600">{previewError}</p>
             ) : preview ? (
@@ -383,9 +384,9 @@ export const PageEditorModal: React.FC<ModalProps & {
                 onPointerCancel={finishBlackout}
                 className={`relative inline-block max-h-[60vh] max-w-full select-none ${blackoutMode ? 'cursor-crosshair touch-none' : ''}`}
               >
-                <img src={preview.image} alt="Zoomed page preview" draggable={false} className="block max-h-[60vh] max-w-full object-contain shadow-lg" />
+                <img src={preview.image} alt={ui.zoomedPagePreview} draggable={false} className="block max-h-[60vh] max-w-full object-contain shadow-lg" />
                 {draft.redactions.map((box, index) => (
-                  <div key={`blackout-${index}`} aria-label="Blackout preview" className="pointer-events-none absolute bg-black" style={{ left: `${box.x * 100}%`, top: `${box.y * 100}%`, width: `${box.width * 100}%`, height: `${box.height * 100}%` }} />
+                  <div key={`blackout-${index}`} aria-label={ui.blackoutPreview} className="pointer-events-none absolute bg-black" style={{ left: `${box.x * 100}%`, top: `${box.y * 100}%`, width: `${box.width * 100}%`, height: `${box.height * 100}%` }} />
                 ))}
                 {preview.textRegions.map((region, index) => (
                   <button
@@ -406,7 +407,7 @@ export const PageEditorModal: React.FC<ModalProps & {
 
           <aside className="space-y-4 border-t border-slate-200 p-4 lg:overflow-y-auto lg:border-l lg:border-t-0">
             <section className="space-y-2">
-              <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Page actions</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">{ui.pageActions}</h3>
               <div className="grid grid-cols-3 gap-2">
                 <button type="button" onClick={() => rotatePage(-90)} className={ACTION_BUTTON}><RotateCcw className="h-3.5 w-3.5" />-90°</button>
                 <button type="button" onClick={() => rotatePage(90)} className={ACTION_BUTTON}><RotateCw className="h-3.5 w-3.5" />+90°</button>
@@ -416,14 +417,14 @@ export const PageEditorModal: React.FC<ModalProps & {
                 <label className="block text-xs font-medium text-slate-600">
                   Image sizing
                   <select value={draft.fitMode} onChange={(event) => setDraft((current) => ({ ...current, fitMode: event.target.value as OutputSequenceItem['fitMode'] }))} className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                    <option value="letterbox">Fit inside page</option>
-                    <option value="fill">Fill page (crop edges)</option>
-                    <option value="original">Original scale</option>
+                    <option value="letterbox">{ui.fitInsidePage}</option>
+                    <option value="fill">{ui.fillPageCropEdges}</option>
+                    <option value="original">{ui.originalScale}</option>
                   </select>
                 </label>
               )}
               <div className="space-y-2 rounded-xl border border-slate-200 p-3">
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700"><Crop className="h-3.5 w-3.5" />Crop / scanner edges</div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700"><Crop className="h-3.5 w-3.5" />{ui.cropScannerEdges}</div>
                 {([
                   ['top', 'Top'],
                   ['right', 'Right'],
@@ -435,30 +436,30 @@ export const PageEditorModal: React.FC<ModalProps & {
                     <input type="range" min="0" max="0.45" step="0.01" value={draft.crop[edge]} onChange={(event) => updateCrop(edge, Number(event.target.value))} className="w-full accent-indigo-600" />
                   </label>
                 ))}
-                <button type="button" onClick={resetCrop} className="text-[10px] font-semibold text-indigo-600 hover:text-indigo-800">Reset crop</button>
+                <button type="button" onClick={resetCrop} className="text-[10px] font-semibold text-indigo-600 hover:text-indigo-800">{ui.resetCrop}</button>
               </div>
             </section>
 
             <section className="space-y-2 border-t border-slate-100 pt-3">
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Redact / blackout</h3>
-                <p className="mt-1 text-[10px] leading-relaxed text-slate-500">Select text on a digital PDF page, or draw over any area. Scanned pages can be marked by drawing.</p>
+                <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">{ui.redactBlackout}</h3>
+                <p className="mt-1 text-[10px] leading-relaxed text-slate-500">{ui.selectTextOnADigital}</p>
               </div>
               <div className="grid grid-cols-2 gap-2">
-                <button type="button" disabled={!preview?.textRegions.length || isLoading} onClick={() => { setBlackoutMode(false); setSelectedTextIds([]); }} className={ACTION_BUTTON}>Select text</button>
+                <button type="button" disabled={!preview?.textRegions.length || isLoading} onClick={() => { setBlackoutMode(false); setSelectedTextIds([]); }} className={ACTION_BUTTON}>{ui.selectText}</button>
                 <button type="button" onClick={() => { setBlackoutMode((current) => !current); setSelectedTextIds([]); }} className={`${ACTION_BUTTON} ${blackoutMode ? 'border-rose-400 bg-rose-50 text-rose-700' : ''}`}><Scissors className="h-3.5 w-3.5" />{blackoutMode ? 'Drawing on' : 'Draw area'}</button>
               </div>
-              {preview?.textRegions.length === 0 && !isLoading && <p className="rounded-lg bg-amber-50 px-2.5 py-2 text-[10px] text-amber-800">No selectable PDF text detected. Use Draw area for scanned or image pages.</p>}
+              {preview?.textRegions.length === 0 && !isLoading && <p className="rounded-lg bg-amber-50 px-2.5 py-2 text-[10px] text-amber-800">{ui.noSelectablePdfTextDetected}</p>}
               {selectedTextIds.length > 0 && (
                 <button type="button" onClick={redactSelectedText} className="w-full rounded-lg bg-rose-600 px-3 py-2 text-xs font-bold text-white hover:bg-rose-700">Black out {selectedTextIds.length} selected text item{selectedTextIds.length === 1 ? '' : 's'}</button>
               )}
-              {draft.redactions.length > 0 && <button type="button" onClick={() => setDraft((current) => ({ ...current, redactions: [] }))} className="w-full rounded-lg px-3 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-50">Clear all blackouts</button>}
-              <p className="text-[10px] text-slate-400">Redacted PDF pages are rasterized on export so hidden text beneath a blackout is not retained.</p>
+              {draft.redactions.length > 0 && <button type="button" onClick={() => setDraft((current) => ({ ...current, redactions: [] }))} className="w-full rounded-lg px-3 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-50">{ui.clearAllBlackouts}</button>}
+              <p className="text-[10px] text-slate-400">{ui.redactedPdfPagesAreRasterized}</p>
             </section>
 
             <section className="grid grid-cols-2 gap-2 border-t border-slate-100 pt-3">
-              <button type="button" onClick={onDuplicate} className={ACTION_BUTTON}><FilePlus2 className="h-3.5 w-3.5" />Duplicate page</button>
-              <button type="button" onClick={onDelete} className={`${ACTION_BUTTON} text-rose-700 hover:bg-rose-50`}><Trash2 className="h-3.5 w-3.5" />Delete page</button>
+              <button type="button" onClick={onDuplicate} className={ACTION_BUTTON}><FilePlus2 className="h-3.5 w-3.5" />{ui.duplicatePage}</button>
+              <button type="button" onClick={onDelete} className={`${ACTION_BUTTON} text-rose-700 hover:bg-rose-50`}><Trash2 className="h-3.5 w-3.5" />{ui.deletePage}</button>
               <button type="button" disabled={isLoading || isExporting || Boolean(previewError)} onClick={() => void exportCurrentPage()} className={`${ACTION_BUTTON} col-span-2`}>
                 {isExporting ? <span className="animate-spin">…</span> : <Download className="h-3.5 w-3.5" />}
                 {isExporting ? 'Creating page PDF…' : 'Export this page as PDF'}
@@ -468,9 +469,9 @@ export const PageEditorModal: React.FC<ModalProps & {
                 Save edited page as image
                 <div className="mt-1 flex gap-2">
                   <select value={imageFormat} onChange={(event) => setImageFormat(event.target.value as 'png' | 'jpeg' | 'webp')} className="min-w-0 flex-1 rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                    <option value="png">PNG · lossless</option>
-                    <option value="jpeg">JPG · smaller file</option>
-                    <option value="webp">WebP · smaller file</option>
+                    <option value="png">{ui.pngLossless}</option>
+                    <option value="jpeg">{ui.jpgSmallerFile}</option>
+                    <option value="webp">{ui.webpSmallerFile}</option>
                   </select>
                   <button type="button" disabled={isLoading || isExportingImage || Boolean(previewError)} onClick={() => void exportCurrentPageImage()} className={ACTION_BUTTON}>
                     {isExportingImage ? <span className="animate-spin">…</span> : <Image className="h-3.5 w-3.5" />}
@@ -484,10 +485,10 @@ export const PageEditorModal: React.FC<ModalProps & {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 px-4 py-3 sm:px-6">
-          <p className="text-[10px] text-slate-400">Edits apply to this output page only.</p>
+          <p className="text-[10px] text-slate-400">{ui.editsApplyToThisOutput}</p>
           <div className="flex gap-2">
-            <button type="button" onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600">Cancel</button>
-            <button type="button" disabled={isLoading || Boolean(previewError)} onClick={() => onApply(draft)} className="rounded-lg bg-indigo-600 px-4 py-2 text-xs font-bold text-white hover:bg-indigo-700 disabled:opacity-50">Apply page edits</button>
+            <button type="button" onClick={onClose} className="rounded-lg border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600">{ui.cancel}</button>
+            <button type="button" disabled={isLoading || Boolean(previewError)} onClick={() => onApply(draft)} className="rounded-lg bg-indigo-600 px-4 py-2 text-xs font-bold text-white hover:bg-indigo-700 disabled:opacity-50">{ui.applyPageEdits}</button>
           </div>
         </div>
       </div>

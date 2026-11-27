@@ -8,6 +8,7 @@ import {
   toggleChecklist, toggleHeaderRow, wordCount, type BlockChoice,
 } from '../../../lib/secure/editing';
 import { Icon } from './icons';
+import ui from '../../../locales/packs/documenteditor.ui.en.json';
 
 interface Props {
   /** The editable element, so the maker can read the finished document. */
@@ -156,19 +157,19 @@ export const DocumentEditor: React.FC<Props> = ({ editorRef, style, header, foot
     <div className="min-w-0">
       <style>{docCss(style) + EDITOR_CSS}</style>
       <div className="sticky top-0 z-20 rounded-t-xl border border-b-0 border-slate-200 bg-white">
-        <div className="flex gap-1 overflow-x-auto p-1.5" role="toolbar" aria-label="Text formatting">
+        <div className="flex gap-1 overflow-x-auto p-1.5" role="toolbar" aria-label={ui.textFormatting}>
           <Tool label="Undo" onClick={() => exec('undo')}><Undo2 className="h-4 w-4" aria-hidden="true" /></Tool>
           <Tool label="Redo" onClick={() => exec('redo')}><Icon name="redo" /></Tool>
           <Sep />
-          <select aria-label="Paragraph style" className={`${selectClass} w-36 shrink-0`} value={block} onChange={(event) => act(() => setBlock(root()!, event.target.value as BlockChoice))}>
+          <select aria-label={ui.paragraphStyle} className={`${selectClass} w-36 shrink-0`} value={block} onChange={(event) => act(() => setBlock(root()!, event.target.value as BlockChoice))}>
             {BLOCK_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
           </select>
-          <select aria-label="Font" className={`${selectClass} w-28 shrink-0`} defaultValue="" onChange={(event) => { const value = event.target.value; event.target.value = ''; if (value) act(() => { document.execCommand('styleWithCSS', false, 'true'); document.execCommand('fontName', false, value); }); }}>
-            <option value="">Font</option>
+          <select aria-label={ui.font} className={`${selectClass} w-28 shrink-0`} defaultValue="" onChange={(event) => { const value = event.target.value; event.target.value = ''; if (value) act(() => { document.execCommand('styleWithCSS', false, 'true'); document.execCommand('fontName', false, value); }); }}>
+            <option value="">{ui.font}</option>
             {FONT_CHOICES.map((font) => <option key={font.label} value={font.value}>{font.label}</option>)}
           </select>
-          <select aria-label="Text size" className={`${selectClass} w-16 shrink-0`} defaultValue="" onChange={(event) => { const size = Number(event.target.value); if (size) act(() => setFontSize(root()!, size)); event.target.value = ''; }}>
-            <option value="">Size</option>
+          <select aria-label={ui.textSize} className={`${selectClass} w-16 shrink-0`} defaultValue="" onChange={(event) => { const size = Number(event.target.value); if (size) act(() => setFontSize(root()!, size)); event.target.value = ''; }}>
+            <option value="">{ui.size}</option>
             {SIZES.map((size) => <option key={size} value={size}>{size}</option>)}
           </select>
           <Sep />
@@ -191,19 +192,19 @@ export const DocumentEditor: React.FC<Props> = ({ editorRef, style, header, foot
           <Tool label="Outdent" onClick={() => exec('outdent')}><Icon name="outdent" /></Tool>
           <Sep />
           <Tool label="Link" active={panel === 'link'} onClick={() => { setLink({ url: '', text: saved.current?.toString() ?? '' }); setPanel(panel === 'link' ? '' : 'link'); }}><Link2 className="h-4 w-4" aria-hidden="true" /></Tool>
-          <label className="inline-flex h-9 min-w-9 cursor-pointer items-center justify-center rounded-md px-1.5 text-slate-700 hover:bg-slate-100" title="Insert a picture">
-            <span className="sr-only">Insert a picture</span><ImageIcon className="h-4 w-4" aria-hidden="true" />
+          <label className="inline-flex h-9 min-w-9 cursor-pointer items-center justify-center rounded-md px-1.5 text-slate-700 hover:bg-slate-100" title={ui.insertAPicture}>
+            <span className="sr-only">{ui.insertAPicture}</span><ImageIcon className="h-4 w-4" aria-hidden="true" />
             <input type="file" accept="image/png,image/jpeg,image/webp,image/gif" className="sr-only" onChange={(event) => { const file = event.target.files?.[0]; event.target.value = ''; if (file) void insertPicture(file); }} />
           </label>
           <Tool label="Table" active={panel === 'table'} onClick={() => setPanel(panel === 'table' ? '' : 'table')}><Icon name="table" /></Tool>
           <Tool label="Horizontal line" onClick={() => insert('<hr><p><br></p>')}><Icon name="line" /></Tool>
           <Tool label="Page break for printing" onClick={() => insert('<div class="sd-break"></div><p><br></p>')}><Icon name="pagebreak" /></Tool>
           <Tool label="Quote" onClick={() => act(() => setBlock(root()!, 'blockquote'))}><Quote className="h-4 w-4" aria-hidden="true" /></Tool>
-          <Tool label="Signature line" onClick={() => insert('<p class="sd-sign">Name and date</p><p><br></p>')}><Icon name="sign" /></Tool>
+          <Tool label="Signature line" onClick={() => insert('<p class="sd-sign">{ui.nameAndDate}</p><p><br></p>')}><Icon name="sign" /></Tool>
           <Tool label="Today's date" onClick={() => insert(new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }))}><Icon name="calendar" /></Tool>
         </div>
-        <div className="flex gap-1 overflow-x-auto border-t border-slate-100 p-1.5 text-xs" aria-label="Highlighted boxes">
-          <span className="shrink-0 self-center px-1 font-semibold text-slate-500">Boxes</span>
+        <div className="flex gap-1 overflow-x-auto border-t border-slate-100 p-1.5 text-xs" aria-label={ui.highlightedBoxes}>
+          <span className="shrink-0 self-center px-1 font-semibold text-slate-500">{ui.boxes}</span>
           {([['info', 'Note', 'bg-sky-100 text-sky-900'], ['ok', 'Good', 'bg-emerald-100 text-emerald-900'], ['warn', 'Warning', 'bg-amber-100 text-amber-900'], ['danger', 'Important', 'bg-rose-100 text-rose-900']] as const).map(([kind, label, tone]) => (
             <button key={kind} type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => insert(`<div class="sd-callout sd-${kind}"><p>${(saved.current?.toString() || `${label}: type here`).replace(/</g, '&lt;')}</p></div><p><br></p>`)} className={`shrink-0 rounded-md px-2.5 py-1.5 font-semibold ${tone}`}>{label} box</button>
           ))}
@@ -211,53 +212,53 @@ export const DocumentEditor: React.FC<Props> = ({ editorRef, style, header, foot
         </div>
         {panel === 'colour' && (
           <div className="space-y-2 border-t border-slate-100 p-2.5 text-xs">
-            <div className="flex flex-wrap items-center gap-1.5"><span className="w-20 font-semibold text-slate-600">Text colour</span>
+            <div className="flex flex-wrap items-center gap-1.5"><span className="w-20 font-semibold text-slate-600">{ui.textColour}</span>
               {TEXT_COLORS.map((colour) => <button key={colour} type="button" aria-label={`Text colour ${colour}`} onMouseDown={(event) => event.preventDefault()} onClick={() => exec('foreColor', colour)} className="h-7 w-7 rounded-full border border-slate-300" style={{ background: colour }} />)}
               <label className="ml-1 inline-flex items-center gap-1 font-semibold text-slate-600">Other <ColorField value={otherColor} label="Pick a text colour" className="h-7 w-9" onChange={(hex) => { setOtherColor(hex); exec('foreColor', hex); }} /></label>
             </div>
-            <div className="flex flex-wrap items-center gap-1.5"><span className="w-20 font-semibold text-slate-600">Highlight</span>
+            <div className="flex flex-wrap items-center gap-1.5"><span className="w-20 font-semibold text-slate-600">{ui.highlight}</span>
               {MARKS.map((colour) => <button key={colour} type="button" aria-label={`Highlight ${colour}`} onMouseDown={(event) => event.preventDefault()} onClick={() => act(() => { document.execCommand('styleWithCSS', false, 'true'); if (!document.execCommand('hiliteColor', false, colour)) document.execCommand('backColor', false, colour); })} className="h-7 w-7 rounded-md border border-slate-300" style={{ background: colour }} />)}
-              <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => act(() => { document.execCommand('styleWithCSS', false, 'true'); if (!document.execCommand('hiliteColor', false, 'transparent')) document.execCommand('backColor', false, 'transparent'); })} className="rounded-md border border-slate-300 px-2 py-1 font-semibold text-slate-700">None</button>
+              <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => act(() => { document.execCommand('styleWithCSS', false, 'true'); if (!document.execCommand('hiliteColor', false, 'transparent')) document.execCommand('backColor', false, 'transparent'); })} className="rounded-md border border-slate-300 px-2 py-1 font-semibold text-slate-700">{ui.none}</button>
             </div>
           </div>
         )}
         {panel === 'link' && (
           <form onSubmit={submitLink} className="flex flex-wrap items-end gap-2 border-t border-slate-100 p-2.5 text-xs">
-            <label className="min-w-40 flex-1 font-semibold text-slate-700">Web address, email or phone<input type="text" value={link.url} onChange={(event) => setLink({ ...link, url: event.target.value })} placeholder="https://example.com" className="mt-1 w-full rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>
-            {(!saved.current || saved.current.collapsed) && <label className="min-w-32 flex-1 font-semibold text-slate-700">Text to show<input type="text" value={link.text} onChange={(event) => setLink({ ...link, text: event.target.value })} className="mt-1 w-full rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>}
-            <button type="submit" className="min-h-9 rounded-md bg-orange-700 px-3 font-bold text-white">Add link</button>
-            <button type="button" onClick={() => exec('unlink')} className="min-h-9 rounded-md border border-slate-200 px-3 font-semibold text-slate-700">Remove link</button>
+            <label className="min-w-40 flex-1 font-semibold text-slate-700">{ui.webAddressEmailOrPhone}<input type="text" value={link.url} onChange={(event) => setLink({ ...link, url: event.target.value })} placeholder={ui.httpsExampleCom} className="mt-1 w-full rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>
+            {(!saved.current || saved.current.collapsed) && <label className="min-w-32 flex-1 font-semibold text-slate-700">{ui.textToShow}<input type="text" value={link.text} onChange={(event) => setLink({ ...link, text: event.target.value })} className="mt-1 w-full rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>}
+            <button type="submit" className="min-h-9 rounded-md bg-orange-700 px-3 font-bold text-white">{ui.addLink}</button>
+            <button type="button" onClick={() => exec('unlink')} className="min-h-9 rounded-md border border-slate-200 px-3 font-semibold text-slate-700">{ui.removeLink}</button>
           </form>
         )}
         {panel === 'table' && (
           <div className="flex flex-wrap items-end gap-3 border-t border-slate-100 p-2.5 text-xs">
-            <label className="font-semibold text-slate-700">Rows<input type="number" min={1} max={30} value={rows} onChange={(event) => setRows(Math.min(30, Math.max(1, Number(event.target.value) || 1)))} className="mt-1 block w-16 rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>
-            <label className="font-semibold text-slate-700">Columns<input type="number" min={1} max={8} value={cols} onChange={(event) => setCols(Math.min(8, Math.max(1, Number(event.target.value) || 1)))} className="mt-1 block w-16 rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>
-            <label className="flex items-center gap-1.5 pb-2 font-semibold text-slate-700"><input type="checkbox" checked={headerRow} onChange={(event) => setHeaderRow(event.target.checked)} className="h-4 w-4 accent-orange-700" />Header row</label>
-            <button type="button" onClick={() => { insert(tableHtml(rows, cols, headerRow)); setPanel(''); }} className="min-h-9 rounded-md bg-orange-700 px-3 font-bold text-white">Insert table</button>
+            <label className="font-semibold text-slate-700">{ui.rows}<input type="number" min={1} max={30} value={rows} onChange={(event) => setRows(Math.min(30, Math.max(1, Number(event.target.value) || 1)))} className="mt-1 block w-16 rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>
+            <label className="font-semibold text-slate-700">{ui.columns}<input type="number" min={1} max={8} value={cols} onChange={(event) => setCols(Math.min(8, Math.max(1, Number(event.target.value) || 1)))} className="mt-1 block w-16 rounded-md border border-slate-200 px-2 py-2 text-sm" /></label>
+            <label className="flex items-center gap-1.5 pb-2 font-semibold text-slate-700"><input type="checkbox" checked={headerRow} onChange={(event) => setHeaderRow(event.target.checked)} className="h-4 w-4 accent-orange-700" />{ui.headerRow}</label>
+            <button type="button" onClick={() => { insert(tableHtml(rows, cols, headerRow)); setPanel(''); }} className="min-h-9 rounded-md bg-orange-700 px-3 font-bold text-white">{ui.insertTable}</button>
           </div>
         )}
         {table && look && (
-          <div className="flex gap-1 overflow-x-auto border-t border-slate-100 bg-orange-50/60 p-1.5 text-xs" aria-label="Table tools">
-            <span className="shrink-0 self-center px-1 font-semibold text-orange-900">Table</span>
+          <div className="flex gap-1 overflow-x-auto border-t border-slate-100 bg-orange-50/60 p-1.5 text-xs" aria-label={ui.tableTools}>
+            <span className="shrink-0 self-center px-1 font-semibold text-orange-900">{ui.table}</span>
             {([['Row above', () => tableAct((c) => addRow(c, false))], ['Row below', () => tableAct((c) => addRow(c, true))], ['Column left', () => tableAct((c) => addColumn(c, false))], ['Column right', () => tableAct((c) => addColumn(c, true))], ['Delete row', () => tableAct((c) => deleteRow(c))], ['Delete column', () => tableAct((c) => deleteColumn(c))]] as const).map(([label, run]) => (
               <button key={label} type="button" onMouseDown={(event) => event.preventDefault()} onClick={run} className="shrink-0 rounded-md border border-slate-200 bg-white px-2 py-1.5 font-semibold text-slate-800">{label}</button>
             ))}
-            <button type="button" onMouseDown={(event) => event.preventDefault()} aria-pressed={look.header} onClick={() => tableAct((_c, t) => toggleHeaderRow(t))} className={`shrink-0 rounded-md border px-2 py-1.5 font-semibold ${look.header ? 'border-orange-300 bg-orange-100 text-orange-900' : 'border-slate-200 bg-white text-slate-800'}`}>Header row</button>
-            <button type="button" onMouseDown={(event) => event.preventDefault()} aria-pressed={look.striped} onClick={() => tableAct((_c, t) => setTableLook(t, tableLook(t).look, !tableLook(t).striped))} className={`shrink-0 rounded-md border px-2 py-1.5 font-semibold ${look.striped ? 'border-orange-300 bg-orange-100 text-orange-900' : 'border-slate-200 bg-white text-slate-800'}`}>Stripes</button>
+            <button type="button" onMouseDown={(event) => event.preventDefault()} aria-pressed={look.header} onClick={() => tableAct((_c, t) => toggleHeaderRow(t))} className={`shrink-0 rounded-md border px-2 py-1.5 font-semibold ${look.header ? 'border-orange-300 bg-orange-100 text-orange-900' : 'border-slate-200 bg-white text-slate-800'}`}>{ui.headerRow}</button>
+            <button type="button" onMouseDown={(event) => event.preventDefault()} aria-pressed={look.striped} onClick={() => tableAct((_c, t) => setTableLook(t, tableLook(t).look, !tableLook(t).striped))} className={`shrink-0 rounded-md border px-2 py-1.5 font-semibold ${look.striped ? 'border-orange-300 bg-orange-100 text-orange-900' : 'border-slate-200 bg-white text-slate-800'}`}>{ui.stripes}</button>
             {(['grid', 'lines', 'plain'] as const).map((choice) => (
               <button key={choice} type="button" onMouseDown={(event) => event.preventDefault()} aria-pressed={look.look === choice} onClick={() => tableAct((_c, t) => setTableLook(t, choice, tableLook(t).striped))} className={`shrink-0 rounded-md border px-2 py-1.5 font-semibold ${look.look === choice ? 'border-orange-300 bg-orange-100 text-orange-900' : 'border-slate-200 bg-white text-slate-800'}`}>{choice === 'grid' ? 'Grid' : choice === 'lines' ? 'Lines' : 'No borders'}</button>
             ))}
-            <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => tableAct((_c, t) => t.remove())} className="shrink-0 rounded-md border border-rose-200 bg-white px-2 py-1.5 font-semibold text-rose-800">Delete table</button>
+            <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => tableAct((_c, t) => t.remove())} className="shrink-0 rounded-md border border-rose-200 bg-white px-2 py-1.5 font-semibold text-rose-800">{ui.deleteTable}</button>
           </div>
         )}
         {picked && (
-          <div className="flex flex-wrap items-center gap-1.5 border-t border-slate-100 bg-orange-50/60 p-1.5 text-xs" aria-label="Picture tools">
-            <span className="px-1 font-semibold text-orange-900">Picture</span>
+          <div className="flex flex-wrap items-center gap-1.5 border-t border-slate-100 bg-orange-50/60 p-1.5 text-xs" aria-label={ui.pictureTools}>
+            <span className="px-1 font-semibold text-orange-900">{ui.picture}</span>
             {([['Small', '25%'], ['Medium', '50%'], ['Large', '75%'], ['Full width', '100%']] as const).map(([label, width]) => <button key={label} type="button" onClick={() => setPickedStyle({ width, maxWidth: '100%', height: 'auto' })} className="rounded-md border border-slate-200 bg-white px-2 py-1.5 font-semibold text-slate-800">{label}</button>)}
             {([['Left', 'block', '0 auto 0 0'], ['Centre', 'block', '0 auto'], ['Right', 'block', '0 0 0 auto']] as const).map(([label, display, margin]) => <button key={label} type="button" onClick={() => setPickedStyle({ display, margin })} className="rounded-md border border-slate-200 bg-white px-2 py-1.5 font-semibold text-slate-800">{label}</button>)}
-            <label className="flex min-w-40 flex-1 items-center gap-1 font-semibold text-slate-700">Describe it<input type="text" defaultValue={picked.alt} onChange={(event) => { picked.alt = event.target.value; }} className="w-full rounded-md border border-slate-200 px-2 py-1.5 font-normal" /></label>
-            <button type="button" onClick={() => { picked.remove(); setPicked(null); sync(); }} className="rounded-md border border-rose-200 bg-white px-2 py-1.5 font-semibold text-rose-800">Remove</button>
+            <label className="flex min-w-40 flex-1 items-center gap-1 font-semibold text-slate-700">{ui.describeIt}<input type="text" defaultValue={picked.alt} onChange={(event) => { picked.alt = event.target.value; }} className="w-full rounded-md border border-slate-200 px-2 py-1.5 font-normal" /></label>
+            <button type="button" onClick={() => { picked.remove(); setPicked(null); sync(); }} className="rounded-md border border-rose-200 bg-white px-2 py-1.5 font-semibold text-rose-800">{ui.remove}</button>
           </div>
         )}
         {notice && <p role="alert" className="border-t border-slate-100 px-3 py-2 text-xs text-rose-800">{notice}</p>}
@@ -273,7 +274,7 @@ export const DocumentEditor: React.FC<Props> = ({ editorRef, style, header, foot
             spellCheck
             role="textbox"
             aria-multiline="true"
-            aria-label="Document"
+            aria-label={ui.document}
             onInput={sync}
             onPaste={onPaste}
             onClick={(event) => {

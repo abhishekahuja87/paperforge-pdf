@@ -8,6 +8,7 @@ import {
 import { ThemePicker } from '../shared/ThemePicker';
 import { QuizPlayer } from './QuizPlayer';
 import { QuizQuestionEditor } from './QuizQuestionEditor';
+import ui from '../../../locales/packs/quizmaker.ui.en.json';
 
 const STORAGE_KEY = 'mdu-quiz-v1';
 const FIELD = 'min-h-10 w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-900 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100';
@@ -156,28 +157,28 @@ export const QuizMaker: React.FC = () => {
     <div className="mx-auto max-w-3xl space-y-4">
       <section className={`${calcCard} space-y-4`}>
         <div className="grid gap-3 sm:grid-cols-3">
-          <label className={LABEL}>Quiz name<input type="text" value={quiz.title} onChange={(event) => setQuiz({ ...quiz, title: event.target.value })} className={FIELD} /></label>
-          <label className={LABEL}>Subject or class (optional)<input type="text" value={quiz.subject} onChange={(event) => setQuiz({ ...quiz, subject: event.target.value })} placeholder="For example Maths, Class 6" className={FIELD} /></label>
-          <label className={LABEL}>Date<input type="date" value={quiz.date} onChange={(event) => setQuiz({ ...quiz, date: event.target.value })} className={FIELD} /></label>
+          <label className={LABEL}>{ui.quizName}<input type="text" value={quiz.title} onChange={(event) => setQuiz({ ...quiz, title: event.target.value })} className={FIELD} /></label>
+          <label className={LABEL}>{ui.subjectOrClassOptional}<input type="text" value={quiz.subject} onChange={(event) => setQuiz({ ...quiz, subject: event.target.value })} placeholder={ui.forExampleMathsClass6} className={FIELD} /></label>
+          <label className={LABEL}>{ui.date}<input type="date" value={quiz.date} onChange={(event) => setQuiz({ ...quiz, date: event.target.value })} className={FIELD} /></label>
         </div>
 
         <div className="space-y-2">
-          <h2 className="text-sm font-black text-stone-900">Quick start</h2>
-          <p className="text-xs text-stone-500">Every question has 2 to 6 options, one correct answer, an optional picture and an optional explanation.</p>
+          <h2 className="text-sm font-black text-stone-900">{ui.quickStart}</h2>
+          <p className="text-xs text-stone-500">{ui.everyQuestionHas2To}</p>
           <div className="flex flex-wrap items-end gap-2">
-            <label className={LABEL}>How many questions?<input type="number" inputMode="numeric" min={1} max={100} value={blankCount} onChange={(event) => setBlankCount(Number(event.target.value))} className={`${FIELD} w-28`} /></label>
+            <label className={LABEL}>{ui.howManyQuestions}<input type="number" inputMode="numeric" min={1} max={100} value={blankCount} onChange={(event) => setBlankCount(Number(event.target.value))} className={`${FIELD} w-28`} /></label>
             <label className={LABEL}>Type
               <select value={blankType} onChange={(event) => setBlankType(event.target.value === 'tf' ? 'tf' : 'mcq')} className={`${FIELD} w-48`}>
-                <option value="mcq">Multiple choice (4 options)</option>
-                <option value="tf">True or false</option>
+                <option value="mcq">{ui.multipleChoice4Options}</option>
+                <option value="tf">{ui.trueOrFalse}</option>
               </select>
             </label>
-            <button type="button" onClick={addBlank} className={ORANGE}><ListPlus className="h-4 w-4" aria-hidden="true" />Create questions</button>
+            <button type="button" onClick={addBlank} className={ORANGE}><ListPlus className="h-4 w-4" aria-hidden="true" />{ui.createQuestions}</button>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button type="button" onClick={loadSample} className={OUTLINE}>Try a sample quiz</button>
-            <button type="button" onClick={() => setPasteOpen(!pasteOpen)} aria-expanded={pasteOpen} className={OUTLINE}><ClipboardPaste className="h-4 w-4" aria-hidden="true" />Paste questions from a document</button>
-            <button type="button" onClick={() => fileInput.current?.click()} className={OUTLINE}><FileUp className="h-4 w-4" aria-hidden="true" />Open a quiz file</button>
+            <button type="button" onClick={loadSample} className={OUTLINE}>{ui.tryASampleQuiz}</button>
+            <button type="button" onClick={() => setPasteOpen(!pasteOpen)} aria-expanded={pasteOpen} className={OUTLINE}><ClipboardPaste className="h-4 w-4" aria-hidden="true" />{ui.pasteQuestionsFromADocument}</button>
+            <button type="button" onClick={() => fileInput.current?.click()} className={OUTLINE}><FileUp className="h-4 w-4" aria-hidden="true" />{ui.openAQuizFile}</button>
             <input ref={fileInput} type="file" accept=".json,application/json" className="sr-only" tabIndex={-1} aria-hidden="true" onChange={(event) => void openFile(event.target.files?.[0])} />
           </div>
           {pasteOpen && (
@@ -185,7 +186,7 @@ export const QuizMaker: React.FC = () => {
               <label className={LABEL}>Paste your questions
                 <textarea rows={8} value={pasted} onChange={(event) => setPasted(event.target.value)} placeholder={'1. What is 2 + 3?\nA) 4\nB) 5\nC) 6\nAnswer: B\nExplanation: Two plus three is five.\n\n2. Which is a fruit?\nA) Car\nB) Apple\nAnswer: B'} className={`${FIELD} font-mono text-xs`} />
               </label>
-              <button type="button" onClick={importPasted} disabled={pasted.trim() === ''} className={ORANGE}>Add these questions</button>
+              <button type="button" onClick={importPasted} disabled={pasted.trim() === ''} className={ORANGE}>{ui.addTheseQuestions}</button>
             </div>
           )}
         </div>
@@ -193,18 +194,18 @@ export const QuizMaker: React.FC = () => {
         {notice && (
           <p role="status" className="flex flex-wrap items-center gap-3 rounded-lg bg-orange-50 px-3 py-2 text-xs font-semibold text-orange-900">
             {notice}
-            {previous && <button type="button" onClick={undo} className="underline">Undo</button>}
+            {previous && <button type="button" onClick={undo} className="underline">{ui.undo}</button>}
           </p>
         )}
       </section>
 
-      <section ref={questionsRef} className="scroll-mt-[69px] space-y-2 rounded-2xl border border-stone-200 bg-white/70 p-3 sm:p-4" aria-label="Questions">
+      <section ref={questionsRef} className="scroll-mt-[69px] space-y-2 rounded-2xl border border-stone-200 bg-white/70 p-3 sm:p-4" aria-label={ui.questions}>
         <div className="flex items-baseline justify-between gap-3">
           <h2 className="text-base font-black tracking-tight text-stone-900">Questions <span className="text-xs font-semibold text-stone-500">({count})</span></h2>
-          {count > 0 && <button type="button" onClick={clearAll} className="inline-flex items-center gap-1 text-xs font-semibold text-stone-600 underline"><Trash2 className="h-3.5 w-3.5" aria-hidden="true" />Clear all</button>}
+          {count > 0 && <button type="button" onClick={clearAll} className="inline-flex items-center gap-1 text-xs font-semibold text-stone-600 underline"><Trash2 className="h-3.5 w-3.5" aria-hidden="true" />{ui.clearAll}</button>}
         </div>
         {count === 0 ? (
-          <p className="rounded-lg bg-stone-50 px-3 py-2 text-xs text-stone-500">No questions yet. Use a quick start above or add one below.</p>
+          <p className="rounded-lg bg-stone-50 px-3 py-2 text-xs text-stone-500">{ui.noQuestionsYetUseA}</p>
         ) : (
           <ol className="space-y-2">
             {quiz.questions.map((question, index) => (
@@ -223,14 +224,14 @@ export const QuizMaker: React.FC = () => {
           </ol>
         )}
         <div className="flex flex-wrap gap-2">
-          <button type="button" onClick={() => addQuestion('mcq')} className={OUTLINE}><Plus className="h-4 w-4" aria-hidden="true" />Add a question</button>
-          <button type="button" onClick={() => addQuestion('tf')} className={OUTLINE}><Plus className="h-4 w-4" aria-hidden="true" />Add a true or false</button>
+          <button type="button" onClick={() => addQuestion('mcq')} className={OUTLINE}><Plus className="h-4 w-4" aria-hidden="true" />{ui.addAQuestion}</button>
+          <button type="button" onClick={() => addQuestion('tf')} className={OUTLINE}><Plus className="h-4 w-4" aria-hidden="true" />{ui.addATrueOrFalse}</button>
         </div>
       </section>
 
       <section className={`${calcCard} space-y-4`}>
-        <h2 className="text-sm font-black text-stone-900">How to play</h2>
-        <div role="radiogroup" aria-label="Play mode" className="grid gap-2 sm:grid-cols-3">
+        <h2 className="text-sm font-black text-stone-900">{ui.howToPlay}</h2>
+        <div role="radiogroup" aria-label={ui.playMode} className="grid gap-2 sm:grid-cols-3">
           {MODES.map((entry) => (
             <label key={entry.id} className={`cursor-pointer rounded-xl border p-3 transition ${mode === entry.id ? 'border-orange-500 bg-orange-50' : 'border-stone-200 bg-white hover:border-orange-300'}`}>
               <input type="radio" name="quiz-mode" value={entry.id} checked={mode === entry.id} onChange={() => setMode(entry.id)} className="sr-only" />
@@ -241,8 +242,8 @@ export const QuizMaker: React.FC = () => {
         </div>
         {auto && (
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className={LABEL}>Seconds for each question<input type="number" inputMode="numeric" min={3} max={600} value={seconds} onChange={(event) => setSeconds(Number(event.target.value))} className={FIELD} /></label>
-            {mode === 'mock' && <label className={LABEL}>Seconds to show each answer<input type="number" inputMode="numeric" min={1} max={120} value={reveal} onChange={(event) => setReveal(Number(event.target.value))} className={FIELD} /></label>}
+            <label className={LABEL}>{ui.secondsForEachQuestion}<input type="number" inputMode="numeric" min={3} max={600} value={seconds} onChange={(event) => setSeconds(Number(event.target.value))} className={FIELD} /></label>
+            {mode === 'mock' && <label className={LABEL}>{ui.secondsToShowEachAnswer}<input type="number" inputMode="numeric" min={1} max={120} value={reveal} onChange={(event) => setReveal(Number(event.target.value))} className={FIELD} /></label>}
           </div>
         )}
         <ThemePicker name="quiz-theme" value={show.theme} onChange={(theme) => setShow({ ...show, theme })} />
@@ -253,8 +254,8 @@ export const QuizMaker: React.FC = () => {
               {label}
             </label>
           ))}
-          <label className="flex min-h-9 items-center gap-2 text-sm text-stone-800"><input type="checkbox" checked={shuffleQuestions} onChange={(event) => setShuffleQuestions(event.target.checked)} className="h-4 w-4 accent-orange-700" />Shuffle the questions</label>
-          <label className="flex min-h-9 items-center gap-2 text-sm text-stone-800"><input type="checkbox" checked={shuffleOptions} onChange={(event) => setShuffleOptions(event.target.checked)} className="h-4 w-4 accent-orange-700" />Shuffle the options</label>
+          <label className="flex min-h-9 items-center gap-2 text-sm text-stone-800"><input type="checkbox" checked={shuffleQuestions} onChange={(event) => setShuffleQuestions(event.target.checked)} className="h-4 w-4 accent-orange-700" />{ui.shuffleTheQuestions}</label>
+          <label className="flex min-h-9 items-center gap-2 text-sm text-stone-800"><input type="checkbox" checked={shuffleOptions} onChange={(event) => setShuffleOptions(event.target.checked)} className="h-4 w-4 accent-orange-700" />{ui.shuffleTheOptions}</label>
         </div>
         {issues.length > 0 && count > 0 && (
           <ul role="alert" className="list-disc space-y-0.5 rounded-lg bg-amber-50 px-6 py-2 text-xs text-amber-900">{issues.slice(0, 5).map((issue) => <li key={issue}>{issue}</li>)}{issues.length > 5 && <li>And {issues.length - 5} more.</li>}</ul>
@@ -262,9 +263,9 @@ export const QuizMaker: React.FC = () => {
         <p className="text-sm font-semibold text-stone-800">{count === 0 ? 'Add some questions to start.' : `${count} ${count === 1 ? 'question' : 'questions'}${auto ? `, about ${length} on screen` : ', moves when you click'}.`}</p>
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={start} disabled={issues.length > 0} className={ORANGE}><Play className="h-4 w-4" aria-hidden="true" />Start {mode === 'learn' ? 'learning' : mode === 'mock' ? 'mock exam' : 'exam'}</button>
-          <button type="button" onClick={() => void copy('paper')} disabled={count === 0} className={OUTLINE}><Copy className="h-4 w-4" aria-hidden="true" />Copy question paper</button>
-          <button type="button" onClick={() => void copy('key')} disabled={count === 0} className={OUTLINE}><Copy className="h-4 w-4" aria-hidden="true" />Copy answer key</button>
-          <button type="button" onClick={saveFile} disabled={count === 0} className={OUTLINE}><Download className="h-4 w-4" aria-hidden="true" />Save quiz file</button>
+          <button type="button" onClick={() => void copy('paper')} disabled={count === 0} className={OUTLINE}><Copy className="h-4 w-4" aria-hidden="true" />{ui.copyQuestionPaper}</button>
+          <button type="button" onClick={() => void copy('key')} disabled={count === 0} className={OUTLINE}><Copy className="h-4 w-4" aria-hidden="true" />{ui.copyAnswerKey}</button>
+          <button type="button" onClick={saveFile} disabled={count === 0} className={OUTLINE}><Download className="h-4 w-4" aria-hidden="true" />{ui.saveQuizFile}</button>
         </div>
         <Note>
           Your quiz is saved only in this browser{hasPictures ? ' (if the browser is full, pictures may not be kept, so use Save quiz file)' : ''}. Use Save quiz file to keep a copy or move it to another computer. The quiz fills the screen and tries to keep it awake; use the arrow keys, space bar or the buttons to move, pause and close.

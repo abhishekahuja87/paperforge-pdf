@@ -33,6 +33,7 @@ import { ContentsEntryModal, CustomPageModal, PageEditorModal, ProtectedPdfPassw
 import { SamplePdfModal } from './documentStudio/SamplePdfModal';
 import { FileDropZone } from '../common/FileDropZone';
 import { useTranslation } from 'react-i18next';
+import ui from '../../locales/packs/docstudio.ui.en.json';
 
 function createDefaultStudioSettings(): StudioSettings {
   const timestamp = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 12);
@@ -548,13 +549,13 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                               applyPageRange(source.id);
                             }
                           }}
-                          placeholder="e.g. 1-3, 5"
+                          placeholder={ui.eG135}
                           aria-label={`Page range for ${source.fileName}`}
                           aria-invalid={Boolean(pageRangeErrors[source.id])}
                           className="mt-1 h-9 w-full rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-normal"
                         />
                       </label>
-                      <button type="button" onClick={() => applyPageRange(source.id)} className="h-9 rounded-lg border border-indigo-200 bg-white px-3 text-xs font-semibold text-indigo-700 hover:bg-indigo-50">Apply range</button>
+                      <button type="button" onClick={() => applyPageRange(source.id)} className="h-9 rounded-lg border border-indigo-200 bg-white px-3 text-xs font-semibold text-indigo-700 hover:bg-indigo-50">{ui.applyRange}</button>
                       {pageRangeErrors[source.id] && <p role="alert" className="w-full text-[10px] text-red-600">{pageRangeErrors[source.id]}</p>}
                     </div>
                   )}
@@ -575,20 +576,20 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                             <span className="shrink-0 rounded bg-white px-1.5 py-0.5 text-[9px] text-slate-500">Page {page.originalPageNumber}</span>
                           </div>
                           {isSelected && <span className="mt-2 inline-flex items-center gap-1 self-start rounded-full bg-indigo-600 px-2 py-1 text-[10px] font-bold text-white"><Check className="h-3 w-3" />Page {sequenceNumber} in Output</span>}
-                          <button type="button" onClick={() => setSourcePreviewPageId(page.id)} className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-slate-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"><ZoomIn className="h-3.5 w-3.5" />Zoom preview</button>
+                          <button type="button" onClick={() => setSourcePreviewPageId(page.id)} className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-slate-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"><ZoomIn className="h-3.5 w-3.5" />{ui.zoomPreview}</button>
                         </article>
                       );
                     })}
                   </div>
                 ) : (
-                  <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">This document could not be separated into pages.</p>
+                  <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">{ui.thisDocumentCouldNotBe}</p>
                 )}
               </section>
             );
           })}
         </div>
       ) : (
-        <div className="rounded-xl border border-slate-200 bg-white px-4 py-8 text-center text-sm text-slate-500">Your uploaded pages will appear here in source order.</div>
+        <div className="rounded-xl border border-slate-200 bg-white px-4 py-8 text-center text-sm text-slate-500">{ui.yourUploadedPagesWillAppear}</div>
       )}
     </div>
   );
@@ -596,7 +597,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
   const sourceRail = (
     <aside className="min-w-0 space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
       <div>
-        <h2 className="text-sm font-bold text-slate-900">Source overview</h2>
+        <h2 className="text-sm font-bold text-slate-900">{ui.sourceOverview}</h2>
         <p className="mt-1 text-xs text-slate-500">{sources.length} source{sources.length === 1 ? '' : 's'} · {outputItems.length} output pages</p>
       </div>
       <div className="space-y-2">
@@ -617,8 +618,8 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
         })}
       </div>
       <div className="grid gap-2">
-        <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center justify-center gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"><Plus className="h-4 w-4" />Add more files</button>
-        <button type="button" onClick={() => setStage('selection')} className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"><ArrowLeft className="h-4 w-4" />Back to selection</button>
+        <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center justify-center gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"><Plus className="h-4 w-4" />{ui.addMoreFiles}</button>
+        <button type="button" onClick={() => setStage('selection')} className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"><ArrowLeft className="h-4 w-4" />{ui.backToSelection}</button>
       </div>
     </aside>
   );
@@ -686,13 +687,13 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">2</span>
                   <h2 lang={i18n.language} className="text-lg font-bold text-slate-900">{t('master.editor')}</h2>
                 </div>
-                <p className="pl-8 text-xs text-slate-500">Drag pages to reorder. Pin any page to give it a title in your linked contents.</p>
+                <p className="pl-8 text-xs text-slate-500">{ui.dragPagesToReorderPin}</p>
               </div>
               <div className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">{outputItems.length} page{outputItems.length === 1 ? '' : 's'} in sequence · {outputItems.filter((item) => item.contentsTitle?.trim()).length} contents entr{outputItems.filter((item) => item.contentsTitle?.trim()).length === 1 ? 'y' : 'ies'}</div>
             </div>
             <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-3 text-xs text-amber-950">
               <Pin className="mt-0.5 h-4 w-4 shrink-0 fill-amber-500 text-amber-600" />
-              <p><span className="font-bold">Create a linked table of contents:</span> Click the pin on each page you want listed, enter its heading, and export. We’ll add a contents page at the beginning with links to those pages. Pages without a heading won’t appear.</p>
+              <p><span className="font-bold">{ui.createALinkedTableOf}</span> Click the pin on each page you want listed, enter its heading, and export. We’ll add a contents page at the beginning with links to those pages. Pages without a heading won’t appear.</p>
             </div>
 
             {outputItems.length > 0 ? (
@@ -743,10 +744,10 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                         </div>
                       )}
                       <div className="mt-2 flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 pt-2">
-                        <span className="inline-flex items-center gap-1 text-[9px] text-slate-400"><Move className="h-3 w-3" />Drag to reorder</span>
+                        <span className="inline-flex items-center gap-1 text-[9px] text-slate-400"><Move className="h-3 w-3" />{ui.dragToReorder}</span>
                         <div className="flex items-center gap-1">
                           <button type="button" aria-label={`${item.contentsTitle ? 'Edit' : 'Add'} table of contents entry for page ${index + 1}`} aria-pressed={Boolean(item.contentsTitle)} onClick={() => setContentsEntryItemId(item.id)} className={`rounded-lg p-1.5 ${item.contentsTitle ? 'bg-amber-100 text-amber-800 hover:bg-amber-200' : 'text-slate-500 hover:bg-amber-50 hover:text-amber-700'}`} title={item.contentsTitle ? 'Edit contents entry' : 'Add to table of contents'}><Pin className={`h-4 w-4 ${item.contentsTitle ? 'fill-current' : ''}`} /></button>
-                          <button type="button" onClick={() => setPageEditorItemId(item.id)} className="rounded-lg bg-indigo-50 px-2.5 py-1.5 text-[10px] font-bold text-indigo-700 hover:bg-indigo-100">Zoom &amp; edit</button>
+                          <button type="button" onClick={() => setPageEditorItemId(item.id)} className="rounded-lg bg-indigo-50 px-2.5 py-1.5 text-[10px] font-bold text-indigo-700 hover:bg-indigo-100">{ui.zoomEdit}</button>
                         </div>
                       </div>
                     </div>
@@ -754,41 +755,41 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                 })}
               </div>
             ) : (
-              <div className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center text-sm text-slate-500">No output pages remain. Return to selection to add pages.</div>
+              <div className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center text-sm text-slate-500">{ui.noOutputPagesRemainReturn}</div>
             )}
 
             <div className="space-y-4 rounded-2xl border border-indigo-200 bg-white p-4 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
                 <div>
-                  <h2 className="text-sm font-bold text-slate-900">PDF properties &amp; document-wide output options</h2>
-                  <p className="text-[10px] text-slate-500">These settings apply when the finished PDF is created.</p>
+                  <h2 className="text-sm font-bold text-slate-900">{ui.pdfPropertiesDocumentWideOutput}</h2>
+                  <p className="text-[10px] text-slate-500">{ui.theseSettingsApplyWhenThe}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-bold text-emerald-700"><LockKeyhole className="h-3 w-3" />Local processing</span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-bold text-emerald-700"><LockKeyhole className="h-3 w-3" />{ui.localProcessing}</span>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                   <label className="block text-[10px] font-semibold text-slate-600 sm:col-span-2 xl:col-span-3">
                     Download filename
                     <div className="mt-1 flex items-center rounded-lg border border-slate-200 px-2.5 text-xs focus-within:border-indigo-400">
-                      <input value={settings.outputFileName} onChange={(event) => updateSettings('outputFileName', event.target.value)} maxLength={120} className="min-w-0 flex-1 py-2 outline-none" placeholder="master-document" />
+                      <input value={settings.outputFileName} onChange={(event) => updateSettings('outputFileName', event.target.value)} maxLength={120} className="min-w-0 flex-1 py-2 outline-none" placeholder={ui.masterDocument} />
                       <span className="text-slate-400">.pdf</span>
                     </div>
-                    <span className="mt-1 block font-normal text-slate-400">Filename only; separate from PDF properties below.</span>
+                    <span className="mt-1 block font-normal text-slate-400">{ui.filenameOnlySeparateFromPdf}</span>
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     PDF title property
-                    <input value={settings.documentTitle} onChange={(event) => updateSettings('documentTitle', event.target.value)} maxLength={120} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Master Document" />
+                    <input value={settings.documentTitle} onChange={(event) => updateSettings('documentTitle', event.target.value)} maxLength={120} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder={ui.masterDocument2} />
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     PDF author property
-                    <input value={settings.documentAuthor} onChange={(event) => updateSettings('documentAuthor', event.target.value)} maxLength={100} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Author name" />
+                    <input value={settings.documentAuthor} onChange={(event) => updateSettings('documentAuthor', event.target.value)} maxLength={100} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder={ui.authorName} />
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     PDF subject property
-                    <input value={settings.documentSubject} onChange={(event) => updateSettings('documentSubject', event.target.value)} maxLength={160} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Document subject" />
+                    <input value={settings.documentSubject} onChange={(event) => updateSettings('documentSubject', event.target.value)} maxLength={160} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder={ui.documentSubject} />
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     PDF keywords property
-                    <input value={settings.documentKeywords} onChange={(event) => updateSettings('documentKeywords', event.target.value)} maxLength={240} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Comma-separated keywords" />
+                    <input value={settings.documentKeywords} onChange={(event) => updateSettings('documentKeywords', event.target.value)} maxLength={240} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder={ui.commaSeparatedKeywords} />
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     Page standardization
@@ -799,23 +800,23 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                   <label className="block text-[10px] font-semibold text-slate-600">
                     Page numbering
                     <select value={settings.numberPosition} onChange={(event) => updateSettings('numberPosition', event.target.value as StudioSettings['numberPosition'])} className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                      <option value="none">None</option>
-                      <option value="bottom-center">Bottom-center</option>
-                      <option value="bottom-right">Bottom-right</option>
-                      <option value="top-right">Top-right</option>
+                      <option value="none">{ui.none}</option>
+                      <option value="bottom-center">{ui.bottomCenter}</option>
+                      <option value="bottom-right">{ui.bottomRight}</option>
+                      <option value="top-right">{ui.topRight}</option>
                     </select>
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     Number format
                     <input value={settings.numberFormat} onChange={(event) => updateSettings('numberFormat', event.target.value)} disabled={settings.numberPosition === 'none'} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs disabled:bg-slate-100 disabled:text-slate-400" placeholder="Page {page} of {total}" />
-                    {settings.numberPosition === 'none' && <span className="mt-1 block font-normal text-slate-400">Number format and cover skipping are ignored while numbering is off.</span>}
+                    {settings.numberPosition === 'none' && <span className="mt-1 block font-normal text-slate-400">{ui.numberFormatAndCoverSkipping}</span>}
                   </label>
                   <div className="rounded-lg border border-slate-200 px-3 py-2.5">
                     <label className={`flex items-center gap-2 text-xs font-medium ${settings.numberPosition === 'none' ? 'text-slate-400' : 'text-slate-600'}`}>
                       <input type="checkbox" checked={settings.skipFirstPage} disabled={settings.numberPosition === 'none'} onChange={(event) => updateSettings('skipFirstPage', event.target.checked)} className="accent-indigo-600" />
                       Don’t print a number on the first output page
                     </label>
-                    <p className="mt-1 pl-5 text-[10px] leading-relaxed text-slate-400">Use for a cover page: it hides only that page’s footer/header number. Later pages keep their actual output page numbers (for example, page 2 remains “Page 2 of 5”).</p>
+                    <p className="mt-1 pl-5 text-[10px] leading-relaxed text-slate-400">{ui.useForACoverPage}</p>
                   </div>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     Document safe margins
@@ -825,7 +826,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     Watermark text
-                    <input value={settings.watermarkText} onChange={(event) => updateSettings('watermarkText', event.target.value)} maxLength={60} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="CONFIDENTIAL" />
+                    <input value={settings.watermarkText} onChange={(event) => updateSettings('watermarkText', event.target.value)} maxLength={60} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder={ui.confidential} />
                   </label>
                   <label className="block text-[10px] font-semibold text-slate-600">
                     Watermark opacity · {settings.watermarkOpacity}%
@@ -838,12 +839,12 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                   <label className="block text-[10px] font-semibold text-slate-600 sm:col-span-2 xl:col-span-1">
                     Raster image compression
                     <select value={settings.compression} onChange={(event) => updateSettings('compression', event.target.value as StudioSettings['compression'])} className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                      <option value="quality">Maximum quality</option>
-                      <option value="balanced">Balanced (Web / Email)</option>
-                      <option value="target-2mb">Target size · under 2 MB</option>
-                      <option value="target-500kb">Target size · under 500 KB</option>
+                      <option value="quality">{ui.maximumQuality}</option>
+                      <option value="balanced">{ui.balancedWebEmail}</option>
+                      <option value="target-2mb">{ui.targetSizeUnder2Mb}</option>
+                      <option value="target-500kb">{ui.targetSizeUnder500Kb}</option>
                     </select>
-                    <span className="mt-1 block font-normal text-slate-400">Only raster inputs are recompressed. Original PDF pages remain vector-based; a size goal cannot be guaranteed.</span>
+                    <span className="mt-1 block font-normal text-slate-400">{ui.onlyRasterInputsAreRecompressed}</span>
                   </label>
                   {!digitize && <div className="space-y-2 rounded-xl border border-slate-200 p-3 sm:col-span-2 xl:col-span-3">
                     <label className="flex items-center gap-2 text-xs font-semibold text-slate-700">
@@ -852,32 +853,32 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                     </label>
                     {settings.protectOutput && (
                       <>
-                        <p className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-relaxed text-amber-900">Password protection turns every page into an image: text in the final PDF can no longer be selected or searched, and links (including the contents page) stop working.</p>
+                        <p className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-relaxed text-amber-900">{ui.passwordProtectionTurnsEveryPage}</p>
                         <div className="grid gap-3 sm:grid-cols-2">
                           <label className="text-[10px] font-semibold text-slate-600">
                             User / open password
                             <input type="password" autoComplete="new-password" value={settings.outputUserPassword} onChange={(event) => updateSettings('outputUserPassword', event.target.value)} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" />
-                            <span className="mt-1 block font-normal text-slate-400">Required to open the PDF.</span>
+                            <span className="mt-1 block font-normal text-slate-400">{ui.requiredToOpenThePdf}</span>
                           </label>
                           <label className="text-[10px] font-semibold text-slate-600">
                             Owner password
                             <input type="password" autoComplete="new-password" value={settings.outputOwnerPassword} onChange={(event) => updateSettings('outputOwnerPassword', event.target.value)} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" />
-                            <span className="mt-1 block font-normal text-slate-400">Controls restrictions below. If omitted, the open password is also used as owner password.</span>
+                            <span className="mt-1 block font-normal text-slate-400">{ui.controlsRestrictionsBelowIfOmitted}</span>
                           </label>
                         </div>
                         <div className="flex flex-wrap gap-4 text-[10px] font-medium text-slate-600">
-                          <label className="flex items-center gap-2"><input type="checkbox" checked={settings.allowOutputPrinting} onChange={(event) => updateSettings('allowOutputPrinting', event.target.checked)} className="accent-indigo-600" />Allow printing</label>
-                          <label className="flex items-center gap-2"><input type="checkbox" checked={settings.allowOutputCopying} onChange={(event) => updateSettings('allowOutputCopying', event.target.checked)} className="accent-indigo-600" />Allow copying text</label>
+                          <label className="flex items-center gap-2"><input type="checkbox" checked={settings.allowOutputPrinting} onChange={(event) => updateSettings('allowOutputPrinting', event.target.checked)} className="accent-indigo-600" />{ui.allowPrinting}</label>
+                          <label className="flex items-center gap-2"><input type="checkbox" checked={settings.allowOutputCopying} onChange={(event) => updateSettings('allowOutputCopying', event.target.checked)} className="accent-indigo-600" />{ui.allowCopyingText}</label>
                         </div>
-                        <p className="rounded-lg bg-amber-50 px-3 py-2 text-[10px] leading-relaxed text-amber-800">Password protection re-encodes pages as images. Text will no longer be searchable/selectable, and clickable contents links are removed.</p>
+                        <p className="rounded-lg bg-amber-50 px-3 py-2 text-[10px] leading-relaxed text-amber-800">{ui.passwordProtectionReEncodesPages}</p>
                       </>
                     )}
                   </div>}
                 </div>
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
-                {digitize ? <><label className="text-xs font-semibold text-slate-700">{t('digitize.language')} <select value={ocrLanguage} onChange={(event) => { setOcrLanguage(event.target.value as 'eng' | 'hin+eng'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="eng">{t('digitize.languageEnglish')}</option><option value="hin+eng">{t('digitize.languageHindi')}</option></select></label><label className="text-xs font-semibold text-slate-700">{t('digitize.output')} <select value={separate ? 'separate' : 'merged'} onChange={(event) => { setSeparate(event.target.value === 'separate'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="merged">{t('digitize.merged')}</option><option value="separate">{t('digitize.separate')}</option></select></label></> : <p className="max-w-xl text-[10px] text-slate-500">Create the finished PDF from the pages above, then download it to your device. Your source files stay in this browser.</p>}
+                {digitize ? <><label className="text-xs font-semibold text-slate-700">{t('digitize.language')} <select value={ocrLanguage} onChange={(event) => { setOcrLanguage(event.target.value as 'eng' | 'hin+eng'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="eng">{t('digitize.languageEnglish')}</option><option value="hin+eng">{t('digitize.languageHindi')}</option></select></label><label className="text-xs font-semibold text-slate-700">{t('digitize.output')} <select value={separate ? 'separate' : 'merged'} onChange={(event) => { setSeparate(event.target.value === 'separate'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="merged">{t('digitize.merged')}</option><option value="separate">{t('digitize.separate')}</option></select></label></> : <p className="max-w-xl text-[10px] text-slate-500">{ui.createTheFinishedPdfFrom}</p>}
                 <div className="flex flex-wrap gap-2">
-                  {downloadUrl && <a href={downloadUrl} download={downloadName} className="inline-flex items-center gap-2 rounded-lg border border-orange-300 bg-orange-50 px-4 py-2.5 text-xs font-bold text-orange-800 hover:bg-orange-100"><Download className="h-4 w-4" />Download again</a>}
+                  {downloadUrl && <a href={downloadUrl} download={downloadName} className="inline-flex items-center gap-2 rounded-lg border border-orange-300 bg-orange-50 px-4 py-2.5 text-xs font-bold text-orange-800 hover:bg-orange-100"><Download className="h-4 w-4" />{ui.downloadAgain}</a>}
                   <button type="button" onClick={() => void handleExport()} disabled={isExporting || outputItems.length === 0} className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50">
                     {isExporting ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
                     {digitize ? (isExporting ? t('digitize.preparing') : t('digitize.create')) : (isExporting ? 'Creating PDF...' : 'Create & download final PDF')}
