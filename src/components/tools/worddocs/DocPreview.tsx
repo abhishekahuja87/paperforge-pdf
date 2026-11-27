@@ -10,7 +10,7 @@ export const DocPreview: React.FC<{ doc: DocModel }> = ({ doc }) => {
     return <span key={key} style={{ fontWeight: bold ? 700 : undefined, fontStyle: italic ? 'italic' : undefined, color: color ? `#${color}` : undefined, fontSize: size ? `${size * pt}px` : undefined, whiteSpace: 'pre-wrap' }}>{r.text}</span>;
   };
   const para = (p: Para, i: number) => (
-    <div key={i} style={{ textAlign: p.align === 'both' ? 'justify' : p.align, fontSize: `${(p.size ?? doc.size ?? 11) * pt}px`, fontWeight: p.bold ? 700 : undefined, fontStyle: p.italic ? 'italic' : undefined, color: p.color ? `#${p.color}` : undefined, marginTop: (p.before ?? 0) * pt, marginBottom: (p.after ?? 6) * pt, paddingLeft: (p.indent ?? 0) * pt + (p.bullet ? 14 * pt : 0), position: 'relative', borderBottom: p.rule ? `1px solid #${p.rule}` : undefined, paddingBottom: p.rule ? 1 : undefined, minHeight: runsOf(p.runs).every((r) => !r.text) ? base * 0.4 : undefined }}>
+    <div key={i} style={{ textAlign: p.align === 'both' ? 'justify' : p.align, fontSize: `${(p.size ?? doc.size ?? 11) * pt}px`, fontWeight: p.bold || p.style ? 700 : undefined, fontStyle: p.italic ? 'italic' : undefined, color: p.color ? `#${p.color}` : undefined, marginTop: (p.before ?? 0) * pt, marginBottom: (p.after ?? 6) * pt, paddingLeft: (p.indent ?? 0) * pt + (p.bullet ? 14 * pt : 0), position: 'relative', borderBottom: p.rule ? `1px solid #${p.rule}` : undefined, paddingBottom: p.rule ? 1 : undefined, minHeight: runsOf(p.runs).every((r) => !r.text) ? base * 0.4 : undefined }}>
       {p.bullet && <span style={{ position: 'absolute', left: 3 * pt }}>•</span>}
       {runsOf(p.runs).map((r, k) => run(r, `${i}-${k}`, p))}
     </div>
@@ -24,10 +24,13 @@ export const DocPreview: React.FC<{ doc: DocModel }> = ({ doc }) => {
       </table>
     );
   };
+  const toc = (b: Extract<Block, { type: 'toc' }>, i: number) => (
+    <div key={i} style={{ marginBottom: 6 * pt }}>{b.entries.map((e, k) => <div key={k} style={{ paddingLeft: (e.level - 1) * 14 * pt, marginBottom: 3 * pt }}>{e.text}</div>)}</div>
+  );
   return (
     <div className="overflow-x-auto rounded-xl bg-slate-100 p-2 sm:p-4">
       <div className="mx-auto bg-white shadow-sm" style={{ width: PAGE_PX, maxWidth: 'none', minHeight: PAGE_PX * (paper.h / paper.w) * 0.5, padding: margin, fontFamily: `${doc.font ?? 'Calibri'}, Carlito, Arial, sans-serif`, fontSize: base, lineHeight: 1.25, color: '#111' }}>
-        {doc.blocks.map((b, i) => (b.type === 'p' ? para(b, i) : b.type === 'table' ? table(b, i) : <hr key={i} className="my-4 border-dashed" />))}
+        {doc.blocks.map((b, i) => (b.type === 'p' ? para(b, i) : b.type === 'table' ? table(b, i) : b.type === 'toc' ? toc(b, i) : <hr key={i} className="my-4 border-dashed" />))}
       </div>
     </div>
   );

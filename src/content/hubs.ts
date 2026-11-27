@@ -255,12 +255,15 @@ export const HUBS: Hub[] = [
   {
     path: '/word-document-makers',
     collection: 'word',
-    title: 'Free Word Document Makers: Resume, Cover Letter, Leave Letter and More',
+    title: 'Free Word Document Makers and Templates: Resume, Letters, Proposals and More',
     subtitle: 'Fill in a few boxes, check the preview and download an editable Word file. The layout is done for you, and the file is made on your device.',
-    description: "Free Word document makers: resume, cover letter, resignation and leave letters, minutes and notices. Edit the .docx in Word. No sign-up, nothing uploaded.",
+    description: "Free Word makers and templates: resume, letters, minutes, project proposal, report, business plan, SOP and more. Edit the .docx. Nothing uploaded.",
     sections: [
       { heading: 'What you can make here', paragraphs: [
         'Each tool builds a real Word (.docx) file from a few boxes. The Resume Word Maker makes a resume with a classic or clean look, with jobs, education and skills. The Cover Letter Word Maker lays out your address, the company, three short parts and a sign-off. The Resignation Letter Word Maker adds your last working day and counts the days of notice. The Leave Application Word Maker is for school or office and counts the days of leave. The Meeting Minutes Word Maker records who came, what was decided and who will do what by when. The Notice and Circular Word Maker makes a notice for a school, society or office.',
+      ] },
+      { heading: 'Long document templates', paragraphs: [
+        'For bigger documents there are ten templates: Project Proposal, Project Report, Business Plan, SOP, Job Description, Company Policy, Case Study, Internship Report, Event Plan and Status Report. Each one gives a cover page, a contents list, numbered headings, prompts in [square brackets] and tables with the column names ready. Tick the sections you want, change the prompts, add your own sections, and finish the writing in Word.',
       ] },
       { heading: 'How these documents work', paragraphs: [
         'Pick a starting point to see a full sample, then replace it with your own words. A live preview shows the page as you type. When you are happy, make the Word file and open it in Word, Google Docs or WPS Office to change anything you like. If a part is still in [square brackets], the page reminds you to replace it.',

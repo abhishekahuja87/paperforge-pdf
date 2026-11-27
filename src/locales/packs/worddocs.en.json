@@ -107,6 +107,186 @@
         "Make the Word file",
         "Check the preview, then tap Make Word file. Open the .docx in Word or Google Docs to print or share it."
       ]
+    ],
+    "project-proposal-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has executive summary, background, objectives, scope, approach, deliverables, timeline, team, budget, risks and next steps. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "project-report-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has summary, introduction, objectives, work done, results, challenges, budget, lessons learned and recommendations. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "business-plan-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has executive summary, business description, products, market, competition, marketing, operations, team, financial plan, funding and milestones. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "sop-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has purpose, scope, responsibilities, materials, step by step procedure, safety checks, records and revision history. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "job-description-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has about the job, who the role reports to, key responsibilities, skills, working hours, pay and how to apply. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "company-policy-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has purpose, scope, definitions, policy statement, responsibilities, procedure, exceptions, review and revision history. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "case-study-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has summary, the client, the challenge, what you did, results, a client quote and what you learned. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "internship-report-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has acknowledgement, abstract, about the organisation, internship details, tasks, skills learned, challenges, conclusion and references. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "event-plan-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has overview, goals, date and venue, audience, programme, team, budget, promotion, checklist, risks and follow up. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
+    ],
+    "status-report-word-template": [
+      [
+        "Fill in the title page",
+        "Type the title, your name or organisation, the date and a version. Turn the cover page, contents list and page numbers on or off."
+      ],
+      [
+        "Tick the sections you need",
+        "The template has period, progress, plans for next period, milestones, issues and risks, decisions needed and budget status. Untick any you do not need. Tap Edit text to change the prompts, or add your own sections."
+      ],
+      [
+        "Check the preview",
+        "The preview shows the cover, the contents list and every heading. Text in [square brackets] is a prompt for you to replace."
+      ],
+      [
+        "Make the Word file",
+        "Tap Make Word file and open the .docx in Word, Google Docs or WPS Office. Write your own text under each heading and add what you need."
+      ]
     ]
   },
   "pageGuides": {
@@ -337,6 +517,386 @@
           "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
         ]
       ]
+    },
+    "projectProposalWordTemplateGuide": {
+      "title": "Project Proposal Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a project proposal in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Project Proposal Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the project proposal template include?",
+          "It includes executive summary, background, objectives, scope, approach, deliverables, timeline, team, budget, risks and next steps. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my project proposal uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "projectReportWordTemplateGuide": {
+      "title": "Project Report Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a project report in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Project Report Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the project report template include?",
+          "It includes summary, introduction, objectives, work done, results, challenges, budget, lessons learned and recommendations. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my project report uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "businessPlanWordTemplateGuide": {
+      "title": "Business Plan Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a business plan in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Business Plan Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the business plan template include?",
+          "It includes executive summary, business description, products, market, competition, marketing, operations, team, financial plan, funding and milestones. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my business plan uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "sopWordTemplateGuide": {
+      "title": "SOP Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a standard operating procedure (SOP) in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the SOP Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the sop template include?",
+          "It includes purpose, scope, responsibilities, materials, step by step procedure, safety checks, records and revision history. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my sop uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "jobDescriptionWordTemplateGuide": {
+      "title": "Job Description Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a job description in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Job Description Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the job description template include?",
+          "It includes about the job, who the role reports to, key responsibilities, skills, working hours, pay and how to apply. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my job description uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "companyPolicyWordTemplateGuide": {
+      "title": "Company Policy Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a company or school policy in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Company Policy Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the company policy template include?",
+          "It includes purpose, scope, definitions, policy statement, responsibilities, procedure, exceptions, review and revision history. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my company policy uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "caseStudyWordTemplateGuide": {
+      "title": "Case Study Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a case study in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Case Study Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the case study template include?",
+          "It includes summary, the client, the challenge, what you did, results, a client quote and what you learned. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my case study uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "internshipReportWordTemplateGuide": {
+      "title": "Internship Report Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start an internship report in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Internship Report Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the internship report template include?",
+          "It includes acknowledgement, abstract, about the organisation, internship details, tasks, skills learned, challenges, conclusion and references. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my internship report uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "eventPlanWordTemplateGuide": {
+      "title": "Event Plan Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start an event plan in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Event Plan Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the event plan template include?",
+          "It includes overview, goals, date and venue, audience, programme, team, budget, promotion, checklist, risks and follow up. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my event plan uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
+    },
+    "statusReportWordTemplateGuide": {
+      "title": "Status Report Word Template: Headings, Contents and Tables (.docx)",
+      "subtitle": "Start a project status report in Word (.docx) with a cover, contents, numbered headings and tables. Pick sections, then finish it in Word.",
+      "faq": [
+        [
+          "Is the Status Report Word Template free?",
+          "Yes. It is free, with no sign-up and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What does the status report template include?",
+          "It includes period, progress, plans for next period, milestones, issues and risks, decisions needed and budget status. You choose which parts to keep, and you can add your own."
+        ],
+        [
+          "Can I remove sections I do not need?",
+          "Yes. Untick any section and it is left out of the preview, the contents list and the file. Use Include all or Clear all to start from either end."
+        ],
+        [
+          "How do I add page numbers to the contents list?",
+          "The file opens with the headings listed. In Word, right-click the list and choose Update field, then Update entire table, and the page numbers are filled in. Google Docs and WPS Office have a similar update option."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it in Word before you send the document, and delete the brackets."
+        ],
+        [
+          "Can I add my own sections and tables?",
+          "Yes. Use Your own sections on the page to add a heading and some text, or add anything you like in Word after you download the file. The headings use real Word styles, so new headings join the contents list."
+        ],
+        [
+          "Will the file open in Word, Google Docs and WPS Office?",
+          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
+        ],
+        [
+          "Is my status report uploaded or saved on a server?",
+          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original template."
+        ]
+      ]
     }
   },
   "toolArticles": {
@@ -486,6 +1046,256 @@
           "paragraphs": [
             "Everything is made on your device, so your notice is never uploaded. The Word file has no macros and no links to the internet.",
             "Check every date and name before you print or share the notice."
+          ]
+        }
+      ]
+    },
+    "project-proposal-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a project proposal",
+          "paragraphs": [
+            "A project proposal is usually read by a client, a manager or a funding body. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: executive summary, background, objectives, scope, approach, deliverables, timeline, team, budget, risks and next steps. You write the real content in Word. Write the executive summary last, once the rest is clear."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "project-report-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a project report",
+          "paragraphs": [
+            "A project report is usually read by a manager, a client or a college guide. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: summary, introduction, objectives, work done, results, challenges, budget, lessons learned and recommendations. You write the real content in Word. Use numbers wherever you can, such as dates, counts and amounts."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "business-plan-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a business plan",
+          "paragraphs": [
+            "A business plan is usually read by a bank, an investor, a partner or yourself. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: executive summary, business description, products, market, competition, marketing, operations, team, financial plan, funding and milestones. You write the real content in Word. Use your own figures in the financial plan. The template does not add any numbers."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "sop-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a standard operating procedure (SOP)",
+          "paragraphs": [
+            "A standard operating procedure (SOP) is usually read by staff who must follow the same steps every time. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: purpose, scope, responsibilities, materials, step by step procedure, safety checks, records and revision history. You write the real content in Word. Keep each step to one action, so it can be checked off."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "job-description-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a job description",
+          "paragraphs": [
+            "A job description is usually read by people who want to apply and the people who hire. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: about the job, who the role reports to, key responsibilities, skills, working hours, pay and how to apply. You write the real content in Word. Say what the person will do each day, not only the qualifications."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "company-policy-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a company or school policy",
+          "paragraphs": [
+            "A company or school policy is usually read by staff, members, parents or students. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: purpose, scope, definitions, policy statement, responsibilities, procedure, exceptions, review and revision history. You write the real content in Word. Ask the right person to check the rules before you publish the policy."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "case-study-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a case study",
+          "paragraphs": [
+            "A case study is usually read by people who may want to hire you or your company. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: summary, the client, the challenge, what you did, results, a client quote and what you learned. You write the real content in Word. Show a result with a number, and ask the client before using their name."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "internship-report-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for an internship report",
+          "paragraphs": [
+            "An internship report is usually read by your college, your guide or your next employer. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: acknowledgement, abstract, about the organisation, internship details, tasks, skills learned, challenges, conclusion and references. You write the real content in Word. Check your college format. Colleges often have their own rules for the layout."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "event-plan-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for an event plan",
+          "paragraphs": [
+            "An event plan is usually read by a team, a school, a society or a sponsor. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: overview, goals, date and venue, audience, programme, team, budget, promotion, checklist, risks and follow up. You write the real content in Word. Fill in the programme table with times, so everybody has the same schedule."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
+          ]
+        }
+      ]
+    },
+    "status-report-word-template": {
+      "sections": [
+        {
+          "heading": "A good start for a project status report",
+          "paragraphs": [
+            "A project status report is usually read by a manager, a client or a steering group. Starting from a clear set of headings saves time and makes sure nothing important is missed.",
+            "This tool gives you the structure: period, progress, plans for next period, milestones, issues and risks, decisions needed and budget status. You write the real content in Word. Keep it to one or two pages, and put the decisions you need at the top."
+          ]
+        },
+        {
+          "heading": "Finish it in Word",
+          "paragraphs": [
+            "The file has a cover page, a contents list, numbered headings and tables with the column names already in place. The headings are real Word headings, so the Navigation pane works and new headings join the contents list.",
+            "Replace every prompt in [square brackets] with your own words, delete the sections you did not need and add more tables, pictures or pages as you like."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The template only gives a layout and prompts. It adds no legal, tax or workplace rules, so check names, dates, figures and any rules that apply to you before you share the document."
           ]
         }
       ]
