@@ -79,6 +79,9 @@ export const ENTRIES: SiteUpdate[] = [
     tool: 'Event Programme PowerPoint Maker',
     title: 'New: Event Programme PowerPoint Maker',
     summary: 'Make welcome, programme table, guests and thank-you slides for an annual day, a function, a workshop or a meeting. Edit and download a .pptx. Free.',
+  },
+  {
+    date: '2026-11-27',
     path: '/resume-builder',
     tool: 'Resume Builder',
     title: 'Resume Builder now saves a Word file',
