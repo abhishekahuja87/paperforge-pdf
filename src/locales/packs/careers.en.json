@@ -73,6 +73,10 @@
           "Press \"Print or save as PDF\". In the print window set the destination to \"Save as PDF\" (on some phones it is called \"Save as PDF\" under the printer list). Set margins to Default and turn off \"Headers and footers\" for a clean page."
         ],
         [
+          "Can I download my resume as a Word file?",
+          "Yes. Tap Download Word (.docx) next to the PDF button. The Word file has the same words in a plain single column, so you can keep editing it in Word, Google Docs or WPS Office. The colourful and two-column designs are for the PDF, and the Word file keeps your accent colour for the headings."
+        ],
+        [
           "What does the resume checklist check?",
           "It checks that your name and email are present, that the summary and each job have sensible length, that bullet points start with action verbs and contain numbers, that the skills list is not empty, and that the resume is neither very thin nor very long. It is a guide to common recruiter expectations, not a real applicant tracking system, and a high number does not guarantee an interview."
         ],

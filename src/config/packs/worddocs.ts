@@ -4,10 +4,6 @@ import { definePackTool, type PackTool } from './types';
 /** Word document makers (components/tools/docs, builders in src/lib/docs, file writer in src/lib/docx). Each builds a .docx in the browser from a few boxes. */
 export const WORDDOCS_TOOLS: PackTool[] = [
   definePackTool({
-    id: 'resume-word-maker', kind: 'docResume', guideKey: 'resumeWordGuide', category: 'business', icon: 'file-text', tier: 'popular',
-    keywords: ['resume in word format', 'resume word template', 'cv format word download', 'resume maker docx', 'free resume template word', 'fresher resume format word', 'editable resume word', 'cv template docx', 'simple resume word doc', 'ats friendly resume word', 'resume builder word download', 'resume format for freshers'],
-  }, worddocs.toolCatalog),
-  definePackTool({
     id: 'cover-letter-word-maker', kind: 'docCover', guideKey: 'coverWordGuide', category: 'business', icon: 'file-text', tier: 'popular',
     keywords: ['cover letter in word format', 'cover letter template word', 'job application letter format', 'cover letter maker docx', 'free cover letter template', 'cover letter for freshers', 'application letter word download', 'cover letter sample for job', 'editable cover letter', 'simple cover letter format', 'cover letter with address block', 'job application cover letter'],
   }, worddocs.toolCatalog),

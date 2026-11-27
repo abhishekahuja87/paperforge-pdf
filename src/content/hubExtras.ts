@@ -379,7 +379,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
   },
   "/word-document-makers": {
     tasks: [
-      { task: "Make a resume in Word format", tool: "resume-word-maker", name: "Resume Word Maker", note: "Fresher or experienced, classic or clean look." },
+      { task: "Make a resume and download it in Word format", tool: "resume-builder", name: "Resume Builder", note: "Many designs, a checklist, and a Word or PDF file." },
       { task: "Write a cover letter in Word format", tool: "cover-letter-word-maker", name: "Cover Letter Word Maker", note: "Address blocks, greeting and sign-off." },
       { task: "Write a resignation letter in Word format", tool: "resignation-letter-word-maker", name: "Resignation Letter Word Maker", note: "Last working day and a notice check." },
       { task: "Write a leave application for school or office", tool: "leave-application-word-maker", name: "Leave Application Word Maker", note: "Dates, reason and the day count." },
