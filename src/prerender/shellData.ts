@@ -59,7 +59,7 @@ export interface ShellPage {
   article: ShellSection[];
   /** schema.org data written into the page head as JSON-LD. */
   jsonLd: JsonLd[];
-  /** ISO date of the last real change, from the updates log (src/config/updates.ts). Left out when no change is recorded, so the sitemap never states a made-up date. */
+  /** ISO date of the last real change, from the updates log (src/config/updateEntries.ts). Left out when no change is recorded, so the sitemap never states a made-up date. */
   lastmod?: string;
 }
 

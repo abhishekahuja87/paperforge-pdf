@@ -24,6 +24,7 @@ import { renderDisplayFile } from '../../lib/display/render';
 import type { DisplaySlide } from '../../lib/display/types';
 import { FileDropZone } from '../common/FileDropZone';
 import { useTranslation } from 'react-i18next';
+import ui from '../../locales/packs/displaystudio.ui.en.json';
 
 type FitMode = 'contain' | 'cover' | 'fill';
 type TransitionMode = 'none' | 'fade' | 'zoom';
@@ -339,7 +340,7 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
               style={{ objectFit: fitMode, maxHeight: '100vh' }}
             />
           ) : (
-            <p className="px-6 text-center text-slate-300">No slides are available. Exit the player and add a file.</p>
+            <p className="px-6 text-center text-slate-300">{ui.noSlidesAreAvailableExit}</p>
           )}
 
           {(showClock || showDate) && (
@@ -369,14 +370,14 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
 
           <div className={`absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/85 via-black/60 to-transparent px-4 pb-4 pt-12 transition-opacity duration-300 sm:px-8 sm:pb-7 ${controlsVisible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
             <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-2">
-              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={goToPrevious} aria-label="Previous slide"><SkipBack className="h-5 w-5" /></button>
+              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={goToPrevious} aria-label={ui.previousSlide}><SkipBack className="h-5 w-5" /></button>
               <button type="button" className="rounded-full bg-white px-5 py-3 font-bold text-slate-900 hover:bg-indigo-100" onClick={() => setIsPlaying((value) => !value)}>
                 {isPlaying ? <span className="inline-flex items-center gap-2"><Pause className="h-5 w-5" /> Pause</span> : <span className="inline-flex items-center gap-2"><Play className="h-5 w-5" /> Play</span>}
               </button>
-              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={advanceSlide} aria-label="Next slide"><SkipForward className="h-5 w-5" /></button>
-              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={() => setCurrentSlideId(playbackOrder[0] ?? null)} aria-label="Restart show"><RotateCcw className="h-5 w-5" /></button>
+              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={advanceSlide} aria-label={ui.nextSlide}><SkipForward className="h-5 w-5" /></button>
+              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={() => setCurrentSlideId(playbackOrder[0] ?? null)} aria-label={ui.restartShow}><RotateCcw className="h-5 w-5" /></button>
               <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={() => void toggleFullscreen()} aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}>{isFullscreen ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}</button>
-              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={stopShow} aria-label="Close player"><X className="h-5 w-5" /></button>
+              <button type="button" className="rounded-full p-3 text-white hover:bg-white/15" onClick={stopShow} aria-label={ui.closePlayer}><X className="h-5 w-5" /></button>
             </div>
             {currentSlide && (
               <div className="mx-auto mt-3 max-w-3xl truncate text-center text-xs text-white/80">
@@ -409,13 +410,13 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
               <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900">Your slide playlist</h3>
+                    <h3 className="text-lg font-bold text-slate-900">{ui.yourSlidePlaylist}</h3>
                     <p className="text-xs text-slate-500">{slideCount} of {slides.length} slides included · use the arrows to change order</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <button type="button" className={controlClass} onClick={() => setSlides((items) => items.map((slide) => ({ ...slide, included: true })))}><Check className="h-4 w-4" />Include all</button>
-                    <button type="button" className={controlClass} onClick={() => setSlides((items) => items.map((slide) => ({ ...slide, included: false })))}>Exclude all</button>
-                    <button type="button" className={`${controlClass} text-rose-600 hover:border-rose-200 hover:bg-rose-50`} onClick={clearSlides}><Trash2 className="h-4 w-4" />Clear playlist</button>
+                    <button type="button" className={controlClass} onClick={() => setSlides((items) => items.map((slide) => ({ ...slide, included: true })))}><Check className="h-4 w-4" />{ui.includeAll}</button>
+                    <button type="button" className={controlClass} onClick={() => setSlides((items) => items.map((slide) => ({ ...slide, included: false })))}>{ui.excludeAll}</button>
+                    <button type="button" className={`${controlClass} text-rose-600 hover:border-rose-200 hover:bg-rose-50`} onClick={clearSlides}><Trash2 className="h-4 w-4" />{ui.clearPlaylist}</button>
                   </div>
                 </div>
 
@@ -444,12 +445,12 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
                         </div>
                         <label className="block text-[11px] font-semibold text-slate-600">
                           Caption (optional)
-                          <input value={slide.caption} onChange={(event) => updateSlide(slide.id, { caption: event.target.value })} maxLength={160} placeholder="Shown over this slide" className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs font-normal text-slate-800 focus:border-indigo-400 focus:outline-none" />
+                          <input value={slide.caption} onChange={(event) => updateSlide(slide.id, { caption: event.target.value })} maxLength={160} placeholder={ui.shownOverThisSlide} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs font-normal text-slate-800 focus:border-indigo-400 focus:outline-none" />
                         </label>
                         <label className="block text-[11px] font-semibold text-slate-600">
                           Slide duration in seconds
                           <input type="number" min={0} max={86400} step={1} value={slide.durationSeconds ?? ''} onChange={(event) => updateSlide(slide.id, { durationSeconds: event.target.value === '' ? null : Math.max(0, Math.min(86400, Number(event.target.value))) })} placeholder={`Use default: ${defaultDuration}s`} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs font-normal text-slate-800 focus:border-indigo-400 focus:outline-none" />
-                          <span className="mt-1 block font-normal text-slate-400">Blank uses the default. Set to 0 for manual advance.</span>
+                          <span className="mt-1 block font-normal text-slate-400">{ui.blankUsesTheDefaultSet}</span>
                         </label>
                       </div>
                     </article>
@@ -459,8 +460,8 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
 
               <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
                 <div className="mb-4">
-                  <h3 className="text-lg font-bold text-slate-900">Show and screen options</h3>
-                  <p className="text-xs text-slate-500">Set a default for the playlist; a slide-specific duration overrides it.</p>
+                  <h3 className="text-lg font-bold text-slate-900">{ui.showAndScreenOptions}</h3>
+                  <p className="text-xs text-slate-500">{ui.setADefaultForThe}</p>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   <label className="text-xs font-semibold text-slate-700">
@@ -470,17 +471,17 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
                   <label className="text-xs font-semibold text-slate-700">
                     How slides fit the screen
                     <select value={fitMode} onChange={(event) => setFitMode(event.target.value as FitMode)} className={selectClass}>
-                      <option value="contain">Contain · show the whole page</option>
-                      <option value="cover">Cover · fill screen, may crop edges</option>
-                      <option value="fill">Stretch · fill screen, may distort</option>
+                      <option value="contain">{ui.containShowTheWholePage}</option>
+                      <option value="cover">{ui.coverFillScreenMayCrop}</option>
+                      <option value="fill">{ui.stretchFillScreenMayDistort}</option>
                     </select>
                   </label>
                   <label className="text-xs font-semibold text-slate-700">
                     Slide transition
                     <select value={transition} onChange={(event) => setTransition(event.target.value as TransitionMode)} className={selectClass}>
-                      <option value="none">Cut · instant</option>
-                      <option value="fade">Fade</option>
-                      <option value="zoom">Slow zoom</option>
+                      <option value="none">{ui.cutInstant}</option>
+                      <option value="fade">{ui.fade}</option>
+                      <option value="zoom">{ui.slowZoom}</option>
                     </select>
                   </label>
                   <label className="text-xs font-semibold text-slate-700">
@@ -490,22 +491,22 @@ export const DisplayStudio: React.FC<{ onHasSlidesChange?: (hasSlides: boolean) 
                       <span className="font-normal text-slate-500">{background}</span>
                     </span>
                   </label>
-                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={loop} onChange={(event) => setLoop(event.target.checked)} className="h-4 w-4 accent-indigo-600" />Loop continuously</label>
-                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={shuffle} onChange={(event) => setShuffle(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><Shuffle className="h-4 w-4 text-slate-500" />Shuffle slide order</label>
-                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={showSlideCounter} onChange={(event) => setShowSlideCounter(event.target.checked)} className="h-4 w-4 accent-indigo-600" />Show slide number</label>
-                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={showClock} onChange={(event) => setShowClock(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><Clock3 className="h-4 w-4 text-slate-500" />Show local time</label>
-                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={showDate} onChange={(event) => setShowDate(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><CalendarDays className="h-4 w-4 text-slate-500" />Show local date</label>
-                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={requestWakeLock} onChange={(event) => setRequestWakeLock(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><Sun className="h-4 w-4 text-slate-500" />Ask browser to keep screen awake</label>
+                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={loop} onChange={(event) => setLoop(event.target.checked)} className="h-4 w-4 accent-indigo-600" />{ui.loopContinuously}</label>
+                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={shuffle} onChange={(event) => setShuffle(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><Shuffle className="h-4 w-4 text-slate-500" />{ui.shuffleSlideOrder}</label>
+                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={showSlideCounter} onChange={(event) => setShowSlideCounter(event.target.checked)} className="h-4 w-4 accent-indigo-600" />{ui.showSlideNumber}</label>
+                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={showClock} onChange={(event) => setShowClock(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><Clock3 className="h-4 w-4 text-slate-500" />{ui.showLocalTime}</label>
+                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={showDate} onChange={(event) => setShowDate(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><CalendarDays className="h-4 w-4 text-slate-500" />{ui.showLocalDate}</label>
+                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={requestWakeLock} onChange={(event) => setRequestWakeLock(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><Sun className="h-4 w-4 text-slate-500" />{ui.askBrowserToKeepScreen}</label>
                   <label className="text-xs font-semibold text-slate-700">
                     Clock position
                     <select value={clockPosition} onChange={(event) => setClockPosition(event.target.value as ClockPosition)} className={selectClass}>
-                      <option value="top-left">Top left</option><option value="top-right">Top right</option><option value="bottom-left">Bottom left</option><option value="bottom-right">Bottom right</option>
+                      <option value="top-left">{ui.topLeft}</option><option value="top-right">{ui.topRight}</option><option value="bottom-left">{ui.bottomLeft}</option><option value="bottom-right">{ui.bottomRight}</option>
                     </select>
                   </label>
-                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={use24Hour} onChange={(event) => setUse24Hour(event.target.checked)} className="h-4 w-4 accent-indigo-600" />Use 24-hour clock</label>
+                  <label className="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={use24Hour} onChange={(event) => setUse24Hour(event.target.checked)} className="h-4 w-4 accent-indigo-600" />{ui.use24HourClock}</label>
                 </div>
                 <div className="mt-5 flex flex-col gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-xs leading-relaxed text-slate-500">In the player: Space/P pauses, ←/→ changes slides, F toggles fullscreen, and Esc exits browser fullscreen. Controls fade while playing and return when you move the pointer.</p>
+                  <p className="text-xs leading-relaxed text-slate-500">{ui.inThePlayerSpaceP}</p>
                   <button type="button" onClick={startShow} disabled={slideCount === 0 || processing} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-45">
                     <Play className="h-5 w-5" />Start show · {slideCount} {slideCount === 1 ? 'slide' : 'slides'}
                   </button>

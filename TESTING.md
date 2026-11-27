@@ -1084,7 +1084,7 @@ Checked in Node and an unstyled browser: worksheet, puzzle and recipe layouts re
 - /id-card-maker-printable (8 cards on A4, logo in the band, typed and blank), /upi-payment-qr-stand-printable (scan the printed code with a real UPI app; name and amount match), /wifi-password-sign-printable (scan with a phone camera and join), /restaurant-menu-card-printable (sections, leaders, two columns, a long menu goes onto a second page), /question-paper-template-printable (marks add up, MCQ options, =b answer key page, long paper paginates).
 
 ### Sitemap lastmod (20 Nov)
-- After a build, open dist/sitemap.xml: pages with an entry in updates.ts (for example /merge-pdf, /digitize-documents) have `<lastmod>YYYY-MM-DD</lastmod>`; the home page has the newest update date; pages without an entry have only `<loc>`. No date is in the future.
+- After a build, open dist/sitemap.xml: pages with an entry in updateEntries.ts (for example /merge-pdf, /digitize-documents) have `<lastmod>YYYY-MM-DD</lastmod>`; the home page has the newest update date; pages without an entry have only `<loc>`. No date is in the future.
 - Search Console > Sitemaps > open sitemap.xml: status Success, no errors about the date format.
 
 ### Take a photo button (20 Nov)

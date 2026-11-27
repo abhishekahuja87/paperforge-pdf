@@ -18,6 +18,7 @@ import {
 } from '../../lib/pdf/watermark';
 import { generatePdfFilename } from '../../lib/pdf/naming';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
+import ui from '../../locales/packs/watermark.ui.en.json';
 
 export const WatermarkPdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
@@ -163,7 +164,7 @@ export const WatermarkPdf: React.FC = () => {
 
           {/* Quick Presets */}
           <div className="space-y-1.5">
-            <label className="block text-xs font-semibold text-slate-700">Quick Presets</label>
+            <label className="block text-xs font-semibold text-slate-700">{ui.quickPresets}</label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {presets.map((preset) => {
                 const on = text === preset.text && colorHex === preset.color && rotationAngle === preset.angle;
@@ -190,20 +191,20 @@ export const WatermarkPdf: React.FC = () => {
           {/* Watermark Text & Custom Color */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="sm:col-span-2 space-y-1">
-              <label className="block text-xs font-semibold text-slate-700" htmlFor="WatermarkPdf-204">Watermark Text</label>
+              <label className="block text-xs font-semibold text-slate-700" htmlFor="WatermarkPdf-204">{ui.watermarkText}</label>
               <input id="WatermarkPdf-204"
                 type="text"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="e.g. CONFIDENTIAL, DRAFT, DO NOT SHARE"
+                placeholder={ui.eGConfidentialDraftDo}
                 className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 bg-white"
               />
             </div>
             <div className="space-y-1">
-              <label className="block text-xs font-semibold text-slate-700" htmlFor="WatermarkPdf-215">Color</label>
+              <label className="block text-xs font-semibold text-slate-700" htmlFor="WatermarkPdf-215">{ui.color}</label>
               <div className="flex items-center space-x-2">
                 <ColorField value={colorHex} onChange={setColorHex} label="Watermark colour" className="w-9 h-9" />
-                <input aria-label="Watermark colour as a hex code"
+                <input aria-label={ui.watermarkColourAsAHex}
                   type="text"
                   value={colorHex}
                   onChange={(e) => setColorHex(e.target.value)}
@@ -218,10 +219,10 @@ export const WatermarkPdf: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="space-y-1">
                 <div className="flex justify-between text-[11px] font-semibold text-slate-700">
-                  <span>Font Size</span>
+                  <span>{ui.fontSize}</span>
                   <span className="text-indigo-600 font-bold">{fontSize}pt</span>
                 </div>
-                <input aria-label="Watermark font size"
+                <input aria-label={ui.watermarkFontSize}
                   type="range"
                   min={18}
                   max={96}
@@ -233,10 +234,10 @@ export const WatermarkPdf: React.FC = () => {
 
               <div className="space-y-1">
                 <div className="flex justify-between text-[11px] font-semibold text-slate-700">
-                  <span>Rotation</span>
+                  <span>{ui.rotation}</span>
                   <span className="text-indigo-600 font-bold">{rotationAngle}°</span>
                 </div>
-                <input aria-label="Watermark rotation angle"
+                <input aria-label={ui.watermarkRotationAngle}
                   type="range"
                   min={-90}
                   max={90}
@@ -249,10 +250,10 @@ export const WatermarkPdf: React.FC = () => {
 
               <div className="space-y-1">
                 <div className="flex justify-between text-[11px] font-semibold text-slate-700">
-                  <span>Transparency (Opacity)</span>
+                  <span>{ui.transparencyOpacity}</span>
                   <span className="text-indigo-600 font-bold">{Math.round(opacity * 100)}%</span>
                 </div>
-                <input aria-label="Watermark opacity"
+                <input aria-label={ui.watermarkOpacity}
                   type="range"
                   min={5}
                   max={100}
@@ -265,43 +266,43 @@ export const WatermarkPdf: React.FC = () => {
 
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 border-t border-slate-200/60">
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="WatermarkPdf-284">Typography Font</label>
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="WatermarkPdf-284">{ui.typographyFont}</label>
                 <select id="WatermarkPdf-284"
                   value={fontChoice}
                   onChange={(e) => setFontChoice(e.target.value as WatermarkFont)}
                   className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
                 >
-                  <option value="helvetica-bold">Helvetica Bold</option>
-                  <option value="helvetica">Standard Helvetica</option>
-                  <option value="courier">Courier Monospace</option>
+                  <option value="helvetica-bold">{ui.helveticaBold}</option>
+                  <option value="helvetica">{ui.standardHelvetica}</option>
+                  <option value="courier">{ui.courierMonospace}</option>
                 </select>
               </div>
 
               <div className="space-y-1">
-                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="WatermarkPdf-297">Apply To</label>
+                <label className="block text-[11px] font-semibold text-slate-700" htmlFor="WatermarkPdf-297">{ui.applyTo}</label>
                 <select id="WatermarkPdf-297"
                   value={scope}
                   onChange={(e) => setScope(e.target.value as any)}
                   className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500"
                 >
-                  <option value="all">All Pages</option>
-                  <option value="odd">Odd Pages Only (1, 3, 5...)</option>
-                  <option value="even">Even Pages Only (2, 4, 6...)</option>
-                  <option value="custom">Custom Page Range</option>
+                  <option value="all">{ui.allPages}</option>
+                  <option value="odd">{ui.oddPagesOnly13}</option>
+                  <option value="even">{ui.evenPagesOnly24}</option>
+                  <option value="custom">{ui.customPageRange}</option>
                 </select>
               </div>
             </div>
 
             {scope === 'custom' && (
               <div className="pt-1">
-                <input aria-label="Custom page ranges to watermark"
+                <input aria-label={ui.customPageRangesToWatermark}
                   type="text"
                   value={rangeString}
                   onChange={(e) => setRangeString(e.target.value)}
                   placeholder={`e.g. 1-2, 4, 6-${pageCount}`}
                   className="w-full px-3 py-1.5 text-xs border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 bg-white"
                 />
-                <p className="text-[10px] text-slate-400 mt-1">Separate pages with commas or hyphens.</p>
+                <p className="text-[10px] text-slate-400 mt-1">{ui.separatePagesWithCommasOr}</p>
               </div>
             )}
           </div>
@@ -340,7 +341,7 @@ export const WatermarkPdf: React.FC = () => {
                 </span>
               </button>
             )}
-            {downloadUrl && !isOutOfSync && <StartOverButton onClick={handleReset}>Watermark another PDF</StartOverButton>}
+            {downloadUrl && !isOutOfSync && <StartOverButton onClick={handleReset}>{ui.watermarkAnotherPdf}</StartOverButton>}
 
           </div>
         </div>

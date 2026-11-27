@@ -1,106 +1,18 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import {
-  ArrowLeft,
-  ArrowRight,
-  Check,
-  Download,
-  FilePlus2,
-  LoaderCircle,
-  LockKeyhole,
-  Move,
-  Pin,
-  Plus,
-  Sparkles,
-  X,
-  ZoomIn,
-} from 'lucide-react';
-import {
-  createCustomPage,
-  createSource,
-  DEFAULT_STUDIO_SETTINGS,
-  exportMasterPdf,
-} from '../../lib/documentStudio/studio';
-import type {
-  GeneratedPageOptions,
-  OutputSequenceItem,
-  PageCard,
-  SourceItem,
-  StudioSettings,
-} from '../../lib/documentStudio/types';
+import { Move, Pin, X } from 'lucide-react';
+import { createCustomPage, createSource, DEFAULT_STUDIO_SETTINGS, exportMasterPdf } from '../../lib/documentStudio/studio';
+import type { GeneratedPageOptions, OutputSequenceItem, PageCard, SourceItem, StudioSettings } from '../../lib/documentStudio/types';
 import { renderOutputPageImage } from '../../lib/documentStudio/studio';
 import { protectPdf } from '../../lib/pdf/protect';
 import { ContentsEntryModal, CustomPageModal, PageEditorModal, ProtectedPdfPasswordModal, SourcePagePreviewModal } from './documentStudio/StudioModals';
 import { SamplePdfModal } from './documentStudio/SamplePdfModal';
-import { FileDropZone } from '../common/FileDropZone';
 import { useTranslation } from 'react-i18next';
-
-function createDefaultStudioSettings(): StudioSettings {
-  const timestamp = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 12);
-  return {
-    ...DEFAULT_STUDIO_SETTINGS,
-    outputFileName: `master-document-${timestamp}-${crypto.randomUUID().slice(0, 6)}`,
-  };
-}
-
-function pdfFileName(value: string): string {
-  const safeBase = value.trim()
-    .replace(/\.pdf$/i, '')
-    .replace(/[<>:"/\\|?*]/g, '-')
-    .split('')
-    .filter((character) => character.charCodeAt(0) >= 32)
-    .join('')
-    .replace(/\s+/g, '-')
-    .replace(/^\.+/, '')
-    .slice(0, 120);
-  return `${safeBase || 'master-document'}.pdf`;
-}
-
-function arrayBufferFromBytes(bytes: Uint8Array): ArrayBuffer {
-  const copy = new Uint8Array(bytes.byteLength);
-  copy.set(bytes);
-  return copy.buffer;
-}
-
-function parsePageRange(value: string, pageCount: number): { pageNumbers?: number[]; error?: string } {
-  const trimmed = value.trim();
-  if (!trimmed) return { error: 'Enter a page range, such as 1-3, 5.' };
-  if (!/^\d+(?:\s*-\s*\d+)?(?:\s*,\s*\d+(?:\s*-\s*\d+)?)*$/.test(trimmed)) {
-    return { error: 'Use page numbers and ranges separated by commas, such as 1-3, 5.' };
-  }
-
-  const pageNumbers = new Set<number>();
-  for (const part of trimmed.split(',')) {
-    const [startText, endText] = part.trim().split(/\s*-\s*/);
-    const start = Number(startText);
-    const end = endText === undefined ? start : Number(endText);
-    if (start < 1 || end < start || end > pageCount) {
-      return { error: `Page ranges must be between 1 and ${pageCount}, with the first number no greater than the last.` };
-    }
-    for (let pageNumber = start; pageNumber <= end; pageNumber += 1) pageNumbers.add(pageNumber);
-  }
-  return { pageNumbers: [...pageNumbers] };
-}
-
-const PAGE_STANDARD_LABELS = {
-  a4: 'Force uniform A4',
-  letter: 'Force uniform US Letter',
-  preserve: 'Preserve mixed sizes',
-} as const;
-
-function newOutputItem(page: PageCard): OutputSequenceItem {
-  return {
-    id: crypto.randomUUID(),
-    page,
-    rotation: 0,
-    crop: { top: 0, right: 0, bottom: 0, left: 0 },
-    fitMode: 'letterbox',
-    redactions: [],
-  };
-}
-
-function sourceTypeLabel(kind: SourceItem['kind']): string {
-  return kind === 'pdf' ? 'PDF' : kind === 'docx' ? 'DOCX' : kind === 'custom' ? 'CUSTOM' : 'IMAGE';
-}
+import ui from '../../locales/packs/docstudio.ui.en.json';
+import { createDefaultStudioSettings, pdfFileName, arrayBufferFromBytes, parsePageRange, newOutputItem } from '../../lib/documentStudio/helpers';
+import { InputDeck } from './documentStudio/InputDeck';
+import { SourceRail } from './documentStudio/SourceRail';
+import { SelectedPagesPanel } from './documentStudio/SelectedPagesPanel';
+import { ExportPanel } from './documentStudio/ExportPanel';
 
 export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesChange?: (hasSources: boolean) => void }> = ({ digitize = false, onHasSourcesChange }) => {
   const { t, i18n } = useTranslation();
@@ -487,141 +399,9 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     setNotice(`${filename} downloaded.`);
   };
-  const inputDeck = (
-    <div className="min-w-0 space-y-4">
-      <div className={`mx-auto w-full rounded-[1.75rem] border border-stone-200 bg-[var(--theme-surface)] p-4 shadow-[0_24px_70px_-48px_var(--theme-card-shadow-color)] sm:p-6 ${sources.length > 0 ? '' : 'max-w-3xl'}`}>
-        <FileDropZone
-          accept={digitize ? '.png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp' : '.pdf,.docx,.png,.jpg,.jpeg,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg,image/webp'}
-          multiple
-          disabled={isLoading}
-          readingPdf={isLoading}
-          onFiles={(files) => { void addFiles(files); }}
-        />
-        {!digitize && <div className="mt-4 flex flex-wrap justify-center gap-2">
-          <button type="button" onClick={() => setShowCustomPage(true)} className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-stone-700 hover:border-orange-200 hover:bg-orange-50">
-            <FilePlus2 className="h-4 w-4" /> <span lang={i18n.language}>{t('master.custom')}</span>
-          </button>
-          <button type="button" onClick={() => setShowSamplePdf(true)} className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-stone-700 hover:border-orange-200 hover:bg-orange-50">
-            <Sparkles className="h-4 w-4" /> <span lang={i18n.language}>{t('master.sample')}</span>
-          </button>
-        </div>}
-      </div>
+  const inputDeck = <InputDeck addFiles={addFiles} applyPageRange={applyPageRange} digitize={digitize} isLoading={isLoading} pageRangeErrors={pageRangeErrors} pageRanges={pageRanges} pages={pages} selectedIds={selectedIds} setPageRangeErrors={setPageRangeErrors} setPageRanges={setPageRanges} setShowCustomPage={setShowCustomPage} setShowSamplePdf={setShowSamplePdf} setSourcePreviewPageId={setSourcePreviewPageId} sources={sources} togglePage={togglePage} toggleSourcePages={toggleSourcePages} />;
 
-      {sources.length > 0 ? (
-        <div className="space-y-5">
-          {sources.map((source, sourceIndex) => {
-            const sourcePages = pages.filter((page) => page.sourceId === source.id);
-            return (
-              <section key={source.id} className="min-w-0 rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
-                <div className="mb-3 space-y-3">
-                  <div className="flex items-center gap-3">
-                    <span className="whitespace-nowrap rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white">Document {sourceIndex + 1}</span>
-                    <div className="h-px flex-1 bg-indigo-200" />
-                    <div className="min-w-0 text-right">
-                      <p className="truncate text-xs font-bold text-slate-700" title={source.fileName}>{source.fileName}</p>
-                      <p className="text-[10px] text-slate-400">{sourceTypeLabel(source.kind)} · {sourcePages.length} page{sourcePages.length === 1 ? '' : 's'}{source.isEncrypted ? ' · password-protected' : ''}</p>
-                    </div>
-                  </div>
-                  {sourcePages.length > 0 && (
-                    <div className="flex flex-wrap items-end gap-2 rounded-xl bg-slate-50 p-2.5">
-                      <label className="flex h-9 items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-semibold text-slate-700">
-                        <input
-                          type="checkbox"
-                          checked={sourcePages.every((page) => selectedIds.includes(page.id))}
-                          onChange={(event) => toggleSourcePages(source.id, event.target.checked)}
-                          className="accent-indigo-600"
-                          aria-label={`Select all pages from ${source.fileName}`}
-                        />
-                        Select all
-                      </label>
-                      <label className="min-w-[150px] flex-1 text-[10px] font-semibold text-slate-600">
-                        Page range
-                        <input
-                          value={pageRanges[source.id] ?? ''}
-                          onChange={(event) => {
-                            setPageRanges((current) => ({ ...current, [source.id]: event.target.value }));
-                            setPageRangeErrors((current) => ({ ...current, [source.id]: '' }));
-                          }}
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter') {
-                              event.preventDefault();
-                              applyPageRange(source.id);
-                            }
-                          }}
-                          placeholder="e.g. 1-3, 5"
-                          aria-label={`Page range for ${source.fileName}`}
-                          aria-invalid={Boolean(pageRangeErrors[source.id])}
-                          className="mt-1 h-9 w-full rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-normal"
-                        />
-                      </label>
-                      <button type="button" onClick={() => applyPageRange(source.id)} className="h-9 rounded-lg border border-indigo-200 bg-white px-3 text-xs font-semibold text-indigo-700 hover:bg-indigo-50">Apply range</button>
-                      {pageRangeErrors[source.id] && <p role="alert" className="w-full text-[10px] text-red-600">{pageRangeErrors[source.id]}</p>}
-                    </div>
-                  )}
-                </div>
-                {sourcePages.length > 0 ? (
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-                    {sourcePages.map((page) => {
-                      const sequenceNumber = selectedIds.indexOf(page.id) + 1;
-                      const isSelected = sequenceNumber > 0;
-                      return (
-                        <article key={page.id} className={`group relative flex min-w-0 flex-col rounded-xl border p-2.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${isSelected ? 'border-indigo-500 bg-indigo-50/30 ring-2 ring-indigo-100' : 'border-slate-200 bg-slate-50'}`}>
-                          <input type="checkbox" checked={isSelected} onChange={() => togglePage(page.id)} className="absolute left-3 top-3 z-10 h-5 w-5 accent-indigo-600" aria-label={`Add ${page.sourceName} page ${page.originalPageNumber} to output`} />
-                          <div className="mb-2 flex h-48 items-center justify-center overflow-hidden rounded-lg bg-white p-2">
-                            <img src={page.thumbnailUrl} alt={`${page.sourceName} page ${page.originalPageNumber}`} loading="lazy" className="max-h-full max-w-full object-contain shadow-sm" />
-                          </div>
-                          <div className="flex min-w-0 items-center justify-between gap-2">
-                            <span className="truncate text-[10px] font-semibold text-slate-700">{page.sourceName}</span>
-                            <span className="shrink-0 rounded bg-white px-1.5 py-0.5 text-[9px] text-slate-500">Page {page.originalPageNumber}</span>
-                          </div>
-                          {isSelected && <span className="mt-2 inline-flex items-center gap-1 self-start rounded-full bg-indigo-600 px-2 py-1 text-[10px] font-bold text-white"><Check className="h-3 w-3" />Page {sequenceNumber} in Output</span>}
-                          <button type="button" onClick={() => setSourcePreviewPageId(page.id)} className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-slate-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"><ZoomIn className="h-3.5 w-3.5" />Zoom preview</button>
-                        </article>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">This document could not be separated into pages.</p>
-                )}
-              </section>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="rounded-xl border border-slate-200 bg-white px-4 py-8 text-center text-sm text-slate-500">Your uploaded pages will appear here in source order.</div>
-      )}
-    </div>
-  );
-
-  const sourceRail = (
-    <aside className="min-w-0 space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <div>
-        <h2 className="text-sm font-bold text-slate-900">Source overview</h2>
-        <p className="mt-1 text-xs text-slate-500">{sources.length} source{sources.length === 1 ? '' : 's'} · {outputItems.length} output pages</p>
-      </div>
-      <div className="space-y-2">
-        {sources.map((source) => {
-          const sourcePages = pages.filter((page) => page.sourceId === source.id);
-          return (
-            <div key={source.id} className="flex items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 p-2">
-              <div className="h-11 w-9 shrink-0 overflow-hidden rounded bg-white">
-                {sourcePages[0] && <img src={sourcePages[0].thumbnailUrl} alt="" className="h-full w-full object-contain" />}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-[11px] font-semibold text-slate-700" title={source.fileName}>{source.fileName}</p>
-                <p className="text-[10px] text-slate-400">{sourceTypeLabel(source.kind)} · {sourcePages.length} page{sourcePages.length === 1 ? '' : 's'}</p>
-              </div>
-              <button type="button" onClick={() => removeSource(source.id)} title={`Remove ${source.fileName}`} className="rounded p-1 text-slate-400 hover:bg-red-50 hover:text-red-600"><X className="h-3.5 w-3.5" /></button>
-            </div>
-          );
-        })}
-      </div>
-      <div className="grid gap-2">
-        <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center justify-center gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"><Plus className="h-4 w-4" />Add more files</button>
-        <button type="button" onClick={() => setStage('selection')} className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"><ArrowLeft className="h-4 w-4" />Back to selection</button>
-      </div>
-    </aside>
-  );
+  const sourceRail = <SourceRail fileInputRef={fileInputRef} outputItems={outputItems} pages={pages} removeSource={removeSource} setStage={setStage} sources={sources} />;
 
   return (
     <div className="mx-auto w-full min-w-0 space-y-4">
@@ -644,36 +424,7 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
             <section className="min-w-0">
               {inputDeck}
             </section>
-            {sources.length > 0 && <aside className="min-w-0 space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm lg:sticky lg:top-20">
-              <div className="flex items-start justify-between gap-2">
-                <div>
-                  <h2 lang={i18n.language} className="text-sm font-bold text-slate-900">{t('master.selected')}</h2>
-                  <p lang={i18n.language} className="mt-1 text-xs text-slate-500">{t('master.queued', { count: selectedIds.length })}</p>
-                </div>
-                <span className="rounded-full bg-indigo-50 px-2 py-1 text-[10px] font-bold text-indigo-700">{selectedIds.length}</span>
-              </div>
-              <div className="max-h-[55vh] space-y-2 overflow-y-auto pr-1">
-                {selectedIds.map((id, index) => {
-                  const page = pageMap.get(id);
-                  if (!page) return null;
-                  return (
-                    <div key={id} className="flex items-center gap-2 rounded-lg border border-slate-100 bg-slate-50 p-2">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-[10px] font-bold text-white">{index + 1}</span>
-                      <img src={page.thumbnailUrl} alt="" className="h-12 w-9 rounded bg-white object-contain" />
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-[10px] font-semibold text-slate-700">{page.sourceName}</p>
-                        <p className="text-[9px] text-slate-400">Original page {page.originalPageNumber}</p>
-                      </div>
-                      <button type="button" aria-label={`Remove output page ${index + 1}`} onClick={() => togglePage(id)} className="rounded p-1 text-slate-400 hover:bg-red-50 hover:text-red-600"><X className="h-3.5 w-3.5" /></button>
-                    </div>
-                  );
-                })}
-                {selectedIds.length === 0 && <div lang={i18n.language} className="rounded-lg border border-dashed border-slate-200 px-3 py-8 text-center text-xs text-slate-400">{t('master.empty')}</div>}
-              </div>
-              {selectedIds.length > 0 && <button type="button" onClick={proceedToStudio} className="flex w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-5 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200">
-                <span lang={i18n.language}>{t('master.continue')}</span> <ArrowRight className="h-4 w-4" />
-              </button>}
-            </aside>}
+            {sources.length > 0 && <SelectedPagesPanel pageMap={pageMap} proceedToStudio={proceedToStudio} selectedIds={selectedIds} togglePage={togglePage} />}
           </div>
         </div>
       ) : (
@@ -686,13 +437,13 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">2</span>
                   <h2 lang={i18n.language} className="text-lg font-bold text-slate-900">{t('master.editor')}</h2>
                 </div>
-                <p className="pl-8 text-xs text-slate-500">Drag pages to reorder. Pin any page to give it a title in your linked contents.</p>
+                <p className="pl-8 text-xs text-slate-500">{ui.dragPagesToReorderPin}</p>
               </div>
               <div className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">{outputItems.length} page{outputItems.length === 1 ? '' : 's'} in sequence · {outputItems.filter((item) => item.contentsTitle?.trim()).length} contents entr{outputItems.filter((item) => item.contentsTitle?.trim()).length === 1 ? 'y' : 'ies'}</div>
             </div>
             <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-3 text-xs text-amber-950">
               <Pin className="mt-0.5 h-4 w-4 shrink-0 fill-amber-500 text-amber-600" />
-              <p><span className="font-bold">Create a linked table of contents:</span> Click the pin on each page you want listed, enter its heading, and export. We’ll add a contents page at the beginning with links to those pages. Pages without a heading won’t appear.</p>
+              <p><span className="font-bold">{ui.createALinkedTableOf}</span> Click the pin on each page you want listed, enter its heading, and export. We’ll add a contents page at the beginning with links to those pages. Pages without a heading won’t appear.</p>
             </div>
 
             {outputItems.length > 0 ? (
@@ -743,10 +494,10 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                         </div>
                       )}
                       <div className="mt-2 flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 pt-2">
-                        <span className="inline-flex items-center gap-1 text-[9px] text-slate-400"><Move className="h-3 w-3" />Drag to reorder</span>
+                        <span className="inline-flex items-center gap-1 text-[9px] text-slate-400"><Move className="h-3 w-3" />{ui.dragToReorder}</span>
                         <div className="flex items-center gap-1">
                           <button type="button" aria-label={`${item.contentsTitle ? 'Edit' : 'Add'} table of contents entry for page ${index + 1}`} aria-pressed={Boolean(item.contentsTitle)} onClick={() => setContentsEntryItemId(item.id)} className={`rounded-lg p-1.5 ${item.contentsTitle ? 'bg-amber-100 text-amber-800 hover:bg-amber-200' : 'text-slate-500 hover:bg-amber-50 hover:text-amber-700'}`} title={item.contentsTitle ? 'Edit contents entry' : 'Add to table of contents'}><Pin className={`h-4 w-4 ${item.contentsTitle ? 'fill-current' : ''}`} /></button>
-                          <button type="button" onClick={() => setPageEditorItemId(item.id)} className="rounded-lg bg-indigo-50 px-2.5 py-1.5 text-[10px] font-bold text-indigo-700 hover:bg-indigo-100">Zoom &amp; edit</button>
+                          <button type="button" onClick={() => setPageEditorItemId(item.id)} className="rounded-lg bg-indigo-50 px-2.5 py-1.5 text-[10px] font-bold text-indigo-700 hover:bg-indigo-100">{ui.zoomEdit}</button>
                         </div>
                       </div>
                     </div>
@@ -754,137 +505,10 @@ export const MasterDocumentStudio: React.FC<{ digitize?: boolean; onHasSourcesCh
                 })}
               </div>
             ) : (
-              <div className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center text-sm text-slate-500">No output pages remain. Return to selection to add pages.</div>
+              <div className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center text-sm text-slate-500">{ui.noOutputPagesRemainReturn}</div>
             )}
 
-            <div className="space-y-4 rounded-2xl border border-indigo-200 bg-white p-4 shadow-sm">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
-                <div>
-                  <h2 className="text-sm font-bold text-slate-900">PDF properties &amp; document-wide output options</h2>
-                  <p className="text-[10px] text-slate-500">These settings apply when the finished PDF is created.</p>
-                </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-bold text-emerald-700"><LockKeyhole className="h-3 w-3" />Local processing</span>
-              </div>
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                  <label className="block text-[10px] font-semibold text-slate-600 sm:col-span-2 xl:col-span-3">
-                    Download filename
-                    <div className="mt-1 flex items-center rounded-lg border border-slate-200 px-2.5 text-xs focus-within:border-indigo-400">
-                      <input value={settings.outputFileName} onChange={(event) => updateSettings('outputFileName', event.target.value)} maxLength={120} className="min-w-0 flex-1 py-2 outline-none" placeholder="master-document" />
-                      <span className="text-slate-400">.pdf</span>
-                    </div>
-                    <span className="mt-1 block font-normal text-slate-400">Filename only; separate from PDF properties below.</span>
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    PDF title property
-                    <input value={settings.documentTitle} onChange={(event) => updateSettings('documentTitle', event.target.value)} maxLength={120} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Master Document" />
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    PDF author property
-                    <input value={settings.documentAuthor} onChange={(event) => updateSettings('documentAuthor', event.target.value)} maxLength={100} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Author name" />
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    PDF subject property
-                    <input value={settings.documentSubject} onChange={(event) => updateSettings('documentSubject', event.target.value)} maxLength={160} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Document subject" />
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    PDF keywords property
-                    <input value={settings.documentKeywords} onChange={(event) => updateSettings('documentKeywords', event.target.value)} maxLength={240} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="Comma-separated keywords" />
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    Page standardization
-                    <select value={settings.pageStandard} onChange={(event) => updateSettings('pageStandard', event.target.value as StudioSettings['pageStandard'])} className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                      {Object.entries(PAGE_STANDARD_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
-                    </select>
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    Page numbering
-                    <select value={settings.numberPosition} onChange={(event) => updateSettings('numberPosition', event.target.value as StudioSettings['numberPosition'])} className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                      <option value="none">None</option>
-                      <option value="bottom-center">Bottom-center</option>
-                      <option value="bottom-right">Bottom-right</option>
-                      <option value="top-right">Top-right</option>
-                    </select>
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    Number format
-                    <input value={settings.numberFormat} onChange={(event) => updateSettings('numberFormat', event.target.value)} disabled={settings.numberPosition === 'none'} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs disabled:bg-slate-100 disabled:text-slate-400" placeholder="Page {page} of {total}" />
-                    {settings.numberPosition === 'none' && <span className="mt-1 block font-normal text-slate-400">Number format and cover skipping are ignored while numbering is off.</span>}
-                  </label>
-                  <div className="rounded-lg border border-slate-200 px-3 py-2.5">
-                    <label className={`flex items-center gap-2 text-xs font-medium ${settings.numberPosition === 'none' ? 'text-slate-400' : 'text-slate-600'}`}>
-                      <input type="checkbox" checked={settings.skipFirstPage} disabled={settings.numberPosition === 'none'} onChange={(event) => updateSettings('skipFirstPage', event.target.checked)} className="accent-indigo-600" />
-                      Don’t print a number on the first output page
-                    </label>
-                    <p className="mt-1 pl-5 text-[10px] leading-relaxed text-slate-400">Use for a cover page: it hides only that page’s footer/header number. Later pages keep their actual output page numbers (for example, page 2 remains “Page 2 of 5”).</p>
-                  </div>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    Document safe margins
-                    <select value={settings.marginMm} onChange={(event) => updateSettings('marginMm', Number(event.target.value) as StudioSettings['marginMm'])} className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                      <option value={0}>0 mm</option><option value={10}>10 mm</option><option value={20}>20 mm</option>
-                    </select>
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    Watermark text
-                    <input value={settings.watermarkText} onChange={(event) => updateSettings('watermarkText', event.target.value)} maxLength={60} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" placeholder="CONFIDENTIAL" />
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    Watermark opacity · {settings.watermarkOpacity}%
-                    <input type="range" min="10" max="80" step="5" value={settings.watermarkOpacity} onChange={(event) => updateSettings('watermarkOpacity', Number(event.target.value))} className="mt-2 w-full accent-indigo-600" />
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600">
-                    Watermark angle · {settings.watermarkAngle}°
-                    <input type="range" min="-60" max="60" step="5" value={settings.watermarkAngle} onChange={(event) => updateSettings('watermarkAngle', Number(event.target.value))} className="mt-2 w-full accent-indigo-600" />
-                  </label>
-                  <label className="block text-[10px] font-semibold text-slate-600 sm:col-span-2 xl:col-span-1">
-                    Raster image compression
-                    <select value={settings.compression} onChange={(event) => updateSettings('compression', event.target.value as StudioSettings['compression'])} className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs">
-                      <option value="quality">Maximum quality</option>
-                      <option value="balanced">Balanced (Web / Email)</option>
-                      <option value="target-2mb">Target size · under 2 MB</option>
-                      <option value="target-500kb">Target size · under 500 KB</option>
-                    </select>
-                    <span className="mt-1 block font-normal text-slate-400">Only raster inputs are recompressed. Original PDF pages remain vector-based; a size goal cannot be guaranteed.</span>
-                  </label>
-                  {!digitize && <div className="space-y-2 rounded-xl border border-slate-200 p-3 sm:col-span-2 xl:col-span-3">
-                    <label className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                      <input type="checkbox" checked={settings.protectOutput} onChange={(event) => updateSettings('protectOutput', event.target.checked)} className="accent-indigo-600" />
-                      Password-protect the final PDF
-                    </label>
-                    {settings.protectOutput && (
-                      <>
-                        <p className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] leading-relaxed text-amber-900">Password protection turns every page into an image: text in the final PDF can no longer be selected or searched, and links (including the contents page) stop working.</p>
-                        <div className="grid gap-3 sm:grid-cols-2">
-                          <label className="text-[10px] font-semibold text-slate-600">
-                            User / open password
-                            <input type="password" autoComplete="new-password" value={settings.outputUserPassword} onChange={(event) => updateSettings('outputUserPassword', event.target.value)} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" />
-                            <span className="mt-1 block font-normal text-slate-400">Required to open the PDF.</span>
-                          </label>
-                          <label className="text-[10px] font-semibold text-slate-600">
-                            Owner password
-                            <input type="password" autoComplete="new-password" value={settings.outputOwnerPassword} onChange={(event) => updateSettings('outputOwnerPassword', event.target.value)} className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-xs" />
-                            <span className="mt-1 block font-normal text-slate-400">Controls restrictions below. If omitted, the open password is also used as owner password.</span>
-                          </label>
-                        </div>
-                        <div className="flex flex-wrap gap-4 text-[10px] font-medium text-slate-600">
-                          <label className="flex items-center gap-2"><input type="checkbox" checked={settings.allowOutputPrinting} onChange={(event) => updateSettings('allowOutputPrinting', event.target.checked)} className="accent-indigo-600" />Allow printing</label>
-                          <label className="flex items-center gap-2"><input type="checkbox" checked={settings.allowOutputCopying} onChange={(event) => updateSettings('allowOutputCopying', event.target.checked)} className="accent-indigo-600" />Allow copying text</label>
-                        </div>
-                        <p className="rounded-lg bg-amber-50 px-3 py-2 text-[10px] leading-relaxed text-amber-800">Password protection re-encodes pages as images. Text will no longer be searchable/selectable, and clickable contents links are removed.</p>
-                      </>
-                    )}
-                  </div>}
-                </div>
-              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
-                {digitize ? <><label className="text-xs font-semibold text-slate-700">{t('digitize.language')} <select value={ocrLanguage} onChange={(event) => { setOcrLanguage(event.target.value as 'eng' | 'hin+eng'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="eng">{t('digitize.languageEnglish')}</option><option value="hin+eng">{t('digitize.languageHindi')}</option></select></label><label className="text-xs font-semibold text-slate-700">{t('digitize.output')} <select value={separate ? 'separate' : 'merged'} onChange={(event) => { setSeparate(event.target.value === 'separate'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="merged">{t('digitize.merged')}</option><option value="separate">{t('digitize.separate')}</option></select></label></> : <p className="max-w-xl text-[10px] text-slate-500">Create the finished PDF from the pages above, then download it to your device. Your source files stay in this browser.</p>}
-                <div className="flex flex-wrap gap-2">
-                  {downloadUrl && <a href={downloadUrl} download={downloadName} className="inline-flex items-center gap-2 rounded-lg border border-orange-300 bg-orange-50 px-4 py-2.5 text-xs font-bold text-orange-800 hover:bg-orange-100"><Download className="h-4 w-4" />Download again</a>}
-                  <button type="button" onClick={() => void handleExport()} disabled={isExporting || outputItems.length === 0} className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50">
-                    {isExporting ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
-                    {digitize ? (isExporting ? t('digitize.preparing') : t('digitize.create')) : (isExporting ? 'Creating PDF...' : 'Create & download final PDF')}
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ExportPanel digitize={digitize} downloadName={downloadName} downloadUrl={downloadUrl} handleExport={handleExport} isExporting={isExporting} ocrLanguage={ocrLanguage} outputItems={outputItems} separate={separate} setDownloadUrl={setDownloadUrl} setOcrLanguage={setOcrLanguage} setSeparate={setSeparate} settings={settings} updateSettings={updateSettings} />
           </section>
         </div>
       )}
