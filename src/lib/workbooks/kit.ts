@@ -43,3 +43,5 @@ export function statusRules(b: SheetBuilder, range: string, firstCell: string, w
   if (words.warn) b.rule({ range, formula: `${firstCell}="${words.warn}"`, fill: C.amber, color: C.amberText, bold: true });
   if (words.good) b.rule({ range, formula: `${firstCell}="${words.good}"`, fill: C.green, color: C.greenText, bold: true });
 }
+/** Splits "a, b, c" into trimmed, non-empty items, keeping at most `max`. */
+export const splitList = (text: string, max: number): string[] => text.split(',').map((s) => s.trim()).filter(Boolean).slice(0, max);

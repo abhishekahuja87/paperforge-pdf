@@ -43,6 +43,26 @@
     "supplier-payment-tracker-excel-maker": [
       "Supplier Payment Tracker Excel Maker: Bills, Due Dates, Overdue (Free)",
       "Make a supplier payment tracker in Excel. Log bills with credit days, see due dates, what is overdue or due soon, and what you owe each supplier. Free, no macros."
+    ],
+    "lead-tracker-excel-maker": [
+      "Lead and Enquiry Tracker Excel Maker: Follow-ups and Win Rate (Free)",
+      "Make a lead or enquiry tracker in Excel. Log who asked, the source and value, set follow-up dates, see who is overdue, and message them on WhatsApp. Free, no macros."
+    ],
+    "expense-claim-excel-maker": [
+      "Expense Claim Excel Maker: Reimbursement Sheet with Limits (Free)",
+      "Make an expense claim form in Excel. List each expense with category and receipt, check it against your limits, track approval, and print the total. Free, no macros."
+    ],
+    "job-order-tracker-excel-maker": [
+      "Job and Order Tracker Excel Maker: Due Dates, Advance, Balance (Free)",
+      "Make a job or order tracker in Excel for a tailor, repair shop or custom orders. Track status, due dates, advance and balance, with overdue flags. Free, no macros."
+    ],
+    "vehicle-log-book-excel-maker": [
+      "Vehicle Log Book Excel Maker: Trips, Fuel and Mileage (Free)",
+      "Make a vehicle log book in Excel. Log trips and fuel with meter readings, and get distance, cost per km and km per litre for each vehicle. Free, no macros."
+    ],
+    "marks-rank-sheet-excel-maker": [
+      "Marks and Rank Sheet Excel Maker: Total, Percentage, Grade (Free)",
+      "Make a marks sheet in Excel for a class. Type marks in up to six subjects and get total, percentage, pass or fail, grade, rank and class averages. Free, no macros."
     ]
   }
 }

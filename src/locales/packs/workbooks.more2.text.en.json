@@ -1,0 +1,1217 @@
+{
+ "common": {
+  "sheets": "What is on each sheet (click a name to jump there)",
+  "legendInput": "Type here",
+  "legendCalc": "Calculated",
+  "totals": "Total",
+  "number": "#"
+ },
+ "leads": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "starters": "What do you sell?",
+   "listIntro": "Optional. Paste or upload your current enquiries. A name column is needed. Phone, source, what they want and the value are optional.",
+   "business": "Business name",
+   "businessPlaceholder": "Used in the reminder message",
+   "sources": "Where enquiries come from",
+   "sourcesHint": "Separate with commas, up to eight. For example Walk-in, WhatsApp, Referral.",
+   "message": "Follow-up message",
+   "messageHint": "{name} and {business} are filled in for each person.",
+   "defaultMessage": "Hello {name}, this is {business}. Just checking in about your enquiry. Please let me know if you have any questions.",
+   "spare": "Spare rows",
+   "spareHint": "Empty rows kept for new enquiries.",
+   "tooMany": "Only the first {n} enquiries are used.",
+   "fieldName": "Name",
+   "fieldPhone": "Phone",
+   "fieldSource": "Source",
+   "fieldInterest": "Interested in",
+   "fieldValue": "Value"
+  },
+  "starters": {
+   "shop": {
+    "label": "Shop or small business",
+    "hint": "Walk-ins, calls and WhatsApp enquiries.",
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "Walk-in",
+      "Sofa set",
+      "45000"
+     ],
+     [
+      "Ravi Kumar",
+      "9000000002",
+      "WhatsApp",
+      "Dining table",
+      "28000"
+     ],
+     [
+      "Meena Shah",
+      "9000000003",
+      "Referral",
+      "Bed and mattress",
+      "36000"
+     ],
+     [
+      "Imran Khan",
+      "9000000004",
+      "Phone call",
+      "Wardrobe",
+      "22000"
+     ],
+     [
+      "Sunita Das",
+      "9000000005",
+      "Website",
+      "Study table",
+      "9000"
+     ]
+    ]
+   },
+   "coaching": {
+    "label": "Coaching or classes",
+    "hint": "Admission enquiries.",
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "Walk-in",
+      "Class 10 maths",
+      "12000"
+     ],
+     [
+      "Ravi Kumar",
+      "9000000002",
+      "WhatsApp",
+      "Class 12 science",
+      "18000"
+     ],
+     [
+      "Meena Shah",
+      "9000000003",
+      "Referral",
+      "Spoken English",
+      "8000"
+     ],
+     [
+      "Imran Khan",
+      "9000000004",
+      "Phone call",
+      "NEET crash course",
+      "25000"
+     ],
+     [
+      "Sunita Das",
+      "9000000005",
+      "Website",
+      "Class 8 all subjects",
+      "10000"
+     ]
+    ],
+    "set": {
+     "sources": "Walk-in, Phone call, WhatsApp, Referral, Website"
+    }
+   },
+   "services": {
+    "label": "Services, repairs or events",
+    "hint": "Quotes and bookings.",
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "Phone call",
+      "Wedding photography",
+      "60000"
+     ],
+     [
+      "Ravi Kumar",
+      "9000000002",
+      "WhatsApp",
+      "Home painting",
+      "45000"
+     ],
+     [
+      "Meena Shah",
+      "9000000003",
+      "Referral",
+      "AC servicing",
+      "3500"
+     ],
+     [
+      "Imran Khan",
+      "9000000004",
+      "Walk-in",
+      "Birthday decoration",
+      "15000"
+     ],
+     [
+      "Sunita Das",
+      "9000000005",
+      "Website",
+      "Interior work",
+      "120000"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "leads": [
+    {
+     "ago": 20,
+     "stage": "Won",
+     "follow": null
+    },
+    {
+     "ago": 14,
+     "stage": "Quote sent",
+     "follow": -2
+    },
+    {
+     "ago": 9,
+     "stage": "Contacted",
+     "follow": 0
+    },
+    {
+     "ago": 6,
+     "stage": "New",
+     "follow": 2
+    },
+    {
+     "ago": 25,
+     "stage": "Lost",
+     "follow": null
+    },
+    {
+     "ago": 3,
+     "stage": "Quote sent",
+     "follow": 5
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Enquiry and Lead Tracker",
+   "intro": "Keep every enquiry in one place. Add who asked, where they came from, what they want and what it is worth. Set the next follow-up date and the tracker shows who is overdue, with a WhatsApp link to message them. Counts by stage and source, and your win rate, fill in by themselves. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name and the follow-up message. Open Lists and check the sources where enquiries come from. The stages are New, Contacted, Quote sent, Won and Lost.",
+    "Open Leads. Add a row for each enquiry: the date, name, phone, source, what they want, the value, and the stage. Pick the source and stage from the lists.",
+    "Type the next follow-up date. The Follow-up column shows Overdue, Today or Upcoming, and the Chat link opens WhatsApp with your message ready. You press send yourself.",
+    "Move the stage as things happen. Summary shows open leads, their value, what you have won, your win rate and charts by stage and source. Use the filter on the Follow-up heading to see who to call today."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam aur follow-up message likhein. Lists mein dekhein ki enquiry kahan se aati hain. Stages hain: New, Contacted, Quote sent, Won aur Lost.",
+    "Leads kholein. Har enquiry ke liye ek row: tareekh, naam, phone, source, kya chahiye, value aur stage. Source aur stage list se chunein.",
+    "Agla follow-up date likhein. Follow-up column mein Overdue, Today ya Upcoming dikhta hai, aur Chat link se WhatsApp message tayyar khulta hai. Send aap khud dabate hain.",
+    "Jaise-jaise kaam badhe, stage badalte rahein. Summary mein open leads, unki value, jeete hue kaam, win rate aur chart dikhte hain. Aaj kiske ko call karna hai ye Follow-up ke filter se dekhein."
+   ],
+   "about": [
+    "Your business name and the follow-up message.",
+    "The sources of enquiries and the stages.",
+    "Every enquiry with its stage, next follow-up and a WhatsApp link.",
+    "Counts and value by stage and source, win rate and charts."
+   ],
+   "sheetSettings": "Settings",
+   "sheetLists": "Lists",
+   "sheetLeads": "Leads",
+   "sheetSummary": "Summary",
+   "business": "Business name",
+   "asOf": "As of date (today by default)",
+   "code": "Country code for WhatsApp (digits only)",
+   "message": "Follow-up message",
+   "settingsHelp": "In the message, {name} and {business} are filled in for each person. Links open WhatsApp: nothing is sent from the file.",
+   "listsTitle": "Lists",
+   "listsSub": "Sources are yours to change. The five stages are fixed so the Summary can count them.",
+   "colSource": "Source",
+   "colStage": "Stage",
+   "stages": [
+    "New",
+    "Contacted",
+    "Quote sent",
+    "Won",
+    "Lost"
+   ],
+   "leadsTitle": "Leads",
+   "leadsSub": "One row for each enquiry. Set a follow-up date and the tracker tells you when it is due.",
+   "colDate": "Date",
+   "colName": "Name",
+   "colPhone": "Phone",
+   "colInterest": "Interested in",
+   "colValue": "Value",
+   "colNext": "Next follow-up",
+   "colLeft": "Days left",
+   "colFollow": "Follow-up",
+   "colChat": "WhatsApp",
+   "chat": "Chat",
+   "sourceHelp": "Pick a source or type your own.",
+   "stageHelp": "Where this enquiry stands.",
+   "setDate": "Set a date",
+   "overdue": "Overdue",
+   "today": "Today",
+   "upcoming": "Upcoming",
+   "summaryTitle": "Summary",
+   "kpiLeads": "Total enquiries",
+   "kpiOpen": "Open (not won or lost)",
+   "kpiOpenValue": "Value of open enquiries",
+   "kpiWonValue": "Value won",
+   "kpiWinRate": "Win rate (won out of won and lost)",
+   "kpiOverdue": "Follow-ups overdue",
+   "kpiToday": "Follow-ups today",
+   "colCount": "Enquiries",
+   "colWon": "Won",
+   "chartStage": "Enquiries by stage",
+   "chartSource": "Enquiries by source"
+  }
+ },
+ "expenses": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "starters": "What are the claims for?",
+   "listIntro": "Optional. Paste or upload your categories. A category name is needed. A limit per claim is optional.",
+   "business": "Organisation or business",
+   "businessPlaceholder": "Shown at the top",
+   "claimant": "Claimant name",
+   "claimantPlaceholder": "Who is claiming",
+   "spare": "Spare category rows",
+   "spareHint": "Empty rows kept for new categories.",
+   "logRows": "Claim rows",
+   "logRowsHint": "How many expenses the sheet has room for.",
+   "tooMany": "Only the first {n} categories are used.",
+   "fieldName": "Category",
+   "fieldLimit": "Limit per claim"
+  },
+  "starters": {
+   "travel": {
+    "label": "Work travel",
+    "hint": "Trips, fuel and stays.",
+    "rows": [
+     [
+      "Taxi or cab",
+      "1500"
+     ],
+     [
+      "Train or flight",
+      "8000"
+     ],
+     [
+      "Hotel",
+      "5000"
+     ],
+     [
+      "Meals",
+      "800"
+     ],
+     [
+      "Fuel",
+      "3000"
+     ]
+    ]
+   },
+   "office": {
+    "label": "Office or shop",
+    "hint": "Day-to-day running costs.",
+    "rows": [
+     [
+      "Stationery",
+      "1000"
+     ],
+     [
+      "Cleaning",
+      "1500"
+     ],
+     [
+      "Tea and snacks",
+      "800"
+     ],
+     [
+      "Repairs",
+      "5000"
+     ],
+     [
+      "Courier and postage",
+      "500"
+     ]
+    ]
+   },
+   "personal": {
+    "label": "Personal reimbursement",
+    "hint": "Money you spent and want back.",
+    "rows": [
+     [
+      "Travel",
+      "3000"
+     ],
+     [
+      "Food",
+      "1000"
+     ],
+     [
+      "Medicines",
+      "2000"
+     ],
+     [
+      "Supplies",
+      "2500"
+     ],
+     [
+      "Other",
+      ""
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "claims": [
+    {
+     "ago": 24,
+     "what": "Cab to client meeting",
+     "cat": 0,
+     "amount": 1200,
+     "receipt": "Yes",
+     "status": "Paid"
+    },
+    {
+     "ago": 20,
+     "what": "Train tickets",
+     "cat": 1,
+     "amount": 6400,
+     "receipt": "Yes",
+     "status": "Approved"
+    },
+    {
+     "ago": 16,
+     "what": "Hotel for two nights",
+     "cat": 2,
+     "amount": 9500,
+     "receipt": "Yes",
+     "status": "Pending"
+    },
+    {
+     "ago": 12,
+     "what": "Lunch with client",
+     "cat": 3,
+     "amount": 950,
+     "receipt": "No",
+     "status": "Pending"
+    },
+    {
+     "ago": 9,
+     "what": "Fuel for site visit",
+     "cat": 4,
+     "amount": 2400,
+     "receipt": "Yes",
+     "status": "Approved"
+    },
+    {
+     "ago": 5,
+     "what": "Cab from airport",
+     "cat": 0,
+     "amount": 900,
+     "receipt": "Yes",
+     "status": "Rejected"
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Expense Claim Sheet",
+   "intro": "List what you spent, pick a category, and mark whether you have the receipt. Each claim is checked against the limit for its category, tracked as Pending, Approved, Rejected or Paid, and added up by category. Print it for approval. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type the organisation, the claimant name and the period, for example November 2026. Open Categories and list your expense types, with a limit per claim if you want one.",
+    "Open Claims. Add a row for each expense: the date, what it was, the category, the amount and whether you have the receipt. The limit and a check appear next to it.",
+    "The person approving changes the Status to Approved, Rejected or Paid. Use the filter on the Status heading to see what is still pending.",
+    "Summary shows the total claimed, approved, paid and still to pay, and the amounts for each category. Print it or save as PDF to send with the receipts."
+   ],
+   "guideHi": [
+    "Settings mein sanstha, claim karne wale ka naam aur period likhein. Categories mein kharche ke type likhein, chaho to har claim ki limit bhi.",
+    "Claims kholein. Har kharche ke liye ek row: tareekh, kya tha, category, rakam aur receipt hai ya nahi. Limit aur check saath mein dikhte hain.",
+    "Approve karne wala Status ko Approved, Rejected ya Paid karta hai. Status ke filter se dekhein ki kya pending hai.",
+    "Summary mein kitna claim hua, approve hua, paid hua aur dena baaki hai, aur category ke hisaab se rakam dikhti hai. Receipts ke saath bhejne ke liye print ya PDF karein."
+   ],
+   "about": [
+    "The organisation, claimant and period.",
+    "Your expense types, with an optional limit for each claim.",
+    "Every expense with its receipt, status and a limit check.",
+    "Totals by status and by category."
+   ],
+   "sheetSettings": "Settings",
+   "sheetCategories": "Categories",
+   "sheetClaims": "Claims",
+   "sheetSummary": "Summary",
+   "business": "Organisation or business",
+   "claimant": "Claimant name",
+   "period": "Period",
+   "samplePeriod": "Sample claims",
+   "settingsHelp": "Limits are only the numbers you type for each category. Check them against your own policy.",
+   "categoriesTitle": "Categories",
+   "categoriesSub": "List your expense types. A limit per claim is optional: leave it empty for no limit.",
+   "colCategory": "Category",
+   "colLimit": "Limit per claim",
+   "claimsTitle": "Claims",
+   "claimsSub": "One row for each expense. The approver changes the status.",
+   "colDate": "Date",
+   "colWhat": "What it was for",
+   "colAmount": "Amount",
+   "colReceipt": "Receipt",
+   "colStatus": "Status",
+   "colCheck": "Check",
+   "yes": "Yes",
+   "no": "No",
+   "statuses": [
+    "Pending",
+    "Approved",
+    "Rejected",
+    "Paid"
+   ],
+   "categoryHelp": "Pick a category from the Categories sheet.",
+   "amountHelp": "The amount you spent.",
+   "statusHelp": "Pending, Approved, Rejected or Paid.",
+   "overLimit": "Over limit",
+   "noReceipt": "No receipt",
+   "fixRow": "Add date and category",
+   "summaryTitle": "Summary",
+   "kpiClaimed": "Total claimed",
+   "kpiApproved": "Approved (not yet paid)",
+   "kpiPaid": "Paid",
+   "kpiToPay": "Still to pay",
+   "kpiPending": "Waiting for approval",
+   "kpiRejected": "Rejected",
+   "kpiFlags": "Claims with a check note",
+   "colClaimed": "Claimed",
+   "colApprovedPaid": "Approved or paid",
+   "colPending": "Pending",
+   "colRejected": "Rejected",
+   "chartCategory": "Claimed by category"
+  }
+ },
+ "jobs": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "starters": "What kind of work?",
+   "listIntro": "Optional. Paste or upload your customers. A name column is needed. Phone and a note are optional.",
+   "business": "Business name",
+   "businessPlaceholder": "Shown at the top",
+   "soonDays": "Warn this many days before the due date",
+   "soonDaysHint": "A job due within this many days shows as Due soon.",
+   "spare": "Spare customer rows",
+   "spareHint": "Empty rows kept for new customers.",
+   "logRows": "Job rows",
+   "logRowsHint": "How many jobs the sheet has room for.",
+   "tooMany": "Only the first {n} customers are used.",
+   "fieldName": "Customer",
+   "fieldPhone": "Phone",
+   "fieldNote": "Note"
+  },
+  "starters": {
+   "tailor": {
+    "label": "Tailor or boutique",
+    "hint": "Stitching and alteration orders.",
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "Blouse and saree fall"
+     ],
+     [
+      "Ravi Kumar",
+      "9000000002",
+      "Two shirts"
+     ],
+     [
+      "Meena Shah",
+      "9000000003",
+      "Lehenga alteration"
+     ],
+     [
+      "Imran Khan",
+      "9000000004",
+      "Suit"
+     ],
+     [
+      "Sunita Das",
+      "9000000005",
+      "Kurta set"
+     ]
+    ]
+   },
+   "repair": {
+    "label": "Repair shop",
+    "hint": "Phones, appliances or vehicles.",
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "Mobile screen"
+     ],
+     [
+      "Ravi Kumar",
+      "9000000002",
+      "Washing machine"
+     ],
+     [
+      "Meena Shah",
+      "9000000003",
+      "Laptop"
+     ],
+     [
+      "Imran Khan",
+      "9000000004",
+      "Bike service"
+     ],
+     [
+      "Sunita Das",
+      "9000000005",
+      "Mixer grinder"
+     ]
+    ]
+   },
+   "print": {
+    "label": "Printing, gifts or bakery",
+    "hint": "Custom orders with an advance.",
+    "rows": [
+     [
+      "Asha Rao",
+      "9000000001",
+      "Wedding cards"
+     ],
+     [
+      "Ravi Kumar",
+      "9000000002",
+      "Birthday cake"
+     ],
+     [
+      "Meena Shah",
+      "9000000003",
+      "Photo frames"
+     ],
+     [
+      "Imran Khan",
+      "9000000004",
+      "Banners"
+     ],
+     [
+      "Sunita Das",
+      "9000000005",
+      "Gift hampers"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "jobs": [
+    {
+     "no": "101",
+     "ago": 12,
+     "customer": 0,
+     "what": "Blouse and saree fall",
+     "amount": 1800,
+     "advance": 1000,
+     "due": -4,
+     "status": "Delivered"
+    },
+    {
+     "no": "102",
+     "ago": 9,
+     "customer": 1,
+     "what": "Two shirts",
+     "amount": 2400,
+     "advance": 1200,
+     "due": -1,
+     "status": "Ready"
+    },
+    {
+     "no": "103",
+     "ago": 7,
+     "customer": 2,
+     "what": "Lehenga alteration",
+     "amount": 3500,
+     "advance": 1500,
+     "due": 2,
+     "status": "In progress"
+    },
+    {
+     "no": "104",
+     "ago": 5,
+     "customer": 3,
+     "what": "Suit",
+     "amount": 9000,
+     "advance": 4000,
+     "due": 6,
+     "status": "In progress"
+    },
+    {
+     "no": "105",
+     "ago": 3,
+     "customer": 4,
+     "what": "Kurta set",
+     "amount": 2200,
+     "advance": 0,
+     "due": -2,
+     "status": "In progress"
+    },
+    {
+     "no": "106",
+     "ago": 1,
+     "customer": 0,
+     "what": "Dress",
+     "amount": 2800,
+     "advance": 1000,
+     "due": 9,
+     "status": "Received"
+    },
+    {
+     "no": "107",
+     "ago": 15,
+     "customer": 1,
+     "what": "Trousers",
+     "amount": 1200,
+     "advance": 0,
+     "due": -8,
+     "status": "Cancelled"
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Job and Order Tracker",
+   "intro": "Keep track of every job or custom order: who it is for, what it is, the amount, the advance taken, the balance and the due date. Overdue and due-soon jobs are flagged, and Summary shows what is open and how much you still have to collect. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type your business name and how many days before the due date you want a warning. Open Customers and list the people you work for.",
+    "Open Jobs. Add a row for each order: a job number, the date received, the customer, what it is, the amount, any advance and the due date. The balance is worked out for you.",
+    "Change the Status as the work moves: Received, In progress, Ready, Delivered or Cancelled. Overdue and Due soon flags show on jobs that are not finished. Use the filter on Status to see what is ready for pickup.",
+    "Summary shows open jobs, overdue and due-soon jobs, what is ready, and the balance still to collect. The Payment column shows Paid, Part paid or Unpaid for each job."
+   ],
+   "guideHi": [
+    "Settings mein business ka naam aur due date se kitne din pehle chetavni chahiye wo likhein. Customers mein apne customers likhein.",
+    "Jobs kholein. Har order ke liye ek row: job number, kab aaya, customer, kya hai, rakam, advance aur due date. Balance apne aap nikalta hai.",
+    "Kaam badhne par Status badlein: Received, In progress, Ready, Delivered ya Cancelled. Adhoore kaam par Overdue aur Due soon dikhta hai. Status ke filter se dekhein kya taiyar hai.",
+    "Summary mein open jobs, overdue aur due soon jobs, taiyar jobs aur vasool karna baaki balance dikhta hai. Payment column mein Paid, Part paid ya Unpaid dikhta hai."
+   ],
+   "about": [
+    "Your business name and the warning days.",
+    "The people you work for.",
+    "Every job with amount, advance, balance, due date, status and flags.",
+    "Open, overdue and ready jobs and what is left to collect."
+   ],
+   "sheetSettings": "Settings",
+   "sheetCustomers": "Customers",
+   "sheetJobs": "Jobs",
+   "sheetSummary": "Summary",
+   "business": "Business name",
+   "asOf": "As of date (today by default)",
+   "soonDays": "Warn this many days before the due date",
+   "settingsHelp": "The warning days are only the number you type.",
+   "customersTitle": "Customers",
+   "customersSub": "List the people you work for. You can also type a new name straight into the Jobs sheet.",
+   "colCustomer": "Customer",
+   "colPhone": "Phone",
+   "colNote": "Note",
+   "jobsTitle": "Jobs",
+   "jobsSub": "One row for each job or order. Type the amount and advance; the balance is worked out.",
+   "colNo": "Job no.",
+   "colReceived": "Received",
+   "colWhat": "What it is",
+   "colAmount": "Amount",
+   "colAdvance": "Advance",
+   "colDue": "Due date",
+   "colStatus": "Status",
+   "colBalance": "Balance",
+   "colLeft": "Days left",
+   "colFlag": "Flag",
+   "colPayment": "Payment",
+   "statuses": [
+    "Received",
+    "In progress",
+    "Ready",
+    "Delivered",
+    "Cancelled"
+   ],
+   "customerHelp": "Pick a customer or type a new name.",
+   "statusHelp": "Where this job stands.",
+   "overdue": "Overdue",
+   "dueSoon": "Due soon",
+   "paid": "Paid",
+   "part": "Part paid",
+   "unpaid": "Unpaid",
+   "summaryTitle": "Summary",
+   "kpiOpen": "Open jobs",
+   "kpiOverdue": "Overdue jobs",
+   "kpiSoon": "Due soon",
+   "kpiReady": "Ready for pickup",
+   "kpiBalance": "Balance still to collect",
+   "kpiAdvance": "Advance taken",
+   "colCount": "Jobs",
+   "chartStatus": "Jobs by status"
+  }
+ },
+ "vehicle": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "starters": "What vehicles do you have?",
+   "listIntro": "Optional. Paste or upload your vehicles. A name column is needed. Registration number and a note are optional.",
+   "business": "Business or owner name",
+   "businessPlaceholder": "Shown at the top",
+   "spare": "Spare vehicle rows",
+   "spareHint": "Empty rows kept for new vehicles.",
+   "logRows": "Log rows",
+   "logRowsHint": "How many trips or fill-ups the log has room for.",
+   "tooMany": "Only the first {n} vehicles are used.",
+   "fieldName": "Vehicle",
+   "fieldReg": "Registration number",
+   "fieldNote": "Note"
+  },
+  "starters": {
+   "delivery": {
+    "label": "Delivery vehicles",
+    "hint": "Vans, bikes and autos for a business.",
+    "rows": [
+     [
+      "Delivery van",
+      "MH 01 AB 1234",
+      "Main route"
+     ],
+     [
+      "Delivery bike 1",
+      "MH 01 CD 5678",
+      "City"
+     ],
+     [
+      "Delivery bike 2",
+      "MH 01 EF 9012",
+      "Suburbs"
+     ]
+    ]
+   },
+   "family": {
+    "label": "Family car and bike",
+    "hint": "Track fuel and running costs.",
+    "rows": [
+     [
+      "Car",
+      "KA 01 AB 1234",
+      "Hatchback"
+     ],
+     [
+      "Scooter",
+      "KA 01 CD 5678",
+      "Daily use"
+     ]
+    ]
+   },
+   "taxi": {
+    "label": "Taxi or travel business",
+    "hint": "Cabs and tempo travellers.",
+    "rows": [
+     [
+      "Cab 1",
+      "DL 01 AB 1234",
+      "Sedan"
+     ],
+     [
+      "Cab 2",
+      "DL 01 CD 5678",
+      "SUV"
+     ],
+     [
+      "Tempo traveller",
+      "DL 01 EF 9012",
+      "12 seater"
+     ]
+    ]
+   }
+  },
+  "sample": {
+   "trips": [
+    {
+     "ago": 20,
+     "vehicle": 0,
+     "what": "Morning route",
+     "start": 12000,
+     "end": 12082,
+     "litres": 8.2,
+     "fuel": 880,
+     "other": 0
+    },
+    {
+     "ago": 14,
+     "vehicle": 0,
+     "what": "Wholesale run",
+     "start": 12082,
+     "end": 12190,
+     "litres": 10.4,
+     "fuel": 1120,
+     "other": 150
+    },
+    {
+     "ago": 8,
+     "vehicle": 0,
+     "what": "City deliveries",
+     "start": 12190,
+     "end": 12270,
+     "litres": 8.0,
+     "fuel": 860,
+     "other": 0
+    },
+    {
+     "ago": 3,
+     "vehicle": 0,
+     "what": "Service visit",
+     "start": 12270,
+     "end": 12290,
+     "litres": 0,
+     "fuel": 0,
+     "other": 2400
+    },
+    {
+     "ago": 18,
+     "vehicle": 1,
+     "what": "City deliveries",
+     "start": 5000,
+     "end": 5090,
+     "litres": 2.0,
+     "fuel": 210,
+     "other": 0
+    },
+    {
+     "ago": 9,
+     "vehicle": 1,
+     "what": "City deliveries",
+     "start": 5090,
+     "end": 5170,
+     "litres": 1.8,
+     "fuel": 190,
+     "other": 0
+    },
+    {
+     "ago": 2,
+     "vehicle": 1,
+     "what": "Suburbs",
+     "start": 5170,
+     "end": 5262,
+     "litres": 2.1,
+     "fuel": 225,
+     "other": 0
+    }
+   ]
+  },
+  "sheet": {
+   "title": "Vehicle Log Book",
+   "intro": "Write down each trip or fill-up with the start and end reading of the meter. The log works out the distance, the cost per km and the kilometres per litre, and Totals shows each vehicle. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type the business or owner name. Open Vehicles and list each vehicle with its registration number.",
+    "Open Log. For each trip or fill-up add a row: the date, the vehicle, what it was for, the meter reading at the start and at the end, and the litres and cost of any fuel. Add other costs such as tolls or repairs in Other cost.",
+    "The sheet works out the distance, the total cost, the cost per km and the km per litre. A red check appears if the end reading is lower than the start.",
+    "Totals shows each vehicle: distance, fuel, other costs, cost per km and average km per litre. Use it to see which vehicle costs the most to run."
+   ],
+   "guideHi": [
+    "Settings mein business ya malik ka naam likhein. Vehicles mein har gaadi ka naam aur number likhein.",
+    "Log kholein. Har trip ya fuel ke liye ek row: tareekh, gaadi, kis kaam ke liye, meter shuru aur ant ki reading, aur fuel ke litre aur kharcha. Toll ya repair jaise kharche Other cost mein likhein.",
+    "Sheet doori, kul kharcha, kharcha prati km aur km prati litre nikalti hai. Agar ant ki reading shuru se kam ho to laal check dikhta hai.",
+    "Totals mein har gaadi ki doori, fuel, doosre kharche, kharcha prati km aur average km prati litre dikhte hain. Dekhein kaun si gaadi sabse mehngi padti hai."
+   ],
+   "about": [
+    "The business or owner name.",
+    "Your vehicles with registration numbers.",
+    "Every trip or fill-up with distance, cost and mileage.",
+    "Distance, cost and mileage for each vehicle."
+   ],
+   "sheetSettings": "Settings",
+   "sheetVehicles": "Vehicles",
+   "sheetLog": "Log",
+   "sheetTotals": "Totals",
+   "business": "Business or owner name",
+   "settingsHelp": "Distances are worked out from the meter readings you type.",
+   "vehiclesTitle": "Vehicles",
+   "vehiclesSub": "List each vehicle once.",
+   "colVehicle": "Vehicle",
+   "colReg": "Registration number",
+   "colNote": "Note",
+   "logTitle": "Log",
+   "logSub": "One row for each trip or fill-up. Type the meter reading at the start and at the end.",
+   "colDate": "Date",
+   "colTrip": "Trip or purpose",
+   "colStart": "Start km",
+   "colEnd": "End km",
+   "colLitres": "Litres",
+   "colFuel": "Fuel cost",
+   "colOther": "Other cost",
+   "colKm": "Km",
+   "colTotal": "Total cost",
+   "colPerKm": "Cost per km",
+   "colKmpl": "Km per litre",
+   "colCheck": "Check",
+   "vehicleHelp": "Pick a vehicle from the Vehicles sheet.",
+   "badEnd": "End below start",
+   "pickVehicle": "Pick a vehicle",
+   "totalsTitle": "Totals by vehicle",
+   "totalsSub": "Distance, fuel and other costs for each vehicle. Km per litre uses only the rows where you typed litres.",
+   "chartCost": "Total cost by vehicle"
+  }
+ },
+ "gradebook": {
+  "ui": {
+   "start": "Start here",
+   "previewYours": "This is your workbook.",
+   "previewSample": "This preview uses sample rows. Your download will be blank unless you choose With sample data.",
+   "starters": "Which class?",
+   "listIntro": "Optional. Paste or upload your students. A name column is needed. Roll number is optional.",
+   "title": "Sheet title",
+   "titlePlaceholder": "For example Class 8 A, Term 1",
+   "subjects": "Subjects",
+   "subjectsHint": "Separate with commas, up to six.",
+   "max": "Maximum marks in each subject",
+   "maxHint": "The same for every subject.",
+   "pass": "Pass mark in each subject (percent)",
+   "passHint": "A student passes when every subject is at or above this percentage. Use your own school or board rule.",
+   "spare": "Spare student rows",
+   "spareHint": "Empty rows kept for new students.",
+   "tooMany": "Only the first {n} students are used.",
+   "fieldName": "Name",
+   "fieldRoll": "Roll number"
+  },
+  "starters": {
+   "primary": {
+    "label": "Primary school",
+    "hint": "Five subjects out of 100.",
+    "rows": [
+     [
+      "Asha Rao",
+      "1"
+     ],
+     [
+      "Ravi Kumar",
+      "2"
+     ],
+     [
+      "Meena Shah",
+      "3"
+     ],
+     [
+      "Imran Khan",
+      "4"
+     ],
+     [
+      "Sunita Das",
+      "5"
+     ],
+     [
+      "Kiran Patel",
+      "6"
+     ]
+    ],
+    "set": {
+     "subjects": "English, Hindi, Maths, EVS, Art",
+     "max": 100
+    }
+   },
+   "secondary": {
+    "label": "Secondary school",
+    "hint": "Six subjects out of 100.",
+    "rows": [
+     [
+      "Asha Rao",
+      "1"
+     ],
+     [
+      "Ravi Kumar",
+      "2"
+     ],
+     [
+      "Meena Shah",
+      "3"
+     ],
+     [
+      "Imran Khan",
+      "4"
+     ],
+     [
+      "Sunita Das",
+      "5"
+     ],
+     [
+      "Kiran Patel",
+      "6"
+     ]
+    ],
+    "set": {
+     "subjects": "English, Hindi, Maths, Science, Social Science, Computer",
+     "max": 100
+    }
+   },
+   "tuition": {
+    "label": "Tuition test",
+    "hint": "Three subjects out of 50.",
+    "rows": [
+     [
+      "Asha Rao",
+      "1"
+     ],
+     [
+      "Ravi Kumar",
+      "2"
+     ],
+     [
+      "Meena Shah",
+      "3"
+     ],
+     [
+      "Imran Khan",
+      "4"
+     ],
+     [
+      "Sunita Das",
+      "5"
+     ],
+     [
+      "Kiran Patel",
+      "6"
+     ]
+    ],
+    "set": {
+     "subjects": "Maths, Science, English",
+     "max": 50
+    }
+   }
+  },
+  "defaultSubject": "Subject 1",
+  "grades": [
+   [
+    0,
+    "E"
+   ],
+   [
+    40,
+    "D"
+   ],
+   [
+    50,
+    "C"
+   ],
+   [
+    60,
+    "B"
+   ],
+   [
+    75,
+    "A"
+   ],
+   [
+    90,
+    "A+"
+   ]
+  ],
+  "sample": {
+   "marks": [
+    [
+     88,
+     92,
+     79,
+     85,
+     90,
+     81
+    ],
+    [
+     72,
+     65,
+     58,
+     70,
+     68,
+     75
+    ],
+    [
+     95,
+     98,
+     91,
+     89,
+     94,
+     97
+    ],
+    [
+     45,
+     38,
+     52,
+     41,
+     47,
+     50
+    ],
+    [
+     60,
+     72,
+     66,
+     58,
+     63,
+     70
+    ],
+    [
+     81,
+     77,
+     84,
+     79,
+     73,
+     86
+    ]
+   ]
+  },
+  "sheet": {
+   "title": "Marks and Rank Sheet",
+   "intro": "Type each student's marks and the sheet works out the total, percentage, pass or fail, grade and rank. Summary shows the class average, the highest marks and how many passed in each subject. Works in Excel, Google Sheets and WPS, without macros.",
+   "guide": [
+    "Open Settings and type the sheet title, the maximum marks in each subject and the pass mark in percent. Check the grade scale below it and change it to your own.",
+    "Open Marks. Roll numbers and names are already there. Type each student's marks in each subject. Leave a box empty if the student did not take that subject.",
+    "Total, percentage, Pass or Fail, grade and rank fill in. A mark below the pass mark turns red, and a student with any red mark shows Fail.",
+    "Summary shows the number of students, how many passed, the pass rate, the class average, the topper and the average, highest and passes for each subject. Print the Marks sheet for the class."
+   ],
+   "guideHi": [
+    "Settings mein sheet ka title, har subject ke maximum marks aur pass marks (percent mein) likhein. Neeche grade scale dekhein aur apne hisaab se badlein.",
+    "Marks kholein. Roll number aur naam pehle se hain. Har student ke har subject ke marks likhein. Agar student ne wo subject nahi liya to box khali chhod dein.",
+    "Total, percentage, Pass ya Fail, grade aur rank apne aap aate hain. Pass marks se kam marks laal ho jate hain, aur kisi bhi laal marks wala student Fail dikhta hai.",
+    "Summary mein students ki sankhya, kitne pass hue, pass rate, class average, topper aur har subject ka average, sabse zyada aur pass dikhte hain. Class ke liye Marks sheet print karein."
+   ],
+   "about": [
+    "The title, maximum marks, pass mark and grade scale.",
+    "Every student with marks, total, percentage, result, grade and rank.",
+    "Class totals and a summary for each subject."
+   ],
+   "sheetSettings": "Settings",
+   "sheetMarks": "Marks",
+   "sheetSummary": "Summary",
+   "name": "Sheet title",
+   "max": "Maximum marks in each subject",
+   "pass": "Pass mark in each subject (percent)",
+   "settingsHelp": "Pass mark and grades are only what you type. Use your own school or board rule.",
+   "gradeTitle": "Grade scale",
+   "gradeFrom": "From percentage",
+   "gradeName": "Grade",
+   "marksSub": "Type marks in the yellow boxes. Leave a box empty if the student did not take that subject.",
+   "colRoll": "Roll",
+   "colName": "Name",
+   "colMarks": "Marks",
+   "colTotal": "Total",
+   "colPercent": "Percent",
+   "colResult": "Result",
+   "colGrade": "Grade",
+   "colRank": "Rank",
+   "passed": "Pass",
+   "fail": "Fail",
+   "defaultSubject": "Subject 1",
+   "marksHelp": "Marks scored, up to the maximum.",
+   "summaryTitle": "Summary",
+   "kpiStudents": "Students with marks",
+   "kpiPassed": "Passed",
+   "kpiPassRate": "Pass rate",
+   "kpiAverage": "Class average (percent)",
+   "kpiTopper": "Topper",
+   "colSubject": "Subject",
+   "colAverage": "Average",
+   "colHighest": "Highest",
+   "colPassed": "Passed",
+   "colTaken": "Students",
+   "chartSubject": "Average marks by subject"
+  }
+ }
+}
