@@ -1,0 +1,324 @@
+{
+ "common": {
+  "start": "Start here",
+  "starters": "Starting point",
+  "startersNote": "Replace the text in [square brackets] with your own.",
+  "fields": "Title and ending",
+  "title": "Title",
+  "subtitle": "Subtitle",
+  "author": "Your name or organisation",
+  "date": "Date",
+  "closing": "Last slide text",
+  "contact": "Last slide second line",
+  "outlineTitle": "Slides",
+  "outlineIntro": "Write your slides as text. A line that starts with # begins a new slide. Lines that start with a dash become bullet points.",
+  "outlineHelp": [
+   "# Title: a new slide with bullet points",
+   "- Text: a bullet point (a plain line works too)",
+   "## Title: a section slide",
+   "> Text: a big statement slide",
+   "== Heading: starts a column. Use two for a two-column slide",
+   "| a | b |: a row of a table. The first row is the heading"
+  ],
+  "quizHelp": [
+   "Q: question: a new quiz question",
+   "A) option: its options, one on each line",
+   "Answer: B: the answer, shown after the question or at the end"
+  ],
+  "look": "Look",
+  "font": "Font",
+  "looks": [
+   {
+    "value": "blue",
+    "label": "Blue"
+   },
+   {
+    "value": "green",
+    "label": "Green"
+   },
+   {
+    "value": "orange",
+    "label": "Orange"
+   },
+   {
+    "value": "dark",
+    "label": "Dark"
+   },
+   {
+    "value": "mono",
+    "label": "Black and white"
+   }
+  ],
+  "fonts": [
+   {
+    "value": "Calibri",
+    "label": "Calibri"
+   },
+   {
+    "value": "Arial",
+    "label": "Arial"
+   },
+   {
+    "value": "Georgia",
+    "label": "Georgia"
+   }
+  ],
+  "agenda": "Add an agenda slide",
+  "agendaHint": "A list of your sections after the title slide.",
+  "answers": "Show the answers",
+  "answerOptions": [
+   {
+    "value": "each",
+    "label": "After each question"
+   },
+   {
+    "value": "end",
+    "label": "At the end"
+   },
+   {
+    "value": "none",
+    "label": "Not at all"
+   }
+  ],
+  "slides": "{n} slides",
+  "tooMany": "Only the first {max} slides are kept.",
+  "previewTitle": "Preview",
+  "previewNote": "This is how the slides will look. PowerPoint may break lines a little differently. Replace the prompts in [square brackets] before you present.",
+  "bracket": "Some text is still in [square brackets]. Replace it before you present.",
+  "download": "Make PowerPoint file",
+  "preparing": "Making the file...",
+  "ready": "Your PowerPoint file is ready",
+  "save": "Save PowerPoint file",
+  "failed": "The file could not be made. Please try again.",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to clear everything",
+  "notSaved": "Nothing you type here is saved or uploaded. Start again goes back to the original starter.",
+  "empty": "Add at least one slide.",
+  "fileNotes": [
+   "The file is a normal .pptx that opens in PowerPoint, Google Slides, WPS Office and LibreOffice Impress.",
+   "Titles are real slide titles, so the outline view and screen readers can find them.",
+   "It has no macros, no pictures and no links to the internet."
+  ],
+  "startedAgain": "All boxes and the outline are back to the starter text."
+ },
+ "tools": {
+  "text-to-powerpoint-maker": {
+   "file": "presentation",
+   "agenda": false,
+   "answers": "none",
+   "starters": {
+    "talk": {
+     "label": "Short talk",
+     "hint": "A title, three main points and a close.",
+     "title": "[Title of your talk]",
+     "subtitle": "[One line about the talk]",
+     "closing": "Thank you",
+     "contact": "[Your email or phone number]",
+     "outline": "## Why this matters\n[One line that tells people why they should listen.]\n# The problem\n- [What is wrong or missing today]\n- [Who it affects]\n- [What it costs, in time, money or trouble]\n# Main point 1\n- [The idea in one line]\n- [An example]\n- [A number or fact that supports it]\n# Main point 2\n- [The idea in one line]\n- [An example]\n# Main point 3\n- [The idea in one line]\n- [An example]\n> [The one sentence you want people to remember]\n# What to do next\n- [Step 1]\n- [Step 2]\n- [Step 3]"
+    },
+    "howto": {
+     "label": "How to",
+     "hint": "Steps to teach something.",
+     "title": "How to [do something]",
+     "subtitle": "[Who this is for]",
+     "closing": "Questions?",
+     "contact": "",
+     "outline": "# What you will learn\n- [Skill 1]\n- [Skill 2]\n- [Skill 3]\n# What you need\n- [Tool or material 1]\n- [Tool or material 2]\n# Step 1: [name]\n- [What to do]\n- [What to watch for]\n# Step 2: [name]\n- [What to do]\n- [What to watch for]\n# Step 3: [name]\n- [What to do]\n- [What to watch for]\n# Common mistakes\n== Mistake\n- [Mistake 1]\n- [Mistake 2]\n== Fix\n- [How to avoid it]\n- [How to avoid it]\n# Summary\n- [Step 1 in a few words]\n- [Step 2 in a few words]\n- [Step 3 in a few words]"
+    },
+    "report": {
+     "label": "Report with a table",
+     "hint": "Results, a table and next steps.",
+     "title": "[Report title]",
+     "subtitle": "[Period or project]",
+     "closing": "Thank you",
+     "contact": "",
+     "outline": "# Summary\n- [The main result in one line]\n- [The main problem in one line]\n- [What you ask people to decide]\n# Results\n| Item | Target | Actual |\n| [Item 1] | [  ] | [  ] |\n| [Item 2] | [  ] | [  ] |\n| [Item 3] | [  ] | [  ] |\n# What went well and what did not\n== Went well\n- [Point]\n- [Point]\n== Needs work\n- [Point]\n- [Point]\n# Next steps\n- [Action, owner, date]\n- [Action, owner, date]"
+    },
+    "blank": {
+     "label": "Blank",
+     "hint": "Start from an empty outline.",
+     "title": "",
+     "subtitle": "",
+     "closing": "",
+     "contact": "",
+     "outline": "# First slide\n- First point\n- Second point"
+    }
+   }
+  },
+  "pitch-deck-powerpoint-maker": {
+   "file": "pitch-deck",
+   "agenda": false,
+   "answers": "none",
+   "starters": {
+    "startup": {
+     "label": "Startup pitch",
+     "hint": "The usual pitch deck, one idea on each slide.",
+     "title": "[Company name]",
+     "subtitle": "[What you do, in one line]",
+     "closing": "Thank you",
+     "contact": "[Name, email, phone]",
+     "outline": "# The problem\n- [Who has the problem]\n- [How they deal with it today]\n- [Why that is not good enough]\n# Our solution\n- [What you built, in one line]\n- [How it solves the problem]\n- [Why it is better]\n# How it works\n- [Step 1 for the customer]\n- [Step 2]\n- [Step 3]\n# Market\n- [Who your customers are]\n- [How many of them there are, with the source]\n- [Where you start]\n# Business model\n- [How you earn money]\n- [Price or fee, in your own figures]\n# Traction\n- [What you have done so far]\n- [Customers, users or orders, with real numbers]\n# Competition\n| Name | What they do | How we are different |\n| [Competitor 1] | [  ] | [  ] |\n| [Competitor 2] | [  ] | [  ] |\n# Team\n- [Name, role and what they have done]\n- [Name, role and what they have done]\n# The ask\n- [How much you want to raise]\n- [What you will spend it on]\n- [What you will reach with it]"
+    },
+    "product": {
+     "label": "Product launch",
+     "hint": "Introduce a new product to customers.",
+     "title": "[Product name]",
+     "subtitle": "[What it does, in one line]",
+     "closing": "Available from [date]",
+     "contact": "[Website or phone]",
+     "outline": "> [Product name]: [the main benefit in one line]\n# The need\n- [What customers struggle with]\n- [What they have tried]\n# Meet [Product name]\n- [Feature 1 and what it gives the customer]\n- [Feature 2 and what it gives the customer]\n- [Feature 3 and what it gives the customer]\n# Why people will choose it\n== Before\n- [How it is done today]\n== With [Product name]\n- [How it is done now]\n# Plans and prices\n| Plan | Includes | Price |\n| [Plan 1] | [  ] | [  ] |\n| [Plan 2] | [  ] | [  ] |\n# Launch plan\n- [Date and place]\n- [How customers can buy]"
+    }
+   }
+  },
+  "business-proposal-powerpoint-maker": {
+   "file": "proposal",
+   "agenda": true,
+   "answers": "none",
+   "starters": {
+    "proposal": {
+     "label": "Client proposal",
+     "hint": "Offer your work to a client.",
+     "title": "[Proposal title]",
+     "subtitle": "Prepared for [client name]",
+     "closing": "Thank you",
+     "contact": "[Your name, email and phone]",
+     "outline": "## About us\n# Who we are\n- [What your business does]\n- [How long you have been doing it]\n- [Where you work]\n## Your need\n# What we understood\n- [Client need 1]\n- [Client need 2]\n- [Client need 3]\n## Our offer\n# What we will do\n- [Work 1]\n- [Work 2]\n- [Work 3]\n# Plan and timeline\n| Step | What happens | When |\n| 1 | [  ] | [  ] |\n| 2 | [  ] | [  ] |\n| 3 | [  ] | [  ] |\n# Cost\n| Item | Details | Amount |\n| [Item 1] | [  ] | [  ] |\n| [Item 2] | [  ] | [  ] |\n| Total | | [  ] |\n# Why choose us\n- [Reason 1, with proof]\n- [Reason 2, with proof]\n# Next steps\n- [How the client says yes]\n- [When work can start]"
+    },
+    "profile": {
+     "label": "Company profile",
+     "hint": "Introduce your company.",
+     "title": "[Company name]",
+     "subtitle": "Company profile",
+     "closing": "Let us work together",
+     "contact": "[Website, email, phone]",
+     "outline": "# About us\n- [What the company does]\n- [Year started and place]\n- [Size of the team]\n# What we offer\n== Products\n- [Product 1]\n- [Product 2]\n== Services\n- [Service 1]\n- [Service 2]\n# Our customers\n- [Types of customers you serve]\n- [A few names you can share, with permission]\n# Why customers choose us\n- [Reason 1]\n- [Reason 2]\n- [Reason 3]\n# Contact\n- [Address]\n- [Phone and email]"
+    }
+   }
+  },
+  "lesson-powerpoint-maker": {
+   "file": "lesson",
+   "agenda": false,
+   "answers": "none",
+   "starters": {
+    "lesson": {
+     "label": "Lesson",
+     "hint": "One topic for one class.",
+     "title": "[Topic]",
+     "subtitle": "[Class and subject]",
+     "closing": "Homework",
+     "contact": "[Task for the class]",
+     "outline": "# What we will learn today\n- [Aim 1]\n- [Aim 2]\n- [Aim 3]\n# Let us recall\n- [Question about the last lesson]\n- [Question about the last lesson]\n# New idea: [name]\n- [Meaning in simple words]\n- [Key word and what it means]\n# Example\n- [A worked or real-life example]\n- [Steps or parts of the example]\n# Try it yourself\n- [Activity or question 1]\n- [Activity or question 2]\n# Remember\n- [Point 1]\n- [Point 2]\n- [Point 3]\n# Check your learning\n- [Question 1]\n- [Question 2]"
+    },
+    "revision": {
+     "label": "Revision",
+     "hint": "Key points and a table before a test.",
+     "title": "[Chapter] revision",
+     "subtitle": "[Class and subject]",
+     "closing": "Good luck",
+     "contact": "",
+     "outline": "# What to revise\n- [Topic 1]\n- [Topic 2]\n- [Topic 3]\n# Key words\n| Word | Meaning |\n| [Word 1] | [  ] |\n| [Word 2] | [  ] |\n| [Word 3] | [  ] |\n# Compare\n== [First idea]\n- [Point]\n- [Point]\n== [Second idea]\n- [Point]\n- [Point]\n> [The one rule to remember]\n# Exam tips\n- [Tip 1]\n- [Tip 2]"
+    }
+   }
+  },
+  "project-status-powerpoint-maker": {
+   "file": "status-update",
+   "agenda": false,
+   "answers": "none",
+   "starters": {
+    "weekly": {
+     "label": "Weekly update",
+     "hint": "Progress, plan and problems.",
+     "title": "[Project] status update",
+     "subtitle": "Week of [date]",
+     "closing": "Questions?",
+     "contact": "",
+     "outline": "# Summary\n- [On track, at risk or behind, and why]\n- [The most important thing this week]\n# Done this week\n- [Item]\n- [Item]\n- [Item]\n# Plan for next week\n- [Item]\n- [Item]\n# Milestones\n| Milestone | Due | Status |\n| [Milestone 1] | [  ] | [  ] |\n| [Milestone 2] | [  ] | [  ] |\n| [Milestone 3] | [  ] | [  ] |\n# Problems and help needed\n| Issue | Effect | Action | Owner |\n| [  ] | [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] | [  ] |\n# Decisions needed\n- [Decision, who decides, by when]"
+    },
+    "review": {
+     "label": "Monthly review",
+     "hint": "Results against the plan.",
+     "title": "[Team or project] monthly review",
+     "subtitle": "[Month]",
+     "closing": "Thank you",
+     "contact": "",
+     "outline": "# Highlights\n- [Win 1]\n- [Win 2]\n# Results against plan\n| Measure | Plan | Actual |\n| [Measure 1] | [  ] | [  ] |\n| [Measure 2] | [  ] | [  ] |\n| [Measure 3] | [  ] | [  ] |\n# What we learned\n== Keep doing\n- [Point]\n== Change\n- [Point]\n# Focus for next month\n- [Priority 1]\n- [Priority 2]\n- [Priority 3]"
+    }
+   }
+  },
+  "school-project-powerpoint-maker": {
+   "file": "project-presentation",
+   "agenda": false,
+   "answers": "none",
+   "starters": {
+    "project": {
+     "label": "School project",
+     "hint": "Aim, method, results and conclusion.",
+     "title": "[Project title]",
+     "subtitle": "[Name, class and school]",
+     "closing": "Thank you",
+     "contact": "Any questions?",
+     "outline": "# Introduction\n- [What the project is about]\n- [Why you chose it]\n# Aim\n- [What you wanted to find out]\n# What I did\n- [Step 1]\n- [Step 2]\n- [Step 3]\n# What I found\n- [Result 1]\n- [Result 2]\n# Table of results\n| Item | Result |\n| [  ] | [  ] |\n| [  ] | [  ] |\n# Conclusion\n- [What the results show]\n- [What you learned]\n# Thanks\n- [Teacher, family and friends who helped]"
+    },
+    "seminar": {
+     "label": "Seminar or talk",
+     "hint": "A topic explained in parts.",
+     "title": "[Seminar topic]",
+     "subtitle": "[Name, course and college]",
+     "closing": "Thank you",
+     "contact": "References are on the last slide",
+     "outline": "# Outline\n- [Part 1]\n- [Part 2]\n- [Part 3]\n# Background\n- [What the reader should know first]\n# [Part 1]\n- [Point]\n- [Point]\n# [Part 2]\n- [Point]\n- [Point]\n# [Part 3]\n- [Point]\n- [Point]\n# Conclusion\n- [Main takeaway]\n- [Open questions]\n# References\n- [Book, paper or website you used]"
+    }
+   }
+  },
+  "quiz-powerpoint-maker": {
+   "file": "quiz",
+   "agenda": false,
+   "answers": "each",
+   "starters": {
+    "gk": {
+     "label": "General knowledge",
+     "hint": "Questions with four options and the answer after each.",
+     "title": "Quiz time",
+     "subtitle": "[Team or class]",
+     "closing": "Thanks for playing",
+     "contact": "",
+     "outline": "Q: Which is the largest planet in the Solar System?\nA) Earth\nB) Jupiter\nC) Mars\nD) Venus\nAnswer: B) Jupiter\nQ: How many days are there in a leap year?\nA) 364\nB) 365\nC) 366\nD) 367\nAnswer: C) 366\nQ: Which gas do plants take in from the air?\nA) Oxygen\nB) Nitrogen\nC) Carbon dioxide\nD) Hydrogen\nAnswer: C) Carbon dioxide\nQ: How many sides does a hexagon have?\nA) 5\nB) 6\nC) 7\nD) 8\nAnswer: B) 6"
+    },
+    "class": {
+     "label": "Class quiz",
+     "hint": "Write your own questions. Answers go at the end.",
+     "title": "[Subject] quiz",
+     "subtitle": "[Class]",
+     "closing": "Check your answers",
+     "contact": "",
+     "outline": "Q: [Your question 1]\nA) [Option]\nB) [Option]\nC) [Option]\nD) [Option]\nAnswer: [Letter]\nQ: [Your question 2]\nA) [Option]\nB) [Option]\nC) [Option]\nD) [Option]\nAnswer: [Letter]\nQ: [Your question 3]\nA) [Option]\nB) [Option]\nC) [Option]\nD) [Option]\nAnswer: [Letter]"
+    }
+   }
+  },
+  "event-programme-powerpoint-maker": {
+   "file": "event-programme",
+   "agenda": false,
+   "answers": "none",
+   "starters": {
+    "annual": {
+     "label": "Annual day or function",
+     "hint": "Welcome, programme table and thanks.",
+     "title": "[Event name]",
+     "subtitle": "[Date, time and place]",
+     "closing": "Thank you for coming",
+     "contact": "",
+     "outline": "> Welcome to [event name]\n# Programme\n| Time | Item | Who |\n| [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] |\n# Our guests\n- [Chief guest and role]\n- [Guest of honour and role]\n# Awards and prizes\n- [Award 1: name of winner]\n- [Award 2: name of winner]\n# Vote of thanks\n- [People and groups to thank]"
+    },
+    "workshop": {
+     "label": "Workshop or meeting",
+     "hint": "Agenda, ground rules and a close.",
+     "title": "[Workshop title]",
+     "subtitle": "[Date and venue]",
+     "closing": "See you next time",
+     "contact": "[Contact]",
+     "outline": "# Welcome\n- [Why we are here]\n- [What you will take home]\n# Agenda\n| Time | Session | Led by |\n| [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] |\n| [  ] | [  ] | [  ] |\n# Ground rules\n- [Rule 1]\n- [Rule 2]\n- [Rule 3]\n# Close\n- [What happens next]\n- [How to give feedback]"
+    }
+   }
+  }
+ }
+}

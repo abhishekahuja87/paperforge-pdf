@@ -228,6 +228,17 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
       { q: 'Is my data uploaded?', a: 'No. The document is made on your device and what you type is not sent or saved. The {page:why-trust-us|Why trust us} page shows how to check this yourself.' },
     ],
   },
+  '/powerpoint-makers': {
+    related: ['/word-document-makers', '/excel-template-makers', '/jobs-and-business-tools'],
+    faqs: [
+      { q: 'How do I make a PowerPoint from text?', a: 'Open {text-to-powerpoint-maker}, type your slides as an outline with a # line for each slide and dashes for bullets, check the preview and make the PowerPoint file. You can open it in PowerPoint, Google Slides or WPS Office.' },
+      { q: 'How do I make a pitch deck in PowerPoint?', a: 'Open {pitch-deck-powerpoint-maker}, pick Startup pitch or Product launch, and replace the prompts with your own words and numbers. You get one slide for each part of the pitch, with a table for competitors.' },
+      { q: 'How do I make a quiz in PowerPoint?', a: 'Open {quiz-powerpoint-maker}, type each question after Q: with its options below and an Answer: line, and choose whether the answers show after each question or at the end.' },
+      { q: 'Where can I get lesson, school project or status update slides?', a: 'Use {lesson-powerpoint-maker} for a class, {school-project-powerpoint-maker} for a project or seminar, and {project-status-powerpoint-maker} for a weekly or monthly update.' },
+      { q: 'Can I add pictures and animation?', a: 'Not in the tool. The files have text and table slides with a clean layout, and you add pictures, charts, animation and speaker notes in PowerPoint, Google Slides or WPS Office after you download.' },
+      { q: 'Is anything uploaded?', a: 'No. The deck is made on your device and what you type is not sent or saved. The {page:why-trust-us|Why trust us} page shows how to check this yourself.' },
+    ],
+  },
   '/excel-template-makers': {
     related: ['/jobs-and-business-tools', '/printables-and-templates', '/student-and-writing-tools'],
     faqs: [

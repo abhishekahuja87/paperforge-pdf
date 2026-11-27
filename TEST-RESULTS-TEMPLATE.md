@@ -304,6 +304,15 @@ How to use: go top to bottom on a real phone first (note the phone and browser),
 | L72 | Event Plan Word Template: change the title boxes, tick and untick sections, edit a section, add your own, make the Word file and open it in Word, Google Docs or WPS: cover page, contents list, numbered headings, bullets and tables match the preview; update the contents list; tap Start again | | |
 | L73 | Status Report Word Template: change the title boxes, tick and untick sections, edit a section, add your own, make the Word file and open it in Word, Google Docs or WPS: cover page, contents list, numbered headings, bullets and tables match the preview; update the contents list; tap Start again | | |
 | L74 | Word document makers section: the hero tile says Resume, letters, templates; fifteen tools are listed; the new FAQ links work | | |
+| L75 | Text to PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L76 | Pitch Deck PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L77 | Business Proposal PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L78 | Lesson PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L79 | Project Status PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L80 | School Project PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L81 | Quiz PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L82 | Event Programme PowerPoint Maker: pick each starter, edit the outline, change the look, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS: titles, bullets and tables match the preview; tap Start again | | |
+| L83 | PowerPoint makers section: open it from the home hero tile, check eight tools are listed, the FAQ links work, and each tool's top link returns here | | |
 
 ### Section pages: guides, common questions, related sections (22 Nov)
 
