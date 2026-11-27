@@ -21,6 +21,8 @@ export interface Para {
   rule?: string;
   /** Keep with the next paragraph, so a heading is never left alone at the bottom of a page. */
   keepNext?: boolean;
+  /** A real Word heading style, so the Navigation pane and the contents list can find it. */
+  style?: 'h1' | 'h2' | 'h3';
 }
 export interface Cell { runs: string | Run[]; bold?: boolean; fill?: string; color?: string; align?: Align; size?: number }
 export interface TableBlock {
@@ -34,7 +36,9 @@ export interface TableBlock {
   header?: boolean;
 }
 export interface BreakBlock { type: 'break' }
-export type Block = Para | TableBlock | BreakBlock;
+/** A contents list. The entries are written as the first version; Word can update it and add page numbers. */
+export interface TocBlock { type: 'toc'; entries: { text: string; level: 1 | 2 | 3 }[] }
+export type Block = Para | TableBlock | BreakBlock | TocBlock;
 export interface DocModel {
   title: string;
   blocks: Block[];
@@ -44,10 +48,14 @@ export interface DocModel {
   size?: number;
   /** Page margin in millimetres. */
   margin?: number;
+  /** Page numbers at the bottom centre. */
+  pageNumbers?: boolean;
+  /** The first page is a cover: no page number on it. */
+  coverPage?: boolean;
 }
 
 export const runsOf = (r: string | Run[]): Run[] => (typeof r === 'string' ? [{ text: r }] : r);
-export const plain = (b: Block): string => (b.type === 'p' ? runsOf(b.runs).map((r) => r.text).join('') : b.type === 'table' ? b.rows.map((row) => row.map((c) => runsOf(c.runs).map((r) => r.text).join('')).join(' ')).join(' ') : '');
+export const plain = (b: Block): string => (b.type === 'p' ? runsOf(b.runs).map((r) => r.text).join('') : b.type === 'table' ? b.rows.map((row) => row.map((c) => runsOf(c.runs).map((r) => r.text).join('')).join(' ')).join(' ') : b.type === 'toc' ? b.entries.map((e) => e.text).join(' ') : '');
 
 /** Page size in millimetres. */
 export const PAPER = { a4: { w: 210, h: 297 }, letter: { w: 215.9, h: 279.4 } } as const;

@@ -22,7 +22,7 @@ export const HERO_TILES: HeroTile[] = [
   { collection: 'printables', label: 'Printables and templates', blurb: 'Planners, sheets, certificates', to: '/printables-and-templates', icon: 'print' },
   { collection: 'work', label: 'Jobs and business tools', blurb: 'Resume, invoice, posters', to: '/jobs-and-business-tools', icon: 'briefcase' },
   { collection: 'excel', label: 'Excel templates and makers', blurb: 'Invoice, stock, leads, marks', to: '/excel-template-makers', icon: 'excel' },
-  { collection: 'word', label: 'Word document makers', blurb: 'Resume, letters, minutes', to: '/word-document-makers', icon: 'word' },
+  { collection: 'word', label: 'Word document makers', blurb: 'Resume, letters, templates', to: '/word-document-makers', icon: 'word' },
   { collection: 'study', label: 'Student and writing tools', blurb: 'GPA, citations, word count', to: '/student-and-writing-tools', icon: 'school' },
   { collection: 'kids', label: 'Kids learning tools', blurb: 'Clock, maths, worksheets', to: '/kids-learning-tools', icon: 'kids' },
   { collection: 'sports', label: 'Sports and fitness tools', blurb: 'Cricket scorer, workouts', to: '/sports-and-fitness-tools', icon: 'sport' },

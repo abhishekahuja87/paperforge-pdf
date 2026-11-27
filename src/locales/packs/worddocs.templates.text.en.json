@@ -1,0 +1,1037 @@
+{
+ "common": {
+  "start": "Start here",
+  "fields": "Title page",
+  "title": "Title",
+  "subtitle": "Subtitle or name",
+  "org": "Organisation",
+  "author": "Prepared by",
+  "date": "Date",
+  "version": "Version",
+  "options": "Options",
+  "cover": "Cover page",
+  "coverHint": "A title page with the title, your name and the date.",
+  "contents": "Contents list",
+  "contentsHint": "A list of the headings. In Word, right-click it and choose Update field to add page numbers.",
+  "pageNumbers": "Page numbers",
+  "numbered": "Number the headings",
+  "font": "Font",
+  "accent": "Heading colour",
+  "fonts": [
+   {
+    "value": "Calibri",
+    "label": "Calibri"
+   },
+   {
+    "value": "Arial",
+    "label": "Arial"
+   },
+   {
+    "value": "Times New Roman",
+    "label": "Times New Roman"
+   }
+  ],
+  "accents": [
+   {
+    "value": "1F4E79",
+    "label": "Blue"
+   },
+   {
+    "value": "2E7D32",
+    "label": "Green"
+   },
+   {
+    "value": "8B1A1A",
+    "label": "Dark red"
+   },
+   {
+    "value": "000000",
+    "label": "Black"
+   }
+  ],
+  "sections": "Sections",
+  "sectionsIntro": "Tick the sections you want. Open Edit text to change the prompts. Lines that start with a dash become bullets. You can add more in Word afterwards.",
+  "all": "Include all",
+  "none": "Clear all",
+  "edit": "Edit text",
+  "includesTable": "Includes a table: {cols}",
+  "custom": "Your own sections",
+  "customAdd": "Add a section",
+  "customHeading": "Heading",
+  "customText": "Text",
+  "remove": "Remove",
+  "empty": "Nothing added yet.",
+  "previewTitle": "Preview",
+  "previewNote": "This is how the document will look. Word may break lines a little differently. The prompts in [square brackets] are for you to replace in Word.",
+  "download": "Make Word file",
+  "preparing": "Making the file...",
+  "ready": "Your Word file is ready",
+  "save": "Save Word file",
+  "failed": "The file could not be made. Please try again.",
+  "startAgain": "Start again",
+  "startAgainConfirm": "Tap again to clear everything",
+  "notSaved": "Nothing you type here is saved or uploaded. Start again goes back to the original template.",
+  "contentsHeading": "Contents",
+  "fileNotes": [
+   "The file is a normal .docx that opens in Word, Google Docs, WPS Office and LibreOffice.",
+   "Headings use real Word heading styles, so the Navigation pane and the contents list work.",
+   "It has no macros and no links to the internet."
+  ],
+  "preparedBy": "Prepared by",
+  "versionLabel": "Version"
+ },
+ "templates": {
+  "project-proposal": {
+   "file": "project-proposal",
+   "title": "Project Proposal",
+   "subtitle": "[Project name]",
+   "sections": [
+    {
+     "h": "Executive summary",
+     "text": "[Write two or three sentences: what the project is, who it is for, what it will cost and how long it will take. Write this last.]",
+     "level": 1,
+     "id": "project-proposal-0"
+    },
+    {
+     "h": "Background and problem",
+     "text": "[Describe the situation today and the problem or opportunity this project deals with. Say why it matters now.]",
+     "level": 1,
+     "id": "project-proposal-1"
+    },
+    {
+     "h": "Objectives",
+     "text": "- [Objective 1: what you want to achieve]\n- [Objective 2]\n- [Objective 3]",
+     "level": 1,
+     "id": "project-proposal-2"
+    },
+    {
+     "h": "Scope",
+     "text": "[Say what the project will cover.]",
+     "level": 1,
+     "id": "project-proposal-3"
+    },
+    {
+     "h": "In scope",
+     "text": "- [Work that is included]\n- [Work that is included]",
+     "level": 2,
+     "id": "project-proposal-4"
+    },
+    {
+     "h": "Out of scope",
+     "text": "- [Work that is not included, so nobody expects it]",
+     "level": 2,
+     "id": "project-proposal-5"
+    },
+    {
+     "h": "Approach",
+     "text": "[Explain how you will do the work: the steps, methods and tools, and why this approach suits the project.]",
+     "level": 1,
+     "id": "project-proposal-6"
+    },
+    {
+     "h": "Deliverables",
+     "text": "[List what will be handed over and when.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Deliverable",
+       "Description",
+       "Due date"
+      ],
+      "rows": 4,
+      "widths": [
+       30,
+       50,
+       20
+      ]
+     },
+     "id": "project-proposal-7"
+    },
+    {
+     "h": "Timeline",
+     "text": "[Show the main phases and their dates.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Phase",
+       "Activities",
+       "Start",
+       "End"
+      ],
+      "rows": 5,
+      "widths": [
+       22,
+       46,
+       16,
+       16
+      ]
+     },
+     "id": "project-proposal-8"
+    },
+    {
+     "h": "Team and roles",
+     "text": "[Say who will do what.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Name",
+       "Role",
+       "Responsibility"
+      ],
+      "rows": 4,
+      "widths": [
+       28,
+       24,
+       48
+      ]
+     },
+     "id": "project-proposal-9"
+    },
+    {
+     "h": "Budget",
+     "text": "[List the costs. Add a total at the bottom.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Item",
+       "Details",
+       "Cost"
+      ],
+      "rows": 6,
+      "widths": [
+       30,
+       48,
+       22
+      ]
+     },
+     "id": "project-proposal-10"
+    },
+    {
+     "h": "Risks",
+     "text": "[List what could go wrong and what you will do about it.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Risk",
+       "Likelihood",
+       "Impact",
+       "Plan to handle it"
+      ],
+      "rows": 4,
+      "widths": [
+       30,
+       14,
+       14,
+       42
+      ]
+     },
+     "id": "project-proposal-11"
+    },
+    {
+     "h": "How success will be measured",
+     "text": "- [Measure 1: what will you count or check]\n- [Measure 2]",
+     "level": 1,
+     "id": "project-proposal-12"
+    },
+    {
+     "h": "Next steps and approval",
+     "text": "[Say what happens next and who needs to approve the proposal.]",
+     "level": 1,
+     "id": "project-proposal-13"
+    }
+   ],
+   "id": "project-proposal"
+  },
+  "project-report": {
+   "file": "project-report",
+   "title": "Project Report",
+   "subtitle": "[Project name]",
+   "sections": [
+    {
+     "h": "Summary",
+     "text": "[Give a short summary of the project, the main results and the main recommendation. Write this last.]",
+     "level": 1,
+     "id": "project-report-0"
+    },
+    {
+     "h": "Introduction",
+     "text": "[Say what the project was, why it was done and who it was for.]",
+     "level": 1,
+     "id": "project-report-1"
+    },
+    {
+     "h": "Objectives",
+     "text": "- [Objective 1]\n- [Objective 2]\n- [Objective 3]",
+     "level": 1,
+     "id": "project-report-2"
+    },
+    {
+     "h": "Work done",
+     "text": "[Describe the work in the order it happened.]",
+     "level": 1,
+     "id": "project-report-3"
+    },
+    {
+     "h": "Phase 1: [name]",
+     "text": "[What was done, by whom and when.]",
+     "level": 2,
+     "id": "project-report-4"
+    },
+    {
+     "h": "Phase 2: [name]",
+     "text": "[What was done, by whom and when.]",
+     "level": 2,
+     "id": "project-report-5"
+    },
+    {
+     "h": "Results and findings",
+     "text": "[Describe what the project achieved. Use numbers where you can.]\n\n- [Result 1]\n- [Result 2]",
+     "level": 1,
+     "id": "project-report-6"
+    },
+    {
+     "h": "Challenges and how they were handled",
+     "text": "[Describe the main problems and what you did about them.]",
+     "level": 1,
+     "id": "project-report-7"
+    },
+    {
+     "h": "Budget and spending",
+     "text": "[Compare what was planned with what was spent.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Item",
+       "Planned",
+       "Actual",
+       "Difference"
+      ],
+      "rows": 6,
+      "widths": [
+       34,
+       22,
+       22,
+       22
+      ]
+     },
+     "id": "project-report-8"
+    },
+    {
+     "h": "Lessons learned",
+     "text": "- [What went well]\n- [What could be done better next time]",
+     "level": 1,
+     "id": "project-report-9"
+    },
+    {
+     "h": "Recommendations",
+     "text": "[Say what should happen next, and who should do it.]",
+     "level": 1,
+     "id": "project-report-10"
+    },
+    {
+     "h": "Conclusion",
+     "text": "[Close with a short statement of what was achieved.]",
+     "level": 1,
+     "id": "project-report-11"
+    },
+    {
+     "h": "Appendix",
+     "text": "[Add extra material here: data, photos, letters or other documents.]",
+     "level": 1,
+     "id": "project-report-12"
+    }
+   ],
+   "id": "project-report"
+  },
+  "business-plan": {
+   "file": "business-plan",
+   "title": "Business Plan",
+   "subtitle": "[Business name]",
+   "sections": [
+    {
+     "h": "Executive summary",
+     "text": "[Summarise the business, what it sells, who it sells to, how much money it needs and what it expects. Write this last.]",
+     "level": 1,
+     "id": "business-plan-0"
+    },
+    {
+     "h": "Business description",
+     "text": "[Say what the business does, where it is based, its legal form (as you have chosen it) and why you are starting it.]",
+     "level": 1,
+     "id": "business-plan-1"
+    },
+    {
+     "h": "Products or services",
+     "text": "[Describe what you sell, what makes it useful and how it is priced.]",
+     "level": 1,
+     "id": "business-plan-2"
+    },
+    {
+     "h": "Market and customers",
+     "text": "[Describe who your customers are, how many there are and what they need.]",
+     "level": 1,
+     "id": "business-plan-3"
+    },
+    {
+     "h": "Competition",
+     "text": "[List the main competitors and say how you are different.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Competitor",
+       "What they do well",
+       "Where we are better"
+      ],
+      "rows": 3,
+      "widths": [
+       28,
+       36,
+       36
+      ]
+     },
+     "id": "business-plan-4"
+    },
+    {
+     "h": "Marketing and sales plan",
+     "text": "[Say how customers will find you and how you will sell to them.]",
+     "level": 1,
+     "id": "business-plan-5"
+    },
+    {
+     "h": "Operations",
+     "text": "[Describe the place, equipment, suppliers and how the work gets done each day.]",
+     "level": 1,
+     "id": "business-plan-6"
+    },
+    {
+     "h": "Team",
+     "text": "[Introduce the people who will run the business and what each one does.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Name",
+       "Role",
+       "Experience"
+      ],
+      "rows": 3,
+      "widths": [
+       28,
+       24,
+       48
+      ]
+     },
+     "id": "business-plan-7"
+    },
+    {
+     "h": "Financial plan",
+     "text": "[Show what you expect to earn and spend. Use your own figures.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Item",
+       "Month 1-3",
+       "Month 4-6",
+       "Month 7-12"
+      ],
+      "rows": 6,
+      "widths": [
+       34,
+       22,
+       22,
+       22
+      ]
+     },
+     "id": "business-plan-8"
+    },
+    {
+     "h": "Funding needed and how it will be used",
+     "text": "[Say how much money you need, where it will come from and what it will be spent on.]",
+     "level": 1,
+     "id": "business-plan-9"
+    },
+    {
+     "h": "Risks",
+     "text": "[List the main risks and what you will do about them.]",
+     "level": 1,
+     "id": "business-plan-10"
+    },
+    {
+     "h": "Milestones",
+     "text": "[List the main steps and when you plan to reach them.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Milestone",
+       "Target date"
+      ],
+      "rows": 5,
+      "widths": [
+       70,
+       30
+      ]
+     },
+     "id": "business-plan-11"
+    }
+   ],
+   "id": "business-plan"
+  },
+  "sop": {
+   "file": "sop",
+   "title": "Standard Operating Procedure",
+   "subtitle": "[Name of the procedure]",
+   "sections": [
+    {
+     "h": "Purpose",
+     "text": "[Say why this procedure exists and what it makes sure of.]",
+     "level": 1,
+     "id": "sop-0"
+    },
+    {
+     "h": "Scope",
+     "text": "[Say who and what this procedure applies to, and where it does not apply.]",
+     "level": 1,
+     "id": "sop-1"
+    },
+    {
+     "h": "Who is responsible",
+     "text": "[List the roles and what each one does.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Role",
+       "Responsibility"
+      ],
+      "rows": 4,
+      "widths": [
+       30,
+       70
+      ]
+     },
+     "id": "sop-2"
+    },
+    {
+     "h": "Materials and tools",
+     "text": "- [Item or tool needed]\n- [Item or tool needed]",
+     "level": 1,
+     "id": "sop-3"
+    },
+    {
+     "h": "Procedure",
+     "text": "[Write each step in order. Keep each step to one action.]\n\n- Step 1: [what to do]\n- Step 2: [what to do]\n- Step 3: [what to do]",
+     "level": 1,
+     "id": "sop-4"
+    },
+    {
+     "h": "Safety and quality checks",
+     "text": "- [What to check before starting]\n- [What to check when finished]",
+     "level": 1,
+     "id": "sop-5"
+    },
+    {
+     "h": "Records to keep",
+     "text": "[List the forms or logs to fill in, who keeps them and for how long, as your organisation decides.]",
+     "level": 1,
+     "id": "sop-6"
+    },
+    {
+     "h": "Related documents",
+     "text": "- [Other procedure or form]",
+     "level": 1,
+     "id": "sop-7"
+    },
+    {
+     "h": "Revision history",
+     "text": "[Record each change to this document.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Version",
+       "Date",
+       "Changed by",
+       "What changed"
+      ],
+      "rows": 4,
+      "widths": [
+       14,
+       20,
+       26,
+       40
+      ]
+     },
+     "id": "sop-8"
+    }
+   ],
+   "id": "sop"
+  },
+  "job-description": {
+   "file": "job-description",
+   "title": "Job Description",
+   "subtitle": "[Job title]",
+   "sections": [
+    {
+     "h": "About the job",
+     "text": "[Write two or three sentences on what the job is for and how it helps the organisation.]",
+     "level": 1,
+     "id": "job-description-0"
+    },
+    {
+     "h": "Reports to",
+     "text": "[Name or title of the manager]",
+     "level": 1,
+     "id": "job-description-1"
+    },
+    {
+     "h": "Key responsibilities",
+     "text": "- [Responsibility 1]\n- [Responsibility 2]\n- [Responsibility 3]\n- [Responsibility 4]",
+     "level": 1,
+     "id": "job-description-2"
+    },
+    {
+     "h": "Skills and qualifications needed",
+     "text": "- [Skill or qualification 1]\n- [Skill or qualification 2]\n- [Years of experience, if needed]",
+     "level": 1,
+     "id": "job-description-3"
+    },
+    {
+     "h": "Nice to have",
+     "text": "- [Extra skill that helps but is not required]",
+     "level": 1,
+     "id": "job-description-4"
+    },
+    {
+     "h": "Working hours and place",
+     "text": "[Say where the job is based, the usual hours and whether any travel or shift work is needed.]",
+     "level": 1,
+     "id": "job-description-5"
+    },
+    {
+     "h": "Pay and benefits",
+     "text": "[Add the pay range and benefits if you want to share them. Leave this out if not.]",
+     "level": 1,
+     "id": "job-description-6"
+    },
+    {
+     "h": "How to apply",
+     "text": "[Say how to apply, what to send and the last date.]",
+     "level": 1,
+     "id": "job-description-7"
+    }
+   ],
+   "id": "job-description"
+  },
+  "company-policy": {
+   "file": "policy",
+   "title": "Policy Document",
+   "subtitle": "[Name of the policy]",
+   "sections": [
+    {
+     "h": "Purpose",
+     "text": "[Say why this policy exists.]",
+     "level": 1,
+     "id": "company-policy-0"
+    },
+    {
+     "h": "Scope",
+     "text": "[Say who and what the policy applies to.]",
+     "level": 1,
+     "id": "company-policy-1"
+    },
+    {
+     "h": "Definitions",
+     "text": "[Explain any special words used in the policy.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Term",
+       "Meaning"
+      ],
+      "rows": 4,
+      "widths": [
+       30,
+       70
+      ]
+     },
+     "id": "company-policy-2"
+    },
+    {
+     "h": "Policy statement",
+     "text": "[State clearly what the organisation requires or allows.]",
+     "level": 1,
+     "id": "company-policy-3"
+    },
+    {
+     "h": "Roles and responsibilities",
+     "text": "[Say who is responsible for what.]",
+     "level": 1,
+     "id": "company-policy-4"
+    },
+    {
+     "h": "Procedure",
+     "text": "[Describe the steps people should follow.]",
+     "level": 1,
+     "id": "company-policy-5"
+    },
+    {
+     "h": "Exceptions",
+     "text": "[Say who can approve an exception and how.]",
+     "level": 1,
+     "id": "company-policy-6"
+    },
+    {
+     "h": "When the policy is not followed",
+     "text": "[Describe what happens, as your organisation decides. Check this with the right person before you publish the policy.]",
+     "level": 1,
+     "id": "company-policy-7"
+    },
+    {
+     "h": "Review and approval",
+     "text": "[Say who approved the policy, on what date and when it will be reviewed.]",
+     "level": 1,
+     "id": "company-policy-8"
+    },
+    {
+     "h": "Revision history",
+     "text": "[Record each change to this document.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Version",
+       "Date",
+       "Changed by",
+       "What changed"
+      ],
+      "rows": 4,
+      "widths": [
+       14,
+       20,
+       26,
+       40
+      ]
+     },
+     "id": "company-policy-9"
+    }
+   ],
+   "id": "company-policy"
+  },
+  "case-study": {
+   "file": "case-study",
+   "title": "Case Study",
+   "subtitle": "[Client or project name]",
+   "sections": [
+    {
+     "h": "Summary",
+     "text": "[Give the story in three sentences: the problem, what you did and the result.]",
+     "level": 1,
+     "id": "case-study-0"
+    },
+    {
+     "h": "The client or situation",
+     "text": "[Describe who the client is and what they do.]",
+     "level": 1,
+     "id": "case-study-1"
+    },
+    {
+     "h": "The challenge",
+     "text": "[Describe the problem the client faced and why it mattered.]",
+     "level": 1,
+     "id": "case-study-2"
+    },
+    {
+     "h": "What we did",
+     "text": "[Describe the steps you took and why.]",
+     "level": 1,
+     "id": "case-study-3"
+    },
+    {
+     "h": "Results",
+     "text": "- [Result with a number, for example 30 percent faster]\n- [Result]\n- [Result]",
+     "level": 1,
+     "id": "case-study-4"
+    },
+    {
+     "h": "In the client's words",
+     "text": "[\"Add a short quote from the client, with their name and role.\"]",
+     "level": 1,
+     "id": "case-study-5"
+    },
+    {
+     "h": "What we learned",
+     "text": "[Describe what this work showed you that could help others.]",
+     "level": 1,
+     "id": "case-study-6"
+    },
+    {
+     "h": "Contact",
+     "text": "[Add a name, email or phone number for people who want to know more.]",
+     "level": 1,
+     "id": "case-study-7"
+    }
+   ],
+   "id": "case-study"
+  },
+  "internship-report": {
+   "file": "internship-report",
+   "title": "Internship Report",
+   "subtitle": "[Name of the organisation]",
+   "sections": [
+    {
+     "h": "Acknowledgement",
+     "text": "[Thank the people who helped you: your guide, your manager and your college.]",
+     "level": 1,
+     "id": "internship-report-0"
+    },
+    {
+     "h": "Abstract",
+     "text": "[Write a short summary of the internship: where, for how long, what you worked on and what you learnt. Write this last.]",
+     "level": 1,
+     "id": "internship-report-1"
+    },
+    {
+     "h": "About the organisation",
+     "text": "[Describe what the organisation does, where it is and how big it is.]",
+     "level": 1,
+     "id": "internship-report-2"
+    },
+    {
+     "h": "Internship details",
+     "text": "[Give the basic details.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Detail",
+       "Information"
+      ],
+      "rows": 5,
+      "widths": [
+       30,
+       70
+      ]
+     },
+     "id": "internship-report-3"
+    },
+    {
+     "h": "Tasks and projects",
+     "text": "[Describe what you worked on, week by week or project by project.]",
+     "level": 1,
+     "id": "internship-report-4"
+    },
+    {
+     "h": "Skills learned",
+     "text": "- [Skill 1 and how you used it]\n- [Skill 2]",
+     "level": 1,
+     "id": "internship-report-5"
+    },
+    {
+     "h": "Challenges",
+     "text": "[Describe a problem you faced and how you dealt with it.]",
+     "level": 1,
+     "id": "internship-report-6"
+    },
+    {
+     "h": "Conclusion",
+     "text": "[Say what the internship meant for you and what you will do next.]",
+     "level": 1,
+     "id": "internship-report-7"
+    },
+    {
+     "h": "References",
+     "text": "- [Book, website or document you used]",
+     "level": 1,
+     "id": "internship-report-8"
+    }
+   ],
+   "id": "internship-report"
+  },
+  "event-plan": {
+   "file": "event-plan",
+   "title": "Event Plan",
+   "subtitle": "[Name of the event]",
+   "sections": [
+    {
+     "h": "Overview",
+     "text": "[Describe the event in a few lines: what, why and for whom.]",
+     "level": 1,
+     "id": "event-plan-0"
+    },
+    {
+     "h": "Goals",
+     "text": "- [Goal 1]\n- [Goal 2]",
+     "level": 1,
+     "id": "event-plan-1"
+    },
+    {
+     "h": "Date, time and venue",
+     "text": "[Give the date, the start and end times and the place, with the address.]",
+     "level": 1,
+     "id": "event-plan-2"
+    },
+    {
+     "h": "Audience",
+     "text": "[Say who is invited and how many people you expect.]",
+     "level": 1,
+     "id": "event-plan-3"
+    },
+    {
+     "h": "Programme",
+     "text": "[Give the schedule for the day.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Time",
+       "Activity",
+       "Who is in charge"
+      ],
+      "rows": 8,
+      "widths": [
+       18,
+       52,
+       30
+      ]
+     },
+     "id": "event-plan-4"
+    },
+    {
+     "h": "Team and responsibilities",
+     "text": "[Say who does what.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Name",
+       "Role",
+       "Contact"
+      ],
+      "rows": 5,
+      "widths": [
+       30,
+       40,
+       30
+      ]
+     },
+     "id": "event-plan-5"
+    },
+    {
+     "h": "Budget",
+     "text": "[List the costs and where the money comes from.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Item",
+       "Details",
+       "Cost"
+      ],
+      "rows": 6,
+      "widths": [
+       30,
+       48,
+       22
+      ]
+     },
+     "id": "event-plan-6"
+    },
+    {
+     "h": "Invitations and promotion",
+     "text": "[Say how people will hear about the event.]",
+     "level": 1,
+     "id": "event-plan-7"
+    },
+    {
+     "h": "Checklist",
+     "text": "- [Venue booked]\n- [Food and drink arranged]\n- [Equipment and sound checked]\n- [Volunteers briefed]",
+     "level": 1,
+     "id": "event-plan-8"
+    },
+    {
+     "h": "Risks and backup plan",
+     "text": "[Say what could go wrong, such as rain or a late speaker, and what you will do.]",
+     "level": 1,
+     "id": "event-plan-9"
+    },
+    {
+     "h": "After the event",
+     "text": "[Say how you will thank people, collect feedback and close the accounts.]",
+     "level": 1,
+     "id": "event-plan-10"
+    }
+   ],
+   "id": "event-plan"
+  },
+  "status-report": {
+   "file": "status-report",
+   "title": "Status Report",
+   "subtitle": "[Project name]",
+   "sections": [
+    {
+     "h": "Period and summary",
+     "text": "[Say which dates this report covers and give a two-line summary: on track, at risk or behind.]",
+     "level": 1,
+     "id": "status-report-0"
+    },
+    {
+     "h": "Progress this period",
+     "text": "- [What was completed]\n- [What was completed]",
+     "level": 1,
+     "id": "status-report-1"
+    },
+    {
+     "h": "Planned for next period",
+     "text": "- [What will be done next]\n- [What will be done next]",
+     "level": 1,
+     "id": "status-report-2"
+    },
+    {
+     "h": "Milestones",
+     "text": "[Show where each milestone stands.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Milestone",
+       "Due date",
+       "Status"
+      ],
+      "rows": 5,
+      "widths": [
+       50,
+       25,
+       25
+      ]
+     },
+     "id": "status-report-3"
+    },
+    {
+     "h": "Issues and risks",
+     "text": "[List the problems and what is being done.]",
+     "level": 1,
+     "table": {
+      "headers": [
+       "Issue or risk",
+       "Effect",
+       "Action",
+       "Owner"
+      ],
+      "rows": 4,
+      "widths": [
+       32,
+       22,
+       32,
+       14
+      ]
+     },
+     "id": "status-report-4"
+    },
+    {
+     "h": "Decisions needed",
+     "text": "- [Decision needed, and from whom, by when]",
+     "level": 1,
+     "id": "status-report-5"
+    },
+    {
+     "h": "Budget status",
+     "text": "[Say how much has been spent against the plan, in your own figures.]",
+     "level": 1,
+     "id": "status-report-6"
+    }
+   ],
+   "id": "status-report"
+  }
+ }
+}
