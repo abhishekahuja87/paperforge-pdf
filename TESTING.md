@@ -1435,3 +1435,5 @@ Checked in the app with generated PDFs and images: booklet with back cover and o
 - [ ] Resize a PDF that has a truly blank page: no error, the page comes out blank.
 - [ ] On a phone, Organize PDF buttons are easy to tap and the position box opens the number keyboard.
 - [ ] Image Resizer with a minimum set: upload the result to a test form or check its size in the file manager.
+- [ ] Print the sheet tools (Planner maker, Meal planner, Record sheets, Care sheets, Paper maker and the printable pages built on them): tap Print, choose Save as PDF, and open the file: the sheet must show (not a blank page) and be one page per sheet.
+- [ ] Home page: the Excel, Word and PowerPoint panels have their own colours (green, purple, orange), and the recently used panel looks like the other panels, with its note under the title.
