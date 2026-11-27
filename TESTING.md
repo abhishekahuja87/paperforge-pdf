@@ -166,6 +166,10 @@ Logic checked in Node: credit-weighted GPA, CGPA conversions and the next-term t
 
 Not run in the sandbox. On EMI, Unit converter (change the unit type to Temperature and pick units), Time zone converter, HRA (tick metro), Date difference (Add or subtract mode) and Percentage: change the inputs, press Copy link, open the link in a new tab and confirm every input and the result match. A tampered value (letters in a number field, an unknown option) must be ignored, and the address bar should lose its query once the page loads.
 
+## Excel template makers section (manual check needed)
+
+Not run in the sandbox. After deploying, open `/excel-template-makers`: the four tools are listed, the tool count says 4, and the FAQ links open the right tools. On the home page check the new "Excel template makers" hero tile and section, and that the Work section no longer lists the four workbook tools. Open each workbook tool: the top link should read Excel template makers and lead to the section page.
+
 ## Password-protected PDFs (manual check needed)
 
 Not run in the sandbox. After deploying, upload a password-protected PDF to Split, Rotate, Compress, Merge and Organize. Expect a password dialog; a wrong password shows an error and stays open; the right password continues with the pages; Skip file drops it; an owner-password-only file opens with the field left empty.

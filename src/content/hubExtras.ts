@@ -370,4 +370,18 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { who: "Teachers", text: "Run a quiz, an exam clock or a spelling bee on the class screen." },
     ],
   },
+  "/excel-template-makers": {
+    tasks: [
+      { task: "Make a Gantt chart in Excel from my tasks", tool: "gantt-chart-excel-maker", name: "Gantt Chart Excel Maker", note: "A timeline that colours itself." },
+      { task: "Keep a monthly attendance register", tool: "attendance-register-excel-maker", name: "Attendance Register Excel Maker", note: "Weekly offs, holidays and a summary." },
+      { task: "Make an invoice template in Excel", tool: "invoice-excel-template-maker", name: "Invoice Excel Template Maker", note: "Item and customer lists, and a log." },
+      { task: "Bill milk, tiffin or newspaper customers each month", tool: "delivery-bill-excel-maker", name: "Delivery Bill Excel Maker", note: "Daily grid, bills and reminders." },
+    ],
+    situations: [
+      { who: "Small shops and home businesses", text: "Make an invoice workbook with your items and customers, and a monthly delivery bill for regular customers." },
+      { who: "Project managers and students", text: "Turn a task list into a Gantt chart you can change in Excel and print." },
+      { who: "Offices, schools and workshops", text: "Keep a monthly attendance register with your own weekly offs and holidays." },
+      { who: "Anyone who wants Excel without the set-up", text: "Start from a blank workbook or a sample one and change it to suit." },
+    ],
+  },
 };

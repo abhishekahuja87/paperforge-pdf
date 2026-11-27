@@ -972,6 +972,10 @@
       "name": "Developer and data tools",
       "description": "Format JSON, encode Base64 and URLs, convert timestamps and colours, and generate UUIDs, passwords and placeholder text. Everything runs on your device, so keys and data stay with you."
     },
+    "excel": {
+      "name": "Excel template makers",
+      "description": "Make a real Excel workbook for the job: a Gantt chart from your task list, a monthly attendance register, an invoice with item and customer lists, or a monthly delivery bill with reminders. Each file has formulas, drop-downs and colours already set up, and is made on your device."
+    },
     "other": {
       "name": "More tools",
       "description": "Other tools on the site."
