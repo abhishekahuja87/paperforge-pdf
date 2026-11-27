@@ -16,4 +16,10 @@ export const WORDDOCS_COMPONENTS: Record<string, LazyExoticComponent<ComponentTy
   tplInternshipReport: lazy(() => import('./TemplatePages').then((m) => ({ default: m.InternshipReportTemplate }))),
   tplEventPlan: lazy(() => import('./TemplatePages').then((m) => ({ default: m.EventPlanTemplate }))),
   tplStatusReport: lazy(() => import('./TemplatePages').then((m) => ({ default: m.StatusReportTemplate }))),
+  tplMarketingPlan: lazy(() => import('./TemplatePages').then((m) => ({ default: m.MarketingPlanTemplate }))),
+  tplLessonPlan: lazy(() => import('./TemplatePages').then((m) => ({ default: m.LessonPlanTemplate }))),
+  tplSeminarReport: lazy(() => import('./TemplatePages').then((m) => ({ default: m.SeminarReportTemplate }))),
+  tplProductRequirements: lazy(() => import('./TemplatePages').then((m) => ({ default: m.ProductRequirementsTemplate }))),
+  tplTrainingManual: lazy(() => import('./TemplatePages').then((m) => ({ default: m.TrainingManualTemplate }))),
+  tplGrantProposal: lazy(() => import('./TemplatePages').then((m) => ({ default: m.GrantProposalTemplate }))),
 };

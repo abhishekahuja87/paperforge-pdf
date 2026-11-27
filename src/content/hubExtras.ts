@@ -395,6 +395,12 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Make an internship report in Word", tool: "internship-report-word-template", name: "Internship Report Word Template", note: "Cover, contents, headings and tables." },
       { task: "Make an event plan in Word", tool: "event-plan-word-template", name: "Event Plan Word Template", note: "Cover, contents, headings and tables." },
       { task: "Make a project status report in Word", tool: "status-report-word-template", name: "Status Report Word Template", note: "Cover, contents, headings and tables." },
+      { task: "Make a marketing plan in Word", tool: "marketing-plan-word-template", name: "Marketing Plan Word Template", note: "Cover, contents, headings and tables." },
+      { task: "Make a lesson plan in Word", tool: "lesson-plan-word-template", name: "Lesson Plan Word Template", note: "Cover, contents, headings and tables." },
+      { task: "Make a seminar report in Word", tool: "seminar-report-word-template", name: "Seminar Report Word Template", note: "Cover, contents, headings and tables." },
+      { task: "Make a product requirements document (PRD) in Word", tool: "product-requirements-word-template", name: "Product Requirements Word Template", note: "Cover, contents, headings and tables." },
+      { task: "Make a training manual in Word", tool: "training-manual-word-template", name: "Training Manual Word Template", note: "Cover, contents, headings and tables." },
+      { task: "Make a grant proposal in Word", tool: "grant-proposal-word-template", name: "Grant Proposal Word Template", note: "Cover, contents, headings and tables." },
     ],
     situations: [
       { who: "Job seekers", text: "Make a resume and a cover letter in Word that you can edit for every application." },
