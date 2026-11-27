@@ -27,8 +27,15 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
   const seen = new Set<string>();
   const guides = useMemo(() => hubGuides(hub), [hub]);
   const related = (faqSet?.related ?? []).map((path) => HERO_TILES.find((tile) => tile.to === path)).filter((tile): tile is NonNullable<typeof tile> => Boolean(tile));
+  const jumpToTools = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = document.getElementById('all-tools');
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   return (
     <InfoPageLayout title={hub.title} subtitle={hub.subtitle} description={hub.description} contentLanguage="en" compact>
+      {tools.length > 0 && <p><a href="#all-tools" onClick={jumpToTools} className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3.5 py-2 text-[13px] font-semibold text-indigo-700 hover:bg-stone-50">Jump to all {tools.length} tools <span aria-hidden="true">&darr;</span></a></p>}
       {intro.map((section) => (
         <section key={section.heading} className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">{section.heading}</h2>
@@ -106,7 +113,7 @@ export const HubPage: React.FC<{ hub: Hub }> = ({ hub }) => {
           {section.paragraphs.map((paragraph) => <p key={paragraph}><LinkedText text={paragraph} auto seen={seen} /></p>)}
         </section>
       ))}
-      <section className="space-y-3">
+      <section id="all-tools" className="scroll-mt-20 space-y-3">
         <h2 className="text-lg font-bold text-slate-900">All {tools.length} tools</h2>
         <div className="grid gap-2 sm:grid-cols-2">{tools.map((tool) => <HomeToolCard key={tool.id} tool={tool} compact />)}</div>
       </section>

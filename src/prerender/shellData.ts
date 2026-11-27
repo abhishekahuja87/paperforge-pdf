@@ -26,6 +26,7 @@ import { FIXTURE_PAGES } from '../config/fixturePages';
 import { GLOBE_PAGES } from '../config/globePages';
 import { UPDATES, formatUpdateDate } from '../config/updates';
 import { buildHomeJsonLd, buildToolJsonLd, type JsonLd } from '../lib/structuredData';
+import { hubForTool, hubLabel } from '../lib/hubForTool';
 
 type Json = Record<string, unknown>;
 
@@ -57,6 +58,8 @@ export interface ShellPage {
   faqs: ShellFaq[];
   /** Longer written explanation from en.toolArticles (empty when a tool has none yet). */
   article: ShellSection[];
+  /** The section page this tool belongs to, linked at the top of the static page. */
+  parent?: { path: string; label: string; count: number };
   /** schema.org data written into the page head as JSON-LD. */
   jsonLd: JsonLd[];
   /** ISO date of the last real change, from the updates log (src/config/updateEntries.ts). Left out when no change is recorded, so the sitemap never states a made-up date. */
@@ -294,6 +297,9 @@ export function getShellGroups(): ShellGroup[] {
     .filter((group) => group.tools.length > 0)
     .map((group) => ({ name: group.name, links: group.tools.map(toLink) }))
     .concat([{
+      name: 'Sections',
+      links: HUBS.map((hub) => ({ path: hub.path, title: hubLabel(hub.title), description: '' })),
+    }, {
       name: 'Court size pages',
       links: COURT_PAGES.map((page) => ({ path: page.path, title: page.name, description: '' })),
     }, {
@@ -352,7 +358,8 @@ function buildShellPages(): ShellPage[] {
       steps: copy.steps,
       faqs: copy.faqs,
       article: articleFor(tool),
-      jsonLd: buildToolJsonLd({ name: copy.heading, description: copy.subtitle, path: tool.path }),
+      parent: hubForTool(tool.id) ?? undefined,
+      jsonLd: buildToolJsonLd({ name: copy.heading, description: copy.subtitle, path: tool.path }, hubForTool(tool.id) ? { name: hubForTool(tool.id)!.label, path: hubForTool(tool.id)!.path } : null),
     };
   });
 
@@ -370,7 +377,8 @@ function buildShellPages(): ShellPage[] {
       steps: guideSteps(page),
       faqs: faqsFrom(guide.faq),
       article: articleFor(page),
-      jsonLd: buildToolJsonLd({ name: heading, description: subtitle, path: page.path }),
+      parent: hubForTool(page.path.replace(/^\//, '')) ?? undefined,
+      jsonLd: buildToolJsonLd({ name: heading, description: subtitle, path: page.path }, hubForTool(page.path.replace(/^\//, '')) ? { name: hubForTool(page.path.replace(/^\//, ''))!.label, path: hubForTool(page.path.replace(/^\//, ''))!.path } : null),
     };
   });
 

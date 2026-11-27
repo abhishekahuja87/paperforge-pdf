@@ -76,6 +76,7 @@ function shellBody(page, groups, text, site) {
     `<div class="prerender-shell">`,
     `<header><p><a href="/"><strong>${escapeHtml(site.name)}</strong></a></p></header>`,
     `<main>`,
+    ...(page.parent ? [`<p><a href="${escapeHtml(page.parent.path)}">All ${page.parent.count} ${escapeHtml(page.parent.label)}</a></p>`] : []),
     `<h1>${escapeHtml(page.heading)}</h1>`,
     `<p>${escapeHtml(page.subtitle)}</p>`,
   ];

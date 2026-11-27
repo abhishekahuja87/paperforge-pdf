@@ -83,7 +83,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         <PageMetadata
           title={toolPageTitle(title)}
           description={metaDescription(subtitle)}
-          jsonLd={buildToolJsonLd({ name: title, description: subtitle, path: pathname })}
+          jsonLd={buildToolJsonLd({ name: title, description: subtitle, path: pathname }, parent ? { name: parent.label, path: parent.path } : null)}
         />
         {focusOn ? (
           <h1 lang={contentLanguage} className="text-center text-lg font-black tracking-tight text-stone-900 sm:text-xl">{title}</h1>
@@ -92,7 +92,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
               <Link to={parent?.path ?? '/'} className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 transition hover:text-orange-800 print:hidden">
                 <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-                {parent ? parent.label : t('allTools')}
+                {parent ? `All ${parent.count} ${parent.label}` : t('allTools')}
               </Link>
               <PromisePill toolId={pathname.replace(/^\/+|\/+$/g, '')} />
             </div>
@@ -114,6 +114,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           </header>
         ) : (
           <div className="space-y-2 text-center">
+            {parent && <Link to={parent.path} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-orange-800 print:hidden"><ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />{`All ${parent.count} ${parent.label}`}</Link>}
             <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">{title}</h1>
             <p className="mx-auto max-w-2xl text-base text-slate-500">{subtitle}</p>
           </div>

@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/pdf-tools',
+    tool: 'Section pages',
+    title: 'Quick links to all the tools in a section',
+    summary: 'Every tool page now says how many tools its section has (for example "All 34 PDF Tools") and links to the section page, and each section page has a "Jump to all tools" button at the top.',
+  },
+  {
+    date: '2026-11-27',
     path: '/rent-receipt-generator',
     tool: 'Rent Receipt Generator',
     title: 'More help on five tool pages',

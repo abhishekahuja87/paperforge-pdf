@@ -1315,3 +1315,14 @@ Check after deploy:
 - [ ] Type scores on one page, reload: they stay. Open /tournament-fixtures-maker: its own teams and scores are not changed. New tournament and Clear all results work on a size page.
 - [ ] Every page has its own title, 4 steps, 3 sections and 8 questions; page source shows the text and its own canonical. All 13 are in the sitemap. The main tool and the section FAQ link to them. No sideways scroll at 360 px.
 - [ ] Search Console: request indexing for a few of the pages each day.
+
+### Section links on tool and section pages (27 Nov)
+Checked in the sandbox: the real prerender script on the new data wrote 429 pages; 346 of the 348 tool pages carry the section link (the two studios have none); the Merge PDF page has a Home > PDF Tools > Merge PDF breadcrumb in its JSON-LD. Not run in a browser.
+
+Check after deploy:
+- [ ] /merge-pdf: the small link at the top says "All 34 PDF Tools" (the number matches the section page) and opens /pdf-tools.
+- [ ] Open a sheet variant (for example /cornell-notes-template), a court page (/badminton-court-size) and a globe page: each links to its section (Printables and Templates, Sports and Fitness Tools, Audio and Video Tools).
+- [ ] On a phone the link fits on one or two lines beside the "private" pill and does not push the tool down.
+- [ ] /pdf-tools: a "Jump to all N tools" button sits above the first section; tapping it scrolls smoothly to the "All N tools" list. N equals the heading of that list.
+- [ ] View page source of a tool page: a link to its section appears before the heading, and a "Sections" group in the footer list links all 14 section pages.
+- [ ] Rich Results Test or Search Console (Breadcrumbs report): the tool page shows three levels.
