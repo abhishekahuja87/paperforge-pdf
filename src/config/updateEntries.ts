@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/excel-template-makers',
+    tool: 'Excel Template Makers',
+    title: 'New section: Excel Template Makers',
+    summary: 'The four Excel workbook makers (Gantt chart, attendance register, invoice template and delivery bill) now have their own section page, with a task table, ideas by situation and answers to common questions.',
+  },
+  {
+    date: '2026-11-27',
     path: '/pdf-tools',
     tool: 'Section pages',
     title: 'Quick links to all the tools in a section',

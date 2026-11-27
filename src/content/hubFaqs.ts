@@ -201,4 +201,14 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
       { q: 'Is anything uploaded?', a: 'No. What you add is kept on your device and is not sent to MyDailyUtils.' },
     ],
   },
+  '/excel-template-makers': {
+    related: ['/jobs-and-business-tools', '/printables-and-templates', '/student-and-writing-tools'],
+    faqs: [
+      { q: 'How do I make an Excel template for free?', a: 'Open the tool for the job, such as {invoice-excel-template-maker} or {attendance-register-excel-maker}, enter a few details, check the preview and download the .xlsx file. Nothing is uploaded and there is no sign-up.' },
+      { q: 'Do these workbooks need macros or the internet?', a: 'No. They use ordinary formulas, drop-down lists and colour rules, so they work offline in Excel, Google Sheets, WPS Office and LibreOffice. Colours can look a little different from one app to another.' },
+      { q: 'Can I make a Gantt chart in Excel without a template download?', a: '{gantt-chart-excel-maker} builds one from your own task list. Paste or upload the tasks and dates, and the timeline colours itself.' },
+      { q: 'Are tax rates built into the invoice?', a: 'No. You type the tax name and rate, so the invoice works for your country and stays correct when rates change. Check the totals against your own rules.' },
+      { q: 'Is my data uploaded?', a: 'No. The workbook is made on your device and your lists stay with you. The {page:why-trust-us|Why trust us} page shows how to check this yourself.' },
+    ],
+  },
 };

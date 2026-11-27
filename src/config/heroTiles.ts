@@ -7,7 +7,7 @@ export interface HeroTile {
   collection: string;
   label: string;
   to: string;
-  icon: 'file' | 'image' | 'receipt' | 'trend' | 'calculator' | 'sport' | 'print' | 'briefcase' | 'display' | 'school' | 'kids' | 'share' | 'code' | 'audio';
+  icon: 'file' | 'image' | 'receipt' | 'trend' | 'calculator' | 'sport' | 'print' | 'briefcase' | 'display' | 'school' | 'kids' | 'share' | 'code' | 'audio' | 'excel';
 }
 
 export const HERO_TILES: HeroTile[] = [
@@ -19,6 +19,7 @@ export const HERO_TILES: HeroTile[] = [
   { collection: 'sharing', label: 'QR and sharing tools', to: '/qr-and-sharing-tools', icon: 'share' },
   { collection: 'printables', label: 'Printables and templates', to: '/printables-and-templates', icon: 'print' },
   { collection: 'work', label: 'Jobs and business tools', to: '/jobs-and-business-tools', icon: 'briefcase' },
+  { collection: 'excel', label: 'Excel template makers', to: '/excel-template-makers', icon: 'excel' },
   { collection: 'study', label: 'Student and writing tools', to: '/student-and-writing-tools', icon: 'school' },
   { collection: 'kids', label: 'Kids learning tools', to: '/kids-learning-tools', icon: 'kids' },
   { collection: 'sports', label: 'Sports and fitness tools', to: '/sports-and-fitness-tools', icon: 'sport' },

@@ -249,4 +249,22 @@ export const HUBS: Hub[] = [
       ] },
     ],
   },
+  {
+    path: '/excel-template-makers',
+    collection: 'excel',
+    title: 'Free Excel Template Makers: Invoice, Attendance, Gantt and Billing Sheets',
+    subtitle: 'Make a ready-to-use Excel workbook for your own job. The formulas, drop-downs and colours are already set up, and the file is made on your device.',
+    description: 'Free Excel template makers: Gantt chart from a task list, monthly attendance register, invoice workbook with item and customer lists, and monthly delivery bill with reminders. Download an .xlsx, no sign-up.',
+    sections: [
+      { heading: 'What you can make here', paragraphs: [
+        'Each tool builds a real Excel (.xlsx) workbook around your own details. The Gantt Chart Excel Maker turns a task list into a project timeline that colours itself. The Attendance Register Excel Maker makes monthly sheets with weekly offs, holidays and a summary. The Invoice Excel Template Maker makes an invoice with item and customer lists, taxes you type yourself and a log of every invoice. The Delivery Bill Excel Maker makes monthly bills for milk, tiffin, newspaper or water cans, with a reminder link for customers who owe.',
+      ] },
+      { heading: 'How these workbooks work', paragraphs: [
+        'You can download a blank workbook, or one filled with sample data to see how it behaves. Choose your region first, so the currency, date order, paper size, tax name and weekly off days match how you work. The sums are ordinary formulas, the drop-downs are real lists and the colours are colour rules, so the file works in Excel, Google Sheets, WPS Office and LibreOffice without macros.',
+      ] },
+      { heading: 'Private, and what to check', paragraphs: [
+        'The workbooks are made in your browser and your lists are not sent to MyDailyUtils. Tax names and rates are typed by you and are not built in, because they differ by country and change over time. Check the totals against your own records before you rely on a file for accounts or payroll.',
+      ] },
+    ],
+  },
 ];
