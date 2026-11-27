@@ -199,6 +199,7 @@ export const SEARCH_TERMS: Record<string, string[]> = {
   'margin-markup-calculator': ['profit margin', 'selling price from cost', 'markup percentage', 'gross margin'],
   'gst-invoice-generator': ['tax invoice', 'gst bill maker', 'invoice pdf india', 'create invoice free'],
   'offer-poster-maker': ['sale poster', 'discount poster', 'shop offer banner', 'festival offer poster'],
+  'product-catalogue-maker': ['catalogue maker', 'product catalog', 'price list', 'whatsapp catalogue', 'shop catalogue pdf', 'business catalogue'],
   'price-tag-maker': ['shelf price label', 'price sticker', 'product label print', 'price card'],
   'visiting-card-maker': ['business card maker', 'make a visiting card', 'name card', 'print business cards'],
   'pos-invoice-studio': ['shop billing', 'bill book', 'retail bill', 'thermal receipt', 'small shop pos'],

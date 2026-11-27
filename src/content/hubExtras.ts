@@ -230,6 +230,7 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { task: "Make a GST invoice", tool: "gst-invoice-generator", name: "GST Invoice Generator", note: "Tax invoice or bill of supply." },
       { task: "Make rent receipts", tool: "rent-receipt-generator", name: "Rent Receipt Generator", note: "Monthly receipts for a range of months." },
       { task: "Make a sale poster", tool: "offer-poster-maker", name: "Offer Poster Maker", note: "For Instagram, WhatsApp and print." },
+      { task: "Make a product catalogue with photos and prices", tool: "product-catalogue-maker", name: "Product Catalogue Maker", note: "12 designs, a cover and a WhatsApp order page, as a PDF." },
       { task: "Print price tags", tool: "price-tag-maker", name: "Price Tag Maker", note: "Shelf labels with barcodes." },
       { task: "Design a visiting card", tool: "visiting-card-maker", name: "Visiting Card Maker", note: "PNG or PDF with a QR code." },
       { task: "Print a UPI scan-and-pay stand", tool: "upi-payment-qr-stand-printable", name: "UPI QR Stand Printable", note: "With your shop name and logo." },
