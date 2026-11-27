@@ -274,6 +274,24 @@ export const HUBS: Hub[] = [
     ],
   },
   {
+    path: '/powerpoint-makers',
+    collection: 'ppt',
+    title: 'Free PowerPoint Makers: Pitch Deck, Lesson, Quiz and More',
+    subtitle: 'Type your slides as a simple outline, check the preview and download an editable PowerPoint file. The layout is done for you, and the file is made on your device.',
+    description: "Free PowerPoint makers: pitch deck, proposal, lesson, status update, school project, quiz and event slides. Download an editable .pptx. Nothing uploaded.",
+    sections: [
+      { heading: 'What you can make here', paragraphs: [
+        'Each tool builds a real PowerPoint (.pptx) file from a text outline. The Text to PowerPoint Maker turns any outline into slides. The Pitch Deck, Business Proposal, Lesson, Project Status, School Project, Quiz and Event Programme makers start you with a full sample deck for that job, with prompts in square brackets for you to replace.',
+      ] },
+      { heading: 'How these decks work', paragraphs: [
+        'Pick a starting point and edit the outline: a line that starts with # is a new slide, a dash makes a bullet, and a line of cells between bars makes a table. The slides on the page update as you type. When you are happy, make the PowerPoint file and open it in PowerPoint, Google Slides or WPS Office to add pictures, charts and animation.',
+      ] },
+      { heading: 'Private, and what to check', paragraphs: [
+        'The decks are made in your browser and what you type is not sent to MyDailyUtils or saved. The tools only lay out the words you give them, so check every name, date and figure before you present.',
+      ] },
+    ],
+  },
+  {
     path: '/excel-template-makers',
     collection: 'excel',
     title: 'Free Excel Templates and Makers: Invoice, Stock, Ledger, Cash Book and More',

@@ -89,6 +89,9 @@ export const COLLECTIONS: CollectionSpec[] = [
   { id: 'word', icon: 'file-text', tools: [
     'resume-word-maker', 'cover-letter-word-maker', 'resignation-letter-word-maker', 'leave-application-word-maker', 'meeting-minutes-word-maker', 'notice-word-maker', 'project-proposal-word-template', 'project-report-word-template', 'business-plan-word-template', 'sop-word-template', 'job-description-word-template', 'company-policy-word-template', 'case-study-word-template', 'internship-report-word-template', 'event-plan-word-template', 'status-report-word-template'
   ] },
+  { id: 'ppt', icon: 'presentation', tools: [
+    'text-to-powerpoint-maker', 'pitch-deck-powerpoint-maker', 'business-proposal-powerpoint-maker', 'lesson-powerpoint-maker', 'project-status-powerpoint-maker', 'school-project-powerpoint-maker', 'quiz-powerpoint-maker', 'event-programme-powerpoint-maker'
+  ] },
   { id: 'present', icon: 'presentation', tools: ['display-studio', 'interval-circuit-timer', 'step-by-step-routine-display', 'exam-hall-display', 'menu-board-display', 'queue-token-display', 'daily-timings-board', 'spelling-bee-display', 'notice-board-display', 'spinner-wheel-display', 'lucky-draw-display', 'team-scoreboard-display', 'classroom-seating-plan-display', 'classroom-quiz-display'] },
   { id: 'study', icon: 'type', tools: [
     'gpa-cgpa-calculator', 'final-grade-calculator', 'citation-generator', 'study-planner', 'word-counter', 'case-converter', 'class-attendance-register-printable', 'exam-timetable-planner-printable', 'omr-answer-sheet-printable', 'omr-scanner-and-grader', 'question-paper-template-printable', 'report-card-and-rank-list-maker'

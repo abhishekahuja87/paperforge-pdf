@@ -405,6 +405,24 @@ export const HUB_EXTRAS: Record<string, HubExtras> = {
       { who: "Students and interns", text: "Start an internship report with the usual parts in place, then check your college format." },
     ],
   },
+  "/powerpoint-makers": {
+    tasks: [
+      { task: "Make a presentation in PowerPoint", tool: "text-to-powerpoint-maker", name: "Text to PowerPoint Maker", note: "A short talk, a how-to or a report with a table." },
+      { task: "Make a pitch deck in PowerPoint", tool: "pitch-deck-powerpoint-maker", name: "Pitch Deck PowerPoint Maker", note: "A startup pitch and a product launch." },
+      { task: "Make a business proposal deck in PowerPoint", tool: "business-proposal-powerpoint-maker", name: "Business Proposal PowerPoint Maker", note: "A client proposal and a company profile." },
+      { task: "Make a lesson presentation in PowerPoint", tool: "lesson-powerpoint-maker", name: "Lesson PowerPoint Maker", note: "A one-class lesson and a revision deck." },
+      { task: "Make a status update deck in PowerPoint", tool: "project-status-powerpoint-maker", name: "Project Status PowerPoint Maker", note: "A weekly update and a monthly review." },
+      { task: "Make a school project presentation in PowerPoint", tool: "school-project-powerpoint-maker", name: "School Project PowerPoint Maker", note: "A school project and a seminar." },
+      { task: "Make a quiz presentation in PowerPoint", tool: "quiz-powerpoint-maker", name: "Quiz PowerPoint Maker", note: "A general knowledge quiz and a class quiz." },
+      { task: "Make an event programme deck in PowerPoint", tool: "event-programme-powerpoint-maker", name: "Event Programme PowerPoint Maker", note: "An annual day and a workshop." },
+    ],
+    situations: [
+      { who: "Founders and small businesses", text: "Start a pitch deck, a client proposal or a company profile from a ready set of slides." },
+      { who: "Teachers and tutors", text: "Make lesson slides, a revision deck or a quiz with the answers after each question." },
+      { who: "Students", text: "Make school project or seminar slides with an aim, method, results and conclusion." },
+      { who: "Teams, schools and societies", text: "Share a weekly status update, or show an event programme on the stage screen." },
+    ],
+  },
   "/excel-template-makers": {
     tasks: [
       { task: "Make a Gantt chart in Excel from my tasks", tool: "gantt-chart-excel-maker", name: "Gantt Chart Excel Maker", note: "A timeline that colours itself." },

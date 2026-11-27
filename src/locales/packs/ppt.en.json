@@ -1,0 +1,656 @@
+{
+  "guideSteps": {
+    "text-to-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as a short talk, a how-to or a report with a table. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each line that starts with # is a new slide. Lines that start with a dash are bullet points. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ],
+    "pitch-deck-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as a startup pitch and a product launch. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each line that starts with # is a new slide. Lines that start with a dash are bullet points. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ],
+    "business-proposal-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as a client proposal and a company profile. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each line that starts with # is a new slide. Lines that start with a dash are bullet points. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ],
+    "lesson-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as a one-class lesson and a revision deck. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each line that starts with # is a new slide. Lines that start with a dash are bullet points. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ],
+    "project-status-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as a weekly update and a monthly review. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each line that starts with # is a new slide. Lines that start with a dash are bullet points. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ],
+    "school-project-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as a school project and a seminar. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each line that starts with # is a new slide. Lines that start with a dash are bullet points. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ],
+    "quiz-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as a general knowledge quiz and a class quiz. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each Q: line is a new question. Type the options on the lines below and the answer on an Answer: line. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ],
+    "event-programme-powerpoint-maker": [
+      [
+        "Pick a starting point",
+        "Choose a starter such as an annual day and a workshop. Each one fills the outline with a full sample."
+      ],
+      [
+        "Fill in the title and ending",
+        "Type the title, your name, the date and the text for the last slide."
+      ],
+      [
+        "Edit the outline",
+        "Each line that starts with # is a new slide. Lines that start with a dash are bullet points. Replace anything in [square brackets]."
+      ],
+      [
+        "Check the slides and make the file",
+        "Look through the preview, pick a look and font, then tap Make PowerPoint file. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures and finish it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "textToPptPptGuide": {
+      "title": "Text to PowerPoint Maker: Turn an Outline into Slides (.pptx)",
+      "subtitle": "Start a presentation in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the Text to PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the Text to PowerPoint Maker have?",
+          "It has starters for a short talk, a how-to or a report with a table. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Type them as text. A line that starts with # begins a new slide, and lines that start with a dash become bullet points. A line that starts with ## makes a section slide, > makes a big statement slide, == starts a column and a line of | cells | makes a table."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my presentation uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    },
+    "pitchDeckPptGuide": {
+      "title": "Pitch Deck PowerPoint Maker: Startup and Product Slides (.pptx)",
+      "subtitle": "Start a pitch deck in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the Pitch Deck PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the Pitch Deck PowerPoint Maker have?",
+          "It has starters for a startup pitch and a product launch. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Type them as text. A line that starts with # begins a new slide, and lines that start with a dash become bullet points. A line that starts with ## makes a section slide, > makes a big statement slide, == starts a column and a line of | cells | makes a table."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my pitch deck uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    },
+    "proposalPptGuide": {
+      "title": "Business Proposal PowerPoint Maker: Proposal and Company Profile (.pptx)",
+      "subtitle": "Start a business proposal deck in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the Business Proposal PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the Business Proposal PowerPoint Maker have?",
+          "It has starters for a client proposal and a company profile. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Type them as text. A line that starts with # begins a new slide, and lines that start with a dash become bullet points. A line that starts with ## makes a section slide, > makes a big statement slide, == starts a column and a line of | cells | makes a table."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my business proposal deck uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    },
+    "lessonPptGuide": {
+      "title": "Lesson PowerPoint Maker: Class Slides for Teachers (.pptx)",
+      "subtitle": "Start a lesson presentation in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the Lesson PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the Lesson PowerPoint Maker have?",
+          "It has starters for a one-class lesson and a revision deck. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Type them as text. A line that starts with # begins a new slide, and lines that start with a dash become bullet points. A line that starts with ## makes a section slide, > makes a big statement slide, == starts a column and a line of | cells | makes a table."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my lesson presentation uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    },
+    "statusPptGuide": {
+      "title": "Project Status PowerPoint Maker: Weekly and Monthly Update (.pptx)",
+      "subtitle": "Start a status update deck in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the Project Status PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the Project Status PowerPoint Maker have?",
+          "It has starters for a weekly update and a monthly review. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Type them as text. A line that starts with # begins a new slide, and lines that start with a dash become bullet points. A line that starts with ## makes a section slide, > makes a big statement slide, == starts a column and a line of | cells | makes a table."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my status update deck uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    },
+    "schoolProjectPptGuide": {
+      "title": "School Project PowerPoint Maker: Project and Seminar Slides (.pptx)",
+      "subtitle": "Start a school project presentation in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the School Project PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the School Project PowerPoint Maker have?",
+          "It has starters for a school project and a seminar. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Type them as text. A line that starts with # begins a new slide, and lines that start with a dash become bullet points. A line that starts with ## makes a section slide, > makes a big statement slide, == starts a column and a line of | cells | makes a table."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my school project presentation uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    },
+    "quizPptGuide": {
+      "title": "Quiz PowerPoint Maker: Questions, Options and Answer Slides (.pptx)",
+      "subtitle": "Start a quiz presentation in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the Quiz PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the Quiz PowerPoint Maker have?",
+          "It has starters for a general knowledge quiz and a class quiz. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Start each question with Q: and type its options on the lines below. Add an Answer: line for the correct one. Choose whether the answer shows after each question, at the end or not at all."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my quiz presentation uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    },
+    "eventProgrammePptGuide": {
+      "title": "Event Programme PowerPoint Maker: Welcome and Schedule Slides (.pptx)",
+      "subtitle": "Start an event programme deck in PowerPoint (.pptx) from a text outline with titles, bullets and tables. Pick a look, then finish it in PowerPoint.",
+      "faq": [
+        [
+          "Is the Event Programme PowerPoint Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many files you make. The file is made on your own device."
+        ],
+        [
+          "What starting points does the Event Programme PowerPoint Maker have?",
+          "It has starters for an annual day and a workshop. Each fills the outline with a full sample that you replace with your own words."
+        ],
+        [
+          "How do I write the slides?",
+          "Type them as text. A line that starts with # begins a new slide, and lines that start with a dash become bullet points. A line that starts with ## makes a section slide, > makes a big statement slide, == starts a column and a line of | cells | makes a table."
+        ],
+        [
+          "Can I change the colours and the font?",
+          "Yes. Choose Blue, Green, Orange, Dark or Black and white, and Calibri, Arial or Georgia. The preview changes straight away."
+        ],
+        [
+          "Can I add pictures, charts or animations?",
+          "Not here. This tool makes text and table slides with a clean layout. Open the .pptx in PowerPoint, Google Slides or WPS Office to add pictures, charts, animation and speaker notes."
+        ],
+        [
+          "Will the file open in PowerPoint, Google Slides and WPS Office?",
+          "Yes. It is a normal .pptx file that opens in Microsoft PowerPoint, Google Slides, WPS Office and LibreOffice Impress, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so look through the slides once before you present."
+        ],
+        [
+          "Do I have to replace the text in square brackets?",
+          "Yes. Anything in [square brackets] is a prompt that tells you what to write. Replace it before you present. The page shows a reminder while any are left."
+        ],
+        [
+          "Is my an event programme deck uploaded or saved on a server?",
+          "No. What you type and the PowerPoint file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again goes back to the original starter."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "text-to-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for a presentation",
+          "paragraphs": [
+            "A presentation is usually made for anyone who needs slides fast. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for a short talk, a how-to or a report with a table, and you write the real content. Write one idea on each slide and keep each bullet short."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    },
+    "pitch-deck-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for a pitch deck",
+          "paragraphs": [
+            "A pitch deck is usually made for founders, small business owners and students. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for a startup pitch and a product launch, and you write the real content. Put one idea on each slide, and use your own real numbers."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    },
+    "business-proposal-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for a business proposal deck",
+          "paragraphs": [
+            "A business proposal deck is usually made for freelancers, agencies and small businesses. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for a client proposal and a company profile, and you write the real content. Show the client need first, and then your offer and the cost."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    },
+    "lesson-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for a lesson presentation",
+          "paragraphs": [
+            "A lesson presentation is usually made for teachers, tutors and trainers. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for a one-class lesson and a revision deck, and you write the real content. Keep each slide to one idea so the class can follow it."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    },
+    "project-status-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for a status update deck",
+          "paragraphs": [
+            "A status update deck is usually made for team leads, managers and freelancers. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for a weekly update and a monthly review, and you write the real content. Put the summary and the decisions you need up front."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    },
+    "school-project-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for a school project presentation",
+          "paragraphs": [
+            "A school project presentation is usually made for students, class presenters and college seminar speakers. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for a school project and a seminar, and you write the real content. Use short points and keep your own notes for what you will say."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    },
+    "quiz-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for a quiz presentation",
+          "paragraphs": [
+            "A quiz presentation is usually made for teachers, quiz hosts and event organisers. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for a general knowledge quiz and a class quiz, and you write the real content. Put the answers after each question for a live quiz, or at the end for a handout."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    },
+    "event-programme-powerpoint-maker": {
+      "sections": [
+        {
+          "heading": "A clear start for an event programme deck",
+          "paragraphs": [
+            "An event programme deck is usually made for schools, societies and organisers. Slides work best when each one has a single idea and only a few short lines.",
+            "This tool gives you the structure for an annual day and a workshop, and you write the real content. Show the programme table on one slide so everyone sees the same schedule."
+          ]
+        },
+        {
+          "heading": "Finish it in PowerPoint",
+          "paragraphs": [
+            "The file has a title slide, one layout for each kind of slide and real slide titles, so the outline view in PowerPoint works.",
+            "Open it to add pictures, charts and animation, move slides around and add speaker notes. Replace every prompt in [square brackets] with your own words first."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is made on your device, so what you type is never uploaded. The file has no macros and no links to the internet.",
+            "The tool only lays out the words you give it. Check every name, date and figure before you present or share the slides."
+          ]
+        }
+      ]
+    }
+  }
+}
