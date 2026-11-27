@@ -108,7 +108,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
 
   return (
     <section className="mx-auto min-w-0">
-      <style>{`@media print { body * { visibility: hidden !important; } #rec-print, #rec-print * { visibility: visible !important; } #rec-print { position: fixed; left: 0; top: 0; width: ${current.width}mm !important; height: ${current.height}mm !important; box-shadow: none !important; border: 0 !important; } #rec-print svg { width: ${current.width}mm !important; height: ${current.height}mm !important; max-height: none !important; } @page { size: ${current.width}mm ${current.height}mm; margin: 0; } }`}</style>
+      <style>{`@media print { html, body { margin: 0 !important; height: ${current.height}mm !important; max-height: ${current.height}mm !important; overflow: hidden !important; } body * { visibility: hidden !important; } #rec-print, #rec-print * { visibility: visible !important; } #rec-print { position: fixed; left: 0; top: 0; width: ${current.width}mm !important; height: ${current.height}mm !important; box-shadow: none !important; border: 0 !important; } #rec-print svg { width: ${current.width}mm !important; height: ${current.height}mm !important; max-height: none !important; } @page { size: ${current.width}mm ${current.height}mm; margin: 0; } }`}</style>
       <div className="grid gap-5 lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)] print:m-0 print:block print:h-0 print:overflow-hidden">
         <div className="order-2 space-y-4 lg:order-1">
           <div className={card}>
