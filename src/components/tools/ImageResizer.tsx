@@ -27,6 +27,8 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
   const [files, setFiles] = useState<File[]>([]);
   const [results, setResults] = useState<ResizedImage[]>([]);
   const [maxKb, setMaxKb] = useState(String(initial?.maxKb ?? defaultMaxKb));
+  const [minKb, setMinKb] = useState('');
+  const minBytes = Math.max(0, Math.floor((Number(minKb) || 0) * 1024));
   const [useExact, setUseExact] = useState(Boolean(initial));
   const [unit, setUnit] = useState<SizeUnit>(initial?.unit ?? 'px');
   const [dpi, setDpi] = useState(String(initial?.dpi ?? 300));
@@ -65,6 +67,10 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
       setError('Enter a size limit between 5 KB and 20000 KB.');
       return;
     }
+    if (minBytes > 0 && minBytes >= Math.floor(kb * 1024)) {
+      setError('The minimum size must be smaller than the maximum size.');
+      return;
+    }
     if (useExact && (![exactWidth, exactHeight].every((side) => side >= 16 && side <= MAX_EXACT_SIDE))) {
       setError(`Enter a width and height between 16 and ${MAX_EXACT_SIDE} pixels.`);
       return;
@@ -79,6 +85,7 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
         try {
           const result = await resizeImageToTarget(file, {
             maxBytes: Math.floor(kb * 1024),
+            ...(minBytes > 0 ? { minBytes } : {}),
             background,
             ...(useExact ? { exact: { width: exactWidth, height: exactHeight, fit } } : {}),
           });
@@ -157,6 +164,11 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
                 Maximum file size (KB)
                 <input type="number" inputMode="numeric" min={5} max={20000} value={maxKb} disabled={isProcessing} onChange={(event) => { setMaxKb(event.target.value); clearResults(); }} className={field} />
                 <span className="mt-1 block font-normal text-slate-500">The output is a JPG at or under this size whenever that is possible.</span>
+              </label>
+              <label className="text-xs font-semibold text-slate-700 sm:col-span-2">
+                At least (KB, optional)
+                <input type="number" inputMode="numeric" min={0} max={20000} value={minKb} placeholder="No minimum" disabled={isProcessing} onChange={(event) => { setMinKb(event.target.value); clearResults(); }} className={field} />
+                <span className="mt-1 block font-normal text-slate-500">For forms that say, for example, between 10 KB and 20 KB. A small or plain picture is saved at a higher quality, and if it is still too small, blank data is added inside the file to reach the minimum. The picture itself does not change.</span>
               </label>
               <div className="flex flex-wrap gap-2 sm:col-span-2" role="group" aria-label="Common file size limits">
                 {[20, 30, 50, 100, 200].map((kb) => (
@@ -242,10 +254,12 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
                           <p className="truncate text-xs font-semibold text-slate-800">{outputName}</p>
                           <p className="mt-1 text-[10px] text-slate-500">{result.width} × {result.height} px · {formatBytes(result.file.size)} → {formatBytes(result.blob.size)} · quality {Math.round(result.quality * 100)}%</p>
                           <p className={`mt-1 text-[10px] font-semibold ${result.reachedTarget ? 'text-emerald-700' : 'text-amber-700'}`}>
-                            {result.reachedTarget ? `Under ${maxKb} KB` : `Could not reach ${maxKb} KB. Raise the limit${useExact ? ' or use a smaller width and height' : ''}.`}
+                            {result.reachedTarget ? (minBytes ? `Between ${minKb} and ${maxKb} KB` : `Under ${maxKb} KB`) : `Could not reach ${maxKb} KB. Raise the limit${useExact ? ' or use a smaller width and height' : ''}.`}
                           </p>
+                          {result.padded && <p className="mt-1 text-[10px] text-slate-500">Blank data was added inside the file to reach {minKb} KB; the picture is unchanged.</p>}
                           <ul className="mt-1 flex flex-wrap gap-x-3 text-[10px] text-slate-600" aria-label="Checks against your settings">
                             <li>{result.reachedTarget ? '✓' : '✗'} Size {formatBytes(result.blob.size)} of {maxKb} KB</li>
+                            {minBytes > 0 && <li>{result.blob.size >= minBytes ? '✓' : '✗'} At least {minKb} KB</li>}
                             {useExact && <li>{result.width === pixelsW && result.height === pixelsH ? '✓' : '✗'} Exactly {pixelsW} × {pixelsH} px</li>}
                             <li>✓ JPG</li>
                           </ul>

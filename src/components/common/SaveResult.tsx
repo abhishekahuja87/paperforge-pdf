@@ -64,7 +64,7 @@ export const SaveResult: React.FC<SaveResultProps> = ({ href, name, label = 'You
           <span className="mt-0.5 flex min-w-0 items-center gap-1">
             <span className={`truncate text-[11px] ${outdated ? 'text-amber-800' : 'text-emerald-800'}`} title={shown}>{shown}</span>
             {!outdated && (
-              <button type="button" onClick={start} aria-label="Change the file name" title="Change the file name" className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-emerald-800 hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+              <button type="button" onClick={start} aria-label="Change the file name" title="Change the file name" className="inline-flex h-10 w-10 shrink-0 -my-1.5 items-center justify-center rounded-md text-emerald-800 hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
                 <Pencil className="h-3.5 w-3.5" aria-hidden="true" />
               </button>
             )}
