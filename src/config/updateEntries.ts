@@ -19,6 +19,20 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/invitation-card-maker',
+    tool: 'Invitation Card Maker',
+    title: 'New: Invitation Card Maker',
+    summary: 'Make a wedding, birthday, baby shower, housewarming or party invitation from 26 designs and 16 occasions, with your own words, colours, fonts and photo, as a picture or PDF.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/photo-and-image-tools',
+    tool: 'Photo and image tools',
+    title: 'New: invitation cards in the photo tools',
+    summary: 'The Invitation Card Maker is now listed with the photo and image tools.',
+  },
+  {
+    date: '2026-11-27',
     path: '/powerpoint-makers',
     tool: 'PowerPoint makers',
     title: 'More starting points in every PowerPoint maker',

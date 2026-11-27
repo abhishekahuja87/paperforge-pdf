@@ -61,7 +61,7 @@ export const COLLECTIONS: CollectionSpec[] = [
     'watermark-pdf', 'crop-pdf', 'protect-pdf', 'unlock-pdf', 'sanitize-pdf', 'flatten-pdf', 'n-up-pdf', 'inspect-pdf', 'generate-sample-pdf', 'sign-pdf', 'document-scanner', 'fill-pdf', 'make-pdf-fillable', 'smart-split-pdf', 'pdf-bates-numbering', 'redact-pdf', 'compare-pdf-and-text', 'resize-pdf-page-size', 'pdf-booklet-maker', 'grayscale-pdf', 'extract-images-from-pdf', 'whatsapp-chat-to-pdf', 'pdf-table-to-excel',
   ] },
   { id: 'images', icon: 'image', tools: [
-    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location', 'bulk-image-tools', 'social-image-resizer', 'gif-maker', 'background-remover',
+    'image-compressor', 'image-converter', 'image-resizer', 'screenshot-redactor', 'signature-maker', 'passport-photo-sheet-maker', 'photo-grid-splitter', 'photo-collage-maker', 'photo-name-date-strip', 'remove-photo-location', 'bulk-image-tools', 'social-image-resizer', 'invitation-card-maker', 'gif-maker', 'background-remover',
   ] },
   { id: 'tax', icon: 'receipt', tools: [
     'income-tax-calculator', 'salary-calculator', 'hra-calculator', 'gst-calculator', 'gratuity-calculator', 'epf-calculator',

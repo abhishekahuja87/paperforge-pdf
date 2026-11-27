@@ -1,0 +1,89 @@
+{
+  "guideSteps": {
+    "invitation-card-maker": [
+      [
+        "Choose the occasion",
+        "Pick a wedding, birthday, baby shower, housewarming or another occasion. The boxes fill with sample wording, and the designs that suit it are shown first."
+      ],
+      [
+        "Pick a design and a size",
+        "Choose one of the designs, then the size for a WhatsApp post, a square post, a story or print."
+      ],
+      [
+        "Type your words and add a photo",
+        "Replace the sample names, date, time, venue and message. Add a photo if you like, and change the colours, fonts and text size."
+      ],
+      [
+        "Check the preview and download",
+        "Look at the card, then download a PNG, a smaller JPG or a PDF. Share it on WhatsApp or print it."
+      ]
+    ]
+  },
+  "pageGuides": {
+    "invitationCardMakerGuide": {
+      "title": "Invitation Card Maker: Free Wedding, Birthday and Party Invitations",
+      "subtitle": "Pick an occasion and one of 26 designs, type your words, add a photo and download the card for WhatsApp, Instagram or print. Free, nothing uploaded.",
+      "faq": [
+        [
+          "Is the Invitation Card Maker free?",
+          "Yes. It is free, with no sign-up, no watermark and no limit on how many cards you make. The picture is drawn on your own device."
+        ],
+        [
+          "Which occasions can I make a card for?",
+          "Weddings, engagements, sangeet and mehndi, anniversaries, birthdays, kids birthdays, baby showers, naming ceremonies, housewarmings, pujas, festival get-togethers, shop or business openings, company events, graduations, farewells and general parties. Each one starts with sample wording that you replace."
+        ],
+        [
+          "Can I change the colours and fonts?",
+          "Yes. Every design has its own colours and fonts, and you can choose another colour set and other fonts for the names and the other text. You can also switch the decorations and the frame off for a plainer card."
+        ],
+        [
+          "Can I add a photo of the couple or the child?",
+          "Yes. Add a photo and choose a circle, arch or rounded shape. Zoom and move it until the face sits well. The photo is read on your device and is never uploaded."
+        ],
+        [
+          "What size should I choose for WhatsApp or Instagram?",
+          "Use the post size for a normal WhatsApp message or an Instagram post, the square size for a square post, and the story size for a status or a story. Apps may compress a picture a little when you send it."
+        ],
+        [
+          "How do I print the card?",
+          "Choose the print size and download the PDF. It is made for an A4 page at 150 dots per inch, so it prints clearly on A4 and sharper on A5. For a shop print, ask for the file in the size the printer wants and check one proof first."
+        ],
+        [
+          "Can I type in Hindi or another language?",
+          "You can type in any language. The fancy fonts only have English letters, so other scripts are shown in a plain system font, which depends on your phone or computer. Look at the preview before you send the card."
+        ],
+        [
+          "Is my text or photo uploaded or saved?",
+          "No. The card is drawn in your browser, and what you type and your photo stay on your device. {{siteName}} does not receive them. Start again clears everything."
+        ]
+      ]
+    }
+  },
+  "toolArticles": {
+    "invitation-card-maker": {
+      "sections": [
+        {
+          "heading": "A card that looks finished in a few minutes",
+          "paragraphs": [
+            "Most people want an invitation they can send on WhatsApp the same day. Pick the occasion, and the boxes fill with sample wording that you change: the names, the date, the time, the place and a line for RSVP.",
+            "Each design is made of a colour set, a pair of fonts, a frame and decorations such as a marigold garland, balloons, lights, flowers or lamps, so cards for a wedding, a birthday and a housewarming do not look alike."
+          ]
+        },
+        {
+          "heading": "Make it yours",
+          "paragraphs": [
+            "Choose another colour set to match the outfits or the venue, pick other fonts, make the text larger or smaller, and switch the frame or the decorations off. Add a photo in a circle, an arch or a rounded shape. If the text is too long for the card, it is made smaller to fit.",
+            "Download a picture for WhatsApp and Instagram, a smaller JPG, or a PDF for printing. Put the map link in your message, because a picture cannot hold a clickable link."
+          ]
+        },
+        {
+          "heading": "Private, and what to check",
+          "paragraphs": [
+            "Everything is drawn on your device, so your names, address and photo are not uploaded. There are no logos or watermarks on the card.",
+            "Check every name, date, time and address in the preview before you send the card, and look at how other scripts such as Hindi appear."
+          ]
+        }
+      ]
+    }
+  }
+}
