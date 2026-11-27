@@ -97,7 +97,7 @@ export const Teleprompter: React.FC = () => {
   }, [scrolling]);
 
   const update = (patch: Partial<Saved>) => { output.clear(); setSaved((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; update({ script: s.script, size: s.size as SizeId, speed: s.speed }); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; update({ script: s.script, size: s.size as SizeId, speed: s.speed }); };
   const activeStarter = STARTER_IDS.find((id) => starters[id].script === script) ?? '';
   const words = countWords(script);
   const readTime = pxPerSecond > 0 ? clock(distance / pxPerSecond) : '';
@@ -140,7 +140,7 @@ export const Teleprompter: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter].hint : ui.startersHint}</p></div>
       </section>
 

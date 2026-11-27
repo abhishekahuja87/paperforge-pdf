@@ -81,7 +81,7 @@ export const WhiteboardRecorder: React.FC = () => {
   const up = () => { if (!drawing.current) return; drawing.current = false; board.finish(); setStrokes(board.strokes.length); repaint(); };
 
   const change = (patch: Partial<Saved>) => { output.clear(); setSaved((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; const next: Saved = { board: s.board as BoardId, shape: s.shape as ShapeId, width: s.width as WidthId, voice: s.voice }; if (next.shape !== shape) setStrokes(0); change(next); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; const next: Saved = { board: s.board as BoardId, shape: s.shape as ShapeId, width: s.width as WidthId, voice: s.voice }; if (next.shape !== shape) setStrokes(0); change(next); };
   const activeStarter = STARTER_IDS.find((id) => (['board', 'shape', 'width', 'voice'] as const).every((field) => starters[id][field] === saved[field])) ?? '';
   const undo = () => { if (board.undo()) { setStrokes(board.strokes.length); repaint(); } };
   const clear = () => { board.clear(); setStrokes(0); repaint(); };
@@ -119,7 +119,7 @@ export const WhiteboardRecorder: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter].hint : ui.startersHint}</p></div>
         <button type="button" onClick={addSample} disabled={recording} className={buttonClass}>{ui.sample}</button>
       </section>

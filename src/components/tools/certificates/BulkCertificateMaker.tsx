@@ -65,7 +65,7 @@ export const BulkCertificateMaker: React.FC = () => {
   }, [look, words, person.name, person.reason, fontTick]);
 
   const change = (patch: Partial<Saved>) => { output.clear(); setMessage(''); setSaved((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => change(fromStarter(id));
+  const applyStarter = (id: StarterId) => change(fromStarter(id));
   const activeStarter = STARTER_IDS.find((id) => { const s = fromStarter(id) as Record<string, string>; return (['design', 'accent', 'title', 'preface', 'reason'] as const).every((field) => s[field] === saved[field]); }) ?? '';
   const field = (label: string, key: keyof Saved, placeholder = '', type = 'text', max = 90) => (
     <label className="block text-xs font-semibold text-slate-700">{label}
@@ -87,7 +87,7 @@ export const BulkCertificateMaker: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter].hint : ui.startersHint}</p></div>
       </section>
 

@@ -124,7 +124,7 @@ export const WhatsAppChatPdf: React.FC = () => {
   };
   const addFile = async (file: File) => { setMessage(''); try { takeSource(await readSource(file)); } catch (error) { setMessage((error as Error).message === 'zip' ? ui.zipNoChat : ui.readFailed); } };
   const addSample = () => { setMessage(''); takeSource({ name: ui.sampleName, text: examples.sample.join('\n'), zip: null }); };
-  const useStarter = (id: StarterId) => { const s = examples[id]; stale(); setSaved((current) => ({ ...current, style: s.style as StyleId, size: s.size as SizeId, times: s.times, summary: s.summary, photos: s.photos, system: s.system, media: s.media, deleted: s.deleted })); };
+  const applyStarter = (id: StarterId) => { const s = examples[id]; stale(); setSaved((current) => ({ ...current, style: s.style as StyleId, size: s.size as SizeId, times: s.times, summary: s.summary, photos: s.photos, system: s.system, media: s.media, deleted: s.deleted })); };
   const activeStarter = STARTER_IDS.find((id) => STARTER_FIELDS.every((field) => examples[id][field] === saved[field])) ?? '';
 
   const range = chat && chat.messages.length > 0 ? `${formatDay(chat.messages[0]!.day, false)} to ${formatDay(chat.messages[chat.messages.length - 1]!.day, false)}` : '';
@@ -148,7 +148,7 @@ export const WhatsAppChatPdf: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: examples[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={STARTER_IDS.map((id) => ({ value: id, label: examples[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? examples[activeStarter].hint : ui.startersHint}</p></div>
       </section>
 

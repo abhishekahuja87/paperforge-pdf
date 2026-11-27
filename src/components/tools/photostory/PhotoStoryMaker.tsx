@@ -189,7 +189,7 @@ export const PhotoStoryMaker: React.FC = () => {
   const remove = (id: number) => { const gone = photos.find((photo) => photo.id === id); if (gone) URL.revokeObjectURL(gone.url); setPhotoList(photos.filter((photo) => photo.id !== id)); };
   const move = (index: number, by: number) => { const to = index + by; if (to < 0 || to >= photos.length) return; const next = [...photos]; const [item] = next.splice(index, 1); next.splice(to, 0, item!); setPhotoList(next); };
 
-  const useStarter = (id: StarterId) => {
+  const applyStarter = (id: StarterId) => {
     if (busy) return; const s = starters[id]; reset();
     setSaved((current) => ({ ...current, title: s.title, end: s.end, options: { ...current.options, look: s.look as LookId, font: LOOKS[s.look as LookId].font, transition: s.transition as TransitionId, caption: s.caption as CaptionId, fill: s.fill as FillId, motion: s.motion as MotionId, speed: s.speed as SpeedId } }));
     setHints(s.hints);
@@ -286,7 +286,7 @@ export const PhotoStoryMaker: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.photos}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={currentStarter} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={currentStarter} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{ui.startersHint}</p></div>
         <div className="flex flex-wrap gap-2">
           <label className={`inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl bg-orange-700 px-4 text-sm font-bold text-white hover:bg-orange-800 ${busy || adding || photos.length >= MAX_PHOTOS ? 'pointer-events-none opacity-40' : ''}`}><ImageIcon className="h-4 w-4" aria-hidden="true" />{ui.addPhotos}

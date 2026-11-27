@@ -82,7 +82,7 @@ export const VideoCompressor: React.FC = () => {
 
   const reset = () => { setResult(null); setMessage(''); };
   const change = (patch: Partial<Saved>) => { reset(); setSaved((current) => ({ ...current, ...patch })); };
-  const useStarter = (id: StarterId) => { const s = starters[id]; change({ limitMb: s.limitMb, short: s.short, fps: s.fps as 30 | 24 | 15, quality: s.quality as QualityId }); };
+  const applyStarter = (id: StarterId) => { const s = starters[id]; change({ limitMb: s.limitMb, short: s.short, fps: s.fps as 30 | 24 | 15, quality: s.quality as QualityId }); };
   const activeStarter = (Object.keys(starters) as StarterId[]).find((id) => { const s = starters[id]; return s.limitMb === limitMb && s.short === short && s.fps === fps && s.quality === quality; }) ?? '';
 
   const addFile = async (picked: File) => {
@@ -133,7 +133,7 @@ export const VideoCompressor: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={activeStarter} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{activeStarter ? starters[activeStarter as StarterId].hint : ui.startersHint}</p></div>
       </section>
 

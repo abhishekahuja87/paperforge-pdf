@@ -82,7 +82,7 @@ export const TapCaptions: React.FC = () => {
   };
   const removeSound = () => { stopRun(); setVoice(null); setTimerOnly(false); setTimes([]); };
   const setScript = (next: string) => { stopRun(); setSaved((current) => ({ ...current, script: next.slice(0, MAX_SCRIPT) })); setTimes((current) => current.slice(0, splitLines(next).length)); };
-  const useStarter = (id: StarterId) => { setScript(starters[id].script); setTimes([]); };
+  const applyStarter = (id: StarterId) => { setScript(starters[id].script); setTimes([]); };
   const nudge = (k: number, by: number) => setTimes((current) => current.map((value, index) => (index === k ? Math.max(0, Math.round((value + by) * 10) / 10) : value)));
   const setTime = (k: number, value: number) => setTimes((current) => current.map((old, index) => (index === k ? Math.max(0, value) : old)));
 
@@ -99,7 +99,7 @@ export const TapCaptions: React.FC = () => {
       <section className={`${card} space-y-3`}>
         <h2 className={heading}>{ui.start}</h2>
         <div><p className="mb-1 text-xs font-semibold text-slate-700">{ui.starters}</p>
-          <ChoiceButtons label={ui.starters} value={(Object.keys(starters) as StarterId[]).find((id) => starters[id].script === script) ?? ''} onChange={(value) => useStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
+          <ChoiceButtons label={ui.starters} value={(Object.keys(starters) as StarterId[]).find((id) => starters[id].script === script) ?? ''} onChange={(value) => applyStarter(value as StarterId)} options={(Object.keys(starters) as StarterId[]).map((id) => ({ value: id, label: starters[id].label }))} />
           <p className="mt-1 text-[11px] text-slate-500">{ui.startersHint}</p></div>
         <label className="block text-xs font-semibold text-slate-700">{ui.scriptLabel}
           <textarea value={script} rows={8} spellCheck={false} disabled={running} placeholder={ui.scriptPlaceholder} onChange={(event) => setScript(event.target.value)} className="mt-1 w-full rounded-xl border border-slate-300 bg-white p-3 text-sm font-normal leading-6 text-slate-900 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200" />
