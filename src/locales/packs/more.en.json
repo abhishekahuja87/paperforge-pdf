@@ -98,7 +98,7 @@
       "faq": [
         [
           "What does Resize PDF Page Size do?",
-          "It redraws every page on a sheet of the paper size you choose, such as A4 or Letter, so the whole file has one standard size."
+          "It puts every page on a sheet of the paper size you choose, such as A4, Letter or a custom size in millimetres, so the whole file has one standard size. Before you save, it shows what sizes your pages are now, and pages that are already the chosen size can be left exactly as they are."
         ],
         [
           "Will the text become blurry?",
@@ -121,6 +121,14 @@
           "Yes. Set a margin in millimetres and the page is placed inside it, which helps when a printer cuts off the edges."
         ],
         [
+          "How do I know if the text will get too small?",
+          "After you choose a size, the tool works out how much each page shrinks. If any page goes below about 85% of its size, for example an A3 page fitted on A4 at about 71%, it warns you. A larger paper, a smaller margin or Fill keeps text bigger."
+        ],
+        [
+          "Can I use a size that is not in the list?",
+          "Yes. Choose Custom (mm) and type the width and height, for example a local legal or foolscap size your office uses. Measure a sheet of the paper if you are not sure."
+        ],
+        [
           "Is my file uploaded anywhere?",
           "No. Resize PDF Page Size runs in your browser on your own device, so your file is not sent to {{siteName}} or anyone else."
         ]
@@ -140,7 +148,7 @@
         ],
         [
           "How many pages can a booklet have?",
-          "Any number, but the count is rounded up to a multiple of 4 because each sheet holds four pages. Blank pages are added at the end. Very thick booklets do not fold well, so 40 pages or fewer is practical."
+          "Any number. The count is rounded up to a multiple of 4 because each sheet holds four pages, and blank pages are added at the end, or just before the last page if you turn on Keep the last page as the back cover. More than about 8 to 10 sheets folded together will not lie flat, so for a thick booklet choose Fold as sets of 4 to 8 sheets: each set is folded on its own and the sets are stacked in order before binding."
         ],
         [
           "Which paper should I choose?",
@@ -148,11 +156,19 @@
         ],
         [
           "My printer cannot print on both sides. What can I do?",
-          "Print the odd-numbered pages first, put the stack back in the printer the right way round, then print the even pages. Test with a 4-page file first."
+          "Choose One side only (I turn the paper) under Your printer. The file then holds all the fronts first and all the backs after them, and the tool tells you which pages to print in each run. Print the fronts, put the stack back in the tray, print the backs. Test one sheet first; if the back comes out upside down or in the wrong order, use the two switches that appear and make the booklet again."
         ],
         [
           "Does it work for right-to-left books?",
           "Yes. Turn on Right-to-left book so the cover is on the other side."
+        ],
+        [
+          "What are sets, and when do I need them?",
+          "A set (printers call it a signature) is a small group of sheets folded together. A 60-page booklet on A4 is 15 sheets, which is too thick to fold neatly in one go. With sets of 5 sheets you get three folded sets of 20 pages each; stack them in order and staple or stitch along the spine. The preview shows which pages are in each set."
+        ],
+        [
+          "Why keep the last page as the back cover?",
+          "When blank pages are needed, they normally go at the end, which pushes your real last page inside the booklet. If your last page is a back cover or a contact page, turn this on and the blanks go just before it, so it stays on the outside back."
         ],
         [
           "Is my file uploaded anywhere?",
@@ -281,6 +297,13 @@
           ]
         },
         {
+          "heading": "See your page sizes before you change them",
+          "paragraphs": [
+            "When you open a file, the tool lists the sizes it contains, such as 10 × Letter and 2 × A3 landscape, so mixed files are easy to spot. Pages that are already the size you choose can be left unchanged, which keeps their links and form fields and does not scale them at all.",
+            "Fitting a large page on smaller paper shrinks everything on it. The tool works out the shrink for every page and warns you when text may become hard to read, so you can choose a larger paper, a smaller margin or Fill before saving. For a paper size that is not listed, choose Custom and type it in millimetres."
+          ]
+        },
+        {
           "heading": "Private and without limits",
           "paragraphs": [
             "The file is read and changed on your own device. Nothing is uploaded, and there is no limit on pages or file size set by this site, only by your device's memory.",
@@ -303,6 +326,13 @@
           "paragraphs": [
             "Choose double-sided printing and flip on the short edge. Print at actual size so the pages are not shrunk again. After printing, fold the whole stack in half and staple along the fold.",
             "The page list shows what is on every printed side, so you can check the order before you print."
+          ]
+        },
+        {
+          "heading": "Thick booklets, back covers and one-sided printers",
+          "paragraphs": [
+            "For booklets of more than about 8 to 10 sheets, choose Fold as sets of 4 to 8 sheets. Each set is printed in its own booklet order, folded on its own, and the sets are stacked in order, which is how printed books are bound. The page list shows every set, so you can check before printing.",
+            "If your last page is a back cover, turn on Keep the last page as the back cover, so any blank pages go just before it. If your printer prints one side only, choose One side only: the file puts all fronts first and all backs after them, and the tool gives the exact page ranges to print in two runs, with switches to reverse or turn the backs if a test sheet shows they need it."
           ]
         },
         {

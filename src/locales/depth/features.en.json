@@ -1,0 +1,26 @@
+{
+  "toolArticles": {
+    "organize-pdf": {
+      "sections": [
+        {
+          "heading": "Moving, copying and adding pages",
+          "paragraphs": [
+            "Type a number in the box under any page to move it straight to that position, instead of tapping the arrows many times. The copy button repeats a page right after itself, for example a form that needs two copies, and the plus page button adds a blank page after any page, which helps when a document must start each part on a new sheet.",
+            "Rotate all turns every page at once, Reverse order flips the whole document (useful for scans that came out last page first), and Undo takes back the last change, as many steps as you need. Start from the original brings back the pages as they were in the file."
+          ]
+        }
+      ]
+    },
+    "image-resizer": {
+      "sections": [
+        {
+          "heading": "When a form also sets a minimum size",
+          "paragraphs": [
+            "Some forms ask for a file between two sizes, for example a signature between 10 KB and 20 KB. A small, plain picture such as a signature on white paper can come out smaller than the minimum even at the highest quality. Type the minimum in At least (KB): the resizer first saves at a higher quality, and if the file is still too small it adds blank data inside the JPG file (a comment block that picture viewers ignore) until it reaches the minimum.",
+            "The picture itself is not changed, and the result shows a tick for both limits. If a portal checks something other than the file size, such as the pixel size or the format, the other ticks show those too."
+          ]
+        }
+      ]
+    }
+  }
+}

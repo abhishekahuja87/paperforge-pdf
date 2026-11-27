@@ -1427,3 +1427,11 @@ Not covered: Excel on Mac, Google Sheets/Docs/Slides, WPS and LibreOffice (only 
 - [ ] Spot-check the worked numbers: EMI of about 8,997 on 10 lakh at 9% for 20 years; EAN-13 check digit 1 for 400638133393; a 45-minute break on a 9:30 to 6:15 day gives 8 hours.
 - [ ] Open /gate-pass-printable and /fuel-mileage-log-printable: a new practical section appears in the article and one new question in the FAQ, with the privacy question still last.
 - [ ] View page source of one guide and one option page: the new text is in the pre-built HTML.
+
+## Top Search Console tools (2026-11-27)
+Checked in the app with generated PDFs and images: booklet with back cover and one-sided printing (11 pages, page 11 stays on the outside back, 6 sides, page ranges shown); page size summary "5 × Letter, 1 × A3 landscape, 1 × A4", the 71% shrink warning and an A4 page kept unchanged; Organize move-to-position, blank page, duplicate, Undo and export; Image Resizer signature 140 × 60 px between 10 and 20 KB (10.5 KB, decodes normally). `node --experimental-strip-types scripts/check-pdf-layout.mjs` passes.
+- [ ] Print a 12-page booklet on a home printer with One side only and check the backs line up; note whether your printer needed either switch.
+- [ ] Booklet with Sets of 4 sheets on a 40-page PDF: three sets shown in the preview, each folds flat.
+- [ ] Resize a PDF that has a truly blank page: no error, the page comes out blank.
+- [ ] On a phone, Organize PDF buttons are easy to tap and the position box opens the number keyboard.
+- [ ] Image Resizer with a minimum set: upload the result to a test form or check its size in the file manager.

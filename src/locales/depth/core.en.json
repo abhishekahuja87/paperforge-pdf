@@ -1536,7 +1536,7 @@
       "faq": [
         [
           "Can I move several pages at once?",
-          "Yes. Select the pages you want to move and drag them together, or use the move controls. Check the order in the preview before you save."
+          "Move them one at a time: type the new position in the box under a page and it jumps straight there, so moving page 20 to the front takes one step. Reverse order flips the whole document at once, and Undo takes back any move. Check the order in the preview before you save."
         ],
         [
           "Does the order change the size of the file?",

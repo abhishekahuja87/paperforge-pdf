@@ -73,16 +73,27 @@ export async function exportOrganizedPdf(
   }
   const targetPdf = await PDFDocument.create();
 
-  // Copy pages in the exact order present in the thumbnail list
-  const indices = pages.map((p) => p.originalPageIndex);
-  const copiedPages = await targetPdf.copyPages(sourcePdf, indices);
+  // Copy pages in the exact order present in the thumbnail list. A page index of -1 is an added blank page, the size of
+  // the page before it (or A4 when it comes first). The same index can appear twice when a page was duplicated.
+  const real = pages.filter((p) => p.originalPageIndex >= 0).map((p) => p.originalPageIndex);
+  const copiedPages = real.length > 0 ? await targetPdf.copyPages(sourcePdf, real) : [];
+  let copiedAt = 0;
+  let lastSize: [number, number] = [595.28, 841.89];
 
-  copiedPages.forEach((page, idx) => {
-    const additionalRotation = pages[idx].rotation % 360;
+  pages.forEach((item) => {
+    if (item.originalPageIndex < 0) {
+      const blank = targetPdf.addPage(lastSize);
+      if (item.rotation % 360) blank.setRotation(degrees(item.rotation % 360));
+      return;
+    }
+    const page = copiedPages[copiedAt++]!;
+    const additionalRotation = item.rotation % 360;
     if (additionalRotation !== 0) {
       const currentRotation = page.getRotation().angle;
       page.setRotation(degrees((currentRotation + additionalRotation) % 360));
     }
+    const { width, height } = page.getSize();
+    lastSize = [width, height];
     targetPdf.addPage(page);
   });
 

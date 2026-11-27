@@ -19,6 +19,34 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
+    path: '/pdf-booklet-maker',
+    tool: 'PDF Booklet Maker',
+    title: 'Thick booklets, back covers and one-sided printers',
+    summary: 'Fold a long booklet as sets of 4 to 8 sheets, keep the last page as the back cover, and print on a printer that does one side only, with the exact page ranges for each run.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/resize-pdf-page-size',
+    tool: 'Resize PDF Page Size',
+    title: 'See your page sizes and how much they shrink',
+    summary: 'Shows the sizes inside your PDF, warns when text will shrink too much, adds a custom size in millimetres, and can leave pages that are already the right size untouched.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/organize-pdf',
+    tool: 'Organize PDF',
+    title: 'Move any page in one step, undo, copy and add blank pages',
+    summary: 'Type a position to move a page straight there, undo any change, rotate all, reverse the order, duplicate a page or add a blank one. Buttons are bigger and easier to tap.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/image-resizer',
+    tool: 'Image Resizer',
+    title: 'Minimum file size for forms',
+    summary: 'For forms that want a file between two sizes, such as 10 to 20 KB, set a minimum too. Small signatures are brought up to it without changing the picture.',
+  },
+  {
+    date: '2026-11-27',
     path: '/guides',
     tool: 'Guides',
     title: 'Longer guides with worked examples',

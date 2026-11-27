@@ -2,19 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { PdfFileBar } from '../common/PdfFileBar';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
-import {
-  RotateCw,
-  Trash2,
-  AlertCircle,
-  
-  Loader2,
-  MoveLeft,
-  MoveRight,
-} from 'lucide-react';
+import { RotateCw, Trash2, AlertCircle, Loader2, MoveLeft, MoveRight, Copy, FilePlus2, Undo2, ArrowDownUp, RefreshCw } from 'lucide-react';
 import { loadPdfThumbnails, exportOrganizedPdf } from '../../lib/pdf/organize';
 import type { PageThumbnailItem } from '../../lib/pdf/organize';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
+
+const toolButton = 'inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 text-xs font-semibold text-slate-800 transition hover:border-orange-400 disabled:cursor-not-allowed disabled:opacity-40';
+const iconButton = 'inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg hover:bg-slate-200 disabled:opacity-30 disabled:hover:bg-transparent';
 
 export const OrganizePdf: React.FC = () => {
   const { prepare, dialog: passwordDialog } = useProtectedPdf();
@@ -27,6 +22,10 @@ export const OrganizePdf: React.FC = () => {
   useEffect(() => () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); }, [downloadUrl]);
   const [error, setError] = useState<string | null>(null);
   const [fileBuffer, setFileBuffer] = useState<ArrayBuffer | null>(null);
+  // Earlier page lists, newest last, so every change can be undone. The first loaded list is kept for "Start from the original".
+  const [history, setHistory] = useState<PageThumbnailItem[][]>([]);
+  const [original, setOriginal] = useState<PageThumbnailItem[]>([]);
+  const [moveDraft, setMoveDraft] = useState<Record<string, string>>({});
 
   const resetState = () => {
     setFile(null);
@@ -35,6 +34,9 @@ export const OrganizePdf: React.FC = () => {
     setIsExporting(false);
     setError(null);
     setFileBuffer(null);
+    setHistory([]);
+    setOriginal([]);
+    setMoveDraft({});
     if (downloadUrl) {
       URL.revokeObjectURL(downloadUrl);
       setDownloadUrl(null);
@@ -58,6 +60,7 @@ export const OrganizePdf: React.FC = () => {
       setFileBuffer(buffer);
       const loadedPages = await loadPdfThumbnails(buffer);
       setPages(loadedPages);
+      setOriginal(loadedPages);
     } catch {
       setError('Failed to render PDF pages. The file may be password-protected or corrupted.');
     } finally {
@@ -73,36 +76,51 @@ export const OrganizePdf: React.FC = () => {
     }
   };
 
-  const movePage = (index: number, direction: 'left' | 'right') => {
-    const targetIndex = direction === 'left' ? index - 1 : index + 1;
-    if (targetIndex < 0 || targetIndex >= pages.length) return;
-
-    const updated = [...pages];
-    const temp = updated[index];
-    updated[index] = updated[targetIndex];
-    updated[targetIndex] = temp;
+  /** Every change goes through here, so it can be undone and an earlier exported file is dropped. */
+  const update = (next: PageThumbnailItem[]) => {
+    setHistory((list) => [...list.slice(-49), pages]);
     discardExport();
-    setPages(updated);
+    setError(null);
+    setPages(next);
   };
 
-  const rotatePage = (index: number) => {
-    const updated = [...pages];
-    updated[index] = {
-      ...updated[index],
-      rotation: (updated[index].rotation + 90) % 360,
-    };
+  const undo = () => {
+    const previous = history[history.length - 1];
+    if (!previous) return;
+    setHistory(history.slice(0, -1));
     discardExport();
-    setPages(updated);
+    setPages(previous);
   };
+
+  /** Moves one page to a new position (0-based), shifting the others. */
+  const moveTo = (index: number, target: number) => {
+    if (target < 0 || target >= pages.length || target === index) return;
+    const updated = [...pages];
+    const [item] = updated.splice(index, 1);
+    updated.splice(target, 0, item);
+    update(updated);
+  };
+
+  const movePage = (index: number, direction: 'left' | 'right') => moveTo(index, direction === 'left' ? index - 1 : index + 1);
+  const rotatePage = (index: number) => update(pages.map((item, i) => (i === index ? { ...item, rotation: (item.rotation + 90) % 360 } : item)));
+  const rotateAll = () => update(pages.map((item) => ({ ...item, rotation: (item.rotation + 90) % 360 })));
+  const reverseAll = () => update([...pages].reverse());
+  const newId = (base: string) => `${base}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+  const duplicatePage = (index: number) => { const updated = [...pages]; updated.splice(index + 1, 0, { ...pages[index], id: newId('copy') }); update(updated); };
+  const insertBlank = (index: number) => { const updated = [...pages]; updated.splice(index + 1, 0, { id: newId('blank'), originalPageIndex: -1, rotation: 0, thumbnailUrl: '' }); update(updated); };
 
   const deletePage = (index: number) => {
     if (pages.length <= 1) {
       setError('A document must have at least one page.');
       return;
     }
-    setError(null);
-    discardExport();
-    setPages(pages.filter((_, idx) => idx !== index));
+    update(pages.filter((_, idx) => idx !== index));
+  };
+
+  const commitMove = (item: PageThumbnailItem, index: number) => {
+    const wanted = Number(moveDraft[item.id]);
+    setMoveDraft((draft) => { const next = { ...draft }; delete next[item.id]; return next; });
+    if (Number.isInteger(wanted) && wanted >= 1 && wanted <= pages.length) moveTo(index, wanted - 1);
   };
 
   const handleExport = async () => {
@@ -149,6 +167,16 @@ export const OrganizePdf: React.FC = () => {
             </div>
           )}
 
+          {!isLoading && pages.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2" role="toolbar" aria-label="Changes to all pages">
+              <button type="button" onClick={undo} disabled={history.length === 0} className={toolButton}><Undo2 className="h-4 w-4" aria-hidden="true" />Undo</button>
+              <button type="button" onClick={rotateAll} className={toolButton}><RotateCw className="h-4 w-4" aria-hidden="true" />Rotate all</button>
+              <button type="button" onClick={reverseAll} disabled={pages.length < 2} className={toolButton}><ArrowDownUp className="h-4 w-4" aria-hidden="true" />Reverse order</button>
+              <button type="button" onClick={() => update(original)} disabled={history.length === 0} className={toolButton}><RefreshCw className="h-4 w-4" aria-hidden="true" />Start from the original</button>
+              <p className="w-full text-[11px] text-slate-500">Type a number in a page&apos;s box to move it straight there. The plus page button adds a blank page after that page, and the copy button repeats a page.</p>
+            </div>
+          )}
+
           {/* Interactive Thumbnails Grid */}
           {!isLoading && pages.length > 0 && (
             <div className="grid grid-cols-2 gap-3.5 pt-2 sm:grid-cols-3 md:grid-cols-4">
@@ -159,12 +187,16 @@ export const OrganizePdf: React.FC = () => {
                 >
                   {/* Thumbnail Image */}
                   <div className="relative aspect-[3/4] bg-white rounded-lg overflow-hidden border border-slate-100 flex items-center justify-center">
-                    <img
-                      src={p.thumbnailUrl}
-                      alt={`Page ${idx + 1}`}
-                      style={{ transform: `rotate(${p.rotation}deg)` }}
-                      className="max-h-full max-w-full object-contain transition-transform duration-200"
-                    />
+                    {p.originalPageIndex < 0 ? (
+                      <span className="text-[11px] font-semibold text-slate-400">Blank page</span>
+                    ) : (
+                      <img
+                        src={p.thumbnailUrl}
+                        alt={`Page ${idx + 1}${p.originalPageIndex !== idx ? `, originally page ${p.originalPageIndex + 1}` : ''}`}
+                        style={{ transform: `rotate(${p.rotation}deg)` }}
+                        className="max-h-full max-w-full object-contain transition-transform duration-200"
+                      />
+                    )}
                     <span className="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 bg-slate-900/70 text-white rounded text-[10px] font-semibold">
                       {idx + 1}
                     </span>
@@ -172,45 +204,26 @@ export const OrganizePdf: React.FC = () => {
 
                   {/* Ordering & Rotation Toolbar */}
                   <div className="flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 pt-1 text-slate-600">
-                    <div className="flex space-x-1">
-                      <button
-                        type="button"
-                        title="Move Left"
-                        disabled={idx === 0}
-                        onClick={() => movePage(idx, 'left')}
-                        className="p-1 rounded hover:bg-slate-200 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
-                      >
-                        <MoveLeft className="w-3.5 h-3.5" />
-                      </button>
-                      <button
-                        type="button"
-                        title="Move Right"
-                        disabled={idx === pages.length - 1}
-                        onClick={() => movePage(idx, 'right')}
-                        className="p-1 rounded hover:bg-slate-200 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
-                      >
-                        <MoveRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-
-                    <div className="flex space-x-1">
-                      <button
-                        type="button"
-                        title="Rotate 90°"
-                        onClick={() => rotatePage(idx)}
-                        className="p-1 rounded hover:bg-slate-200 text-indigo-600 cursor-pointer"
-                      >
-                        <RotateCw className="w-3.5 h-3.5" />
-                      </button>
-                      <button
-                        type="button"
-                        title="Delete Page"
-                        onClick={() => deletePage(idx)}
-                        className="p-1 rounded hover:bg-rose-100 text-rose-600 cursor-pointer"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
+                    <button type="button" aria-label={`Move page ${idx + 1} left`} title="Move left" disabled={idx === 0} onClick={() => movePage(idx, 'left')} className={iconButton}><MoveLeft className="h-4 w-4" aria-hidden="true" /></button>
+                    <label className="flex items-center gap-1 text-[11px] text-slate-500">
+                      <span className="sr-only">Move page {idx + 1} to position</span>
+                      <input
+                        type="number"
+                        min={1}
+                        max={pages.length}
+                        inputMode="numeric"
+                        value={moveDraft[p.id] ?? String(idx + 1)}
+                        onChange={(event) => setMoveDraft((draft) => ({ ...draft, [p.id]: event.target.value }))}
+                        onBlur={() => commitMove(p, idx)}
+                        onKeyDown={(event) => { if (event.key === 'Enter') { event.preventDefault(); commitMove(p, idx); } }}
+                        className="h-10 w-12 rounded-lg border border-slate-300 bg-white px-1 text-center text-xs font-semibold text-slate-800"
+                      />
+                    </label>
+                    <button type="button" aria-label={`Move page ${idx + 1} right`} title="Move right" disabled={idx === pages.length - 1} onClick={() => movePage(idx, 'right')} className={iconButton}><MoveRight className="h-4 w-4" aria-hidden="true" /></button>
+                    <button type="button" aria-label={`Rotate page ${idx + 1}`} title="Rotate 90°" onClick={() => rotatePage(idx)} className={`${iconButton} text-indigo-700`}><RotateCw className="h-4 w-4" aria-hidden="true" /></button>
+                    <button type="button" aria-label={`Duplicate page ${idx + 1}`} title="Duplicate" onClick={() => duplicatePage(idx)} className={iconButton}><Copy className="h-4 w-4" aria-hidden="true" /></button>
+                    <button type="button" aria-label={`Add a blank page after page ${idx + 1}`} title="Add blank page after" onClick={() => insertBlank(idx)} className={iconButton}><FilePlus2 className="h-4 w-4" aria-hidden="true" /></button>
+                    <button type="button" aria-label={`Delete page ${idx + 1}`} title="Delete" onClick={() => deletePage(idx)} className={`${iconButton} text-rose-700 hover:bg-rose-100`}><Trash2 className="h-4 w-4" aria-hidden="true" /></button>
                   </div>
                 </div>
               ))}
