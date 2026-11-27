@@ -79,6 +79,10 @@ export const ENTRIES: SiteUpdate[] = [
     tool: 'Event Programme PowerPoint Maker',
     title: 'New: Event Programme PowerPoint Maker',
     summary: 'Make welcome, programme table, guests and thank-you slides for an annual day, a function, a workshop or a meeting. Edit and download a .pptx. Free.',
+    path: '/resume-builder',
+    tool: 'Resume Builder',
+    title: 'Resume Builder now saves a Word file',
+    summary: 'Download your resume as an editable Word (.docx) file as well as a PDF, in a plain single column that you can keep editing in Word, Google Docs or WPS Office.',
   },
   {
     date: '2026-11-27',
@@ -163,13 +167,6 @@ export const ENTRIES: SiteUpdate[] = [
     tool: 'Word document makers',
     title: 'New section: Word document makers',
     summary: 'Make a resume, cover letter, resignation letter, leave application, meeting minutes or notice as an editable Word file from a few boxes, with a live preview.',
-  },
-  {
-    date: '2026-11-27',
-    path: '/resume-word-maker',
-    tool: 'Resume Word Maker',
-    title: 'New: Resume Word Maker',
-    summary: 'Make a resume in Word (.docx) format: fresher or experienced starters, a classic or clean look, a live preview and an editable file.',
   },
   {
     date: '2026-11-27',

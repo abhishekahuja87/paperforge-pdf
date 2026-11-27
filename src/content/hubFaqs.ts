@@ -217,7 +217,7 @@ export const HUB_FAQS: Record<string, HubFaqSet> = {
   '/word-document-makers': {
     related: ['/jobs-and-business-tools', '/excel-template-makers', '/student-and-writing-tools'],
     faqs: [
-      { q: 'How do I make a resume in Word format?', a: 'Open {resume-word-maker}, pick Fresher, Experienced or Blank, and fill in your details. Add each job and course, choose the Classic or Clean look, check the preview and make the Word file. You can edit it afterwards in Word, Google Docs or WPS Office.' },
+      { q: 'How do I make a resume in Word format?', a: 'Open {resume-builder}, fill in your details, pick a design and tap Download Word. You can edit the .docx afterwards in Word, Google Docs or WPS Office, or save the same resume as a PDF.' },
       { q: 'How do I write a cover letter in Word?', a: 'Open {cover-letter-word-maker}, type your details and the company, and write the opening, why you fit and the closing. The letter is laid out with address blocks, a greeting and a sign-off, and you download it as a .docx.' },
       { q: 'How do I write a resignation letter with my last working day?', a: 'Open {resignation-letter-word-maker}, fill in your details and pick the date of the letter and your last working day. The page shows the days between them so you can check your notice period. Then make the Word file and edit it if you need to.' },
       { q: 'How do I write a leave application for school or office?', a: 'Open {leave-application-word-maker}, choose Child at school or Employee at work, pick the first and last day and type the reason. The number of days is counted for you and the letter is ready to download as a Word file.' },

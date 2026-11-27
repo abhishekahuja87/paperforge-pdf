@@ -1,23 +1,5 @@
 {
   "guideSteps": {
-    "resume-word-maker": [
-      [
-        "Pick a starting point",
-        "Choose Fresher, Experienced or Blank. A starter fills in sample details so you can see how the resume looks, and you replace them with your own."
-      ],
-      [
-        "Fill in your details",
-        "Type your name, contact details and summary. Add each job and course with the Add buttons, and put one point on each line under what you did."
-      ],
-      [
-        "Check the preview",
-        "Choose the Classic look (centred name, black headings) or the Clean look (left name, coloured headings) and look at the preview as you type."
-      ],
-      [
-        "Make the Word file",
-        "Tap Make Word file and save the .docx. Open it in Word, Google Docs or WPS Office to change anything you like."
-      ]
-    ],
     "cover-letter-word-maker": [
       [
         "Pick a starting point",
@@ -290,44 +272,6 @@
     ]
   },
   "pageGuides": {
-    "resumeWordGuide": {
-      "title": "Resume Word Maker: Free Resume in Word (.docx) Format",
-      "subtitle": "Make a resume in Word (.docx) format with a classic or clean look. Add jobs and education, preview it and download an editable file. Free, nothing uploaded.",
-      "faq": [
-        [
-          "Is the Resume Word Maker free?",
-          "Yes. It is free, with no sign-up and no limit on how many documents you make. The file is made on your own device."
-        ],
-        [
-          "What is different from a PDF resume?",
-          "The file is a Word document, so you can open it and change any line, font or space afterwards. A PDF is better for sending a final copy, and a Word file is better when you want to keep editing it or when an employer asks for Word."
-        ],
-        [
-          "Is the layout friendly for applicant tracking systems?",
-          "It uses plain headings, normal paragraphs and simple lists, with no pictures or text boxes. Programs that read resumes can usually follow that kind of layout, but no tool can promise how every system reads a file."
-        ],
-        [
-          "Can I add more than one job?",
-          "Yes. Use Add a job for each one, up to six, and Add a course for education, up to four. Put one point on each line and they become bullets."
-        ],
-        [
-          "Which look should I choose?",
-          "Classic has a centred name and black headings, and suits formal jobs. Clean has a left-aligned name and blue headings, and suits modern workplaces. You can switch at any time and the preview changes."
-        ],
-        [
-          "Can I use it for a first job with no experience?",
-          "Yes. Choose Fresher and use the summary, education, skills and any internship or projects. Leave the job list empty if you have none."
-        ],
-        [
-          "Will the file open in Word, Google Docs and WPS Office?",
-          "Yes. It is a normal .docx file that opens in Microsoft Word, Google Docs, WPS Office and LibreOffice, and you can keep editing it there. Fonts and line breaks can look a little different from one app to another, so read it through once before you send it."
-        ],
-        [
-          "Is my resume details uploaded or saved on a server?",
-          "No. What you type and the Word file stay on your device, and {{siteName}} does not receive them. Nothing you type is saved, and Start again clears the form."
-        ]
-      ]
-    },
     "coverWordGuide": {
       "title": "Cover Letter Word Maker: Free Cover Letter in Word (.docx)",
       "subtitle": "Make a cover letter in Word (.docx) format with address blocks, a greeting, three short parts and a sign-off. Preview it and download. Free, nothing uploaded.",
@@ -900,31 +844,6 @@
     }
   },
   "toolArticles": {
-    "resume-word-maker": {
-      "sections": [
-        {
-          "heading": "A resume you can keep editing",
-          "paragraphs": [
-            "Many people need a Word resume because they change it for every job. A Word file lets you reorder lines, trim it to one page and keep several versions.",
-            "This tool builds the first version for you from simple boxes."
-          ]
-        },
-        {
-          "heading": "Writing it well",
-          "paragraphs": [
-            "Put your strongest points first and keep each point to one line. Start with a verb, such as led, built or handled, and use numbers where you have them.",
-            "Keep it to one page if you have a few years of experience, and two pages at most for long careers."
-          ]
-        },
-        {
-          "heading": "Private, and what to check",
-          "paragraphs": [
-            "Everything is made on your device, so your personal details is never uploaded. The Word file has no macros and no links to the internet.",
-            "Check names, dates and contact details before you send the resume."
-          ]
-        }
-      ]
-    },
     "cover-letter-word-maker": {
       "sections": [
         {

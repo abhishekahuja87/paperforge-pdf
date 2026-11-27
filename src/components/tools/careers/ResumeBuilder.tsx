@@ -12,6 +12,7 @@ import { PAPER, ResumePreview, type ResumeStyle } from './ResumePreview';
 import { ResumeTemplatePicker } from './ResumeTemplatePicker';
 import { DEFAULT_TEMPLATE, getTemplate, isTemplateId } from '../../../lib/careers/resumeTemplates';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { buildResumeWord } from '../../../lib/careers/resumeDocx';
 
 const STORAGE_KEY = 'mdu.resume.v1';
 const inputClass = 'mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900';
@@ -124,6 +125,16 @@ export const ResumeBuilder: React.FC = () => {
       setMessage('That file could not be read. Choose a file saved with "Save data file".');
     }
     if (importRef.current) importRef.current.value = '';
+  };
+  const [wordBusy, setWordBusy] = useState(false);
+  const downloadWord = async () => {
+    setWordBusy(true);
+    try {
+      const { buildDocx } = await import('../../../lib/docx/write');
+      downloadBlob(await buildDocx(buildResumeWord(resume, style)), generateFileName('resume', 'docx'));
+      setMessage('Word file saved. Open it in Word, Google Docs or WPS Office to keep editing.');
+    } catch { setMessage('The Word file could not be made. Please try again.'); }
+    setWordBusy(false);
   };
   const clearAll = () => { setResume(emptyResume()); setMessage('Cleared. Your saved copy in this browser is also removed unless you keep "Remember" ticked.'); };
 
@@ -265,9 +276,10 @@ export const ResumeBuilder: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-3">
             <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button>
+            <button type="button" onClick={() => void downloadWord()} disabled={wordBusy} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-orange-300 bg-white px-5 py-2.5 text-sm font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{wordBusy ? 'Making the file...' : 'Download Word (.docx)'}</button>
             <p className="text-xs text-slate-600" aria-live="polite">Estimated length: <strong>{pages} page{pages === 1 ? '' : 's'}</strong>{pages > 1 ? ' (try Compact text or fewer bullets for one page)' : ''}</p>
           </div>
-          <p className="text-[11px] text-slate-500">In the print window choose "Save as PDF" as the destination, set margins to Default and turn off "Headers and footers". The PDF keeps real, selectable text.</p>
+          <p className="text-[11px] text-slate-500">In the print window choose "Save as PDF" as the destination, set margins to Default and turn off "Headers and footers". The PDF keeps real, selectable text. The Word file has the same words in a plain single column, so you can keep editing it in Word, Google Docs or WPS Office.</p>
         </div>
       </div>
 
