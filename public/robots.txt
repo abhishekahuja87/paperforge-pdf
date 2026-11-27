@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# The "Report a problem" link opens the contact form pre-filled for one tool. Those variants are not pages to index.
+Disallow: /contact?tool=
 
 Sitemap: https://www.mydailyutils.in/sitemap.xml

@@ -26,7 +26,7 @@ export const ShareToolBar: React.FC<{ title: string }> = ({ title }) => {
           {canShare ? <Share2 className="h-3.5 w-3.5" aria-hidden="true" /> : <Link2 className="h-3.5 w-3.5" aria-hidden="true" />}
           {copied ? 'Link copied' : canShare ? 'Share this tool' : 'Copy link'}
         </button>
-        <Link to={`/contact?tool=${encodeURIComponent(title)}&path=${encodeURIComponent(pathname)}`} className={button}><MessageSquarePlus className="h-3.5 w-3.5" aria-hidden="true" />Report a problem or suggest an idea</Link>
+        <Link to={`/contact?tool=${encodeURIComponent(title)}&path=${encodeURIComponent(pathname)}`} rel="nofollow" className={button}><MessageSquarePlus className="h-3.5 w-3.5" aria-hidden="true" />Report a problem or suggest an idea</Link>
       </div>
     </div>
   );
