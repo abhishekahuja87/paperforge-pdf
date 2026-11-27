@@ -20,6 +20,13 @@ export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-27',
     path: '/',
+    tool: 'Topic pages',
+    title: 'Topic pages and search brought up to date',
+    summary: 'Every topic page now describes all of its tools, with new common questions, and search finds many more tools by the words people type, such as sign pdf, habit tracker or barcode.',
+  },
+  {
+    date: '2026-11-27',
+    path: '/',
     tool: 'Search',
     title: 'Search shows the best matches first',
     summary: 'Searching for a word like merge now lists the tools named for it, then tools found through their search phrases, and no longer fills the list with every page that only mentions the word.',
