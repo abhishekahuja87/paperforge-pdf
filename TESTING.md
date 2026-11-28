@@ -1452,4 +1452,5 @@ Checked in the app with generated PDFs and images: booklet with back cover and o
 - Result picture: under a calculator, tap Save picture and open the image; check the title, your numbers, the result boxes, Indian digit grouping and the mydailyutils.in line. Share picture opens the share sheet on a phone.
 - Try a sample PDF: on Merge, Split, Rotate, Compress, Organize and the other PDF tools a small link sits under the drop zone. Tap it: a made-up invoice PDF (two for Merge) is loaded and the tool works on it. The link is not on Unlock PDF, PDF table to Excel or picture drop zones.
 - Image resizer form sizes at the top; EMI balance chart and payment schedule PDF (Save and Share); Organize PDF Drag bar reorder with the Undo bar. Test on a real phone: touch dragging, scrolling while dragging, share sheet.
+- Page titles: tab title and view-source title match on a short-name tool (brand kept) and a long-name tool (brand left off).
 - Camera on a phone: Background remover, Social image sizes, Bulk image tools and the catalogue product photos have a Take a photo button beside Choose picture.
