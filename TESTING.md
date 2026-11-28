@@ -1442,3 +1442,5 @@ Checked in the app with generated PDFs and images: booklet with back cover and o
 - [ ] Print file names: in Fixtures, type a tournament name and venue or dates, tap Print or save as PDF and choose Save as PDF: the suggested file name looks like fixtures_2026-11-28_12-00_inter_school_cup_city_ground; the same for Quotation (client and number), GST invoice (buyer and number), Rent receipt (tenant and months), Resume (your name), Planner, Meal planner, Price tags and the other printables. The page title goes back to normal after printing.
 
 - Typing in the middle of a text box (menu card items with long lines, question paper, ID cards, Wi-Fi sign, handwriting video text): click inside a line, type a few letters; the cursor stays there and the rest of the line is not cut. Very long lines are shrunk on the sheet, not cut in the box.
+
+- Explore tools menu: open it and compare with the home page. The same categories in the same order with the same tool counts, and no "More tools" group. Typing a name in its search box still finds sheets such as the menu card.
