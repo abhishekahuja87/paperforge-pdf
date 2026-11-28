@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Download, LoaderCircle, LockKeyhole } from 'lucide-react';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton } from '../../common/ShareFileButton';
 import type { OutputSequenceItem, StudioSettings } from '../../../lib/documentStudio/types';
 import ui from '../../../locales/packs/docstudio.ui.en.json';
 import { PAGE_STANDARD_LABELS } from '../../../lib/documentStudio/helpers';
@@ -146,6 +148,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({ digitize, downloadName
         {digitize ? <><label className="text-xs font-semibold text-slate-700">{t('digitize.language')} <select value={ocrLanguage} onChange={(event) => { setOcrLanguage(event.target.value as 'eng' | 'hin+eng'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="eng">{t('digitize.languageEnglish')}</option><option value="hin+eng">{t('digitize.languageHindi')}</option></select></label><label className="text-xs font-semibold text-slate-700">{t('digitize.output')} <select value={separate ? 'separate' : 'merged'} onChange={(event) => { setSeparate(event.target.value === 'separate'); setDownloadUrl(''); }} className="ml-2 rounded-lg border border-slate-200 p-2"><option value="merged">{t('digitize.merged')}</option><option value="separate">{t('digitize.separate')}</option></select></label></> : <p className="max-w-xl text-[10px] text-slate-500">{ui.createTheFinishedPdfFrom}</p>}
         <div className="flex flex-wrap gap-2">
           {downloadUrl && <a href={downloadUrl} download={downloadName} className="inline-flex items-center gap-2 rounded-lg border border-orange-300 bg-orange-50 px-4 py-2.5 text-xs font-bold text-orange-800 hover:bg-orange-100"><Download className="h-4 w-4" />{ui.downloadAgain}</a>}
+          {downloadUrl && <ShareFileButton className="inline-flex items-center gap-2 rounded-lg border border-orange-300 bg-white px-4 py-2.5 text-xs font-bold text-orange-800 hover:bg-orange-50" getFile={async () => toFile(await (await fetch(downloadUrl)).blob(), downloadName)} />}
           <button type="button" onClick={() => void handleExport()} disabled={isExporting || outputItems.length === 0} className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50">
             {isExporting ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
             {digitize ? (isExporting ? t('digitize.preparing') : t('digitize.create')) : (isExporting ? 'Creating PDF...' : 'Create & download final PDF')}

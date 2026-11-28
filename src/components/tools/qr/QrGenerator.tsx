@@ -2,6 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ColorField } from '../../common/ColorPicker';
 import { Link } from 'react-router-dom';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { Download, Printer, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { Note, SelectField } from '../../common/CalcKit';
 import { CopyButton, fieldClass } from '../../common/FieldKit';
@@ -19,15 +22,6 @@ const KINDS: { id: QrKind; label: string }[] = [
   { id: 'url', label: 'Link' }, { id: 'text', label: 'Text' }, { id: 'whatsapp', label: 'WhatsApp' }, { id: 'wifi', label: 'Wi-Fi' }, { id: 'contact', label: 'Contact' },
   { id: 'email', label: 'Email' }, { id: 'phone', label: 'Phone' }, { id: 'sms', label: 'SMS' }, { id: 'geo', label: 'Location' }, { id: 'event', label: 'Event' },
 ];
-
-const download = (blob: Blob, name: string) => {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = name;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 4000);
-};
 
 const Field: React.FC<{ label: string; value: string; onChange: (v: string) => void; type?: string; placeholder?: string; multiline?: boolean }> = ({ label, value, onChange, type = 'text', placeholder, multiline }) => (
   <label className="block text-xs font-semibold text-slate-700">{label}
@@ -113,10 +107,10 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
     reader.readAsDataURL(file);
   };
 
-  const saveSvg = () => qr && download(new Blob([svg], { type: 'image/svg+xml' }), generateFileName('qr-code', 'svg'));
+  const saveSvg = () => qr && saveBlob(new Blob([svg], { type: 'image/svg+xml' }), generateFileName('qr-code', 'svg'));
   const savePng = async () => {
     if (!qr) return;
-    try { download(await qrPng(qr, effective, size, logoImage.current), generateFileName('qr-code', 'png')); setMessage(''); } catch { setMessage('Could not make the PNG. Try a smaller size.'); }
+    try { saveBlob(await qrPng(qr, effective, size, logoImage.current), generateFileName('qr-code', 'png')); setMessage(''); } catch { setMessage('Could not make the PNG. Try a smaller size.'); }
   };
 
   const set = <K extends keyof QrStyle>(key: K, value: QrStyle[K]) => setStyle((s) => ({ ...s, [key]: value }));
@@ -239,6 +233,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
                 </select>
               </label>
               <button type="button" disabled={!qr} onClick={savePng} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />PNG</button>
+              <ShareFileButton className={shareFileLargeClass} getFile={async () => (qr ? toFile(await qrPng(qr, effective, size, logoImage.current), generateFileName('qr-code', 'png')) : null)} />
               <button type="button" disabled={!qr} onClick={saveSvg} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />SVG</button>
               <CopyButton text={payload} label="Copy content" disabled={!payload} />
             </div>

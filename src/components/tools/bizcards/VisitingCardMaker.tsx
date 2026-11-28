@@ -10,6 +10,10 @@ import { buildCardPdf, type CardPdfMode } from '../../../lib/cards/cardPdf';
 import { encodeQr } from '../../../lib/qr/encoder';
 import { contactPayload, urlPayload } from '../../../lib/qr/payloads';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton } from '../../common/ShareFileButton';
 import { CardThumb } from './CardThumb';
 
 const STORAGE_KEY = 'mdu-visiting-card-v1';
@@ -50,15 +54,6 @@ const FIELDS: { key: keyof CardData; label: string; max: number; mode?: 'tel' | 
   { key: 'email', label: 'Email', max: 60, mode: 'email' },
   { key: 'website', label: 'Website', max: 60, mode: 'url' },
 ];
-
-function save(blob: Blob, name: string) {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = name;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 4000);
-}
 
 export const VisitingCardMaker: React.FC = () => {
   const initial = useMemo(readSaved, []);
@@ -123,7 +118,7 @@ export const VisitingCardMaker: React.FC = () => {
     setMessage('');
     const blob = await render();
     if (!blob) { setMessage('The picture could not be created.'); return; }
-    save(blob, generateFileName('visiting-card', 'png', { base: fileBase, details: template }));
+    saveBlob(blob, generateFileName('visiting-card', 'png', { base: fileBase, details: template }));
   };
 
   const downloadPdf = async (mode: CardPdfMode) => {
@@ -133,7 +128,7 @@ export const VisitingCardMaker: React.FC = () => {
       const blob = await render();
       if (!blob) throw new Error('render');
       const bytes = await buildCardPdf(new Uint8Array(await blob.arrayBuffer()), mode);
-      save(new Blob([bytes as BlobPart], { type: 'application/pdf' }), generateFileName(mode === 'sheet' ? 'visiting-cards-a4' : 'visiting-card', 'pdf', { base: fileBase, details: template }));
+      saveBlob(pdfBlob(bytes), generateFileName(mode === 'sheet' ? 'visiting-cards-a4' : 'visiting-card', 'pdf', { base: fileBase, details: template }));
     } catch {
       setMessage('The PDF could not be created. Try again.');
     } finally {
@@ -207,6 +202,7 @@ export const VisitingCardMaker: React.FC = () => {
           <button type="button" onClick={downloadPng} className={`${button} bg-orange-700 text-white hover:bg-orange-800`}><Download className="h-4 w-4" aria-hidden="true" />PNG picture</button>
           <button type="button" disabled={busy} onClick={() => downloadPdf('single')} className={`${button} border border-slate-300 bg-white text-slate-800 hover:bg-slate-50`}><FileText className="h-4 w-4" aria-hidden="true" />PDF, one card</button>
           <button type="button" disabled={busy} onClick={() => downloadPdf('sheet')} className={`${button} border border-slate-300 bg-white text-slate-800 hover:bg-slate-50`}><LayoutGrid className="h-4 w-4" aria-hidden="true" />A4 sheet of 10</button>
+          <ShareFileButton className={`${button} border border-orange-300 bg-white text-orange-800 hover:bg-orange-50`} getFile={async () => { const blob = await render(); return blob ? toFile(blob, generateFileName('visiting-card', 'png', { base: fileBase, details: template })) : null; }} />
         </div>
         <p className="mt-2 text-[11px] text-slate-500">Size 3.5 × 2 inches (89 × 51 mm), 300 dpi. The A4 sheet has cutting marks; print it at 100% (actual size).</p>
         {message && <p role="alert" className="mt-2 text-xs font-semibold text-red-700">{message}</p>}

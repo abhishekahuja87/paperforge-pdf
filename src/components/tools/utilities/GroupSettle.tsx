@@ -6,6 +6,10 @@ import { Note } from '../../common/CalcKit';
 import { card, heading } from '../../common/PanelKit';
 import { MAX_PEOPLE, computeSettlement, formatMoney, settlementText, type Expense, type Person } from '../../../lib/settle/settle';
 import { renderSettleCard } from '../../../lib/settle/card';
+import { printAs } from '../../../lib/pdf/printName';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton } from '../../common/ShareFileButton';
 
 const STORAGE_KEY = 'mdu-group-settle';
 let counter = 0;
@@ -66,17 +70,12 @@ export const GroupSettle: React.FC = () => {
 
   const summary = settlementText(title, people, result, label);
   const makeCard = () => renderSettleCard(title, people, result, label);
-  const downloadCard = () => {
-    makeCard().toBlob((blob) => {
-      if (!blob) { setCardMessage('Could not make the picture.'); return; }
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = generateFileName('settle-up', 'png');
-      link.click();
-      window.setTimeout(() => URL.revokeObjectURL(url), 10000);
-      setCardMessage('');
-    }, 'image/png');
+  const cardBlob = (): Promise<Blob | null> => new Promise((resolve) => makeCard().toBlob(resolve, 'image/png'));
+  const downloadCard = async () => {
+    const blob = await cardBlob();
+    if (!blob) { setCardMessage('Could not make the picture.'); return; }
+    saveBlob(blob, generateFileName('settle-up', 'png'));
+    setCardMessage('');
   };
   const copyCard = async () => {
     try {
@@ -192,9 +191,10 @@ export const GroupSettle: React.FC = () => {
             </div>
             <div className="mt-4 flex flex-wrap gap-2 print:hidden">
               <button type="button" onClick={downloadCard} className={`${small} inline-flex items-center gap-1.5`}><Download className="h-4 w-4" aria-hidden="true" />Download picture</button>
+              <ShareFileButton className={`${small} inline-flex items-center gap-1.5`} getFile={async () => { const blob = await cardBlob(); return blob ? toFile(blob, generateFileName('settle-up', 'png')) : null; }} />
               <button type="button" onClick={copyCard} className={small}>Copy picture</button>
               <CopyButton text={summary} label="Copy as text" />
-              <button type="button" onClick={() => window.print()} className={small}>Print or save as PDF</button>
+              <button type="button" onClick={() => printAs('group-settle', { base: title || undefined })} className={small}>Print or save as PDF</button>
             </div>
             {cardMessage && <p className="mt-2 text-xs text-slate-600" role="status">{cardMessage}</p>}
           </>

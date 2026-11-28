@@ -4,6 +4,8 @@ import { Note } from '../../common/CalcKit';
 import { card, heading } from '../../common/PanelKit';
 import { CameraButton } from '../../common/CameraButton';
 import { canvasToBlob, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { hasHiddenDetails, prettyTaken, readPhotoFacts, type PhotoFacts } from '../../../lib/safeshare/exif';
 
 interface Item { id: number; file: File; url: string; facts: PhotoFacts; cleanedKb: number | null }
@@ -38,19 +40,25 @@ export const PhotoPrivacy: React.FC = () => {
     setItems((list) => [...list, ...added]);
   };
 
+  /** Redraws one photo without its hidden data and returns the clean file. Save and Share both use it. */
+  const makeClean = async (item: Item): Promise<{ blob: Blob; name: string }> => {
+      const bitmap = await loadBitmap(item.file);
+    const surface = makeCanvas(bitmap.width, bitmap.height);
+    const ctx = surface.getContext('2d');
+    if (!ctx) throw new Error('canvas');
+    const png = item.file.type === 'image/png';
+    if (!png) { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, surface.width, surface.height); }
+    ctx.drawImage(bitmap, 0, 0);
+    bitmap.close();
+    const blob = await canvasToBlob(surface, png ? 'image/png' : 'image/jpeg', 0.92);
+    const base = item.file.name.replace(/\.[^.]+$/, '') || 'photo';
+    return { blob, name: `${base}-clean.${png ? 'png' : 'jpg'}` };
+  };
+
   const clean = async (item: Item, quiet = false) => {
     try {
-      const bitmap = await loadBitmap(item.file);
-      const surface = makeCanvas(bitmap.width, bitmap.height);
-      const ctx = surface.getContext('2d');
-      if (!ctx) throw new Error('canvas');
-      const png = item.file.type === 'image/png';
-      if (!png) { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, surface.width, surface.height); }
-      ctx.drawImage(bitmap, 0, 0);
-      bitmap.close();
-      const blob = await canvasToBlob(surface, png ? 'image/png' : 'image/jpeg', 0.92);
-      const base = item.file.name.replace(/\.[^.]+$/, '') || 'photo';
-      saveBlob(blob, `${base}-clean.${png ? 'png' : 'jpg'}`);
+      const { blob, name } = await makeClean(item);
+      saveBlob(blob, name);
       setItems((list) => list.map((entry) => (entry.id === item.id ? { ...entry, cleanedKb: Math.max(1, Math.round(blob.size / 1024)) } : entry)));
     } catch {
       if (!quiet) setMessage(`Could not clean ${item.file.name}. Try a smaller photo.`);
@@ -114,6 +122,7 @@ export const PhotoPrivacy: React.FC = () => {
             )}
             <div className="flex flex-wrap items-center gap-3">
               <button type="button" onClick={() => void clean(item)} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download clean copy</button>
+              <ShareFileButton className={shareFileLargeClass} getFile={async () => { const { blob, name } = await makeClean(item); return toFile(blob, name); }} />
               {item.cleanedKb !== null && <span className="text-xs font-semibold text-emerald-800" role="status">Saved a clean copy ({item.cleanedKb} KB) with no hidden details.</span>}
             </div>
           </div>

@@ -1,5 +1,7 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { amountInWords, parseAmount } from '../../lib/finance/format';
+import { printAs } from '../../lib/pdf/printName';
 import { CopyButton } from './FieldKit';
 import { acceptNumber, useShared } from '../../lib/shareState';
 
@@ -129,11 +131,16 @@ export const SplitBar: React.FC<{ title: string; parts: SplitPart[]; format: (va
 };
 
 /** Copy a plain-text summary of the result, or print the page (print dialog can save as PDF). */
-export const ResultActions: React.FC<{ summary: string }> = ({ summary }) => (
-  <div className="mt-4 flex flex-wrap gap-2 print:hidden">
-    <CopyButton text={summary} label="Copy summary" />
-    <button type="button" onClick={() => window.print()} className="inline-flex min-h-10 items-center rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">
-      Print or save as PDF
-    </button>
-  </div>
-);
+export const ResultActions: React.FC<{ summary: string }> = ({ summary }) => {
+  const { pathname } = useLocation();
+  // The saved file is named after the calculator's address, for example emi-calculator_2026-11-28_12-00.pdf.
+  const feature = pathname.replace(/^\/+|\/+$/g, '') || 'result';
+  return (
+    <div className="mt-4 flex flex-wrap gap-2 print:hidden">
+      <CopyButton text={summary} label="Copy summary" />
+      <button type="button" onClick={() => printAs(feature)} className="inline-flex min-h-10 items-center rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">
+        Print or save as PDF
+      </button>
+    </div>
+  );
+};

@@ -2,6 +2,7 @@ import React, { type RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FileImage, FilePlus2, Pencil, Printer, Save, X } from 'lucide-react';
 import { calculateInvoiceTotals, formatMoney } from '../../../lib/pos/workspace';
+import { printAs } from '../../../lib/pdf/printName';
 import { type InventoryItem, type InvoiceDraft, type StoreProfile } from '../../../lib/pos/types';
 import { fieldClass, labelClass, secondaryButtonClass, primaryButtonClass, shareButtonClass, backupButtonClass } from './styles';
 
@@ -179,7 +180,7 @@ export const BillingSection: React.FC<BillingSectionProps> = ({ addInvoiceItem, 
             <h3 className="text-sm font-bold text-stone-900">{t('posBill.shareTitle')}</h3>
             <p className="mt-1 text-xs text-stone-600">{t('posBill.shareDescription')}</p>
             <div className="mt-3 flex flex-wrap gap-2">
-              <button type="button" className={shareButtonClass} onClick={() => window.print()} disabled={editingNote}><Printer className="h-3.5 w-3.5" />{t('posBill.print')}</button>
+              <button type="button" className={shareButtonClass} onClick={() => printAs('invoice', { base: invoice.customerName || undefined, details: invoice.number || undefined })} disabled={editingNote}><Printer className="h-3.5 w-3.5" />{t('posBill.print')}</button>
               <button type="button" className={shareButtonClass} onClick={() => void exportImage()} disabled={isExportingImage || editingNote}>
                 <FileImage className="h-3.5 w-3.5" />{t(isExportingImage ? 'posBill.preparing' : 'posBill.image')}
               </button>

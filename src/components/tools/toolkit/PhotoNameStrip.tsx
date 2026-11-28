@@ -5,6 +5,8 @@ import { CameraButton } from '../../common/CameraButton';
 import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
 import { Slider, card, heading } from '../../common/PanelKit';
 import { canvasToBlob, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { formatBytes } from '../../../lib/browserTools';
 import { generateFileName } from '../../../lib/pdf/naming';
 
@@ -85,14 +87,22 @@ export const PhotoNameStrip: React.FC = () => {
     loadBitmap(file).then((b) => { setBitmap(b); setFileName(file.name); }).catch((e: unknown) => setMessage(e instanceof Error ? e.message : 'Could not open that photo.'));
   };
 
+  /** Draws the photo with its name strip and returns the picture and its file name. Save and Share both use it. */
+  const makePhoto = async (): Promise<{ blob: Blob; fileName: string } | null> => {
+    if (!bitmap) return null;
+    const canvas = compose(bitmap, outWidth, [name.trim(), date.trim()], tone, share / 100, place);
+    const limit = Math.floor(Number(maxKb));
+    const blob = limit >= 5 ? await jpegUnder(canvas, limit) : await canvasToBlob(canvas, 'image/jpeg', 0.92);
+    return { blob, fileName: generateFileName('photo-with-name', 'jpg', { base: name || fileName }) };
+  };
+
   const save = async () => {
-    if (!bitmap) return;
     setBusy(true); setMessage('');
     try {
-      const canvas = compose(bitmap, outWidth, [name.trim(), date.trim()], tone, share / 100, place);
-      const limit = Math.floor(Number(maxKb));
-      const blob = limit >= 5 ? await jpegUnder(canvas, limit) : await canvasToBlob(canvas, 'image/jpeg', 0.92);
-      saveBlob(blob, generateFileName('photo-with-name', 'jpg', { base: name || fileName }));
+      const made = await makePhoto();
+      if (!made) return;
+      const blob = made.blob;
+      saveBlob(blob, made.fileName);
       setMessage(`Saved ${formatBytes(blob.size)}.`);
     } catch (e) {
       setMessage(e instanceof Error ? e.message : 'Could not save the photo.');
@@ -139,6 +149,7 @@ export const PhotoNameStrip: React.FC = () => {
         </div>
         {bitmap ? <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-50 p-2"><canvas ref={preview} className="mx-auto block h-auto max-h-96 w-auto max-w-full" aria-label="Preview of the photo with the name strip" /></div> : <p className="text-xs text-slate-500">Choose a photo to see the preview.</p>}
         <button type="button" disabled={!bitmap || busy} onClick={() => void save()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Saving...' : 'Download JPG'}</button>
+        <ShareFileButton className={shareFileLargeClass} getFile={async () => { const made = await makePhoto(); return made ? toFile(made.blob, made.fileName) : null; }} />
         {message && <p role="status" className="text-xs text-slate-700">{message}</p>}
       </div>
       <Note>Forms differ on the strip size, colour, wording and date format, so follow your own form's instructions and check the result before you upload it.</Note>

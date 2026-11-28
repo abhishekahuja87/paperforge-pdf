@@ -10,6 +10,8 @@ import { useResultFile } from '../../../lib/useResultFile';
 import { canvasToBlob, loadBitmap, saveBlob } from '../../../lib/images/canvas';
 import { FILTERS, renderScan, type ScanFilter, type ScanPage } from '../../../lib/images/scan';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton } from '../../common/ShareFileButton';
 
 const MAX_PAGES = 30;
 const A4 = { w: 595.28, h: 841.89 };
@@ -110,6 +112,7 @@ export const DocumentScanner: React.FC = () => {
             <Slider label="Trim right" value={page.crop.right} min={0} max={40} step={1} unit="%" onChange={(right) => update({ crop: { ...page.crop, right } })} />
           </div>
           <button type="button" onClick={async () => { saveBlob(await canvasToBlob(renderScan(page, 2400), 'image/jpeg', 0.88), generateFileName('scan-page', 'jpg')); }} className="inline-flex min-h-10 items-center rounded-lg border border-slate-300 bg-white px-3 text-xs font-semibold text-slate-700 hover:bg-slate-50">Save this page as a picture</button>
+          <ShareFileButton className="inline-flex min-h-10 items-center rounded-lg border border-orange-300 bg-white px-3 text-xs font-semibold text-orange-800 hover:bg-orange-50" getFile={async () => toFile(await canvasToBlob(renderScan(page, 2400), 'image/jpeg', 0.88), generateFileName('scan-page', 'jpg'))} />
         </div>
       )}
 

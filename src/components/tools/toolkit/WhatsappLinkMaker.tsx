@@ -7,6 +7,8 @@ import { COUNTRIES, buildWhatsappLink } from '../../../lib/toolkit/whatsapp';
 import { encodeQr } from '../../../lib/qr/encoder';
 import { defaultStyle, qrPng, qrSvg } from '../../../lib/qr/render';
 import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { generateFileName } from '../../../lib/pdf/naming';
 
 /** A WhatsApp chat link and QR code for a phone number and a ready-typed first message. Built in the browser. */
@@ -26,9 +28,11 @@ export const WhatsappLinkMaker: React.FC = () => {
   }, [built.link]);
   const svg = qr ? `data:image/svg+xml;utf8,${encodeURIComponent(qrSvg(qr, defaultStyle()))}` : '';
 
+  const makeQr = async (): Promise<Blob | null> => (qr ? qrPng(qr, defaultStyle(), 1024, null) : null);
+
   const download = async () => {
-    if (!qr) return;
-    saveBlob(await qrPng(qr, defaultStyle(), 1024, null), generateFileName('whatsapp-qr', 'png'));
+    const blob = await makeQr();
+    if (blob) saveBlob(blob, generateFileName('whatsapp-qr', 'png'));
   };
 
   return (
@@ -63,6 +67,7 @@ export const WhatsappLinkMaker: React.FC = () => {
             <div className="flex flex-wrap items-center gap-4">
               <img src={svg} alt="QR code that opens the WhatsApp chat" className="h-40 w-40 rounded-lg border border-slate-200 bg-white" />
               <button type="button" onClick={() => void download()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download QR (PNG)</button>
+              <ShareFileButton className={shareFileLargeClass} getFile={async () => { const blob = await makeQr(); return blob ? toFile(blob, generateFileName('whatsapp-qr', 'png')) : null; }} />
             </div>
           )}
         </div>

@@ -993,5 +993,9 @@
     "pages_one": "{{count}} page",
     "pages_other": "{{count}} pages",
     "change": "Change"
+  },
+  "shareFile": {
+    "button": "Share",
+    "failed": "Sharing did not open. Use Save instead."
   }
 }

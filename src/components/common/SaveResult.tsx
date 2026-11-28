@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Check, Download, Pencil } from 'lucide-react';
 import { cleanFileName, splitExtension } from '../../lib/pdf/fileName';
+import { toFile } from '../../lib/share/shareFile';
+import { ShareFileButton } from './ShareFileButton';
 
 interface SaveResultProps {
   /** Address of the finished file (an object URL). */
@@ -77,9 +79,12 @@ export const SaveResult: React.FC<SaveResultProps> = ({ href, name, label = 'You
           <Download className="h-3.5 w-3.5" aria-hidden="true" />Outdated
         </span>
       ) : (
-        <a href={href} download={shown} className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-orange-700 px-3 py-2 text-xs font-bold text-white transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 focus-visible:ring-offset-2">
-          <Download className="h-3.5 w-3.5" aria-hidden="true" />{saveLabel}
-        </a>
+        <span className="flex shrink-0 flex-wrap items-center gap-2">
+          <a href={href} download={shown} className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-orange-700 px-3 py-2 text-xs font-bold text-white transition hover:bg-orange-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 focus-visible:ring-offset-2">
+            <Download className="h-3.5 w-3.5" aria-hidden="true" />{saveLabel}
+          </a>
+          <ShareFileButton title={shown} getFile={async () => toFile(await (await fetch(href)).blob(), shown)} />
+        </span>
       )}
     </div>
   );

@@ -5,6 +5,8 @@ import { Note } from '../../common/CalcKit';
 import { Toggle, card, heading } from '../../common/PanelKit';
 import { SignaturePad } from './SignaturePad';
 import { canvasToBlob, makeCanvas, saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import type { Logo } from '../../../lib/paper/image';
 import { generateFileName } from '../../../lib/pdf/naming';
 
@@ -14,19 +16,25 @@ export const SignatureMaker: React.FC = () => {
   const [white, setWhite] = useState(false);
   const [message, setMessage] = useState('');
 
+  /** Draws the signature picture and its name. Save and Share both use it. */
+  const makeSignature = async (): Promise<{ blob: Blob; name: string } | null> => {
+    if (!sig) return null;
+      const img = new Image();
+    img.src = sig.src;
+    await img.decode();
+    const canvas = makeCanvas(img.naturalWidth + 40, img.naturalHeight + 40);
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('This browser cannot save the picture.');
+    if (white) { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+    ctx.drawImage(img, 20, 20);
+    return { blob: await canvasToBlob(canvas, 'image/png'), name: generateFileName('signature', 'png') };
+  };
+
   const download = async () => {
-    if (!sig) return;
     setMessage('');
     try {
-      const img = new Image();
-      img.src = sig.src;
-      await img.decode();
-      const canvas = makeCanvas(img.naturalWidth + 40, img.naturalHeight + 40);
-      const ctx = canvas.getContext('2d');
-      if (!ctx) throw new Error('This browser cannot save the picture.');
-      if (white) { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
-      ctx.drawImage(img, 20, 20);
-      saveBlob(await canvasToBlob(canvas, 'image/png'), generateFileName('signature', 'png'));
+      const made = await makeSignature();
+      if (made) saveBlob(made.blob, made.name);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'Could not save the signature.');
     }
@@ -46,6 +54,7 @@ export const SignatureMaker: React.FC = () => {
         <Toggle label="White background instead of see-through" checked={white} onChange={setWhite} hint="Some forms do not accept see-through pictures." />
         <div className="flex flex-wrap items-center gap-3">
           <button type="button" disabled={!sig} onClick={() => void download()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />Download PNG</button>
+          <ShareFileButton className={shareFileLargeClass} getFile={async () => { const made = await makeSignature(); return made ? toFile(made.blob, made.name) : null; }} />
           <Link to="/sign-pdf" className="text-sm font-semibold text-orange-800 underline">Put it on a PDF</Link>
         </div>
         {message && <p role="status" className="text-xs text-red-700">{message}</p>}

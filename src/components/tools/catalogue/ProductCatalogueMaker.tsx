@@ -5,6 +5,9 @@ import { fieldClass } from '../../common/FieldKit';
 import { Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { loadPosterFonts } from '../../../lib/poster/fonts';
 import { loadPhoto } from '../../../lib/poster/images';
 import { loadSamplePhotos } from '../../../lib/poster/samples';
@@ -114,35 +117,39 @@ export const ProductCatalogueMaker: React.FC = () => {
     try { setLogo(await loadPhoto(file, 500)); setMessage(''); } catch { setMessage(c.readFail); }
   };
 
+  /** Draws the pages and returns the file and its name. Save and Share both use it. */
+  const build = async (kind: 'pdf' | 'zip'): Promise<{ blob: Blob; name: string }> => {
+    const canvas = document.createElement('canvas'); canvas.width = size.w; canvas.height = size.h;
+    const ctx = canvas.getContext('2d'); if (!ctx) throw new Error('canvas');
+    const toBlob = (mime: string): Promise<Blob> => new Promise((res, rej) => canvas.toBlob((x) => (x ? res(x) : rej(new Error('blob'))), mime, 0.88));
+    const list = buildPages(products, layout), name = generateFileName('catalogue', kind, { base: b.name || 'catalogue', details: `${d.id}-${sizeId}` });
+    let out: Blob;
+    if (kind === 'pdf') {
+      const { PDFDocument } = await import('pdf-lib'), doc = await PDFDocument.create();
+      for (const spec of list) {
+        await new Promise((r) => setTimeout(r, 0));
+        renderCatalogue(ctx, size.w, size.h, spec, b, products, options, list.length);
+        const img = await doc.embedJpg(new Uint8Array(await (await toBlob('image/jpeg')).arrayBuffer()));
+        const pg = doc.addPage([size.ptW, size.ptH]); pg.drawImage(img, { x: 0, y: 0, width: size.ptW, height: size.ptH });
+      }
+      out = pdfBlob(await doc.save());
+    } else {
+      const JSZip = (await import('jszip')).default, zip = new JSZip();
+      for (let i = 0; i < list.length; i += 1) {
+        await new Promise((r) => setTimeout(r, 0));
+        renderCatalogue(ctx, size.w, size.h, list[i]!, b, products, options, list.length);
+        zip.file(`page-${String(i + 1).padStart(2, '0')}.png`, await toBlob('image/png'));
+      }
+      out = await zip.generateAsync({ type: 'blob' });
+    }
+    return { blob: out, name };
+  };
+
   const make = async (kind: 'pdf' | 'zip'): Promise<void> => {
     setBusy(kind); setMessage('');
     try {
-      const canvas = document.createElement('canvas'); canvas.width = size.w; canvas.height = size.h;
-      const ctx = canvas.getContext('2d'); if (!ctx) throw new Error('canvas');
-      const toBlob = (mime: string): Promise<Blob> => new Promise((res, rej) => canvas.toBlob((x) => (x ? res(x) : rej(new Error('blob'))), mime, 0.88));
-      const list = buildPages(products, layout), name = generateFileName('catalogue', kind, { base: b.name || 'catalogue', details: `${d.id}-${sizeId}` });
-      let out: Blob;
-      if (kind === 'pdf') {
-        const { PDFDocument } = await import('pdf-lib'), doc = await PDFDocument.create();
-        for (const spec of list) {
-          await new Promise((r) => setTimeout(r, 0));
-          renderCatalogue(ctx, size.w, size.h, spec, b, products, options, list.length);
-          const img = await doc.embedJpg(new Uint8Array(await (await toBlob('image/jpeg')).arrayBuffer()));
-          const pg = doc.addPage([size.ptW, size.ptH]); pg.drawImage(img, { x: 0, y: 0, width: size.ptW, height: size.ptH });
-        }
-        out = pdfBlob(await doc.save());
-      } else {
-        const JSZip = (await import('jszip')).default, zip = new JSZip();
-        for (let i = 0; i < list.length; i += 1) {
-          await new Promise((r) => setTimeout(r, 0));
-          renderCatalogue(ctx, size.w, size.h, list[i]!, b, products, options, list.length);
-          zip.file(`page-${String(i + 1).padStart(2, '0')}.png`, await toBlob('image/png'));
-        }
-        out = await zip.generateAsync({ type: 'blob' });
-      }
-      const url = URL.createObjectURL(out), a = document.createElement('a');
-      a.href = url; a.download = name; a.click();
-      window.setTimeout(() => URL.revokeObjectURL(url), 4000);
+      const { blob, name } = await build(kind);
+      saveBlob(blob, name);
     } catch { setMessage(c.failed); }
     setBusy('');
   };
@@ -299,6 +306,7 @@ export const ProductCatalogueMaker: React.FC = () => {
           <button type="button" disabled={busy !== ''} onClick={() => void make('pdf')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy === 'pdf' ? c.working : c.downloadPdf}</button>
           <button type="button" disabled={busy !== ''} onClick={() => void make('zip')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-orange-700 bg-white px-4 py-3 text-sm font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy === 'zip' ? c.working : c.downloadZip}</button>
         </div>
+        <div><ShareFileButton className={shareFileLargeClass} getFile={async () => { const { blob, name } = await build('pdf'); return toFile(blob, name); }} /></div>
         <div><ConfirmButton label={c.startAgain} confirmLabel={c.startAgainConfirm} onConfirm={startAgain} disabled={busy !== ''} /></div>
         {notice && <p role="status" className="rounded-lg bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700">{c.startedAgain}</p>}
         <ul className="list-disc space-y-1 pl-5 text-[11px] text-slate-500">{c.notes.map((n) => <li key={n}>{n}</li>)}</ul>

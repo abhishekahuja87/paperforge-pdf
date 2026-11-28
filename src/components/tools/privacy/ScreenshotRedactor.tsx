@@ -7,6 +7,9 @@ import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
 import { Toggle, card, heading } from '../../common/PanelKit';
 import { MAX_PIXELS, exportSize, paintRegions, rectFromPoints, type RedactStyle, type Region } from '../../../lib/privacy/redact';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton } from '../../common/ShareFileButton';
 
 type Source = { bitmap: ImageBitmap | HTMLImageElement; width: number; height: number; name: string };
 
@@ -155,12 +158,7 @@ export const ScreenshotRedactor: React.FC = () => {
   const download = async () => {
     const blob = await toBlob();
     if (!blob || !source) { setMessage('Could not create the image.'); return; }
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = generateFileName('redacted', format, { base: source.name });
-    link.click();
-    window.setTimeout(() => URL.revokeObjectURL(url), 10000);
+    saveBlob(blob, generateFileName('redacted', format, { base: source.name }));
     setMessage('');
   };
   const copy = async () => {
@@ -264,6 +262,7 @@ export const ScreenshotRedactor: React.FC = () => {
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           <button type="button" onClick={() => void download()} className="inline-flex min-h-10 items-center gap-1.5 rounded-lg bg-orange-700 px-4 py-2 text-xs font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download</button>
+          <ShareFileButton className="inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-orange-300 bg-white px-4 py-2 text-xs font-bold text-orange-800 hover:bg-orange-50" getFile={async () => { const blob = await toBlob(); return blob && source ? toFile(blob, generateFileName('redacted', format, { base: source.name })) : null; }} />
           <button type="button" onClick={() => void copy()} className={small}>Copy image</button>
         </div>
         <p className="mt-3 text-[11px] text-slate-500">The saved file is drawn fresh from the pixels, so camera, location and device details stored in the original are not carried over. A solid box is the safest choice for passwords, card numbers and codes; pixelation here uses very large blocks, and a light blur is deliberately not offered because it can be partly reversed.</p>
