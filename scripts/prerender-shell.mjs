@@ -32,8 +32,8 @@ function replaceOnce(html, pattern, replacement, label) {
   return html.replace(pattern, () => replacement);
 }
 
-function withHead(template, page, site) {
-  const pageTitle = page.kind === 'home' ? null : `${page.title} | ${site.shortName}`;
+function withHead(template, page, site, pageTitleOf) {
+  const pageTitle = page.kind === 'home' ? null : pageTitleOf(page.title, site.shortName);
   const canonical = new URL(page.path, site.url).toString();
   const description = escapeHtml(page.description);
   let html = template;
@@ -144,13 +144,13 @@ async function main() {
     throw new Error(`dist/index.html does not contain ${ROOT_PLACEHOLDER}; was it already processed?`);
   }
 
-  const { getShellPages, getShellGroups, SHELL_SITE, SHELL_TEXT, REDIRECTS } = await loadShellData();
+  const { getShellPages, getShellGroups, SHELL_SITE, SHELL_TEXT, REDIRECTS, pageTitle: pageTitleOf } = await loadShellData();
   const pages = getShellPages();
   const groups = getShellGroups();
 
   let written = 0;
   for (const page of pages) {
-    const html = withHead(template, page, SHELL_SITE)
+    const html = withHead(template, page, SHELL_SITE, pageTitleOf)
       .replace(ROOT_PLACEHOLDER, () => `<div id="root">${shellBody(page, groups, SHELL_TEXT, SHELL_SITE)}</div>`);
     const target = page.path === '/'
       ? join(distDir, 'index.html')

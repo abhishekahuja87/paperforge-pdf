@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { siteConfig } from '../../config/site';
+import { pageTitle } from '../../lib/seo/pageTitle';
 
 interface PageMetadataProps {
   title: string;
@@ -26,18 +27,18 @@ export const PageMetadata: React.FC<PageMetadataProps> = ({ title, description, 
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const pageTitle = `${title} | ${siteConfig.shortName}`;
+    const fullTitle = pageTitle(title, siteConfig.shortName);
     if (noindex) {
       // Pages kept out of search results should not advertise a canonical address.
       document.head.querySelector('link[rel="canonical"]')?.remove();
     }
     const canonicalUrl = new URL(pathname, siteConfig.url).toString();
-    document.title = pageTitle;
+    document.title = fullTitle;
     setMetaContent('meta[name="description"]', description);
-    setMetaContent('meta[property="og:title"]', pageTitle);
+    setMetaContent('meta[property="og:title"]', fullTitle);
     setMetaContent('meta[property="og:description"]', description);
     setMetaContent('meta[property="og:url"]', canonicalUrl);
-    setMetaContent('meta[name="twitter:title"]', pageTitle);
+    setMetaContent('meta[name="twitter:title"]', fullTitle);
     setMetaContent('meta[name="twitter:description"]', description);
 
     if (!noindex) {

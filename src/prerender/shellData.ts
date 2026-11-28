@@ -80,6 +80,7 @@ export interface ShellGroup {
 }
 
 export { REDIRECTS } from '../config/redirects';
+export { pageTitle } from '../lib/seo/pageTitle';
 
 export const SHELL_SITE = { name: siteConfig.name, shortName: siteConfig.shortName, url: siteConfig.url };
 
