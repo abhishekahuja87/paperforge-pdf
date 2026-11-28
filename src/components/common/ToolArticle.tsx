@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../../config/site';
-import { useContent } from '../../locales/contentLoader';
+import { useToolContent } from '../../locales/contentLoader';
 import { AccordionList } from './AccordionList';
 import { FoldToggle } from './FoldToggle';
 import { GuideRegistryContext } from './guideRegistry';
@@ -23,7 +23,7 @@ function isSection(value: unknown): value is ArticleSection {
  */
 export function useArticleSections(id: string): ArticleSection[] {
   const { t } = useTranslation();
-  useContent();
+  useToolContent(id);
   const raw = t(`toolArticles.${id}.sections`, { returnObjects: true, siteName: siteConfig.name, defaultValue: [] }) as unknown;
   return Array.isArray(raw) ? raw.filter(isSection) : [];
 }

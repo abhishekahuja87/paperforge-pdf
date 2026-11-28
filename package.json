@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build && pnpm run build:static",
+    "dev": "node scripts/build-content-index.mjs && vite",
+    "build": "node scripts/build-content-index.mjs && tsc -b && vite build && pnpm run build:static",
+    "check:content": "node scripts/build-content-index.mjs --check && vite build --ssr src/prerender/shellData.ts --outDir dist-ssr --emptyOutDir && node scripts/check-content-split.mjs",
     "check:text": "vite build --ssr src/prerender/shellData.ts --outDir dist-ssr --emptyOutDir && node scripts/check-page-text.mjs",
-    "build:static": "vite build --ssr src/prerender/shellData.ts --outDir dist-ssr --emptyOutDir && node scripts/prerender-shell.mjs",
+    "build:static": "vite build --ssr src/prerender/shellData.ts --outDir dist-ssr --emptyOutDir && node scripts/check-content-split.mjs && node scripts/prerender-shell.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

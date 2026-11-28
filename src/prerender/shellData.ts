@@ -8,6 +8,7 @@
  */
 import { PACK_GUIDE_KEYS } from '../config/packs';
 import { en } from '../locales/english';
+import { verifyContentSplit } from '../locales/contentSplit';
 import { metaDescription, siteConfig, toolPageTitle } from '../config/site';
 import { TOOLS, type ToolItem } from '../config/tools';
 import { GUIDES } from '../content/guides';
@@ -81,6 +82,9 @@ export interface ShellGroup {
 
 export { REDIRECTS } from '../config/redirects';
 export { pageTitle } from '../lib/seo/pageTitle';
+
+/** For scripts/check-content-split.mjs: differences between the one-tool-at-a-time loader and the combined text. Empty means they agree. */
+export const checkContentSplit = (): Promise<string[]> => verifyContentSplit({ guideSteps: en.guideSteps, pageGuides: en.pageGuides, toolArticles: en.toolArticles });
 
 export const SHELL_SITE = { name: siteConfig.name, shortName: siteConfig.shortName, url: siteConfig.url };
 
