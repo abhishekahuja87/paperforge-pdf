@@ -789,6 +789,10 @@
           "A kho kho ground is a rectangle 27 m long and 16 m wide, which is 88 ft 7 in by 52 ft 5.9 in. The guide uses the sizes published at khokho.net, and the date they were checked is shown on the page."
         ],
         [
+          "What is the kho kho ground size in square feet?",
+          "The 27 m by 16 m ground covers 432 square metres, which is about 4,650 square feet. In feet that is 88 ft 7 in long and 52 ft 5.9 in wide, so a plot of about 90 ft by 55 ft is enough for the playing area alone."
+        ],
+        [
           "How wide are the central lane and the cross lanes?",
           "The central lane is 0.3 m (11.8 in) wide and each of the 8 cross lanes is 0.35 m (1 ft 1.8 in) wide. The source we used gives the number and width of the cross lanes, but not the spacing between them, so the drawing shows only the outer rectangle."
         ],
@@ -825,6 +829,10 @@
         [
           "What is the size of a kabaddi court?",
           "A men's kabaddi court is 13 m by 10 m (42 ft 7.8 in by 32 ft 9.7 in). A women's court is 12 m by 8 m and a sub-junior court is 11 m by 8 m. A midline splits the court into two halves."
+        ],
+        [
+          "What is the kabaddi court size in square feet?",
+          "A men's court of 13 m by 10 m covers 130 square metres, about 1,399 square feet. A women's court of 12 m by 8 m covers 96 square metres, about 1,033 square feet, and a sub-junior court of 11 m by 8 m covers 88 square metres, about 947 square feet."
         ],
         [
           "Where are the baulk line and the bonus line?",
@@ -1894,6 +1902,7 @@
           "heading": "Kho kho ground size at a glance",
           "paragraphs": [
             "A kho kho ground is a rectangle 27 m (88 ft 7 in) long and 16 m (52 ft 5.9 in) wide. The central lane is 0.3 m (11.8 in) wide, each of the 8 cross lanes is 0.35 m (1 ft 1.8 in) wide, and the two poles are 120 to 125 cm high. The diagonal of the ground is 31.38 m (102 ft 11.6 in).",
+            "In area, the ground is 432 square metres, or about 4,650 square feet. Leave extra room around it for the players and officials, because the playing area alone needs a plot of about 90 ft by 55 ft.",
             "These figures come from the source listed at the end of the guide, and the date they were checked is shown there. The source gives the number and width of the cross lanes but not the spacing between them, so this page does not show it."
           ]
         },
@@ -1919,6 +1928,7 @@
           "heading": "Kabaddi court size at a glance",
           "paragraphs": [
             "A men's kabaddi court is 13 m (42 ft 7.8 in) long and 10 m (32 ft 9.7 in) wide. A women's court is 12 m (39 ft 4.4 in) by 8 m (26 ft 3 in), and a sub-junior court is 11 m (36 ft 1.1 in) by 8 m. A midline splits each court in two, and the diagonals are 16.4 m, 14.42 m and 13.6 m.",
+            "In area, a men's court is 130 square metres (about 1,399 square feet), a women's court is 96 square metres (about 1,033 square feet) and a sub-junior court is 88 square metres (about 947 square feet).",
             "The sizes follow the International Kabaddi Federation rules, version 2.1.0. The date they were checked is shown at the end of the guide."
           ]
         },
