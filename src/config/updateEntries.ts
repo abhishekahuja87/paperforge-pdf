@@ -18,6 +18,13 @@ export interface SiteUpdate {
 
 export const ENTRIES: SiteUpdate[] = [
   {
+    date: '2026-11-28',
+    path: '/tournament-fixtures-maker',
+    tool: 'Tournament Fixtures Maker',
+    title: 'Tournament fixtures: play each team two, three or four times, and print the sheet',
+    summary: 'Round robin can now have every team play each other once, twice, three times or four times. A new print option makes an A4 sheet with every match and score boxes, a points table to fill in by hand, and a page to write the players of each team. Knockout brackets no longer move a team with a bye through the later rounds before the other matches are decided.',
+  },
+  {
     date: '2026-11-27',
     path: '/pdf-booklet-maker',
     tool: 'PDF Booklet Maker',

@@ -2,8 +2,8 @@
 
 export const BYE = '';
 
-/** Round robin by the circle method. Returns rounds of [home, away] pairs. A team with no opponent in a round (odd number of teams) is left out of that round. */
-export function roundRobin(teams: string[], doubleRound = false): Array<Array<[string, string]>> {
+/** Round robin by the circle method. Returns rounds of [home, away] pairs. A team with no opponent in a round (odd number of teams) is left out of that round. `meetings` is how many times each pair plays (1 to 4); true means 2. Every second set of rounds has home and away swapped. */
+export function roundRobin(teams: string[], meetings: number | boolean = 1): Array<Array<[string, string]>> {
   const list = teams.slice();
   if (list.length < 2) return [];
   if (list.length % 2 === 1) list.push(BYE);
@@ -23,8 +23,10 @@ export function roundRobin(teams: string[], doubleRound = false): Array<Array<[s
     rounds.push(pairs);
     ring.unshift(ring.pop() as string);
   }
-  if (!doubleRound) return rounds;
-  return [...rounds, ...rounds.map((round) => round.map(([a, b]) => [b, a] as [string, string]))];
+  const times = Math.min(4, Math.max(1, typeof meetings === 'boolean' ? (meetings ? 2 : 1) : Math.floor(meetings)));
+  const all: Array<Array<[string, string]>> = [];
+  for (let leg = 0; leg < times; leg += 1) rounds.forEach((round) => all.push(leg % 2 === 0 ? round : round.map(([a, b]) => [b, a] as [string, string])));
+  return all;
 }
 
 /** Bracket slot order for a power of two: 1 plays the lowest seed, and the top seeds meet last. 8 -> 1,8,4,5,2,7,3,6. */
@@ -100,9 +102,10 @@ export function knockoutRounds(teams: string[], picks: Record<string, string>): 
   for (let round = 0; ties.length >= 1; round += 1) {
     const withWinners: KnockoutTie[] = ties.map((tie, index) => {
       let winner = '';
-      if (tie.a && !tie.b) winner = tie.a;
-      else if (tie.b && !tie.a) winner = tie.b;
-      else {
+      // only the first round has byes; later, an empty side just means the earlier match is not decided yet
+      if (round === 0 && tie.a && !tie.b) winner = tie.a;
+      else if (round === 0 && tie.b && !tie.a) winner = tie.b;
+      else if (tie.a && tie.b) {
         const pick = picks[`${round}-${index}`];
         if (pick && (pick === tie.a || pick === tie.b)) winner = pick;
       }
