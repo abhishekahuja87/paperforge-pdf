@@ -31,6 +31,7 @@
   "outputHint": "Both open in Excel, Google Sheets and Numbers. CSV has no sheets, so the pages are placed one after another.",
   "make": "Save as {type}",
   "ready": "Your table is ready",
+  "another": "Convert another PDF",
   "saveXlsx": "Save Excel file",
   "saveCsv": "Save CSV file",
   "detail": "{rows} rows, {size}",

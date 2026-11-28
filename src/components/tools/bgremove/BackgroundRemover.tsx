@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { CameraButton } from '../../common/CameraButton';
 import { Image as ImageIcon } from 'lucide-react';
 import { Note } from '../../common/CalcKit';
 import { ChoiceButtons } from '../../common/FieldKit';
@@ -121,6 +122,7 @@ export const BackgroundRemover: React.FC = () => {
         <div className="flex flex-wrap gap-2">
           <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl bg-orange-700 px-4 text-sm font-bold text-white hover:bg-orange-800"><ImageIcon className="h-4 w-4" aria-hidden="true" />{picture ? ui.changePicture : ui.addPicture}
             <input type="file" accept="image/*" className="sr-only" onChange={(event) => { const file = event.target.files?.[0] ?? null; event.target.value = ''; if (file) void addFile(file); }} /></label>
+          <CameraButton onPhoto={(file) => void addFile(file)} />
           <button type="button" onClick={useSample} className="min-h-11 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 hover:bg-slate-50">{ui.useSample}</button>
         </div>
         {message && <Note>{message}</Note>}

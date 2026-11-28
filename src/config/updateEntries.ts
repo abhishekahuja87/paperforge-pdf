@@ -27,6 +27,13 @@ export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-28',
     path: '/pdf-tools',
+    tool: 'PDF tools',
+    title: 'No file handy? Try a sample PDF',
+    summary: 'Every PDF tool now has a small link under the file box that loads a made-up sample PDF, so you can see what the tool does before using your own file. Background remover, social image sizes, bulk image tools and the catalogue maker also have a Take a photo button on phones.',
+  },
+  {
+    date: '2026-11-28',
+    path: '/pdf-tools',
     tool: 'PDF and file tools',
     title: 'Share your file straight to WhatsApp',
     summary: 'On phones, a new Share button sits next to Save on PDF tools, invitations, catalogues, flashcards, photo and signature tools, QR codes, posters and more. It opens your phone\'s share sheet so the finished file goes to WhatsApp, Gmail or Drive in one tap. Print or save as PDF on the calculators now suggests a proper file name too.',

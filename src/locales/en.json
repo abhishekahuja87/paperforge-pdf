@@ -348,6 +348,7 @@
   },
   "dropZone": {
     "takePhoto": "Take a photo",
+    "trySample": "No file handy? Try a sample PDF",
     "chooseOne": "Choose a file or drop it here",
     "chooseMany": "Choose files or drop them here",
     "reading": "Reading your file…",

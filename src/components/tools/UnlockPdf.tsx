@@ -81,6 +81,7 @@ export const UnlockPdf: React.FC = () => {
       {!file ? (
         <FileDropZone
           accept=".pdf,application/pdf"
+          showSample={false}
           onFiles={(files) => { void handleFileChange(files[0]); }}
         />
       ) : (
