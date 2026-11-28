@@ -18,7 +18,7 @@ export const FixturePage: React.FC<{ page: FixturePageItem }> = ({ page }) => {
   ));
   return (
     <ToolLayout title={guide.title} subtitle={guide.subtitle} contentLanguage={i18n.language} seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}>
-      <TournamentFixtures preset={{ teams: page.teams, format: page.format === 'knockout' ? 'knockout' : 'single', storageKey: `mdu-fixtures-${page.format}-${page.teams}-v1` }} />
+      <TournamentFixtures key={page.path} preset={{ teams: page.teams, format: page.format === 'knockout' ? 'knockout' : 'single', storageKey: `mdu-fixtures-${page.format}-${page.teams}-v2` }} />
       <nav aria-label="More tournament sizes" className="mx-auto mt-4 w-full max-w-3xl space-y-1 text-sm text-slate-700">
         <p>{page.format === 'roundRobin' ? 'Other round robin sizes: ' : 'Other knockout sizes: '}{links(same)}</p>
         <p>{page.format === 'roundRobin' ? 'Knockout brackets: ' : 'Round robin schedules: '}{links(other)}</p>
