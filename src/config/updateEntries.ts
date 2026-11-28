@@ -20,6 +20,27 @@ export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-28',
     path: '/emi-calculator',
+    tool: 'EMI Calculator',
+    title: 'EMI balance chart and a downloadable payment schedule',
+    summary: 'A chart shows how much of the loan is left to pay each year, and a new button saves or shares the full month-by-month schedule as a PDF.',
+  },
+  {
+    date: '2026-11-28',
+    path: '/organize-pdf',
+    tool: 'Organize PDF',
+    title: 'Drag pages to reorder them, with Undo right where you are',
+    summary: 'Hold the Drag bar on a page and drop it where you want it, with a finger or a mouse. A bar at the bottom tells you what moved and lets you undo it.',
+  },
+  {
+    date: '2026-11-28',
+    path: '/image-resizer',
+    tool: 'Image Resizer',
+    title: 'Tap the size your form asks for',
+    summary: 'The common form sizes now sit at the top as large buttons, with two more added: stamp photo and a wider signature.',
+  },
+  {
+    date: '2026-11-28',
+    path: '/emi-calculator',
     tool: 'Calculators',
     title: 'Calculators remember your numbers and share the result as a picture',
     summary: 'Calculators such as EMI, SIP, FD and gratuity now keep the numbers you last used on your device, with a Start again button to clear them. A new Save picture and Share picture button turns the result into a clean card for WhatsApp.',
