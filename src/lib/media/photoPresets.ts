@@ -16,6 +16,8 @@ export const PHOTO_PRESETS: PhotoPreset[] = [
   { id: 'square-2in', label: 'Square photo 2 × 2 inch', width: 2, height: 2, unit: 'in', dpi: 300, maxKb: 240 },
   { id: 'exam-photo', label: 'Exam photo 200 × 230 px', width: 200, height: 230, unit: 'px', dpi: 96, maxKb: 50 },
   { id: 'signature', label: 'Signature 140 × 60 px', width: 140, height: 60, unit: 'px', dpi: 96, maxKb: 20 },
+  { id: 'stamp', label: 'Stamp photo 25 × 35 mm', width: 25, height: 35, unit: 'mm', dpi: 300, maxKb: 50 },
+  { id: 'signature-wide', label: 'Signature 4 × 2 cm', width: 4, height: 2, unit: 'cm', dpi: 300, maxKb: 30 },
   { id: 'thumb', label: 'Small profile 300 × 300 px', width: 300, height: 300, unit: 'px', dpi: 96, maxKb: 50 },
 ];
 

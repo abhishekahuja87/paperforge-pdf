@@ -135,6 +135,17 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
         {error && <p role="alert" className="flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2.5 text-xs leading-relaxed text-rose-800"><AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />{error}</p>}
         {files.length > 0 && (
           <div className="space-y-4">
+            <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-3">
+              <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Tap the size your form asks for</h3>
+              <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Photo size presets">
+                {PHOTO_PRESETS.map((preset) => (
+                  <button key={preset.id} type="button" aria-pressed={activePreset === preset.id} disabled={isProcessing} onClick={() => applyPreset(preset)} className={`min-h-11 rounded-xl border px-3.5 py-2.5 text-xs font-semibold transition disabled:opacity-50 ${activePreset === preset.id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
+                    {preset.label}, up to {preset.maxKb} KB
+                  </button>
+                ))}
+              </div>
+              <p className="mt-1.5 text-[11px] text-slate-500">These are commonly requested sizes. Forms differ and change, so always follow the size and KB limit written on yours; you can edit every value below.</p>
+            </div>
             <div className="flex items-center justify-between gap-3">
               <p className="text-sm font-semibold text-slate-700">{files.length} image{files.length === 1 ? '' : 's'} selected</p>
               <button type="button" onClick={reset} disabled={isProcessing} className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-indigo-600 disabled:cursor-not-allowed disabled:opacity-50"><RotateCcw className="h-3.5 w-3.5" />Start over</button>
@@ -148,17 +159,6 @@ export const ImageResizer: React.FC<ImageResizerProps> = ({ defaultMaxKb = 100, 
               ))}
             </ul>
 
-            <div>
-              <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Quick presets for forms</h3>
-              <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Photo size presets">
-                {PHOTO_PRESETS.map((preset) => (
-                  <button key={preset.id} type="button" aria-pressed={activePreset === preset.id} disabled={isProcessing} onClick={() => applyPreset(preset)} className={`min-h-10 rounded-lg border px-3 py-2 text-xs font-semibold transition disabled:opacity-50 ${activePreset === preset.id ? 'border-orange-300 bg-orange-50 text-orange-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'}`}>
-                    {preset.label}, up to {preset.maxKb} KB
-                  </button>
-                ))}
-              </div>
-              <p className="mt-1.5 text-[11px] text-slate-500">These are commonly requested sizes. Forms differ and change, so always follow the size and KB limit written on yours; you can edit every value below.</p>
-            </div>
             <div className="grid gap-4 rounded-xl bg-slate-50 p-4 sm:grid-cols-2">
               <label className="text-xs font-semibold text-slate-700 sm:col-span-2">
                 Maximum file size (KB)

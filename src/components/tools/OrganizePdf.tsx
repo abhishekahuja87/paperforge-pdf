@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { PdfFileBar } from '../common/PdfFileBar';
 import { FileDropZone } from '../common/FileDropZone';
 import { generatePdfFilename } from '../../lib/pdf/naming';
-import { RotateCw, Trash2, AlertCircle, Loader2, MoveLeft, MoveRight, Copy, FilePlus2, Undo2, ArrowDownUp, RefreshCw } from 'lucide-react';
+import { RotateCw, Trash2, AlertCircle, Loader2, MoveLeft, MoveRight, GripVertical, Copy, FilePlus2, Undo2, ArrowDownUp, RefreshCw } from 'lucide-react';
 import { loadPdfThumbnails, exportOrganizedPdf } from '../../lib/pdf/organize';
 import type { PageThumbnailItem } from '../../lib/pdf/organize';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
+import { pdfBlob } from '../../lib/pdf/toBlob';
 
 const toolButton = 'inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 text-xs font-semibold text-slate-800 transition hover:border-orange-400 disabled:cursor-not-allowed disabled:opacity-40';
 const iconButton = 'inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg hover:bg-slate-200 disabled:opacity-30 disabled:hover:bg-transparent';
@@ -26,6 +27,9 @@ export const OrganizePdf: React.FC = () => {
   const [history, setHistory] = useState<PageThumbnailItem[][]>([]);
   const [original, setOriginal] = useState<PageThumbnailItem[]>([]);
   const [moveDraft, setMoveDraft] = useState<Record<string, string>>({});
+  // Page being dragged by its grip, the page it is over, and the last move so it can be undone right where the person is looking.
+  const [drag, setDrag] = useState<{ from: number; over: number } | null>(null);
+  const [lastMove, setLastMove] = useState('');
 
   const resetState = () => {
     setFile(null);
@@ -37,6 +41,8 @@ export const OrganizePdf: React.FC = () => {
     setHistory([]);
     setOriginal([]);
     setMoveDraft({});
+    setDrag(null);
+    setLastMove('');
     if (downloadUrl) {
       URL.revokeObjectURL(downloadUrl);
       setDownloadUrl(null);
@@ -88,6 +94,7 @@ export const OrganizePdf: React.FC = () => {
     const previous = history[history.length - 1];
     if (!previous) return;
     setHistory(history.slice(0, -1));
+    setLastMove('');
     discardExport();
     setPages(previous);
   };
@@ -99,6 +106,29 @@ export const OrganizePdf: React.FC = () => {
     const [item] = updated.splice(index, 1);
     updated.splice(target, 0, item);
     update(updated);
+    setLastMove(`Page ${index + 1} moved to position ${target + 1}.`);
+  };
+
+  /** Dragging works with a finger or a mouse: the grip follows the pointer and the page under it is the drop place. */
+  const pageUnder = (x: number, y: number): number | null => {
+    const holder = document.elementFromPoint(x, y)?.closest('[data-page-index]');
+    return holder ? Number(holder.getAttribute('data-page-index')) : null;
+  };
+  const startDrag = (event: React.PointerEvent<HTMLButtonElement>, index: number) => {
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setDrag({ from: index, over: index });
+  };
+  const dragOver = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!drag) return;
+    const over = pageUnder(event.clientX, event.clientY);
+    if (over !== null && over !== drag.over) setDrag({ ...drag, over });
+  };
+  const endDrag = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!drag) return;
+    const over = pageUnder(event.clientX, event.clientY) ?? drag.over;
+    const from = drag.from;
+    setDrag(null);
+    moveTo(from, over);
   };
 
   const movePage = (index: number, direction: 'left' | 'right') => moveTo(index, direction === 'left' ? index - 1 : index + 1);
@@ -131,7 +161,7 @@ export const OrganizePdf: React.FC = () => {
 
     try {
       const bytes = await exportOrganizedPdf(fileBuffer, pages);
-      const blob = new Blob([bytes.buffer as ArrayBuffer], { type: 'application/pdf' });
+      const blob = pdfBlob(bytes);
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
     } catch {
@@ -173,7 +203,7 @@ export const OrganizePdf: React.FC = () => {
               <button type="button" onClick={rotateAll} className={toolButton}><RotateCw className="h-4 w-4" aria-hidden="true" />Rotate all</button>
               <button type="button" onClick={reverseAll} disabled={pages.length < 2} className={toolButton}><ArrowDownUp className="h-4 w-4" aria-hidden="true" />Reverse order</button>
               <button type="button" onClick={() => update(original)} disabled={history.length === 0} className={toolButton}><RefreshCw className="h-4 w-4" aria-hidden="true" />Start from the original</button>
-              <p className="w-full text-[11px] text-slate-500">Type a number in a page&apos;s box to move it straight there. The plus page button adds a blank page after that page, and the copy button repeats a page.</p>
+              <p className="w-full text-[11px] text-slate-500">Drag the grip at the top of a page to move it, or type a number in its box to move it straight there. The plus page button adds a blank page after that page, and the copy button repeats a page.</p>
             </div>
           )}
 
@@ -183,8 +213,21 @@ export const OrganizePdf: React.FC = () => {
               {pages.map((p, idx) => (
                 <div
                   key={p.id}
-                  className="group relative flex min-w-0 flex-col space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-2.5 shadow-sm transition-all hover:border-indigo-400"
+                  data-page-index={idx}
+                  className={`group relative flex min-w-0 flex-col space-y-2 rounded-xl border bg-slate-50 p-2.5 shadow-sm transition-all hover:border-indigo-400 ${drag && drag.from === idx ? 'border-orange-500 opacity-60' : drag && drag.over === idx ? 'border-orange-500 ring-2 ring-orange-300' : 'border-slate-200'}`}
                 >
+                  <button
+                    type="button"
+                    aria-label={`Drag page ${idx + 1} to a new place`}
+                    title="Drag to move"
+                    onPointerDown={(event) => startDrag(event, idx)}
+                    onPointerMove={dragOver}
+                    onPointerUp={endDrag}
+                    onPointerCancel={() => setDrag(null)}
+                    className="flex min-h-10 w-full cursor-grab touch-none select-none items-center justify-center gap-1 rounded-lg bg-slate-100 text-[11px] font-semibold text-slate-500 active:cursor-grabbing"
+                  >
+                    <GripVertical className="h-4 w-4 rotate-90" aria-hidden="true" /> Drag
+                  </button>
                   {/* Thumbnail Image */}
                   <div className="relative aspect-[3/4] bg-white rounded-lg overflow-hidden border border-slate-100 flex items-center justify-center">
                     {p.originalPageIndex < 0 ? (
@@ -227,6 +270,13 @@ export const OrganizePdf: React.FC = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+
+          {lastMove && (
+            <div role="status" className="sticky bottom-3 z-10 flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs text-slate-700 shadow-lg">
+              <span>{lastMove}</span>
+              <button type="button" onClick={undo} className={toolButton}><Undo2 className="h-4 w-4" aria-hidden="true" />Undo</button>
             </div>
           )}
 

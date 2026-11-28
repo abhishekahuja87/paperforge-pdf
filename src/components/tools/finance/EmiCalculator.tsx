@@ -5,6 +5,14 @@ import { formatInr, parseAmount } from '../../../lib/finance/format';
 import { NO_EXTRAS, adviseLoan, buildSchedule, durationText, hasExtras, monthLabel, parseExtras, yearlyRows, type ExtraInputs } from '../../../lib/finance/emiSchedule';
 import EmiExtraPayments from './EmiExtraPayments';
 import EmiAdvice from './EmiAdvice';
+import EmiBalanceChart from './EmiBalanceChart';
+import { Download } from 'lucide-react';
+import { buildEmiSchedulePdf } from '../../../lib/finance/emiPdf';
+import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileButtonClass } from '../../common/ShareFileButton';
 
 const noExtraInputs = (): ExtraInputs => ({ every: '', amount: '', start: '1', rows: [] });
 
@@ -28,6 +36,16 @@ export const EmiCalculator: React.FC = () => {
   const advice = useMemo(() => (valid && annualRate > 0 ? adviseLoan(principal, annualRate, months) : null), [valid, principal, annualRate, months]);
   const lateRows = result ? extras.oneTime.filter((item) => item.month > result.months) : [];
   const extraOn = hasExtras(extras);
+
+  const makeSchedule = async (): Promise<{ blob: Blob; name: string } | null> => {
+    if (!result) return null;
+    const bytes = await buildEmiSchedulePdf({ schedule: result, principal, annualRate, startMonth });
+    return { blob: pdfBlob(bytes), name: generateFileName('emi-schedule', 'pdf', { details: `${result.months}months` }) };
+  };
+  const saveSchedule = async () => {
+    const made = await makeSchedule();
+    if (made) saveBlob(made.blob, made.name);
+  };
 
   const monthlyHead = extraOn ? ['Month', 'EMI', 'Principal', 'Interest', 'Extra payment', 'Balance'] : ['Month', 'EMI', 'Principal', 'Interest', 'Balance'];
 
@@ -59,6 +77,14 @@ export const EmiCalculator: React.FC = () => {
             {extraOn && <Stat tone="good" label="Interest saved by extra payments" value={formatInr(plain.totalInterest - result.totalInterest)} />}
             {extraOn && <Stat label="Extra money you pay in" value={formatInr(result.totalExtra)} />}
           </StatGrid>
+
+          <EmiBalanceChart principal={principal} years={yearlyRows(result.rows)} />
+          <div className="mt-4 flex flex-wrap items-center gap-2 print:hidden">
+            <button type="button" onClick={saveSchedule} className={shareFileButtonClass}>
+              <Download className="h-4 w-4" aria-hidden="true" /> Save payment schedule (PDF)
+            </button>
+            <ShareFileButton label="Share schedule" getFile={async () => { const made = await makeSchedule(); return made ? toFile(made.blob, made.name) : null; }} />
+          </div>
 
           <div className="mt-5 flex flex-wrap items-center gap-2" role="group" aria-label="Choose the repayment table">
             {(['yearly', 'monthly'] as const).map((mode) => (
