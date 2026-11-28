@@ -29,6 +29,7 @@ Every user-visible improvement to a tool needs an entry at the top of the list i
 - `usePersisted` reloads when its key changes, so a key must contain everything that makes the saved data different (for example the team count).
 - Every page that reuses one tool component for several routes must pass `key={page.path}`.
 - A text box's `onChange` must store exactly what the person typed. Cutting, trimming or rewriting the text while typing makes the cursor jump to the end, so nobody can edit in the middle. Limit with `maxLength`, and shorten or trim only where the value is used (when drawing or building the output).
+- Anything that lists tool groups for people to browse (home sections, the "Explore tools" menu, new pages) must use `getListedTopics()` from `src/config/topics.ts`, never its own grouping code. Only the footer and the pre-rendered link lists use `getTopics()`, which also includes variant pages so search engines can reach them.
 - New print buttons use `printAs()` from `src/lib/pdf/printName.ts`, never a bare `window.print()`.
 
 ## When you add or change a tool: keep search and topic pages in step

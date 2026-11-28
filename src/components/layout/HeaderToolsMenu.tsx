@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ChevronDown, Search } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { TOOLS } from '../../config/tools';
-import { getTopics, topicNameKey } from '../../config/topics';
+import { getListedTopics, topicNameKey } from '../../config/topics';
 import { getToolCopy } from '../../lib/localizedTool';
 import { recordToolClick } from '../../lib/storage';
 
@@ -21,7 +21,7 @@ export const HeaderToolsMenu: React.FC<HeaderToolsMenuProps> = ({ onNavigate }) 
   const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const available = useMemo(() => TOOLS.filter((tool) => tool.isAvailable), []);
-  const topics = useMemo(() => getTopics(), []);
+  const topics = useMemo(() => getListedTopics(), []);
 
   const entries = useMemo(
     () => available.map((tool) => ({ tool, copy: getToolCopy(tool, i18n.language) })),

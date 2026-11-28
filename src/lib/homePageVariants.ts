@@ -1,6 +1,7 @@
 import { TOOLS, type ToolItem } from '../config/tools';
 import { searchTermsFor } from '../config/searchTerms';
-import { COLLECTIONS, MOST_USED, NEW_TOOLS, SIZE_PRESET_PATTERN, VARIANT_PAGES, WORKSPACES, type CollectionSpec } from '../config/homeSections';
+import { COLLECTIONS, MOST_USED, NEW_TOOLS, SIZE_PRESET_PATTERN, WORKSPACES, type CollectionSpec } from '../config/homeSections';
+import { getListedTopics, WORKSPACES_TOPIC } from '../config/topics';
 import { getFeaturedCopy, getToolCopy, isFeaturedId } from './localizedTool';
 
 export interface FeaturedTool {
@@ -152,7 +153,6 @@ export function getWorkspaceTools(language = 'en'): Array<{ tool: ToolItem; info
  * "other", so adding a tool without editing the home configuration still makes it visible.
  */
 export function getCollections(): HomeCollection[] {
-  const placed = new Set<string>(WORKSPACES);
   const build = (id: string, icon: CollectionSpec['icon'], tools: ToolItem[]): HomeCollection => ({
     id,
     icon,
@@ -162,14 +162,11 @@ export function getCollections(): HomeCollection[] {
       return match ? [{ tool, kb: Number(match[1]) }] : [];
     }).sort((a, b) => a.kb - b.kb),
   });
-  const groups = COLLECTIONS.map((spec) => {
-    const tools = orderedTools(spec.tools);
-    tools.forEach((tool) => placed.add(tool.id));
-    return build(spec.id, spec.icon, tools);
-  });
-  const rest = TOOLS.filter((tool) => tool.isAvailable && !placed.has(tool.id) && !VARIANT_PAGES.includes(tool.id));
-  const all = rest.length > 0 ? [...groups, build('other', 'layers', rest)] : groups;
-  return all.filter((group) => group.tools.length + group.presets.length > 0);
+  // The groups come from getListedTopics(), the one list also used by the "Explore tools" menu.
+  return getListedTopics()
+    .filter((topic) => topic.id !== WORKSPACES_TOPIC)
+    .map((topic) => build(topic.id, COLLECTIONS.find((spec) => spec.id === topic.id)?.icon ?? 'layers', topic.tools))
+    .filter((group) => group.tools.length + group.presets.length > 0);
 }
 
 /** Escapes text so it can be placed inside a regular expression. */
