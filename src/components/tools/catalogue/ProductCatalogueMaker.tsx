@@ -4,6 +4,7 @@ import { Note } from '../../common/CalcKit';
 import { fieldClass } from '../../common/FieldKit';
 import { Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
 import { loadPosterFonts } from '../../../lib/poster/fonts';
 import { loadPhoto } from '../../../lib/poster/images';
 import { loadSamplePhotos } from '../../../lib/poster/samples';
@@ -129,7 +130,7 @@ export const ProductCatalogueMaker: React.FC = () => {
           const img = await doc.embedJpg(new Uint8Array(await (await toBlob('image/jpeg')).arrayBuffer()));
           const pg = doc.addPage([size.ptW, size.ptH]); pg.drawImage(img, { x: 0, y: 0, width: size.ptW, height: size.ptH });
         }
-        out = new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' });
+        out = pdfBlob(await doc.save());
       } else {
         const JSZip = (await import('jszip')).default, zip = new JSZip();
         for (let i = 0; i < list.length; i += 1) {

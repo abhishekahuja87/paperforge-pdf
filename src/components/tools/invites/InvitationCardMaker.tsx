@@ -4,6 +4,7 @@ import { Note } from '../../common/CalcKit';
 import { fieldClass } from '../../common/FieldKit';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
 import { loadPosterFonts } from '../../../lib/poster/fonts';
 import { loadPhoto, type LoadedImage } from '../../../lib/poster/images';
 import { BODY_FONTS, DESIGNS, HEAD_FONTS, PALETTES, SIZES, designOf, palOf, type SizeId } from '../../../lib/invites/data';
@@ -100,7 +101,7 @@ export const InvitationCardMaker: React.FC = () => {
         const { PDFDocument } = await import('pdf-lib');
         const doc = await PDFDocument.create(), img = await doc.embedPng(new Uint8Array(await blob.arrayBuffer()));
         const page = doc.addPage([(size.w * 72) / 150, (size.h * 72) / 150]); page.drawImage(img, { x: 0, y: 0, width: page.getWidth(), height: page.getHeight() });
-        out = new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' });
+        out = pdfBlob(await doc.save());
       }
       const url = URL.createObjectURL(out), a = document.createElement('a');
       a.href = url; a.download = generateFileName('invitation', kind, { base: s.names || 'card', details: `${design.id}-${s.size}` }); a.click();
