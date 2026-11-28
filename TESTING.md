@@ -1379,7 +1379,7 @@ Checked in the sandbox: 103 logic checks (the page text equals what the generato
 Check after deploy:
 - [ ] /round-robin-schedule-6-teams opens with 6 teams (Team 1 to Team 6) and "Round robin, everyone plays once" chosen; the on-screen rounds match the written match list further down the page (15 matches, 5 rounds).
 - [ ] /round-robin-schedule-5-teams: one team rests in each round. /knockout-bracket-6-teams: Team 1 and Team 2 have byes, 5 matches in all. /knockout-bracket-8-teams has no byes.
-- [ ] Type scores on one page, reload: they stay. Open /tournament-fixtures-maker: its own teams and scores are not changed. New tournament and Clear all results work on a size page.
+- [ ] Type scores on one page, reload: they stay. Open /tournament-fixtures-maker: its own teams and scores are not changed. New tournament, same teams keeps the team names and clears scores; Clear team names empties the box and Fill with Team 1 to Team N brings the names back.
 - [ ] Every page has its own title, 4 steps, 3 sections and 8 questions; page source shows the text and its own canonical. All 13 are in the sitemap. The main tool and the section FAQ link to them. No sideways scroll at 360 px.
 - [ ] Search Console: request indexing for a few of the pages each day.
 

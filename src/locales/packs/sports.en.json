@@ -343,7 +343,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "round-robin-schedule-5-teams": [
@@ -361,7 +361,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "round-robin-schedule-6-teams": [
@@ -379,7 +379,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "round-robin-schedule-7-teams": [
@@ -397,7 +397,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "round-robin-schedule-8-teams": [
@@ -415,7 +415,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "round-robin-schedule-9-teams": [
@@ -433,7 +433,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "round-robin-schedule-10-teams": [
@@ -451,7 +451,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "round-robin-schedule-12-teams": [
@@ -469,7 +469,7 @@
       ],
       [
         "Enter the scores",
-        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again."
+        "Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "knockout-bracket-6-teams": [
@@ -487,7 +487,7 @@
       ],
       [
         "Copy or start again",
-        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "knockout-bracket-8-teams": [
@@ -505,7 +505,7 @@
       ],
       [
         "Copy or start again",
-        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "knockout-bracket-10-teams": [
@@ -523,7 +523,7 @@
       ],
       [
         "Copy or start again",
-        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "knockout-bracket-12-teams": [
@@ -541,7 +541,7 @@
       ],
       [
         "Copy or start again",
-        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ],
     "knockout-bracket-16-teams": [
@@ -559,7 +559,7 @@
       ],
       [
         "Copy or start again",
-        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again."
+        "Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament, same teams clears the scores and keeps the teams."
       ]
     ]
   },
@@ -700,7 +700,7 @@
         ],
         [
           "Can I save and share the fixtures?",
-          "The tool keeps your teams and results on this device. Use Copy the fixtures to paste the schedule into a chat or document. Clear all results starts again with the same teams."
+          "The tool keeps your teams and results on this device. Use Copy the fixtures to paste the schedule into a chat or document. New tournament, same teams starts again with the same teams."
         ],
         [
           "Is there a limit on teams?",
