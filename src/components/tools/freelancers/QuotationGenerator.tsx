@@ -6,6 +6,7 @@ import { CURRENCIES, formatMoney } from '../../../lib/freelancers/currency';
 import { addDays, quoteTotals, splitMilestones, type QuoteLine } from '../../../lib/freelancers/quote';
 import { RowButton, RowInput, nextRowId } from '../shared/rows';
 import { PrintCreditToggle } from '../../common/PrintCredit';
+import { printAs } from '../../../lib/pdf/printName';
 
 interface Line { id: string; description: string; quantity: string; unitPrice: string }
 interface Business { name: string; details: string; terms: string }
@@ -123,7 +124,7 @@ export const QuotationGenerator: React.FC = () => {
           Remember my business details and terms in this browser (not on a shared computer)
         </label>
         <div className="mt-4 flex flex-wrap gap-2">
-          <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800">Print or save as PDF</button><PrintCreditToggle defaultOn={false} />
+          <button type="button" onClick={() => printAs('quotation', { base: clientName || project, details: number })} className="inline-flex min-h-11 items-center rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800">Print or save as PDF</button><PrintCreditToggle defaultOn={false} />
         </div>
         <p className="mt-2 text-[11px] text-slate-500">In the print window choose "Save as PDF", set margins to Default and turn off "Headers and footers".</p>
         <h3 className="mt-6 text-sm font-semibold text-slate-900">Preview</h3>
