@@ -19,7 +19,7 @@ export interface PrintProps {
   rules: { win: string; draw: string };
   players: Record<string, string>;
   options: PrintOptions;
-  labels: { round: string; time: string[]; fixtures: string; pointsTable: string; players: string; winner: string; bye: string; champion: string; rules: string; date: string };
+  labels: { round: string; time: string[]; fixtures: string; pointsTable: string; players: string; winner: string; bye: string; rules: string; date: string };
 }
 
 const box = 'inline-block h-[7mm] w-[10mm] border border-black align-middle';
