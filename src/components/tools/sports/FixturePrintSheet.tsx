@@ -79,7 +79,7 @@ export const FixturePrintSheet: React.FC<PrintProps> = ({ id, visible, title, ve
               {shown.map((row, i) => (
                 <tr key={row.team} style={{ height: '8mm' }}>
                   <td className={cell}>{i + 1}</td><td className={cell} style={{ textAlign: 'left', width: '40%' }}>{row.team}</td>
-                  {[row.played, row.won, row.drawn, row.lost, row.for, row.against, row.diff, row.points].map((v, j) => <td key={j} className={cell}>{options.scores ? v : ''}</td>)}
+                  {[row.played, row.won, row.drawn, row.lost, row.for, row.against, row.diff, row.points].map((v, j) => <td key={j} className={cell}>{options.scores && row.played > 0 ? (j === 6 && row.diff > 0 ? `+${v}` : v) : ''}</td>)}
                 </tr>
               ))}
             </tbody>
