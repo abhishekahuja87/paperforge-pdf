@@ -43,6 +43,9 @@ export const TournamentFixtures: React.FC<{ preset?: FixturePreset }> = ({ prese
   const [saved, setSaved] = usePersisted<Saved>(preset?.storageKey ?? 'mdu-fixtures-v1', start, read);
   const [notice, setNotice] = useState('');
   const [preview, setPreview] = useState(false);
+  /** What the Fill button writes when the team box is empty: the page's own number of teams, or 4 on the main tool. */
+  const fillCount = preset?.teams ?? 4;
+  const fillNames = Array.from({ length: fillCount }, (_, i) => `Team ${i + 1}`).join('\n');
   const teams = useMemo(() => parseTeams(saved.teamsText).slice(0, MAX_TEAMS), [saved.teamsText]);
   const meetings = Math.min(4, Math.max(1, parseInt(saved.meets, 10) || 1));
   const robin = useMemo(() => (saved.format === 'knockout' ? [] : roundRobin(teams, meetings)), [teams, saved.format, meetings]);
@@ -90,12 +93,17 @@ export const TournamentFixtures: React.FC<{ preset?: FixturePreset }> = ({ prese
         {saved.format !== 'knockout' && <NumberField label="Points for a draw" value={saved.draw} onChange={(v) => setSaved({ ...saved, draw: v })} step="1" />}
       </InputGrid>
 
-      {teams.length < 2 ? <p role="status" className="rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700">Add at least two teams to make the fixtures.</p> : (
+      {teams.length < 2 ? (
+        <div role="status" className="flex flex-wrap items-center gap-3 rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700">
+          <span>Add at least two teams to make the fixtures.</span>
+          <button type="button" onClick={() => setSaved({ ...saved, teamsText: fillNames })} className={ghostButton}>Fill with Team 1 to Team {fillCount}</button>
+        </div>
+      ) : (
         <>
           <div className="flex flex-wrap items-center gap-2">
             <button type="button" onClick={() => void copy()} className={ghostButton}><Copy className="h-4 w-4" aria-hidden="true" />Copy the fixtures</button>
-            <ConfirmButton label="Clear all results" confirmLabel="Tap again to clear results" onConfirm={() => setSaved({ ...saved, scores: {}, picks: {} })} disabled={Object.keys(saved.scores).length === 0 && Object.keys(saved.picks).length === 0} />
-            <ConfirmButton label="New tournament" confirmLabel="Tap again to clear the teams too" onConfirm={() => setSaved({ ...saved, teamsText: '', scores: {}, picks: {} })} />
+            <ConfirmButton label="New tournament, same teams" confirmLabel="Tap again to clear the results" onConfirm={() => setSaved({ ...saved, scores: {}, picks: {} })} disabled={Object.keys(saved.scores).length === 0 && Object.keys(saved.picks).length === 0} />
+            <ConfirmButton label="Clear team names" confirmLabel="Tap again to clear the names" onConfirm={() => setSaved({ ...saved, teamsText: '', scores: {}, picks: {}, players: {} })} />
             {notice && <span role="status" className="text-xs text-slate-600">{notice}</span>}
           </div>
 
