@@ -23,6 +23,13 @@ MyDailyUtils started with one aim: build the ordinary utilities that already exi
 
 Every user-visible improvement to a tool needs an entry at the top of the list in `src/config/updateEntries.ts` (date, tool route, short title, one-line benefit). It appears on `/whats-new`, as a note above the tool for 45 days and in the home page "What's new" strip. Also describe the new feature in the tool's own page copy (article, steps, FAQ), not only in the code.
 
+## Rules that stop repeat mistakes
+
+- Never write `new Blob([bytes as BlobPart], ...)` by hand. Use `pdfBlob(bytes)` or `bytesToBlob(bytes, type)` from `src/lib/pdf/toBlob.ts`.
+- `usePersisted` reloads when its key changes, so a key must contain everything that makes the saved data different (for example the team count).
+- Every page that reuses one tool component for several routes must pass `key={page.path}`.
+- New print buttons use `printAs()` from `src/lib/pdf/printName.ts`, never a bare `window.print()`.
+
 ## When you add or change a tool: keep search and topic pages in step
 
 Every new tool, and every change to what a tool does, must also update the places that people and Google read. Run `node scripts/check-hub-coverage.mjs` before opening the PR; it lists what is missing (it reads source files only).
