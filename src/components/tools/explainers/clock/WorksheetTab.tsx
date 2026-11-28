@@ -4,6 +4,7 @@ import { Toggle, card } from '../../../common/PanelKit';
 import { fieldClass } from '../../../common/FieldKit';
 import { CLOCK_LEVELS, capitalise, digital, randomTime, sameTime, timeWords, type ClockLevel, type ClockTime } from '../../../../lib/kids/clockTime';
 import { ClockFace } from './ClockFace';
+import { PrintCreditToggle } from '../../../common/PrintCredit';
 
 type Kind = 'draw' | 'write';
 const COUNT = 12;
@@ -46,7 +47,7 @@ export const WorksheetTab: React.FC = () => {
         <div className="mt-3"><Toggle label="Show the answers" hint="Fills in the hands or the times so you can mark the sheet." checked={answers} onChange={setAnswers} /></div>
         <div className="mt-3 flex flex-col gap-2 sm:flex-row">
           <button type="button" onClick={() => setTimes(makeSheet(level))} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-800 hover:bg-slate-50"><Shuffle className="h-4 w-4" aria-hidden="true" />New worksheet</button>
-          <button type="button" onClick={() => window.print()} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white hover:bg-orange-800"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button>
+          <button type="button" onClick={() => window.print()} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white hover:bg-orange-800"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button><PrintCreditToggle />
         </div>
         <p className="mt-2 text-[11px] text-slate-500">Print the sheet without answers for the child, and with answers for yourself. In the print window choose "Save as PDF" to keep a copy.</p>
       </div>

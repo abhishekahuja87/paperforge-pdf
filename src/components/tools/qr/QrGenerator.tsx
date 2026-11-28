@@ -12,6 +12,7 @@ import {
   phonePayload, smsPayload, urlPayload, whatsappPayload, wifiPayload, type QrKind,
 } from '../../../lib/qr/payloads';
 import { MAX_LOGO, defaultStyle, qrPng, qrSvg, selfCheck, type QrStyle } from '../../../lib/qr/render';
+import { PrintCreditToggle } from '../../common/PrintCredit';
 
 const KINDS: { id: QrKind; label: string }[] = [
   { id: 'url', label: 'Link' }, { id: 'text', label: 'Text' }, { id: 'whatsapp', label: 'WhatsApp' }, { id: 'wifi', label: 'Wi-Fi' }, { id: 'contact', label: 'Contact' },
@@ -249,7 +250,7 @@ export const QrGenerator: React.FC<{ initialKind?: QrKind }> = ({ initialKind = 
               <Field label="Caption under each code" value={caption} onChange={setCaption} placeholder="Scan to join the Wi-Fi" />
               <Slider label="Copies" value={copies} min={1} max={24} step={1} unit="" onChange={setCopies} />
             </div>
-            <button type="button" disabled={!qr} onClick={() => window.print()} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print the sheet</button>
+            <button type="button" disabled={!qr} onClick={() => window.print()} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print the sheet</button><PrintCreditToggle />
           </div>
           <Note>The code does not expire or depend on this website.</Note>
         </div>

@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-28',
+    path: '/',
+    tool: 'Printable tools',
+    title: 'Printable sheets now have a small, optional "Made with" line',
+    summary: 'Planners, worksheets, record and care sheets, fixtures, price tags, QR sheets and similar printables can print a small grey "Made with mydailyutils.in" line at the bottom left of each page. It is on by default for sheets and off by default for invoices, quotations, rent receipts and resumes, and there is a switch next to the Print button to turn it on or off. Your choice is remembered on this device.',
+  },
+  {
+    date: '2026-11-28',
     path: '/tournament-fixtures-maker',
     tool: 'Tournament Fixtures Maker',
     title: 'Tournament fixtures: play each team two, three or four times, and print the sheet',

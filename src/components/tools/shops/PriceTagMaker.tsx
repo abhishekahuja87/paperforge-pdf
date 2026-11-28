@@ -8,6 +8,7 @@ import { code128Svg, canEncode128 } from '../../../lib/barcode/code128';
 import { encodeQr } from '../../../lib/qr/encoder';
 import { defaultStyle, qrSvg } from '../../../lib/qr/render';
 import { MAX_COPIES, MAX_TAGS, TAG_SIZES, expandTags, parseTagLines, withPrefix, type TagItem, type TagSize } from '../../../lib/shops/priceTags';
+import { PrintCreditToggle } from '../../common/PrintCredit';
 
 const SAMPLE = 'Basmati rice 5 kg | 649 | 749 | 8901234500011\nGreen tea 100 bags | 199 | | 8901234500028\nSteel water bottle | 349 | 499 | SKU-1042';
 const PREVIEW_SHEETS = 2;
@@ -70,7 +71,7 @@ export const PriceTagMaker: React.FC = () => {
         {skippedCodes > 0 && <p role="alert" className="mt-2 text-xs text-rose-800">{skippedCodes} {skippedCodes === 1 ? 'code cannot' : 'codes cannot'} be drawn as a barcode (letters, digits and simple symbols only, up to 40 characters). Those tags print without a code.</p>}
         {items.length > 0 && tags.length >= MAX_TAGS && <p role="status" className="mt-2 text-xs text-amber-800">Limited to {MAX_TAGS} tags in one go. Print this set, then make the next one.</p>}
         <div className="mt-4 flex flex-wrap gap-2">
-          <button type="button" disabled={tags.length === 0} onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF ({tags.length} {tags.length === 1 ? 'tag' : 'tags'}, {sheets.length} {sheets.length === 1 ? 'sheet' : 'sheets'})</button>
+          <button type="button" disabled={tags.length === 0} onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF ({tags.length} {tags.length === 1 ? 'tag' : 'tags'}, {sheets.length} {sheets.length === 1 ? 'sheet' : 'sheets'})</button><PrintCreditToggle />
         </div>
         <p className="mt-2 text-[11px] text-slate-500">In the print window choose A4, scale 100% (not "Fit to page") and turn off "Headers and footers". Cut along the light borders.</p>
         <h3 className="mt-5 text-sm font-semibold text-slate-900">Preview{sheets.length > PREVIEW_SHEETS ? ` (first ${PREVIEW_SHEETS} of ${sheets.length} sheets)` : ''}</h3>
