@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useMemo, useRef } from 'react';
+import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 /**
  * Shareable, pre-filled links for the calculators.
@@ -11,22 +11,89 @@ import React, { createContext, useContext, useEffect, useMemo, useRef } from 're
 interface ShareContextValue {
   initial: URLSearchParams;
   values: Map<string, string>;
+  /** The visible label of each shared field, for the result picture. */
+  labels: Map<string, string>;
+  /** The starting value each field had when it first appeared, so only what the person changed is remembered. */
+  baseline: Map<string, string>;
+  /** The element that holds the calculator, so the page can read its result boxes for the picture. */
+  root: React.RefObject<HTMLDivElement | null>;
+  /** Remembers the current inputs on this device. Does nothing when the page was opened from a shared link. */
+  persist: () => void;
+  /** Forgets the remembered inputs and puts every field back to its starting value. */
+  reset: () => void;
 }
 
 const ShareContext = createContext<ShareContextValue | null>(null);
 
+const SAVED_PREFIX = 'mdu.calc.v1:';
+
+/** The inputs remembered for this calculator on this device, as address-style pairs. Empty when there are none or storage is blocked. */
+function readSaved(path: string): URLSearchParams {
+  const found = new URLSearchParams();
+  try {
+    const raw = window.localStorage.getItem(`${SAVED_PREFIX}${path}`);
+    const data: unknown = raw ? JSON.parse(raw) : null;
+    if (data && typeof data === 'object') {
+      Object.entries(data as Record<string, unknown>).forEach(([key, value]) => { if (typeof value === 'string') found.set(key, value); });
+    }
+  } catch { /* nothing remembered */ }
+  return found;
+}
+
 export const ShareProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const value = useMemo<ShareContextValue>(() => ({
-    initial: new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search),
-    values: new Map<string, string>(),
-  }), []);
+  // Bumping this remounts the calculator, which is how "Start again" puts every field back to its starting value.
+  const [generation, setGeneration] = useState(0);
+  const root = useRef<HTMLDivElement>(null);
+  const timer = useRef<number | undefined>(undefined);
+  const value = useMemo<ShareContextValue>(() => {
+    const path = typeof window === 'undefined' ? '' : window.location.pathname;
+    const search = typeof window === 'undefined' ? '' : window.location.search;
+    // A shared link wins over remembered numbers, and it never overwrites them.
+    const fromLink = generation === 0 && search !== '';
+    const initial = generation > 0 ? new URLSearchParams() : fromLink ? new URLSearchParams(search) : typeof window === 'undefined' ? new URLSearchParams() : readSaved(path);
+    const values = new Map<string, string>();
+    const baseline = new Map<string, string>();
+    return {
+      initial,
+      values,
+      labels: new Map<string, string>(),
+      baseline,
+      root,
+      persist: () => {
+        if (typeof window === 'undefined' || fromLink) return;
+        window.clearTimeout(timer.current);
+        timer.current = window.setTimeout(() => {
+          // Only what differs from the starting values is kept, so a changed default on the site still reaches people who never edited that field.
+          const changed = Object.fromEntries([...values].filter(([key, now]) => now !== baseline.get(key)));
+          try {
+            if (Object.keys(changed).length > 0) window.localStorage.setItem(`${SAVED_PREFIX}${path}`, JSON.stringify(changed));
+            else window.localStorage.removeItem(`${SAVED_PREFIX}${path}`);
+          } catch { /* still works without saving */ }
+        }, 400);
+      },
+      reset: () => {
+        window.clearTimeout(timer.current);
+        try { window.localStorage.removeItem(`${SAVED_PREFIX}${path}`); } catch { /* nothing to forget */ }
+        setGeneration((count) => count + 1);
+      },
+    };
+  }, [generation]);
   // The values are already captured, so drop the query from the address bar; a later reload then starts clean.
   useEffect(() => {
     if (typeof window === 'undefined' || window.location.search === '') return;
     window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.hash}`);
   }, []);
-  return <ShareContext.Provider value={value}>{children}</ShareContext.Provider>;
+  return (
+    <ShareContext.Provider value={value}>
+      <div ref={root} key={generation}>{children}</div>
+    </ShareContext.Provider>
+  );
 };
+
+/** For the share bar: the calculator element, the labelled inputs, and the remember and start-again actions. */
+export function useShareContext(): ShareContextValue | null {
+  return useContext(ShareContext);
+}
 
 /** A short, readable address key made from a field label. */
 export const shareKey = (label: string) => label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 28).replace(/-+$/, '');
@@ -62,9 +129,12 @@ export function useShared(label: string, value: string, onChange: (next: string)
 
   useEffect(() => {
     if (!context) return undefined;
+    if (!context.baseline.has(key)) context.baseline.set(key, value);
     context.values.set(key, value);
+    context.labels.set(key, label);
+    context.persist();
     return () => { context.values.delete(key); };
-  }, [context, key, value]);
+  }, [context, key, value, label]);
 }
 
 /** The address of this page with the current inputs, or '' when there is nothing to share. */

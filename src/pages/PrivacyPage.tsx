@@ -27,7 +27,7 @@ export const PrivacyPage: React.FC = () => {
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-900">2. Local preferences</h2>
         <p>
-          The site stores your language choice and tool-visit counts in your browser’s local storage. The counts are used to show labels such as “Frequent” or “Favorite.” These preferences stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
+          The site stores your language choice and tool-visit counts in your browser’s local storage. The counts are used to show labels such as “Frequent” or “Favorite.” Calculators also keep the numbers you last changed, so they are filled in when you come back; a “Start again” button under each calculator clears them. These preferences stay on your device and are not needed to process files. You can remove them by clearing this site’s browser storage.
         </p>
         <p>
           The home page can show a “Your recently used tools” row. The tools you pin or open are remembered as a short list of tool names in this browser’s local storage and are never sent to MyDailyUtils; the Clear button removes them. The site also installs a small service worker so it can be added to a home screen and open offline: it keeps copies of this site’s own pages and files in your browser’s cache, never files you choose and never content from other sites such as advertising or analytics. Clearing site data removes both.

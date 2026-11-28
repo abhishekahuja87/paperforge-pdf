@@ -10,6 +10,8 @@ interface ShareFileButtonProps {
   title?: string;
   /** Replaces the default look. Use `shareFileButtonClass` for the usual one. */
   className?: string;
+  /** Replaces the word "Share", for example "Share picture". */
+  label?: string;
 }
 
 /** The look of every Share button, matching the Save button next to it. */
@@ -22,7 +24,7 @@ export const shareFileLargeClass = 'inline-flex min-h-11 items-center gap-2 roun
  * "Share" for a finished file: opens the phone's share sheet so the file goes straight to WhatsApp or another app.
  * It is not drawn at all in browsers that cannot share files, where the Save button is the way to get the file.
  */
-export const ShareFileButton: React.FC<ShareFileButtonProps> = ({ getFile, title, className = shareFileButtonClass }) => {
+export const ShareFileButton: React.FC<ShareFileButtonProps> = ({ getFile, title, className = shareFileButtonClass, label }) => {
   const { t } = useTranslation();
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -46,7 +48,7 @@ export const ShareFileButton: React.FC<ShareFileButtonProps> = ({ getFile, title
   return (
     <>
       <button type="button" onClick={() => void share()} disabled={busy} className={className}>
-        <Share2 className="h-3.5 w-3.5" aria-hidden="true" />{t('shareFile.button', { defaultValue: 'Share' })}
+        <Share2 className="h-3.5 w-3.5" aria-hidden="true" />{label ?? t('shareFile.button', { defaultValue: 'Share' })}
       </button>
       {failed && <span role="status" className="basis-full text-[11px] text-red-700">{t('shareFile.failed', { defaultValue: 'Sharing did not open. Use Save instead.' })}</span>}
     </>

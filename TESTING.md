@@ -1447,3 +1447,6 @@ Checked in the app with generated PDFs and images: booklet with back cover and o
 
 - Share button (needs a real phone): on a PDF tool, make a file; Save and Share sit side by side. Tap Share, choose WhatsApp, and check the file arrives with its name. Do the same in invitation maker, catalogue maker, flashcards, tambola, visiting card, passport photo, signature, stamp, QR, barcode, GIF, offer poster, screenshot redactor, settle-up picture and Document Studio. Closing the share sheet shows no error. On a desktop browser without file sharing the Share button is not shown.
 - Calculator Print or save as PDF: the suggested file name is the calculator name with date and time. Same for settle-up, citations and the POS invoice.
+
+- Calculators remember numbers: on EMI, SIP and FD change a field, leave the page and come back; the number is still there. Open a shared link; its numbers show and your remembered ones are not overwritten. Tap Start again twice: everything returns to the starting values and stays that way after a reload.
+- Result picture: under a calculator, tap Save picture and open the image; check the title, your numbers, the result boxes, Indian digit grouping and the mydailyutils.in line. Share picture opens the share sheet on a phone.
