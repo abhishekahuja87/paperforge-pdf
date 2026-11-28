@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-28',
+    path: '/split-pdf',
+    tool: 'Split PDF',
+    title: 'A pointer to Smart Split for many files at once',
+    summary: 'Under the page box, a link now leads to Smart Split PDF, which cuts a PDF every few pages, at blank pages, at bookmarks or by size.',
+  },
+  {
+    date: '2026-11-28',
     path: '/emi-calculator',
     tool: 'EMI Calculator',
     title: 'EMI balance chart and a downloadable payment schedule',

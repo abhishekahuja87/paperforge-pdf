@@ -1478,6 +1478,14 @@
           ]
         },
         {
+          "heading": "How the leave sheets work together",
+          "paragraphs": [
+            "The workbook has an Employees list (name, department and yearly leave entitlement), a Leave log, a Balances sheet and a Summary. In the log you type the first and last day, the employee, the type of leave, the status and a reason; the number of days is worked out for you as last day minus first day plus one.",
+            "Only leave marked Approved is counted as used, and it is counted from the leave year start date you set on the Settings sheet. Pending leave is shown in its own column, so you can see what is waiting without it reducing anyone's balance. Left is the entitlement minus the approved days.",
+            "The Flag column shows a low-balance warning when the days left fall to your chosen limit, and an over-limit flag when someone has taken more than they were given. The Summary adds a chart of approved days by type of leave. Days are counted as calendar days, so a Saturday, Sunday or holiday inside a leave is counted too; reduce the entitlement or adjust the dates if your policy counts working days only."
+          ]
+        },
+        {
           "heading": "How to keep it up to date",
           "paragraphs": [
             "Type a new row each time something happens: a leave, a sale or an EMI. The coloured cells update by themselves, and the filter on each list helps you find what you need.",
@@ -1503,6 +1511,14 @@
           ]
         },
         {
+          "heading": "How the sales workbook adds up your day",
+          "paragraphs": [
+            "You list your items with a price and a unit once, then add one row to the Sales log for each sale: date, item, quantity, an optional price for that sale only, how it was paid and a note. The amount is the quantity times the price you typed, or the listed price when that cell is empty, so a discount on one sale does not change the price list.",
+            "The Daily sheet then shows every day of the month you pick on the Settings sheet, with the number of sales, the items sold, the total amount and the amount for each way of paying, such as cash, UPI, card or credit. The Sold by item sheet gives each item's quantity, amount and its share of the month's total, which shows your best sellers.",
+            "The Summary shows the month total, the count of sales, the number of days with sales and an average, with a pie chart of payment modes and a column chart of sales for each day. To report another month, change the month on Settings or download a fresh copy. The workbook adds up what you enter and does not know about tax; add GST or any other tax yourself if you need it."
+          ]
+        },
+        {
           "heading": "How to keep it up to date",
           "paragraphs": [
             "Type a new row each time something happens: a leave, a sale or an EMI. The coloured cells update by themselves, and the filter on each list helps you find what you need.",
@@ -1525,6 +1541,14 @@
           "paragraphs": [
             "A loan and EMI tracker is useful for a family, a small business or a freelancer. How much is left on each loan, what the next EMI date is, and how each payment splits into interest and principal.",
             "Everything is in one Excel file, so you can keep it on your phone or computer and send it to anyone who needs to see it."
+          ]
+        },
+        {
+          "heading": "What the loan workbook calculates",
+          "paragraphs": [
+            "For every loan you list the name, the amount, the yearly interest rate, the number of months and the date of the first EMI. The Loans sheet then works out the monthly EMI with the usual reducing-balance formula, the total interest, the total payable, how many EMIs are paid up to the as-of date, the balance still owed, the next EMI date, the last EMI date and a status.",
+            "The status reads Running, Due soon or Closed. Due soon appears when the next EMI falls within the number of days you set on the Settings sheet. The as-of date is today by default, so the balances move on their own each time you open the file.",
+            "The Schedule sheet lists up to 360 monthly rows for the loan you choose, with the opening balance, EMI, interest, principal and closing balance, and marks the months already paid. The Summary shows the number of running loans, the total EMI each month and a chart of balance by loan. Banks round and time their charges in their own way, so your lender's statement can differ by a few rupees; use this to plan and check, and use your statement for the exact amount."
           ]
         },
         {

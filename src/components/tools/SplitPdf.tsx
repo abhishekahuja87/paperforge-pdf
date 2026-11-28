@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { PdfFileBar } from '../common/PdfFileBar';
 import { SaveResult, StartOverButton } from '../common/SaveResult';
 import { FileDropZone } from '../common/FileDropZone';
@@ -152,6 +153,9 @@ export const SplitPdf: React.FC = () => {
             )}
             <p className="text-[11px] text-slate-500">
               Enter individual pages (e.g. <code className="text-slate-700 font-mono">1, 4, 7</code>) or ranges (e.g. <code className="text-slate-700 font-mono">2-5</code>). Max: {pageCount}.
+            </p>
+            <p className="text-[11px] text-slate-500">
+              Want many smaller files instead of one? <Link to="/smart-split-pdf" className="font-semibold text-indigo-700 underline">Smart Split PDF</Link> cuts a PDF every few pages, at blank pages, at bookmarks or by file size, and gives you all the parts together.
             </p>
           </div>
 
