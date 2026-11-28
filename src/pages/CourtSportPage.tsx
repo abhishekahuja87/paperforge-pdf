@@ -14,7 +14,7 @@ export const CourtSportPage: React.FC<{ page: CourtPage }> = ({ page }) => {
   const others = COURT_PAGES.filter((item) => item.path !== page.path);
   return (
     <ToolLayout title={guide.title} subtitle={guide.subtitle} contentLanguage={i18n.language} seoContent={<ToolGuide toolName={guide.title} faqs={guide.faqs} contentLanguage={guide.language} />}>
-      <CourtGuide fixedSport={page.sportId} />
+      <CourtGuide key={page.path} fixedSport={page.sportId} />
       <nav aria-label="More court sizes" className="mx-auto mt-4 w-full max-w-3xl text-sm text-slate-700">
         <p>
           More court sizes:{' '}
