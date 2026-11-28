@@ -2,7 +2,7 @@ import type { FontId, Item, Sheet } from '../paper/geometry';
 import type { Logo } from '../paper/image';
 import { PAGE_SIZES, TONES, WEIGHTS } from '../paper/types';
 import { FONTS, THEMES } from './theme';
-import type { Common, Values } from './types';
+import { LIST_CHARS_PER_LINE, type Common, type Values } from './types';
 
 export const TEXT = '#444444';
 export const INK = '#111111';
@@ -136,4 +136,4 @@ export const flag = (v: Values, key: string): boolean => Boolean(v[key]);
 export const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, Math.round(value)));
 /** The non-empty lines of a list field, trimmed, at most `max` of them. */
 export const lines = (v: Values, key: string, max: number): string[] =>
-  String(v[key] ?? '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean).slice(0, max);
+  String(v[key] ?? '').split(/\r?\n/).map((s) => s.trim().slice(0, LIST_CHARS_PER_LINE)).filter(Boolean).slice(0, max);

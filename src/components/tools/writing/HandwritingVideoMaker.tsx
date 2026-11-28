@@ -164,7 +164,7 @@ export const HandwritingVideoMaker: React.FC = () => {
       <section className={`${card} space-y-4`}>
         <h2 className={heading}>{ui.text}</h2>
         <label className="block text-xs font-semibold text-slate-700">{ui.text}
-          <textarea value={textValue} rows={5} placeholder={ui.textPlaceholder} onChange={(event) => { const lines = event.target.value.split('\n').slice(0, MAX_LINES).map((line) => line.slice(0, MAX_LINE_LENGTH)); update({ lines }); }} className={`${fieldClass} font-normal`} />
+          <textarea value={textValue} rows={5} maxLength={MAX_LINES * (MAX_LINE_LENGTH + 1)} placeholder={ui.textPlaceholder} onChange={(event) => { update({ lines: event.target.value.split('\n') }); }} className={`${fieldClass} font-normal`} />
         </label>
         <p className="text-[11px] text-slate-500">{ui.textHint}</p>
       </section>

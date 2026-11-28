@@ -53,4 +53,5 @@ export interface Family {
 }
 
 export const MAX_TEXT = 60;
-export const MAX_LINE = 40;
+/** Room for one typed line in a list box. The text box keeps exactly what is typed (cutting it while typing makes the cursor jump); a line longer than the sheet allows is shrunk or trimmed when the sheet is drawn. */
+export const LIST_CHARS_PER_LINE = 120;

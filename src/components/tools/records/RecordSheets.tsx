@@ -12,7 +12,7 @@ import { clearProfile, loadProfile, saveProfile } from '../../../lib/records/pro
 import { LogoPicker } from '../paper/LogoPicker';
 import { StylePicker } from '../paper/StylePicker';
 import type { Common, Family, Field, SheetDef, Values } from '../../../lib/records';
-import { MAX_LINE, MAX_TEXT } from '../../../lib/records/types';
+import { LIST_CHARS_PER_LINE, MAX_TEXT } from '../../../lib/records/types';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';
@@ -102,7 +102,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
         return (
           <label key={field.key} className="block text-xs font-semibold text-slate-700">{field.label}
             {field.hint && <span className="block text-[11px] font-normal text-slate-500">{field.hint}</span>}
-            <textarea rows={4} value={String(value ?? '')} placeholder={field.placeholder} onChange={(event) => setValue(field.key, event.target.value.split(/\r?\n/).slice(0, field.max).map((l) => l.slice(0, MAX_LINE)).join('\n'))} className={fieldClass} />
+            <textarea rows={4} value={String(value ?? '')} placeholder={field.placeholder} maxLength={(field.max ?? 20) * LIST_CHARS_PER_LINE} onChange={(event) => setValue(field.key, event.target.value)} className={fieldClass} />
           </label>
         );
     }
