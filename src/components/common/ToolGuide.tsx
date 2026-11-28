@@ -2,7 +2,7 @@ import React, { useContext, useLayoutEffect } from 'react';
 import { HelpCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { useContent } from '../../locales/contentLoader';
+import { useToolContent } from '../../locales/contentLoader';
 import { AccordionList } from './AccordionList';
 import { FoldToggle } from './FoldToggle';
 import { GuideRegistryContext } from './guideRegistry';
@@ -37,11 +37,11 @@ export const ToolGuide: React.FC<ToolGuideProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
-  const { guideSteps } = useContent();
   const guideId = pathname.replace(/^\/|\/$/g, '');
-  const hasLocalizedSteps = Object.prototype.hasOwnProperty.call(guideSteps, guideId);
-  const displayedSteps = hasLocalizedSteps
-    ? guideSteps[guideId as keyof typeof guideSteps].map((_, index) => ({
+  const { steps: localizedSteps } = useToolContent(guideId);
+  const hasLocalizedSteps = localizedSteps !== undefined;
+  const displayedSteps = localizedSteps
+    ? localizedSteps.map((_, index) => ({
       title: t(`guideSteps.${guideId}.${index}.0`),
       description: t(`guideSteps.${guideId}.${index}.1`),
     }))

@@ -1453,4 +1453,5 @@ Checked in the app with generated PDFs and images: booklet with back cover and o
 - Try a sample PDF: on Merge, Split, Rotate, Compress, Organize and the other PDF tools a small link sits under the drop zone. Tap it: a made-up invoice PDF (two for Merge) is loaded and the tool works on it. The link is not on Unlock PDF, PDF table to Excel or picture drop zones.
 - Image resizer form sizes at the top; EMI balance chart and payment schedule PDF (Save and Share); Organize PDF Drag bar reorder with the Undo bar. Test on a real phone: touch dragging, scrolling while dragging, share sheet.
 - Page titles: tab title and view-source title match on a short-name tool (brand kept) and a long-name tool (brand left off).
+- Tool text per tool: open many different tool pages (PDF, calculators, printables, Word and Excel makers, sports pages) directly by address and by clicking from the home page; steps, FAQs and article are shown with no raw keys; Network tab shows small files, not one large one.
 - Camera on a phone: Background remover, Social image sizes, Bulk image tools and the catalogue product photos have a Take a photo button beside Choose picture.
