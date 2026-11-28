@@ -10,6 +10,7 @@ import { knockoutRounds, parseTeams, pointsTable, roundRobin, type Result } from
 import { ConfirmButton } from '../shared/ConfirmButton';
 import { ghostButton, smallInput } from '../shared/toolStyles';
 import { FixturePrintSheet } from './FixturePrintSheet';
+import { PrintCreditToggle } from '../../common/PrintCredit';
 
 export type Format = 'single' | 'double' | 'knockout';
 interface Saved {
@@ -179,7 +180,7 @@ export const TournamentFixtures: React.FC<{ preset?: FixturePreset }> = ({ prese
               </>
             )}
             <div className="flex flex-wrap gap-2">
-              <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button>
+              <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button><PrintCreditToggle />
               <button type="button" onClick={() => setPreview(!preview)} aria-pressed={preview} className={ghostButton}>{preview ? 'Hide the sheet' : 'Show the sheet here'}</button>
             </div>
           </div>

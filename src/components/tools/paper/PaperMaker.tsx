@@ -12,6 +12,7 @@ import { SheetPreview } from './SheetPreview';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { StylePicker } from './StylePicker';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { PrintCreditToggle } from '../../common/PrintCredit';
 
 const presetButtons = (spacings: { label: string; value: number }[], current: number, onPick: (value: number) => void) => (
   <div className="flex flex-wrap gap-2">
@@ -291,7 +292,7 @@ export const PaperMaker: React.FC<{ initialStyle?: PaperStyle }> = ({ initialSty
             </div>
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={() => void download()} disabled={busy} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building...' : 'Download PDF'}</button>
-              <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this sheet</button>
+              <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this sheet</button><PrintCreditToggle />
               <CopyButton text={shareLink} label="Copy link to these settings" />
               <button type="button" onClick={saveSettings} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><Save className="h-4 w-4" aria-hidden="true" />Save settings</button>
               <button type="button" onClick={() => fileRef.current?.click()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><FolderOpen className="h-4 w-4" aria-hidden="true" />Load settings</button>

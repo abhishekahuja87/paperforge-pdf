@@ -3,6 +3,7 @@ import { CalcFooter, Note, SelectField, calcCard } from '../../common/CalcKit';
 import { fieldClass } from '../../common/FieldKit';
 import { CURRENCIES, formatMoney } from '../../../lib/freelancers/currency';
 import { HRA_PAN_LIMIT, MAX_RECEIPT_MONTHS, formatDay, isPanShape, monthSpan, rentMonths, rupeesInWords } from '../../../lib/household/rent';
+import { PrintCreditToggle } from '../../common/PrintCredit';
 
 interface Details { tenant: string; landlord: string; pan: string; address: string }
 
@@ -100,7 +101,7 @@ export const RentReceiptGenerator: React.FC = () => {
           Remember the names, PAN and address in this browser (not on a shared computer)
         </label>
         <div className="mt-4 flex flex-wrap gap-2">
-          <button type="button" disabled={months.length === 0 || amount <= 0} onClick={() => window.print()} className="inline-flex min-h-11 items-center rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50">Print or save as PDF ({months.length} {months.length === 1 ? 'receipt' : 'receipts'})</button>
+          <button type="button" disabled={months.length === 0 || amount <= 0} onClick={() => window.print()} className="inline-flex min-h-11 items-center rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50">Print or save as PDF ({months.length} {months.length === 1 ? 'receipt' : 'receipts'})</button><PrintCreditToggle defaultOn={false} />
         </div>
         <p className="mt-2 text-[11px] text-slate-500">In the print window choose "Save as PDF", set margins to Default and turn off "Headers and footers". Print them, then have the landlord sign each one.</p>
         <h3 className="mt-6 text-sm font-semibold text-slate-900">Preview</h3>
