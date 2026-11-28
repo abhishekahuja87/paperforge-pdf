@@ -4,6 +4,7 @@ import { PdfFileBar } from '../common/PdfFileBar';
 import { useProtectedPdf } from '../common/ProtectedPdfGate';
 import { FileDropZone } from '../common/FileDropZone';
 import { generateFileName } from '../../lib/pdf/naming';
+import { saveBlob } from '../../lib/images/canvas';
 import {
   FileText,
   Download,
@@ -75,12 +76,7 @@ export const ExtractText: React.FC = () => {
   const downloadTextFile = () => {
     if (!fullText || !file) return;
     const blob = new Blob([fullText], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = generateFileName('extracted-text', 'txt', { base: file.name });
-    link.click();
-    URL.revokeObjectURL(url);
+    saveBlob(blob, generateFileName('extracted-text', 'txt', { base: file.name }));
   };
 
   return (

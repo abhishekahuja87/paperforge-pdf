@@ -5,6 +5,9 @@ import { fieldClass } from '../../common/FieldKit';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { loadPosterFonts } from '../../../lib/poster/fonts';
 import { loadPhoto, type LoadedImage } from '../../../lib/poster/images';
 import { BODY_FONTS, DESIGNS, HEAD_FONTS, PALETTES, SIZES, designOf, palOf, type SizeId } from '../../../lib/invites/data';
@@ -86,26 +89,30 @@ export const InvitationCardMaker: React.FC = () => {
     try { setPhoto(await loadPhoto(file)); setMessage(''); setS((x) => ({ ...x, zoom: 1, x: 0, y: 0 })); } catch { setMessage(c.readFail); }
   }, []);
 
+  /** Draws the card and returns the file and its name. Save and Share both use it. */
+  const build = async (kind: 'png' | 'jpg' | 'pdf'): Promise<{ blob: Blob; name: string }> => {
+    await new Promise((r) => setTimeout(r, 20));
+    const canvas = document.createElement('canvas'); canvas.width = size.w; canvas.height = size.h;
+    const ctx = canvas.getContext('2d'); if (!ctx) throw new Error('canvas');
+    renderInvite(ctx, size.w, size.h, content, options);
+    const mime = kind === 'jpg' ? 'image/jpeg' : 'image/png';
+    const blob: Blob | null = await new Promise((r) => canvas.toBlob(r, mime, 0.92));
+    if (!blob) throw new Error('blob');
+    let out = blob;
+    if (kind === 'pdf') {
+      const { PDFDocument } = await import('pdf-lib');
+      const doc = await PDFDocument.create(), img = await doc.embedPng(new Uint8Array(await blob.arrayBuffer()));
+      const page = doc.addPage([(size.w * 72) / 150, (size.h * 72) / 150]); page.drawImage(img, { x: 0, y: 0, width: page.getWidth(), height: page.getHeight() });
+      out = pdfBlob(await doc.save());
+    }
+    return { blob: out, name: generateFileName('invitation', kind, { base: s.names || 'card', details: `${design.id}-${s.size}` }) };
+  };
+
   const make = async (kind: 'png' | 'jpg' | 'pdf') => {
     setBusy(kind); setMessage('');
     try {
-      await new Promise((r) => setTimeout(r, 20));
-      const canvas = document.createElement('canvas'); canvas.width = size.w; canvas.height = size.h;
-      const ctx = canvas.getContext('2d'); if (!ctx) throw new Error('canvas');
-      renderInvite(ctx, size.w, size.h, content, options);
-      const mime = kind === 'jpg' ? 'image/jpeg' : 'image/png';
-      const blob: Blob | null = await new Promise((r) => canvas.toBlob(r, mime, 0.92));
-      if (!blob) throw new Error('blob');
-      let out = blob;
-      if (kind === 'pdf') {
-        const { PDFDocument } = await import('pdf-lib');
-        const doc = await PDFDocument.create(), img = await doc.embedPng(new Uint8Array(await blob.arrayBuffer()));
-        const page = doc.addPage([(size.w * 72) / 150, (size.h * 72) / 150]); page.drawImage(img, { x: 0, y: 0, width: page.getWidth(), height: page.getHeight() });
-        out = pdfBlob(await doc.save());
-      }
-      const url = URL.createObjectURL(out), a = document.createElement('a');
-      a.href = url; a.download = generateFileName('invitation', kind, { base: s.names || 'card', details: `${design.id}-${s.size}` }); a.click();
-      window.setTimeout(() => URL.revokeObjectURL(url), 4000);
+      const { blob, name } = await build(kind);
+      saveBlob(blob, name);
     } catch { setMessage(c.failed); }
     setBusy('');
   };
@@ -228,6 +235,7 @@ export const InvitationCardMaker: React.FC = () => {
           <button type="button" disabled={busy !== ''} onClick={() => void make('jpg')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-orange-700 bg-white px-4 py-3 text-sm font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy === 'jpg' ? c.working : c.downloadJpg}</button>
           <button type="button" disabled={busy !== ''} onClick={() => void make('pdf')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-orange-700 bg-white px-4 py-3 text-sm font-bold text-orange-800 hover:bg-orange-50 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy === 'pdf' ? c.working : c.downloadPdf}</button>
         </div>
+        <div><ShareFileButton className={shareFileLargeClass} getFile={async () => { const { blob, name } = await build('png'); return toFile(blob, name); }} /></div>
         <div><ConfirmButton label={c.startAgain} confirmLabel={c.startAgainConfirm} onConfirm={startAgain} disabled={busy !== ''} /></div>
         {notice && <p role="status" className="rounded-lg bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700">{c.startedAgain}</p>}
         <p className="text-[11px] text-slate-500">{c.printNote}</p>

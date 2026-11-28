@@ -1,5 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { saveBlob } from '../../../lib/images/canvas';
 import { Download, Trash2 } from 'lucide-react';
 import { FileDropZone } from '../../common/FileDropZone';
 import { Note } from '../../common/CalcKit';
@@ -11,15 +12,6 @@ import { GROUP_LABELS, buildTable, defaultOptions, type FieldGroup, type TableOp
 import { SHEET_ROWS, toCsvBlob, toXlsxBlob } from '../../../lib/vcard/export';
 
 const PREVIEW_ROWS = 15;
-
-const save = (blob: Blob, name: string) => {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = name;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 10000);
-};
 
 const formatSize = (bytes: number) => (bytes >= 1e6 ? `${(bytes / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1e3))} KB`);
 
@@ -69,7 +61,7 @@ export const VcardConverter: React.FC = () => {
     try {
       await new Promise((resolve) => { window.setTimeout(resolve, 0); });
       const blob = kind === 'csv' ? toCsvBlob(table, options.protectPhones) : await toXlsxBlob(table);
-      save(blob, generateFileName('contacts', kind));
+      saveBlob(blob, generateFileName('contacts', kind));
     } catch {
       setMessage('Could not build the file. Try turning off some columns, or use CSV for very large lists.');
     } finally {

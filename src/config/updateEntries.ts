@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-28',
+    path: '/pdf-tools',
+    tool: 'PDF and file tools',
+    title: 'Share your file straight to WhatsApp',
+    summary: 'On phones, a new Share button sits next to Save on PDF tools, invitations, catalogues, flashcards, photo and signature tools, QR codes, posters and more. It opens your phone\'s share sheet so the finished file goes to WhatsApp, Gmail or Drive in one tap. Print or save as PDF on the calculators now suggests a proper file name too.',
+  },
+  {
+    date: '2026-11-28',
     path: '/printables-and-templates',
     tool: 'Printable tools',
     title: 'Printable sheets now have a small, optional "Made with" line',

@@ -16,6 +16,10 @@ import { LIST_CHARS_PER_LINE, MAX_TEXT } from '../../../lib/records/types';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { PrintCreditToggle } from '../../common/PrintCredit';
 import { printAs } from '../../../lib/pdf/printName';
 
@@ -63,17 +67,15 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
   const setValue = (key: string, value: string | number | boolean) => { setValuesById((all) => ({ ...all, [def.id]: { ...all[def.id], [key]: value } })); setIndex(0); };
   const setPaperValue = (patch: Partial<typeof paper>) => { setPaper((p) => ({ ...p, ...patch })); setIndex(0); };
 
+  /** Builds the PDF and its file name; Save and Share both use it, so they always give the same file. */
+  const makePdf = async (): Promise<{ blob: Blob; name: string }> => ({ blob: pdfBlob(await buildPdfFromSheets(pages, def.label)), name: generateFileName(def.id.replace(/-printable$/, ''), 'pdf') });
+
   const download = async () => {
     setBusy(true);
     setMessage('');
     try {
-      const bytes = await buildPdfFromSheets(pages, def.label);
-      const url = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/pdf' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = generateFileName(def.id.replace(/-printable$/, ''), 'pdf');
-      link.click();
-      window.setTimeout(() => URL.revokeObjectURL(url), 4000);
+      const { blob, name } = await makePdf();
+      saveBlob(blob, name);
     } catch {
       setMessage('Could not build the PDF. Try fewer pages and try again.');
     } finally {
@@ -192,6 +194,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
             </div>
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={() => void download()} disabled={busy} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building...' : `Download PDF${pages.length > 1 ? ` (${pages.length} pages)` : ''}`}</button>
+              <ShareFileButton className={shareFileLargeClass} getFile={async () => { const { blob, name } = await makePdf(); return toFile(blob, name); }} />
               <button type="button" onClick={() => printAs(def.id.replace(/-printable$/, ''))} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this page</button><PrintCreditToggle />
               <button type="button" onClick={() => { const fresh = make(); setValuesById(startValues(family)); setPaper({ ...fresh.common, heading: '' }); setLandscapeFor({}); setIndex(0); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>
             </div>

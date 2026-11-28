@@ -3,6 +3,9 @@ import { Download, ImagePlus } from 'lucide-react';
 import { Note } from '../../common/CalcKit';
 import { Toggle, Slider, card, heading } from '../../common/PanelKit';
 import { fieldClass } from '../../common/FieldKit';
+import { saveBlob, canvasToBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { POSTER_THEMES, findPosterTheme } from '../../../config/posterThemes';
 import { loadSamplePhotos } from '../../../lib/poster/samples';
 import { POSTER_COUNTS, POSTER_SAMPLE_PRODUCTS, POSTER_SAMPLE_SHOP, POSTER_SHOP_STORAGE_KEY } from '../../../config/posterSamples';
@@ -118,22 +121,25 @@ export const OfferPosterMaker: React.FC = () => {
     }
   }, []);
 
-  const download = () => {
+  /** Draws the poster and returns the picture and its name. Save and Share both use it. */
+  const makePoster = async (): Promise<{ blob: Blob; name: string } | null> => {
     const canvas = document.createElement('canvas');
     canvas.width = fmt.w;
     canvas.height = fmt.h;
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) return null;
     renderPoster(ctx, theme, fmt, input, input.products.length);
-    canvas.toBlob((blob) => {
-      if (!blob) { setMessage('The picture could not be created. Try fewer or smaller photos.'); return; }
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = generateFileName('offer-poster', 'png', { base: shop.name || 'offer', details: `${theme.id}-${format}` });
-      link.click();
-      window.setTimeout(() => URL.revokeObjectURL(url), 4000);
-    }, 'image/png');
+    try {
+      return { blob: await canvasToBlob(canvas, 'image/png'), name: generateFileName('offer-poster', 'png', { base: shop.name || 'offer', details: `${theme.id}-${format}` }) };
+    } catch {
+      setMessage('The picture could not be created. Try fewer or smaller photos.');
+      return null;
+    }
+  };
+
+  const download = async () => {
+    const made = await makePoster();
+    if (made) saveBlob(made.blob, made.name);
   };
 
   return (
@@ -274,6 +280,7 @@ export const OfferPosterMaker: React.FC = () => {
         <button type="button" onClick={download} className="mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white hover:bg-orange-800">
           <Download size={16} /> Download PNG ({fmt.w} × {fmt.h})
         </button>
+        <div className="mt-2"><ShareFileButton className={`${shareFileLargeClass} w-full justify-center`} getFile={async () => { const made = await makePoster(); return made ? toFile(made.blob, made.name) : null; }} /></div>
         <p className="mt-2 text-[11px] text-slate-500">
           Story size keeps your text clear of the areas Instagram covers with its own buttons.
         </p>

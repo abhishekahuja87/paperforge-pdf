@@ -1444,3 +1444,6 @@ Checked in the app with generated PDFs and images: booklet with back cover and o
 - Typing in the middle of a text box (menu card items with long lines, question paper, ID cards, Wi-Fi sign, handwriting video text): click inside a line, type a few letters; the cursor stays there and the rest of the line is not cut. Very long lines are shrunk on the sheet, not cut in the box.
 
 - Explore tools menu: open it and compare with the home page. The same categories in the same order with the same tool counts, and no "More tools" group. Typing a name in its search box still finds sheets such as the menu card.
+
+- Share button (needs a real phone): on a PDF tool, make a file; Save and Share sit side by side. Tap Share, choose WhatsApp, and check the file arrives with its name. Do the same in invitation maker, catalogue maker, flashcards, tambola, visiting card, passport photo, signature, stamp, QR, barcode, GIF, offer poster, screenshot redactor, settle-up picture and Document Studio. Closing the share sheet shows no error. On a desktop browser without file sharing the Share button is not shown.
+- Calculator Print or save as PDF: the suggested file name is the calculator name with date and time. Same for settle-up, citations and the POS invoice.

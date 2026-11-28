@@ -3,6 +3,7 @@ import { CalcFooter, Note, SelectField, calcCard } from '../../common/CalcKit';
 import { ChoiceButtons, CopyButton, fieldClass } from '../../common/FieldKit';
 import { buildCitation, emptyCitation, toHtml, toPlainText, type CitationInput, type CitationStyle, type SourceType } from '../../../lib/students/citation';
 import { RowButton, nextRowId } from '../shared/rows';
+import { printAs } from '../../../lib/pdf/printName';
 
 const STYLES: { value: CitationStyle; label: string }[] = [
   { value: 'apa', label: 'APA 7' }, { value: 'mla', label: 'MLA 9' }, { value: 'chicago', label: 'Chicago (author-date)' }, { value: 'harvard', label: 'Harvard' },
@@ -110,7 +111,7 @@ export const CitationGenerator: React.FC = () => {
           <div className="mt-3 flex flex-wrap gap-2 print:hidden">
             <CopyButton text={sorted.map((item) => item.text).join('\n\n')} label="Copy the list" />
             <RowButton onClick={() => void copyFormatted(sorted.map((item) => `<p>${item.html}</p>`).join(''), sorted.map((item) => item.text).join('\n\n'))}>Copy list with italics</RowButton>
-            <RowButton onClick={() => window.print()}>Print or save as PDF</RowButton>
+            <RowButton onClick={() => printAs('citations', { details: `${sorted.length}-sources` })}>Print or save as PDF</RowButton>
           </div>
         </div>
       )}

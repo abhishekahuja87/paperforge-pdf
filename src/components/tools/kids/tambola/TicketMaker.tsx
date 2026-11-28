@@ -6,6 +6,10 @@ import { fieldClass } from '../../../common/FieldKit';
 import { makeBook, type TambolaTicket } from '../../../../lib/kids/tambola';
 import { TAMBOLA_THEMES, buildTambolaPdf, pdfSafe } from '../../../../lib/kids/tambolaPdf';
 import { generateFileName } from '../../../../lib/pdf/naming';
+import { pdfBlob } from '../../../../lib/pdf/toBlob';
+import { saveBlob } from '../../../../lib/images/canvas';
+import { toFile } from '../../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../../common/ShareFileButton';
 
 const COLOURS: Record<string, string> = { orange: '#ea580c', blue: '#1d4ed8', green: '#15803d', pink: '#db2777', purple: '#6d28d9' };
 
@@ -34,18 +38,18 @@ export const TicketMaker: React.FC = () => {
   const colour = COLOURS[theme] ?? COLOURS.orange;
   const cleaned = pdfSafe(title) !== title.trim() || pdfSafe(footer) !== footer.trim();
 
+  /** Builds the tickets PDF and its file name; Save and Share both use it. */
+  const makePdf = async (): Promise<{ blob: Blob; name: string }> => ({
+    blob: pdfBlob(await buildTambolaPdf(made, { title, footer, theme })),
+    name: generateFileName('tambola-tickets', 'pdf', { base: pdfSafe(title) || 'tambola', details: `${books * 6}-tickets` }),
+  });
+
   const download = async () => {
     setBusy(true);
     setMessage('');
     try {
-      const bytes = await buildTambolaPdf(made, { title, footer, theme });
-      const blob = new Blob([bytes as BlobPart], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = generateFileName('tambola-tickets', 'pdf', { base: pdfSafe(title) || 'tambola', details: `${books * 6}-tickets` });
-      link.click();
-      window.setTimeout(() => URL.revokeObjectURL(url), 4000);
+      const { blob, name } = await makePdf();
+      saveBlob(blob, name);
     } catch {
       setMessage('The PDF could not be created. Try again.');
     } finally {
@@ -87,6 +91,7 @@ export const TicketMaker: React.FC = () => {
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
           <button type="button" onClick={() => setSeed((value) => value + 1)} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-800 hover:bg-slate-50"><Shuffle className="h-4 w-4" aria-hidden="true" />New tickets</button>
           <button type="button" onClick={download} disabled={busy} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Making the PDF…' : `Download PDF (${books} page${books > 1 ? 's' : ''})`}</button>
+          <ShareFileButton className={shareFileLargeClass} getFile={async () => { const { blob, name } = await makePdf(); return toFile(blob, name); }} />
         </div>
         {message && <p role="alert" className="mt-2 text-xs font-semibold text-red-700">{message}</p>}
       </div>

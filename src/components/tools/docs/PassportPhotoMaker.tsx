@@ -6,6 +6,9 @@ import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { canvasToBlob, coverRect, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 
 const DPI = 300;
 const MM = DPI / 25.4;
@@ -85,16 +88,21 @@ export const PassportPhotoMaker: React.FC = () => {
     if (sv && full) { sv.width = full.width / 3; sv.height = full.height / 3; sv.getContext('2d')?.drawImage(full, 0, 0, sv.width, sv.height); }
   }, [bitmap, w, h, zoom, ox, oy, paperId, count, cutLines, layout]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const savePng = async () => { const s = sheet(); if (s) saveBlob(await canvasToBlob(s, 'image/png'), generateFileName('passport-photo-sheet', 'png')); };
+  const makePng = async (): Promise<Blob | null> => { const s = sheet(); return s ? canvasToBlob(s, 'image/png') : null; };
+  const savePng = async () => { const blob = await makePng(); if (blob) saveBlob(blob, generateFileName('passport-photo-sheet', 'png')); };
+  const makePdf = async (): Promise<Blob | null> => {
+    const s = sheet(); if (!s) return null;
+    const { PDFDocument } = await import('pdf-lib');
+    const doc = await PDFDocument.create();
+    const jpg = await doc.embedJpg(new Uint8Array(await (await canvasToBlob(s, 'image/jpeg', 0.95)).arrayBuffer()));
+    const pg = doc.addPage([(layout.pw * 72) / 25.4, (layout.ph * 72) / 25.4]);
+    pg.drawImage(jpg, { x: 0, y: 0, width: pg.getWidth(), height: pg.getHeight() });
+    return pdfBlob(await doc.save());
+  };
   const savePdf = async () => {
-    const s = sheet(); if (!s) return;
     try {
-      const { PDFDocument } = await import('pdf-lib');
-      const doc = await PDFDocument.create();
-      const jpg = await doc.embedJpg(new Uint8Array(await (await canvasToBlob(s, 'image/jpeg', 0.95)).arrayBuffer()));
-      const pg = doc.addPage([(layout.pw * 72) / 25.4, (layout.ph * 72) / 25.4]);
-      pg.drawImage(jpg, { x: 0, y: 0, width: pg.getWidth(), height: pg.getHeight() });
-      saveBlob(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName('passport-photo-sheet', 'pdf'));
+      const blob = await makePdf();
+      if (blob) saveBlob(blob, generateFileName('passport-photo-sheet', 'pdf'));
     } catch { setMessage('Could not build the PDF.'); }
   };
 
@@ -153,6 +161,7 @@ export const PassportPhotoMaker: React.FC = () => {
             <canvas ref={sheetView} className="mx-auto block h-auto max-h-[60vh] w-auto max-w-full rounded border border-slate-300 bg-white" aria-label="Sheet preview" />
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={() => void savePdf()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download PDF</button>
+              <ShareFileButton className={shareFileLargeClass} getFile={async () => { const blob = await makePdf(); return blob ? toFile(blob, generateFileName('passport-photo-sheet', 'pdf')) : null; }} />
               <button type="button" onClick={() => void savePng()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800">Download picture (PNG)</button>
             </div>
             <p className="text-[11px] text-slate-500">Print at 100% (actual size), not "fit to page", or the photos will come out the wrong size.</p>

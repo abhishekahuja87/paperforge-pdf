@@ -7,6 +7,8 @@ import { ChoiceButtons } from '../../common/FieldKit';
 import { Slider, card, heading } from '../../common/PanelKit';
 import { canvasToBlob, coverRect, loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 
 const CANVASES = [
   { id: 'square', label: 'Square post', w: 1080, h: 1080 },
@@ -121,6 +123,7 @@ export const PhotoCollageMaker: React.FC = () => {
           <div className="flex flex-wrap gap-2">
             <button type="button" onClick={async () => saveBlob(await canvasToBlob(draw(), 'image/jpeg', 0.92), generateFileName('collage', 'jpg'))} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download JPG</button>
             <button type="button" onClick={async () => saveBlob(await canvasToBlob(draw(), 'image/png'), generateFileName('collage', 'png'))} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800">Download PNG</button>
+            <ShareFileButton className={shareFileLargeClass} getFile={async () => toFile(await canvasToBlob(draw(), 'image/jpeg', 0.92), generateFileName('collage', 'jpg'))} />
           </div>
         </div>
       )}

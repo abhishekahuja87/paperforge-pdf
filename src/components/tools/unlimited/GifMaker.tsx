@@ -4,6 +4,8 @@ import { Note } from '../../common/CalcKit';
 import { ChoiceButtons } from '../../common/FieldKit';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { loadBitmap, makeCanvas, saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { encodeGif } from '../../../lib/unlimited/gif';
 
 const tick = () => new Promise<void>((resolve) => window.setTimeout(resolve, 0));
@@ -96,6 +98,7 @@ export const GifMaker: React.FC = () => {
           <img src={result.url} alt="The animated GIF you made" width={result.w} height={result.h} className="mx-auto h-auto max-w-full rounded-lg border border-slate-200" />
           <p className="text-xs text-slate-600">{result.frames} picture{result.frames === 1 ? '' : 's'}, {result.w} × {result.h} px, {Math.max(1, Math.round(result.blob.size / 1024))} KB</p>
           <button type="button" onClick={() => saveBlob(result.blob, 'animation.gif')} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download GIF</button>
+          <ShareFileButton className={shareFileLargeClass} getFile={() => toFile(result.blob, 'animation.gif')} />
         </div>
       )}
       {message && <Note>{message}</Note>}

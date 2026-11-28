@@ -4,6 +4,8 @@ import { Note } from '../../common/CalcKit';
 import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { canvasToBlob, saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 import { generateFileName } from '../../../lib/pdf/naming';
 
 const INKS = [{ value: '#1d3fa8', label: 'Blue' }, { value: '#b42318', label: 'Red' }, { value: '#5b2a86', label: 'Purple' }, { value: '#111111', label: 'Black' }, { value: '#14532d', label: 'Green' }];
@@ -95,7 +97,8 @@ export const StampMaker: React.FC = () => {
 
   useEffect(() => { const el = view.current; if (el) { el.width = dims.w; el.height = dims.h; drawStamp(el, opts); } }, [shape, top, bottom, l1, l2, l3, ink, double, stars, angle, worn]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const download = async () => { const c = document.createElement('canvas'); c.width = dims.w; c.height = dims.h; drawStamp(c, opts); saveBlob(await canvasToBlob(c, 'image/png'), generateFileName('stamp', 'png')); };
+  const makeStamp = async (): Promise<Blob> => { const c = document.createElement('canvas'); c.width = dims.w; c.height = dims.h; drawStamp(c, opts); return canvasToBlob(c, 'image/png'); };
+  const download = async () => { saveBlob(await makeStamp(), generateFileName('stamp', 'png')); };
 
   return (
     <section className="mx-auto min-w-0 space-y-4">
@@ -118,6 +121,7 @@ export const StampMaker: React.FC = () => {
           <canvas ref={view} className="mx-auto block h-auto max-h-80 w-auto max-w-full" aria-label="Stamp preview" />
         </div>
         <button type="button" onClick={() => void download()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download PNG</button>
+        <ShareFileButton className={shareFileLargeClass} getFile={async () => toFile(await makeStamp(), generateFileName('stamp', 'png'))} />
       </div>
       <Note>This is a picture of a stamp for your own invoices, notices and letters. It is not an official government or company seal, and offices that need a registered stamp will not accept a printed picture.</Note>
     </section>

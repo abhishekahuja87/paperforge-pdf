@@ -30,6 +30,7 @@ Every user-visible improvement to a tool needs an entry at the top of the list i
 - Every page that reuses one tool component for several routes must pass `key={page.path}`.
 - A text box's `onChange` must store exactly what the person typed. Cutting, trimming or rewriting the text while typing makes the cursor jump to the end, so nobody can edit in the middle. Limit with `maxLength`, and shorten or trim only where the value is used (when drawing or building the output).
 - Anything that lists tool groups for people to browse (home sections, the "Explore tools" menu, new pages) must use `getListedTopics()` from `src/config/topics.ts`, never its own grouping code. Only the footer and the pre-rendered link lists use `getTopics()`, which also includes variant pages so search engines can reach them.
+- A tool that gives a file to the person builds it in one function (`makePdf`, `build`) used by both Save and Share, saves with `saveBlob` (never its own copy of the create-a-link code) and shows `ShareFileButton` next to the Save button. Tools that show the shared `SaveResult` banner get Share automatically.
 - New print buttons use `printAs()` from `src/lib/pdf/printName.ts`, never a bare `window.print()`.
 
 ## When you add or change a tool: keep search and topic pages in step

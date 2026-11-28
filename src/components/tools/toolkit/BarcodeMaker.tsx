@@ -6,6 +6,9 @@ import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { drawBarcode, encodeCode128, encodeEan13, type Barcode } from '../../../lib/toolkit/barcode';
 import { canvasToBlob, makeCanvas, saveBlob } from '../../../lib/images/canvas';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 
 type Kind = 'code128' | 'ean13';
 const SHEETS: Record<string, { cols: number; rows: number; label: string }> = {
@@ -72,7 +75,7 @@ export const BarcodeMaker: React.FC = () => {
           }
         }
       }
-      saveBlob(new Blob([(await doc.save()) as BlobPart], { type: 'application/pdf' }), generateFileName('barcode-labels', 'pdf', { base: built.code.label }));
+      saveBlob(pdfBlob(await doc.save()), generateFileName('barcode-labels', 'pdf', { base: built.code.label }));
     } finally { setBusy(false); }
   };
 
@@ -94,6 +97,7 @@ export const BarcodeMaker: React.FC = () => {
           <Toggle label="Show the number under the bars" checked={showText} onChange={setShowText} />
           <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white p-2"><canvas ref={canvas} className="mx-auto block h-auto max-w-full" aria-label={`Barcode for ${built.code.label}`} /></div>
           <button type="button" onClick={() => void downloadPng()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800"><Download className="h-4 w-4" aria-hidden="true" />Download PNG</button>
+          <ShareFileButton className={shareFileLargeClass} getFile={async () => (built.code ? toFile(await png(4), generateFileName('barcode', 'png', { base: built.code.label })) : null)} />
         </div>
       )}
 

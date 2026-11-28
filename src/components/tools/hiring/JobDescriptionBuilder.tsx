@@ -7,6 +7,7 @@ import { card, heading } from '../../common/PanelKit';
 import { fieldClass } from '../../common/FieldKit';
 import { JD_MODES, JD_SECTION_ORDER, JD_TEMPLATES, JD_TYPES, DEFAULT_JD_TEMPLATE, SAMPLE_JD, getJdTemplate, isJdTemplateId, jdPlainText, type JdDetails, type JdSectionKey, type JdSections } from '../../../lib/hiring/jdTemplates';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { saveBlob } from '../../../lib/images/canvas';
 import { JdPreview } from './JdPreview';
 import { printAs } from '../../../lib/pdf/printName';
 
@@ -30,15 +31,6 @@ function readSaved(): Saved {
       edited: saved.edited ?? {},
     };
   } catch { return base; }
-}
-
-function download(blob: Blob, name: string) {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = name;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 4000);
 }
 
 const textField: { key: keyof JdDetails; label: string; max: number }[] = [
@@ -81,7 +73,7 @@ export const JobDescriptionBuilder: React.FC = () => {
   const text = jdPlainText(details, sections);
   const base = details.title.trim() || 'job';
 
-  const saveText = () => download(new Blob([text], { type: 'text/plain;charset=utf-8' }), generateFileName('job-description', 'txt', { base, details: template }));
+  const saveText = () => saveBlob(new Blob([text], { type: 'text/plain;charset=utf-8' }), generateFileName('job-description', 'txt', { base, details: template }));
   const copy = async () => {
     try { await navigator.clipboard.writeText(text); setCopied(true); window.setTimeout(() => setCopied(false), 2000); } catch { /* clipboard unavailable */ }
   };

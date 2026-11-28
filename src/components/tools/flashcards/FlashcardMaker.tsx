@@ -10,6 +10,10 @@ import { buildFlashPdf } from '../../../lib/flashcards/pdf';
 import { drawPage } from '../../../lib/flashcards/render';
 import { DEFAULT_FLASH, FONT_STACKS, LAYOUTS, MAX_CARDS, SAMPLE_DECK, SWATCHES, pageDims, type FlashSettings, type FontFamily } from '../../../lib/flashcards/types';
 import { generateFileName } from '../../../lib/pdf/naming';
+import { pdfBlob } from '../../../lib/pdf/toBlob';
+import { saveBlob } from '../../../lib/images/canvas';
+import { toFile } from '../../../lib/share/shareFile';
+import { ShareFileButton, shareFileLargeClass } from '../../common/ShareFileButton';
 
 const PREVIEW_PX_PER_MM = 3;
 
@@ -54,17 +58,13 @@ export const FlashcardMaker: React.FC = () => {
     drawPage(ctx, current, settings, PREVIEW_PX_PER_MM);
   }, [current, settings, dims.w, dims.h]);
 
+  const makePdf = async (cards = parsed.cards): Promise<Blob> => pdfBlob(await buildFlashPdf(buildPages(cards, settings), settings, (fraction) => setBusy(fraction)));
+
   const download = async (cards = parsed.cards, name = generateFileName('flashcards', 'pdf')) => {
     setMessage('');
     setBusy(0);
     try {
-      const bytes = await buildFlashPdf(buildPages(cards, settings), settings, (fraction) => setBusy(fraction));
-      const url = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/pdf' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = name;
-      link.click();
-      window.setTimeout(() => URL.revokeObjectURL(url), 10000);
+      saveBlob(await makePdf(cards), name);
     } catch {
       setMessage('Could not build the PDF. Try fewer cards or a smaller page size and try again.');
     } finally {
@@ -177,6 +177,7 @@ export const FlashcardMaker: React.FC = () => {
             </div>
             <div className="flex flex-wrap items-center gap-2">
               <button type="button" disabled={busy !== null || pages.length === 0} onClick={() => void download()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy === null ? 'Download PDF' : `Building ${Math.round(busy * 100)}%`}</button>
+              <ShareFileButton className={shareFileLargeClass} getFile={async () => { setBusy(0); try { return toFile(await makePdf(), generateFileName('flashcards', 'pdf')); } finally { setBusy(null); } }} />
             </div>
             {message && <p role="alert" className="text-xs font-semibold text-red-700">{message}</p>}
             <p className="text-[11px] text-slate-500">Print the PDF at "Actual size" or 100% with "Fit to page" off, or the card edges will shift.</p>
