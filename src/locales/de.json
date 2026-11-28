@@ -128,7 +128,7 @@
     },
     "extract": {
       "faq": [
-        ["Ist das Extrahieren von Text bei {{siteName}} sicher?", "Die Textextraktion läuft im Browser. Das ausgewählte PDF wird nicht zur Verarbeitung an {{siteName}} hochgeladen; PDF.js kann unterstützende Zeichensatzdateien von einem Content Delivery Network anfordern."],
+        ["Ist das Extrahieren von Text bei {{siteName}} sicher?", "Die Textextraktion läuft im Browser. Das ausgewählte PDF wird nicht zur Verarbeitung an {{siteName}} hochgeladen; PDF.js lädt unterstützende Zeichensatzdateien von MyDailyUtils selbst."],
         ["Kann dieses Werkzeug gescannte PDFs oder Fotos von Text lesen?", "Es extrahiert eingebetteten digitalen Text. Gescannte Dokumente oder reine Bild-PDFs benötigen optische Zeichenerkennung (OCR), die dieses Werkzeug nicht unterstützt."],
         ["Bleibt das Layout beim Extrahieren erhalten?", "Das Werkzeug trennt extrahierten Text nach Seiten, erhält aber nicht das genaue visuelle Layout, die Spalten oder die Typografie des PDF."],
         ["Gibt es eine Grenze für die Dokumentlänge?", "Die Oberfläche hat keine feste Seitengrenze, aber große PDFs können länger dauern oder den verfügbaren Browserspeicher überschreiten. Gescannte Seiten werden nicht per OCR verarbeitet."]

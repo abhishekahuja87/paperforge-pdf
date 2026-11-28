@@ -21,9 +21,9 @@ function roundRobinContent(page) {
   const subtitle = `Round robin fixtures for ${n} teams: all ${matches} matches in ${rounds.length} rounds, ready to copy, with your own team names, a points table and home and away.`;
   const steps = [
     ['Type your team names', `The tool below starts with ${n} teams, Team 1 to Team ${n}. Replace them with your own names, one on each line.`],
-    ['Choose the format', `Round robin, everyone plays once, makes ${matches} matches in ${rounds.length} rounds. Round robin, home and away, doubles that to ${matches * 2} matches in ${rounds.length * 2} rounds.`],
+    ['Choose the format', `With everyone playing each other once, a round robin makes ${matches} matches in ${rounds.length} rounds. Choosing Twice (home and away) doubles that to ${matches * 2} matches in ${rounds.length * 2} rounds.`],
     ['Copy the fixtures', 'Press Copy the fixtures and paste the schedule into a chat or a document to share with the teams.'],
-    ['Enter the scores', 'Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament starts again.'],
+    ['Enter the scores', 'Type the score of each match to fill in the points table. Your teams and scores are kept on this device, and New tournament, same teams clears the scores and keeps the teams.'],
   ];
   const article = [
     [`Round robin for ${n} teams at a glance`, [
@@ -74,7 +74,7 @@ function knockoutContent(page) {
     ['Type your team names', `Open the Format list and choose Knockout bracket. Type your ${n} teams, one on each line, strongest first, because the order is the seeding.`],
     ['Read the first round', byes ? `The top ${byes} ${byes === 1 ? 'seed has' : 'seeds have'} a bye and go straight to the second round. The other teams play in the first round.` : `${n} is a power of 2, so every team plays in the first round and no one has a bye.`],
     ['Pick the winners', 'Tap the winner of each match. The winners move on to the next round until a champion is shown.'],
-    ['Copy or start again', 'Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament starts again.'],
+    ['Copy or start again', 'Press Copy the fixtures to share the bracket. Clear all results keeps the teams, and New tournament, same teams clears the scores and keeps the teams.'],
   ];
   const article = [
     [`Knockout bracket for ${n} teams at a glance`, [

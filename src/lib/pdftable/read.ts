@@ -1,6 +1,7 @@
 /** Reading the text pieces of a PDF with their positions, so rows and columns can be found. */
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { PDFJS_ASSETS } from '../pdf/pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -12,7 +13,7 @@ export const MAX_PAGES = 300;
 
 /** The positioned text of every page. Returns null when stopped. */
 export async function readPieces(buffer: ArrayBuffer, password: string | undefined, onProgress: (page: number, total: number) => void, cancelled: () => boolean): Promise<PagePieces[] | null> {
-  const task = pdfjsLib.getDocument({ data: new Uint8Array(buffer.slice(0)), password, cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/', cMapPacked: true });
+  const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(buffer.slice(0)), password });
   const doc = await task.promise;
   const pages: PagePieces[] = [];
   try {

@@ -1,6 +1,7 @@
 import { PDFDocument, degrees } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { PDFJS_ASSETS } from './pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -15,10 +16,8 @@ export interface PageThumbnailItem {
  * Loads a PDF and generates lightweight thumbnail previews for each page.
  */
 export async function loadPdfThumbnails(fileBuffer: ArrayBuffer): Promise<PageThumbnailItem[]> {
-  const loadingTask = pdfjsLib.getDocument({
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS,
     data: new Uint8Array(fileBuffer.slice(0)),
-    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
-    cMapPacked: true,
   });
 
   const thumbnails: PageThumbnailItem[] = [];

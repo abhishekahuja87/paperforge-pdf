@@ -3,6 +3,7 @@ import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { safeRenderScale } from './renderScale';
+import { PDFJS_ASSETS } from './pdfjsAssets';
 
 if (pdfFonts && (pdfFonts as any).pdfMake?.vfs) {
   (pdfMake as any).vfs = (pdfFonts as any).pdfMake.vfs;
@@ -36,10 +37,8 @@ export async function protectPdf(options: ProtectPdfOptions): Promise<Uint8Array
   }
 
   const pdfData = new Uint8Array(fileBuffer.slice(0));
-  const loadingTask = pdfjsLib.getDocument({
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS,
     data: pdfData,
-    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
-    cMapPacked: true,
   });
 
   let pdfDoc: pdfjsLib.PDFDocumentProxy;

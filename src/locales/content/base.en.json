@@ -1630,7 +1630,7 @@
         ],
         [
           "Does this include prepayment or rate changes?",
-          "No. The schedule assumes a constant rate and no part-prepayments. Prepaying reduces interest, so your real cost may be lower."
+          "Prepayments, yes: open Extra payments and add a repeating amount, such as 5,000 every 6 months, or one-time payments such as a bonus. The EMI stays the same and the calculator shows how much earlier the loan ends and the interest you save. Rate changes are not modelled: the schedule assumes one fixed rate, so for a floating-rate loan run it again with the new rate when it changes."
         ],
         [
           "What does the year-wise table show?",
@@ -1840,7 +1840,7 @@
       "faq": [
         [
           "Is extracting text safe on {{siteName}}?",
-          "Text extraction runs in your browser. The selected PDF is not uploaded to {{siteName}} for processing; PDF.js may request supporting character-map resources from a content delivery network."
+          "Text extraction runs in your browser. The selected PDF is not uploaded to {{siteName}} for processing; PDF.js loads supporting files such as character maps from MyDailyUtils itself."
         ],
         [
           "Can this tool read scanned PDFs or photos of text?",
@@ -3408,7 +3408,7 @@
         {
           "heading": "Limits and privacy",
           "paragraphs": [
-            "A PDF that already has a password is refused with a message to unlock it first. Very long documents take time and memory, since each page is rendered. For some fonts, PDF.js may request character map files from the jsDelivr CDN; the document itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing. Keep your unprotected original."
+            "A PDF that already has a password is refused with a message to unlock it first. Very long documents take time and memory, since each page is rendered. For some fonts, PDF.js loads character map files from MyDailyUtils itself; the document itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing. Keep your unprotected original."
           ]
         }
       ]
@@ -3436,7 +3436,7 @@
         {
           "heading": "Limits and privacy",
           "paragraphs": [
-            "Files that open without a password still go through the same image conversion. Very large documents may be slow or run out of memory. Do not use this tool to remove protection from documents you have no right to open. For some fonts, PDF.js may request character map files from the jsDelivr CDN; the document itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing. The password you type is used only to open the file in your browser."
+            "Files that open without a password still go through the same image conversion. Very large documents may be slow or run out of memory. Do not use this tool to remove protection from documents you have no right to open. For some fonts, PDF.js loads character map files from MyDailyUtils itself; the document itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing. The password you type is used only to open the file in your browser."
           ]
         }
       ]
@@ -3492,7 +3492,7 @@
         {
           "heading": "Limits and privacy",
           "paragraphs": [
-            "Password-protected or damaged PDFs may fail to load and the tool shows an error. Very large files are read page by page, but the full text is kept in memory for display. For PDFs that use certain fonts, PDF.js can request character map files from the jsDelivr CDN to read the text correctly; the PDF itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing."
+            "Password-protected or damaged PDFs may fail to load and the tool shows an error. Very large files are read page by page, but the full text is kept in memory for display. For PDFs that use certain fonts, PDF.js loads character map files from MyDailyUtils itself to read the text correctly; the PDF itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing."
           ]
         }
       ]
@@ -3520,7 +3520,7 @@
         {
           "heading": "Limits and privacy",
           "paragraphs": [
-            "Every page needs a thumbnail, so very long PDFs take time and browser memory before you can start. Password-protected or damaged PDFs may fail to load or preview. Bookmarks, links and form fields that point between pages may not survive reordering, because pages are copied individually. The original file is unchanged. For some fonts, PDF.js can request character map files from the jsDelivr CDN to draw thumbnails; the document itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing."
+            "Every page needs a thumbnail, so very long PDFs take time and browser memory before you can start. Password-protected or damaged PDFs may fail to load or preview. Bookmarks, links and form fields that point between pages may not survive reordering, because pages are copied individually. The original file is unchanged. For some fonts, PDF.js loads character map files from MyDailyUtils itself to draw thumbnails; the document itself is not sent. Your file is processed in your browser and is not uploaded to MyDailyUtils for processing."
           ]
         }
       ]
@@ -4137,7 +4137,7 @@
         {
           "heading": "Limits and privacy",
           "paragraphs": [
-            "All pages are converted in one go, so a PDF with very many pages uses a lot of memory and may be slow on a phone. Password-protected or damaged PDFs may fail to convert. Your PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. For some documents with non-Latin fonts, the PDF viewer library may download font mapping files from a public CDN, jsDelivr, but your document itself is not sent anywhere."
+            "All pages are converted in one go, so a PDF with very many pages uses a lot of memory and may be slow on a phone. Password-protected or damaged PDFs may fail to convert. Your PDF is processed in your browser and is not uploaded to MyDailyUtils for processing. The PDF viewer library's supporting files (font maps, standard fonts and image decoders) come from MyDailyUtils itself, not from another site, and your document itself is not sent anywhere."
           ]
         }
       ]

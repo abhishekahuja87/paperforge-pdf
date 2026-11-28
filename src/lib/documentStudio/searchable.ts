@@ -1,6 +1,7 @@
 import { PDFDocument } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import { createWorker, OEM, PSM } from 'tesseract.js';
+import { PDFJS_ASSETS } from '../pdf/pdfjsAssets';
 
 export async function makeSearchable(
   bytes: Uint8Array,
@@ -17,7 +18,7 @@ export async function makeSearchable(
     cacheMethod: 'none',
     workerBlobURL: false,
   });
-  const task = pdfjsLib.getDocument({ data: new Uint8Array(bytes) });
+  const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(bytes) });
   try {
     await worker.setParameters({ tessedit_pageseg_mode: PSM.AUTO });
     const source = await task.promise;

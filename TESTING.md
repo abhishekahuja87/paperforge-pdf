@@ -1455,3 +1455,10 @@ Checked in the app with generated PDFs and images: booklet with back cover and o
 - Page titles: tab title and view-source title match on a short-name tool (brand kept) and a long-name tool (brand left off).
 - Tool text per tool: open many different tool pages (PDF, calculators, printables, Word and Excel makers, sports pages) directly by address and by clicking from the home page; steps, FAQs and article are shown with no raw keys; Network tab shows small files, not one large one.
 - Camera on a phone: Background remover, Social image sizes, Bulk image tools and the catalogue product photos have a Take a photo button beside Choose picture.
+
+## PDF library files and small fixes (2026-11-28)
+- PDF.js support files are served from /pdfjs/<version>/ (copied by scripts/copy-pdfjs-assets.mjs). Measured in the app: a 4-page PDF drew each page in about 15 ms with them and about 1,000 ms without (standard fonts were missing).
+- [ ] With a scanned PDF from an office scanner (often JBIG2) or a JPEG 2000 PDF: PDF to Images, Organize, Protect, Unlock, Grayscale and Redact all show the scan, not a blank page.
+- [ ] On the live site, open DevTools > Network on /pdf-to-images, convert a PDF, and check there are no requests to cdn.jsdelivr.net.
+- [ ] EMI Calculator FAQ "Does this include prepayment or rate changes?" describes Extra payments.
+- [ ] Open a tournament schedule page with nothing saved, then check Application > Local storage: no mdu-fixtures key until you change something.

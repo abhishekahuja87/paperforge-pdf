@@ -14,6 +14,7 @@ import { generateFileName } from '../../../lib/pdf/naming';
 import { safeRenderScale } from '../../../lib/pdf/renderScale';
 import { toGray, type GrayMode } from '../../../lib/more/grayscale';
 import { usePdfSource } from './usePdfSource';
+import { PDFJS_ASSETS } from '../../../lib/pdf/pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 const tick = () => new Promise<void>((resolve) => window.setTimeout(resolve, 0));
@@ -35,7 +36,7 @@ export const GrayscalePdf: React.FC = () => {
   const run = async () => {
     if (!pdf.source) return;
     setBusy(true); pdf.setMessage('');
-    const task = pdfjsLib.getDocument({ data: new Uint8Array(pdf.source.bytes.slice(0)) });
+    const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(pdf.source.bytes.slice(0)) });
     try {
       const { PDFDocument } = await import('pdf-lib');
       const doc = await task.promise;

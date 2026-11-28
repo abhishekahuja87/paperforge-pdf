@@ -472,7 +472,7 @@ function buildShellPages(): ShellPage[] {
       'A dated list of what has been added or improved on MyDailyUtils tools and calculators.',
       UPDATES.map((update) => ({ heading: `${formatUpdateDate(update.date)}: ${update.tool} - ${update.title}`, paragraphs: [update.summary] }))),
     info('/contact', en.contactPage.title, en.contactPage.subtitle, en.contactPage.description),
-    info('/privacy', 'Privacy Policy', 'Last updated: November 8, 2026',
+    info('/privacy', 'Privacy Policy', 'Last updated: November 28, 2026',
       'Read how MyDailyUtils handles in-browser processing, local preferences, contact form submissions, advertising, analytics and third-party resources.', [
         { heading: 'Summary', paragraphs: ['Supported file operations, calculators and text tools run in your browser and what you enter is not uploaded to MyDailyUtils for processing. Contact form messages are sent to Web3Forms, advertising and analytics are provided by third parties, and language and usage preferences are kept in your browser. Read the full policy on this page after the app loads.'] },
       ]),

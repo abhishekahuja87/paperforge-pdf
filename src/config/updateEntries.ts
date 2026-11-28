@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-28',
+    path: '/pdf-tools',
+    tool: 'PDF tools',
+    title: 'Scanned PDFs draw correctly and pages show much faster',
+    summary: 'Page previews and page pictures in the PDF tools now appear in a fraction of a second instead of about a second a page, and scans that use JBIG2 or JPEG 2000 images no longer risk coming out blank. The supporting files now come from this site, not from another one.',
+  },
+  {
+    date: '2026-11-28',
     path: '/split-pdf',
     tool: 'Split PDF',
     title: 'A pointer to Smart Split for many files at once',

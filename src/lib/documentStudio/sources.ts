@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import { renderAsync } from 'docx-preview';
 import type { GeneratedPageOptions, PageCard, SourceItem } from './types';
 import { A4_SIZE, THUMBNAIL_WIDTH, bytesArrayBuffer, createId, imageDataUrl, loadImage, wrapText } from './shared';
+import { PDFJS_ASSETS } from '../pdf/pdfjsAssets';
 
 async function imagePages(source: SourceItem): Promise<PageCard[]> {
   const url = URL.createObjectURL(new Blob([bytesArrayBuffer(source.bytes)], { type: source.mimeType }));
@@ -25,7 +26,7 @@ async function imagePages(source: SourceItem): Promise<PageCard[]> {
 }
 
 async function pdfPages(source: SourceItem): Promise<PageCard[]> {
-  const loadingTask = pdfjsLib.getDocument({
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS,
     data: new Uint8Array(source.bytes),
     password: source.pdfPassword,
   });

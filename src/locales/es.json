@@ -128,7 +128,7 @@
     },
     "extract": {
       "faq": [
-        ["¿Es seguro extraer texto en {{siteName}}?", "La extracción se realiza en tu navegador. El PDF seleccionado no se sube a {{siteName}} para procesarlo; PDF.js puede solicitar recursos de mapas de caracteres a una red de distribución."],
+        ["¿Es seguro extraer texto en {{siteName}}?", "La extracción se realiza en tu navegador. El PDF seleccionado no se sube a {{siteName}} para procesarlo; PDF.js carga los recursos de mapas de caracteres desde el propio MyDailyUtils."],
         ["¿Puede esta herramienta leer PDF escaneados o fotos de texto?", "Extrae texto digital incrustado. Los documentos escaneados o PDF que solo contienen imágenes requieren reconocimiento óptico de caracteres (OCR), que esta herramienta no admite."],
         ["¿La extracción conserva el diseño?", "La herramienta separa el texto por página, pero no conserva el diseño visual exacto, las columnas ni la tipografía del PDF."],
         ["¿Hay un límite de longitud del documento?", "La interfaz no establece un límite fijo de páginas, pero los PDF grandes pueden tardar más o superar la memoria disponible del navegador. Las páginas escaneadas no se procesan con OCR."]

@@ -3,6 +3,7 @@ import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { renderAsync } from 'docx-preview';
 import html2canvas from 'html2canvas';
 import type { DisplaySlide, DisplaySourceKind } from './types';
+import { PDFJS_ASSETS } from '../pdf/pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -38,7 +39,7 @@ function canvasToDataUrl(canvas: HTMLCanvasElement): string {
 }
 
 async function renderPdf(file: File): Promise<DisplaySlide[]> {
-  const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(await file.arrayBuffer()) });
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(await file.arrayBuffer()) });
   let document: pdfjsLib.PDFDocumentProxy | undefined;
   try {
     try {

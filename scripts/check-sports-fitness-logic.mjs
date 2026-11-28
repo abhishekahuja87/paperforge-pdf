@@ -175,7 +175,7 @@ ok(() => { for (const m of [kho.length, kho.width, 0.3, 0.35]) assert.ok(khoText
 ok(() => assert.ok(khoText.includes(units.formatLength(Math.hypot(kho.length, kho.width)))));
 ok(() => { for (const v of kab) { assert.ok(kabText.includes(units.formatLength(v.length).split(' (')[0]), v.id); assert.ok(kabText.includes(String(Number(Math.hypot(v.length, v.width).toFixed(2))) + ' m'), `diagonal ${v.id}`); } });
 ok(() => { const men = kab[0]; const baulk = men.marks.find((x) => x.id === 'baulkLine').m; const bonus = men.marks.find((x) => x.id === 'bonusLine').m; assert.ok(kabText.includes(units.formatLength(baulk)) && kabText.includes(units.formatLength(bonus))); });
-ok(() => { for (const key of ['sportsKhoKhoCourt', 'sportsKabaddiCourt']) { const g = packText.pageGuides[key]; assert.ok(g.subtitle.length <= 160, key); assert.equal(g.faq.length, 8); assert.ok(g.faq.at(-1)[1].includes('{{siteName}}')); } });
+ok(() => { for (const key of ['sportsKhoKhoCourt', 'sportsKabaddiCourt']) { const g = packText.pageGuides[key]; assert.ok(g.subtitle.length <= 160, key); assert.equal(g.faq.length, 9); assert.ok(g.faq.at(-1)[1].includes('{{siteName}}')); } });
 ok(() => { for (const slug of ['kho-kho-court-size', 'kabaddi-court-size']) { assert.equal(packText.guideSteps[slug].length, 4); assert.equal(packText.toolArticles[slug].sections.length, 3); } });
 
 // every court page: each "N m (X ft Y in)" written in the text must agree with itself, and each page has its full set of text
@@ -187,7 +187,7 @@ ok(() => {
   for (const page of COURT_PAGES) {
     const slug = page.path.slice(1);
     const g = packText.pageGuides[page.guideKey];
-    assert.ok(g && g.subtitle.length <= 160 && g.faq.length === 8 && g.faq.at(-1)[1].includes('{{siteName}}'), slug);
+    assert.ok(g && g.subtitle.length <= 160 && g.faq.length >= 8 && g.faq.at(-1)[1].includes('{{siteName}}'), slug);
     assert.equal(packText.guideSteps[slug].length, 4, slug);
     assert.equal(packText.toolArticles[slug].sections.length, 3, slug);
     assert.ok(courtData.SPORTS.some((x) => x.id === page.sportId), slug);
