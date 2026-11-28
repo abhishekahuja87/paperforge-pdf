@@ -65,7 +65,7 @@
       ],
       [
         "Choose the format",
-        "Pick round robin where everyone plays once, home and away where everyone plays twice, or a knockout bracket."
+        "Pick round robin and choose whether each team plays each other once, twice, three times or four times, or pick a knockout bracket."
       ],
       [
         "Enter the results",
@@ -335,7 +335,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 6 matches in 3 rounds. Round robin, home and away, doubles that to 12 matches in 6 rounds."
+        "With everyone playing each other once, a round robin makes 6 matches in 3 rounds. Choosing Twice (home and away) doubles that to 12 matches in 6 rounds."
       ],
       [
         "Copy the fixtures",
@@ -353,7 +353,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 10 matches in 5 rounds. Round robin, home and away, doubles that to 20 matches in 10 rounds."
+        "With everyone playing each other once, a round robin makes 10 matches in 5 rounds. Choosing Twice (home and away) doubles that to 20 matches in 10 rounds."
       ],
       [
         "Copy the fixtures",
@@ -371,7 +371,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 15 matches in 5 rounds. Round robin, home and away, doubles that to 30 matches in 10 rounds."
+        "With everyone playing each other once, a round robin makes 15 matches in 5 rounds. Choosing Twice (home and away) doubles that to 30 matches in 10 rounds."
       ],
       [
         "Copy the fixtures",
@@ -389,7 +389,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 21 matches in 7 rounds. Round robin, home and away, doubles that to 42 matches in 14 rounds."
+        "With everyone playing each other once, a round robin makes 21 matches in 7 rounds. Choosing Twice (home and away) doubles that to 42 matches in 14 rounds."
       ],
       [
         "Copy the fixtures",
@@ -407,7 +407,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 28 matches in 7 rounds. Round robin, home and away, doubles that to 56 matches in 14 rounds."
+        "With everyone playing each other once, a round robin makes 28 matches in 7 rounds. Choosing Twice (home and away) doubles that to 56 matches in 14 rounds."
       ],
       [
         "Copy the fixtures",
@@ -425,7 +425,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 36 matches in 9 rounds. Round robin, home and away, doubles that to 72 matches in 18 rounds."
+        "With everyone playing each other once, a round robin makes 36 matches in 9 rounds. Choosing Twice (home and away) doubles that to 72 matches in 18 rounds."
       ],
       [
         "Copy the fixtures",
@@ -443,7 +443,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 45 matches in 9 rounds. Round robin, home and away, doubles that to 90 matches in 18 rounds."
+        "With everyone playing each other once, a round robin makes 45 matches in 9 rounds. Choosing Twice (home and away) doubles that to 90 matches in 18 rounds."
       ],
       [
         "Copy the fixtures",
@@ -461,7 +461,7 @@
       ],
       [
         "Choose the format",
-        "Round robin, everyone plays once, makes 66 matches in 11 rounds. Round robin, home and away, doubles that to 132 matches in 22 rounds."
+        "With everyone playing each other once, a round robin makes 66 matches in 11 rounds. Choosing Twice (home and away) doubles that to 132 matches in 22 rounds."
       ],
       [
         "Copy the fixtures",
@@ -705,6 +705,18 @@
         [
           "Is there a limit on teams?",
           "Up to 32 teams. For very large tournaments, split the teams into groups and make one fixture list for each."
+        ],
+        [
+          "Can every team play each other two or three times?",
+          "Yes. Choose Round robin, then pick Once, Twice (home and away), Three times or Four times under each team plays each other team. The rounds are listed in order, and each set of rounds is marked First time, Second time and so on. In the second and fourth set, home and away are swapped."
+        ],
+        [
+          "Can I print the fixtures to fill in by hand?",
+          "Yes. Use Print the fixture sheet below the fixtures. It makes an A4 sheet with every match and score boxes, a points table with spaces for played, won, drawn, lost, for, against, difference and points, and a page with blank lines to write the players of each team. Choose Print or save as PDF."
+        ],
+        [
+          "Can I write the names of the players in each team?",
+          "Yes. Leave the player lines blank to write by hand, or type the names under Type the player names now and they are printed on the team page. Choose 5, 8, 11, 15 or 20 blank lines for each team."
         ],
         [
           "Is anything I enter uploaded or stored?",
