@@ -7,6 +7,7 @@ import { GST_RATES, GST_STATES, checkGstin, computeInvoice, type InvoiceItemInpu
 import { amountToRupeeWords } from '../../../lib/utilities/numberToWords';
 import { todayInput } from '../../../lib/utilities/dates';
 import { PrintCreditToggle } from '../../common/PrintCredit';
+import { printAs } from '../../../lib/pdf/printName';
 
 interface Item { id: number; description: string; hsn: string; qty: string; unit: string; rate: string; discount: string; gstRate: string }
 interface Party { name: string; address: string; gstin: string; stateCode: string; contact: string }
@@ -170,7 +171,7 @@ export const GstInvoiceGenerator: React.FC = () => {
           <label className="block text-xs font-semibold text-slate-700">Notes or terms (optional)<textarea value={notes} onChange={(event) => setNotes(event.target.value)} rows={3} className={`${fieldClass} resize-y font-normal`} /></label>
         </div>
         <div className="flex flex-wrap gap-2">
-          <button type="button" onClick={() => window.print()} disabled={!hasContent} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button><PrintCreditToggle defaultOn={false} />
+          <button type="button" onClick={() => printAs('invoice', { base: buyer.name, details: number })} disabled={!hasContent} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print or save as PDF</button><PrintCreditToggle defaultOn={false} />
           <button type="button" onClick={reset} className="min-h-11 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">New invoice (keep my details)</button>
         </div>
         <p className="text-[11px] text-slate-500">In the print window choose "Save as PDF" as the destination. Turn off "Headers and footers" for a clean page.</p>

@@ -13,6 +13,7 @@ import { StylePicker } from '../paper/StylePicker';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { PrintCreditToggle } from '../../common/PrintCredit';
+import { printAs } from '../../../lib/pdf/printName';
 
 const clampInt = (value: number, min: number, max: number) => Math.min(max, Math.max(min, Math.round(Number.isFinite(value) ? value : min)));
 
@@ -196,7 +197,7 @@ export const MealPlanner: React.FC<{ initialKind?: MealKind }> = ({ initialKind 
             </div>
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={() => void download()} disabled={busy} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building...' : `Download PDF${pages.length > 1 ? ` (${pages.length} pages)` : ''}`}</button>
-              <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this page</button><PrintCreditToggle />
+              <button type="button" onClick={() => printAs('meal-planner', { base: settings.title, details: `${settings.kind}-${settings.kind === 'month' ? `${settings.year}-${String(settings.month).padStart(2, '0')}` : settings.startDate}` })} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this page</button><PrintCreditToggle />
               <button type="button" onClick={() => { setSettings(make()); setIndex(0); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>
             </div>
             {message && <p role="status" className="text-xs text-slate-700">{message}</p>}

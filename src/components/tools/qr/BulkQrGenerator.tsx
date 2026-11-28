@@ -10,6 +10,7 @@ import { contrastRatio } from '../../../lib/qr/payloads';
 import { defaultStyle, qrPng, qrSvg, type QrStyle } from '../../../lib/qr/render';
 import { MAX_BULK, fileNames, parseBulkLines } from '../../../lib/qr/bulk';
 import { PrintCreditToggle } from '../../common/PrintCredit';
+import { printAs } from '../../../lib/pdf/printName';
 
 const SAMPLE = 'Table 1, https://example.com/menu?table=1\nTable 2, https://example.com/menu?table=2\nOffice Wi-Fi, WIFI:T:WPA;S:Office;P:password;;';
 const PREVIEW_LIMIT = 24;
@@ -83,7 +84,7 @@ export const BulkQrGenerator: React.FC = () => {
 
         <div className="mt-4 flex flex-wrap gap-2">
           <button type="button" disabled={busy || good.length === 0} onClick={downloadZip} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-orange-800 disabled:cursor-not-allowed disabled:opacity-50"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building ZIP...' : `Download ${good.length} codes (ZIP)`}</button>
-          <button type="button" disabled={good.length === 0} onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print labelled sheet</button><PrintCreditToggle />
+          <button type="button" disabled={good.length === 0} onClick={() => printAs('qr-codes', { details: `${good.length}-codes` })} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"><Printer className="h-4 w-4" aria-hidden="true" />Print labelled sheet</button><PrintCreditToggle />
         </div>
         <p role="status" className="mt-2 text-xs text-emerald-800">{message}</p>
         <h3 className="mt-5 text-sm font-semibold text-slate-900">Preview{good.length > PREVIEW_LIMIT ? ` (first ${PREVIEW_LIMIT} of ${good.length})` : ''}</h3>

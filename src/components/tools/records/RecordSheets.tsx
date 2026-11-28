@@ -17,6 +17,7 @@ import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { SheetPreview } from '../paper/SheetPreview';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { PrintCreditToggle } from '../../common/PrintCredit';
+import { printAs } from '../../../lib/pdf/printName';
 
 /** What a page change carries over: the paper and ink, the name, and everything typed on each sheet, so picking another sheet keeps it. */
 interface Carry { common: Omit<Common, 'landscape'>; valuesById: Record<string, Values> }
@@ -191,7 +192,7 @@ export const RecordSheets: React.FC<{ family: Family; initialId: string }> = ({ 
             </div>
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={() => void download()} disabled={busy} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800 disabled:opacity-60"><Download className="h-4 w-4" aria-hidden="true" />{busy ? 'Building...' : `Download PDF${pages.length > 1 ? ` (${pages.length} pages)` : ''}`}</button>
-              <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this page</button><PrintCreditToggle />
+              <button type="button" onClick={() => printAs(def.id.replace(/-printable$/, ''))} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"><Printer className="h-4 w-4" aria-hidden="true" />Print this page</button><PrintCreditToggle />
               <button type="button" onClick={() => { const fresh = make(); setValuesById(startValues(family)); setPaper({ ...fresh.common, heading: '' }); setLandscapeFor({}); setIndex(0); setMessage(''); }} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"><RotateCcw className="h-4 w-4" aria-hidden="true" />Reset</button>
             </div>
             {message && <p role="status" className="text-xs text-slate-700">{message}</p>}

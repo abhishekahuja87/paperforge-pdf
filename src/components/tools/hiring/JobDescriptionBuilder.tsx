@@ -8,6 +8,7 @@ import { fieldClass } from '../../common/FieldKit';
 import { JD_MODES, JD_SECTION_ORDER, JD_TEMPLATES, JD_TYPES, DEFAULT_JD_TEMPLATE, SAMPLE_JD, getJdTemplate, isJdTemplateId, jdPlainText, type JdDetails, type JdSectionKey, type JdSections } from '../../../lib/hiring/jdTemplates';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { JdPreview } from './JdPreview';
+import { printAs } from '../../../lib/pdf/printName';
 
 const STORAGE_KEY = 'mdu-job-description-v1';
 
@@ -91,12 +92,7 @@ export const JobDescriptionBuilder: React.FC = () => {
     setAccent(fresh.accent);
     setEdited({});
   };
-  const printPdf = () => {
-    const previous = document.title;
-    document.title = generateFileName('job-description', 'pdf', { base, details: template }).replace(/\.pdf$/, '');
-    window.print();
-    window.setTimeout(() => { document.title = previous; }, 1000);
-  };
+  const printPdf = () => printAs('job-description', { base, details: template });
 
   const button = 'inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold';
 
