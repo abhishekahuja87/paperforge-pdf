@@ -1,6 +1,7 @@
 import { pdfjsLib } from './pdfjs';
 import type { CropBounds, OutputSequenceItem, PageEditorPreview, PageCard, RedactionBox, SourceItem, TextRegion } from './types';
 import { bytesArrayBuffer, cropValues, loadImage } from './shared';
+import { PDFJS_ASSETS } from '../pdf/pdfjsAssets';
 
 function drawRedactionBoxes(
   context: CanvasRenderingContext2D,
@@ -56,7 +57,7 @@ export async function loadPdfPageCanvas(
   rotation: number,
   scale: number,
 ): Promise<{ canvas: HTMLCanvasElement; textRegions: TextRegion[] }> {
-  const loadingTask = pdfjsLib.getDocument({
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS,
     data: new Uint8Array(source.bytes),
     password: source.pdfPassword,
   });

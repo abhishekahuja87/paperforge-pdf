@@ -3,6 +3,7 @@ import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { PDFDocument } from 'pdf-lib';
 import { safeRenderScale } from './renderScale';
 import { compressPdf } from './compress';
+import { PDFJS_ASSETS } from './pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -77,10 +78,8 @@ export async function compressToTarget(options: TargetCompressOptions): Promise<
     };
   }
 
-  const loadingTask = pdfjsLib.getDocument({
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS,
     data: new Uint8Array(fileBuffer.slice(0)),
-    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
-    cMapPacked: true,
   });
   const pdf = await loadingTask.promise;
   try {

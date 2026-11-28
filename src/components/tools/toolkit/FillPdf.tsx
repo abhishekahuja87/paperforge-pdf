@@ -13,6 +13,7 @@ import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
 import { Slider, Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { applyFormFields, readFormFields, type FieldEntry, type FormFieldInfo } from '../../../lib/toolkit/formFields';
+import { PDFJS_ASSETS } from '../../../lib/pdf/pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -56,7 +57,7 @@ export const FillPdf: React.FC = () => {
     setMessage(''); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
-      const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
+      const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
       setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1); setItems([]);
       void task.destroy();
@@ -71,7 +72,7 @@ export const FillPdf: React.FC = () => {
   const render = useCallback(async () => {
     const el = canvas.current;
     if (!bytes || !el) return;
-    const task = pdfjsLib.getDocument({ data: new Uint8Array(bytes.slice(0)) });
+    const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(bytes.slice(0)) });
     const doc = await task.promise;
     try {
       const pdfPage = await doc.getPage(Math.min(page, doc.numPages));

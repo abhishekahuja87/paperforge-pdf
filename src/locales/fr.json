@@ -128,7 +128,7 @@
     },
     "extract": {
       "faq": [
-        ["L’extraction de texte sur {{siteName}} est-elle sûre ?", "L’extraction se fait dans votre navigateur. Le PDF sélectionné n’est pas envoyé à {{siteName}} pour traitement ; PDF.js peut demander des ressources de tables de caractères à un réseau de distribution."],
+        ["L’extraction de texte sur {{siteName}} est-elle sûre ?", "L’extraction se fait dans votre navigateur. Le PDF sélectionné n’est pas envoyé à {{siteName}} pour traitement ; PDF.js charge les ressources de tables de caractères depuis MyDailyUtils lui-même."],
         ["Cet outil peut-il lire des PDF numérisés ou des photos de texte ?", "Il extrait le texte numérique intégré. Les documents numérisés ou PDF composés uniquement d’images nécessitent une reconnaissance optique de caractères (OCR), non prise en charge par cet outil."],
         ["L’extraction conserve-t-elle la mise en page ?", "L’outil sépare le texte par page, mais ne conserve pas exactement la disposition visuelle, les colonnes ou la typographie du PDF."],
         ["Y a-t-il une limite à la longueur du document ?", "L’interface n’impose aucune limite fixe de pages, mais les grands PDF peuvent prendre plus de temps ou dépasser la mémoire disponible du navigateur. Les pages numérisées ne sont pas traitées par OCR."]

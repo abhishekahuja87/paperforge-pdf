@@ -12,6 +12,7 @@ import { SaveResult, StartOverButton } from '../../common/SaveResult';
 import { useProtectedPdf } from '../../common/ProtectedPdfGate';
 import { useResultFile } from '../../../lib/useResultFile';
 import { rangeLabel, rangesBySize, rangesEvery, rangesFromStarts, type PageRange } from '../../../lib/unlimited/split';
+import { PDFJS_ASSETS } from '../../../lib/pdf/pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 type Mode = 'every' | 'blank' | 'bookmarks' | 'size';
@@ -43,7 +44,7 @@ export const SmartSplitPdf: React.FC = () => {
     setMessage(''); setParts([]); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
-      const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
+      const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
       setBytes(data); setName(file.name.replace(/\.pdf$/i, '')); setSize(file.size); setPages(doc.numPages);
       void task.destroy();
@@ -55,7 +56,7 @@ export const SmartSplitPdf: React.FC = () => {
   const plan = async () => {
     if (!bytes) return;
     setBusy(true); setMessage(''); setParts([]); setProgress(''); saved.clear();
-    const task = pdfjsLib.getDocument({ data: new Uint8Array(bytes.slice(0)) });
+    const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(bytes.slice(0)) });
     try {
       const doc = await task.promise;
       const total = doc.numPages;

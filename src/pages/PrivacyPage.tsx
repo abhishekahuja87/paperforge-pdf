@@ -7,7 +7,7 @@ export const PrivacyPage: React.FC = () => {
   return (
     <InfoPageLayout
         title="Privacy Policy"
-        subtitle="Last updated: November 8, 2026"
+        subtitle="Last updated: November 28, 2026"
         description="Read how MyDailyUtils handles browser-based file processing, local preferences, contact form submissions, advertising, and third-party resources."
       >
 
@@ -17,7 +17,7 @@ export const PrivacyPage: React.FC = () => {
           At <strong>MyDailyUtils</strong> (https://www.mydailyutils.in), supported file operations are performed in your web browser. Files selected for these tools are not uploaded to MyDailyUtils for processing. Work is temporary unless you download it or the tool keeps some details in your browser on your device, as described in section 2; the site does not provide cloud storage for your files.
         </p>
         <p>
-          The website loads pages and third-party resources. Some PDF tools request character-map files from jsDelivr when needed to render or read certain PDFs. These are supporting resources; the selected PDF is not sent to jsDelivr for processing. Local file processing does not mean the website is offline or makes no network requests.
+          The website loads pages and third-party resources. PDF tools load the PDF library’s supporting files (font maps, standard fonts and image decoders) from MyDailyUtils itself when a document needs them; they are not requested from another site, and the selected PDF is not sent anywhere for processing. Local file processing does not mean the website is offline or makes no network requests.
         </p>
         <p>
           Calculators, converters, the word counter and the password generator run entirely in your browser: the numbers and text you enter are not sent to MyDailyUtils, and generated passwords are neither sent nor stored. Document digitization downloads its OCR worker, engine and English language model from this site. Recognition runs in the browser on the edited document; images and recognized text are not uploaded for OCR. Browser or network caches may retain the downloaded engine and model, but not the selected document through this feature.

@@ -14,6 +14,7 @@ import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
 import { Toggle, card, heading } from '../../common/PanelKit';
 import { generateFileName } from '../../../lib/pdf/naming';
 import { displayRectToPage, displaySize, normRotation } from '../../../lib/unlimited/geometry';
+import { PDFJS_ASSETS } from '../../../lib/pdf/pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -48,7 +49,7 @@ export const MakePdfFillable: React.FC = () => {
     setMessage(''); saved.clear(); setReading(true);
     try {
       const data = await file.arrayBuffer();
-      const task = pdfjsLib.getDocument({ data: new Uint8Array(data.slice(0)) });
+      const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(data.slice(0)) });
       const doc = await task.promise;
       setBytes(data); setFileSize(file.size); setName(file.name.replace(/\.pdf$/i, '')); setPages(doc.numPages); setPage(1); setFields([]);
       void task.destroy();
@@ -58,7 +59,7 @@ export const MakePdfFillable: React.FC = () => {
   const render = useCallback(async () => {
     const el = canvas.current;
     if (!bytes || !el) return;
-    const task = pdfjsLib.getDocument({ data: new Uint8Array(bytes.slice(0)) });
+    const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(bytes.slice(0)) });
     try {
       const doc = await task.promise;
       const pdfPage = await doc.getPage(Math.min(page, doc.numPages));

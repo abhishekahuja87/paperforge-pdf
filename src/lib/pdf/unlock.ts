@@ -3,6 +3,7 @@ import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { safeRenderScale } from './renderScale';
+import { PDFJS_ASSETS } from './pdfjsAssets';
 
 if (pdfFonts && (pdfFonts as any).pdfMake?.vfs) {
   (pdfMake as any).vfs = (pdfFonts as any).pdfMake.vfs;
@@ -19,7 +20,7 @@ export interface UnlockPdfOptions {
 
 /** Throws PASSWORD_REQUIRED or INVALID_PASSWORD when the password does not open the PDF. Nothing is rendered or kept. */
 export async function checkPdfPassword(fileBuffer: ArrayBuffer, password: string): Promise<void> {
-  const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(fileBuffer.slice(0)) });
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(fileBuffer.slice(0)) });
   let problem: 'required' | 'invalid' | null = null;
   loadingTask.onPassword = (updatePassword: (pwd: string) => void, reason: number) => {
     if (reason === pdfjsLib.PasswordResponses.NEED_PASSWORD && password) {
@@ -43,10 +44,8 @@ export async function unlockPdf(options: UnlockPdfOptions): Promise<Uint8Array> 
   const { fileBuffer, password = '' } = options;
 
   const pdfData = new Uint8Array(fileBuffer.slice(0));
-  const loadingTask = pdfjsLib.getDocument({
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS,
     data: pdfData,
-    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
-    cMapPacked: true,
   });
 
   // pdf.js asks again after every wrong password, so answering with a password a second time would

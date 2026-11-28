@@ -1,5 +1,6 @@
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { PDFJS_ASSETS } from './pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -13,7 +14,7 @@ export interface PdfProbe {
 /** Reads the page count and whether the first pages hold selectable text, without rendering anything. */
 export async function probePdf(fileBuffer: ArrayBuffer, pagesToSample = 3): Promise<PdfProbe> {
   let needsPassword = false;
-  const task = pdfjsLib.getDocument({ data: new Uint8Array(fileBuffer.slice(0)), cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/', cMapPacked: true });
+  const task = pdfjsLib.getDocument({ ...PDFJS_ASSETS, data: new Uint8Array(fileBuffer.slice(0)) });
   task.onPassword = () => {
     needsPassword = true;
     void task.destroy();

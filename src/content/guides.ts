@@ -142,7 +142,7 @@ const CORE_GUIDES: Guide[] = [
         'PNG files can be large. Use Image Converter to switch to JPG or WebP, or Image Compressor to reduce size, before sharing on WhatsApp or uploading to a form.',
       ] },
       { heading: 'Limits', paragraphs: [
-        'All pages are rendered in one go, so a PDF with very many pages needs a lot of memory on a phone. Password-protected files must be unlocked first. For some documents with non-Latin fonts, the PDF viewer library may fetch character-map files from a public CDN; the document itself is not uploaded.',
+        'All pages are rendered in one go, so a PDF with very many pages needs a lot of memory on a phone. Password-protected files must be unlocked first. The PDF library’s supporting files (font maps, standard fonts and image decoders) come from MyDailyUtils itself, not from another site; the document itself is not uploaded.',
       ] },
     ],
   },
@@ -302,7 +302,7 @@ const CORE_GUIDES: Guide[] = [
         'On a computer, open the tool page, press F12 (or right-click and choose Inspect) and open the Network tab. Clear the list, then choose a file and run the tool. If the file is processed locally you will not see a large upload request carrying your file. You will still see small requests for page resources and ads. Another quick test: load the page, switch off your internet connection, and run the tool; many local tools keep working.',
       ] },
       { heading: 'What is still loaded from the network', paragraphs: [
-        'Even a local tool loads its own code and, on MyDailyUtils, advertising from Google. A few features may fetch supporting files, for example PDF font maps from a public CDN or OCR language data, but your document itself is not sent. Our Privacy Policy describes these boundaries.',
+        'Even a local tool loads its own code and, on MyDailyUtils, advertising from Google. A few features load supporting files, such as PDF font maps or OCR language data, and MyDailyUtils serves those itself; your document is not sent. Our Privacy Policy describes these boundaries.',
       ] },
       { heading: 'Habits that help', paragraphs: [
         'Keep the original, check the output before sending it, and avoid processing highly sensitive documents on shared or public computers. Browser-based processing protects against uploads, not against someone looking at a shared screen.',

@@ -1,5 +1,6 @@
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { PDFJS_ASSETS } from './pdfjsAssets';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -9,11 +10,9 @@ export interface ExtractedPageText {
 }
 
 export async function extractTextFromPdf(fileBuffer: ArrayBuffer, password?: string): Promise<ExtractedPageText[]> {
-  const loadingTask = pdfjsLib.getDocument({
+  const loadingTask = pdfjsLib.getDocument({ ...PDFJS_ASSETS,
     data: new Uint8Array(fileBuffer.slice(0)),
     password,
-    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
-    cMapPacked: true,
   });
 
   const pdfDoc = await loadingTask.promise;

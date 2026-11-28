@@ -8,3 +8,5 @@ dist-ssr
 Thumbs.db
 sample1.pdf
 sample2.pdf
+# Copied from node_modules/pdfjs-dist by scripts/copy-pdfjs-assets.mjs
+public/pdfjs/
