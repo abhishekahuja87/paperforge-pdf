@@ -33,6 +33,10 @@ Every user-visible improvement to a tool needs an entry at the top of the list i
 - A tool that gives a file to the person builds it in one function (`makePdf`, `build`) used by both Save and Share, saves with `saveBlob` (never its own copy of the create-a-link code) and shows `ShareFileButton` next to the Save button. Tools that show the shared `SaveResult` banner get Share automatically.
 - New print buttons use `printAs()` from `src/lib/pdf/printName.ts`, never a bare `window.print()`.
 
+## Pages that say something of their own
+
+Tools that come in families (Word templates, PowerPoint makers, Excel makers, printables) share their privacy, "is it free" and "do I need Word" answers, and that is fine. But every page must also say something only it can say: the real sections, slides, columns or formulas of that tool, written from its source data (starters, section lists, sheet builders), never invented. When you add a tool to a family, add a section to its `toolArticles` entry that names what it actually produces and gives advice a reader can use. Then run `node scripts/check-page-text.mjs` after `vite build --ssr src/prerender/shellData.ts --outDir dist-ssr`; it fails when a tool page has fewer than 200 words that no other page repeats.
+
 ## When you add or change a tool: keep search and topic pages in step
 
 Every new tool, and every change to what a tool does, must also update the places that people and Google read. Run `node scripts/check-hub-coverage.mjs` before opening the PR; it lists what is missing (it reads source files only).
