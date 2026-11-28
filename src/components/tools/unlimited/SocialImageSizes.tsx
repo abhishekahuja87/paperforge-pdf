@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { CameraButton } from '../../common/CameraButton';
 import { ColorField } from '../../common/ColorPicker';
 import { Download, ImagePlus } from 'lucide-react';
 import { Note } from '../../common/CalcKit';
@@ -88,10 +89,13 @@ export const SocialImageSizes: React.FC = () => {
     <section className="mx-auto min-w-0 space-y-4">
       <div className={`${card} space-y-3`}>
         <h2 className={heading}>1. Choose a picture</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <ImagePlus className="h-4 w-4" aria-hidden="true" />{file ? 'Choose another picture' : 'Choose a picture'}
-          <input type="file" accept="image/*" className="sr-only" onChange={(event) => { void open(event.target.files?.[0]); event.target.value = ''; }} />
-        </label>
+        <div className="flex flex-wrap gap-2">
+          <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
+            <ImagePlus className="h-4 w-4" aria-hidden="true" />{file ? 'Choose another picture' : 'Choose a picture'}
+            <input type="file" accept="image/*" className="sr-only" onChange={(event) => { void open(event.target.files?.[0]); event.target.value = ''; }} />
+          </label>
+          <CameraButton onPhoto={(photo) => void open(photo)} />
+        </div>
         {file && bitmap && <p className="text-xs text-slate-600">{file.name} · {bitmap.width} × {bitmap.height} px</p>}
         <p className="text-[11px] text-slate-500">Tick the sizes you need and download them together.</p>
       </div>

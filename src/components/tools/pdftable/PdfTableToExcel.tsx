@@ -4,7 +4,7 @@ import { FileDropZone } from '../../common/FileDropZone';
 import { PdfFileBar } from '../../common/PdfFileBar';
 import { useProtectedPdf } from '../../common/ProtectedPdfGate';
 import { MainActionButton } from '../../common/MainActionButton';
-import { SaveResult } from '../../common/SaveResult';
+import { SaveResult, StartOverButton } from '../../common/SaveResult';
 import { Note } from '../../common/CalcKit';
 import { ChoiceButtons } from '../../common/FieldKit';
 import { Toggle, card, heading } from '../../common/PanelKit';
@@ -78,7 +78,7 @@ export const PdfTableToExcel: React.FC = () => {
         {!file ? (
           <>
             <p className="text-[11px] text-slate-500">{ui.fileHint}</p>
-            <FileDropZone accept=".pdf,application/pdf" onFiles={(files) => { void openWithPassword(files[0]).then((opened) => { if (opened) void open(opened.file, opened.password); }); }} />
+            <FileDropZone accept=".pdf,application/pdf" showSample={false} onFiles={(files) => { void openWithPassword(files[0]).then((opened) => { if (opened) void open(opened.file, opened.password); }); }} />
             <div className="flex flex-wrap items-center gap-2"><button type="button" onClick={() => void trySample()} className={buttonClass}>{ui.trySample}</button><span className="text-[11px] text-slate-500">{ui.sampleNote}</span></div>
           </>
         ) : (
@@ -127,6 +127,7 @@ export const PdfTableToExcel: React.FC = () => {
           <section className={`${card} space-y-3`}>
             <MainActionButton onClick={() => void save()}><FileText className="h-5 w-5" aria-hidden="true" />{ui.make.replace('{type}', output === 'xlsx' ? 'Excel' : 'CSV')}</MainActionButton>
             {result.result && <SaveResult href={result.result.url} name={result.result.name} label={ui.ready} saveLabel={result.result.key === 'csv' ? ui.saveCsv : ui.saveXlsx} detail={result.result.detail} />}
+            {result.result && <StartOverButton onClick={reset}>{ui.another}</StartOverButton>}
             <p className="text-[11px] text-slate-500">{ui.notSaved}</p>
           </section>
         </>

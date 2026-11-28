@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { FilePlus2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { CameraButton } from './CameraButton';
+import { pdfBlob } from '../../lib/pdf/toBlob';
 
 interface FileDropZoneProps {
   accept?: string;
@@ -10,6 +11,8 @@ interface FileDropZoneProps {
   readingPdf?: boolean;
   onFiles: (files: File[]) => void;
   disabled?: boolean;
+  /** Offer "try a sample PDF" under a PDF-only box, so a visitor with no file at hand can still see the tool work. Turn off where a sample makes no sense (for example unlocking). */
+  showSample?: boolean;
 }
 
 const FORMAT_NAMES: Array<[RegExp, string]> = [
@@ -45,12 +48,15 @@ export const FileDropZone: React.FC<FileDropZoneProps> = ({
   readingPdf = false,
   onFiles,
   disabled = false,
+  showSample = true,
 }) => {
   const { t, i18n } = useTranslation();
   const formats = describeAccept(accept);
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
   const [showNotice, setShowNotice] = useState(false);
+  const [makingSample, setMakingSample] = useState(false);
+  const offerSample = showSample && !disabled && describeAccept(accept) === 'PDF';
 
   const selectFiles = (files: File[]) => {
     if (files.length === 0) return;
@@ -60,6 +66,23 @@ export const FileDropZone: React.FC<FileDropZoneProps> = ({
     }
     setShowNotice(false);
     onFiles(files);
+  };
+
+  /** Makes one made-up PDF (two when the tool takes several files) and hands it over as if it had been chosen. Nothing leaves the device. */
+  const trySample = async (): Promise<void> => {
+    setMakingSample(true);
+    try {
+      const { generateSamplePdf } = await import('../../lib/pdf/generateSample');
+      const files = await Promise.all(Array.from({ length: multiple ? 2 : 1 }, async (_, index) => {
+        const bytes = await generateSamplePdf({ pageCount: 4 - index, template: 'invoice', title: `Sample document ${index + 1}` });
+        return new File([pdfBlob(bytes)], `sample-document-${index + 1}.pdf`, { type: 'application/pdf' });
+      }));
+      selectFiles(files);
+    } catch {
+      setShowNotice(false);
+    } finally {
+      setMakingSample(false);
+    }
   };
 
   return (
@@ -107,6 +130,13 @@ export const FileDropZone: React.FC<FileDropZoneProps> = ({
       </button>
       {acceptsPhotosOnly(accept) && !disabled && (
         <div className="mt-2 flex justify-center"><CameraButton onPhoto={(file) => selectFiles([file])} className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-orange-200 bg-white px-4 py-2 text-sm font-semibold text-orange-900 hover:bg-orange-50" /></div>
+      )}
+      {offerSample && (
+        <div className="mt-2 flex justify-center">
+          <button type="button" disabled={makingSample} onClick={() => void trySample()} className="min-h-10 rounded-lg px-3 text-xs font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-900 disabled:opacity-60">
+            <span lang={i18n.language}>{t('dropZone.trySample')}</span>
+          </button>
+        </div>
       )}
       {showNotice && <p lang={i18n.language} role="alert" className="mt-2 text-xs text-rose-800">{t('chooseOneFile')}</p>}
     </>

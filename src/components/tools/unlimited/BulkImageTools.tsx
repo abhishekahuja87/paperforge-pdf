@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CameraButton } from '../../common/CameraButton';
 import { Download, ImagePlus, Trash2 } from 'lucide-react';
 import { Note } from '../../common/CalcKit';
 import { ChoiceButtons, fieldClass } from '../../common/FieldKit';
@@ -82,10 +83,13 @@ export const BulkImageTools: React.FC = () => {
     <section className="mx-auto min-w-0 space-y-4">
       <div className={`${card} space-y-3`}>
         <h2 className={heading}>1. Add your pictures</h2>
-        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          <ImagePlus className="h-4 w-4" aria-hidden="true" />Choose pictures
-          <input type="file" accept="image/*" multiple className="sr-only" onChange={(event) => { if (event.target.files) add(event.target.files); event.target.value = ''; }} />
-        </label>
+        <div className="flex flex-wrap gap-2">
+          <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
+            <ImagePlus className="h-4 w-4" aria-hidden="true" />Choose pictures
+            <input type="file" accept="image/*" multiple className="sr-only" onChange={(event) => { if (event.target.files) add(event.target.files); event.target.value = ''; }} />
+          </label>
+          <CameraButton onPhoto={(photo) => add([photo])} />
+        </div>
         {files.length > 0 && (
           <div className="flex flex-wrap items-center gap-3 text-xs text-slate-700">
             <span className="font-semibold">{files.length} picture{files.length === 1 ? '' : 's'}, {kb(total)}</span>

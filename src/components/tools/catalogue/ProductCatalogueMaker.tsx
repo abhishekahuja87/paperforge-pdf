@@ -1,4 +1,5 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import { CameraButton } from '../../common/CameraButton';
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Copy, Download, ImagePlus, Trash2 } from 'lucide-react';
 import { Note } from '../../common/CalcKit';
 import { fieldClass } from '../../common/FieldKit';
@@ -95,8 +96,11 @@ export const ProductCatalogueMaker: React.FC = () => {
   const del = (id: number): void => { setRows((r) => r.filter((x) => x.id !== id)); touch(); };
   const dup = (i: number): void => { setRows((r) => (r.length >= MAX_PRODUCTS ? r : [...r.slice(0, i + 1), { ...r[i]!, id: nextId.current++, section: '' }, ...r.slice(i + 1)])); touch(); };
 
-  const onPhotos = async (e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
-    const files = Array.from(e.target.files ?? []); e.target.value = '';
+  const onPhotos = (e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
+    const files: File[] = e.target.files ? Array.from(e.target.files) : []; e.target.value = '';
+    return addPhotos(files);
+  };
+  const addPhotos = async (files: File[]): Promise<void> => {
     if (!files.length) return;
     setMessage(''); setBusy('photos');
     const made: Row[] = []; let failed = false;
@@ -194,6 +198,7 @@ export const ProductCatalogueMaker: React.FC = () => {
         <input ref={rowPicker} type="file" accept="image/*" className="hidden" onChange={(e) => void onRowPhoto(e)} />
         <div className="flex flex-wrap gap-2">
           <button type="button" disabled={busy !== '' || rows.length >= MAX_PRODUCTS} onClick={() => photoPicker.current?.click()} className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-orange-700 px-3 py-2 text-xs font-bold text-white hover:bg-orange-800 disabled:opacity-60"><ImagePlus className="h-4 w-4" aria-hidden="true" />{busy === 'photos' ? c.working : c.addPhotos}</button>
+          <CameraButton onPhoto={(photo) => void addPhotos([photo])} className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50" />
           <button type="button" disabled={rows.length >= MAX_PRODUCTS} onClick={() => { setRows((r) => [...(sample ? [] : r), newRow()]); touch(); }} className={ghost}>{c.addEmpty}</button>
         </div>
         {rows.length >= MAX_PRODUCTS && <p className="text-xs font-semibold text-slate-700">{c.full}</p>}
