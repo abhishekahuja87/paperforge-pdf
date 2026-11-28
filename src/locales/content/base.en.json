@@ -1029,8 +1029,8 @@
       ]
     },
     "gratuityCalc": {
-      "title": "Gratuity Calculator",
-      "subtitle": "Estimate the gratuity you can receive from an employer after at least five years of service.",
+      "title": "Gratuity Calculator: Estimate Gratuity from Salary and Service",
+      "subtitle": "Estimate your gratuity from your last drawn salary and years of service, and see the working. Check eligibility and the final amount with your employer.",
       "faq": [
         [
           "How is gratuity calculated?",
@@ -1617,8 +1617,8 @@
       ]
     },
     "emiCalc": {
-      "title": "EMI Calculator",
-      "subtitle": "Calculate your monthly loan EMI, total interest and a year-by-year repayment schedule.",
+      "title": "EMI Calculator: Monthly Loan EMI, Interest and Schedule",
+      "subtitle": "Calculate your monthly loan EMI, total interest and a year-by-year repayment schedule for a home, car or personal loan. Free, and nothing leaves your browser.",
       "faq": [
         [
           "How is EMI calculated?",
@@ -1747,7 +1747,7 @@
       ]
     },
     "imageResizer": {
-      "title": "Image Resizer (KB and Pixels)",
+      "title": "Image Resizer: Resize Photo or Signature to 20KB, 50KB, 100KB",
       "subtitle": "Resize a photo, signature or passport picture to 20, 50 or 100 KB, or to an exact width and height. Free, and it all happens in your browser.",
       "faq": [
         [
@@ -1883,8 +1883,8 @@
       ]
     },
     "organize": {
-      "title": "Organize PDF Pages",
-      "subtitle": "Reorder, rotate, or delete PDF pages visually in your browser.",
+      "title": "Organize PDF Pages Online: Reorder, Rotate and Delete",
+      "subtitle": "Reorder, rotate or delete the pages of a PDF visually, in your browser. A free PDF organiser, and nothing is uploaded.",
       "faq": [
         [
           "Is organizing PDF pages safe on {{siteName}}?",
