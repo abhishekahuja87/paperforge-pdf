@@ -69,8 +69,9 @@ export const InputGrid: React.FC<{ children: React.ReactNode }> = ({ children })
   <div className="grid gap-4 rounded-xl bg-slate-50 p-4 sm:grid-cols-2">{children}</div>
 );
 
+/** One result box. The data attributes let the "Share as a picture" button read the results without each calculator describing them again. */
 export const Stat: React.FC<{ label: string; value: string; tone?: 'plain' | 'good' | 'strong' }> = ({ label, value, tone = 'plain' }) => (
-  <div className={`rounded-xl border p-3 ${tone === 'strong' ? 'border-orange-200 bg-orange-50' : tone === 'good' ? 'border-emerald-200 bg-emerald-50' : 'border-slate-200 bg-white'}`}>
+  <div data-result-stat="" data-label={label} data-value={value} data-tone={tone} className={`rounded-xl border p-3 ${tone === 'strong' ? 'border-orange-200 bg-orange-50' : tone === 'good' ? 'border-emerald-200 bg-emerald-50' : 'border-slate-200 bg-white'}`}>
     <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{label}</p>
     <p className={`mt-1 text-lg font-black tracking-tight ${tone === 'strong' ? 'text-orange-800' : tone === 'good' ? 'text-emerald-800' : 'text-slate-900'}`}>{value}</p>
   </div>

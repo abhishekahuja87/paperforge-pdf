@@ -19,6 +19,13 @@ export interface SiteUpdate {
 export const ENTRIES: SiteUpdate[] = [
   {
     date: '2026-11-28',
+    path: '/emi-calculator',
+    tool: 'Calculators',
+    title: 'Calculators remember your numbers and share the result as a picture',
+    summary: 'Calculators such as EMI, SIP, FD and gratuity now keep the numbers you last used on your device, with a Start again button to clear them. A new Save picture and Share picture button turns the result into a clean card for WhatsApp.',
+  },
+  {
+    date: '2026-11-28',
     path: '/pdf-tools',
     tool: 'PDF and file tools',
     title: 'Share your file straight to WhatsApp',
