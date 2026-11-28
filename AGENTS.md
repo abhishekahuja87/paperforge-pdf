@@ -28,6 +28,7 @@ Every user-visible improvement to a tool needs an entry at the top of the list i
 - Never write `new Blob([bytes as BlobPart], ...)` by hand. Use `pdfBlob(bytes)` or `bytesToBlob(bytes, type)` from `src/lib/pdf/toBlob.ts`.
 - `usePersisted` reloads when its key changes, so a key must contain everything that makes the saved data different (for example the team count).
 - Every page that reuses one tool component for several routes must pass `key={page.path}`.
+- A text box's `onChange` must store exactly what the person typed. Cutting, trimming or rewriting the text while typing makes the cursor jump to the end, so nobody can edit in the middle. Limit with `maxLength`, and shorten or trim only where the value is used (when drawing or building the output).
 - New print buttons use `printAs()` from `src/lib/pdf/printName.ts`, never a bare `window.print()`.
 
 ## When you add or change a tool: keep search and topic pages in step
